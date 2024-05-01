@@ -558,16 +558,6 @@ $toastOpacity: 1 !default;
 $toastTitleFontWeight: 500 !default;
 $toastDetailMargin: $inlineSpacing 0 0 0 !default;
 
-//severities
-$secondaryMessageBg: $shade100 !default;
-$secondaryMessageBorder: solid $shade200 !default;
-$secondaryMessageTextColor: $shade600 !default;
-$secondaryMessageIconColor: $shade600 !default;
-$contrastMessageBg: $shade950 !default;
-$contrastMessageBorder: solid $shade500 !default;
-$contrastMessageTextColor: $shade50 !default;
-$contrastMessageIconColor: $shade50 !default;
-
 //overlays
 $overlayContentBorder: 1px solid $shade200 !default;
 $overlayContentBg: $shade000 !default;

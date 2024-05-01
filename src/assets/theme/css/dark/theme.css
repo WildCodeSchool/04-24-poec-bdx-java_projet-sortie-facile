@@ -1,8 +1,6 @@
 :root {
-  font-family: "Inter var", sans-serif;
-  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
-  font-variation-settings: normal;
-  --font-family: "Inter var", sans-serif;
+  --font-family: $fontFamily;
+  --font-family-secondary: $fontFamilySecondary;
   --font-feature-settings: "cv02", "cv03", "cv04", "cv11";
   --text-color: #ffffff;
   --text-color-secondary: #a1a1aa;
@@ -49,6 +47,9 @@
 
 :root {
   --p-focus-ring-color: var(--primary-color);
+  font-family: "Inter var", sans-serif;
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  font-variation-settings: normal;
 }
 
 @font-face {

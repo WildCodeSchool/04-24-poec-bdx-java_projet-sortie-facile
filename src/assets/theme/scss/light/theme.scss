@@ -33,9 +33,9 @@ $primaryDarkerColor: #6d28d9 !default;
 $primaryTextColor: $white !default;
 
 $infoColor: #0ea5e9 !default;
+$infoTextColor: $white !default;
 $infoDarkColor: #0284c7 !default;
 $infoDarkerColor: #0369a1 !default;
-$infoTextColor: $white !default;
 
 $successColor: #22c55e !default;
 $successTextColor: $white !default;
@@ -82,7 +82,7 @@ $passwordWeakBg: #ef4444 !default;
 $passwordMediumBg: #f59e0b !default;
 $passwordStrongBg: #22c55e !default;
 
-// message
+// severities
 $infoMessageBg: rgba(239, 246, 255, 0.95) !default;
 $infoMessageBorder: solid #bfdbfe !default;
 $infoMessageTextColor: #2563eb !default;
@@ -99,6 +99,14 @@ $errorMessageBg: rgba(254, 242, 242, 0.95) !default;
 $errorMessageBorder: solid #fecaca !default;
 $errorMessageTextColor: #dc2626 !default;
 $errorMessageIconColor: #dc2626 !default;
+$secondaryMessageBg: $shade100 !default;
+$secondaryMessageBorder: solid $shade200 !default;
+$secondaryMessageTextColor: $shade600 !default;
+$secondaryMessageIconColor: $shade600 !default;
+$contrastMessageBg: $shade950 !default;
+$contrastMessageBorder: solid $shade500 !default;
+$contrastMessageTextColor: $shade50 !default;
+$contrastMessageIconColor: $shade50 !default;
 
 //rating
 $ratingCancelIconColor: #f87171 !default;
