@@ -2,11 +2,22 @@
 
 <div class="card flex justify-content-center">
   <p-button label="Primary"></p-button>
+  <p-button label="secondary" severity="secondary"></p-button>
   <p-button label="Success" severity="success"></p-button>
   <p-button label="Info" severity="info"></p-button>
   <p-button label="Warning" severity="warning"></p-button>
   <p-button label="Help" severity="help"></p-button>
   <p-button label="Danger" severity="danger"></p-button>
+</div>
+
+<div>
+  <p-button label="Primary" [outlined]="true"></p-button>
+  <p-button label="Secondary" [outlined]="true" severity="secondary"></p-button>
+  <p-button label="Success" [outlined]="true" severity="success"></p-button>
+  <p-button label="Info" [outlined]="true" severity="info"></p-button>
+  <p-button label="Warning" [outlined]="true" severity="warning"></p-button>
+  <p-button label="Help" [outlined]="true" severity="help"></p-button>
+  <p-button label="Danger" [outlined]="true" severity="danger"></p-button>
 </div>
 
 <div
@@ -21,7 +32,7 @@
 </div>
 <div
   [ngStyle]="{
-    backgroundColor: 'var(--orange-500)',
+    backgroundColor: 'var(--primary-color)',
     color: 'var(--primary-color-text)',
     borderRadius: 'var(--border-radius)',
     padding: '3rem'
@@ -37,3 +48,11 @@
   <p-button styleClass="p-button-secondary" label="Button 2"></p-button>
   <p-button styleClass="p-button-help" label="Button 3"></p-button>
 </div>
+
+<p-messages
+  [(value)]="messages"
+  [enableService]="false"
+  [closable]="false"
+></p-messages>
+
+<p-rating formControlName="value"></p-rating>

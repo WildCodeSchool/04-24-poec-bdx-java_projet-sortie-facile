@@ -1,14 +1,12 @@
 :root {
-  font-family: "Inter var", sans-serif;
-  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
-  font-variation-settings: normal;
-  --font-family: "Inter var", sans-serif;
+  --font-family-primary: $fontFamily;
+  --font-family-secondary: $fontFamilySecondary;
   --font-feature-settings: "cv02", "cv03", "cv04", "cv11";
   --text-color: #334155;
   --text-color-secondary: #64748b;
   --primary-color: #7154b3;
   --primary-color-text: #ffffff;
-  --surface-0: #ffffff;
+  --surface-0: $white;
   --surface-50: #f8fafc;
   --surface-100: #f1f5f9;
   --surface-200: #e2e8f0;
@@ -20,7 +18,7 @@
   --surface-800: #1e293b;
   --surface-900: #0f172a;
   --surface-950: #020617;
-  --gray-0: #ffffff;
+  --gray-0: $white;
   --gray-50: #f8fafc;
   --gray-100: #f1f5f9;
   --gray-200: #e2e8f0;
@@ -36,9 +34,9 @@
   --inline-spacing: 0.5rem;
   --border-radius: 6px;
   --surface-ground: #f8fafc;
-  --surface-section: #ffffff;
-  --surface-card: #ffffff;
-  --surface-overlay: #ffffff;
+  --surface-section: $white;
+  --surface-card: $white;
+  --surface-overlay: $white;
   --surface-border: #e2e8f0;
   --surface-hover: #f1f5f9;
   --focus-ring: none;
@@ -46,11 +44,14 @@
   --highlight-bg: #f5f3ff;
   --highlight-text-color: #6d28d9;
   --p-anchor-gutter: 2px;
-  color-scheme: light;
 }
 
 :root {
   --p-focus-ring-color: var(--primary-color);
+  color-scheme: light;
+  font-family: "Inter var", sans-serif;
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  font-variation-settings: normal;
 }
 
 @font-face {

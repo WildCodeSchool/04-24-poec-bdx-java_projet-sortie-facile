@@ -1,36 +1,4 @@
-$colors: (
-    "blue": #3b82f6,
-    "green": #22c55e,
-    "yellow": #eab308,
-    "cyan": #06b6d4,
-    "pink": #ec4899,
-    "indigo": #6366f1,
-    "teal": #14b8a6,
-    "orange": #f97316,
-    "bluegray": #64748b,
-    "purple": #a855f7,
-    "red": #ff3d32,
-    "primary": $primaryColor,
-);
-
-//reused color variables
-$shade000: #ffffff !default;
-$shade50: #f8fafc !default;
-$shade100: #f1f5f9 !default;
-$shade200: #e2e8f0 !default;
-$shade300: #cbd5e1 !default;
-$shade400: #94a3b8 !default;
-$shade500: #64748b !default;
-$shade600: #475569 !default;
-$shade700: #334155 !default;
-$shade800: #1e293b !default;
-$shade900: #0f172a !default;
-$shade950: #020617 !default;
-
-$disabledInputBg: $shade200 !default;
-
 //global
-$fontFamily: "Inter var", sans-serif !default;
 $fontSize: 1rem !default;
 $fontWeight: normal !default;
 $textColor: $shade700 !default;
@@ -38,21 +6,20 @@ $textSecondaryColor: $shade500 !default;
 $borderRadius: 6px !default;
 $transitionDuration: 0.2s !default;
 $formElementTransition: background-color $transitionDuration,
-    color $transitionDuration, border-color $transitionDuration,
-    box-shadow $transitionDuration, outline-color $transitionDuration !default;
+  color $transitionDuration, border-color $transitionDuration,
+  box-shadow $transitionDuration, outline-color $transitionDuration !default;
 $actionIconTransition: background-color $transitionDuration,
-    color $transitionDuration, border-color $transitionDuration,
-    box-shadow $transitionDuration, outline-color $transitionDuration !default;
+  color $transitionDuration, border-color $transitionDuration,
+  box-shadow $transitionDuration, outline-color $transitionDuration !default;
 $listItemTransition: background-color $transitionDuration,
-    color $transitionDuration, border-color $transitionDuration,
-    box-shadow $transitionDuration, outline-color $transitionDuration !default;
+  color $transitionDuration, border-color $transitionDuration,
+  box-shadow $transitionDuration, outline-color $transitionDuration !default;
 $primeIconFontSize: 1rem !default;
 $divider: 1px solid $shade200 !default;
 $inlineSpacing: 0.5rem !default;
 $disabledOpacity: 0.6 !default;
 $maskBg: rgba(0, 0, 0, 0.4) !default;
 $loadingIconFontSize: 2rem !default;
-$errorColor: #f87171 !default;
 
 //scale
 $scaleSM: 0.875 !default;
@@ -125,13 +92,7 @@ $inputOverlayBg: $inputListBg !default;
 $inputOverlayHeaderBg: $inputListHeaderBg !default;
 $inputOverlayBorder: 1px solid $shade200 !default;
 $inputOverlayShadow: 0 4px 6px -1px rgb(0 0 0 / 0.1),
-    0 2px 4px -2px rgb(0 0 0 / 0.1) !default;
-
-//password
-$passwordMeterBg: $shade200 !default;
-$passwordWeakBg: #ef4444 !default;
-$passwordMediumBg: #f59e0b !default;
-$passwordStrongBg: #22c55e !default;
+  0 2px 4px -2px rgb(0 0 0 / 0.1) !default;
 
 //button
 $buttonPadding: 0.5rem 1rem !default;
@@ -147,7 +108,7 @@ $buttonActiveBg: $primaryDarkerColor !default;
 $buttonTextActiveColor: $primaryTextColor !default;
 $buttonActiveBorderColor: $primaryDarkerColor !default;
 $raisedButtonShadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2),
-    0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12) !default;
+  0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12) !default;
 $roundedButtonBorderRadius: 2rem !default;
 
 $textButtonHoverBgOpacity: 0.04 !default;
@@ -168,63 +129,63 @@ $secondaryButtonTextActiveColor: $shade800 !default;
 $secondaryButtonActiveBorderColor: $shade300 !default;
 $secondaryButtonFocusShadow: none !default;
 
-$infoButtonBg: #0ea5e9 !default;
-$infoButtonTextColor: #ffffff !default;
-$infoButtonBorder: 1px solid #0ea5e9 !default;
-$infoButtonHoverBg: #0284c7 !default;
+$infoButtonBg: $infoColor !default;
+$infoButtonTextColor: $infoTextColor !default;
+$infoButtonBorder: 1px solid $infoColor !default;
+$infoButtonHoverBg: $infoDarkColor !default;
 $infoButtonTextHoverColor: $infoButtonTextColor !default;
-$infoButtonHoverBorderColor: #0284c7 !default;
-$infoButtonActiveBg: #0369a1 !default;
+$infoButtonHoverBorderColor: $infoDarkColor !default;
+$infoButtonActiveBg: $infoDarkerColor !default;
 $infoButtonTextActiveColor: $infoButtonTextColor !default;
-$infoButtonActiveBorderColor: #0369a1 !default;
+$infoButtonActiveBorderColor: $infoDarkerColor !default;
 $infoButtonFocusShadow: none !default;
 
-$successButtonBg: #22c55e !default;
-$successButtonTextColor: #ffffff !default;
-$successButtonBorder: 1px solid #22c55e !default;
-$successButtonHoverBg: #16a34a !default;
+$successButtonBg: $successColor !default;
+$successButtonTextColor: $successTextColor !default;
+$successButtonBorder: 1px solid $successColor !default;
+$successButtonHoverBg: $successDarkColor !default;
 $successButtonTextHoverColor: $successButtonTextColor !default;
-$successButtonHoverBorderColor: #16a34a !default;
-$successButtonActiveBg: #15803d !default;
+$successButtonHoverBorderColor: $successDarkColor !default;
+$successButtonActiveBg: $successDarkerColor !default;
 $successButtonTextActiveColor: $successButtonTextColor !default;
-$successButtonActiveBorderColor: #15803d !default;
+$successButtonActiveBorderColor: $successDarkerColor !default;
 $successButtonFocusShadow: none !default;
 
-$warningButtonBg: #f97316 !default;
-$warningButtonTextColor: #ffffff !default;
-$warningButtonBorder: 1px solid #f97316 !default;
-$warningButtonHoverBg: #ea580c !default;
+$warningButtonBg: $warningColor !default;
+$warningButtonTextColor: $warningTextColor !default;
+$warningButtonBorder: 1px solid $warningColor !default;
+$warningButtonHoverBg: $warningDarkColor !default;
 $warningButtonTextHoverColor: $warningButtonTextColor !default;
-$warningButtonHoverBorderColor: #ea580c !default;
-$warningButtonActiveBg: #c2410c !default;
+$warningButtonHoverBorderColor: $warningDarkColor !default;
+$warningButtonActiveBg: $warningDarkerColor !default;
 $warningButtonTextActiveColor: $warningButtonTextColor !default;
-$warningButtonActiveBorderColor: #c2410c !default;
+$warningButtonActiveBorderColor: $warningDarkerColor !default;
 $warningButtonFocusShadow: none !default;
 
-$helpButtonBg: #a855f7 !default;
-$helpButtonTextColor: #ffffff !default;
-$helpButtonBorder: 1px solid #a855f7 !default;
-$helpButtonHoverBg: #9333ea !default;
+$helpButtonBg: $helpColor !default;
+$helpButtonTextColor: $helpTextColor !default;
+$helpButtonBorder: 1px solid $helpColor !default;
+$helpButtonHoverBg: $helpDarkColor !default;
 $helpButtonTextHoverColor: $helpButtonTextColor !default;
-$helpButtonHoverBorderColor: #9333ea !default;
-$helpButtonActiveBg: #7e22ce !default;
+$helpButtonHoverBorderColor: $helpDarkColor !default;
+$helpButtonActiveBg: $helpDarkerColor !default;
 $helpButtonTextActiveColor: $helpButtonTextColor !default;
-$helpButtonActiveBorderColor: #7e22ce !default;
+$helpButtonActiveBorderColor: $helpDarkerColor !default;
 $helpButtonFocusShadow: none !default;
 
-$dangerButtonBg: #ef4444 !default;
-$dangerButtonTextColor: #ffffff !default;
-$dangerButtonBorder: 1px solid $dangerButtonBg !default;
-$dangerButtonHoverBg: #dc2626 !default;
+$dangerButtonBg: $dangerColor !default;
+$dangerButtonTextColor: $dangerTextColor !default;
+$dangerButtonBorder: 1px solid $dangerColor !default;
+$dangerButtonHoverBg: $dangerDarkColor !default;
 $dangerButtonTextHoverColor: $dangerButtonTextColor !default;
-$dangerButtonHoverBorderColor: #dc2626 !default;
-$dangerButtonActiveBg: #b91c1c !default;
+$dangerButtonHoverBorderColor: $dangerDarkColor !default;
+$dangerButtonActiveBg: $dangerDarkerColor !default;
 $dangerButtonTextActiveColor: $dangerButtonTextColor !default;
-$dangerButtonActiveBorderColor: #b91c1c !default;
+$dangerButtonActiveBorderColor: $dangerDarkerColor !default;
 $dangerButtonFocusShadow: none !default;
 
 $contrastButtonBg: $shade950 !default;
-$contrastButtonTextColor: #ffffff !default;
+$contrastButtonTextColor: $white !default;
 $contrastButtonBorder: 1px solid $contrastButtonBg !default;
 $contrastButtonHoverBg: $shade800 !default;
 $contrastButtonTextHoverColor: $contrastButtonTextColor !default;
@@ -295,8 +256,6 @@ $inplaceTextHoverColor: $shade800 !default;
 
 //rating
 $ratingIconFontSize: 1rem !default;
-$ratingCancelIconColor: #f87171 !default;
-$ratingCancelIconHoverColor: #ef4444 !default;
 $ratingStarIconOffColor: $shade500 !default;
 $ratingStarIconOnColor: $primaryColor !default;
 $ratingStarIconHoverColor: $primaryColor !default;
@@ -600,22 +559,6 @@ $toastTitleFontWeight: 500 !default;
 $toastDetailMargin: $inlineSpacing 0 0 0 !default;
 
 //severities
-$infoMessageBg: rgba(239, 246, 255, 0.95) !default;
-$infoMessageBorder: solid #bfdbfe !default;
-$infoMessageTextColor: #2563eb !default;
-$infoMessageIconColor: #2563eb !default;
-$successMessageBg: rgba(240, 253, 244, 0.95) !default;
-$successMessageBorder: solid #bbf7d0 !default;
-$successMessageTextColor: #16a34a !default;
-$successMessageIconColor: #16a34a !default;
-$warningMessageBg: rgba(254, 252, 232, 0.95) !default;
-$warningMessageBorder: solid #fde68a !default;
-$warningMessageTextColor: #ca8a04 !default;
-$warningMessageIconColor: #ca8a04 !default;
-$errorMessageBg: rgba(254, 242, 242, 0.95) !default;
-$errorMessageBorder: solid #fecaca !default;
-$errorMessageTextColor: #dc2626 !default;
-$errorMessageIconColor: #dc2626 !default;
 $secondaryMessageBg: $shade100 !default;
 $secondaryMessageBorder: solid $shade200 !default;
 $secondaryMessageTextColor: $shade600 !default;
@@ -629,7 +572,7 @@ $contrastMessageIconColor: $shade50 !default;
 $overlayContentBorder: 1px solid $shade200 !default;
 $overlayContentBg: $shade000 !default;
 $overlayContainerShadow: 0 20px 25px -5px rgb(0 0 0 / 0.1),
-    0 8px 10px -6px rgb(0 0 0 / 0.1) !default;
+  0 8px 10px -6px rgb(0 0 0 / 0.1) !default;
 
 //dialog
 $dialogHeaderBg: $shade000 !default;
@@ -704,7 +647,7 @@ $submenuHeaderFontWeight: 600 !default;
 $overlayMenuBg: $menuBg !default;
 $overlayMenuBorder: 1px solid $shade200 !default;
 $overlayMenuShadow: 0 4px 6px -1px rgb(0 0 0 / 0.1),
-    0 2px 4px -2px rgb(0 0 0 / 0.1) !default;
+  0 2px 4px -2px rgb(0 0 0 / 0.1) !default;
 $verticalMenuPadding: 0.25rem 0.25rem !default;
 $menuSeparatorMargin: 2px 0 !default;
 
@@ -871,56 +814,57 @@ $imagePreviewActionIconFontSize: 1.5rem !default;
 $imagePreviewActionIconBorderRadius: 50% !default;
 
 :root {
-    font-family: "Inter var", sans-serif;
-    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
-    font-variation-settings: normal;
-    --font-family: "Inter var", sans-serif;
-    --font-feature-settings: "cv02", "cv03", "cv04", "cv11";
-    --text-color: #{$shade700};
-    --text-color-secondary: #{$shade500};
-    --primary-color: #{$primaryColor};
-    --primary-color-text: #{$primaryTextColor};
-    --surface-0: #ffffff;
-    --surface-50: #f8fafc;
-    --surface-100: #f1f5f9;
-    --surface-200: #e2e8f0;
-    --surface-300: #cbd5e1;
-    --surface-400: #94a3b8;
-    --surface-500: #64748b;
-    --surface-600: #475569;
-    --surface-700: #334155;
-    --surface-800: #1e293b;
-    --surface-900: #0f172a;
-    --surface-950: #020617;
-    --gray-0: #ffffff;
-    --gray-50: #f8fafc;
-    --gray-100: #f1f5f9;
-    --gray-200: #e2e8f0;
-    --gray-300: #cbd5e1;
-    --gray-400: #94a3b8;
-    --gray-500: #64748b;
-    --gray-600: #475569;
-    --gray-700: #334155;
-    --gray-800: #1e293b;
-    --gray-900: #0f172a;
-    --gray-950: #020617;
-    --content-padding: 1.125rem;
-    --inline-spacing: #{$inlineSpacing};
-    --border-radius: #{$borderRadius};
-    --surface-ground: #f8fafc;
-    --surface-section: #ffffff;
-    --surface-card: #ffffff;
-    --surface-overlay: #ffffff;
-    --surface-border: #e2e8f0;
-    --surface-hover: #f1f5f9;
-    --focus-ring: #{$focusShadow};
-    --maskbg: #{$maskBg};
-    --highlight-bg: #{$highlightBg};
-    --highlight-text-color: #{$highlightTextColor};
-    --p-anchor-gutter: 2px;
-    color-scheme: light;
+  --font-family-primary: $fontFamily;
+  --font-family-secondary: $fontFamilySecondary;
+  --font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  --text-color: #{$shade700};
+  --text-color-secondary: #{$shade500};
+  --primary-color: #{$primaryColor};
+  --primary-color-text: #{$primaryTextColor};
+  --surface-0: $white;
+  --surface-50: #f8fafc;
+  --surface-100: #f1f5f9;
+  --surface-200: #e2e8f0;
+  --surface-300: #cbd5e1;
+  --surface-400: #94a3b8;
+  --surface-500: #64748b;
+  --surface-600: #475569;
+  --surface-700: #334155;
+  --surface-800: #1e293b;
+  --surface-900: #0f172a;
+  --surface-950: #020617;
+  --gray-0: $white;
+  --gray-50: #f8fafc;
+  --gray-100: #f1f5f9;
+  --gray-200: #e2e8f0;
+  --gray-300: #cbd5e1;
+  --gray-400: #94a3b8;
+  --gray-500: #64748b;
+  --gray-600: #475569;
+  --gray-700: #334155;
+  --gray-800: #1e293b;
+  --gray-900: #0f172a;
+  --gray-950: #020617;
+  --content-padding: 1.125rem;
+  --inline-spacing: #{$inlineSpacing};
+  --border-radius: #{$borderRadius};
+  --surface-ground: #f8fafc;
+  --surface-section: $white;
+  --surface-card: $white;
+  --surface-overlay: $white;
+  --surface-border: #e2e8f0;
+  --surface-hover: #f1f5f9;
+  --focus-ring: #{$focusShadow};
+  --maskbg: #{$maskBg};
+  --highlight-bg: #{$highlightBg};
+  --highlight-text-color: #{$highlightTextColor};
+  --p-anchor-gutter: 2px;
 }
 
 :root {
-    --p-focus-ring-color: var(--primary-color);
+  --p-focus-ring-color: var(--primary-color);
+  color-scheme: light;
+  font-family: $fontFamily;
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  font-variation-settings: normal;
 }

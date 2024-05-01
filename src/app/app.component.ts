@@ -5,4 +5,13 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
-export class AppComponent {}
+export class AppComponent implements OnInit {
+  messages!: any;
+  value!: number;
+
+  ngOnInit() {
+    this.messages = [
+      { severity: 'success', summary: 'Success', detail: 'Message Content' },
+    ];
+  }
+}
