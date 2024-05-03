@@ -1,27 +1,35 @@
-# Client
+# Project Front-end "Sortie Facile"
+
+This project is carried out as part of the Java/Angular developer POEC training program (April – June 2024 session) at the Wild Code School in Bordeaux.
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.0.
 
+## Style
+
+This application uses the component library PrimeNG.
+
+To generate all the CSS for the theme used with [PrimeNG](https://primeng.org/), run the command:
+
+```bash
+npm run compile:theme
+```
+
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Run the development server :
 
-## Code scaffolding
+```bash
+npm run start
+```
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+The application will automatically reload if you change any of the source files.
 
 ## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Build the project :
 
-## Running unit tests
+```bash
+npm run build
+```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+The build artifacts will be stored in the `dist/` directory.

@@ -1,0 +1,122 @@
+$white: #ffffff;
+$black: #000000;
+
+// grays
+$shade000: #ffffff !default;
+$shade50: #f8fafc !default;
+$shade100: #f1f5f9 !default;
+$shade200: #e2e8f0 !default;
+$shade300: #cbd5e1 !default;
+$shade400: #94a3b8 !default;
+$shade500: #64748b !default;
+$shade600: #475569 !default;
+$shade700: #334155 !default;
+$shade800: #1e293b !default;
+$shade900: #0f172a !default;
+$shade950: #020617 !default;
+
+$disabledInputBg: $shade200 !default;
+
+$primary: #3f51b5;
+$secondary: #3f51b5;
+$info: #2196f3;
+$success: #689f38;
+$warning: #fbc02d;
+$help: #9c27b0;
+$danger: #d32f2f;
+
+$errorColor: #f87171 !default;
+
+$primaryColor: #7154b3 !default;
+$primaryDarkColor: #7c3aed !default;
+$primaryDarkerColor: #6d28d9 !default;
+$primaryTextColor: $white !default;
+
+$infoColor: #0ea5e9 !default;
+$infoTextColor: $white !default;
+$infoDarkColor: #0284c7 !default;
+$infoDarkerColor: #0369a1 !default;
+
+$successColor: #22c55e !default;
+$successTextColor: $white !default;
+$successDarkColor: #16a34a !default;
+$successDarkerColor: #15803d !default;
+
+$warningColor: #f97316 !default;
+$warningTextColor: $white !default;
+$warningDarkColor: #ea580c !default;
+$warningDarkerColor: #c2410c !default;
+
+$helpColor: #a855f7 !default;
+$helpTextColor: $white !default;
+$helpDarkColor: #9333ea !default;
+$helpDarkerColor: #7e22ce !default;
+
+$dangerColor: #ef4444 !default;
+$dangerTextColor: $white !default;
+$dangerDarkColor: #dc2626 !default;
+$dangerDarkerColor: #b91c1c !default;
+
+$highlightBg: #f5f3ff !default;
+$highlightTextColor: $primaryDarkerColor !default;
+$highlightFocusBg: rgba($primaryColor, 0.24) !default;
+
+$colors: (
+  "blue": #3b82f6,
+  "green": #22c55e,
+  "yellow": #eab308,
+  "cyan": #06b6d4,
+  "pink": #ec4899,
+  "indigo": #6366f1,
+  "teal": #14b8a6,
+  "orange": #f97316,
+  "bluegray": #64748b,
+  "purple": #a855f7,
+  "red": #ff3d32,
+  "primary": $primaryColor,
+);
+
+//password
+$passwordMeterBg: $shade200 !default;
+$passwordWeakBg: #ef4444 !default;
+$passwordMediumBg: #f59e0b !default;
+$passwordStrongBg: #22c55e !default;
+
+// severities
+$infoMessageBg: rgba(239, 246, 255, 0.95) !default;
+$infoMessageBorder: solid #bfdbfe !default;
+$infoMessageTextColor: #2563eb !default;
+$infoMessageIconColor: #2563eb !default;
+$successMessageBg: rgba(240, 253, 244, 0.95) !default;
+$successMessageBorder: solid #bbf7d0 !default;
+$successMessageTextColor: #16a34a !default;
+$successMessageIconColor: #16a34a !default;
+$warningMessageBg: rgba(254, 252, 232, 0.95) !default;
+$warningMessageBorder: solid #fde68a !default;
+$warningMessageTextColor: #ca8a04 !default;
+$warningMessageIconColor: #ca8a04 !default;
+$errorMessageBg: rgba(254, 242, 242, 0.95) !default;
+$errorMessageBorder: solid #fecaca !default;
+$errorMessageTextColor: #dc2626 !default;
+$errorMessageIconColor: #dc2626 !default;
+$secondaryMessageBg: $shade100 !default;
+$secondaryMessageBorder: solid $shade200 !default;
+$secondaryMessageTextColor: $shade600 !default;
+$secondaryMessageIconColor: $shade600 !default;
+$contrastMessageBg: $shade950 !default;
+$contrastMessageBorder: solid $shade500 !default;
+$contrastMessageTextColor: $shade50 !default;
+$contrastMessageIconColor: $shade50 !default;
+
+//rating
+$ratingCancelIconColor: #f87171 !default;
+$ratingCancelIconHoverColor: #ef4444 !default;
+
+// fonts
+$fontFamily: "Inter var", sans-serif !default;
+$fontFamilySecondary: "Inter var", sans-serif !default;
+
+@import "_variables";
+@import "_fonts";
+@import "../theme-base/components";
+// @import "../extensions/_extensions";

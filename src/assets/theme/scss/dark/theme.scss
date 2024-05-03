@@ -1,0 +1,123 @@
+$white: #ffffff;
+$black: #000000;
+
+//reused color variables
+$shade000: #ffffff !default;
+$shade50: #fafafa !default;
+$shade100: #f4f4f5 !default;
+$shade200: #e4e4e7 !default;
+$shade300: #d4d4d8 !default;
+$shade400: #a1a1aa !default;
+$shade500: #71717a !default;
+$shade600: #52525b !default;
+$shade700: #3f3f46 !default;
+$shade800: #27272a !default;
+$shade900: #18181b !default;
+$shade950: #09090b !default;
+
+$disabledInputBg: $shade700 !default;
+$hoverBg: rgba(255, 255, 255, 0.03) !default;
+
+$primary: #3f51b5;
+$secondary: #3f51b5;
+$info: #2196f3;
+$success: #689f38;
+$warning: #fbc02d;
+$help: #9c27b0;
+$danger: #d32f2f;
+
+$errorColor: #fca5a5 !default;
+
+$primaryColor: #a78bfa !default;
+$primaryTextColor: #020617 !default;
+$primaryLightColor: #c4b5fd !default;
+$primaryLighterColor: #ddd6fe !default;
+
+$infoColor: #38bdf8 !default;
+$infoTextColor: #082f49 !default;
+$infoLightColor: #7dd3fc !default;
+$infoLighterColor: #bae6fd !default;
+
+$successColor: #4ade80 !default;
+$successTextColor: #052e16 !default;
+$successLightColor: #86efac !default;
+$successLighterColor: #bbf7d0 !default;
+
+$warningColor: #fb923c !default;
+$warningTextColor: #431407 !default;
+$warningLightColor: #fdba74 !default;
+$warningLighterColor: #fed7aa !default;
+
+$helpColor: #c084fc !default;
+$helpTextColor: #3b0764 !default;
+$helpLightColor: #d8b4fe !default;
+$helpLighterColor: #e9d5ff !default;
+
+$dangerColor: #f87171 !default;
+$dangerTextColor: #450a0a !default;
+$dangerLightColor: #fca5a5 !default;
+$dangerLighterColor: #fecaca !default;
+
+$highlightBg: rgba(167, 139, 250, 0.16) !default;
+$highlightTextColor: rgba(255, 255, 255, 0.87) !default;
+$highlightFocusBg: rgba($primaryColor, 0.24) !default;
+
+$colors: (
+  "blue": #3b82f6,
+  "green": #22c55e,
+  "yellow": #eab308,
+  "cyan": #06b6d4,
+  "pink": #ec4899,
+  "indigo": #6366f1,
+  "teal": #14b8a6,
+  "orange": #f97316,
+  "bluegray": #64748b,
+  "purple": #a855f7,
+  "red": #ff3d32,
+  "primary": $primaryColor,
+);
+
+//password
+$passwordMeterBg: $shade700 !default;
+$passwordWeakBg: #f87171 !default;
+$passwordMediumBg: #fbbf24 !default;
+$passwordStrongBg: #4ade80 !default;
+
+//severities
+$infoMessageBg: rgba(59, 130, 246, 0.16) !default;
+$infoMessageBorder: solid rgba(29, 78, 216, 0.36) !default;
+$infoMessageTextColor: #3b82f6 !default;
+$infoMessageIconColor: #3b82f6 !default;
+$successMessageBg: rgba(34, 197, 94, 0.16) !default;
+$successMessageBorder: solid rgba(21, 128, 61, 0.36) !default;
+$successMessageTextColor: #22c55e !default;
+$successMessageIconColor: #22c55e !default;
+$warningMessageBg: rgba(234, 179, 8, 0.16) !default;
+$warningMessageBorder: solid rgba(161, 98, 7, 0.36) !default;
+$warningMessageTextColor: #eab308 !default;
+$warningMessageIconColor: #eab308 !default;
+$errorMessageBg: rgba(239, 68, 68, 0.16) !default;
+$errorMessageBorder: solid rgba(185, 28, 28, 0.36) !default;
+$errorMessageTextColor: #ef4444 !default;
+$errorMessageIconColor: #ef4444 !default;
+$secondaryMessageBg: $shade800 !default;
+$secondaryMessageBorder: solid $shade700 !default;
+$secondaryMessageTextColor: $shade300 !default;
+$secondaryMessageIconColor: $shade300 !default;
+$contrastMessageBg: $shade000 !default;
+$contrastMessageBorder: solid $shade100 !default;
+$contrastMessageTextColor: $shade950 !default;
+$contrastMessageIconColor: $shade950 !default;
+
+//rating
+$ratingCancelIconColor: #f87171 !default;
+$ratingCancelIconHoverColor: #ef4444 !default;
+
+// fonts
+$fontFamily: "Inter var", sans-serif !default;
+$fontFamilySecondary: "Inter var", sans-serif !default;
+
+@import "_variables";
+@import "_fonts";
+@import "../theme-base/components";
+// @import '../extensions/_extensions';
