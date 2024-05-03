@@ -1,9 +1,8 @@
 import { NgModule } from '@angular/core';
 import { ButtonModule } from 'primeng/button';
-import { MessagesModule } from 'primeng/messages';
-import { RatingModule } from 'primeng/rating';
+import { MenubarModule } from 'primeng/menubar';
 
 @NgModule({
-  exports: [ButtonModule, MessagesModule, RatingModule],
+  exports: [ButtonModule, MenubarModule],
 })
 export class PrimengModule {}
