@@ -27,7 +27,7 @@ $danger: #d32f2f;
 
 $errorColor: #f87171 !default;
 
-$primaryColor: #7154b3 !default;
+$primaryColor: #670bff !default;
 $primaryDarkColor: #7c3aed !default;
 $primaryDarkerColor: #6d28d9 !default;
 $primaryTextColor: $white !default;
@@ -52,7 +52,7 @@ $helpTextColor: $white !default;
 $helpDarkColor: #9333ea !default;
 $helpDarkerColor: #7e22ce !default;
 
-$dangerColor: #ef4444 !default;
+$dangerColor: #bce80c !default;
 $dangerTextColor: $white !default;
 $dangerDarkColor: #dc2626 !default;
 $dangerDarkerColor: #b91c1c !default;
@@ -71,7 +71,7 @@ $colors: (
   "teal": #14b8a6,
   "orange": #f97316,
   "bluegray": #64748b,
-  "purple": #a855f7,
+  "purple": #670bff,
   "red": #ff3d32,
   "primary": $primaryColor,
 );
@@ -113,8 +113,8 @@ $ratingCancelIconColor: #f87171 !default;
 $ratingCancelIconHoverColor: #ef4444 !default;
 
 // fonts
-$fontFamily: "Inter var", sans-serif !default;
-$fontFamilySecondary: "Inter var", sans-serif !default;
+$fontFamily: "Montserrat", sans-serif !default;
+$fontFamilySecondary: "Odor Mean Chey", serif !default;
 
 @import "_variables";
 @import "_fonts";
