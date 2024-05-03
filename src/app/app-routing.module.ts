@@ -21,6 +21,11 @@ const routes: Routes = [
     loadChildren: () =>
       import('./modules/booking/booking.module').then((m) => m.BookingModule),
   },
+  {
+    path: 'user',
+    loadChildren: () =>
+      import('./modules/user/user.module').then((m) => m.UserModule),
+  },
   { path: '**', pathMatch: 'full', component: PagenotfoundComponent },
 ];
 
