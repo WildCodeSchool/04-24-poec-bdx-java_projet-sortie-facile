@@ -1,0 +1,36 @@
+<form #createAccount="ngForm" (ngSubmit)="createAccount.valid && onSubmit()">
+
+    <fieldset>
+        <label for="username">Pseudonyme</label>
+        <input type="text" name="username" id="username"  [(ngModel)]="username" #username="ngModel" required>
+    </fieldset>
+    <div *ngIf="username.errors">
+        <span *ngIf="username.errors?.['required']">Le champ "Pseudonyme" est requis</span>
+    </div>
+
+    <fieldset>
+        <label for="email">Email</label>
+        <input type="email" name="email" id="email" [(ngModel)]="email" #email="ngModel" required>
+    </fieldset>
+    <div *ngIf="email.errors">
+        <span *ngIf="email.errors?.['required']">Le champ "email" est requis</span>
+    </div>
+
+    <fieldset>
+        <label for="password">Mot de passe</label>
+        <input type="text" name="password" id="password" [(ngModel)]="password" #password="ngModel" required>
+    </fieldset>
+    <div *ngIf="password.errors">
+        <span *ngIf="password.errors?.['required']">Le champ "mot de passe" est requis</span>
+    </div>
+      
+    <fieldset>
+        <label for="confirmation">Confirmez le mot de passe</label>
+        <input type="text" [(ngModel)]="confirmation" #confirmation="ngModel" required>
+    </fieldset>
+    <div *ngIf="confirmation.errors">
+        <span *ngIf="confirmation.errors?.['required']">Le champ "mot de passe" est requis</span>
+    </div>
+
+    <p-button label="Envoyer" icon="pi pi-check" iconPos="right"></p-button>
+</form>

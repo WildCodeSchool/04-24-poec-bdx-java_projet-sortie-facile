@@ -1,0 +1,30 @@
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+fieldset {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    margin: 10px auto;
+    border: none;
+}
+label {
+    max-width: 35%;
+    margin-right: auto;
+    color: black;
+}
+
+input {
+    width: 60%;
+    height: 2rem;
+    padding-right: 20px;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+p-button {
+    margin:  20px auto;
+}
