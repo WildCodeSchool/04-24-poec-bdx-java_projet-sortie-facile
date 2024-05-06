@@ -2,21 +2,55 @@ form {
     display: flex;
     flex-direction: column;
 }
-
 app-text-field {
-    width: 40%;
+    width: 80%;
     margin: auto;
     padding: 10px;
 }
-
 app-password-field {
-    width: 40%;
+    width: 80%;
     margin: auto;
     padding: 10px;
 }
-
 div.btn-container {
+    width: 80%;
+    margin: auto;
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     margin-top: 20px;
+    padding: 10px;
 }
+
+@media screen and (min-width: 480px) {
+
+    app-text-field {
+        width: 60%;
+    }
+    
+    app-password-field {
+        width: 60%;
+    }
+    
+    div.btn-container {
+        width: 60%;
+    }
+}
+
+
+@media screen and (min-width: 768px) {
+
+    app-text-field {
+        width: 40%;
+    }
+    
+    app-password-field {
+        width: 40%;
+    }
+    
+    div.btn-container {
+        width: 40%;
+    }
+}
+
+
+
