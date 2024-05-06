@@ -1,1 +1,12 @@
-<p>auth-login works!</p>
+<form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)">
+  <label for="username">Nom d'utilisateur : </label>
+  <input
+    type="text"
+    name="username"
+    id="username"
+    [(ngModel)]="connectedUser.username"
+    #username="ngModel"
+  />
+
+  <button type="submit">Connexion</button>
+</form>
