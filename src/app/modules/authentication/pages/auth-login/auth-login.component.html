@@ -1,0 +1,31 @@
+<form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)">
+  <app-text-field
+    labelFor="username"
+    labelContent="Nom d'utilisateur :"
+    type="text"
+    id="username"
+    name="username"
+    [(ngModel)]="connectedUser.username"
+  ></app-text-field>
+
+  <app-password-field
+    labelFor="password"
+    labelContent="Password :"
+    id="password"
+    name="password"
+    [(ngModel)]="connectedUser.password"
+  ></app-password-field>
+
+  <app-text-field
+    labelFor="email"
+    labelContent="Email :"
+    type="email"
+    id="email"
+    name="email"
+    [(ngModel)]="connectedUser.email"
+  ></app-text-field>
+
+  <div class="btn-container">
+    <p-button type="submit" icon="pi pi-arrow-right"></p-button>
+  </div>
+</form>

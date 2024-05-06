@@ -26,6 +26,13 @@ const routes: Routes = [
     loadChildren: () =>
       import('./modules/user/user.module').then((m) => m.UserModule),
   },
+  {
+    path: 'auth',
+    loadChildren: () =>
+      import('./modules/authentication/authentication.module').then(
+        (m) => m.AuthenticationModule
+      ),
+  },
   { path: '**', pathMatch: 'full', component: PagenotfoundComponent },
 ];
 

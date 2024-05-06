@@ -1,0 +1,19 @@
+form {
+  margin-top: 4rem;
+  max-width: 510px;
+}
+
+.btn-container {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 1.25rem;
+}
+
+:host ::ng-deep .p-button {
+  width: 55px;
+  height: 55px;
+}
+
+:host ::ng-deep .p-button .pi {
+  font-size: 1.5rem;
+}
