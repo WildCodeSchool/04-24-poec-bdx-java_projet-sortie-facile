@@ -1,5 +1,5 @@
 import { Component, Input, forwardRef } from '@angular/core';
-import { NG_VALUE_ACCESSOR } from '@angular/forms';
+import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { Category } from '../../../models/types/category.type';
 
 @Component({
@@ -14,7 +14,7 @@ import { Category } from '../../../models/types/category.type';
     },
   ],
 })
-export class SelectCategoryComponent {
+export class SelectCategoryComponent implements ControlValueAccessor {
   categories!: Category[];
 
   selectedCategory!: Category;

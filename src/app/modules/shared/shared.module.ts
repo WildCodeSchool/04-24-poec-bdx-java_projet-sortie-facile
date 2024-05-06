@@ -11,6 +11,7 @@ import { InputHourComponent } from './components/date/input-hour/input-hour.comp
 import { SelectCityComponent } from './components/select/select-city/select-city.component';
 import { SelectCategoryComponent } from './components/select/select-category/select-category.component';
 import { SelectNumberComponent } from './components/select/select-number/select-number.component';
+import { AvatarPseudoComponent } from './components/avatar/avatar-pseudo/avatar-pseudo.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { SelectNumberComponent } from './components/select/select-number/select-
     SelectCityComponent,
     SelectCategoryComponent,
     SelectNumberComponent,
+    AvatarPseudoComponent,
   ],
   imports: [CommonModule, PrimengModule, FormsModule],
   exports: [
@@ -37,6 +39,7 @@ import { SelectNumberComponent } from './components/select/select-number/select-
     SelectCityComponent,
     SelectCategoryComponent,
     SelectNumberComponent,
+    AvatarPseudoComponent,
   ],
 })
 export class SharedModule {}

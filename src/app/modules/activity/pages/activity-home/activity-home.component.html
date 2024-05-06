@@ -11,8 +11,8 @@
   ></app-text-field>
 
   <p>Nom du créateur</p>
-  <p>Lieu</p>
-
+  <app-avatar-pseudo></app-avatar-pseudo>
+  <p>Date de l'évènement</p>
   <app-input-date
     inputId="activityDate"
     name="activityDate"
@@ -21,6 +21,16 @@
     [(ngModel)]="formData.activityDate"
   ></app-input-date>
 
+  <p>Heure de l'évènement</p>
+  <app-input-hour
+    inputId="activityHour"
+    name="activityHour"
+    [required]="true"
+    #activityHour="ngModel"
+    [(ngModel)]="formData.activityHour"
+  ></app-input-hour>
+
+  <p>Lieu</p>
   <app-select-city
     inputId="activityCity"
     name="activityCity"
@@ -29,6 +39,8 @@
     [(ngModel)]="formData.activityCity"
   >
   </app-select-city>
+
+  <p>Catégorie</p>
   <app-select-category
     inputId="activityCategory"
     name="activityCategory"
@@ -37,13 +49,7 @@
     [(ngModel)]="formData.activityCategory"
   ></app-select-category>
 
-  <app-input-hour
-    inputId="activityHour"
-    name="activityHour"
-    [required]="true"
-    #activityHour="ngModel"
-    [(ngModel)]="formData.activityHour"
-  ></app-input-hour>
+  <p>Nbre de participant</p>
   <app-select-number
     inputId=" activityNumberGuest"
     name=" activityNumberGuest"
@@ -51,7 +57,6 @@
     #activityNumberGuest="ngModel"
     [(ngModel)]="formData.activityNumberGuest"
   ></app-select-number>
-  <p>Nbre de participant</p>
   <p>img</p>
   <p>Lien</p>
   <app-modal></app-modal>

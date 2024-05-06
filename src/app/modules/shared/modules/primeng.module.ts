@@ -9,6 +9,7 @@ import { ToastModule } from 'primeng/toast';
 import { CalendarModule } from 'primeng/calendar';
 import { DropdownModule } from 'primeng/dropdown';
 import { InputNumberModule } from 'primeng/inputnumber';
+import { ChipModule } from 'primeng/chip';
 @NgModule({
   exports: [
     ButtonModule,
@@ -21,6 +22,7 @@ import { InputNumberModule } from 'primeng/inputnumber';
     CalendarModule,
     DropdownModule,
     InputNumberModule,
+    ChipModule,
   ],
 })
 export class PrimengModule {}
