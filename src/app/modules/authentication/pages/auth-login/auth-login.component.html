@@ -6,6 +6,17 @@
     id="username"
     name="username"
     [(ngModel)]="connectedUser.username"
+    [form]="loginForm"
+  ></app-text-field>
+
+  <app-text-field
+    labelFor="email"
+    labelContent="Email :"
+    type="text"
+    id="email"
+    name="email"
+    [(ngModel)]="connectedUser.email"
+    [form]="loginForm"
   ></app-text-field>
 
   <app-password-field
@@ -14,16 +25,8 @@
     id="password"
     name="password"
     [(ngModel)]="connectedUser.password"
+    [form]="loginForm"
   ></app-password-field>
-
-  <app-text-field
-    labelFor="email"
-    labelContent="Email :"
-    type="email"
-    id="email"
-    name="email"
-    [(ngModel)]="connectedUser.email"
-  ></app-text-field>
 
   <div class="btn-container">
     <p-button type="submit" icon="pi pi-arrow-right"></p-button>
