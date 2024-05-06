@@ -5,10 +5,10 @@ import { ActivityRoutingModule } from './activity-routing.module';
 import { ActivityHomeComponent } from './pages/activity-home/activity-home.component';
 import { SharedModule } from '../shared/shared.module';
 import { ActivityListComponent } from './pages/activity-list/activity-list.component';
-import { ActivityCardComponent } from './components/activity-card/activity-card.component';
+import { ActivityDetailsComponent } from './pages/activity-details/activity-details.component';
 
 @NgModule({
-  declarations: [ActivityHomeComponent, ActivityListComponent, ActivityCardComponent],
+  declarations: [ActivityHomeComponent, ActivityListComponent, ActivityDetailsComponent],
   imports: [CommonModule, ActivityRoutingModule, SharedModule],
 })
 export class ActivityModule {}

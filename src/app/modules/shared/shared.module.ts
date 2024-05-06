@@ -14,6 +14,7 @@ import { SelectNumberComponent } from './components/select/select-number/select-
 import { AvatarPseudoComponent } from './components/avatar/avatar-pseudo/avatar-pseudo.component';
 import { TextareaComponent } from './components/form/textarea/textarea.component';
 import { HttpClientModule } from '@angular/common/http';
+import { CardComponent } from './components/card/card.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { HttpClientModule } from '@angular/common/http';
     SelectNumberComponent,
     AvatarPseudoComponent,
     TextareaComponent,
+    CardComponent,
   ],
   imports: [CommonModule, PrimengModule, FormsModule, HttpClientModule],
   exports: [
@@ -44,6 +46,7 @@ import { HttpClientModule } from '@angular/common/http';
     SelectNumberComponent,
     AvatarPseudoComponent,
     TextareaComponent,
+    CardComponent,
   ],
 })
 export class SharedModule {}

@@ -1,0 +1,22 @@
+<p>activity-details works!</p>
+
+<p>card works!</p>
+<div class="activity-card-container">
+  <div class="card flex justify-content-center">
+    <p-card
+      [header]="activity.name"
+      subheader="Card Subheader"
+      [style]="{ width: '360px' }"
+    >
+      <ng-template pTemplate="header">
+        <img alt="{{ activity.name }}" [src]="activity.imgUrl" />
+      </ng-template>
+      <p>
+        {{ activity.description }}
+      </p>
+      <ng-template pTemplate="footer">
+        <p-button label="S'inscrire" icon="pi pi-check"></p-button>
+      </ng-template>
+    </p-card>
+  </div>
+</div>
