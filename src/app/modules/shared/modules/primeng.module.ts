@@ -6,7 +6,7 @@ import { PasswordModule } from 'primeng/password';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { ToastModule } from 'primeng/toast';
 import { CalendarModule } from 'primeng/calendar';
-
+import { DropdownModule } from 'primeng/dropdown';
 @NgModule({
   exports: [
     ButtonModule,
@@ -16,6 +16,7 @@ import { CalendarModule } from 'primeng/calendar';
     ConfirmDialogModule,
     ToastModule,
     CalendarModule,
+    DropdownModule,
   ],
 })
 export class PrimengModule {}
