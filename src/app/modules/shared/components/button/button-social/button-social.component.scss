@@ -13,11 +13,11 @@
 :host ::ng-deep .p-button .p-button-label {
   text-align: left;
   font-size: 0.85rem;
-  color: black;
+  color: var(--black-color);
   margin-left: 1rem;
 }
 
 :host ::ng-deep .p-button .p-button-icon {
-  color: black;
+  color: var(--black-color);
   font-size: 1.25rem;
 }

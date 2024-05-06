@@ -11,6 +11,7 @@ import { InputHourComponent } from './components/date/input-hour/input-hour.comp
 import { ButtonSocialComponent } from './components/button/button-social/button-social.component';
 import { DividerComponent } from './components/divider/divider.component';
 import { ButtonFormComponent } from './components/button/button-form/button-form.component';
+import { AuthTypographyWithRedirectComponent } from './components/typography/auth-typography-with-redirect/auth-typography-with-redirect.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { ButtonFormComponent } from './components/button/button-form/button-form
     ButtonSocialComponent,
     DividerComponent,
     ButtonFormComponent,
+    AuthTypographyWithRedirectComponent,
   ],
   imports: [CommonModule, PrimengModule, FormsModule],
   exports: [
@@ -37,6 +39,7 @@ import { ButtonFormComponent } from './components/button/button-form/button-form
     ButtonSocialComponent,
     DividerComponent,
     ButtonFormComponent,
+    AuthTypographyWithRedirectComponent,
   ],
 })
 export class SharedModule {}

@@ -49,10 +49,13 @@
         </ng-container>
       </div>
 
-      <p class="text-redirect-signup">
-        Vous n’avez pas encore de compte ?
-        <a [routerLink]="['/']">S’inscrire</a>
-      </p>
+      <div class="text-with-redirect">
+        <app-auth-typography-with-redirect
+          text="Vous n’avez pas encore de compte ?"
+          [routerLink]="['/']"
+          linkLabel="S’inscrire"
+        ></app-auth-typography-with-redirect>
+      </div>
     </div>
   </div>
 

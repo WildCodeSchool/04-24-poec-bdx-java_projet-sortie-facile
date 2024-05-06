@@ -67,6 +67,7 @@
 h1 {
   margin: 0;
   margin-bottom: 1.75rem;
+  color: var(--black-color);
 }
 
 form {
@@ -88,7 +89,7 @@ form {
   > a {
     font-size: 0.85rem;
     text-decoration: none;
-    color: var(--black);
+    color: var(--black-color);
 
     &:hover {
       text-decoration: underline;
@@ -109,17 +110,6 @@ form {
   width: 100%;
 }
 
-.text-redirect-signup {
+.text-with-redirect {
   margin-top: 3rem;
-  font-size: 0.85rem;
-  text-align: center;
-
-  a {
-    text-decoration: none;
-    color: var(--primary-color);
-
-    &:hover {
-      text-decoration: underline;
-    }
-  }
 }
