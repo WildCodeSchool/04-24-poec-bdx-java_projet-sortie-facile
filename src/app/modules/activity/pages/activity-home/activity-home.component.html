@@ -44,7 +44,13 @@
     #activityHour="ngModel"
     [(ngModel)]="formData.activityHour"
   ></app-input-hour>
-
+  <app-select-number
+    inputId=" activityNumberGuest"
+    name=" activityNumberGuest"
+    [required]="true"
+    #activityNumberGuest="ngModel"
+    [(ngModel)]="formData.activityNumberGuest"
+  ></app-select-number>
   <p>Nbre de participant</p>
   <p>img</p>
   <p>Lien</p>

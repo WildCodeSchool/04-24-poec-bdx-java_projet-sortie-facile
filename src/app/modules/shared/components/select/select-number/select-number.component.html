@@ -1,0 +1,18 @@
+<p>select-number works!</p>
+<div class="card flex justify-content-center">
+  <p-inputNumber
+    [(ngModel)]="value1"
+    [style]="{ width: '4rem' }"
+    [showButtons]="true"
+    buttonLayout="vertical"
+    spinnerMode="vertical"
+    inputId="vertical"
+    decrementButtonClass="p-button-secondary"
+    incrementButtonClass="p-button-secondary"
+    incrementButtonIcon="pi pi-plus"
+    decrementButtonIcon="pi pi-minus"
+    (ngModelChange)="onInputChange($event)"
+    (focus)="markAsTouched()"
+  />
+  />
+</div>

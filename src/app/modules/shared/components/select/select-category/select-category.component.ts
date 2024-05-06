@@ -1,6 +1,6 @@
 import { Component, Input, forwardRef } from '@angular/core';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
-import { Category } from '../../models/types/category.type';
+import { Category } from '../../../models/types/category.type';
 
 @Component({
   selector: 'app-select-category',

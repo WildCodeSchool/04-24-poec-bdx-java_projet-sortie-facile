@@ -13,12 +13,14 @@ export class ActivityHomeComponent {
     activityHour: '';
     activityCity: '';
     activityCategory: '';
+    activityNumberGuest: '';
   } = {
     activityTitle: '',
     activityDate: '',
     activityHour: '',
     activityCity: '',
     activityCategory: '',
+    activityNumberGuest: '',
   };
   onSubmit(form: NgForm): void {
     console.log('form value : ', form.value);

@@ -9,7 +9,8 @@ import { ModalComponent } from './components/modal/modal/modal.component';
 import { InputDateComponent } from './components/date/input-date/input-date.component';
 import { InputHourComponent } from './components/date/input-hour/input-hour.component';
 import { SelectCityComponent } from './components/select/select-city/select-city.component';
-import { SelectCategoryComponent } from './components/select-category/select-category.component';
+import { SelectCategoryComponent } from './components/select/select-category/select-category.component';
+import { SelectNumberComponent } from './components/select/select-number/select-number.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { SelectCategoryComponent } from './components/select-category/select-cat
     InputHourComponent,
     SelectCityComponent,
     SelectCategoryComponent,
+    SelectNumberComponent,
   ],
   imports: [CommonModule, PrimengModule, FormsModule],
   exports: [
@@ -34,6 +36,7 @@ import { SelectCategoryComponent } from './components/select-category/select-cat
     InputHourComponent,
     SelectCityComponent,
     SelectCategoryComponent,
+    SelectNumberComponent,
   ],
 })
 export class SharedModule {}
