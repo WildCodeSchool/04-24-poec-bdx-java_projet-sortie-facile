@@ -1,4 +1,67 @@
-<form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)">
+<div class="container">
+  <div class="primary-container">
+    <div class="content-box">
+      <h1>{{ "Connection" | uppercase }}</h1>
+
+      <form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)">
+        <app-text-field
+          labelFor="username"
+          labelContent="Nom d'utilisateur :"
+          type="text"
+          id="username"
+          name="username"
+          [(ngModel)]="connectedUser.username"
+          [form]="loginForm"
+          [required]="true"
+          [minlength]="3"
+          [maxlength]="50"
+        ></app-text-field>
+
+        <app-password-field
+          labelFor="password"
+          labelContent="Password :"
+          id="password"
+          name="password"
+          [(ngModel)]="connectedUser.password"
+          [form]="loginForm"
+          [required]="true"
+          [minlength]="3"
+          [maxlength]="50"
+          class="password-input"
+        ></app-password-field>
+
+        <div class="forgot-password-link-container">
+          <a [routerLink]="['/']" class="forgot-password-link"
+            >Mot de passe oublié ?</a
+          >
+        </div>
+
+        <div class="btn-container">
+          <p-button type="submit" icon="pi pi-arrow-right"></p-button>
+        </div>
+      </form>
+
+      <p-divider align="center" type="solid">
+        <b class="divider-text">ou</b>
+      </p-divider>
+
+      <div class="btn-social-container">
+        <app-button-social providerName="Google"></app-button-social>
+        <app-button-social providerName="Facebook"></app-button-social>
+        <app-button-social providerName="Twitter"></app-button-social>
+      </div>
+
+      <p class="text-redirect-signup">
+        Vous n’avez pas encore de compte ?
+        <a [routerLink]="['/']">S’inscrire</a>
+      </p>
+    </div>
+  </div>
+
+  <div class="secondary-container"></div>
+</div>
+
+<!-- <form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)">
   <app-text-field
     labelFor="username"
     labelContent="Nom d'utilisateur :"
@@ -38,4 +101,4 @@
   <div class="btn-container">
     <p-button type="submit" icon="pi pi-arrow-right"></p-button>
   </div>
-</form>
+</form> -->

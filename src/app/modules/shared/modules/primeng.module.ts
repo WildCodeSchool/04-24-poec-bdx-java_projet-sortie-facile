@@ -7,6 +7,7 @@ import { MessageModule } from 'primeng/message';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { ToastModule } from 'primeng/toast';
 import { CalendarModule } from 'primeng/calendar';
+import { DividerModule } from 'primeng/divider';
 
 @NgModule({
   exports: [
@@ -18,6 +19,7 @@ import { CalendarModule } from 'primeng/calendar';
     ConfirmDialogModule,
     ToastModule,
     CalendarModule,
+    DividerModule,
   ],
 })
 export class PrimengModule {}

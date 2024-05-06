@@ -8,6 +8,7 @@ import { FieldErrorComponent } from './components/form/field-error/field-error.c
 import { ModalComponent } from './components/modal/modal/modal.component';
 import { InputDateComponent } from './components/date/input-date/input-date.component';
 import { InputHourComponent } from './components/date/input-hour/input-hour.component';
+import { ButtonSocialComponent } from './components/button/button-social/button-social.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { InputHourComponent } from './components/date/input-hour/input-hour.comp
     ModalComponent,
     InputDateComponent,
     InputHourComponent,
+    ButtonSocialComponent,
   ],
   imports: [CommonModule, PrimengModule, FormsModule],
   exports: [
@@ -28,6 +30,7 @@ import { InputHourComponent } from './components/date/input-hour/input-hour.comp
     ModalComponent,
     InputDateComponent,
     InputHourComponent,
+    ButtonSocialComponent,
   ],
 })
 export class SharedModule {}
