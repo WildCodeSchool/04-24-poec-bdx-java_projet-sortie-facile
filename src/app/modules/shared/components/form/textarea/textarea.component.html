@@ -1,0 +1,13 @@
+<p>textarea works!</p>
+<span class="p-float-label">
+  <textarea
+    pInputTextarea
+    [name]="name"
+    [(ngModel)]="value"
+    (ngModelChange)="onInputChange($event)"
+    (focus)="markAsTouched()"
+    rows="5"
+    cols="30"
+  ></textarea>
+  <label for="float-input">Summary</label>
+</span>

@@ -57,6 +57,13 @@
     #activityNumberGuest="ngModel"
     [(ngModel)]="formData.activityNumberGuest"
   ></app-select-number>
+  <app-textarea
+    inputId=" activityDescription"
+    name=" activityDescriptiont"
+    [required]="true"
+    #activityDescription="ngModel"
+    [(ngModel)]="formData.activityDescription"
+  ></app-textarea>
   <p>img</p>
   <p>Lien</p>
   <app-modal></app-modal>

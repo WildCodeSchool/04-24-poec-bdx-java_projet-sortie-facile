@@ -12,6 +12,7 @@ import { SelectCityComponent } from './components/select/select-city/select-city
 import { SelectCategoryComponent } from './components/select/select-category/select-category.component';
 import { SelectNumberComponent } from './components/select/select-number/select-number.component';
 import { AvatarPseudoComponent } from './components/avatar/avatar-pseudo/avatar-pseudo.component';
+import { TextareaComponent } from './components/form/textarea/textarea.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { AvatarPseudoComponent } from './components/avatar/avatar-pseudo/avatar-
     SelectCategoryComponent,
     SelectNumberComponent,
     AvatarPseudoComponent,
+    TextareaComponent,
   ],
   imports: [CommonModule, PrimengModule, FormsModule],
   exports: [
@@ -40,6 +42,7 @@ import { AvatarPseudoComponent } from './components/avatar/avatar-pseudo/avatar-
     SelectCategoryComponent,
     SelectNumberComponent,
     AvatarPseudoComponent,
+    TextareaComponent,
   ],
 })
 export class SharedModule {}

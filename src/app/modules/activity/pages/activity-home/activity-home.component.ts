@@ -14,6 +14,9 @@ export class ActivityHomeComponent {
     activityCity: '';
     activityCategory: '';
     activityNumberGuest: '';
+    activityImg: '';
+    activityLink: '';
+    activityDescription: '';
   } = {
     activityTitle: '',
     activityDate: '',
@@ -21,6 +24,9 @@ export class ActivityHomeComponent {
     activityCity: '',
     activityCategory: '',
     activityNumberGuest: '',
+    activityImg: '',
+    activityLink: '',
+    activityDescription: '',
   };
   onSubmit(form: NgForm): void {
     console.log('form value : ', form.value);
