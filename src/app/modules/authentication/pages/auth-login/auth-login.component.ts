@@ -10,6 +10,7 @@ import { connectedUserDatas } from '../../../shared/models/types/connectedUserDa
 export class AuthLoginComponent {
   connectedUser: connectedUserDatas = {
     username: '',
+    password: '',
   };
 
   onSubmit(form: NgForm): void {

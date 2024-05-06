@@ -7,7 +7,15 @@
     [(ngModel)]="connectedUser.username"
   ></app-text-field>
 
+  <app-password-field
+    labelFor="password"
+    labelContent="Password :"
+    id="password"
+    name="password"
+    [(ngModel)]="connectedUser.password"
+  ></app-password-field>
+
   <div class="btn-container">
-    <p-button icon="pi pi-arrow-right"></p-button>
+    <p-button type="submit" icon="pi pi-arrow-right"></p-button>
   </div>
 </form>
