@@ -1,31 +1,31 @@
 import { Component, Input, forwardRef } from '@angular/core';
-import { City } from '../../../models/types/city.type';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
+import { Category } from '../../models/types/category.type';
 
 @Component({
-  selector: 'app-select-city',
-  templateUrl: './select-city.component.html',
-  styleUrl: './select-city.component.scss',
+  selector: 'app-select-category',
+  templateUrl: './select-category.component.html',
+  styleUrl: './select-category.component.scss',
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
-      useExisting: forwardRef(() => SelectCityComponent),
+      useExisting: forwardRef(() => SelectCategoryComponent),
       multi: true,
     },
   ],
 })
-export class SelectCityComponent {
-  cities!: City[];
+export class SelectCategoryComponent {
+  categories!: Category[];
 
-  selectedCity!: City;
+  selectedCategory!: Category;
 
   ngOnInit() {
-    this.cities = [
-      { id: 1, name: 'New York' },
-      { id: 2, name: 'Rome' },
-      { id: 3, name: 'London' },
-      { id: 4, name: 'Istanbul' },
-      { id: 5, name: 'Paris' },
+    this.categories = [
+      { id: 1, name: 'sport' },
+      { id: 2, name: 'cinema' },
+      { id: 3, name: 'culture' },
+      { id: 4, name: 'plein air' },
+      { id: 5, name: 'soirée' },
     ];
   }
   @Input() type!: string; // text or email

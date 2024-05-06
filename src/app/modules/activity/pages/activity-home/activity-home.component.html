@@ -20,7 +20,23 @@
     #activityDate="ngModel"
     [(ngModel)]="formData.activityDate"
   ></app-input-date>
-  <app-select-city></app-select-city>
+
+  <app-select-city
+    inputId="activityCity"
+    name="activityCity"
+    [required]="true"
+    #activityCity="ngModel"
+    [(ngModel)]="formData.activityCity"
+  >
+  </app-select-city>
+  <app-select-category
+    inputId="activityCategory"
+    name="activityCategory"
+    [required]="true"
+    #activityCategory="ngModel"
+    [(ngModel)]="formData.activityCategory"
+  ></app-select-category>
+
   <app-input-hour
     inputId="activityHour"
     name="activityHour"

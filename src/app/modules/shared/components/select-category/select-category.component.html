@@ -1,10 +1,10 @@
-<p>select-city works!</p>
+<p>select-category works!</p>
 <div class="card flex justify-content-center">
   <p-dropdown
-    [options]="cities"
-    [(ngModel)]="selectedCity"
+    [options]="categories"
+    [(ngModel)]="selectedCategory"
     optionLabel="name"
-    placeholder="Select a City"
+    placeholder="Select a Category"
     (ngModelChange)="onInputChange($event)"
     (focus)="markAsTouched()"
   />

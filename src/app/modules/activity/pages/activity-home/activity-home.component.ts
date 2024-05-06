@@ -7,10 +7,18 @@ import { NgForm } from '@angular/forms';
   styleUrl: './activity-home.component.scss',
 })
 export class ActivityHomeComponent {
-  formData: { activityTitle: string; activityDate: ''; activityHour: '' } = {
+  formData: {
+    activityTitle: string;
+    activityDate: '';
+    activityHour: '';
+    activityCity: '';
+    activityCategory: '';
+  } = {
     activityTitle: '',
     activityDate: '',
     activityHour: '',
+    activityCity: '',
+    activityCategory: '',
   };
   onSubmit(form: NgForm): void {
     console.log('form value : ', form.value);
