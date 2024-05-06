@@ -45,7 +45,9 @@
 
       <div class="btn-social-container">
         <ng-container *ngFor="let providerName of providerNameList">
-          <app-button-social providerName="Google"></app-button-social>
+          <app-button-social
+            [providerName]="providerName.name"
+          ></app-button-social>
         </ng-container>
       </div>
 

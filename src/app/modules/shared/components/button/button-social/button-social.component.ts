@@ -8,8 +8,10 @@ import { Component, Input, OnInit } from '@angular/core';
 export class ButtonSocialComponent implements OnInit {
   @Input() providerName!: string;
   label!: string;
+  icon!: string;
 
   ngOnInit(): void {
     this.label = `Se connecter avec ${this.providerName}`;
+    this.icon = `pi pi-${this.providerName.toLowerCase()}`;
   }
 }

@@ -8,7 +8,12 @@ import { connectedUserDatas } from '../../../shared/models/types/connectedUserDa
   styleUrl: './auth-login.component.scss',
 })
 export class AuthLoginComponent {
-  providerNameList = ['Google', 'Facebook', 'Twitter'];
+  providerNameList = [
+    { name: 'Google', color: 'blue' },
+    { name: 'Facebook', color: 'blue' },
+    { name: 'Twitter', color: 'blue' },
+  ];
+
   connectedUser: connectedUserDatas = {
     username: '',
     password: '',

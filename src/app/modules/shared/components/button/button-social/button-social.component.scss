@@ -20,4 +20,12 @@
 :host ::ng-deep .p-button .p-button-icon {
   color: var(--black-color);
   font-size: 1.25rem;
+
+  &.pi-facebook {
+    color: #3b5998;
+  }
+
+  &.pi-twitter {
+    color: #1da0f2;
+  }
 }
