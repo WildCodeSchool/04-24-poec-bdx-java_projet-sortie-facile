@@ -2,19 +2,19 @@ import { Component, Input, forwardRef } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 @Component({
-  selector: 'app-input-date',
-  templateUrl: './input-date.component.html',
-  styleUrl: './input-date.component.scss',
+  selector: 'app-input-hour',
+  templateUrl: './input-hour.component.html',
+  styleUrl: './input-hour.component.scss',
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
-      useExisting: forwardRef(() => InputDateComponent),
+      useExisting: forwardRef(() => InputHourComponent),
       multi: true,
     },
   ],
 })
-export class InputDateComponent implements ControlValueAccessor {
-  datetime24h: Date[] | undefined;
+export class InputHourComponent implements ControlValueAccessor {
+  time: Date | undefined;
   @Input() type!: string; // text or email
   @Input() id!: string;
   @Input() name!: string;
