@@ -2,19 +2,23 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { AuthenticationRoutingModule } from './authentication-routing.module';
+import { AuthLoginComponent } from './pages/auth-login/auth-login.component';
+import { SharedModule } from '../shared/shared.module';
 import { FormsModule } from '@angular/forms';
-import { CreateAccountCardComponent } from './components/ui/create-account-card/create-account-card.component';
 
 
 @NgModule({
   declarations: [
-  
-    CreateAccountCardComponent
+    AuthLoginComponent,
   ],
   imports: [
     CommonModule,
     AuthenticationRoutingModule,
+    SharedModule,
     FormsModule
   ]
 })
-export class AuthenticationModule { }
+
+export class AuthenticationModule {
+
+}
