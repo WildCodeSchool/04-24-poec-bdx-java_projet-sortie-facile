@@ -1,0 +1,22 @@
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+app-text-field {
+    width: 40%;
+    margin: auto;
+    padding: 10px;
+}
+
+app-password-field {
+    width: 40%;
+    margin: auto;
+    padding: 10px;
+}
+
+div.btn-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}

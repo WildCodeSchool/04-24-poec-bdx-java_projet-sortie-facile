@@ -1,0 +1,41 @@
+<form #createAccount="ngForm" (ngSubmit)="onSubmit(createAccount)">
+
+    <app-text-field
+        labelFor="username"
+        labelContent="Pseudonyme :"
+        type="text"
+        id="username"
+        name="username"
+        [(ngModel)]="createdUser.username"
+    ></app-text-field>
+    
+    <app-text-field
+        labelFor="email"
+        labelContent="Email :"
+        type="text"
+        id="email"
+        name="email"
+        [(ngModel)]="createdUser.email"
+    ></app-text-field>
+
+    <app-password-field
+        labelFor="password"
+        labelContent="Password :"
+        id="password"
+        name="password"
+        [(ngModel)]="createdUser.password"
+    ></app-password-field>
+
+    <app-password-field
+        labelFor="confirmation"
+        labelContent="Confirmation du mot de passe :"
+        id="confirmation"
+        name="confirmation"
+        [(ngModel)]="createdUser.confirmation"
+    ></app-password-field>
+        
+
+    <div class="btn-container">
+        <p-button type="submit" icon="pi pi-arrow-right"></p-button>
+    </div>
+</form>
