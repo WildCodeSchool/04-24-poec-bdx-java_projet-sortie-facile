@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { newUser } from '../../../shared/models/types/newUser.model';
 
 @Component({
   selector: 'app-create-account',
@@ -7,17 +9,19 @@ import { Component } from '@angular/core';
 })
 export class CreateAccountComponent {
 
-  username: string = '';
-  email: string = '';
-  password: string = '';
-  confirmation: string = '';
+  createdUser: newUser = {
+    username: '',
+    email: '',
+    password: '',
+    confirmation: ''
+  };
 
-  onSubmit() {
-    console.log('form submitted');
-    this.username = '';
-    this.email = '';
-    this.password = '';
-    this.confirmation = '';
+  onSubmit(form: NgForm) {
+    console.log(form.value);
+    this.createdUser.username = "";
+    this.createdUser.email = "";
+    this.createdUser.password = "";
+    this.createdUser.confirmation = "";
   }
 
 }

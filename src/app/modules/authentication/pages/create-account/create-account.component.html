@@ -1,36 +1,41 @@
-<form #createAccount="ngForm" (ngSubmit)="createAccount.valid && onSubmit()">
+<form #createAccount="ngForm" (ngSubmit)="onSubmit(createAccount)">
 
-    <fieldset>
-        <label for="username">Pseudonyme</label>
-        <input type="text" name="username" id="username"  [(ngModel)]="username" #username="ngModel" required>
-    </fieldset>
-    <div *ngIf="username.errors">
-        <span *ngIf="username.errors?.['required']">Le champ "Pseudonyme" est requis</span>
-    </div>
+    <app-text-field
+        labelFor="username"
+        labelContent="Pseudonyme :"
+        type="text"
+        id="username"
+        name="username"
+        [(ngModel)]="createdUser.username"
+    ></app-text-field>
+    
+    <app-text-field
+        labelFor="email"
+        labelContent="Email :"
+        type="text"
+        id="email"
+        name="email"
+        [(ngModel)]="createdUser.email"
+    ></app-text-field>
 
-    <fieldset>
-        <label for="email">Email</label>
-        <input type="email" name="email" id="email" [(ngModel)]="email" #email="ngModel" required>
-    </fieldset>
-    <div *ngIf="email.errors">
-        <span *ngIf="email.errors?.['required']">Le champ "email" est requis</span>
-    </div>
+    <app-password-field
+        labelFor="password"
+        labelContent="Password :"
+        id="password"
+        name="password"
+        [(ngModel)]="createdUser.password"
+    ></app-password-field>
 
-    <fieldset>
-        <label for="password">Mot de passe</label>
-        <input type="text" name="password" id="password" [(ngModel)]="password" #password="ngModel" required>
-    </fieldset>
-    <div *ngIf="password.errors">
-        <span *ngIf="password.errors?.['required']">Le champ "mot de passe" est requis</span>
-    </div>
-      
-    <fieldset>
-        <label for="confirmation">Confirmez le mot de passe</label>
-        <input type="text" [(ngModel)]="confirmation" #confirmation="ngModel" required>
-    </fieldset>
-    <div *ngIf="confirmation.errors">
-        <span *ngIf="confirmation.errors?.['required']">Le champ "mot de passe" est requis</span>
-    </div>
+    <app-password-field
+        labelFor="confirmation"
+        labelContent="Confirmation du mot de passe :"
+        id="confirmation"
+        name="confirmation"
+        [(ngModel)]="createdUser.confirmation"
+    ></app-password-field>
+        
 
-    <p-button label="Envoyer" icon="pi pi-check" iconPos="right"></p-button>
+    <div class="btn-container">
+        <p-button type="submit" icon="pi pi-arrow-right"></p-button>
+    </div>
 </form>

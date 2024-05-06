@@ -3,28 +3,20 @@ form {
     flex-direction: column;
 }
 
-fieldset {
+app-text-field {
+    width: 40%;
+    margin: auto;
+    padding: 10px;
+}
+
+app-password-field {
+    width: 40%;
+    margin: auto;
+    padding: 10px;
+}
+
+div.btn-container {
     display: flex;
     justify-content: center;
-    align-items: center;
-    width: 50%;
-    margin: 10px auto;
-    border: none;
-}
-label {
-    max-width: 35%;
-    margin-right: auto;
-    color: black;
-}
-
-input {
-    width: 60%;
-    height: 2rem;
-    padding-right: 20px;
-    border: 1px solid black;
-    border-radius: 5px;
-}
-
-p-button {
-    margin:  20px auto;
+    margin-top: 20px;
 }
