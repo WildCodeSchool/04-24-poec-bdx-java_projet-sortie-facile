@@ -9,6 +9,8 @@ import { ModalComponent } from './components/modal/modal/modal.component';
 import { InputDateComponent } from './components/date/input-date/input-date.component';
 import { InputHourComponent } from './components/date/input-hour/input-hour.component';
 import { ButtonSocialComponent } from './components/button/button-social/button-social.component';
+import { DividerComponent } from './components/divider/divider.component';
+import { ButtonFormComponent } from './components/button/button-form/button-form.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +21,8 @@ import { ButtonSocialComponent } from './components/button/button-social/button-
     InputDateComponent,
     InputHourComponent,
     ButtonSocialComponent,
+    DividerComponent,
+    ButtonFormComponent,
   ],
   imports: [CommonModule, PrimengModule, FormsModule],
   exports: [
@@ -31,6 +35,8 @@ import { ButtonSocialComponent } from './components/button/button-social/button-
     InputDateComponent,
     InputHourComponent,
     ButtonSocialComponent,
+    DividerComponent,
+    ButtonFormComponent,
   ],
 })
 export class SharedModule {}

@@ -102,43 +102,10 @@ form {
   margin-top: 2rem;
 }
 
-:host ::ng-deep .btn-container .p-button {
-  width: 55px;
-  height: 55px;
-  border-radius: 12px;
-}
-
-:host ::ng-deep .p-button .pi {
-  font-size: 1.5rem;
-}
-
-:host ::ng-deep .p-divider.p-divider-horizontal {
-  margin: 1.5rem 0;
-  opacity: 0.4;
-
-  &:before {
-    border-top: 1.5px solid var(--gray-200);
-  }
-
-  .divider-text {
-    color: var(--gray-200);
-    font-size: 1rem;
-    font-weight: initial;
-  }
-}
-
 .btn-social-container {
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  width: 100%;
-
-  .p-element {
-    width: 100%;
-  }
-}
-
-:host ::ng-deep app-button-social {
   width: 100%;
 }
 
@@ -156,23 +123,3 @@ form {
     }
   }
 }
-
-// form {
-//   margin-top: 4rem;
-//   max-width: 510px;
-// }
-
-// .btn-container {
-//   display: flex;
-//   justify-content: flex-end;
-//   margin-top: 1.25rem;
-// }
-
-// :host ::ng-deep .p-button {
-//   width: 55px;
-//   height: 55px;
-// }
-
-// :host ::ng-deep .p-button .pi {
-//   font-size: 1.5rem;
-// }

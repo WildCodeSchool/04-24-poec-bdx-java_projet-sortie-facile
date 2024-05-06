@@ -4,6 +4,10 @@
   align-items: left;
   padding: 0.95rem 1rem;
   border-color: var(--gray-200);
+
+  &:hover {
+    background-color: var(--gray-500);
+  }
 }
 
 :host ::ng-deep .p-button .p-button-label {
