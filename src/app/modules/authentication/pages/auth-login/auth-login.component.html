@@ -1,12 +1,13 @@
 <form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)">
-  <label for="username">Nom d'utilisateur : </label>
-  <input
-    type="text"
-    name="username"
+  <app-text-field
+    labelFor="username"
+    labelContent="Nom d'utilisateur :"
     id="username"
+    name="username"
     [(ngModel)]="connectedUser.username"
-    #username="ngModel"
-  />
+  ></app-text-field>
 
-  <button type="submit">Connexion</button>
+  <div class="btn-container">
+    <p-button icon="pi pi-arrow-right"></p-button>
+  </div>
 </form>

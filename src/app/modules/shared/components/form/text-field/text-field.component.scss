@@ -1,0 +1,17 @@
+.form-control {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 0.4rem;
+}
+
+label {
+  color: var(--font-family-primary);
+}
+
+.p-inputtext {
+  border-radius: 0.35rem;
+  background-color: var(--gray-500);
+  border: 1px solid var(--gray-200);
+  height: 45px;
+}
