@@ -6,24 +6,39 @@
     id="username"
     name="username"
     [(ngModel)]="connectedUser.username"
+    required
+    minlength="3"
+    maxlength="10"
+    errorMessage="error de champs"
+    [error]="loginForm?.controls?.['username']?.errors"
   ></app-text-field>
-
-  <app-password-field
-    labelFor="password"
-    labelContent="Password :"
-    id="password"
-    name="password"
-    [(ngModel)]="connectedUser.password"
-  ></app-password-field>
 
   <app-text-field
     labelFor="email"
-    labelContent="Email :"
+    labelContent="email :"
     type="email"
     id="email"
     name="email"
     [(ngModel)]="connectedUser.email"
+    required
+    email
+    errorMessage="error de champs"
+    [error]="loginForm?.controls?.['email']?.errors"
   ></app-text-field>
+
+  <!-- <app-text-field
+    labelFor="password"
+    labelContent="Password :"
+   
+    id="password"
+    name="password"
+    [(ngModel)]="connectedUser.password"
+    required
+    minlength="3"
+    maxlength="10"
+    errorMessage="error de champs"
+    [error]="loginForm?.controls?.['password']?.errors"
+  ></app-text-field> -->
 
   <div class="btn-container">
     <p-button type="submit" icon="pi pi-arrow-right"></p-button>
