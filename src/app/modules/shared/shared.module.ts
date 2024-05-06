@@ -13,6 +13,7 @@ import { SelectCategoryComponent } from './components/select/select-category/sel
 import { SelectNumberComponent } from './components/select/select-number/select-number.component';
 import { AvatarPseudoComponent } from './components/avatar/avatar-pseudo/avatar-pseudo.component';
 import { TextareaComponent } from './components/form/textarea/textarea.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,7 @@ import { TextareaComponent } from './components/form/textarea/textarea.component
     AvatarPseudoComponent,
     TextareaComponent,
   ],
-  imports: [CommonModule, PrimengModule, FormsModule],
+  imports: [CommonModule, PrimengModule, FormsModule, HttpClientModule],
   exports: [
     PrimengModule,
     FormsModule,

@@ -1,71 +1,76 @@
-<p>activity-home works!</p>
-<form #myForm="ngForm" (ngSubmit)="onSubmit(myForm)">
-  <label>Titre activité</label>
-  <app-text-field
-    id="activityTitle"
-    name="activityTitle"
-    [required]="true"
-    #activityTitle="ngModel"
-    [form]="myForm"
-    [(ngModel)]="formData.activityTitle"
-  ></app-text-field>
+<div class="activity-form-container">
+  <form #myForm="ngForm" (ngSubmit)="onSubmit(myForm)" class="activity-form">
+    <app-avatar-pseudo></app-avatar-pseudo>
+    <p>Titre de l'activité</p>
+    <app-text-field
+      id="activityTitle"
+      name="activityTitle"
+      [required]="true"
+      #activityTitle="ngModel"
+      [form]="myForm"
+      [(ngModel)]="formData.activityTitle"
+      class="input-activity-form"
+    ></app-text-field>
 
-  <p>Nom du créateur</p>
-  <app-avatar-pseudo></app-avatar-pseudo>
-  <p>Date de l'évènement</p>
-  <app-input-date
-    inputId="activityDate"
-    name="activityDate"
-    [required]="true"
-    #activityDate="ngModel"
-    [(ngModel)]="formData.activityDate"
-  ></app-input-date>
+    <p>Date de l'évènement</p>
+    <app-input-date
+      inputId="activityDate"
+      name="activityDate"
+      [required]="true"
+      #activityDate="ngModel"
+      [(ngModel)]="formData.activityDate"
+    ></app-input-date>
 
-  <p>Heure de l'évènement</p>
-  <app-input-hour
-    inputId="activityHour"
-    name="activityHour"
-    [required]="true"
-    #activityHour="ngModel"
-    [(ngModel)]="formData.activityHour"
-  ></app-input-hour>
+    <p>Heure de l'évènement</p>
+    <app-input-hour
+      inputId="activityHour"
+      name="activityHour"
+      [required]="true"
+      #activityHour="ngModel"
+      [(ngModel)]="formData.activityHour"
+    ></app-input-hour>
 
-  <p>Lieu</p>
-  <app-select-city
-    inputId="activityCity"
-    name="activityCity"
-    [required]="true"
-    #activityCity="ngModel"
-    [(ngModel)]="formData.activityCity"
-  >
-  </app-select-city>
+    <p>Lieu</p>
+    <app-select-city
+      inputId="activityCity"
+      name="activityCity"
+      [required]="true"
+      #activityCity="ngModel"
+      [(ngModel)]="formData.activityCity"
+    >
+    </app-select-city>
 
-  <p>Catégorie</p>
-  <app-select-category
-    inputId="activityCategory"
-    name="activityCategory"
-    [required]="true"
-    #activityCategory="ngModel"
-    [(ngModel)]="formData.activityCategory"
-  ></app-select-category>
+    <p>Catégorie</p>
+    <app-select-category
+      inputId="activityCategory"
+      name="activityCategory"
+      [required]="true"
+      #activityCategory="ngModel"
+      [(ngModel)]="formData.activityCategory"
+    ></app-select-category>
 
-  <p>Nbre de participant</p>
-  <app-select-number
-    inputId=" activityNumberGuest"
-    name=" activityNumberGuest"
-    [required]="true"
-    #activityNumberGuest="ngModel"
-    [(ngModel)]="formData.activityNumberGuest"
-  ></app-select-number>
-  <app-textarea
-    inputId=" activityDescription"
-    name=" activityDescriptiont"
-    [required]="true"
-    #activityDescription="ngModel"
-    [(ngModel)]="formData.activityDescription"
-  ></app-textarea>
-  <p>img</p>
-  <p>Lien</p>
-  <app-modal></app-modal>
-  <button type="submit">Submit</button>
-</form>
+    <p>Nbre de participants</p>
+    <app-select-number
+      inputId=" activityNumberGuest"
+      name=" activityNumberGuest"
+      [required]="true"
+      #activityNumberGuest="ngModel"
+      [(ngModel)]="formData.activityNumberGuest"
+    ></app-select-number>
+    <p>Description de l'évènement</p>
+
+    <app-textarea
+      inputId=" activityDescription"
+      name=" activityDescriptiont"
+      [required]="true"
+      #activityDescription="ngModel"
+      [(ngModel)]="formData.activityDescription"
+    ></app-textarea>
+    <p>img</p>
+    <p>Lien</p>
+    <!-- <app-modal></app-modal> -->
+    <div class="card flex justify-content-center">
+      <p-button label="Check" type="submit">Submit</p-button>
+    </div>
+  </form>
+</div>
