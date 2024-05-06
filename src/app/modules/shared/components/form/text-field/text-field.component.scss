@@ -2,11 +2,12 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  gap: 0.4rem;
+  gap: 0rem;
 }
 
 label {
   color: var(--font-family-primary);
+  margin-bottom: 0.4rem;
 }
 
 .p-inputtext {
@@ -14,4 +15,5 @@ label {
   background-color: var(--gray-500);
   border: 1px solid var(--gray-200);
   height: 45px;
+  margin-bottom: 0.2rem;
 }
