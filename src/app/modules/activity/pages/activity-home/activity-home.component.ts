@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { Data } from '@angular/router';
 
 @Component({
   selector: 'app-activity-home',
@@ -8,9 +7,10 @@ import { Data } from '@angular/router';
   styleUrl: './activity-home.component.scss',
 })
 export class ActivityHomeComponent {
-  formData: { activityTitle: string; activityDate: Date } = {
+  formData: { activityTitle: string; activityDate: ''; activityHour: '' } = {
     activityTitle: '',
-    activityDate: new Date(),
+    activityDate: '',
+    activityHour: '',
   };
   onSubmit(form: NgForm): void {
     console.log('form value : ', form.value);

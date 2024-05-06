@@ -20,6 +20,14 @@
     [(ngModel)]="formData.activityDate"
   ></app-input-date>
 
+  <app-input-hour
+    inputId="activityHour"
+    name="activityHour"
+    [required]="true"
+    #activityHour="ngModel"
+    [(ngModel)]="formData.activityHour"
+  ></app-input-hour>
+
   <app-text-field>Nbre de participant</app-text-field>
   <app-text-field>img</app-text-field>
   <app-text-field>Lien</app-text-field>
