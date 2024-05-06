@@ -11,6 +11,7 @@ export class AuthLoginComponent {
   connectedUser: connectedUserDatas = {
     username: '',
     password: '',
+    email: '',
   };
 
   onSubmit(form: NgForm): void {

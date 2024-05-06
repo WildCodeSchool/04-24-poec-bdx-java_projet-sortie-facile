@@ -14,6 +14,7 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
   ],
 })
 export class TextFieldComponent implements ControlValueAccessor {
+  @Input() type!: string; // text or email
   @Input() id!: string;
   @Input() name!: string;
   @Input() labelFor!: string;
