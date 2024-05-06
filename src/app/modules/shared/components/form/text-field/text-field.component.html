@@ -9,9 +9,13 @@
     [(ngModel)]="value"
     (ngModelChange)="onInputChange($event)"
     (focus)="markAsTouched()"
+    #ref="ngModel"
+    [required]="true"
+    [minlength]="8"
+    [maxlength]="20"
   />
 
-  <div *ngIf="error">
-    <app-field-error [message]="errorMessage"></app-field-error>
+  <div *ngIf="ref.errors && form.submitted">
+    <app-field-error [ref]="ref"></app-field-error>
   </div>
 </div>

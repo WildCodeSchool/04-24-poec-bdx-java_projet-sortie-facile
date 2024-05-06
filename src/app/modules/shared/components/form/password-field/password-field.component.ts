@@ -2,6 +2,7 @@ import { Component, Input, forwardRef } from '@angular/core';
 import {
   ControlValueAccessor,
   NG_VALUE_ACCESSOR,
+  NgForm,
   ValidationErrors,
 } from '@angular/forms';
 
@@ -25,6 +26,7 @@ export class PasswordFieldComponent implements ControlValueAccessor {
   @Input() toggleMask!: string;
   @Input() errorMessage!: string;
   @Input() error!: ValidationErrors | null | undefined;
+  @Input() form!: NgForm;
 
   disabled!: boolean;
   value!: string;

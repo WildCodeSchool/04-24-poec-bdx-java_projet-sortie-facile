@@ -15,8 +15,6 @@ export class AuthLoginComponent {
   };
 
   onSubmit(form: NgForm): void {
-    console.log(form.form.controls);
-
     console.log(form.value);
   }
 }

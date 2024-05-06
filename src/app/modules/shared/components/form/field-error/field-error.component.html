@@ -1,1 +1,20 @@
-<p-message severity="error" [text]="message"></p-message>
+<ng-container *ngIf="ref.errors?.['required']">
+  <p-message
+    severity="error"
+    [text]="errorMessages.required.message"
+  ></p-message>
+</ng-container>
+
+<ng-container *ngIf="ref.errors?.['minlength']">
+  <p-message
+    severity="error"
+    [text]="errorMessages.minlength.message"
+  ></p-message>
+</ng-container>
+
+<ng-container *ngIf="ref.errors?.['maxlength']">
+  <p-message
+    severity="error"
+    [text]="errorMessages.maxlength.message"
+  ></p-message>
+</ng-container>
