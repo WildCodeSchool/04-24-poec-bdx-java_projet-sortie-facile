@@ -13,6 +13,7 @@ export class FieldErrorComponent implements OnInit {
     required: { message: 'Ce champs est requis' },
     minlength: { message: 'Ce champs doit comporter 8 caractère minimum' },
     maxlength: { message: 'Ce champs doit comporter 20 caractère maximum' },
+    email: { message: "Votre email n'est pas au bon format" },
   };
 
   ngOnInit(): void {

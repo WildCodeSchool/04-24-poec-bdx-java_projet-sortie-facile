@@ -18,3 +18,10 @@
     [text]="errorMessages.maxlength.message"
   ></p-message>
 </ng-container>
+
+<ng-container *ngIf="ref.errors?.['email']">
+  <p-message
+    severity="error"
+    [text]="errorMessages.email.message"
+  ></p-message>
+</ng-container>

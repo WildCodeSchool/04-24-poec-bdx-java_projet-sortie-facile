@@ -28,6 +28,9 @@ export class TextFieldComponent implements ControlValueAccessor {
   @Input() errorMessage!: string;
   @Input() error!: ValidationErrors | null | undefined;
   @Input() form!: NgForm;
+  @Input() required!: boolean;
+  @Input() minlength!: number;
+  @Input() maxlength!: number;
 
   disabled!: boolean;
   value!: string;

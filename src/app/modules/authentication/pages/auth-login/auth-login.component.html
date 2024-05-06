@@ -7,6 +7,9 @@
     name="username"
     [(ngModel)]="connectedUser.username"
     [form]="loginForm"
+    [required]="true"
+    [minlength]="3"
+    [maxlength]="50"
   ></app-text-field>
 
   <app-text-field
@@ -17,6 +20,7 @@
     name="email"
     [(ngModel)]="connectedUser.email"
     [form]="loginForm"
+    [required]="true"
   ></app-text-field>
 
   <app-password-field
@@ -26,6 +30,9 @@
     name="password"
     [(ngModel)]="connectedUser.password"
     [form]="loginForm"
+    [required]="true"
+    [minlength]="3"
+    [maxlength]="50"
   ></app-password-field>
 
   <div class="btn-container">
