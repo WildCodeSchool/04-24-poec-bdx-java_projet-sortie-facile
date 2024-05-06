@@ -6,12 +6,14 @@ import { TextFieldComponent } from './components/form/text-field/text-field.comp
 import { PasswordFieldComponent } from './components/form/password-field/password-field.component';
 import { ModalComponent } from './components/modal/modal/modal.component';
 import { InputDateComponent } from './components/date/input-date/input-date.component';
+import { InputHourComponent } from './components/date/input-hour/input-hour.component';
 @NgModule({
   declarations: [
     TextFieldComponent,
     PasswordFieldComponent,
     ModalComponent,
     InputDateComponent,
+    InputHourComponent,
   ],
   imports: [CommonModule, PrimengModule, FormsModule],
   exports: [
@@ -21,6 +23,7 @@ import { InputDateComponent } from './components/date/input-date/input-date.comp
     PasswordFieldComponent,
     ModalComponent,
     InputDateComponent,
+    InputHourComponent,
   ],
 })
 export class SharedModule {}
