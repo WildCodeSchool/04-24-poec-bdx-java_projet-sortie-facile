@@ -6,8 +6,17 @@
     </p>
 
     <div class="btn-container">
-      <p-button [label]="ctaPrimarylabel" severity="primary"></p-button>
-      <p-button [label]="ctaSecondarylabel" [outlined]="true"></p-button>
+      <p-button
+        [label]="ctaPrimarylabel"
+        severity="primary"
+        [routerLink]="['/auth/register']"
+      ></p-button>
+
+      <p-button
+        [label]="ctaSecondarylabel"
+        [outlined]="true"
+        [routerLink]="['/auth/login']"
+      ></p-button>
     </div>
   </div>
 
