@@ -12,6 +12,13 @@ import { ButtonSocialComponent } from './components/button/button-social/button-
 import { DividerComponent } from './components/divider/divider.component';
 import { ButtonFormComponent } from './components/button/button-form/button-form.component';
 import { AuthTypographyWithRedirectComponent } from './components/typography/auth-typography-with-redirect/auth-typography-with-redirect.component';
+import { SelectCityComponent } from './components/select/select-city/select-city.component';
+import { SelectCategoryComponent } from './components/select/select-category/select-category.component';
+import { SelectNumberComponent } from './components/select/select-number/select-number.component';
+import { AvatarPseudoComponent } from './components/avatar/avatar-pseudo/avatar-pseudo.component';
+import { TextareaComponent } from './components/form/textarea/textarea.component';
+import { HttpClientModule } from '@angular/common/http';
+import { CardComponent } from './components/card/card.component';
 
 @NgModule({
   declarations: [
@@ -25,8 +32,14 @@ import { AuthTypographyWithRedirectComponent } from './components/typography/aut
     DividerComponent,
     ButtonFormComponent,
     AuthTypographyWithRedirectComponent,
+    SelectCityComponent,
+    SelectCategoryComponent,
+    SelectNumberComponent,
+    AvatarPseudoComponent,
+    TextareaComponent,
+    CardComponent,
   ],
-  imports: [CommonModule, PrimengModule, FormsModule],
+  imports: [CommonModule, PrimengModule, FormsModule, HttpClientModule],
   exports: [
     PrimengModule,
     FormsModule,
@@ -40,6 +53,12 @@ import { AuthTypographyWithRedirectComponent } from './components/typography/aut
     DividerComponent,
     ButtonFormComponent,
     AuthTypographyWithRedirectComponent,
+    SelectCityComponent,
+    SelectCategoryComponent,
+    SelectNumberComponent,
+    AvatarPseudoComponent,
+    TextareaComponent,
+    CardComponent,
   ],
 })
 export class SharedModule {}
