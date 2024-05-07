@@ -4,6 +4,7 @@
         labelFor="username"
         labelContent="Pseudonyme :"
         type="text"
+        [form]="createAccount"
         id="username"
         name="username"
         [(ngModel)]="createdUser.username"
@@ -13,6 +14,7 @@
         labelFor="email"
         labelContent="Email :"
         type="text"
+        [form]="createAccount"
         id="email"
         name="email"
         [(ngModel)]="createdUser.email"
@@ -22,6 +24,7 @@
         labelFor="password"
         labelContent="Password :"
         id="password"
+        [form]="createAccount"
         name="password"
         [(ngModel)]="createdUser.password"
     ></app-password-field>
@@ -29,6 +32,7 @@
     <app-password-field
         labelFor="confirmation"
         labelContent="Confirmation du mot de passe :"
+        [form]="createAccount"
         id="confirmation"
         name="confirmation"
         [(ngModel)]="createdUser.confirmation"

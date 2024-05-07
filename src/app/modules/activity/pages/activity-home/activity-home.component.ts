@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 
 @Component({
@@ -7,10 +7,27 @@ import { NgForm } from '@angular/forms';
   styleUrl: './activity-home.component.scss',
 })
 export class ActivityHomeComponent {
-  formData: { activityTitle: string; activityDate: ''; activityHour: '' } = {
+  showModal: boolean = false;
+  formData: {
+    activityTitle: string;
+    activityDate: '';
+    activityHour: '';
+    activityCity: '';
+    activityCategory: '';
+    activityNumberGuest: '';
+    activityImg: '';
+    activityLink: '';
+    activityDescription: '';
+  } = {
     activityTitle: '',
     activityDate: '',
     activityHour: '',
+    activityCity: '',
+    activityCategory: '',
+    activityNumberGuest: '',
+    activityImg: '',
+    activityLink: '',
+    activityDescription: '',
   };
   onSubmit(form: NgForm): void {
     console.log('form value : ', form.value);
