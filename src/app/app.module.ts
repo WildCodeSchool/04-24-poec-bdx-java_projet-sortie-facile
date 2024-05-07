@@ -10,7 +10,12 @@ import { FormsModule } from '@angular/forms';
 import { CreateAccountComponent } from './modules/authentication/pages/create-account/create-account.component';
 
 @NgModule({
-  declarations: [AppComponent, PagenotfoundComponent, HeaderComponent, CreateAccountComponent],
+  declarations: [
+    AppComponent,
+    PagenotfoundComponent,
+    HeaderComponent,
+    CreateAccountComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
