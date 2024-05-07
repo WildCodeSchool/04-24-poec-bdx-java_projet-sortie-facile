@@ -10,9 +10,9 @@
     (ngModelChange)="onInputChange($event)"
     (focus)="markAsTouched()"
     #ref="ngModel"
-    [required]="true"
-    [minlength]="8"
-    [maxlength]="20"
+    [required]="required"
+    [minlength]="minlength"
+    [maxlength]="maxlength"
   />
 
   <div *ngIf="ref.errors && form.submitted">

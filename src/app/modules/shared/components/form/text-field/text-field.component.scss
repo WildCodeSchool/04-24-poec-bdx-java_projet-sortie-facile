@@ -6,8 +6,9 @@
 }
 
 label {
-  color: var(--font-family-primary);
+  font-family: var(--font-family-primary);
   margin-bottom: 0.4rem;
+  color: var(--black-color);
 }
 
 .p-inputtext {

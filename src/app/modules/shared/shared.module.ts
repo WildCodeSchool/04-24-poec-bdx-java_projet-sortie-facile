@@ -8,6 +8,10 @@ import { FieldErrorComponent } from './components/form/field-error/field-error.c
 import { ModalComponent } from './components/modal/modal/modal.component';
 import { InputDateComponent } from './components/date/input-date/input-date.component';
 import { InputHourComponent } from './components/date/input-hour/input-hour.component';
+import { ButtonSocialComponent } from './components/button/button-social/button-social.component';
+import { DividerComponent } from './components/divider/divider.component';
+import { ButtonFormComponent } from './components/button/button-form/button-form.component';
+import { AuthTypographyWithRedirectComponent } from './components/typography/auth-typography-with-redirect/auth-typography-with-redirect.component';
 import { SelectCityComponent } from './components/select/select-city/select-city.component';
 import { SelectCategoryComponent } from './components/select/select-category/select-category.component';
 import { SelectNumberComponent } from './components/select/select-number/select-number.component';
@@ -24,6 +28,10 @@ import { CardComponent } from './components/card/card.component';
     ModalComponent,
     InputDateComponent,
     InputHourComponent,
+    ButtonSocialComponent,
+    DividerComponent,
+    ButtonFormComponent,
+    AuthTypographyWithRedirectComponent,
     SelectCityComponent,
     SelectCategoryComponent,
     SelectNumberComponent,
@@ -41,6 +49,10 @@ import { CardComponent } from './components/card/card.component';
     ModalComponent,
     InputDateComponent,
     InputHourComponent,
+    ButtonSocialComponent,
+    DividerComponent,
+    ButtonFormComponent,
+    AuthTypographyWithRedirectComponent,
     SelectCityComponent,
     SelectCategoryComponent,
     SelectNumberComponent,

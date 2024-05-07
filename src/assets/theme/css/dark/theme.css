@@ -295,7 +295,7 @@
     box-sizing: border-box;
   }
   .p-component {
-    font-family: var(--font-family);
+    font-family: var(--font-family-primary);
     font-feature-settings: var(--font-feature-settings, normal);
     font-size: 1rem;
     font-weight: normal;
@@ -304,7 +304,8 @@
     background-color: rgba(0, 0, 0, 0.4);
     transition-duration: 0.2s;
   }
-  .p-disabled, .p-component:disabled {
+  .p-disabled,
+  .p-component:disabled {
     opacity: 0.6;
   }
   .p-error {
@@ -321,7 +322,7 @@
     height: 1rem;
   }
   .p-link {
-    font-family: var(--font-family);
+    font-family: var(--font-family-primary);
     font-feature-settings: var(--font-feature-settings, normal);
     font-size: 1rem;
     border-radius: 6px;
@@ -376,7 +377,7 @@
     padding: 0.25rem 0;
   }
   .p-autocomplete .p-autocomplete-multiple-container .p-autocomplete-input-token input {
-    font-family: var(--font-family);
+    font-family: var(--font-family-primary);
     font-feature-settings: var(--font-feature-settings, normal);
     font-size: 1rem;
     color: #ffffff;
@@ -893,7 +894,7 @@
     padding: 0.25rem 0;
   }
   .p-chips .p-chips-multiple-container .p-chips-input-token input {
-    font-family: var(--font-family);
+    font-family: var(--font-family-primary);
     font-feature-settings: var(--font-feature-settings, normal);
     font-size: 1rem;
     color: #ffffff;
@@ -1203,7 +1204,7 @@
     border-color: #fca5a5;
   }
   .p-inputtext {
-    font-family: var(--font-family);
+    font-family: var(--font-family-primary);
     font-feature-settings: var(--font-feature-settings, normal);
     font-size: 1rem;
     color: #ffffff;
@@ -1539,6 +1540,7 @@
     border-color: #fca5a5;
   }
   .p-password-panel {
+    display: none;
     padding: 0 1.125rem 1.125rem 1.125rem;
     background: #18181b;
     color: #ffffff;
@@ -6138,7 +6140,7 @@
     padding: 0 1.125rem 1.125rem 1.125rem;
   }
   .p-terminal .p-terminal-input {
-    font-family: var(--font-family);
+    font-family: var(--font-family-primary);
     font-feature-settings: var(--font-feature-settings, normal);
     font-size: 1rem;
   }

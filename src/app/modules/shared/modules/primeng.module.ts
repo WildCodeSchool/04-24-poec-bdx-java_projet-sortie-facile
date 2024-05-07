@@ -7,6 +7,7 @@ import { MessageModule } from 'primeng/message';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { ToastModule } from 'primeng/toast';
 import { CalendarModule } from 'primeng/calendar';
+import { DividerModule } from 'primeng/divider';
 import { DropdownModule } from 'primeng/dropdown';
 import { InputNumberModule } from 'primeng/inputnumber';
 import { ChipModule } from 'primeng/chip';
@@ -22,6 +23,7 @@ import { CardModule } from 'primeng/card';
     ConfirmDialogModule,
     ToastModule,
     CalendarModule,
+    DividerModule,
     DropdownModule,
     InputNumberModule,
     ChipModule,
