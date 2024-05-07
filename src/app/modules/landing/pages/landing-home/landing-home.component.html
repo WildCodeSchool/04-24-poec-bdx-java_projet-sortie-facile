@@ -27,37 +27,16 @@
     <h3>Fonctionnement</h3>
 
     <div class="functioning-list">
-      <div class="functioning-card">
-        <div class="img-box">
-          <img src="assets/photos/activity-discover.svg" alt="" />
-        </div>
-
-        <div class="functioning-card-body">
-          <h4>Découvrir les activités</h4>
-          <p>
-            Danish jelly chocolate bar lollipop cupcake chocolate cake danish
-            oat cake cotton candy. Jujubes soufflé lollipop candy canes marzipan
-            jelly-o fruitcake caramels.
-          </p>
-          <a [routerLink]="['/']">Découvrir les activités disponibles</a>
-        </div>
-      </div>
-
-      <div class="functioning-card">
-        <div class="img-box">
-          <img src="assets/photos/activity-create.svg" alt="" />
-        </div>
-
-        <div class="functioning-card-body">
-          <h4>Créer une activité</h4>
-          <p>
-            Danish jelly chocolate bar lollipop cupcake chocolate cake danish
-            oat cake cotton candy. Jujubes soufflé lollipop candy canes marzipan
-            jelly-o fruitcake caramels.
-          </p>
-          <a [routerLink]="['/']">Ajouter une activité</a>
-        </div>
-      </div>
+      <ng-container *ngFor="let functioningData of functioningDatas">
+        <app-card-landing-small
+          [imgSrc]="functioningData.imgSrc"
+          [imgAlt]="functioningData.imgAlt"
+          [title]="functioningData.title"
+          [description]="functioningData.description"
+          [link]="functioningData.link"
+          [linkLabel]="functioningData.linkLabel"
+        ></app-card-landing-small>
+      </ng-container>
     </div>
   </div>
 
