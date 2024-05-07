@@ -18,10 +18,6 @@ export class CreateAccountComponent {
 
   onSubmit(form: NgForm) {
     console.log(form.value);
-    this.createdUser.username = "";
-    this.createdUser.email = "";
-    this.createdUser.password = "";
-    this.createdUser.confirmation = "";
   }
 
 }
