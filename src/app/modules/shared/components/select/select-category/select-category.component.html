@@ -1,0 +1,10 @@
+<div class="card flex justify-content-center">
+  <p-dropdown
+    [options]="categories"
+    [(ngModel)]="selectedCategory"
+    optionLabel="name"
+    placeholder="Select a Category"
+    (ngModelChange)="onInputChange($event)"
+    (focus)="markAsTouched()"
+  />
+</div>
