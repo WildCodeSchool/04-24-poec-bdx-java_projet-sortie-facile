@@ -6,7 +6,7 @@ import { Component, Input } from '@angular/core';
   styleUrl: './auth-typography-with-redirect.component.scss',
 })
 export class AuthTypographyWithRedirectComponent {
-  @Input() text!: string;
-  @Input() linkLabel!: string;
-  @Input() link!: string | any[] | null | undefined;
+  @Input({ required: true }) text!: string;
+  @Input({ required: true }) linkLabel!: string;
+  @Input({ required: true }) link!: string | any[] | null | undefined;
 }

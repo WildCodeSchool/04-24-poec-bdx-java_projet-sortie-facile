@@ -6,7 +6,7 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrl: './button-social.component.scss',
 })
 export class ButtonSocialComponent implements OnInit {
-  @Input() providerName!: string;
+  @Input({ required: true }) providerName!: string;
   label!: string;
   icon!: string;
 

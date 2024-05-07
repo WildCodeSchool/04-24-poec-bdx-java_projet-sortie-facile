@@ -6,7 +6,7 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrl: './button-form.component.scss',
 })
 export class ButtonFormComponent implements OnInit {
-  @Input() iconName!: string;
+  @Input({ required: true }) iconName!: string;
   icon!: string;
 
   ngOnInit(): void {

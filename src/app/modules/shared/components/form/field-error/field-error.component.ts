@@ -7,7 +7,7 @@ import { NgModel } from '@angular/forms';
   styleUrl: './field-error.component.scss',
 })
 export class FieldErrorComponent implements OnInit {
-  @Input() ref!: NgModel;
+  @Input({ required: true }) ref!: NgModel;
 
   errorMessages: any = {
     required: { message: 'Ce champs est requis' },

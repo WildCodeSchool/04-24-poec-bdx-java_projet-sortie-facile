@@ -13,6 +13,6 @@ export class DividerComponent {
     | 'bottom'
     | 'right';
 
-  @Input({ required: true }) type: 'dashed' | 'dotted' | 'solid' = 'solid';
+  @Input() type: 'dashed' | 'dotted' | 'solid' = 'solid';
   @Input() text!: string;
 }
