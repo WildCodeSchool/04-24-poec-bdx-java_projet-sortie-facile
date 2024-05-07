@@ -20,6 +20,7 @@ import { TextareaComponent } from './components/form/textarea/textarea.component
 import { HttpClientModule } from '@angular/common/http';
 import { CardComponent } from './components/card/card.component';
 import { CardLandingSmallComponent } from './components/cards/card-landing-small/card-landing-small.component';
+import { CardLandingLargeComponent } from './components/cards/card-landing-large/card-landing-large.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { CardLandingSmallComponent } from './components/cards/card-landing-small
     TextareaComponent,
     CardComponent,
     CardLandingSmallComponent,
+    CardLandingLargeComponent,
   ],
   imports: [CommonModule, PrimengModule, FormsModule, HttpClientModule],
   exports: [
@@ -62,6 +64,7 @@ import { CardLandingSmallComponent } from './components/cards/card-landing-small
     TextareaComponent,
     CardComponent,
     CardLandingSmallComponent,
+    CardLandingLargeComponent,
   ],
 })
 export class SharedModule {}
