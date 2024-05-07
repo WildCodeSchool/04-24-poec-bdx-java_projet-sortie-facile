@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { connectedUserDatas } from '../../../shared/models/types/connectedUserDatas.model';
+import { AuthService } from '../../../shared/services/auth/auth.service';
 
 @Component({
   selector: 'app-auth-login',
@@ -20,7 +21,16 @@ export class AuthLoginComponent {
     email: '',
   };
 
+  constructor(private authService: AuthService) {}
+
   onSubmit(form: NgForm): void {
-    console.log(form.value);
+    console.log('form values', form.value);
+
+    this.authService
+      .loginWithEmailAndPassword(
+        this.connectedUser.username,
+        this.connectedUser.password
+      )
+      .subscribe((users) => console.log('ok', users));
   }
 }

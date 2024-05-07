@@ -6,7 +6,7 @@ import { NgModel } from '@angular/forms';
   templateUrl: './field-error.component.html',
   styleUrl: './field-error.component.scss',
 })
-export class FieldErrorComponent implements OnInit {
+export class FieldErrorComponent {
   @Input({ required: true }) ref!: NgModel;
 
   errorMessages: any = {
@@ -15,8 +15,4 @@ export class FieldErrorComponent implements OnInit {
     maxlength: { message: 'Ce champs doit comporter 20 caractère maximum' },
     email: { message: "Votre email n'est pas au bon format" },
   };
-
-  ngOnInit(): void {
-    console.log(this.ref);
-  }
 }
