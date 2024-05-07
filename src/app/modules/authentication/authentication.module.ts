@@ -7,7 +7,6 @@ import { SharedModule } from '../shared/shared.module';
 import { FormsModule } from '@angular/forms';
 import { ProfileAccountComponent } from './pages/profile-account/profile-account.component';
 
-
 @NgModule({
   declarations: [
     AuthLoginComponent,

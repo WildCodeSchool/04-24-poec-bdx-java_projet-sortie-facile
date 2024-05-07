@@ -7,6 +7,7 @@ import { PasswordFieldComponent } from './components/form/password-field/passwor
 import { ModalComponent } from './components/modal/modal/modal.component';
 import { InputDateComponent } from './components/date/input-date/input-date.component';
 import { InputHourComponent } from './components/date/input-hour/input-hour.component';
+import { DropzoneFieldComponent } from './components/form/dropzone-field/dropzone-field.component';
 @NgModule({
   declarations: [
     TextFieldComponent,
@@ -14,6 +15,7 @@ import { InputHourComponent } from './components/date/input-hour/input-hour.comp
     ModalComponent,
     InputDateComponent,
     InputHourComponent,
+    DropzoneFieldComponent,
   ],
   imports: [CommonModule, PrimengModule, FormsModule],
   exports: [
