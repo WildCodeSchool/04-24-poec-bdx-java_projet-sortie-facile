@@ -8,6 +8,10 @@ import { ModalComponent } from './components/modal/modal/modal.component';
 import { InputDateComponent } from './components/date/input-date/input-date.component';
 import { InputHourComponent } from './components/date/input-hour/input-hour.component';
 import { DropzoneFieldComponent } from './components/form/dropzone-field/dropzone-field.component';
+import { ToastModule } from 'primeng/toast';
+import { TextareaFieldComponent } from './components/form/textarea-field/textarea-field.component';
+
+
 @NgModule({
   declarations: [
     TextFieldComponent,
@@ -16,16 +20,24 @@ import { DropzoneFieldComponent } from './components/form/dropzone-field/dropzon
     InputDateComponent,
     InputHourComponent,
     DropzoneFieldComponent,
+    TextareaFieldComponent,
   ],
-  imports: [CommonModule, PrimengModule, FormsModule],
+  imports: [
+    CommonModule,
+    PrimengModule, 
+    FormsModule, 
+    ToastModule,
+  ],
   exports: [
     PrimengModule,
     FormsModule,
     TextFieldComponent,
     PasswordFieldComponent,
+    DropzoneFieldComponent,
     ModalComponent,
     InputDateComponent,
     InputHourComponent,
+    TextareaFieldComponent
   ],
 })
 export class SharedModule {}

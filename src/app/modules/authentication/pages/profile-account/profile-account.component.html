@@ -1,3 +1,33 @@
-
+<!-- 
 <form #profileAccount="ngForm" (ngSubmit)="onSubmit(profileAccount)">
-</form>
+    <div class="flex-auto">
+        <label for="calendar-24h" class="font-bold block mb-2"> 24h Format </label>
+        <p-calendar
+          inputId="calendar-24h"
+          [(ngModel)]="datetime24h"
+          (ngModelChange)="onInputChange($event)"
+          (focus)="markAsTouched()"
+        />
+      </div>
+    
+    <app-text-field
+        labelFor="email"
+        labelContent="Email :"
+        type="text"
+        id="email"
+        name="email"
+        [(ngModel)]="createdUser.email"
+    ></app-text-field>
+    <app-text-field
+        labelFor="email"
+        labelContent="Email :"
+        type="text"
+        id="email"
+        name="email"
+        [(ngModel)]="createdUser.email"
+    ></app-text-field>
+
+    <div class="btn-container">
+        <p-button type="submit" icon="pi pi-arrow-right"></p-button>
+    </div>
+</form> -->

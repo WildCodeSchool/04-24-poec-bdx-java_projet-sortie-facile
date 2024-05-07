@@ -16,7 +16,7 @@ import { CreateAccountComponent } from './modules/authentication/pages/create-ac
     AppRoutingModule,
     BrowserAnimationsModule,
     SharedModule,
-    FormsModule
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

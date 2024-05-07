@@ -6,6 +6,8 @@ import { PasswordModule } from 'primeng/password';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { ToastModule } from 'primeng/toast';
 import { CalendarModule } from 'primeng/calendar';
+import { FileUploadModule } from 'primeng/fileupload';
+import { InputTextareaModule } from 'primeng/inputtextarea';
 
 @NgModule({
   exports: [
@@ -16,6 +18,8 @@ import { CalendarModule } from 'primeng/calendar';
     ConfirmDialogModule,
     ToastModule,
     CalendarModule,
+    FileUploadModule,
+    InputTextareaModule,
   ],
 })
 export class PrimengModule {}
