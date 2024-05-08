@@ -1,3 +1,6 @@
+<p>date-field works!</p>
 <div class="card flex justify-content-center">
-    <p-calendar [(ngModel)]="date" />
+    <form [formGroup]="formGroup">
+        <p-calendar formControlName="date" />
+    </form>
 </div>

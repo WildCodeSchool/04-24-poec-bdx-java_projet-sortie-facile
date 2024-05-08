@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-date-field',
@@ -6,5 +7,12 @@ import { Component } from '@angular/core';
   styleUrl: './date-field.component.scss'
 })
 export class DateFieldComponent {
-  date: Date | undefined;
+
+  formGroup!: FormGroup;
+
+    ngOnInit() {
+        this.formGroup = new FormGroup({
+            date: new FormControl<Date | null>(null)
+        });
+    } 
 }
