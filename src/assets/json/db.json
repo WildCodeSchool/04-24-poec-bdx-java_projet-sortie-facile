@@ -1,18 +1,18 @@
 {
-  "user": [ 
-     {
+  "user": [
+    {
       "'id": 1,
-    "username": "johndoe",
-    "email": "j.doe@mail.com",
-    "password": "incorrect",
-    "role": "admin"
+      "username": "johndoe",
+      "email": "j.doe@mail.com",
+      "password": "incorrect",
+      "role": "admin"
     },
     {
       "'id": 2,
-    "username": "janedoe",
-    "email": "jane.doe@mail.com",
-    "password": "incorrect",
-    "role": "user"
+      "username": "janedoe",
+      "email": "jane.doe@mail.com",
+      "password": "incorrect",
+      "role": "user"
     },
     {
       "'id": 3,
@@ -127,10 +127,11 @@
       "city": "Lyon",
       "date": "2021-12-12",
       "age": 18,
-      "photo": "https://static5.depositphotos.com/1037262/443/i/380/depositphotos_4436189-stock-photo-paradise-beach.jpg",
+      "imgUrl": "https://static5.depositphotos.com/1037262/443/i/380/depositphotos_4436189-stock-photo-paradise-beach.jpg",
       "link": "www.trouloulou.com",
       "description": "trouloulou is a great activity for everyone",
-      "nbGuest": 10
+      "nbGuest": 10,
+      "category": "sport"
     },
     {
       "id": 2,
@@ -139,10 +140,11 @@
       "city": "Montaigue de Quercy",
       "date": "2021-12-12",
       "age": 18,
-      "photo": "https://static5.depositphotos.com/1037262/443/i/380/depositphotos_4436189-stock-photo-paradise-beach.jpg",
+      "imgUrl": "https://static5.depositphotos.com/1037262/443/i/380/depositphotos_4436189-stock-photo-paradise-beach.jpg",
       "link": "www.tralala.com",
       "description": "tralala is a great activity for everyone",
-      "nbGuest": 10
+      "nbGuest": 10,
+      "category": "sport"
     },
     {
       "id": 3,
@@ -151,10 +153,11 @@
       "city": "Payolle",
       "date": "2021-12-12",
       "age": 18,
-      "photo": "https://static5.depositphotos.com/1037262/443/i/380/depositphotos_4436189-stock-photo-paradise-beach.jpg",
+      "imgUrl": "https://static5.depositphotos.com/1037262/443/i/380/depositphotos_4436189-stock-photo-paradise-beach.jpg",
       "link": "www.trilili.com",
       "description": "trilili is a great activity for everyone",
-      "nbGuest": 10
+      "nbGuest": 10,
+      "category": "sport"
     },
     {
       "id": 4,
@@ -163,10 +166,11 @@
       "city": "Payolle",
       "date": "2021-12-12",
       "age": 18,
-      "photo": "https://static5.depositphotos.com/1037262/443/i/380/depositphotos_4436189-stock-photo-paradise-beach.jpg",
+      "imgUrl": "https://static5.depositphotos.com/1037262/443/i/380/depositphotos_4436189-stock-photo-paradise-beach.jpg",
       "link": "www.trelele.com",
       "description": "trelele is a great activity for everyone",
-      "nbGuest": 10
+      "nbGuest": 10,
+      "category": "sport"
     }
   ]
 }

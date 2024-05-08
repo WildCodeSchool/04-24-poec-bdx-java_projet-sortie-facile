@@ -13,10 +13,17 @@ export class ActivityDetailsComponent {
     this.activity = {
       id: '1',
       name: 'foot amateur',
-      description: 'Venez taper dasn la balle pour un match amicale',
-      category: 'sport',
+      departement: 'Rhône',
+      city: 'Lyon',
+      date: '2021-12-12',
+      age: 18,
       imgUrl:
-        ' /assets/photos/joueur-football-masculin-ballon-terrain-herbe.jpg',
+        'src/assets/photos/joueur-football-masculin-ballon-terrain-herbe.jpg',
+      link: 'www.trouloulou.com',
+      description: 'Venez taper dasn la balle pour un match amicale',
+      nbGuest: 10,
+
+      category: 'sport',
     };
   }
 }
