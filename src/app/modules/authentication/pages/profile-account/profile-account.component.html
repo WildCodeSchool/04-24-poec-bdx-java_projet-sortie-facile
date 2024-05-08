@@ -1,33 +1,58 @@
-<!-- 
+
 <form #profileAccount="ngForm" (ngSubmit)="onSubmit(profileAccount)">
-    <div class="flex-auto">
-        <label for="calendar-24h" class="font-bold block mb-2"> 24h Format </label>
-        <p-calendar
-          inputId="calendar-24h"
-          [(ngModel)]="datetime24h"
-          (ngModelChange)="onInputChange($event)"
-          (focus)="markAsTouched()"
-        />
-      </div>
     
+    <app-date-field
+        labelFor="birthDate"
+        labelContent="Date de naissance :"
+        id="birthDate"
+        name="birthDate"
+        [(ngModel)]="newProfile.birthdate"
+    ></app-date-field>
+
     <app-text-field
-        labelFor="email"
-        labelContent="Email :"
+        labelFor="firstname"
+        labelContent="Prénom :"
         type="text"
-        id="email"
-        name="email"
-        [(ngModel)]="createdUser.email"
+        id="firstname"
+        name="firstname"
+        [(ngModel)]="newProfile.firstname"
     ></app-text-field>
+
     <app-text-field
-        labelFor="email"
-        labelContent="Email :"
+        labelFor="lastname"
+        labelContent="Nom :"
         type="text"
-        id="email"
-        name="email"
-        [(ngModel)]="createdUser.email"
+        id="lastname"
+        name="lastname"
+        [(ngModel)]="newProfile.lastname"
     ></app-text-field>
+
+    <app-text-field
+        labelFor="city"
+        labelContent="Ville :"
+        type="text"
+        id="city"
+        name="city"
+        [(ngModel)]="newProfile.city"
+    ></app-text-field>
+
+    <app-dropzone-field
+        labelFor="avatar"
+        labelContent="Avatar :"
+        id="avatar"
+        name="avatar"
+        [(ngModel)]="newProfile.avatar"
+    ></app-dropzone-field>
+
+    <app-textarea-field
+        labelFor="description"
+        labelContent="Description :"
+        id="description"
+        name="description"
+        [(ngModel)]="newProfile.description"
+        ></app-textarea-field>
 
     <div class="btn-container">
         <p-button type="submit" icon="pi pi-arrow-right"></p-button>
     </div>
-</form> -->
+</form> 

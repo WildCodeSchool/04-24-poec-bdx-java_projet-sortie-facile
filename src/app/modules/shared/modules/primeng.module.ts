@@ -14,6 +14,7 @@ import { DropdownModule } from 'primeng/dropdown';
 import { InputNumberModule } from 'primeng/inputnumber';
 import { ChipModule } from 'primeng/chip';
 import { CardModule } from 'primeng/card';
+import { DragDropModule } from 'primeng/dragdrop';
 
 @NgModule({
   exports: [
@@ -32,6 +33,8 @@ import { CardModule } from 'primeng/card';
     InputNumberModule,
     ChipModule,
     CardModule,
+    CalendarModule,
+    DragDropModule
   ],
 })
 export class PrimengModule {}

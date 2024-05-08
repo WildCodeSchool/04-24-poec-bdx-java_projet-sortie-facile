@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { newProfile } from '../../../shared/models/types/newProfile.type';
 
 @Component({
   selector: 'app-profile-account',
@@ -7,6 +8,15 @@ import { NgForm } from '@angular/forms';
   styleUrl: './profile-account.component.scss'
 })
 export class ProfileAccountComponent {
+
+  newProfile: newProfile = {
+    birthdate: new Date(),
+    firstname: '',
+    lastname: '',
+    city: '',
+    avatar: new File([], ''),
+    description: ''
+  };
 
   onSubmit(form: NgForm) {
     console.log(form.value);
