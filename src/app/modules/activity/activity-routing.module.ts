@@ -8,7 +8,7 @@ const routes: Routes = [
   // Dans le fichier account-routing.module.ts
   { path: 'home', component: ActivityHomeComponent },
   { path: 'list', component: ActivityListComponent },
-  { path: 'details', component: ActivityDetailsComponent },
+  { path: 'details/:id', component: ActivityDetailsComponent },
 ];
 
 @NgModule({

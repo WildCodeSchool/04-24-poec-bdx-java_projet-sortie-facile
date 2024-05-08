@@ -1,5 +1,5 @@
 export type Activity = {
-  id: string;
+  id: number;
   name: string;
   departement: string;
   city: string;
