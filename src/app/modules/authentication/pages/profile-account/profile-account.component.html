@@ -1,0 +1,58 @@
+
+<form #profileAccount="ngForm" (ngSubmit)="onSubmit(profileAccount)">
+    
+    <app-date-field
+        labelFor="birthDate"
+        labelContent="Date de naissance :"
+        id="birthDate"
+        name="birthDate"
+        [(ngModel)]="newProfile.birthdate"
+    ></app-date-field>
+
+    <app-text-field
+        labelFor="firstname"
+        labelContent="Prénom :"
+        type="text"
+        id="firstname"
+        name="firstname"
+        [(ngModel)]="newProfile.firstname"
+    ></app-text-field>
+
+    <app-text-field
+        labelFor="lastname"
+        labelContent="Nom :"
+        type="text"
+        id="lastname"
+        name="lastname"
+        [(ngModel)]="newProfile.lastname"
+    ></app-text-field>
+
+    <app-text-field
+        labelFor="city"
+        labelContent="Ville :"
+        type="text"
+        id="city"
+        name="city"
+        [(ngModel)]="newProfile.city"
+    ></app-text-field>
+
+    <app-dropzone-field
+        labelFor="avatar"
+        labelContent="Avatar :"
+        id="avatar"
+        name="avatar"
+        [(ngModel)]="newProfile.avatar"
+    ></app-dropzone-field>
+
+    <app-textarea-field
+        labelFor="description"
+        labelContent="Description :"
+        id="description"
+        name="description"
+        [(ngModel)]="newProfile.description"
+        ></app-textarea-field>
+
+    <div class="btn-container">
+        <p-button type="submit" icon="pi pi-arrow-right"></p-button>
+    </div>
+</form> 

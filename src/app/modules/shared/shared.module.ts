@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PrimengModule } from './modules/primeng.module';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TextFieldComponent } from './components/form/text-field/text-field.component';
 import { PasswordFieldComponent } from './components/form/password-field/password-field.component';
 import { FieldErrorComponent } from './components/form/field-error/field-error.component';
@@ -21,29 +21,39 @@ import { HttpClientModule } from '@angular/common/http';
 import { CardComponent } from './components/card/card.component';
 import { CardLandingSmallComponent } from './components/cards/card-landing-small/card-landing-small.component';
 import { CardLandingLargeComponent } from './components/cards/card-landing-large/card-landing-large.component';
+import { DropzoneFieldComponent } from './components/form/dropzone-field/dropzone-field.component';
+import { DateFieldComponent } from './components/form/date-field/date-field.component';
 
 @NgModule({
   declarations: [
-    TextFieldComponent,
-    PasswordFieldComponent,
-    FieldErrorComponent,
-    ModalComponent,
-    InputDateComponent,
-    InputHourComponent,
-    ButtonSocialComponent,
-    DividerComponent,
-    ButtonFormComponent,
     AuthTypographyWithRedirectComponent,
-    SelectCityComponent,
-    SelectCategoryComponent,
-    SelectNumberComponent,
     AvatarPseudoComponent,
-    TextareaComponent,
+    ButtonSocialComponent,
+    ButtonFormComponent,
     CardComponent,
     CardLandingSmallComponent,
     CardLandingLargeComponent,
+    DividerComponent,
+    DropzoneFieldComponent,
+    DateFieldComponent,
+    FieldErrorComponent,
+    InputDateComponent,
+    InputHourComponent,
+    ModalComponent,
+    PasswordFieldComponent,
+    SelectCityComponent,
+    SelectCategoryComponent,
+    SelectNumberComponent,
+    TextareaComponent,
+    TextFieldComponent,
   ],
-  imports: [CommonModule, PrimengModule, FormsModule, HttpClientModule],
+  imports: [
+    CommonModule, 
+    PrimengModule, 
+    FormsModule, 
+    HttpClientModule,
+    ReactiveFormsModule
+  ],
   exports: [
     PrimengModule,
     FormsModule,
@@ -65,6 +75,8 @@ import { CardLandingLargeComponent } from './components/cards/card-landing-large
     CardComponent,
     CardLandingSmallComponent,
     CardLandingLargeComponent,
+    DropzoneFieldComponent,
+    DateFieldComponent,
   ],
 })
 export class SharedModule {}
