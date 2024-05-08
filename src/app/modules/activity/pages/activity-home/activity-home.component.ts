@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivityService } from '../../../shared/services/activity.service';
 import { Observable } from 'rxjs';
@@ -14,28 +14,38 @@ export class ActivityHomeComponent {
   constructor(private activityService: ActivityService) {}
 
   formData: {
-    activityTitle: string;
-    activityDate: '';
-    activityHour: '';
-    activityCity: '';
-    activityCategory: '';
-    activityNumberGuest: '';
-    activityImg: '';
-    activityLink: '';
-    activityDescription: '';
+    name: string;
+    date: '';
+    hour: '';
+    city: '';
+    category: '';
+    nbGuest: '';
+    imgUrl: '';
+    link: '';
+    description: '';
   } = {
-    activityTitle: '',
-    activityDate: '',
-    activityHour: '',
-    activityCity: '',
-    activityCategory: '',
-    activityNumberGuest: '',
-    activityImg: '',
-    activityLink: '',
-    activityDescription: '',
+    name: '',
+    date: '',
+    hour: '',
+    city: '',
+    category: '',
+    nbGuest: '',
+    imgUrl: '',
+    link: '',
+    description: '',
   };
   onSubmit(form: NgForm): void {
     this.newActivity$ = this.activityService.postNewActivity$(form.value);
+    this.newActivity$.subscribe(
+      (data) => {
+        // En cas de succès
+        console.log('POST Request is successful ', data);
+      },
+      (error) => {
+        // En cas d'erreur
+        console.log('Error', error);
+      }
+    );
     console.log('form value : ', form.value);
   }
 }

@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Activity } from '../models/types/activity.type';
-import { Observable, map } from 'rxjs';
+import { Observable, catchError, map, tap } from 'rxjs';
 import { Activities } from '../models/types/activities.type';
 
 @Injectable({
@@ -25,9 +25,28 @@ export class ActivityService {
   }
 
   postNewActivity$(newActivity: Activity): Observable<Activity> {
-    return this.http.post<Activity>(
-      'http://localhost:3000/activity',
-      newActivity
-    );
+    return this.http
+      .post<Activity>('http://localhost:3000/activity', newActivity)
+      .pipe(
+        tap((data) => {
+          console.log('POST Request is successful ', data);
+        }),
+        catchError((error) => {
+          console.log('Error', error);
+          throw error;
+        })
+      );
   }
+
+  // deleteActivity(id: number): Observable<unknown> {
+  //   return this.http.delete(`http://localhost:3000/activity/${id}`).pipe(
+  //     tap((data) => {
+  //       console.log('POST Request is successful ', data);
+  //     }),
+  //     catchError((error) => {
+  //       console.log('Error', error);
+  //       throw error;
+  //     })
+  //   );
+  // }
 }
