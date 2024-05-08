@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { RouterLink } from '@angular/router';
 import { MenuItem } from 'primeng/api';
 
 @Component({
@@ -19,9 +20,11 @@ export class HeaderComponent {
         label: 'Contact',
         icon: 'pi pi-fw pi-pencil',
       },
+
       {
         label: 'Activités',
         icon: 'pi pi-fw pi-user',
+        routerLink: '/activity/home',
       },
     ];
   }

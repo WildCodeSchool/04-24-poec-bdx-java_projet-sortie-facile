@@ -15,4 +15,15 @@ export class ActivityService {
       .get<Activities>('assets/json/db.json')
       .pipe(map((response: Activities) => response.activity));
   }
+
+  getActivityById$(id: number): Observable<Activity> {
+    return this.getActivityList$().pipe(
+      map(
+        (activities: Activity[]) =>
+          activities.find(
+            (activity: Activity) => activity.id === id.toString()
+          ) as Activity
+      )
+    );
+  }
 }

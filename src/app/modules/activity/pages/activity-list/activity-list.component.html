@@ -1,7 +1,7 @@
 <p>activity-list works!</p>
-<!-- <div *ngIf="activityList$ | async as activities">
-  <div *ngFor="let activity of activities">
-    <p>{{ activity.name }}</p>
-    <p>{{ activity.category }}</p>
-  </div>
-</div> -->
+<div *ngIf="activityList$ | async as activities">
+  <app-activity-card
+    *ngFor="let activity of activities"
+    [activity]="activity"
+  ></app-activity-card>
+</div>

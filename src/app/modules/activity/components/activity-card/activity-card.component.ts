@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Activity } from '../../../shared/models/types/activity.type';
+import { Activities } from '../../../shared/models/types/activities.type';
 
 @Component({
   selector: 'app-activity-card',
@@ -8,4 +9,5 @@ import { Activity } from '../../../shared/models/types/activity.type';
 })
 export class ActivityCardComponent {
   @Input() activity!: Activity;
+  @Input() activities!: Activities;
 }

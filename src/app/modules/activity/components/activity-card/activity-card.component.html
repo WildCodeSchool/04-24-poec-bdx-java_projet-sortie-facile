@@ -1,8 +1,14 @@
 <p>activity-card works!</p>
 <div class="card">
   <p>{{ activity.name }}</p>
-
-  <p>{{ activity.category }}</p>
+  <p>{{ activity.departement }}</p>
+  <p>{{ activity.city }}</p>
+  <p>{{ activity.age }}</p>
+  <img [src]="activity.imgUrl" />
+  <p>{{ activity.link }}</p>
   <p>{{ activity.description }}</p>
+  <p>{{ activity.nbGuest }}</p>
+  <p>{{ activity.category }}</p>
   <!-- <button [routerLink]="['/videos', activity.id]">Voir Plus</button> -->
 </div>
+<app-card></app-card>
