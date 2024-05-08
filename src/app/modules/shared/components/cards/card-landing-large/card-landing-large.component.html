@@ -1,0 +1,26 @@
+<div class="participate">
+  <div class="participate-card-body">
+    <h4>{{ title }}</h4>
+    <p>
+      {{ description }}
+    </p>
+
+    <div class="btn-container">
+      <p-button
+        [label]="ctaPrimarylabel"
+        severity="primary"
+        [routerLink]="['/auth/register']"
+      ></p-button>
+
+      <p-button
+        [label]="ctaSecondarylabel"
+        [outlined]="true"
+        [routerLink]="['/auth/login']"
+      ></p-button>
+    </div>
+  </div>
+
+  <div class="img-box">
+    <img [src]="imgSrc" [alt]="imgAlt" />
+  </div>
+</div>

@@ -5,6 +5,11 @@ import { AdminModule } from './modules/admin/admin.module';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 const routes: Routes = [
   {
+    path: '',
+    loadChildren: () =>
+      import('./modules/landing/landing.module').then((m) => m.LandingModule),
+  },
+  {
     path: 'activity',
     loadChildren: () =>
       import('./modules/activity/activity.module').then(
