@@ -1,14 +1,21 @@
-<p>activity-card works!</p>
-<div class="card">
-  <p>{{ activity.name }}</p>
-  <p>{{ activity.departement }}</p>
-  <p>{{ activity.city }}</p>
-  <p>{{ activity.age }}</p>
-  <img [src]="activity.imgUrl" />
-  <p>{{ activity.link }}</p>
-  <p>{{ activity.description }}</p>
-  <p>{{ activity.nbGuest }}</p>
-  <p>{{ activity.category }}</p>
-  <!-- <button [routerLink]="['/videos', activity.id]">Voir Plus</button> -->
+<div class="activity-card-container">
+  <div class="card flex justify-content-center">
+    <p-card
+      [header]="activity.name"
+      subheader="Card Subheader"
+      [style]="{ width: '360px' }"
+    >
+      <ng-template pTemplate="header">
+        <img alt="{{ activity.name }}" [src]="activity.imgUrl" />
+      </ng-template>
+      <p>
+        {{ activity.description }}
+      </p>
+      <ng-template pTemplate="footer">
+        <button [routerLink]="['/activity/details', activity.id]">
+          Voir Plus
+        </button>
+      </ng-template>
+    </p-card>
+  </div>
 </div>
-<app-card></app-card>

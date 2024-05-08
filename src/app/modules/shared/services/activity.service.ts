@@ -9,7 +9,8 @@ import { Activities } from '../models/types/activities.type';
 })
 export class ActivityService {
   constructor(private http: HttpClient) {}
-
+  activity!: Activity;
+  activities!: Activity;
   getActivityList$(): Observable<Activity[]> {
     return this.http
       .get<Activities>('assets/json/db.json')
@@ -21,7 +22,7 @@ export class ActivityService {
       map(
         (activities: Activity[]) =>
           activities.find(
-            (activity: Activity) => activity.id === id.toString()
+            (activity: Activity) => activity.id === id
           ) as Activity
       )
     );

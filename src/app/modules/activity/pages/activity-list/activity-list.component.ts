@@ -10,6 +10,7 @@ import { ActivityService } from '../../../shared/services/activity.service';
 })
 export class ActivityListComponent implements OnInit {
   activityList$!: Observable<Activity[]>;
+  activity$!: Observable<Activity>;
 
   constructor(private activityService: ActivityService) {}
 
