@@ -9,46 +9,11 @@
 
   <div class="account-content">
     <div class="account-nav-mobile-box">
-      <p-tabMenu
-        [model]="items"
-        [activeItem]="activeItem"
-        (activeItemChange)="onActiveItemChange($event)"
-        [scrollable]="true"
-      />
+      <app-layout-nav-responsive></app-layout-nav-responsive>
     </div>
 
     <div class="account-nav-box">
-      <nav class="account-nav">
-        <ul>
-          <li class="selected">
-            <span>General</span>
-          </li>
-
-          <li>
-            <a [routerLink]="['/']">Edit profil</a>
-          </li>
-
-          <li>
-            <a [routerLink]="['/']">Password</a>
-          </li>
-
-          <li>
-            <a [routerLink]="['/']">Centres d’interêts </a>
-          </li>
-
-          <li>
-            <a [routerLink]="['/']">Notifications</a>
-          </li>
-
-          <li>
-            <a [routerLink]="['/']">Mes activités</a>
-          </li>
-
-          <li>
-            <a [routerLink]="['/']">Mon calendrier</a>
-          </li>
-        </ul>
-      </nav>
+      <app-layout-nav></app-layout-nav>
 
       <div class="delete-box">
         <a [routerLink]="['/']" class="delete-link">Supprimer mon compte </a>

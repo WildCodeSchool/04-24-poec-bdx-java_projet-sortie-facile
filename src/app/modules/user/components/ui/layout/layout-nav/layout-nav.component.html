@@ -1,0 +1,8 @@
+<nav class="layout-nav-container">
+  <ul *ngFor="let item of items">
+    <li [ngClass]="{ active: item.active }">
+      <span *ngIf="item.active">General</span>
+      <a *ngIf="!item.active" [routerLink]="[item.path]">{{ item.label }}</a>
+    </li>
+  </ul>
+</nav>

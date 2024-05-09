@@ -23,40 +23,14 @@
       min-width: fit-content;
     }
 
-    a {
-      text-decoration: none;
-      font-size: 0.95rem;
+    // a {
+    //   text-decoration: none;
+    //   font-size: 0.95rem;
 
-      &:hover {
-        text-decoration: underline;
-      }
-    }
-
-    .account-nav ul {
-      display: flex;
-      flex-direction: column;
-      gap: 1.1rem;
-      list-style: none;
-      padding: 0;
-
-      li {
-        display: flex;
-      }
-
-      a {
-        color: var(--black-color);
-        margin-left: 1.35rem;
-      }
-
-      .selected span {
-        background-color: #ebebec;
-        border-color: #ebebec;
-        color: var(--primary-color);
-        font-weight: 500;
-        border-radius: 30px;
-        padding: 0.75rem 1.35rem;
-      }
-    }
+    //   &:hover {
+    //     text-decoration: underline;
+    //   }
+    // }
 
     .delete-box {
       margin-left: 1.35rem;
@@ -72,57 +46,6 @@
 
     @media (min-width: 768px) {
       display: none;
-    }
-  }
-}
-
-:host ::ng-deep .p-tabmenu {
-  .p-tabmenu-nav {
-    background-color: transparent;
-    border-color: transparent;
-    justify-content: flex-start;
-
-    .p-tabmenuitem {
-      &.delete-item .p-menuitem-link .p-menuitem-text {
-        color: var(--danger-color);
-      }
-      .p-menuitem-link {
-        background-color: transparent;
-        border-color: transparent;
-      }
-
-      &.p-highlight .p-menuitem-link {
-        background-color: transparent;
-        border-color: var(--primary-color);
-
-        .p-menuitem-text {
-          color: var(--primary-color);
-          font-weight: 500;
-        }
-      }
-
-      .p-menuitem-link .p-menuitem-text {
-        color: var(--black-color);
-        font-size: 0.75rem;
-        font-weight: initial;
-      }
-    }
-  }
-
-  .p-tabmenu-nav-content {
-    background: transparent;
-    padding: 0;
-  }
-
-  .p-tabmenu-nav-btn {
-    background-color: var(--gray-500);
-    width: auto;
-    padding: 0.5rem;
-    color: var(--primary-color);
-    box-shadow: none;
-
-    &:focus {
-      outline: none;
     }
   }
 }
