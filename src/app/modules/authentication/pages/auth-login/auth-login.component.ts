@@ -16,9 +16,9 @@ export class AuthLoginComponent {
   ];
 
   connectedUser: connectedUserDatas = {
-    username: '',
-    password: '',
-    email: '',
+    username: 'johndoe',
+    password: '123456789',
+    email: 'j.doe@mail.com',
   };
 
   constructor(private authService: AuthService) {}
@@ -31,6 +31,8 @@ export class AuthLoginComponent {
         this.connectedUser.username,
         this.connectedUser.password
       )
-      .subscribe((users) => console.log('ok', users));
+      .subscribe((user) => {
+        localStorage.setItem('user', JSON.stringify(user));
+      });
   }
 }
