@@ -1,0 +1,50 @@
+:host ::ng-deep .p-tabmenu {
+  .p-tabmenu-nav {
+    background-color: transparent;
+    border-color: transparent;
+    justify-content: flex-start;
+
+    .p-tabmenuitem {
+      &.delete-item .p-menuitem-link .p-menuitem-text {
+        color: var(--danger-color);
+      }
+      .p-menuitem-link {
+        background-color: transparent;
+        border-color: transparent;
+      }
+
+      &.p-highlight .p-menuitem-link {
+        background-color: transparent;
+        border-color: var(--primary-color);
+
+        .p-menuitem-text {
+          color: var(--primary-color);
+          font-weight: 500;
+        }
+      }
+
+      .p-menuitem-link .p-menuitem-text {
+        color: var(--black-color);
+        font-size: 0.75rem;
+        font-weight: initial;
+      }
+    }
+  }
+
+  .p-tabmenu-nav-content {
+    background: transparent;
+    padding: 0;
+  }
+
+  .p-tabmenu-nav-btn {
+    background-color: var(--gray-500);
+    width: auto;
+    padding: 0.5rem;
+    color: var(--primary-color);
+    box-shadow: none;
+
+    &:focus {
+      outline: none;
+    }
+  }
+}
