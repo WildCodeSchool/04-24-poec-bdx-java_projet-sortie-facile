@@ -48,11 +48,11 @@ import { DateFieldComponent } from './components/form/date-field/date-field.comp
     TextFieldComponent,
   ],
   imports: [
-    CommonModule, 
-    PrimengModule, 
-    FormsModule, 
+    CommonModule,
+    PrimengModule,
+    FormsModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   exports: [
     PrimengModule,

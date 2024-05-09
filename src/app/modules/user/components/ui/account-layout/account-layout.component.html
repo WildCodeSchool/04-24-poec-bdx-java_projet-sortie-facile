@@ -15,6 +15,15 @@
   </div>
 
   <div class="account-content">
+    <div class="account-nav-mobile-box">
+      <p-tabMenu
+        [model]="items"
+        [activeItem]="activeItem"
+        (activeItemChange)="onActiveItemChange($event)"
+        [scrollable]="true"
+      />
+    </div>
+
     <div class="account-nav-box">
       <nav class="account-nav">
         <ul>
