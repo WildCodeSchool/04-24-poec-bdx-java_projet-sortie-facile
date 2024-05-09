@@ -3,8 +3,6 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-user-activities',
   templateUrl: './user-activities.component.html',
-  styleUrl: './user-activities.component.scss'
+  styleUrl: './user-activities.component.scss',
 })
-export class UserActivitiesComponent {
-
-}
+export class UserActivitiesComponent {}

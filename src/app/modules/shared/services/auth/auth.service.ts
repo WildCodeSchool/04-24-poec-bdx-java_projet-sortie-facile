@@ -12,6 +12,8 @@ import { Router } from '@angular/router';
   providedIn: 'root',
 })
 export class AuthService {
+  private _userConnected!: UserAuthPrimaryDatas;
+
   constructor(private _httpClient: HttpClient, private _router: Router) {}
 
   loginWithEmailAndPassword(
@@ -34,7 +36,8 @@ export class AuthService {
           email: user.email,
           role: user.role,
         })),
-        tap(() => {
+        tap((user: UserAuthPrimaryDatas) => {
+          this.setConnectedUserData(user);
           this._redirectUser();
         })
       );
@@ -44,7 +47,15 @@ export class AuthService {
     console.log('created ok');
   }
 
-  private _redirectUser() {
+  public getConnectedUserData(): UserAuthPrimaryDatas {
+    return this._userConnected;
+  }
+
+  public setConnectedUserData(user: UserAuthPrimaryDatas): void {
+    this._userConnected = user;
+  }
+
+  private _redirectUser(): void {
     this._router.navigateByUrl('/user/home');
   }
 }
