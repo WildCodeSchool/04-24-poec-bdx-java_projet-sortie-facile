@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { ActivityModule } from './modules/activity/activity.module';
 import { AdminModule } from './modules/admin/admin.module';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
+
 const routes: Routes = [
   {
     path: '',

@@ -7,15 +7,44 @@ import { UserCenterOfInterestComponent } from './pages/user-center-of-interest/u
 import { UserNotificationComponent } from './pages/user-notification/user-notification.component';
 import { UserActivitiesComponent } from './pages/user-activities/user-activities.component';
 import { UserCalendarComponent } from './pages/user-calendar/user-calendar.component';
+import { isConnectedGuard } from '../shared/guards/is-connected/is-connected.guard';
 
 const routes: Routes = [
-  { path: 'home', component: UserHomeComponent },
-  { path: 'profile', component: UserProfileComponent },
-  { path: 'password', component: UserPasswordComponent },
-  { path: 'center-of-interests', component: UserCenterOfInterestComponent },
-  { path: 'notification', component: UserNotificationComponent },
-  { path: 'activities', component: UserActivitiesComponent },
-  { path: 'calendar', component: UserCalendarComponent },
+  {
+    path: 'home',
+    component: UserHomeComponent,
+    canActivate: [isConnectedGuard],
+  },
+  {
+    path: 'profile',
+    component: UserProfileComponent,
+    canActivate: [isConnectedGuard],
+  },
+  {
+    path: 'password',
+    component: UserPasswordComponent,
+    canActivate: [isConnectedGuard],
+  },
+  {
+    path: 'center-of-interests',
+    component: UserCenterOfInterestComponent,
+    canActivate: [isConnectedGuard],
+  },
+  {
+    path: 'notification',
+    component: UserNotificationComponent,
+    canActivate: [isConnectedGuard],
+  },
+  {
+    path: 'activities',
+    component: UserActivitiesComponent,
+    canActivate: [isConnectedGuard],
+  },
+  {
+    path: 'calendar',
+    component: UserCalendarComponent,
+    canActivate: [isConnectedGuard],
+  },
 ];
 
 @NgModule({
