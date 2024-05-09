@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { MenuItem } from 'primeng/api';
 
 @Component({
@@ -7,6 +7,12 @@ import { MenuItem } from 'primeng/api';
   styleUrl: './account-layout.component.scss',
 })
 export class AccountLayoutComponent implements OnInit {
+  @Input() avatarSrc!: string;
+  @Input() avatarAlt!: string;
+  @Input() username!: string;
+  @Input() pageTitle!: string;
+  @Input() pageDescription!: string;
+
   items: MenuItem[] | undefined;
   activeItem: MenuItem | undefined;
 

@@ -23,14 +23,14 @@
       min-width: fit-content;
     }
 
-    // a {
-    //   text-decoration: none;
-    //   font-size: 0.95rem;
+    a {
+      text-decoration: none;
+      font-size: 0.95rem;
 
-    //   &:hover {
-    //     text-decoration: underline;
-    //   }
-    // }
+      &:hover {
+        text-decoration: underline;
+      }
+    }
 
     .delete-box {
       margin-left: 1.35rem;

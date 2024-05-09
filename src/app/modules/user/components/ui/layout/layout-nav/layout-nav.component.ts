@@ -11,13 +11,17 @@ export class LayoutNavComponent implements OnInit {
 
   ngOnInit(): void {
     this.items = [
-      { label: 'General', path: '/', active: true },
-      { label: 'Edit profil', path: '/', active: false },
-      { label: 'Password', path: '/', active: false },
-      { label: 'Centres d’interêts', path: '/', active: false },
-      { label: 'Notifications', path: '/', active: false },
-      { label: 'Mes activités', path: '/', active: false },
-      { label: 'Mon calendrier', path: '/', active: false },
+      { label: 'General', path: '/user/home', active: true },
+      { label: 'profil', path: '/user/profile', active: false },
+      { label: 'Mot de passe', path: '/user/password', active: false },
+      {
+        label: 'Centres d’interêts',
+        path: '/user/center-of-interests',
+        active: false,
+      },
+      { label: 'Notifications', path: '/user/notification', active: false },
+      { label: 'Mes activités', path: '/user/activities', active: false },
+      { label: 'Mon calendrier', path: '/user/calendar', active: false },
     ];
   }
 }
