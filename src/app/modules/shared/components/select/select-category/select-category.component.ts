@@ -1,6 +1,9 @@
 import { Component, Input, forwardRef } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { Category } from '../../../models/types/category.type';
+import { ActivityService } from '../../../services/activity.service';
+import { Observable, map } from 'rxjs';
+import { ActivatedRoute, ActivatedRouteSnapshot } from '@angular/router';
 
 @Component({
   selector: 'app-select-category',
@@ -16,17 +19,19 @@ import { Category } from '../../../models/types/category.type';
 })
 export class SelectCategoryComponent implements ControlValueAccessor {
   categories!: Category[];
-
+  category$!: Observable<Category>;
+  activityCategoryList$!: Observable<Category[]>;
   selectedCategory!: Category;
+  constructor(
+    private activityService: ActivityService,
+    private route: ActivatedRoute
+  ) {}
 
-  ngOnInit() {
-    this.categories = [
-      { id: 1, name: 'sport' },
-      { id: 2, name: 'cinema' },
-      { id: 3, name: 'culture' },
-      { id: 4, name: 'plein air' },
-      { id: 5, name: 'soirée' },
-    ];
+  ngOnInit(): void {
+    this.activityCategoryList$ =
+      this.activityService.getActivityCategoryList$();
+
+    console.log(this.activityCategoryList$);
   }
   @Input() type!: string; // text or email
   @Input() id!: string;
