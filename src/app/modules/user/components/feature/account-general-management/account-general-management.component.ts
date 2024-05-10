@@ -3,21 +3,21 @@ import { UserAuthPrimaryDatas } from '@models/types/user-list-response-api.type'
 import { AuthService } from '@services/auth/auth.service';
 
 @Component({
-  selector: 'app-account-general-management',
-  templateUrl: './account-general-management.component.html',
-  styleUrl: './account-general-management.component.scss',
+	selector: 'app-account-general-management',
+	templateUrl: './account-general-management.component.html',
+	styleUrl: './account-general-management.component.scss',
 })
 export class AccountGeneralManagementComponent implements OnInit {
-  @Input() avatarSrc!: string;
-  @Input() avatarAlt!: string;
-  @Input() pageTitle!: string;
-  @Input() pageDescription!: string;
+	@Input() avatarSrc!: string;
+	@Input() avatarAlt!: string;
+	@Input() pageTitle!: string;
+	@Input() pageDescription!: string;
 
-  connectedUser!: UserAuthPrimaryDatas;
+	connectedUser!: UserAuthPrimaryDatas;
 
-  constructor(private _AuthService: AuthService) {}
+	constructor(private _AuthService: AuthService) {}
 
-  ngOnInit(): void {
-    this.connectedUser = this._AuthService.getConnectedUserData();
-  }
+	ngOnInit(): void {
+		this.connectedUser = this._AuthService.getConnectedUserData();
+	}
 }

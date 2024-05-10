@@ -1,5 +1,5 @@
 export type UserLayoutLink = {
-  label: string;
-  path: string;
-  active?: boolean;
+	label: string;
+	path: string;
+	active?: boolean;
 };

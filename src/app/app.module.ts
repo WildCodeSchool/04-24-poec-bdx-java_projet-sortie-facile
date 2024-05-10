@@ -11,21 +11,21 @@ import { CreateAccountComponent } from './modules/authentication/pages/create-ac
 import { ProfileAccountComponent } from './modules/authentication/pages/profile-account/profile-account.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    PagenotfoundComponent,
-    HeaderComponent,
-    CreateAccountComponent,
-    ProfileAccountComponent,
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    SharedModule,
-    FormsModule,
-  ],
-  providers: [],
-  bootstrap: [AppComponent],
+	declarations: [
+		AppComponent,
+		PagenotfoundComponent,
+		HeaderComponent,
+		CreateAccountComponent,
+		ProfileAccountComponent,
+	],
+	imports: [
+		BrowserModule,
+		AppRoutingModule,
+		BrowserAnimationsModule,
+		SharedModule,
+		FormsModule,
+	],
+	providers: [],
+	bootstrap: [AppComponent],
 })
 export class AppModule {}

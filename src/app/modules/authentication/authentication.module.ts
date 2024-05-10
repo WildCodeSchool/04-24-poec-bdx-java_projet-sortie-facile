@@ -7,12 +7,12 @@ import { FormsModule } from '@angular/forms';
 import { SharedModule } from '@shared/shared.module';
 
 @NgModule({
-  declarations: [AuthLoginComponent],
-  imports: [
-    CommonModule,
-    AuthenticationRoutingModule,
-    SharedModule,
-    FormsModule,
-  ],
+	declarations: [AuthLoginComponent],
+	imports: [
+		CommonModule,
+		AuthenticationRoutingModule,
+		SharedModule,
+		FormsModule,
+	],
 })
 export class AuthenticationModule {}

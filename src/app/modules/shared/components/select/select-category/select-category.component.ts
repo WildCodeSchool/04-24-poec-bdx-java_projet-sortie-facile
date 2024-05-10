@@ -1,70 +1,71 @@
-import { Component, Input, forwardRef } from '@angular/core';
+import { Component, Input, OnInit, forwardRef } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { Category } from '../../../models/types/category.type';
 
 @Component({
-  selector: 'app-select-category',
-  templateUrl: './select-category.component.html',
-  styleUrl: './select-category.component.scss',
-  providers: [
-    {
-      provide: NG_VALUE_ACCESSOR,
-      useExisting: forwardRef(() => SelectCategoryComponent),
-      multi: true,
-    },
-  ],
+	selector: 'app-select-category',
+	templateUrl: './select-category.component.html',
+	styleUrl: './select-category.component.scss',
+	providers: [
+		{
+			provide: NG_VALUE_ACCESSOR,
+			useExisting: forwardRef(() => SelectCategoryComponent),
+			multi: true,
+		},
+	],
 })
-export class SelectCategoryComponent implements ControlValueAccessor {
-  categories!: Category[];
+export class SelectCategoryComponent implements OnInit, ControlValueAccessor {
+	categories!: Category[];
 
-  selectedCategory!: Category;
+	selectedCategory!: Category;
 
-  ngOnInit() {
-    this.categories = [
-      { id: 1, name: 'sport' },
-      { id: 2, name: 'cinema' },
-      { id: 3, name: 'culture' },
-      { id: 4, name: 'plein air' },
-      { id: 5, name: 'soirée' },
-    ];
-  }
-  @Input() type!: string; // text or email
-  @Input() id!: string;
-  @Input() name!: string;
-  @Input() labelFor!: string;
-  @Input() labelContent!: string;
+	@Input() type!: string; // text or email
+	@Input() id!: string;
+	@Input() name!: string;
+	@Input() labelFor!: string;
+	@Input() labelContent!: string;
 
-  disabled!: boolean;
-  value!: string;
+	disabled!: boolean;
+	value!: string;
 
-  onChanged!: (value: string) => void;
-  onTouched!: () => void;
+	ngOnInit() {
+		this.categories = [
+			{ id: 1, name: 'sport' },
+			{ id: 2, name: 'cinema' },
+			{ id: 3, name: 'culture' },
+			{ id: 4, name: 'plein air' },
+			{ id: 5, name: 'soirée' },
+		];
+	}
 
-  onInputChange(value: string): void {
-    if (this.disabled) {
-      return;
-    }
+	onChanged!: (value: string) => void;
+	onTouched!: () => void;
 
-    this.onChanged(value);
-  }
+	onInputChange(value: string): void {
+		if (this.disabled) {
+			return;
+		}
 
-  writeValue(value: string): void {
-    this.value = value;
-  }
+		this.onChanged(value);
+	}
 
-  registerOnChange(fn: (value: string) => void): void {
-    this.onChanged = fn;
-  }
+	writeValue(value: string): void {
+		this.value = value;
+	}
 
-  registerOnTouched(fn: () => void): void {
-    this.onTouched = fn;
-  }
+	registerOnChange(fn: (value: string) => void): void {
+		this.onChanged = fn;
+	}
 
-  setDisabledState(isDisabled: boolean): void {
-    this.disabled = isDisabled;
-  }
+	registerOnTouched(fn: () => void): void {
+		this.onTouched = fn;
+	}
 
-  markAsTouched(): void {
-    this.onTouched();
-  }
+	setDisabledState(isDisabled: boolean): void {
+		this.disabled = isDisabled;
+	}
+
+	markAsTouched(): void {
+		this.onTouched();
+	}
 }

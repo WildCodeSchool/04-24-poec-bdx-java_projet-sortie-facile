@@ -4,18 +4,18 @@ import { AuthLoginComponent } from '@authentication/pages/auth-login/auth-login.
 import { CreateAccountComponent } from '@authentication/pages/create-account/create-account.component';
 
 const routes: Routes = [
-  {
-    path: 'login',
-    component: AuthLoginComponent,
-  },
-  {
-    path: 'register',
-    component: CreateAccountComponent,
-  },
+	{
+		path: 'login',
+		component: AuthLoginComponent,
+	},
+	{
+		path: 'register',
+		component: CreateAccountComponent,
+	},
 ];
 
 @NgModule({
-  imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule],
+	imports: [RouterModule.forChild(routes)],
+	exports: [RouterModule],
 })
 export class AuthenticationRoutingModule {}

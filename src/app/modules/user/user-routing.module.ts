@@ -10,45 +10,45 @@ import { UserActivitiesComponent } from '@user/pages/user-activities/user-activi
 import { UserCalendarComponent } from '@user/pages/user-calendar/user-calendar.component';
 
 const routes: Routes = [
-  {
-    path: 'home',
-    component: UserHomeComponent,
-    canActivate: [isConnectedGuard],
-  },
-  {
-    path: 'profile',
-    component: UserProfileComponent,
-    canActivate: [isConnectedGuard],
-  },
-  {
-    path: 'password',
-    component: UserPasswordComponent,
-    canActivate: [isConnectedGuard],
-  },
-  {
-    path: 'center-of-interests',
-    component: UserCenterOfInterestComponent,
-    canActivate: [isConnectedGuard],
-  },
-  {
-    path: 'notification',
-    component: UserNotificationComponent,
-    canActivate: [isConnectedGuard],
-  },
-  {
-    path: 'activities',
-    component: UserActivitiesComponent,
-    canActivate: [isConnectedGuard],
-  },
-  {
-    path: 'calendar',
-    component: UserCalendarComponent,
-    canActivate: [isConnectedGuard],
-  },
+	{
+		path: 'home',
+		component: UserHomeComponent,
+		canActivate: [isConnectedGuard],
+	},
+	{
+		path: 'profile',
+		component: UserProfileComponent,
+		canActivate: [isConnectedGuard],
+	},
+	{
+		path: 'password',
+		component: UserPasswordComponent,
+		canActivate: [isConnectedGuard],
+	},
+	{
+		path: 'center-of-interests',
+		component: UserCenterOfInterestComponent,
+		canActivate: [isConnectedGuard],
+	},
+	{
+		path: 'notification',
+		component: UserNotificationComponent,
+		canActivate: [isConnectedGuard],
+	},
+	{
+		path: 'activities',
+		component: UserActivitiesComponent,
+		canActivate: [isConnectedGuard],
+	},
+	{
+		path: 'calendar',
+		component: UserCalendarComponent,
+		canActivate: [isConnectedGuard],
+	},
 ];
 
 @NgModule({
-  imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule],
+	imports: [RouterModule.forChild(routes)],
+	exports: [RouterModule],
 })
 export class UserRoutingModule {}

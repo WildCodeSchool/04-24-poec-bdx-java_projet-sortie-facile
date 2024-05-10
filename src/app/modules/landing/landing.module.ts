@@ -6,7 +6,7 @@ import { LandingHomeComponent } from '@landing/pages/landing-home/landing-home.c
 import { SharedModule } from '@shared/shared.module';
 
 @NgModule({
-  declarations: [LandingHomeComponent],
-  imports: [CommonModule, LandingRoutingModule, SharedModule],
+	declarations: [LandingHomeComponent],
+	imports: [CommonModule, LandingRoutingModule, SharedModule],
 })
 export class LandingModule {}

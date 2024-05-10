@@ -17,20 +17,20 @@ import { UserNotificationComponent } from '@user/pages/user-notification/user-no
 import { SharedModule } from '@shared/shared.module';
 
 @NgModule({
-  declarations: [
-    UserHomeComponent,
-    AccountLayoutComponent,
-    AccountGeneralManagementComponent,
-    LayoutHeaderComponent,
-    LayoutNavComponent,
-    LayoutNavResponsiveComponent,
-    UserProfileComponent,
-    UserPasswordComponent,
-    UserActivitiesComponent,
-    UserCalendarComponent,
-    UserCenterOfInterestComponent,
-    UserNotificationComponent,
-  ],
-  imports: [CommonModule, UserRoutingModule, SharedModule],
+	declarations: [
+		UserHomeComponent,
+		AccountLayoutComponent,
+		AccountGeneralManagementComponent,
+		LayoutHeaderComponent,
+		LayoutNavComponent,
+		LayoutNavResponsiveComponent,
+		UserProfileComponent,
+		UserPasswordComponent,
+		UserActivitiesComponent,
+		UserCalendarComponent,
+		UserCenterOfInterestComponent,
+		UserNotificationComponent,
+	],
+	imports: [CommonModule, UserRoutingModule, SharedModule],
 })
 export class UserModule {}
