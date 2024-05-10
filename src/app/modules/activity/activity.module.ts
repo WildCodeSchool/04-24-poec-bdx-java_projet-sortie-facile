@@ -10,13 +10,13 @@ import { ActivityCardComponent } from './components/activity-card/activity-card.
 import { ActivitySearchComponent } from './pages/activity-search/activity-search.component';
 
 @NgModule({
-  declarations: [
-    ActivityHomeComponent,
-    ActivityListComponent,
-    ActivityDetailsComponent,
-    ActivityCardComponent,
-    ActivitySearchComponent,
-  ],
-  imports: [CommonModule, ActivityRoutingModule, SharedModule],
+	declarations: [
+		ActivityHomeComponent,
+		ActivityListComponent,
+		ActivityDetailsComponent,
+		ActivityCardComponent,
+		ActivitySearchComponent,
+	],
+	imports: [CommonModule, ActivityRoutingModule, SharedModule],
 })
 export class ActivityModule {}

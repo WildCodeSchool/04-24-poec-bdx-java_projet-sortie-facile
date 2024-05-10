@@ -5,7 +5,7 @@ import { BookingHomeComponent } from './pages/booking-home/booking-home.componen
 const routes: Routes = [{ path: 'home', component: BookingHomeComponent }];
 
 @NgModule({
-  imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule],
+	imports: [RouterModule.forChild(routes)],
+	exports: [RouterModule],
 })
 export class BookingRoutingModule {}
