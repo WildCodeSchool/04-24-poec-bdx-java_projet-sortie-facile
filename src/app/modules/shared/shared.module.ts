@@ -21,6 +21,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { CardComponent } from './components/card/card.component';
 import { CardLandingSmallComponent } from './components/cards/card-landing-small/card-landing-small.component';
 import { CardLandingLargeComponent } from './components/cards/card-landing-large/card-landing-large.component';
+import { SearchBarComponent } from './components/search-bar/search-bar.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import { CardLandingLargeComponent } from './components/cards/card-landing-large
     CardComponent,
     CardLandingSmallComponent,
     CardLandingLargeComponent,
+    SearchBarComponent,
   ],
   imports: [CommonModule, PrimengModule, FormsModule, HttpClientModule],
   exports: [
@@ -65,6 +67,7 @@ import { CardLandingLargeComponent } from './components/cards/card-landing-large
     CardComponent,
     CardLandingSmallComponent,
     CardLandingLargeComponent,
+    SearchBarComponent,
   ],
 })
 export class SharedModule {}

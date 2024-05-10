@@ -31,6 +31,32 @@ export class ActivityService {
       .pipe(map((response: Category[]) => response));
   }
 
+  getCategoryById$(id: number): Observable<string> {
+    return this.http
+      .get<Category>(`URL_DE_VOTRE_API/categorie/${id}`)
+      .pipe(map((category: Category) => category.title));
+  }
+
+  filteredActivityList$(name: string): Observable<Activity[]> {
+    return this.getActivityList$().pipe(
+      map((activityList: Activity[]) =>
+        activityList.filter((activity: Activity) =>
+          activity.name.toLowerCase().includes(name.toLowerCase())
+        )
+      )
+    );
+  }
+  // finir filtre de laliste par cetegorie
+  // filteredActivityListByCategoryId$(id: Number): Observable<Category[]> {
+  //   return this.getActivityList$().pipe(
+  //     map((activityList: activity[]) =>
+  //       activityList.filter((category: Category) =>
+  //         activity.category.toLowerCase().includes(categorie.toLowerCase())
+  //       )
+  //     )
+  //   );
+  // }
+
   postNewActivity$(newActivity: Activity): Observable<Activity> {
     return this.http
       .post<Activity>('http://localhost:3000/activity', newActivity)

@@ -1,9 +1,10 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Activity } from '../../../shared/models/types/activity.type';
-import { Observable } from 'rxjs';
+import { Observable, map } from 'rxjs';
 import { ActivityService } from '../../../shared/services/activity.service';
 import { ActivatedRoute } from '@angular/router';
 import { Activities } from '../../../shared/models/types/activities.type';
+import { Category } from '../../../shared/models/types/category.type';
 
 @Component({
   selector: 'app-activity-details',
@@ -22,6 +23,9 @@ export class ActivityDetailsComponent implements OnInit {
   ngOnInit(): void {
     const id: number = Number(this.route.snapshot.paramMap.get('id'));
     this.activity$ = this.activityService.getActivityById$(id);
+  }
+  getCategoryTitle(categoryId: number): Observable<string> {
+    return this.activityService.getCategoryById$(categoryId);
   }
 
   // constructor() {
