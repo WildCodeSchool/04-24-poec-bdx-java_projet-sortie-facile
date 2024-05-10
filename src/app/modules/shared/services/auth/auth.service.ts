@@ -1,12 +1,12 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, map, tap } from 'rxjs';
+import { Router } from '@angular/router';
 import {
   UserAuth,
   UserAuthPrimaryDatas,
   UserListResponseApi,
-} from '../../models/types/user-list-response-api.type';
-import { Router } from '@angular/router';
+} from '@shared/models/types/user-list-response-api.type';
 
 @Injectable({
   providedIn: 'root',

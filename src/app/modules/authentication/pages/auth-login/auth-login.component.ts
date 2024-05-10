@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { connectedUserDatas } from '../../../shared/models/types/connectedUserDatas.model';
-import { AuthService } from '../../../shared/services/auth/auth.service';
+import { connectedUserDatas } from '@shared/models/types/connectedUserDatas.model';
+import { AuthService } from '@shared/services/auth/auth.service';
 
 @Component({
   selector: 'app-auth-login',

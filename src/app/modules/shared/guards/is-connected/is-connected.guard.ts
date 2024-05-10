@@ -1,8 +1,8 @@
 import { inject } from '@angular/core';
 import { CanActivateFn, Router } from '@angular/router';
-import { UserAuthPrimaryDatas } from '../../models/types/user-list-response-api.type';
-import { UserRoleEnum } from '../../models/enums/user-role.enum';
-import { AuthService } from '../../services/auth/auth.service';
+import { UserRoleEnum } from '@shared/models/enums/user-role.enum';
+import { UserAuthPrimaryDatas } from '@shared/models/types/user-list-response-api.type';
+import { AuthService } from '@shared/services/auth/auth.service';
 
 export const isConnectedGuard: CanActivateFn = (route, state) => {
   const router = inject(Router);

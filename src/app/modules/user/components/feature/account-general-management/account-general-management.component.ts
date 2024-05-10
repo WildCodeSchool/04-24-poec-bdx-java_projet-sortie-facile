@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { UserAuthPrimaryDatas } from '../../../../shared/models/types/user-list-response-api.type';
-import { AuthService } from '../../../../shared/services/auth/auth.service';
+import { UserAuthPrimaryDatas } from '@models/types/user-list-response-api.type';
+import { AuthService } from '@services/auth/auth.service';
 
 @Component({
   selector: 'app-account-general-management',

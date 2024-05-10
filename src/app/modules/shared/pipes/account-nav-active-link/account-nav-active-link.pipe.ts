@@ -1,6 +1,6 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { UserLayoutLink } from '../../models/types/user-layout-link';
 import { ActivatedRoute } from '@angular/router';
+import { UserLayoutLink } from '@shared/models/types/user-layout-link';
 
 @Pipe({
   name: 'accountNavActiveLink',

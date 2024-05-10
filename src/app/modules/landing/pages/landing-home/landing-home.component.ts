@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { LandingFunctioningDatas } from '../../../shared/models/types/landing-functioning-datas.type';
+import { LandingFunctioningDatas } from '@shared/models/types/landing-functioning-datas.type';
 
 @Component({
   selector: 'app-landing-home',

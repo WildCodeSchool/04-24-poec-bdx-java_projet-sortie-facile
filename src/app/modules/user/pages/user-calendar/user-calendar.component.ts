@@ -1,6 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { UserAuthPrimaryDatas } from '../../../shared/models/types/user-list-response-api.type';
-import { AuthService } from '../../../shared/services/auth/auth.service';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-user-calendar',
