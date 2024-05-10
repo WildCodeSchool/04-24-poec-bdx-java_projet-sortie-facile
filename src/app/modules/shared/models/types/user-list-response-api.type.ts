@@ -1,14 +1,11 @@
-export enum RoleEnum {
-  ADMIN = 'admin',
-  USER = 'user',
-}
+import { UserRoleEnum } from '../enums/user-role.enum';
 
 export type UserAuth = {
   id: number;
   username: string;
   email: string;
   password: string;
-  role: RoleEnum;
+  role: UserRoleEnum;
 };
 
 export type UserListResponseApi = UserAuth[];

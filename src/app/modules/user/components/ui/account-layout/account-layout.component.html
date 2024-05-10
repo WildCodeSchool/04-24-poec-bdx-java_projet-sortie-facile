@@ -1,0 +1,27 @@
+<div class="container">
+  <app-layout-header
+    [avatarSrc]="avatarSrc"
+    [avatarAlt]="avatarAlt"
+    [username]="username"
+    [pageTitle]="pageTitle"
+    [pageDescription]="pageDescription"
+  ></app-layout-header>
+
+  <div class="account-content">
+    <div class="account-nav-mobile-box">
+      <app-layout-nav-responsive></app-layout-nav-responsive>
+    </div>
+
+    <div class="account-nav-box">
+      <app-layout-nav></app-layout-nav>
+
+      <div class="delete-box">
+        <a [routerLink]="['/']" class="delete-link">Supprimer mon compte </a>
+      </div>
+    </div>
+
+    <div class="account-primary-content">
+      <ng-content></ng-content>
+    </div>
+  </div>
+</div>

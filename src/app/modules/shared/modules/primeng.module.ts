@@ -7,6 +7,8 @@ import { MessageModule } from 'primeng/message';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { ToastModule } from 'primeng/toast';
 import { CalendarModule } from 'primeng/calendar';
+import { FileUploadModule } from 'primeng/fileupload';
+import { InputTextareaModule } from 'primeng/inputtextarea';
 import { DividerModule } from 'primeng/divider';
 import { DropdownModule } from 'primeng/dropdown';
 import { InputNumberModule } from 'primeng/inputnumber';
@@ -14,6 +16,8 @@ import { ChipModule } from 'primeng/chip';
 import { CardModule } from 'primeng/card';
 import { IconFieldModule } from 'primeng/iconfield';
 import { InputIconModule } from 'primeng/inputicon';
+import { DragDropModule } from 'primeng/dragdrop';
+import { TabMenuModule } from 'primeng/tabmenu';
 
 @NgModule({
   exports: [
@@ -25,6 +29,8 @@ import { InputIconModule } from 'primeng/inputicon';
     ConfirmDialogModule,
     ToastModule,
     CalendarModule,
+    FileUploadModule,
+    InputTextareaModule,
     DividerModule,
     DropdownModule,
     InputNumberModule,
@@ -32,6 +38,9 @@ import { InputIconModule } from 'primeng/inputicon';
     CardModule,
     IconFieldModule,
     InputIconModule,
+    CalendarModule,
+    DragDropModule,
+    TabMenuModule,
   ],
 })
 export class PrimengModule {}

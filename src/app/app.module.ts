@@ -8,6 +8,7 @@ import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FormsModule } from '@angular/forms';
 import { CreateAccountComponent } from './modules/authentication/pages/create-account/create-account.component';
+import { ProfileAccountComponent } from './modules/authentication/pages/profile-account/profile-account.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { CreateAccountComponent } from './modules/authentication/pages/create-ac
     PagenotfoundComponent,
     HeaderComponent,
     CreateAccountComponent,
+    ProfileAccountComponent,
   ],
   imports: [
     BrowserModule,
