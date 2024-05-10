@@ -6,6 +6,7 @@ import {
   UserAuthPrimaryDatas,
   UserListResponseApi,
 } from '../../models/types/user-list-response-api.type';
+import { newUser } from '../../models/types/newUser.model';
 
 @Injectable({
   providedIn: 'root',
@@ -36,7 +37,8 @@ export class AuthService {
       );
   }
 
-  createUserWithEmailAndPassword(userCredentials: any): void {
+  createUserWithEmailAndPassword(userCredentials: newUser): void {
     console.log('created ok');
+    this.httpClient.post('http://localhost:3000/user', userCredentials).subscribe();
   }
 }
