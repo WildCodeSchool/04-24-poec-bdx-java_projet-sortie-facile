@@ -3,21 +3,20 @@ import { NgForm } from '@angular/forms';
 import { newUser } from '../../../shared/models/types/newUser.model';
 
 @Component({
-  selector: 'app-create-account',
-  templateUrl: './create-account.component.html',
-  styleUrl: './create-account.component.scss'
+	selector: 'app-create-account',
+	templateUrl: './create-account.component.html',
+	styleUrl: './create-account.component.scss',
 })
 export class CreateAccountComponent {
+	createdUser: newUser = {
+		username: '',
+		email: '',
+		password: '',
+		confirmation: '',
+	};
 
-  createdUser: newUser = {
-    username: '',
-    email: '',
-    password: '',
-    confirmation: ''
-  };
-
-  onSubmit(form: NgForm) {
-    console.log(form.value);
-  }
-
+	onSubmit(form: NgForm) {
+		// eslint-disable-next-line no-console
+		console.log(form.value);
+	}
 }

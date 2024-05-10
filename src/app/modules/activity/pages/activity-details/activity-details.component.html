@@ -1,22 +1,23 @@
-<p>activity-details works!</p>
+dfcyvgubhinjo,k
+<div class="details" *ngIf="activity$ | async as activity">
+  <!-- <app-activity-card [activity]="activity"></app-activity-card> -->
+  <p-card
+    [header]="activity.name"
+    subheader="Card Subheader"
+    [style]="{ width: '360px' }"
+  >
+    <ng-template pTemplate="header">
+      <img alt="{{ activity.name }}" [src]="activity.imgUrl" />
+    </ng-template>
+    <p>
+      {{ activity.description }}
+    </p>
+    <p>
+      {{ getCategoryTitle(activity.categoryId) }}
+    </p>
 
-<p>card works!</p>
-<div class="activity-card-container">
-  <div class="card flex justify-content-center">
-    <p-card
-      [header]="activity.name"
-      subheader="Card Subheader"
-      [style]="{ width: '360px' }"
-    >
-      <ng-template pTemplate="header">
-        <img alt="{{ activity.name }}" [src]="activity.imgUrl" />
-      </ng-template>
-      <p>
-        {{ activity.description }}
-      </p>
-      <ng-template pTemplate="footer">
-        <p-button label="S'inscrire" icon="pi pi-check"></p-button>
-      </ng-template>
-    </p-card>
-  </div>
+    <ng-template pTemplate="footer">
+      <p-button label="S'inscrire" icon="pi pi-check"></p-button>
+    </ng-template>
+  </p-card>
 </div>

@@ -1,70 +1,78 @@
-import { Component, Input, forwardRef } from '@angular/core';
+import { Component, Input, OnInit, forwardRef } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { Category } from '../../../models/types/category.type';
+import { ActivityService } from '../../../services/activity.service';
+import { Observable } from 'rxjs';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: 'app-select-category',
-  templateUrl: './select-category.component.html',
-  styleUrl: './select-category.component.scss',
-  providers: [
-    {
-      provide: NG_VALUE_ACCESSOR,
-      useExisting: forwardRef(() => SelectCategoryComponent),
-      multi: true,
-    },
-  ],
+	selector: 'app-select-category',
+	templateUrl: './select-category.component.html',
+	styleUrl: './select-category.component.scss',
+	providers: [
+		{
+			provide: NG_VALUE_ACCESSOR,
+			useExisting: forwardRef(() => SelectCategoryComponent),
+			multi: true,
+		},
+	],
 })
-export class SelectCategoryComponent implements ControlValueAccessor {
-  categories!: Category[];
+export class SelectCategoryComponent implements OnInit, ControlValueAccessor {
+	@Input() type!: string; // text or email
+	@Input() id!: string;
+	@Input() name!: string;
+	@Input() labelFor!: string;
+	@Input() labelContent!: string;
 
-  selectedCategory!: Category;
+	categories!: Category[];
+	category$!: Observable<Category>;
+	activityCategoryList$!: Observable<Category[]>;
+	selectedCategory!: Category;
 
-  ngOnInit() {
-    this.categories = [
-      { id: 1, name: 'sport' },
-      { id: 2, name: 'cinema' },
-      { id: 3, name: 'culture' },
-      { id: 4, name: 'plein air' },
-      { id: 5, name: 'soirée' },
-    ];
-  }
-  @Input() type!: string; // text or email
-  @Input() id!: string;
-  @Input() name!: string;
-  @Input() labelFor!: string;
-  @Input() labelContent!: string;
+	constructor(
+		private activityService: ActivityService,
+		private route: ActivatedRoute,
+	) {}
 
-  disabled!: boolean;
-  value!: string;
+	ngOnInit(): void {
+		this.activityCategoryList$ =
+			this.activityService.getActivityCategoryList$();
 
-  onChanged!: (value: string) => void;
-  onTouched!: () => void;
+		// eslint-disable-next-line no-console
+		console.log(this.activityCategoryList$);
+	}
 
-  onInputChange(value: string): void {
-    if (this.disabled) {
-      return;
-    }
+	disabled!: boolean;
+	value!: string;
 
-    this.onChanged(value);
-  }
+	onChanged!: (value: string) => void;
+	onTouched!: () => void;
 
-  writeValue(value: string): void {
-    this.value = value;
-  }
+	onInputChange(value: string): void {
+		if (this.disabled) {
+			return;
+		}
 
-  registerOnChange(fn: (value: string) => void): void {
-    this.onChanged = fn;
-  }
+		this.onChanged(value);
+	}
 
-  registerOnTouched(fn: () => void): void {
-    this.onTouched = fn;
-  }
+	writeValue(value: string): void {
+		this.value = value;
+	}
 
-  setDisabledState(isDisabled: boolean): void {
-    this.disabled = isDisabled;
-  }
+	registerOnChange(fn: (value: string) => void): void {
+		this.onChanged = fn;
+	}
 
-  markAsTouched(): void {
-    this.onTouched();
-  }
+	registerOnTouched(fn: () => void): void {
+		this.onTouched = fn;
+	}
+
+	setDisabledState(isDisabled: boolean): void {
+		this.disabled = isDisabled;
+	}
+
+	markAsTouched(): void {
+		this.onTouched();
+	}
 }

@@ -1,70 +1,71 @@
-import { Component, Input, forwardRef } from '@angular/core';
+import { Component, Input, OnInit, forwardRef } from '@angular/core';
 import { City } from '../../../models/types/city.type';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
 
 @Component({
-  selector: 'app-select-city',
-  templateUrl: './select-city.component.html',
-  styleUrl: './select-city.component.scss',
-  providers: [
-    {
-      provide: NG_VALUE_ACCESSOR,
-      useExisting: forwardRef(() => SelectCityComponent),
-      multi: true,
-    },
-  ],
+	selector: 'app-select-city',
+	templateUrl: './select-city.component.html',
+	styleUrl: './select-city.component.scss',
+	providers: [
+		{
+			provide: NG_VALUE_ACCESSOR,
+			useExisting: forwardRef(() => SelectCityComponent),
+			multi: true,
+		},
+	],
 })
-export class SelectCityComponent {
-  cities!: City[];
+export class SelectCityComponent implements OnInit {
+	cities!: City[];
 
-  selectedCity!: City;
+	selectedCity!: City;
 
-  ngOnInit() {
-    this.cities = [
-      { id: 1, name: 'New York' },
-      { id: 2, name: 'Rome' },
-      { id: 3, name: 'London' },
-      { id: 4, name: 'Istanbul' },
-      { id: 5, name: 'Paris' },
-    ];
-  }
-  @Input() type!: string; // text or email
-  @Input() id!: string;
-  @Input() name!: string;
-  @Input() labelFor!: string;
-  @Input() labelContent!: string;
+	@Input() type!: string; // text or email
+	@Input() id!: string;
+	@Input() name!: string;
+	@Input() labelFor!: string;
+	@Input() labelContent!: string;
 
-  disabled!: boolean;
-  value!: string;
+	disabled!: boolean;
+	value!: string;
 
-  onChanged!: (value: string) => void;
-  onTouched!: () => void;
+	ngOnInit() {
+		this.cities = [
+			{ id: 1, name: 'New York' },
+			{ id: 2, name: 'Rome' },
+			{ id: 3, name: 'London' },
+			{ id: 4, name: 'Istanbul' },
+			{ id: 5, name: 'Paris' },
+		];
+	}
 
-  onInputChange(value: string): void {
-    if (this.disabled) {
-      return;
-    }
+	onChanged!: (value: string) => void;
+	onTouched!: () => void;
 
-    this.onChanged(value);
-  }
+	onInputChange(value: string): void {
+		if (this.disabled) {
+			return;
+		}
 
-  writeValue(value: string): void {
-    this.value = value;
-  }
+		this.onChanged(value);
+	}
 
-  registerOnChange(fn: (value: string) => void): void {
-    this.onChanged = fn;
-  }
+	writeValue(value: string): void {
+		this.value = value;
+	}
 
-  registerOnTouched(fn: () => void): void {
-    this.onTouched = fn;
-  }
+	registerOnChange(fn: (value: string) => void): void {
+		this.onChanged = fn;
+	}
 
-  setDisabledState(isDisabled: boolean): void {
-    this.disabled = isDisabled;
-  }
+	registerOnTouched(fn: () => void): void {
+		this.onTouched = fn;
+	}
 
-  markAsTouched(): void {
-    this.onTouched();
-  }
+	setDisabledState(isDisabled: boolean): void {
+		this.disabled = isDisabled;
+	}
+
+	markAsTouched(): void {
+		this.onTouched();
+	}
 }

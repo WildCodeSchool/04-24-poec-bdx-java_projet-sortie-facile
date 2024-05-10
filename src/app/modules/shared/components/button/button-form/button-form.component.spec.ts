@@ -3,21 +3,20 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ButtonFormComponent } from './button-form.component';
 
 describe('ButtonFormComponent', () => {
-  let component: ButtonFormComponent;
-  let fixture: ComponentFixture<ButtonFormComponent>;
+	let component: ButtonFormComponent;
+	let fixture: ComponentFixture<ButtonFormComponent>;
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [ButtonFormComponent]
-    })
-    .compileComponents();
-    
-    fixture = TestBed.createComponent(ButtonFormComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+	beforeEach(async () => {
+		await TestBed.configureTestingModule({
+			declarations: [ButtonFormComponent],
+		}).compileComponents();
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+		fixture = TestBed.createComponent(ButtonFormComponent);
+		component = fixture.componentInstance;
+		fixture.detectChanges();
+	});
+
+	it('should create', () => {
+		expect(component).toBeTruthy();
+	});
 });

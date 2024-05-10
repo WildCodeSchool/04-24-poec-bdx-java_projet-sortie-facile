@@ -14,27 +14,33 @@ import { DropdownModule } from 'primeng/dropdown';
 import { InputNumberModule } from 'primeng/inputnumber';
 import { ChipModule } from 'primeng/chip';
 import { CardModule } from 'primeng/card';
+import { IconFieldModule } from 'primeng/iconfield';
+import { InputIconModule } from 'primeng/inputicon';
 import { DragDropModule } from 'primeng/dragdrop';
+import { TabMenuModule } from 'primeng/tabmenu';
 
 @NgModule({
-  exports: [
-    ButtonModule,
-    MenubarModule,
-    InputTextModule,
-    PasswordModule,
-    MessageModule,
-    ConfirmDialogModule,
-    ToastModule,
-    CalendarModule,
-    FileUploadModule,
-    InputTextareaModule,
-    DividerModule,
-    DropdownModule,
-    InputNumberModule,
-    ChipModule,
-    CardModule,
-    CalendarModule,
-    DragDropModule
-  ],
+	exports: [
+		ButtonModule,
+		MenubarModule,
+		InputTextModule,
+		PasswordModule,
+		MessageModule,
+		ConfirmDialogModule,
+		ToastModule,
+		CalendarModule,
+		FileUploadModule,
+		InputTextareaModule,
+		DividerModule,
+		DropdownModule,
+		InputNumberModule,
+		ChipModule,
+		CardModule,
+		IconFieldModule,
+		InputIconModule,
+		CalendarModule,
+		DragDropModule,
+		TabMenuModule,
+	],
 })
 export class PrimengModule {}

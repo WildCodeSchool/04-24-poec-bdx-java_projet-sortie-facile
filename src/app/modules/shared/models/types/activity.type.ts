@@ -1,7 +1,13 @@
 export type Activity = {
-  id: string;
-  name: string;
-  description: string;
-  category: string;
-  imgUrl: string;
+	id: number;
+	name: string;
+	departement: string;
+	city: string;
+	date: string;
+	age?: number;
+	imgUrl?: string;
+	link?: string;
+	description: string;
+	nbGuest: number;
+	categoryId: number;
 };

@@ -3,20 +3,20 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { InputDateComponent } from './input-date.component';
 
 describe('InputDateHourComponent', () => {
-  let component: InputDateComponent;
-  let fixture: ComponentFixture<InputDateComponent>;
+	let component: InputDateComponent;
+	let fixture: ComponentFixture<InputDateComponent>;
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [InputDateComponent],
-    }).compileComponents();
+	beforeEach(async () => {
+		await TestBed.configureTestingModule({
+			declarations: [InputDateComponent],
+		}).compileComponents();
 
-    fixture = TestBed.createComponent(InputDateComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+		fixture = TestBed.createComponent(InputDateComponent);
+		component = fixture.componentInstance;
+		fixture.detectChanges();
+	});
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+	it('should create', () => {
+		expect(component).toBeTruthy();
+	});
 });

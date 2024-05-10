@@ -3,68 +3,68 @@
     <app-avatar-pseudo></app-avatar-pseudo>
     <p>Titre de l'activité</p>
     <app-text-field
-      id="activityTitle"
-      name="activityTitle"
+      id="name"
+      name="name"
       [required]="true"
-      #activityTitle="ngModel"
+      #name="ngModel"
       [form]="myForm"
-      [(ngModel)]="formData.activityTitle"
+      [(ngModel)]="formData.name"
       class="input-activity-form"
     ></app-text-field>
 
     <p>Date de l'évènement</p>
     <app-input-date
-      inputId="activityDate"
-      name="activityDate"
+      inputId=" date"
+      name="date"
       [required]="true"
-      #activityDate="ngModel"
-      [(ngModel)]="formData.activityDate"
+      #date="ngModel"
+      [(ngModel)]="formData.date"
     ></app-input-date>
 
     <p>Heure de l'évènement</p>
     <app-input-hour
-      inputId="activityHour"
-      name="activityHour"
+      inputId="hour"
+      name="hour"
       [required]="true"
-      #activityHour="ngModel"
-      [(ngModel)]="formData.activityHour"
+      #hour="ngModel"
+      [(ngModel)]="formData.hour"
     ></app-input-hour>
 
     <p>Lieu</p>
     <app-select-city
-      inputId="activityCity"
+      inputId="city"
       name="activityCity"
       [required]="true"
       #activityCity="ngModel"
-      [(ngModel)]="formData.activityCity"
+      [(ngModel)]="formData.city"
     >
     </app-select-city>
 
     <p>Catégorie</p>
     <app-select-category
-      inputId="activityCategory"
-      name="activityCategory"
+      inputId="category"
+      name="category"
       [required]="true"
-      #activityCategory="ngModel"
-      [(ngModel)]="formData.activityCategory"
+      #category="ngModel"
+      [(ngModel)]="formData.category"
     ></app-select-category>
 
     <p>Nbre de participants</p>
     <app-select-number
-      inputId=" activityNumberGuest"
-      name=" activityNumberGuest"
+      inputId=" nbGuest"
+      name=" nbGuest"
       [required]="true"
-      #activityNumberGuest="ngModel"
-      [(ngModel)]="formData.activityNumberGuest"
+      #nbGuest="ngModel"
+      [(ngModel)]="formData.nbGuest"
     ></app-select-number>
     <p>Description de l'évènement</p>
 
     <app-textarea
-      inputId=" activityDescription"
-      name=" activityDescriptiont"
+      inputId=" description"
+      name=" description"
       [required]="true"
-      #activityDescription="ngModel"
-      [(ngModel)]="formData.activityDescription"
+      #description="ngModel"
+      [(ngModel)]="formData.description"
     ></app-textarea>
     <p>img</p>
     <p>Lien</p>
