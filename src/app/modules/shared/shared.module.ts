@@ -24,6 +24,7 @@ import { CardLandingLargeComponent } from './components/cards/card-landing-large
 import { DropzoneFieldComponent } from './components/form/dropzone-field/dropzone-field.component';
 import { DateFieldComponent } from './components/form/date-field/date-field.component';
 import { AccountNavActiveLinkPipe } from './pipes/account-nav-active-link/account-nav-active-link.pipe';
+import { SearchBarComponent } from './components/search-bar/search-bar.component';
 
 @NgModule({
 	declarations: [
@@ -48,6 +49,7 @@ import { AccountNavActiveLinkPipe } from './pipes/account-nav-active-link/accoun
 		TextareaComponent,
 		TextFieldComponent,
 		AccountNavActiveLinkPipe,
+		SearchBarComponent,
 	],
 	imports: [
 		CommonModule,
@@ -80,6 +82,7 @@ import { AccountNavActiveLinkPipe } from './pipes/account-nav-active-link/accoun
 		DropzoneFieldComponent,
 		DateFieldComponent,
 		AccountNavActiveLinkPipe,
+		SearchBarComponent,
 	],
 })
 export class SharedModule {}

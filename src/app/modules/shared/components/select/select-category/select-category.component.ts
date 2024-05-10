@@ -1,6 +1,9 @@
 import { Component, Input, OnInit, forwardRef } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { Category } from '../../../models/types/category.type';
+import { ActivityService } from '../../../services/activity.service';
+import { Observable } from 'rxjs';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
 	selector: 'app-select-category',
@@ -15,28 +18,32 @@ import { Category } from '../../../models/types/category.type';
 	],
 })
 export class SelectCategoryComponent implements OnInit, ControlValueAccessor {
-	categories!: Category[];
-
-	selectedCategory!: Category;
-
 	@Input() type!: string; // text or email
 	@Input() id!: string;
 	@Input() name!: string;
 	@Input() labelFor!: string;
 	@Input() labelContent!: string;
 
+	categories!: Category[];
+	category$!: Observable<Category>;
+	activityCategoryList$!: Observable<Category[]>;
+	selectedCategory!: Category;
+
+	constructor(
+		private activityService: ActivityService,
+		private route: ActivatedRoute,
+	) {}
+
+	ngOnInit(): void {
+		this.activityCategoryList$ =
+			this.activityService.getActivityCategoryList$();
+
+		// eslint-disable-next-line no-console
+		console.log(this.activityCategoryList$);
+	}
+
 	disabled!: boolean;
 	value!: string;
-
-	ngOnInit() {
-		this.categories = [
-			{ id: 1, name: 'sport' },
-			{ id: 2, name: 'cinema' },
-			{ id: 3, name: 'culture' },
-			{ id: 4, name: 'plein air' },
-			{ id: 5, name: 'soirée' },
-		];
-	}
 
 	onChanged!: (value: string) => void;
 	onTouched!: () => void;

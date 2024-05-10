@@ -4,14 +4,18 @@ import { Injectable } from '@angular/core';
 import { Activity } from '../models/types/activity.type';
 import { Observable, catchError, map, tap } from 'rxjs';
 import { Activities } from '../models/types/activities.type';
+import { Category } from '../models/types/category.type';
 
 @Injectable({
 	providedIn: 'root',
 })
 export class ActivityService {
-	constructor(private http: HttpClient) {}
 	activity!: Activity;
 	activities!: Activity;
+	category!: Category;
+	categories!: Category[];
+
+	constructor(private http: HttpClient) {}
 
 	getActivityList$(): Observable<Activity[]> {
 		return this.http
@@ -24,6 +28,37 @@ export class ActivityService {
 			.get<Activity>(`http://localhost:3000/activity/${id}`)
 			.pipe(map((response: Activity) => response));
 	}
+	getActivityCategoryList$(): Observable<Category[]> {
+		return this.http
+			.get<Category[]>(`http://localhost:3000/category`)
+			.pipe(map((response: Category[]) => response));
+	}
+
+	getCategoryById$(id: number): Observable<string> {
+		return this.http
+			.get<Category>(`URL_DE_VOTRE_API/categorie/${id}`)
+			.pipe(map((category: Category) => category.title));
+	}
+
+	filteredActivityList$(name: string): Observable<Activity[]> {
+		return this.getActivityList$().pipe(
+			map((activityList: Activity[]) =>
+				activityList.filter((activity: Activity) =>
+					activity.name.toLowerCase().includes(name.toLowerCase()),
+				),
+			),
+		);
+	}
+	// finir filtre de laliste par cetegorie
+	// filteredActivityListByCategoryId$(id: Number): Observable<Category[]> {
+	//   return this.getActivityList$().pipe(
+	//     map((activityList: activity[]) =>
+	//       activityList.filter((category: Category) =>
+	//         activity.category.toLowerCase().includes(categorie.toLowerCase())
+	//       )
+	//     )
+	//   );
+	// }
 
 	postNewActivity$(newActivity: Activity): Observable<Activity> {
 		return this.http

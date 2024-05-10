@@ -9,5 +9,5 @@ export type Activity = {
 	link?: string;
 	description: string;
 	nbGuest: number;
-	category: string;
+	categoryId: number;
 };

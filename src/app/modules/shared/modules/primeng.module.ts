@@ -14,6 +14,8 @@ import { DropdownModule } from 'primeng/dropdown';
 import { InputNumberModule } from 'primeng/inputnumber';
 import { ChipModule } from 'primeng/chip';
 import { CardModule } from 'primeng/card';
+import { IconFieldModule } from 'primeng/iconfield';
+import { InputIconModule } from 'primeng/inputicon';
 import { DragDropModule } from 'primeng/dragdrop';
 import { TabMenuModule } from 'primeng/tabmenu';
 
@@ -34,6 +36,8 @@ import { TabMenuModule } from 'primeng/tabmenu';
 		InputNumberModule,
 		ChipModule,
 		CardModule,
+		IconFieldModule,
+		InputIconModule,
 		CalendarModule,
 		DragDropModule,
 		TabMenuModule,

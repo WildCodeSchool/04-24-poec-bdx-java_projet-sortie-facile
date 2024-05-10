@@ -23,6 +23,9 @@ export class ActivityDetailsComponent implements OnInit {
 		const id: number = Number(this.route.snapshot.paramMap.get('id'));
 		this.activity$ = this.activityService.getActivityById$(id);
 	}
+	getCategoryTitle(categoryId: number): Observable<string> {
+		return this.activityService.getCategoryById$(categoryId);
+	}
 
 	// constructor() {
 	//   this.activity = {
