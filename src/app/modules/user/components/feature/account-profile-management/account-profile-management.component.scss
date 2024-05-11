@@ -26,25 +26,14 @@ app-account-container-content {
 		gap: 1.2rem;
 		margin-top: 1.25rem;
 
-		.info-data-box {
+		app-account-card-info {
 			width: 100%;
-
-			h5 {
-				font-size: 0.95rem;
-				color: var(--gray-700);
-				font-weight: normal;
-			}
-
-			p {
-				font-size: 0.85rem;
-				color: var(--black-color);
-			}
 		}
 
 		@media (min-width: 475px) {
 			flex-direction: row;
 
-			.info-data-box {
+			app-account-card-info {
 				width: calc(50% - (2 * 1rem));
 			}
 		}

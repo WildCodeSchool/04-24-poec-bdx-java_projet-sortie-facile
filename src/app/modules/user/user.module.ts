@@ -17,6 +17,7 @@ import { UserNotificationComponent } from '@user/pages/user-notification/user-no
 import { SharedModule } from '@shared/shared.module';
 import { AccountProfileManagementComponent } from './components/feature/account-profile-management/account-profile-management.component';
 import { AccountContainerContentComponent } from './components/ui/account-container-content/account-container-content.component';
+import { AccountCardInfoComponent } from './components/ui/account-card-info/account-card-info.component';
 
 @NgModule({
 	declarations: [
@@ -32,8 +33,9 @@ import { AccountContainerContentComponent } from './components/ui/account-contai
 		UserCalendarComponent,
 		UserCenterOfInterestComponent,
 		UserNotificationComponent,
-  AccountProfileManagementComponent,
-  AccountContainerContentComponent,
+		AccountProfileManagementComponent,
+		AccountContainerContentComponent,
+		AccountCardInfoComponent,
 	],
 	imports: [CommonModule, UserRoutingModule, SharedModule],
 })
