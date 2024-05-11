@@ -1,9 +1,12 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { UserDetails } from '@shared/models/types/user-details.type';
+import {
+	UserDetails,
+	UserDetailsForm,
+} from '@shared/models/types/user-details.type';
 import { UserAuthPrimaryDatas } from '@shared/models/types/user-list-response-api.type';
 import { AuthService } from '@shared/services/auth/auth.service';
 import { UserService } from '@shared/services/user/user.service';
-import { Observable } from 'rxjs';
+import { Observable, map } from 'rxjs';
 
 @Component({
 	selector: 'app-account-profile-management',
@@ -19,6 +22,7 @@ export class AccountProfileManagementComponent implements OnInit {
 	connectedUser!: UserAuthPrimaryDatas;
 	userDetails$!: Observable<UserDetails>;
 	isViewDatas: boolean = true;
+	userDatasForm!: UserDetailsForm;
 
 	constructor(
 		private _authService: AuthService,
@@ -28,6 +32,17 @@ export class AccountProfileManagementComponent implements OnInit {
 	ngOnInit(): void {
 		this.connectedUser = this._authService.getConnectedUserData();
 		this.userDetails$ = this._userService.getUserInfos$(this.connectedUser.id);
+		this.userDetails$
+			.pipe(
+				map(
+					userDetails =>
+						(this.userDatasForm = {
+							...userDetails,
+							email: this.connectedUser.email,
+						}),
+				),
+			)
+			.subscribe();
 	}
 
 	fn(isViewDatas: boolean) {

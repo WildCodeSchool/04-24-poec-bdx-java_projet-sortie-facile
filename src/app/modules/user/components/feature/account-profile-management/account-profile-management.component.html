@@ -22,6 +22,7 @@
 						type="text"
 						id="firstname"
 						name="firstname"
+						[(ngModel)]="userDatasForm.first_name"
 					></app-text-field>
 				</app-account-card-info>
 
@@ -36,6 +37,7 @@
 						type="text"
 						id="lastname"
 						name="lastname"
+						[(ngModel)]="userDatasForm.last_name"
 					></app-text-field
 				></app-account-card-info>
 
@@ -49,6 +51,7 @@
 						type="text"
 						id="firstname"
 						name="firstname"
+						[(ngModel)]="userDatasForm.email"
 					></app-text-field
 				></app-account-card-info>
 
@@ -62,12 +65,13 @@
 						type="text"
 						id="phone"
 						name="phone"
+						[(ngModel)]="userDatasForm.phone"
 					></app-text-field
 				></app-account-card-info>
 
 				<app-account-card-info
 					title="Date de naissance"
-					[content]="connectedUser.email"
+					[content]="userDetails.birthday"
 					[isViewDatas]="isViewDatas"
 					><app-text-field
 						*ngIf="!isViewDatas"
@@ -75,6 +79,7 @@
 						type="text"
 						id="date"
 						name="date"
+						[(ngModel)]="userDatasForm.birthday"
 					></app-text-field
 				></app-account-card-info>
 
@@ -88,13 +93,9 @@
 						type="text"
 						id="genre"
 						name="genre"
+						[(ngModel)]="userDatasForm.genre"
 					></app-text-field
 				></app-account-card-info>
-			</div>
-
-			<div class="content-box" form>
-				<h1>formulaire</h1>
-			</div>
-		</app-account-container-content></app-account-layout
-	>
+			</div> </app-account-container-content
+	></app-account-layout>
 </div>

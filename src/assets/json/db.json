@@ -32,7 +32,8 @@
 			"avatar": "https://images.radio-canada.ca/w_635,h_357/v1/ici-tele/jeunesse/16x9/arthur-et-les-minimoys-arthur.jpg",
 			"description": "it's me but i'm not sure",
 			"phone": "01-23-45-67-89",
-			"birthdate": "10/02/1998",
+			"birthday": "10/02/1998",
+			"genre": "masculin",
 			"userId": "1"
 		},
 		{
@@ -44,7 +45,8 @@
 			"avatar": "https://images.radio-canada.ca/w_635,h_357/v1/ici-tele/jeunesse/16x9/arthur-et-les-minimoys-selenia.jpg",
 			"description": "'maybe you can find me in the forest'",
 			"phone": "01-23-45-67-89",
-			"birthdate": "14/05/1990",
+			"birthday": "14/05/1990",
+			"genre": "féminin",
 			"userId": "2"
 		},
 		{
@@ -56,7 +58,8 @@
 			"avatar": "https://images.radio-canada.ca/w_635,h_357/v1/ici-tele/jeunesse/16x9/arthur-et-les-minimoys-mul-mul.jpg",
 			"description": "'i'm the little one'",
 			"phone": "01-23-45-67-89",
-			"birthdate": "19/09/1995",
+			"birthday": "19/09/1995",
+			"genre": "masculin",
 			"userId": "3"
 		}
 	],
