@@ -54,5 +54,7 @@ export class AccountProfileManagementComponent implements OnInit {
 			this.connectedUser.id,
 			this.userDatasForm,
 		);
+
+		this.isViewDatas = !this.isViewDatas;
 	}
 }

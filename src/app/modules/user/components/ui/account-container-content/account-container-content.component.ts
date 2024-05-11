@@ -7,10 +7,11 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 })
 export class AccountContainerContentComponent {
 	@Input() sectionTitle!: string;
-	isViewDatas: boolean = true;
+	@Input() isViewDatas!: boolean;
 
-	@Output() sendIsViewDatas: EventEmitter<boolean> =
-		new EventEmitter<boolean>();
+	@Output() sendIsViewDatas: EventEmitter<boolean> = new EventEmitter<boolean>(
+		this.isViewDatas,
+	);
 
 	onChangeView(): void {
 		this.isViewDatas = !this.isViewDatas;

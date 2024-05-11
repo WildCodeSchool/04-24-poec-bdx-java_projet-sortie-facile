@@ -8,6 +8,7 @@
 	>
 		<app-account-container-content
 			sectionTitle="Infos personnelles"
+			[isViewDatas]="isViewDatas"
 			(sendIsViewDatas)="fn($event)"
 		>
 			<div class="content-box" data *ngIf="userDetails$ | async as userDetails">
