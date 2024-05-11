@@ -20,7 +20,7 @@
 	margin: 0;
 }
 
-:host ::ng-deep .p-button {
+:host ::ng-deep .p-button.btn-edit {
 	padding: 0.5rem;
 
 	@media (min-width: 768px) {

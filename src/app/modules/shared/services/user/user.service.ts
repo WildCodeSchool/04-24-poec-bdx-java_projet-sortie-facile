@@ -1,6 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { UserDetails } from '@shared/models/types/user-details.type';
+import {
+	UserDetails,
+	UserDetailsForm,
+} from '@shared/models/types/user-details.type';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -12,6 +15,16 @@ export class UserService {
 	getUserInfos$(authUserConnectedId: string): Observable<UserDetails> {
 		return this._httpClient.get<UserDetails>(
 			`http://localhost:3000/user_details/${authUserConnectedId}`,
+		);
+	}
+
+	putUserInfo$(
+		authUserConnectedId: string,
+		userInfos: UserDetailsForm,
+	): Observable<UserDetails> {
+		return this._httpClient.put<UserDetails>(
+			`http://localhost:3000/user_details/${authUserConnectedId}`,
+			userInfos,
 		);
 	}
 }

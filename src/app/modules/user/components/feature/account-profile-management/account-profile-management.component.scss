@@ -39,3 +39,30 @@ app-account-container-content {
 		}
 	}
 }
+
+.btn-form-box {
+	display: flex;
+	justify-content: flex-end;
+	width: 100%;
+	margin-top: 2rem;
+}
+
+:host ::ng-deep .p-button.btn-edit {
+	padding: 0.5rem;
+
+	@media (min-width: 768px) {
+		padding: 0.5rem 1rem;
+	}
+
+	.p-button-label {
+		display: none;
+		color: var(--gray-200);
+		font-size: 0.9rem;
+		margin-right: 0;
+
+		@media (min-width: 768px) {
+			display: inline-block;
+			margin-right: 1rem;
+		}
+	}
+}

@@ -48,4 +48,11 @@ export class AccountProfileManagementComponent implements OnInit {
 	fn(isViewDatas: boolean) {
 		this.isViewDatas = isViewDatas;
 	}
+
+	onSave(): void {
+		this.userDetails$ = this._userService.putUserInfo$(
+			this.connectedUser.id,
+			this.userDatasForm,
+		);
+	}
 }
