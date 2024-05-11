@@ -34,12 +34,16 @@ export class ActivityService {
 			.pipe(map((response: Category[]) => response));
 	}
 
-	getCategoryById$(id: number): Observable<string> {
-		return this.http
-			.get<Category>(`URL_DE_VOTRE_API/categorie/${id}`)
-			.pipe(map((category: Category) => category.title));
-	}
+getCategoryById$(id: number): Observable<string> {
+  return this.http
+    .get<Activity[]>(`http://localhost:3000/activity?categoryId=${id}`)
+    .pipe(map((activities: Activity[]) => activities.map(activity => activity.name).join(', ')));
+}
 
+getActivityListByCategoryId$(id: number): Observable<Activity[]> {
+	return this.http
+	  .get<Activity[]>(`http://localhost:3000/activity?categoryId=${id}`);
+  }
 	filteredActivityList$(name: string): Observable<Activity[]> {
 		return this.getActivityList$().pipe(
 			map((activityList: Activity[]) =>

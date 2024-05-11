@@ -48,5 +48,5 @@ export class ActivityHomeComponent {
 			},
 		);
 		console.log('form value : ', form.value);
-	}
-}
+
+}}

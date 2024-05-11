@@ -67,6 +67,10 @@
       [(ngModel)]="formData.description"
     ></app-textarea>
     <p>img</p>
+    <input  inputId=" imgUrl"
+    name=" imgUrl"
+    #imgUrl="ngModel"
+    [(ngModel)]="formData.imgUrl"type="file"class="file-upload">
     <p>Lien</p>
     <!-- <app-modal></app-modal> -->
     <div class="card flex justify-content-center">
