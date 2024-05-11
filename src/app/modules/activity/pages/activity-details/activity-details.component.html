@@ -13,8 +13,7 @@ dfcyvgubhinjo,k
       {{ activity.description }}
     </p>
     <p>
-      {{ getCategoryTitle(activity.categoryId) }}
-    </p>
+      Catégorie : {{ categoryTitle$ | async | json }}    </p>
 
     <ng-template pTemplate="footer">
       <p-button label="S'inscrire" icon="pi pi-check"></p-button>
