@@ -12,11 +12,7 @@
 		/>
 	</div>
 
-	<div class="section-content" *ngIf="isViewDatas">
+	<div class="section-content">
 		<ng-content select="[data]"></ng-content>
-	</div>
-
-	<div class="section-content" *ngIf="!isViewDatas">
-		<ng-content select="[form]"></ng-content>
 	</div>
 </div>

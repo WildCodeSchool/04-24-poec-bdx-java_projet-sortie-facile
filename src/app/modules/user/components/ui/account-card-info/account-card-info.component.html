@@ -1,4 +1,6 @@
 <div class="card-info">
 	<h5>{{ title }}</h5>
-	<p>{{ content }}</p>
+	<p *ngIf="isViewDatas">{{ content }}</p>
+
+	<ng-content select="[input]"></ng-content>
 </div>

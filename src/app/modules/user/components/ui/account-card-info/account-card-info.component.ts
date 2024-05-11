@@ -8,4 +8,5 @@ import { Component, Input } from '@angular/core';
 export class AccountCardInfoComponent {
 	@Input({ required: true }) title!: string;
 	@Input({ required: true }) content!: string;
+	@Input({ required: true }) isViewDatas!: boolean;
 }

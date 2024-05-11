@@ -14,10 +14,15 @@ export class AccountProfileManagementComponent implements OnInit {
 	@Input() pageDescription!: string;
 
 	connectedUser!: UserAuthPrimaryDatas;
+	isViewDatas: boolean = true;
 
 	constructor(private _AuthService: AuthService) {}
 
 	ngOnInit(): void {
 		this.connectedUser = this._AuthService.getConnectedUserData();
+	}
+
+	fn(isViewDatas: boolean) {
+		this.isViewDatas = isViewDatas;
 	}
 }

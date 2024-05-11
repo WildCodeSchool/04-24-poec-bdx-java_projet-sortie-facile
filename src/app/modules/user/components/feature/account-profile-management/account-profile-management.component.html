@@ -6,36 +6,89 @@
 		[pageTitle]="pageTitle"
 		[pageDescription]="pageDescription"
 	>
-		<app-account-container-content sectionTitle="Infos personnelles">
+		<app-account-container-content
+			sectionTitle="Infos personnelles"
+			(sendIsViewDatas)="fn($event)"
+		>
 			<div class="content-box" data>
 				<app-account-card-info
 					title="Prénom"
 					content="John"
-				></app-account-card-info>
+					[isViewDatas]="isViewDatas"
+				>
+					<app-text-field
+						*ngIf="!isViewDatas"
+						input
+						type="text"
+						id="firstname"
+						name="firstname"
+					></app-text-field>
+				</app-account-card-info>
 
 				<app-account-card-info
 					title="Nom de famille"
 					content="Doe"
+					[isViewDatas]="isViewDatas"
+				>
+					<app-text-field
+						*ngIf="!isViewDatas"
+						input
+						type="text"
+						id="lastname"
+						name="lastname"
+					></app-text-field
 				></app-account-card-info>
 
 				<app-account-card-info
 					title="Email"
 					content="johndoe@test.com"
+					[isViewDatas]="isViewDatas"
+					><app-text-field
+						*ngIf="!isViewDatas"
+						input
+						type="text"
+						id="firstname"
+						name="firstname"
+					></app-text-field
 				></app-account-card-info>
 
 				<app-account-card-info
 					title="Téléphone"
 					content="06-01-23-45-67"
+					[isViewDatas]="isViewDatas"
+					><app-text-field
+						*ngIf="!isViewDatas"
+						input
+						type="text"
+						id="phone"
+						name="phone"
+					></app-text-field
 				></app-account-card-info>
 
 				<app-account-card-info
 					title="Date de naissance"
 					content="20 / 01 / 1990"
+					[isViewDatas]="isViewDatas"
+					><app-text-field
+						*ngIf="!isViewDatas"
+						input
+						type="text"
+						id="date"
+						name="date"
+					></app-text-field
 				></app-account-card-info>
 
 				<app-account-card-info
 					title="Genre"
 					content="Masculin"
+					[isViewDatas]="isViewDatas"
+					><app-text-field
+						*ngIf="!isViewDatas"
+						input
+						type="text"
+						id="genre"
+						name="genre"
+					></app-text-field
 				></app-account-card-info>
 			</div>
 
