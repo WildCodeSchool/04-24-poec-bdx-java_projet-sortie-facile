@@ -42,7 +42,7 @@ export class ActivityHomeComponent {
 				// En cas de succès
 				console.log('POST Request is successful ', data);
 				// Rediriger vers la page de l'activité créée en utilisant le navigateur
-				this.router.navigate(['/activity', data.id]); // Remplacez 'data.id' par l'identifiant de l'activité créée
+				this.router.navigate(['/activity/details', data.id]); // Remplacez 'data.id' par l'identifiant de l'activité créée
 			},
 			error => {
 				// En cas d'erreur
