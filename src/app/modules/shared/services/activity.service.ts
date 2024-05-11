@@ -92,15 +92,15 @@ getActivityListByCategoryId$(id: number): Observable<Activity[]> {
         );
     }
 
-	// deleteActivity(id: number): Observable<unknown> {
-	//   return this.http.delete(`http://localhost:3000/activity/${id}`).pipe(
-	//     tap((data) => {
-	//       console.log('POST Request is successful ', data);
-	//     }),
-	//     catchError((error) => {
-	//       console.log('Error', error);
-	//       throw error;
-	//     })
-	//   );
-	// }
+	deleteActivity$(id: number): Observable<unknown> {
+	  return this.http.delete(`http://localhost:3000/activity/${id}`).pipe(
+	    tap((data) => {
+	      console.log('Delete Request is successful ', data);
+	    }),
+	    catchError((error) => {
+	      console.log('Error', error);
+	      throw error;
+	    })
+	  );
+	}
 }
