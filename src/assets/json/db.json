@@ -130,19 +130,6 @@
       "categoryId": 1
     },
     {
-      "id": "2",
-      "name": "tralala",
-      "departement": "Tarn-et-Garonne",
-      "city": "Montaigue de Quercy",
-      "date": "2021-12-12",
-      "age": 18,
-      "imgUrl": "https://static5.depositphotos.com/1037262/443/i/380/depositphotos_4436189-stock-photo-paradise-beach.jpg",
-      "link": "www.tralala.com",
-      "description": "tralala is a great activity for everyone",
-      "nbGuest": 10,
-      "categoryId": 2
-    },
-    {
       "id": "3",
       "name": "trilili",
       "departement": "Hautes-Pyrénées",
@@ -262,42 +249,6 @@
       "name": "",
       "date": "",
       "hour": null,
-      "activityCity": "",
-      "category": "",
-      " nbGuest": "",
-      " description": "",
-      " imgUrl": "",
-      " link": ""
-    },
-    {
-      "id": "9",
-      "name": "cervbtynu,ivrbtn",
-      "date": null,
-      "hour": "",
-      "activityCity": "",
-      "category": "",
-      " nbGuest": "",
-      " description": "",
-      " imgUrl": "",
-      " link": ""
-    },
-    {
-      "id": "10",
-      "name": "xcezvrebtrny",
-      "date": null,
-      "hour": "",
-      "activityCity": "",
-      "category": "",
-      " nbGuest": "",
-      " description": "",
-      " imgUrl": "",
-      " link": ""
-    },
-    {
-      "id": "11",
-      "name": " dfghjyuk",
-      "date": "",
-      "hour": "",
       "activityCity": "",
       "category": "",
       " nbGuest": "",
