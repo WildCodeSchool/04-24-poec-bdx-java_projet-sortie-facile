@@ -13,6 +13,7 @@ import { Router } from '@angular/router';
 })
 export class ActivityHomeComponent {
 	newActivity$!: Observable<Activity>;
+	
 	constructor(private activityService: ActivityService,	private router: Router ) {}
 
 	formData: {
