@@ -1,7 +1,7 @@
 import { UserRoleEnum } from '../enums/user-role.enum';
 
 export type UserAuth = {
-	id: number;
+	id: string;
 	username: string;
 	email: string;
 	password: string;

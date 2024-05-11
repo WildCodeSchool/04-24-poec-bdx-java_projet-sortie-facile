@@ -10,10 +10,10 @@
 			sectionTitle="Infos personnelles"
 			(sendIsViewDatas)="fn($event)"
 		>
-			<div class="content-box" data>
+			<div class="content-box" data *ngIf="userDetails$ | async as userDetails">
 				<app-account-card-info
 					title="Prénom"
-					content="John"
+					[content]="userDetails.first_name"
 					[isViewDatas]="isViewDatas"
 				>
 					<app-text-field
@@ -27,7 +27,7 @@
 
 				<app-account-card-info
 					title="Nom de famille"
-					content="Doe"
+					[content]="userDetails.last_name"
 					[isViewDatas]="isViewDatas"
 				>
 					<app-text-field
@@ -41,7 +41,7 @@
 
 				<app-account-card-info
 					title="Email"
-					content="johndoe@test.com"
+					[content]="connectedUser.email"
 					[isViewDatas]="isViewDatas"
 					><app-text-field
 						*ngIf="!isViewDatas"
@@ -54,7 +54,7 @@
 
 				<app-account-card-info
 					title="Téléphone"
-					content="06-01-23-45-67"
+					[content]="userDetails.phone"
 					[isViewDatas]="isViewDatas"
 					><app-text-field
 						*ngIf="!isViewDatas"
@@ -67,7 +67,7 @@
 
 				<app-account-card-info
 					title="Date de naissance"
-					content="20 / 01 / 1990"
+					[content]="connectedUser.email"
 					[isViewDatas]="isViewDatas"
 					><app-text-field
 						*ngIf="!isViewDatas"
