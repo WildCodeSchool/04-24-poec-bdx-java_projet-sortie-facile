@@ -2,7 +2,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Activity } from '../models/types/activity.type';
-import { Observable, catchError, map, tap } from 'rxjs';
+import { Observable, catchError, map, switchMap, tap } from 'rxjs';
 import { Activities } from '../models/types/activities.type';
 import { Category } from '../models/types/category.type';
 
@@ -14,7 +14,6 @@ export class ActivityService {
 	activities!: Activity;
 	category!: Category;
 	categories!: Category[];
-
 	constructor(private http: HttpClient) {}
 
 	getActivityList$(): Observable<Activity[]> {
@@ -73,20 +72,25 @@ getActivityListByCategoryId$(id: number): Observable<Activity[]> {
 	//     )
 	//   );
 	// }
-
 	postNewActivity$(newActivity: Activity): Observable<Activity> {
-		return this.http
-			.post<Activity>('http://localhost:3000/activity', newActivity)
-			.pipe(
-				tap(data => {
-					console.log('POST Request is successful ', data);
-				}),
-				catchError(error => {
-					console.log('Error', error);
-					throw error;
-				}),
-			);
-	}
+        return this.http.get<Activity[]>('http://localhost:3000/activity').pipe(
+            switchMap(activities => {
+                // Trouver la dernière id dans le tableau d'activités
+                const lastActivity = activities.reduce((prev, current) => (+current.id > +prev.id) ? current : prev);
+                // Incrémenter l'id de la nouvelle activité
+                newActivity.id = (+lastActivity.id + 1);
+                // Poster la nouvelle activité avec la nouvelle id
+                return this.http.post<Activity>('http://localhost:3000/activity', newActivity);
+            }),
+            tap(data => {
+                console.log('POST Request is successful ', data);
+            }),
+            catchError(error => {
+                console.log('Error', error);
+                throw error;
+            })
+        );
+    }
 
 	// deleteActivity(id: number): Observable<unknown> {
 	//   return this.http.delete(`http://localhost:3000/activity/${id}`).pipe(
