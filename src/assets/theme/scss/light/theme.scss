@@ -10,7 +10,7 @@ $shade300: #cbd5e1 !default;
 $shade400: #94a3b8 !default;
 $shade500: #f9f9f9 !default;
 $shade600: #475569 !default;
-$shade700: #334155 !default;
+$shade700: #d6cece !default;
 $shade800: #1e293b !default;
 $shade900: #0f172a !default;
 $shade950: #020617 !default;
@@ -62,18 +62,18 @@ $highlightTextColor: $primaryDarkerColor !default;
 $highlightFocusBg: rgba($primaryColor, 0.24) !default;
 
 $colors: (
-  "blue": #3b82f6,
-  "green": #22c55e,
-  "yellow": #eab308,
-  "cyan": #06b6d4,
-  "pink": #ec4899,
-  "indigo": #6366f1,
-  "teal": #14b8a6,
-  "orange": #f97316,
-  "bluegray": #64748b,
-  "purple": #670bff,
-  "red": #ff3d32,
-  "primary": $primaryColor,
+	'blue': #3b82f6,
+	'green': #22c55e,
+	'yellow': #eab308,
+	'cyan': #06b6d4,
+	'pink': #ec4899,
+	'indigo': #6366f1,
+	'teal': #14b8a6,
+	'orange': #f97316,
+	'bluegray': #64748b,
+	'purple': #670bff,
+	'red': #ff3d32,
+	'primary': $primaryColor,
 );
 
 //password
@@ -113,10 +113,10 @@ $ratingCancelIconColor: #f87171 !default;
 $ratingCancelIconHoverColor: #ef4444 !default;
 
 // fonts
-$fontFamily: "Montserrat", sans-serif !default;
-$fontFamilySecondary: "Odor Mean Chey", serif !default;
+$fontFamily: 'Montserrat', sans-serif !default;
+$fontFamilySecondary: 'Odor Mean Chey', serif !default;
 
-@import "_variables";
-@import "_fonts";
-@import "../theme-base/components";
+@import '_variables';
+@import '_fonts';
+@import '../theme-base/components';
 // @import "../extensions/_extensions";

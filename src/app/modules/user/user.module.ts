@@ -15,6 +15,8 @@ import { UserCalendarComponent } from '@user/pages/user-calendar/user-calendar.c
 import { UserCenterOfInterestComponent } from '@user/pages/user-center-of-interest/user-center-of-interest.component';
 import { UserNotificationComponent } from '@user/pages/user-notification/user-notification.component';
 import { SharedModule } from '@shared/shared.module';
+import { AccountProfileManagementComponent } from './components/feature/account-profile-management/account-profile-management.component';
+import { AccountContainerContentComponent } from './components/ui/account-container-content/account-container-content.component';
 
 @NgModule({
 	declarations: [
@@ -30,6 +32,8 @@ import { SharedModule } from '@shared/shared.module';
 		UserCalendarComponent,
 		UserCenterOfInterestComponent,
 		UserNotificationComponent,
+  AccountProfileManagementComponent,
+  AccountContainerContentComponent,
 	],
 	imports: [CommonModule, UserRoutingModule, SharedModule],
 })

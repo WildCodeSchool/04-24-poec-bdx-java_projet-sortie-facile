@@ -1,0 +1,47 @@
+<div class="container">
+	<app-account-layout
+		[avatarSrc]="avatarSrc"
+		[avatarAlt]="avatarAlt"
+		[username]="connectedUser.username"
+		[pageTitle]="pageTitle"
+		[pageDescription]="pageDescription"
+	>
+		<app-account-container-content sectionTitle="Infos personnelles">
+			<div class="content-box" data>
+				<div class="info-data-box">
+					<h5>Prénom</h5>
+					<p>John</p>
+				</div>
+
+				<div class="info-data-box">
+					<h5>Nom de famille</h5>
+					<p>Doe</p>
+				</div>
+
+				<div class="info-data-box">
+					<h5>Email</h5>
+					<p>{{ 'johndoe@test.com' }}</p>
+				</div>
+
+				<div class="info-data-box">
+					<h5>Téléphone</h5>
+					<p>06-01-23-45-67</p>
+				</div>
+
+				<div class="info-data-box">
+					<h5>Date de naissance</h5>
+					<p>20 / 01 / 1990</p>
+				</div>
+
+				<div class="info-data-box">
+					<h5>Genre</h5>
+					<p>Masculin</p>
+				</div>
+			</div>
+
+			<div class="content-box" form>
+				<h1>formulaire</h1>
+			</div>
+		</app-account-container-content></app-account-layout
+	>
+</div>

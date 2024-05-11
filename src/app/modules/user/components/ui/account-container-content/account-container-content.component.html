@@ -1,0 +1,22 @@
+<div class="account-primary-content">
+	<div class="section-top">
+		<h3 class="section-title">{{ sectionTitle }}</h3>
+		<p-button
+			label="Secondary"
+			[rounded]="true"
+			[outlined]="true"
+			severity="secondary"
+			icon="pi pi-pencil"
+			iconPos="right"
+			(click)="onChangeView()"
+		/>
+	</div>
+
+	<div class="section-content" *ngIf="isViewDatas">
+		<ng-content select="[data]"></ng-content>
+	</div>
+
+	<div class="section-content" *ngIf="!isViewDatas">
+		<ng-content select="[form]"></ng-content>
+	</div>
+</div>
