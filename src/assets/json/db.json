@@ -1,11 +1,11 @@
 {
   "user": [
     {
-      "id": "1",
       "username": "johndoe",
       "email": "j.doe@mail.com",
       "password": "123456789",
-      "role": "admin"
+      "role": "admin",
+      "id": "1"
     },
     {
       "id": "2",
@@ -31,7 +31,7 @@
       "departement": "Rhône",
       "avatar": "https://images.radio-canada.ca/w_635,h_357/v1/ici-tele/jeunesse/16x9/arthur-et-les-minimoys-arthur.jpg",
       "description": "it's me but i'm not sure",
-      "phone": "01-23-45-67-89",
+      "phone": "01-23-45-67-09",
       "birthday": "10/02/1998",
       "genre": "masculin",
       "userId": "1",

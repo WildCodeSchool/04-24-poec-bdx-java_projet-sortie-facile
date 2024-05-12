@@ -14,3 +14,5 @@ export type UserAuthPrimaryDatas = Pick<
 	UserAuth,
 	'id' | 'username' | 'email' | 'role'
 >;
+
+export type UserAuthPatch = Partial<UserAuth>;

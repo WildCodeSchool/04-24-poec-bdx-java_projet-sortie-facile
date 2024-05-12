@@ -99,7 +99,11 @@
 				></app-account-card-info>
 
 				<div class="btn-form-box" *ngIf="!isViewDatas">
-					<p-button label="Sauvegarder" [rounded]="true" (click)="onSave()" />
+					<p-button
+						label="Sauvegarder"
+						[rounded]="true"
+						(click)="onSavePersonnalInfo()"
+					/>
 				</div>
 			</div> </app-account-container-content
 	></app-account-layout>

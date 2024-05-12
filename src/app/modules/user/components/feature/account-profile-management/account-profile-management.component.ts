@@ -6,7 +6,7 @@ import {
 import { UserAuthPrimaryDatas } from '@shared/models/types/user-list-response-api.type';
 import { AuthService } from '@shared/services/auth/auth.service';
 import { UserService } from '@shared/services/user/user.service';
-import { Observable, map } from 'rxjs';
+import { Observable, map, switchMap, tap } from 'rxjs';
 
 @Component({
 	selector: 'app-account-profile-management',
@@ -35,7 +35,7 @@ export class AccountProfileManagementComponent implements OnInit {
 		this.userDetails$
 			.pipe(
 				map(
-					userDetails =>
+					(userDetails: UserDetails) =>
 						(this.userDatasForm = {
 							...userDetails,
 							email: this.connectedUser.email,
@@ -49,11 +49,24 @@ export class AccountProfileManagementComponent implements OnInit {
 		this.isViewDatas = isViewDatas;
 	}
 
-	onSave(): void {
-		this.userDetails$ = this._userService.putUserInfo$(
-			this.connectedUser.id,
-			this.userDatasForm,
-		);
+	onSavePersonnalInfo(): void {
+		this.userDetails$ = this._authService
+			.patchConnectedUser({
+				email: this.userDatasForm.email,
+			})
+			.pipe(
+				switchMap(() =>
+					this._userService
+						.putUserInfo$(this.connectedUser.id, this.userDatasForm)
+						.pipe(
+							tap(
+								() =>
+									(this.connectedUser =
+										this._authService.getConnectedUserData()),
+							),
+						),
+				),
+			);
 
 		this.isViewDatas = !this.isViewDatas;
 	}
