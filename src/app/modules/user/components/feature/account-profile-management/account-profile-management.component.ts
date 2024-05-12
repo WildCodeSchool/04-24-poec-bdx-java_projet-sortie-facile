@@ -85,7 +85,10 @@ export class AccountProfileManagementComponent implements OnInit {
 	}
 
 	onSaveAddress(): void {
-		// todo service save address data
+		this.userDetails$ = this._userService.patchUserInfo$(
+			this.connectedUser.id,
+			this.userAddressDatasForm,
+		);
 
 		this.isViewAddressDatas = !this.isViewAddressDatas;
 	}

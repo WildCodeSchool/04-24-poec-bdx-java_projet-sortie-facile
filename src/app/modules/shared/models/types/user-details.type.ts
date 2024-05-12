@@ -29,3 +29,5 @@ export type UserDetailsAddressForm = Pick<
 > & {
 	email: string;
 };
+
+export type UserDetailsPatch = Partial<UserDetails>;
