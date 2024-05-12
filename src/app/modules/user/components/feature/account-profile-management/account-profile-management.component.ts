@@ -1,7 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import {
 	UserDetails,
-	UserDetailsForm,
+	UserDetailsAddressForm,
+	UserDetailsPersonalInfosForm,
 } from '@shared/models/types/user-details.type';
 import { UserAuthPrimaryDatas } from '@shared/models/types/user-list-response-api.type';
 import { AuthService } from '@shared/services/auth/auth.service';
@@ -21,8 +22,10 @@ export class AccountProfileManagementComponent implements OnInit {
 
 	connectedUser!: UserAuthPrimaryDatas;
 	userDetails$!: Observable<UserDetails>;
-	isViewDatas: boolean = true;
-	userDatasForm!: UserDetailsForm;
+	isViewPersonalInfosDatas: boolean = true;
+	isViewAddressDatas: boolean = true;
+	userPersonalInfosDatasForm!: UserDetailsPersonalInfosForm;
+	userAddressDatasForm!: UserDetailsAddressForm;
 
 	constructor(
 		private _authService: AuthService,
@@ -34,30 +37,40 @@ export class AccountProfileManagementComponent implements OnInit {
 		this.userDetails$ = this._userService.getUserInfos$(this.connectedUser.id);
 		this.userDetails$
 			.pipe(
-				map(
-					(userDetails: UserDetails) =>
-						(this.userDatasForm = {
-							...userDetails,
-							email: this.connectedUser.email,
-						}),
-				),
+				map((userDetails: UserDetails) => {
+					this.userPersonalInfosDatasForm = {
+						...userDetails,
+						email: this.connectedUser.email,
+					};
+					this.userAddressDatasForm = {
+						...userDetails,
+						email: this.connectedUser.email,
+					};
+				}),
 			)
 			.subscribe();
 	}
 
-	fn(isViewDatas: boolean) {
-		this.isViewDatas = isViewDatas;
+	showPersonalInfosDatas(isViewDatas: boolean) {
+		this.isViewPersonalInfosDatas = isViewDatas;
+	}
+
+	showAddressDatas(isViewDatas: boolean) {
+		this.isViewAddressDatas = isViewDatas;
 	}
 
 	onSavePersonnalInfo(): void {
 		this.userDetails$ = this._authService
 			.patchConnectedUser({
-				email: this.userDatasForm.email,
+				email: this.userPersonalInfosDatasForm.email,
 			})
 			.pipe(
 				switchMap(() =>
 					this._userService
-						.putUserInfo$(this.connectedUser.id, this.userDatasForm)
+						.putUserInfo$(
+							this.connectedUser.id,
+							this.userPersonalInfosDatasForm,
+						)
 						.pipe(
 							tap(
 								() =>
@@ -68,6 +81,12 @@ export class AccountProfileManagementComponent implements OnInit {
 				),
 			);
 
-		this.isViewDatas = !this.isViewDatas;
+		this.isViewPersonalInfosDatas = !this.isViewPersonalInfosDatas;
+	}
+
+	onSaveAddress(): void {
+		// todo service save address data
+
+		this.isViewAddressDatas = !this.isViewAddressDatas;
 	}
 }
