@@ -1,0 +1,19 @@
+<div class="account-primary-content">
+	<div class="section-top">
+		<h3 class="section-title">{{ sectionTitle }}</h3>
+		<p-button
+			label="Modifier"
+			[rounded]="true"
+			[outlined]="true"
+			severity="secondary"
+			icon="pi pi-pencil"
+			iconPos="right"
+			(click)="onChangeView()"
+			styleClass="btn-edit"
+		/>
+	</div>
+
+	<div class="section-content">
+		<ng-content select="[data]"></ng-content>
+	</div>
+</div>
