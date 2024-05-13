@@ -4,6 +4,7 @@ import { NgForm } from '@angular/forms';
 import { ActivityService } from '../../../shared/services/activity.service';
 import { Observable } from 'rxjs';
 import { Activity } from '../../../shared/models/types/activity.type';
+import { Router } from '@angular/router';
 
 @Component({
 	selector: 'app-activity-home',
@@ -12,7 +13,8 @@ import { Activity } from '../../../shared/models/types/activity.type';
 })
 export class ActivityHomeComponent {
 	newActivity$!: Observable<Activity>;
-	constructor(private activityService: ActivityService) {}
+	
+	constructor(private activityService: ActivityService,	private router: Router ) {}
 
 	formData: {
 		name: string;
@@ -36,11 +38,12 @@ export class ActivityHomeComponent {
 		description: '',
 	};
 	onSubmit(form: NgForm): void {
-		this.newActivity$ = this.activityService.postNewActivity$(form.value);
-		this.newActivity$.subscribe(
+		this.activityService.postNewActivity$(form.value).subscribe(
 			data => {
 				// En cas de succès
 				console.log('POST Request is successful ', data);
+				// Rediriger vers la page de l'activité créée en utilisant le navigateur
+				this.router.navigate(['/activity/details', data.id]); // Remplacez 'data.id' par l'identifiant de l'activité créée
 			},
 			error => {
 				// En cas d'erreur
@@ -48,5 +51,4 @@ export class ActivityHomeComponent {
 			},
 		);
 		console.log('form value : ', form.value);
-	}
-}
+	}}
