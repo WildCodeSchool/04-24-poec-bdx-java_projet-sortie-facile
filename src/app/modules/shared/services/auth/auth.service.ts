@@ -7,6 +7,7 @@ import {
 	UserAuthPrimaryDatas,
 	UserListResponseApi,
 } from '@shared/models/types/user-list-response-api.type';
+import { newUser } from '@shared/models/types/newUser.model';
 // import { newUser } from '@shared/models/types/newUser.model';
 
 @Injectable({
@@ -19,6 +20,8 @@ export class AuthService {
 		private _httpClient: HttpClient,
 		private _router: Router,
 	) {}
+
+	newUser!: newUser;
 
 	// createUserWithEmailAndPassword(userCredentials: newUser): void {
 	//   console.log('created ok');
@@ -50,9 +53,20 @@ export class AuthService {
 			);
 	}
 
-	// createUserWithEmailAndPassword(userCredentials: any): void {
-	// 	console.log('created ok');
-	// }
+	createUserWithEmailAndPassword(newUser: newUser): Observable<UserAuthPrimaryDatas> {
+		return this._httpClient.post<UserAuth>('http://localhost:3000/user', newUser).pipe(
+			map((user: UserAuthPrimaryDatas) => ({
+				id: user.id,
+				username: user.username,
+				email: user.email,
+				role: user.role,
+			})),
+			tap((user: UserAuthPrimaryDatas) => {
+				this.setConnectedUserData(user);
+				this._redirectUser();
+			}),
+	);
+	};
 
 	public getConnectedUserData(): UserAuthPrimaryDatas {
 		return this._userConnected;

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { newUser } from '../../../shared/models/types/newUser.model';
+import { AuthService } from '@shared/services/auth/auth.service';
 
 @Component({
 	selector: 'app-create-account',
@@ -15,8 +16,13 @@ export class CreateAccountComponent {
 		confirmation: '',
 	};
 
+	constructor(private _authService: AuthService) {}
+
 	onSubmit(form: NgForm) {
 		// eslint-disable-next-line no-console
 		console.log(form.value);
+		// TODO verification password = con firmation
+		this._authService.createUserWithEmailAndPassword(this.createdUser).subscribe();
+
 	}
 }

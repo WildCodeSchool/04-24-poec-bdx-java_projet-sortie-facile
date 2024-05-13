@@ -5,9 +5,10 @@ import { AuthenticationRoutingModule } from './authentication-routing.module';
 import { AuthLoginComponent } from '@authentication/pages/auth-login/auth-login.component';
 import { FormsModule } from '@angular/forms';
 import { SharedModule } from '@shared/shared.module';
+import { ModifyAccountComponent } from './pages/modify-account/modify-account.component';
 
 @NgModule({
-	declarations: [AuthLoginComponent],
+	declarations: [AuthLoginComponent, ModifyAccountComponent],
 	imports: [
 		CommonModule,
 		AuthenticationRoutingModule,

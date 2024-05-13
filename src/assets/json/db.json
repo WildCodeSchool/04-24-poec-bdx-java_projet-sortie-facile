@@ -20,6 +20,13 @@
       "email": "junior.doe@mail.com",
       "password": "123456789",
       "role": "user"
+    },
+    {
+      "id": "b2a1",
+      "username": "wdfh",
+      "email": "toto@toto.fr",
+      "password": "12345678+9",
+      "confirmation": "123456789"
     }
   ],
   "profil": [
