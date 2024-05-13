@@ -1,7 +1,7 @@
 import { Component, Input, OnInit, forwardRef } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { Category } from '../../../models/types/category.type';
-import { ActivityService } from '../../../services/activity.service';
+import { Category } from '@models/types/category.type';
+import { ActivityService } from '@services/activity.service';
 import { Observable } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
 

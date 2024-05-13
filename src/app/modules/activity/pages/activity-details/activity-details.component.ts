@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Activity } from '../../../shared/models/types/activity.type';
-import { Observable, map, switchMap } from 'rxjs';
-import { ActivityService } from '../../../shared/services/activity.service';
+import { Activity } from '@shared/models/types/activity.type';
+import { Observable } from 'rxjs';
+import { ActivityService } from '@shared/services/activity.service';
 import { ActivatedRoute } from '@angular/router';
-import { Activities } from '../../../shared/models/types/activities.type';
-import { Category } from '@shared/models/types/category.type';
+import { Activities } from '@shared/models/types/activities.type';
 
 @Component({
 	selector: 'app-activity-details',

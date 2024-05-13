@@ -1,48 +1,48 @@
 <div class="container">
-  <div class="content-top">
-    <div class="content-top-text">
-      <h2>
-        Sortie Facile : la plateforme qui créé du lien social entre les
-        personnes par l’intermédiaire d’activités selon des centres d’intêrets
-        en commun.
-      </h2>
+	<div class="content-top">
+		<div class="content-top-text">
+			<h2>
+				Sortie Facile : la plateforme qui créé du lien social entre les
+				personnes par l’intermédiaire d’activités selon des centres d’intêrets
+				en commun.
+			</h2>
 
-      <p>
-        Lemon drops tootsie roll cheesecake gummi bears croissant jelly beans
-        sesame snaps cake. Cake apple pie candy caramels croissant shortbread
-        cupcake. Marshmallow toffee icing dragée apple pie topping tart pudding.
-      </p>
-      <p>
-        Cheesecake pastry candy canes muffin cake pastry. Macaroon candy canes
-        liquorice candy canes pudding powder. Shortbread pudding brownie pastry
-        tootsie roll sesame snaps jujubes. Wafer bonbon soufflé fruitcake
-        pudding powder sweet roll carrot cake candy.
-      </p>
-    </div>
+			<p>
+				Lemon drops tootsie roll cheesecake gummi bears croissant jelly beans
+				sesame snaps cake. Cake apple pie candy caramels croissant shortbread
+				cupcake. Marshmallow toffee icing dragée apple pie topping tart pudding.
+			</p>
+			<p>
+				Cheesecake pastry candy canes muffin cake pastry. Macaroon candy canes
+				liquorice candy canes pudding powder. Shortbread pudding brownie pastry
+				tootsie roll sesame snaps jujubes. Wafer bonbon soufflé fruitcake
+				pudding powder sweet roll carrot cake candy.
+			</p>
+		</div>
 
-    <img class="img-top" src="assets/photos/home.svg" alt="" />
-  </div>
+		<img class="img-top" src="assets/photos/home.svg" alt="" />
+	</div>
 
-  <div class="functioning">
-    <h3>Fonctionnement</h3>
+	<div class="functioning">
+		<h3>Fonctionnement</h3>
 
-    <div class="functioning-list">
-      <ng-container *ngFor="let functioningData of functioningDatas">
-        <app-card-landing-small
-          [imgSrc]="functioningData.imgSrc"
-          [imgAlt]="functioningData.imgAlt"
-          [title]="functioningData.title"
-          [description]="functioningData.description"
-          [link]="functioningData.link"
-          [linkLabel]="functioningData.linkLabel"
-        ></app-card-landing-small>
-      </ng-container>
-    </div>
-  </div>
+		<div class="functioning-list">
+			<ng-container *ngFor="let functioningData of functioningDatas">
+				<app-card-landing-small
+					[imgSrc]="functioningData.imgSrc"
+					[imgAlt]="functioningData.imgAlt"
+					[title]="functioningData.title"
+					[description]="functioningData.description"
+					[link]="functioningData.link"
+					[linkLabel]="functioningData.linkLabel"
+				></app-card-landing-small>
+			</ng-container>
+		</div>
+	</div>
 
-  <app-card-landing-large
-    title="Découvrir les activités"
-    description="Danish jelly chocolate bar lollipop cupcake chocolate cake danish oat
+	<app-card-landing-large
+		title="Découvrir les activités"
+		description="Danish jelly chocolate bar lollipop cupcake chocolate cake danish oat
         cake cotton candy. Jujubes soufflé lollipop candy canes marzipan jelly-o
         fruitcake caramels. Lollipop chocolate bar topping apple pie dragée.
         Tiramisu dessert jujubes powder chocolate bar cheesecake cookie
@@ -51,9 +51,9 @@
         danish sweet roll sesame snaps cupcake marshmallow tootsie roll. Cookie
         cake lemon drops candy jelly jelly beans pastry. Sugar plum bear claw
         cake jelly-o chocolate bar jelly-o halvah toffee chocolate bar."
-    ctaPrimarylabel="Créer un compte"
-    ctaSecondarylabel="Se connecter"
-    imgSrc="assets/photos/activity-participate.svg"
-    imgLabel=""
-  ></app-card-landing-large>
+		ctaPrimarylabel="Créer un compte"
+		ctaSecondarylabel="Se connecter"
+		imgSrc="assets/photos/activity-participate.svg"
+		imgLabel=""
+	></app-card-landing-large>
 </div>

@@ -1,4 +1,4 @@
-import { Category } from './category.type';
+import { Category } from '@models/types/category.type';
 
 export type Activity = {
 	id: string;

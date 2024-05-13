@@ -1,27 +1,23 @@
 <div class="activity-card-container">
-  <div class="card flex justify-content-center">
-    <p-card
-      [header]="activity.name"
-      subheader="Card Subheader"
-      [style]="{ width: '360px' }"
-    >
-      <ng-template pTemplate="header">
-        <img alt="{{ activity.name }}" [src]="activity.imgUrl" />
-      </ng-template>
-      <p>
-        {{ activity.description }}
-      </p>
-      <ng-template pTemplate="footer">
-        <p-button [routerLink]="['/activity/details', activity.id]">
-          Voir Plus
-        </p-button>
-        <p-button (click)="delete(activity.id)">
-          supprimer
-        </p-button>
-        <p-button (click)="update(activity.id)">
-          modifier
-        </p-button>
-      </ng-template>
-    </p-card>
-  </div>
+	<div class="card flex justify-content-center">
+		<p-card
+			[header]="activity.name"
+			subheader="Card Subheader"
+			[style]="{ width: '360px' }"
+		>
+			<ng-template pTemplate="header">
+				<img alt="{{ activity.name }}" [src]="activity.imgUrl" />
+			</ng-template>
+			<p>
+				{{ activity.description }}
+			</p>
+			<ng-template pTemplate="footer">
+				<p-button [routerLink]="['/activity/details', activity.id]">
+					Voir Plus
+				</p-button>
+				<p-button (click)="delete(activity.id)"> supprimer </p-button>
+				<p-button (click)="update(activity.id)"> modifier </p-button>
+			</ng-template>
+		</p-card>
+	</div>
 </div>

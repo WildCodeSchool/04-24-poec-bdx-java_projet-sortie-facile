@@ -3,8 +3,8 @@
 
 <app-select-category></app-select-category>
 <div *ngIf="activityList$ | async as activities">
-  <app-activity-card
-    *ngFor="let activity of activities"
-    [activity]="activity"
-  ></app-activity-card>
+	<app-activity-card
+		*ngFor="let activity of activities"
+		[activity]="activity"
+	></app-activity-card>
 </div>
