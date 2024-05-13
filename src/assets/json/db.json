@@ -121,23 +121,31 @@
   "reservation": [
     {
       "id": "1",
-      "activityName": "trouloulou"
+      "activityId": "1",
+      "userId": "1"
     },
     {
       "id": "2",
-      "activityName": "tralala"
+      "activityId": "2",
+      "userId": "2"
     },
     {
       "id": "3",
-      "activityName": "trilili"
+      "activityId": "3",
+      "userId": "3"
+
     },
     {
       "id": "4",
-      "activityName": "trelele"
+      "activityId": "4",
+      "userId": "1"
+
     },
     {
       "id": "5",
-      "activityName": "trololo"
+      "activityId": "5",      
+      "userId": "2"
+
     }
   ],
   "activity": [
@@ -260,6 +268,24 @@
       "categoryId": {
         "id": "2",
         "title": "Music"
+      },
+      "nbGuest": 0,
+      "description": "",
+      "imgUrl": "",
+      "link": ""
+    },
+    {
+      "id": "9",
+      "name": "toto",
+      "date": "",
+      "hour": "",
+      "activityCity": {
+        "id": 3,
+        "name": "London"
+      },
+      "categoryId": {
+        "id": 0,
+        "title": ""
       },
       "nbGuest": 0,
       "description": "",
