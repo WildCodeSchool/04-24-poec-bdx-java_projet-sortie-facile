@@ -18,7 +18,7 @@ import { IconFieldModule } from 'primeng/iconfield';
 import { InputIconModule } from 'primeng/inputicon';
 import { DragDropModule } from 'primeng/dragdrop';
 import { TabMenuModule } from 'primeng/tabmenu';
-import { FloatLabelModule } from 'primeng/floatlabel';
+import { ScrollTopModule } from 'primeng/scrolltop';
 @NgModule({
 	exports: [
 		ButtonModule,
@@ -41,7 +41,7 @@ import { FloatLabelModule } from 'primeng/floatlabel';
 		CalendarModule,
 		DragDropModule,
 		TabMenuModule,
-		FloatLabelModule,
+		ScrollTopModule,
 	],
 })
 export class PrimengModule {}
