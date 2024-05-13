@@ -54,8 +54,8 @@ export class AuthService {
 			);
 	}
 
-	createUserWithEmailAndPassword(newUser: newUser): Observable<UserAuthPrimaryDatas> {
-		return this._httpClient.post<UserAuth>('http://localhost:3000/user', newUser).pipe(
+	createUserWithEmailAndPassword(UserAuth: UserAuth): Observable<UserAuthPrimaryDatas> {
+		return this._httpClient.post<UserAuth>('http://localhost:3000/user', UserAuth).pipe(
 			map((user: UserAuthPrimaryDatas) => ({
 				id: user.id,
 				username: user.username,

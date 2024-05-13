@@ -27,6 +27,41 @@
       "email": "toto@toto.fr",
       "password": "12345678+9",
       "confirmation": "123456789"
+    },
+    {
+      "id": "ff55",
+      "username": "wdfh",
+      "email": "toto@toto.fr",
+      "password": "azertyuiop",
+      "confirmation": "azertyuiop"
+    },
+    {
+      "id": "c923",
+      "username": "sgh",
+      "email": "totoo@toto.fr",
+      "password": "123456789",
+      "confirmation": "123456789"
+    },
+    {
+      "id": "19a8",
+      "username": "azerty",
+      "email": "titi@titi.fr",
+      "password": "azertyuiop",
+      "confirmation": "azertyuiop"
+    },
+    {
+      "id": "9881",
+      "username": "azerty",
+      "email": "titi@titi.fr",
+      "password": "azertyuiop",
+      "confirmation": "azertyuiop"
+    },
+    {
+      "id": "b59b",
+      "username": "aqw",
+      "email": "toto@toto.fr",
+      "password": "azertyuiop",
+      "confirmation": "azertyuiop"
     }
   ],
   "user_details": [
