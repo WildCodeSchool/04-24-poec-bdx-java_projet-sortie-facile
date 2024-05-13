@@ -14,7 +14,8 @@ import { Category } from '@shared/models/types/category.type';
 export class ActivityDetailsComponent implements OnInit {
 	activities$!: Observable<Activities>;
 	activity$!: Observable<Activity>;
-	categoryTitle$!: Observable<string>;	constructor(
+	categoryTitle$!: Observable<string>;
+	constructor(
 		private activityService: ActivityService,
 		private route: ActivatedRoute,
 	) {}
@@ -23,14 +24,14 @@ export class ActivityDetailsComponent implements OnInit {
 		this.activity$ = this.activityService.getActivityById$(id);
 
 		// Convertir l'ID de catégorie en chaîne de caractères
-		const categoryId: string = id.toString();
+		// const categoryId: string = id.toString();
 
 		// Récupérer le titre de la catégorie correspondante à partir de l'ID de catégorie de l'activité
-		this.categoryTitle$ = this.activity$.pipe(
-			switchMap(activity => this.activityService.getCategoryTitle$(categoryId))
-		);
+		// this.categoryTitle$ = this.activity$.pipe(
+		// 	switchMap(activity => {
+		// 		console.log(activity.categoryId.id, 'test');
+		// 		return this.activityService.getCategoryTitle$(activity.categoryId.id);
+		// 	}),
+		// );
 	}
-	
-
-
 }

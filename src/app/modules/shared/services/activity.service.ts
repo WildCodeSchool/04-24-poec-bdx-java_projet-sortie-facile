@@ -44,13 +44,15 @@ export class ActivityService {
 				),
 			);
 	}
-	getCategoryTitle$(title: string): Observable<string> {
-		return this.http.get<any>(`http://localhost:3000/category/${title}`).pipe(
-			map((category: any) => {
-				// Supposons que le titre de la catégorie soit stocké dans une propriété "title"
-				return category.title;
-			}),
-		);
+	getCategoryTitle$(categoryId: string): Observable<string> {
+		return this.http
+			.get<any>(`http://localhost:3000/category/${categoryId}`)
+			.pipe(
+				map((category: any) => {
+					// Supposons que le titre de la catégorie soit stocké dans une propriété "title"
+					return category.title;
+				}),
+			);
 	}
 
 	getActivityListByCategoryId$(id: number): Observable<Activity[]> {
