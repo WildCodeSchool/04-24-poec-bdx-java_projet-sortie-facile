@@ -11,8 +11,7 @@ export class ActivityCardComponent {
 	@Input() activity!: Activity;
 	constructor(private activityService: ActivityService) {}
 
-
-	delete(id: number): void {
+	delete(id: string): void {
 		this.activityService.deleteActivity$(id).subscribe(
 			() => {
 				console.log('Activity deleted successfully.');
@@ -20,12 +19,12 @@ export class ActivityCardComponent {
 			},
 			error => {
 				console.error('Error deleting activity:', error);
-			}
+			},
 		);
 	}
 
 	// faire la page de modif
-	update(id: number): void {
+	update(id: string): void {
 		this.activityService.updateActivity$(id).subscribe(
 			() => {
 				console.log('Activity update successfully.');
@@ -33,7 +32,7 @@ export class ActivityCardComponent {
 			},
 			error => {
 				console.error('Error updating activity:', error);
-			}
+			},
 		);
 	}
 }
