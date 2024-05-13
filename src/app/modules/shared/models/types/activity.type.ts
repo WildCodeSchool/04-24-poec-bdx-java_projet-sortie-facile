@@ -1,3 +1,5 @@
+import { Category } from './category.type';
+
 export type Activity = {
 	id: string;
 	name: string;
@@ -9,7 +11,7 @@ export type Activity = {
 	link?: string;
 	description: string;
 	nbGuest: number;
-	categoryId: number;
+	categoryId: Category;
 };
 export type ActivityCopy = {
 	id: string;
@@ -25,6 +27,6 @@ export type ActivityCopy = {
 	link: string;
 	description: string;
 	nbGuest: number;
-	categoryId: number;
+	categoryId: Category;
 	hour: string;
 };
