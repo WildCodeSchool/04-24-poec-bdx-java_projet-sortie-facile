@@ -19,8 +19,6 @@ import { AvatarPseudoComponent } from '@shared/components/avatar/avatar-pseudo/a
 import { TextareaComponent } from '@shared/components/form/textarea/textarea.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CardComponent } from '@shared/components/card/card.component';
-import { CardLandingSmallComponent } from '@shared/components/cards/card-landing-small/card-landing-small.component';
-import { CardLandingLargeComponent } from '@shared/components/cards/card-landing-large/card-landing-large.component';
 import { DropzoneFieldComponent } from '@shared/components/form/dropzone-field/dropzone-field.component';
 import { DateFieldComponent } from '@shared/components/form/date-field/date-field.component';
 import { AccountNavActiveLinkPipe } from './pipes/account-nav-active-link/account-nav-active-link.pipe';
@@ -33,8 +31,6 @@ import { SearchBarComponent } from '@shared/components/search-bar/search-bar.com
 		ButtonSocialComponent,
 		ButtonFormComponent,
 		CardComponent,
-		CardLandingSmallComponent,
-		CardLandingLargeComponent,
 		DividerComponent,
 		DropzoneFieldComponent,
 		DateFieldComponent,
@@ -77,8 +73,6 @@ import { SearchBarComponent } from '@shared/components/search-bar/search-bar.com
 		AvatarPseudoComponent,
 		TextareaComponent,
 		CardComponent,
-		CardLandingSmallComponent,
-		CardLandingLargeComponent,
 		DropzoneFieldComponent,
 		DateFieldComponent,
 		AccountNavActiveLinkPipe,
