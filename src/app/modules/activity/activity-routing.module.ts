@@ -6,8 +6,8 @@ import { ActivitySearchComponent } from './pages/activity-search/activity-search
 
 const routes: Routes = [
 	// Dans le fichier account-routing.module.ts
-	{ path: 'home', component: ActivityHomeComponent },
-	{ path: 'list', component: ActivitySearchComponent },
+	{ path: 'createActivity', component: ActivityHomeComponent },
+	{ path: 'home', component: ActivitySearchComponent },
 	{ path: 'details/:id', component: ActivityDetailsComponent },
 ];
 

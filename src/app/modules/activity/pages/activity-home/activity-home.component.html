@@ -1,5 +1,6 @@
 <div class="activity-form-container">
-  <form #myForm="ngForm" (ngSubmit)="onSubmit(myForm)" class="activity-form">
+  <div class="card flex justify-content-center">
+  </div>  <form #myForm="ngForm" (ngSubmit)="onSubmit(myForm)" class="activity-form">
     <app-avatar-pseudo></app-avatar-pseudo>
     <p>Titre de l'activité</p>
     <app-text-field
@@ -67,7 +68,15 @@
       [(ngModel)]="formData.description"
     ></app-textarea>
     <p>img</p>
+    <input  inputId=" imgUrl"
+    name=" imgUrl"
+    #imgUrl="ngModel"
+    [(ngModel)]="formData.imgUrl"type="file"class="file-upload">
     <p>Lien</p>
+    <input  inputId=" link"
+    name=" link"
+    #link="ngModel"
+    [(ngModel)]="formData.link"type="url">
     <!-- <app-modal></app-modal> -->
     <div class="card flex justify-content-center">
       <p-button label="Check" type="submit">Submit</p-button>

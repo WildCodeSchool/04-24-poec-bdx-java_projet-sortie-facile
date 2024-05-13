@@ -12,9 +12,12 @@
         {{ activity.description }}
       </p>
       <ng-template pTemplate="footer">
-        <button [routerLink]="['/activity/details', activity.id]">
+        <p-button [routerLink]="['/activity/details', activity.id]">
           Voir Plus
-        </button>
+        </p-button>
+        <p-button (click)="delete(activity.id)">
+          supprimer
+        </p-button>
       </ng-template>
     </p-card>
   </div>
