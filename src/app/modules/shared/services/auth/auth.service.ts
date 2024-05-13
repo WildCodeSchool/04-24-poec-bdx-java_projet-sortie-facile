@@ -4,6 +4,7 @@ import { Observable, map, tap } from 'rxjs';
 import { Router } from '@angular/router';
 import {
 	UserAuth,
+	UserAuthPatch,
 	UserAuthPrimaryDatas,
 	UserListResponseApi,
 } from '@shared/models/types/user-list-response-api.type';
@@ -67,6 +68,22 @@ export class AuthService {
 			}),
 	);
 	};
+
+	public patchConnectedUser(
+		userAuthInfoPatch: UserAuthPatch,
+	): Observable<UserAuth> {
+		return this._httpClient
+			.patch<UserAuth>(
+				`http://localhost:3000/user/${this._userConnected.id}`,
+				userAuthInfoPatch,
+			)
+			.pipe(
+				tap((user: UserAuth) => {
+					localStorage.setItem('user', JSON.stringify(user));
+					this.setConnectedUserData(user);
+				}),
+			);
+	}
 
 	public getConnectedUserData(): UserAuthPrimaryDatas {
 		return this._userConnected;

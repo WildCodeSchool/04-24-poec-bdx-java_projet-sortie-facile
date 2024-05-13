@@ -1,0 +1,226 @@
+<div class="container">
+	<app-account-layout
+		[avatarSrc]="avatarSrc"
+		[avatarAlt]="avatarAlt"
+		[username]="connectedUser.username"
+		[pageTitle]="pageTitle"
+		[pageDescription]="pageDescription"
+	>
+		<app-account-container-content
+			sectionTitle="Infos personnelles"
+			[isViewDatas]="isViewPersonalInfosDatas"
+			(sendIsViewDatas)="showPersonalInfosDatas($event)"
+		>
+			<div
+				class="content-box"
+				data
+				*ngIf="userDetails$ | async as userPersonalInfosDetails"
+			>
+				<app-account-card-info
+					title="Prénom"
+					[content]="userPersonalInfosDetails.first_name"
+					[isViewDatas]="isViewPersonalInfosDatas"
+				>
+					<app-text-field
+						*ngIf="!isViewPersonalInfosDatas"
+						input
+						type="text"
+						id="firstname"
+						name="firstname"
+						[(ngModel)]="userPersonalInfosDatasForm.first_name"
+					></app-text-field>
+				</app-account-card-info>
+
+				<app-account-card-info
+					title="Nom de famille"
+					[content]="userPersonalInfosDetails.last_name"
+					[isViewDatas]="isViewPersonalInfosDatas"
+				>
+					<app-text-field
+						*ngIf="!isViewPersonalInfosDatas"
+						input
+						type="text"
+						id="lastname"
+						name="lastname"
+						[(ngModel)]="userPersonalInfosDatasForm.last_name"
+					></app-text-field
+				></app-account-card-info>
+
+				<app-account-card-info
+					title="Email"
+					[content]="connectedUser.email"
+					[isViewDatas]="isViewPersonalInfosDatas"
+					><app-text-field
+						*ngIf="!isViewPersonalInfosDatas"
+						input
+						type="text"
+						id="firstname"
+						name="firstname"
+						[(ngModel)]="userPersonalInfosDatasForm.email"
+					></app-text-field
+				></app-account-card-info>
+
+				<app-account-card-info
+					title="Téléphone"
+					[content]="userPersonalInfosDetails.phone"
+					[isViewDatas]="isViewPersonalInfosDatas"
+					><app-text-field
+						*ngIf="!isViewPersonalInfosDatas"
+						input
+						type="text"
+						id="phone"
+						name="phone"
+						[(ngModel)]="userPersonalInfosDatasForm.phone"
+					></app-text-field
+				></app-account-card-info>
+
+				<app-account-card-info
+					title="Date de naissance"
+					[content]="userPersonalInfosDetails.birthday"
+					[isViewDatas]="isViewPersonalInfosDatas"
+					><app-text-field
+						*ngIf="!isViewPersonalInfosDatas"
+						input
+						type="text"
+						id="date"
+						name="date"
+						[(ngModel)]="userPersonalInfosDatasForm.birthday"
+					></app-text-field
+				></app-account-card-info>
+
+				<app-account-card-info
+					title="Genre"
+					[content]="userPersonalInfosDetails.genre"
+					[isViewDatas]="isViewPersonalInfosDatas"
+					><app-text-field
+						*ngIf="!isViewPersonalInfosDatas"
+						input
+						type="text"
+						id="genre"
+						name="genre"
+						[(ngModel)]="userPersonalInfosDatasForm.genre"
+					></app-text-field
+				></app-account-card-info>
+
+				<div class="btn-form-box" *ngIf="!isViewPersonalInfosDatas">
+					<p-button
+						label="Sauvegarder"
+						[rounded]="true"
+						(click)="onSavePersonnalInfo()"
+					/>
+				</div>
+			</div>
+		</app-account-container-content>
+
+		<app-account-container-content
+			sectionTitle="Adresse"
+			[isViewDatas]="isViewAddressDatas"
+			(sendIsViewDatas)="showAddressDatas($event)"
+		>
+			<div
+				class="content-box"
+				data
+				*ngIf="userDetails$ | async as userAddressDetails"
+			>
+				<app-account-card-info
+					title="N° de rue"
+					[content]="userAddressDetails.streetNumber"
+					[isViewDatas]="isViewAddressDatas"
+				>
+					{{ isViewAddressDatas }}
+					<app-text-field
+						*ngIf="!isViewAddressDatas"
+						input
+						type="text"
+						id="streetNumber"
+						name="streetNumber"
+						[(ngModel)]="userAddressDatasForm.streetNumber"
+					></app-text-field>
+				</app-account-card-info>
+
+				<app-account-card-info
+					title="Rue / Avenue"
+					[content]="userAddressDetails.street"
+					[isViewDatas]="isViewAddressDatas"
+				>
+					<app-text-field
+						*ngIf="!isViewAddressDatas"
+						input
+						type="text"
+						id="street"
+						name="street"
+						[(ngModel)]="userAddressDatasForm.street"
+					></app-text-field
+				></app-account-card-info>
+
+				<app-account-card-info
+					title="Région"
+					[content]="userAddressDetails.region"
+					[isViewDatas]="isViewAddressDatas"
+				>
+					<app-text-field
+						*ngIf="!isViewAddressDatas"
+						input
+						type="text"
+						id="region"
+						name="region"
+						[(ngModel)]="userAddressDatasForm.region"
+					></app-text-field>
+				</app-account-card-info>
+
+				<app-account-card-info
+					title="Département"
+					[content]="userAddressDetails.departement"
+					[isViewDatas]="isViewAddressDatas"
+				>
+					<app-text-field
+						*ngIf="!isViewAddressDatas"
+						input
+						type="text"
+						id="departement"
+						name="departement"
+						[(ngModel)]="userAddressDatasForm.departement"
+					></app-text-field>
+				</app-account-card-info>
+
+				<app-account-card-info
+					title="Code postal"
+					[content]="userAddressDetails.postalCode"
+					[isViewDatas]="isViewAddressDatas"
+				>
+					<app-text-field
+						*ngIf="!isViewAddressDatas"
+						input
+						type="text"
+						id="postalCode"
+						name="postalCode"
+						[(ngModel)]="userAddressDatasForm.postalCode"
+					></app-text-field>
+				</app-account-card-info>
+
+				<app-account-card-info
+					title="Ville"
+					[content]="userAddressDetails.city"
+					[isViewDatas]="isViewAddressDatas"
+				>
+					<app-text-field
+						*ngIf="!isViewAddressDatas"
+						input
+						type="text"
+						id="city"
+						name="city"
+						[(ngModel)]="userAddressDatasForm.city"
+					></app-text-field>
+				</app-account-card-info>
+
+				<div class="btn-form-box" *ngIf="!isViewAddressDatas">
+					<p-button
+						label="Sauvegarder"
+						[rounded]="true"
+						(click)="onSaveAddress()"
+					/>
+				</div>
+			</div>
+		</app-account-container-content>
+	</app-account-layout>
+</div>
