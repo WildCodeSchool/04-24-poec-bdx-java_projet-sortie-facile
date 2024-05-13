@@ -25,7 +25,7 @@ export class ActivityService {
 	getActivityById$(id: number): Observable<Activity> {
 		return this.http
 			.get<Activity>(`http://localhost:3000/activity/${id}`)
-			.pipe(map((response: Activity) => response));
+			.pipe(tap (value=>console.log(value)),map((response: Activity) => response));
 	}
 	getActivityCategoryList$(): Observable<Category[]> {
 		return this.http
@@ -74,11 +74,12 @@ getActivityListByCategoryId$(id: number): Observable<Activity[]> {
 	// }
 	postNewActivity$(newActivity: Activity): Observable<Activity> {
         return this.http.get<Activity[]>('http://localhost:3000/activity').pipe(
-            switchMap(activities => {
-                // Trouver la dernière id dans le tableau d'activités
-                const lastActivity = activities.reduce((prev, current) => (+current.id > +prev.id) ? current : prev);
-                // Incrémenter l'id de la nouvelle activité
-                newActivity.id = (+lastActivity.id + 1);
+            switchMap(activities => {  const nextId = activities.length > 0 ? activities[0].id + 1 : 1;
+				newActivity.id = nextId;
+                // // Trouver la dernière id dans le tableau d'activités
+                // const lastActivity = activities.reduce((prev, current) => (+current.id > +prev.id) ? current : prev);
+                // // Incrémenter l'id de la nouvelle activité
+                // newActivity.id = (+lastActivity.id + 1);
                 // Poster la nouvelle activité avec la nouvelle id
                 return this.http.post<Activity>('http://localhost:3000/activity', newActivity);
             }),
