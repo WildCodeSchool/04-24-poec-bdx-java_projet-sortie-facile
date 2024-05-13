@@ -8,12 +8,19 @@ import {
 	UserAuthPrimaryDatas,
 	UserListResponseApi,
 } from '@shared/models/types/user-list-response-api.type';
+import { AuthProvider } from '@shared/models/types/provider.type';
+import { AuthProviderNameEnum } from '@shared/models/enums/auth-provider';
 
 @Injectable({
 	providedIn: 'root',
 })
 export class AuthService {
 	private _userConnected!: UserAuthPrimaryDatas;
+	private _providerNameList: AuthProvider[] = [
+		{ name: AuthProviderNameEnum.GOOGLE },
+		{ name: AuthProviderNameEnum.FACEBOOK },
+		{ name: AuthProviderNameEnum.TWITTER },
+	];
 
 	constructor(
 		private _httpClient: HttpClient,
@@ -72,6 +79,10 @@ export class AuthService {
 
 	public setConnectedUserData(user: UserAuthPrimaryDatas): void {
 		this._userConnected = user;
+	}
+
+	public getProviderNameList(): AuthProvider[] {
+		return this._providerNameList;
 	}
 
 	private _redirectUser(): void {

@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AuthRedirect } from '@shared/models/types/auth-redirect.type';
 import { connectedUserDatas } from '@shared/models/types/connectedUserDatas.model';
+import { AuthProvider } from '@shared/models/types/provider.type';
 import { UserAuthPrimaryDatas } from '@shared/models/types/user-list-response-api.type';
 import { AuthService } from '@shared/services/auth/auth.service';
 
@@ -9,16 +10,12 @@ import { AuthService } from '@shared/services/auth/auth.service';
 	templateUrl: './auth-login-management.component.html',
 	styleUrl: './auth-login-management.component.scss',
 })
-export class AuthLoginManagementComponent {
-	providerNameList = [
-		{ name: 'Google', color: 'blue' },
-		{ name: 'Facebook', color: 'blue' },
-		{ name: 'Twitter', color: 'blue' },
-	];
+export class AuthLoginManagementComponent implements OnInit {
+	providerNameList!: AuthProvider[];
 
 	redirect: AuthRedirect = {
 		text: 'Vous n’avez pas encore de compte ?',
-		link: ['/'],
+		link: ['/auth/register'],
 		linkLabel: 'S’inscrire',
 	};
 
@@ -29,6 +26,10 @@ export class AuthLoginManagementComponent {
 	};
 
 	constructor(private authService: AuthService) {}
+
+	ngOnInit(): void {
+		this.providerNameList = this.authService.getProviderNameList();
+	}
 
 	onSubmit(): void {
 		this.authService
