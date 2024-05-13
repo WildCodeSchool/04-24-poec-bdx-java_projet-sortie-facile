@@ -5,6 +5,7 @@ import { ActivityService } from '../../../shared/services/activity.service';
 import { Observable, tap } from 'rxjs';
 import { Activity } from '../../../shared/models/types/activity.type';
 import { Router } from '@angular/router';
+import { Category } from '@shared/models/types/category.type';
 
 @Component({
 	selector: 'app-activity-home',
@@ -32,7 +33,7 @@ export class ActivityHomeComponent {
 		link: string;
 		description: string;
 		nbGuest: number;
-		categoryId: number;
+		categoryId: Category;
 		hour: string;
 	} = {
 		name: 'toto',
@@ -47,7 +48,10 @@ export class ActivityHomeComponent {
 		link: '',
 		description: '',
 		nbGuest: 0,
-		categoryId: 1,
+		categoryId: {
+			id: 0,
+			title: '',
+		},
 		hour: '',
 	};
 
