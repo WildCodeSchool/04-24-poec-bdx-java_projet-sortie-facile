@@ -19,6 +19,7 @@ export class HeaderComponent implements OnInit {
 			{
 				label: 'Contact',
 				icon: 'pi pi-fw pi-pencil',
+				routerLink: '/contact',
 			},
 
 			{
