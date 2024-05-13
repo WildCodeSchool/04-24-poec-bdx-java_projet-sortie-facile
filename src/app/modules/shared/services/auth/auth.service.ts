@@ -20,10 +20,10 @@ export class AuthService {
 		private _router: Router,
 	) {}
 
-  // createUserWithEmailAndPassword(userCredentials: newUser): void {
-  //   console.log('created ok');
-  //   this.httpClient.post('http://localhost:3000/user', userCredentials).subscribe();
-  // }
+	// createUserWithEmailAndPassword(userCredentials: newUser): void {
+	//   console.log('created ok');
+	//   this.httpClient.post('http://localhost:3000/user', userCredentials).subscribe();
+	// }
 	loginWithEmailAndPassword(
 		username: string,
 		password: string,
