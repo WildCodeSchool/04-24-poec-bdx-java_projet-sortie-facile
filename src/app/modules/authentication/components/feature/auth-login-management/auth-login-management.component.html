@@ -1,0 +1,51 @@
+<app-auth-layout
+	pageTitle="Connection"
+	backgroundImage="/assets/photos/signin.jpg"
+	[redirect]="redirect"
+>
+	<form #loginForm="ngForm" (ngSubmit)="onSubmit()">
+		<app-text-field
+			labelFor="username"
+			labelContent="Nom d'utilisateur :"
+			type="text"
+			id="username"
+			name="username"
+			[(ngModel)]="connectedUser.username"
+			[form]="loginForm"
+			[required]="true"
+			[minlength]="3"
+			[maxlength]="50"
+		></app-text-field>
+
+		<app-password-field
+			labelFor="password"
+			labelContent="Password :"
+			id="password"
+			name="password"
+			[(ngModel)]="connectedUser.password"
+			[form]="loginForm"
+			[required]="true"
+			[minlength]="3"
+			[maxlength]="50"
+			class="password-input"
+		></app-password-field>
+
+		<div class="forgot-password-link-container">
+			<a [routerLink]="['/']" class="forgot-password-link"
+				>Mot de passe oublié ?</a
+			>
+		</div>
+
+		<div class="btn-container">
+			<app-button-form iconName="arrow-right"></app-button-form>
+		</div>
+	</form>
+
+	<app-divider align="center" type="solid" text="ou"></app-divider>
+
+	<div class="btn-social-container">
+		<ng-container *ngFor="let providerName of providerNameList">
+			<app-button-social [providerName]="providerName.name"></app-button-social>
+		</ng-container>
+	</div>
+</app-auth-layout>

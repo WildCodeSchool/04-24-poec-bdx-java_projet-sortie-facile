@@ -1,0 +1,20 @@
+<div class="primary-container">
+	<div class="content-box">
+		<h1>{{ pageTitle | uppercase }}</h1>
+
+		<ng-content></ng-content>
+
+		<div class="text-with-redirect">
+			<app-auth-typography-with-redirect
+				[text]="redirect.text"
+				[link]="redirect.link"
+				[linkLabel]="redirect.linkLabel"
+			></app-auth-typography-with-redirect>
+		</div>
+	</div>
+</div>
+
+<div
+	class="secondary-container"
+	[ngStyle]="{ 'background-image': 'url(' + backgroundImage + ')' }"
+></div>
