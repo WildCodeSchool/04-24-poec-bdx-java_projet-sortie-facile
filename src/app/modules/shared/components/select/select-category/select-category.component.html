@@ -3,6 +3,7 @@
 	*ngIf="activityCategoryList$ | async as categoriesItem"
 >
 	<p-dropdown
+		label="Categories"
 		[options]="categoriesItem"
 		[(ngModel)]="selectedCategory"
 		optionLabel="title"

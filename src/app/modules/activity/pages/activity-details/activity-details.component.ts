@@ -7,6 +7,7 @@ import { Activities } from '../../../shared/models/types/activities.type';
 import { Category } from '@shared/models/types/category.type';
 import { BookingService } from '@shared/services/booking/booking.service';
 import { reservation } from '@shared/models/types/reservation.type';
+import { UserDetails } from '@shared/models/types/user-details.type';
 
 @Component({
 	selector: 'app-activity-details',
@@ -17,6 +18,7 @@ export class ActivityDetailsComponent implements OnInit {
 	activities$!: Observable<Activities>;
 	activity$!: Observable<Activity>;
 	categoryTitle$!: Observable<string>;
+	userDetails!: UserDetails;
 	constructor(
 		private activityService: ActivityService,
 		private reservationService: BookingService,
@@ -27,9 +29,9 @@ export class ActivityDetailsComponent implements OnInit {
 	add(activity: Activity): void {
 		const newReservation: reservation = {
 			id: '', // L'id sera généré automatiquement côté serveur
-			activityId: activity.id, // Utilisez l'ID de l'activité
+			activityId: activity, // Utilisez l'ID de l'activité
 			// Vous devez également définir d'autres propriétés de réservation selon vos besoins
-			userId: '123', // Par exemple, remplacez '123' par l'ID de l'utilisateur réel
+			userId: this.userDetails, // Par exemple, remplacez '123' par l'ID de l'utilisateur réel
 			// Autres propriétés de réservation...
 		};
 
