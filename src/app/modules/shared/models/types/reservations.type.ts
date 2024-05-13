@@ -1,3 +1,3 @@
-import { reservation } from "./reservation.type";
+import { reservation } from './reservation.type';
 
-export type reservations=reservation[];
+export type reservations = reservation[];

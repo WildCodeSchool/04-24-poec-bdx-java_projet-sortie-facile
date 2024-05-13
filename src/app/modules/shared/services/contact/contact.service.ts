@@ -1,8 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Contact } from '@shared/models/types/contact.type';
-import { Contacts } from '@shared/models/types/contacts.type';
-import { Observable, catchError, map, switchMap, tap } from 'rxjs';
+import { Observable, catchError, switchMap, tap } from 'rxjs';
 
 @Injectable({
 	providedIn: 'root',

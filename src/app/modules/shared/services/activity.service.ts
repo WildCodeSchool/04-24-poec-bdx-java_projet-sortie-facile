@@ -6,8 +6,6 @@ import { Activity, ActivityCopy } from '../models/types/activity.type';
 import { Observable, catchError, map, switchMap, tap } from 'rxjs';
 import { Activities } from '../models/types/activities.type';
 import { Category } from '../models/types/category.type';
-import { reservation } from '@shared/models/types/reservation.type';
-import { reservations } from '@shared/models/types/reservations.type';
 
 @Injectable({
 	providedIn: 'root',

@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Activity } from '../../../shared/models/types/activity.type';
-import { Observable, map, switchMap, tap } from 'rxjs';
+import { Observable, tap } from 'rxjs';
 import { ActivityService } from '../../../shared/services/activity.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Activities } from '../../../shared/models/types/activities.type';
-import { Category } from '@shared/models/types/category.type';
 import { BookingService } from '@shared/services/booking/booking.service';
 import { reservation } from '@shared/models/types/reservation.type';
 import { UserDetails } from '@shared/models/types/user-details.type';
