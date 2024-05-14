@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Activity } from '../../../shared/models/types/activity.type';
+import { Activity } from '@shared/models/types/activity.type';
 import { ActivityService } from '@shared/services/activity.service';
 
 @Component({

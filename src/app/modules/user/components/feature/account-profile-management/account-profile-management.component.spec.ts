@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { AccountProfileManagementComponent } from './account-profile-management.component';
 
 describe('AccountProfileManagementComponent', () => {
