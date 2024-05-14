@@ -8,7 +8,8 @@ import {
 	UserAuthPrimaryDatas,
 	UserListResponseApi,
 } from '@shared/models/types/user-list-response-api.type';
-import { newUser } from '@shared/models/types/newUser.model';
+import { newUser, newUserDatas } from '@shared/models/types/newUser.model';
+import { AccountStatus } from '@shared/models/enums/user-role.enum';
 // import { newUser } from '@shared/models/types/newUser.model';
 
 @Injectable({
@@ -16,13 +17,13 @@ import { newUser } from '@shared/models/types/newUser.model';
 })
 export class AuthService {
 	private _userConnected!: UserAuthPrimaryDatas;
+	private _newUser!: newUser;
 
 	constructor(
 		private _httpClient: HttpClient,
 		private _router: Router,
 	) {}
 
-	newUser!: newUser;
 
 	// createUserWithEmailAndPassword(userCredentials: newUser): void {
 	//   console.log('created ok');
@@ -46,6 +47,7 @@ export class AuthService {
 					username: user.username,
 					email: user.email,
 					role: user.role,
+					status: user.status,
 				})),
 				tap((user: UserAuthPrimaryDatas) => {
 					this.setConnectedUserData(user);
@@ -54,15 +56,17 @@ export class AuthService {
 			);
 	}
 
-	createUserWithEmailAndPassword(UserAuth: UserAuth): Observable<UserAuthPrimaryDatas> {
-		return this._httpClient.post<UserAuth>('http://localhost:3000/user', UserAuth).pipe(
-			map((user: UserAuthPrimaryDatas) => ({
+	createUserWithEmailAndPassword(newUser: newUser): Observable<newUserDatas> {
+		return this._httpClient.post<newUser>('http://localhost:3000/user', newUser).pipe(
+			map((user: newUser) => ({
 				id: user.id,
 				username: user.username,
 				email: user.email,
+				password: user.password,
 				role: user.role,
+				status: user.status,
 			})),
-			tap((user: UserAuthPrimaryDatas) => {
+			tap((user: newUserDatas) => {
 				this.setConnectedUserData(user);
 				this._redirectUser();
 			}),
@@ -95,5 +99,10 @@ export class AuthService {
 
 	private _redirectUser(): void {
 		this._router.navigateByUrl('/user/home');
+	}
+
+	public deleteConnectedUser(): Observable<any> {
+		this._userConnected.status = AccountStatus.INACTIVE;
+		return this._httpClient.patch<UserAuth>('http://localhost:3000/user/', this._userConnected)
 	}
 }
