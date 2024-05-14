@@ -37,7 +37,7 @@ import { AccountActivitiesManagementComponent } from './components/feature/accou
 		AccountProfileManagementComponent,
 		AccountContainerContentComponent,
 		AccountCardInfoComponent,
-  AccountActivitiesManagementComponent,
+		AccountActivitiesManagementComponent,
 	],
 	imports: [CommonModule, UserRoutingModule, SharedModule],
 })

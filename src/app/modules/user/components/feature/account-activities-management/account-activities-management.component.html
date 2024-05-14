@@ -10,7 +10,9 @@
 			sectionTitle="Mes dernières activités"
 			[hideBtn]="true"
 		>
-			<div class="content-box" data></div>
+			<div class="content-box" data>
+				<app-carousel [activityList]="activityList"></app-carousel>
+			</div>
 		</app-account-container-content>
 	</app-account-layout>
 </div>

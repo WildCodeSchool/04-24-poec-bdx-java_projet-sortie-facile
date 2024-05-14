@@ -23,6 +23,7 @@ import { DropzoneFieldComponent } from '@shared/components/form/dropzone-field/d
 import { DateFieldComponent } from '@shared/components/form/date-field/date-field.component';
 import { AccountNavActiveLinkPipe } from './pipes/account-nav-active-link/account-nav-active-link.pipe';
 import { SearchBarComponent } from '@shared/components/search-bar/search-bar.component';
+import { CarouselComponent } from '@shared/components/carousel/carousel.component';
 
 @NgModule({
 	declarations: [
@@ -46,6 +47,7 @@ import { SearchBarComponent } from '@shared/components/search-bar/search-bar.com
 		TextFieldComponent,
 		AccountNavActiveLinkPipe,
 		SearchBarComponent,
+		CarouselComponent,
 	],
 	imports: [
 		CommonModule,
@@ -77,6 +79,7 @@ import { SearchBarComponent } from '@shared/components/search-bar/search-bar.com
 		DateFieldComponent,
 		AccountNavActiveLinkPipe,
 		SearchBarComponent,
+		CarouselComponent,
 	],
 })
 export class SharedModule {}
