@@ -129,7 +129,7 @@
   "reservation": [
     {
       "id": "1",
-      "activityId": "1",
+      "activityId": null,
       "userId": "1"
     },
     {
@@ -154,17 +154,17 @@
     },
     {
       "id": "6",
-      "activityId": "1",
+      "activityId": null,
       "userId": "123"
     },
     {
       "id": "7",
-      "activityId": "1",
+      "activityId": null,
       "userId": "123"
     },
     {
       "id": "8",
-      "activityId": "1",
+      "activityId": null,
       "userId": "123"
     },
     {
@@ -209,7 +209,7 @@
     },
     {
       "id": "17",
-      "activityId": "1",
+      "activityId": null,
       "userId": "123"
     },
     {
@@ -314,25 +314,28 @@
         "imgUrl": "",
         "link": ""
       }
+    },
+    {
+      "id": "23",
+      "activityId": {
+        "id": "1",
+        "name": "trouloulou",
+        "departement": "Rhône",
+        "activityCity": {
+          "id": 5,
+          "name": "Paris"
+        },
+        "date": "2021-12-12",
+        "age": 18,
+        "imgUrl": "https://static5.depositphotos.com/1037262/443/i/380/depositphotos_4436189-stock-photo-paradise-beach.jpg",
+        "link": "https://primeng.org/iconfield",
+        "description": "trouloulou is a great activity for everyone",
+        "nbGuest": 10,
+        "categoryId": 1
+      }
     }
   ],
   "activity": [
-    {
-      "id": "1",
-      "name": "trouloulou",
-      "departement": "Rhône",
-      "activityCity": {
-        "id": 5,
-        "name": "Paris"
-      },
-      "date": "2021-12-12",
-      "age": 18,
-      "imgUrl": "https://static5.depositphotos.com/1037262/443/i/380/depositphotos_4436189-stock-photo-paradise-beach.jpg",
-      "link": "https://primeng.org/iconfield",
-      "description": "trouloulou is a great activity for everyone",
-      "nbGuest": 10,
-      "categoryId": 1
-    },
     {
       "id": "2",
       "name": "totohu"

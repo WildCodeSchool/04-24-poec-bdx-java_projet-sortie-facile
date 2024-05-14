@@ -22,17 +22,4 @@ export class ActivityCardComponent {
 			},
 		);
 	}
-
-	// faire la page de modif
-	update(id: string): void {
-		this.activityService.updateActivity$(id).subscribe(
-			() => {
-				console.log('Activity update successfully.');
-				// Vous pouvez ajouter des actions supplémentaires ici si nécessaire
-			},
-			error => {
-				console.error('Error updating activity:', error);
-			},
-		);
-	}
 }
