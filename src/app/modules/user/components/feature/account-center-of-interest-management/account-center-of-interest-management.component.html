@@ -1,0 +1,25 @@
+<div class="container">
+	<app-account-layout
+		[avatarSrc]="avatarSrc"
+		[avatarAlt]="avatarAlt"
+		[username]="connectedUser.username"
+		[pageTitle]="pageTitle"
+		[pageDescription]="pageDescription"
+	>
+		<app-account-container-content
+			sectionTitle="Mes centres d’intérêts"
+			[hideBtn]="true"
+		>
+			<div class="content-box" data>
+				<div class="categories-container">
+					<div
+						class="category-card"
+						*ngFor="let category of userCategoryList$ | async"
+					>
+						<p>{{ category.title }}</p>
+					</div>
+				</div>
+			</div>
+		</app-account-container-content>
+	</app-account-layout>
+</div>

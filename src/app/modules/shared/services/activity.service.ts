@@ -39,7 +39,7 @@ export class ActivityService {
 			.pipe(map((response: Activities) => response.slice(0, limit)));
 	}
 
-	getActivityCategoryList$(): Observable<Category[]> {
+	getCategoryList$(): Observable<Category[]> {
 		return this.http
 			.get<Category[]>(`http://localhost:3000/category`)
 			.pipe(map((response: Category[]) => response));

@@ -35,8 +35,7 @@ export class SelectCategoryComponent implements OnInit, ControlValueAccessor {
 	) {}
 
 	ngOnInit(): void {
-		this.activityCategoryList$ =
-			this.activityService.getActivityCategoryList$();
+		this.activityCategoryList$ = this.activityService.getCategoryList$();
 
 		// eslint-disable-next-line no-console
 		console.log(this.activityCategoryList$);

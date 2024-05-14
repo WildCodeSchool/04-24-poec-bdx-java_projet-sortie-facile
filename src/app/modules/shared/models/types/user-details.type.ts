@@ -14,6 +14,7 @@ export type UserDetails = {
 	birthday: string;
 	genre: string;
 	userId: string;
+	categorieIds: string[];
 };
 
 export type UserDetailsPersonalInfosForm = Pick<

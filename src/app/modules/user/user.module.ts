@@ -19,6 +19,7 @@ import { AccountProfileManagementComponent } from '@user/components/feature/acco
 import { AccountCardInfoComponent } from '@user/components/ui/account-card-info/account-card-info.component';
 import { AccountContainerContentComponent } from '@user/components/ui/account-container-content/account-container-content.component';
 import { AccountActivitiesManagementComponent } from './components/feature/account-activities-management/account-activities-management.component';
+import { AccountCenterOfInterestManagementComponent } from './components/feature/account-center-of-interest-management/account-center-of-interest-management.component';
 
 @NgModule({
 	declarations: [
@@ -38,6 +39,7 @@ import { AccountActivitiesManagementComponent } from './components/feature/accou
 		AccountContainerContentComponent,
 		AccountCardInfoComponent,
 		AccountActivitiesManagementComponent,
+  AccountCenterOfInterestManagementComponent,
 	],
 	imports: [CommonModule, UserRoutingModule, SharedModule],
 })
