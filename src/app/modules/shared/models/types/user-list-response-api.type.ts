@@ -1,4 +1,4 @@
-import { AccountStatus, UserRoleEnum } from '../enums/user-role.enum';
+import {  AccountStatus, UserRoleEnum } from '@models/enums/user-role.enum';
 
 export type UserAuth = {
 	id: string;

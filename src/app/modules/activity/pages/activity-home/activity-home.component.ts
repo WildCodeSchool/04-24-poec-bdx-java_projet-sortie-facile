@@ -1,9 +1,9 @@
 /* eslint-disable no-console */
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { ActivityService } from '../../../shared/services/activity.service';
+import { ActivityService } from '@shared/services/activity.service';
 import { Observable, tap } from 'rxjs';
-import { Activity } from '../../../shared/models/types/activity.type';
+import { Activity } from '@shared/models/types/activity.type';
 import { Router } from '@angular/router';
 import { Category } from '@shared/models/types/category.type';
 

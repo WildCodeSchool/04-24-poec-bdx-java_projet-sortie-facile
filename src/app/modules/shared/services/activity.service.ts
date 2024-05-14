@@ -2,10 +2,10 @@
 /* eslint-disable no-console */
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Activity, ActivityCopy } from '../models/types/activity.type';
+import { Activity, ActivityCopy } from '@models/types/activity.type';
 import { Observable, catchError, map, switchMap, tap } from 'rxjs';
-import { Activities } from '../models/types/activities.type';
-import { Category } from '../models/types/category.type';
+import { Activities } from '@models/types/activities.type';
+import { Category } from '@models/types/category.type';
 
 @Injectable({
 	providedIn: 'root',
@@ -69,6 +69,7 @@ export class ActivityService {
 			),
 		);
 	}
+
 	// finir filtre de laliste par cetegorie
 	// filteredActivityListByCategoryId$(id: Number): Observable<Category[]> {
 	//   return this.getActivityList$().pipe(
@@ -87,11 +88,7 @@ export class ActivityService {
 						? Number(activities[activities.length - 1].id) + 1
 						: 1;
 				newActivity.id = String(nextId);
-				// // Trouver la dernière id dans le tableau d'activités
-				// const lastActivity = activities.reduce((prev, current) => (+current.id > +prev.id) ? current : prev);
-				// // Incrémenter l'id de la nouvelle activité
-				// newActivity.id = (+lastActivity.id + 1);
-				// Poster la nouvelle activité avec la nouvelle id
+
 				return this.http.post<ActivityCopy>(
 					'http://localhost:3000/activity',
 					newActivity,
@@ -118,6 +115,8 @@ export class ActivityService {
 			}),
 		);
 	}
+
+	// faire la page modofication d'activité
 	updateActivity$(id: string): Observable<unknown> {
 		return this.http.delete(`http://localhost:3000/activity/${id}`).pipe(
 			tap(data => {

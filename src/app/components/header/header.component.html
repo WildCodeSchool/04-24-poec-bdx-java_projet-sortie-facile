@@ -1,20 +1,10 @@
-<div class="navbar">
-	<p-menubar [model]="items" class="menubar">
-		<ng-template pTemplate="start">
-			<img
-				src="/assets/photos/logoSortieFacile.png"
-				height="40"
-				class="mr-2"
-				alt="logo of sortie facile"
-			/>
-		</ng-template>
-		<ng-template pTemplate="end">
-			<input
-				type="text"
-				pInputText
-				placeholder="Search"
-				class="w-full"
-			/> </ng-template
-	></p-menubar>
-</div>
-<!-- <div class="bottom-navbar">ghj</div> -->
+<p-menubar [model]="items" class="menubar">
+	<ng-template pTemplate="start">
+		<img
+			src="/assets/photos/logoSortieFacile.png"
+			height="40"
+			class="mr-2"
+			alt="logo of sortie facile"
+		/> </ng-template
+	><i class="pi pi-user" style="font-size: 1.5rem"></i>
+</p-menubar>

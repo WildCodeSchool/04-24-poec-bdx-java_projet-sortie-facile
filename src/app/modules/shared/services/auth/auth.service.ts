@@ -11,6 +11,8 @@ import {
 import { newUser, newUserDatas } from '@shared/models/types/newUser.model';
 import { AccountStatus } from '@shared/models/enums/user-role.enum';
 // import { newUser } from '@shared/models/types/newUser.model';
+import { AuthProvider } from '@shared/models/types/provider.type';
+import { AuthProviderNameEnum } from '@shared/models/enums/auth-provider';
 
 @Injectable({
 	providedIn: 'root',
@@ -18,6 +20,11 @@ import { AccountStatus } from '@shared/models/enums/user-role.enum';
 export class AuthService {
 	private _userConnected!: UserAuthPrimaryDatas;
 	private _newUser!: newUser;
+	private _providerNameList: AuthProvider[] = [
+		{ name: AuthProviderNameEnum.GOOGLE },
+		{ name: AuthProviderNameEnum.FACEBOOK },
+		{ name: AuthProviderNameEnum.TWITTER },
+	];
 
 	constructor(
 		private _httpClient: HttpClient,
@@ -95,6 +102,10 @@ export class AuthService {
 
 	public setConnectedUserData(user: UserAuthPrimaryDatas): void {
 		this._userConnected = user;
+	}
+
+	public getProviderNameList(): AuthProvider[] {
+		return this._providerNameList;
 	}
 
 	private _redirectUser(): void {

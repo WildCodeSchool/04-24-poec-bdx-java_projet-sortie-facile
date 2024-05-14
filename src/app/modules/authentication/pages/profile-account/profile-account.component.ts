@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { newProfile } from '../../../shared/models/types/newProfile.type';
+import { newProfile } from '@shared/models/types/newProfile.type';
 
 @Component({
 	selector: 'app-profile-account',

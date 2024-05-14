@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { SelectNumberComponent } from './select-number.component';
 
 describe('SelectNumberComponent', () => {

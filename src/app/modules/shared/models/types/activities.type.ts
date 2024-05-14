@@ -1,3 +1,3 @@
-import { Activity } from './activity.type';
+import { Activity } from '@models/types/activity.type';
 
 export type Activities = Activity[];

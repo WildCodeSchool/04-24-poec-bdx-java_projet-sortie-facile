@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { newUser, newUserDatas } from '../../../shared/models/types/newUser.model';
 import { AuthService } from '@shared/services/auth/auth.service';
 import { AccountStatus, UserRoleEnum } from '@shared/models/enums/user-role.enum';
+import { newUser, newUserDatas } from '@shared/models/types/newUser.model';
 
 @Component({
 	selector: 'app-create-account',
@@ -25,9 +25,8 @@ export class CreateAccountComponent {
 	onSubmit(form: NgForm) {
 		console.log(form.value);
 		// TODO verification password = confirmation
-		this.createdUser.createUserWithEmailAndPassword(this.createdUser).subscribe((user: newUserDatas) => {
-			localStorage.setItem('user', JSON.stringify(user));
-		});
-
+		// this.createdUser.createUserWithEmailAndPassword(this.createdUser).subscribe((user: newUserDatas) => {
+		// 	localStorage.setItem('user', JSON.stringify(user));
+		//});
 	}
 }

@@ -1,0 +1,68 @@
+<app-auth-layout
+	pageTitle="Inscription"
+	backgroundImage="/assets/photos/signup.jpg"
+	[redirect]="redirect"
+>
+	<form #registerForm="ngForm" (ngSubmit)="onSubmit(registerForm)">
+		<app-text-field
+			labelFor="username"
+			labelContent="Nom d'utilisateur :"
+			type="text"
+			id="username"
+			name="username"
+			[(ngModel)]="newUser.username"
+			[form]="registerForm"
+			[required]="true"
+			[minlength]="3"
+			[maxlength]="50"
+		></app-text-field>
+
+		<app-text-field
+			labelFor="email"
+			labelContent="Email :"
+			type="text"
+			id="email"
+			name="email"
+			[(ngModel)]="newUser.email"
+			[form]="registerForm"
+			[required]="true"
+			[email]="true"
+		></app-text-field>
+
+		<app-password-field
+			labelFor="password"
+			labelContent="Password :"
+			id="password"
+			name="password"
+			[(ngModel)]="newUser.password"
+			[form]="registerForm"
+			[required]="true"
+			[minlength]="3"
+			[maxlength]="50"
+		></app-password-field>
+
+		<app-password-field
+			labelFor="passwordConfirm"
+			labelContent="Confirmation de votre mot de passe :"
+			id="passwordConfirm"
+			name="passwordConfirm"
+			[(ngModel)]="newUser.passwordConfirm"
+			[form]="registerForm"
+			[required]="true"
+			[minlength]="3"
+			[maxlength]="50"
+		></app-password-field>
+
+		<div class="btn-container">
+			<app-button-form iconName="arrow-right"></app-button-form>
+		</div>
+	</form>
+
+	<app-divider align="center" type="solid" text="ou"></app-divider>
+
+	<div class="btn-social-container">
+		<ng-container *ngFor="let providerName of providerNameList">
+			<app-button-social [providerName]="providerName.name"></app-button-social>
+		</ng-container>
+	</div>
+</app-auth-layout>

@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthLoginComponent } from '@authentication/pages/auth-login/auth-login.component';
-import { CreateAccountComponent } from '@authentication/pages/create-account/create-account.component';
+import { AuthRegisterComponent } from './pages/auth-register/auth-register.component';
 
 const routes: Routes = [
 	{
@@ -10,7 +10,7 @@ const routes: Routes = [
 	},
 	{
 		path: 'register',
-		component: CreateAccountComponent,
+		component: AuthRegisterComponent,
 	},
 ];
 

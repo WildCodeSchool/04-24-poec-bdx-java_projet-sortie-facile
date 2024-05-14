@@ -1,5 +1,5 @@
 import { Component, Input, OnInit, forwardRef } from '@angular/core';
-import { City } from '../../../models/types/city.type';
+import { City } from '@models/types/city.type';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
 
 @Component({
