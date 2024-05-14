@@ -12,7 +12,19 @@
 		>
 			<div class="content-box" data>
 				<app-carousel
-					[activityList]="activityList"
+					[activityList]="activityByCreatedUserList"
+					[numVisible]="4"
+				></app-carousel>
+			</div>
+		</app-account-container-content>
+
+		<app-account-container-content
+			sectionTitle="Les dernières activités auxquelles j'ai participé"
+			[hideBtn]="true"
+		>
+			<div class="content-box" data>
+				<app-carousel
+					[activityList]="activityByCreatedUserList"
 					[numVisible]="4"
 				></app-carousel>
 			</div>

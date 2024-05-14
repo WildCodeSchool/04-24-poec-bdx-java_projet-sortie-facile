@@ -15,7 +15,8 @@ export class AccountActivitiesManagementComponent implements OnInit {
 	@Input() avatarAlt!: string;
 	@Input() pageTitle!: string;
 	@Input() pageDescription!: string;
-	activityList!: Activity[];
+	activityByCreatedUserList!: Activity[];
+	activityParticipateList!: Activity[];
 
 	connectedUser!: UserAuthPrimaryDatas;
 
@@ -30,7 +31,18 @@ export class AccountActivitiesManagementComponent implements OnInit {
 			.getActivityListByCreatedUser$(10)
 			.pipe(
 				tap(activities => {
-					this.activityList = activities;
+					this.activityByCreatedUserList = activities;
+				}),
+			)
+			.subscribe();
+
+		// TODO
+		// create service for reservation by user
+		this._activityService
+			.getActivityListByCreatedUser$(10)
+			.pipe(
+				tap(activities => {
+					this.activityByCreatedUserList = activities;
 				}),
 			)
 			.subscribe();
