@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { UserRoleEnum } from '@shared/models/enums/user-role.enum';
 import { AuthRedirect } from '@shared/models/types/auth-redirect.type';
 import { AuthProvider } from '@shared/models/types/provider.type';
+import { UserAuthPrimaryDatas } from '@shared/models/types/user-list-response-api.type';
 import { AuthService } from '@shared/services/auth/auth.service';
 
 @Component({
@@ -19,10 +21,11 @@ export class AuthRegisterManagementComponent implements OnInit {
 	};
 
 	newUser: any = {
-		username: '',
-		email: '',
-		password: '',
-		passwordConfirm: '',
+		username: 'Pimpoye',
+		email: 'Pimpoye@medoc.fr',
+		password: 'mafemmecestmasoeur',
+		passwordConfirm: 'mafemmecestmasoeur',
+		role: UserRoleEnum.USER
 	};
 
 	constructor(private authService: AuthService) {}
@@ -32,6 +35,14 @@ export class AuthRegisterManagementComponent implements OnInit {
 	}
 
 	onSubmit(form: NgForm): void {
-		console.log('submit register', form.value);
+		// console.log('submit register', form.value);
+		this.authService
+			.createUserWithEmailAndPassword(
+				this.newUser
+			)
+			.subscribe((user: UserAuthPrimaryDatas) => {
+				localStorage.setItem('user', JSON.stringify(user));
+			});
+
 	}
 }

@@ -62,6 +62,29 @@
       "email": "toto@toto.fr",
       "password": "azertyuiop",
       "confirmation": "azertyuiop"
+    },
+    {
+      "id": "1090",
+      "username": "yoyodes1000",
+      "email": "toto@toto.fr",
+      "password": "123654789",
+      "passwordConfirm": "123654789"
+    },
+    {
+      "id": "c439",
+      "username": "yoyodes1000",
+      "email": "toto@toto.fr",
+      "password": "123654789",
+      "passwordConfirm": "123654789",
+      "role": "user"
+    },
+    {
+      "id": "3254",
+      "username": "Pimpoye",
+      "email": "Pimpoye@medoc.fr",
+      "password": "mafemmecestmasoeur",
+      "passwordConfirm": "mafemmecestmasoeur",
+      "role": "user"
     }
   ],
   "user_details": [
