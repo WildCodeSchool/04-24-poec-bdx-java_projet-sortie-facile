@@ -1,10 +1,6 @@
-<p>activity-list works!</p>
-<p-button [routerLink]="'/createActivity'">Créer une activité</p-button>
-
-<app-select-category></app-select-category>
-<div *ngIf="activityList$ | async as activities">
-  <app-activity-card
-    *ngFor="let activity of activities"
-    [activity]="activity"
-  ></app-activity-card>
+<div class="activities-list" *ngIf="activityList$ | async as activities">
+	<app-activity-card
+		*ngFor="let activity of activities"
+		[activity]="activity"
+	></app-activity-card>
 </div>

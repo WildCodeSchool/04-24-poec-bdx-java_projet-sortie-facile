@@ -9,6 +9,8 @@ import { HeaderComponent } from './components/header/header.component';
 import { FormsModule } from '@angular/forms';
 import { CreateAccountComponent } from './modules/authentication/pages/create-account/create-account.component';
 import { ProfileAccountComponent } from './modules/authentication/pages/profile-account/profile-account.component';
+import { ScrollToTopComponent } from './components/scroll-to-top/scroll-to-top.component';
+import { ContactComponent } from './contact/contact.component';
 
 @NgModule({
 	declarations: [
@@ -17,6 +19,8 @@ import { ProfileAccountComponent } from './modules/authentication/pages/profile-
 		HeaderComponent,
 		CreateAccountComponent,
 		ProfileAccountComponent,
+		ScrollToTopComponent,
+		ContactComponent,
 	],
 	imports: [
 		BrowserModule,

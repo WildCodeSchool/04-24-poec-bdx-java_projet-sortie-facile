@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { ActivityModule } from './modules/activity/activity.module';
 import { AdminModule } from './modules/admin/admin.module';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
+import { ContactComponent } from './contact/contact.component';
 
 const routes: Routes = [
 	{
@@ -30,6 +31,7 @@ const routes: Routes = [
 		loadChildren: () =>
 			import('./modules/user/user.module').then(m => m.UserModule),
 	},
+
 	{
 		path: 'auth',
 		loadChildren: () =>
@@ -37,6 +39,7 @@ const routes: Routes = [
 				m => m.AuthenticationModule,
 			),
 	},
+	{ path: 'contact', component: ContactComponent },
 	{ path: '**', pathMatch: 'full', component: PagenotfoundComponent },
 ];
 

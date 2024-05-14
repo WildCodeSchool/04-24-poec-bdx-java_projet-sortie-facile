@@ -1,23 +1,30 @@
-dfcyvgubhinjo,k
-<div class="details" *ngIf="activity$ | async as activity">
-	<!-- <app-activity-card [activity]="activity"></app-activity-card> -->
-	<p-card
-		[header]="activity.name"
-		subheader="Card Subheader"
-		[style]="{ width: '360px' }"
-	>
-		<ng-template pTemplate="header">
-			<img alt="{{ activity.name }}" [src]="activity.imgUrl" />
-		</ng-template>
-		<p>
-			{{ activity.description }}
-		</p>
-		<p>Catégorie : {{ activity.categoryId.title }}</p>
-		<a [href]="activity.link" [title]="activity.name" target="_blank"
-			>Voir Plus</a
+<div class="activity-card-container">
+	<div class="details" *ngIf="activity$ | async as activity">
+		<p-card
+			[header]="activity.name"
+			subheader="Card Subheader"
+			[style]="{ width: '360px' }"
 		>
-		<ng-template pTemplate="footer">
-			<p-button label="S'inscrire" icon="pi pi-check"></p-button>
-		</ng-template>
-	</p-card>
+			<ng-template pTemplate="header">
+				<img alt="{{ activity.name }}" [src]="activity.imgUrl" />
+			</ng-template>
+			<p>
+				{{ activity.description }}
+			</p>
+
+			<p>Catégorie : {{ activity.categoryId.title }}</p>
+			<p>City : {{ activity.activityCity.name }}</p>
+			<a [href]="activity.link" [title]="activity.name" target="_blank"
+				>Voir Plus</a
+			>
+			<ng-template pTemplate="footer">
+				<p-button
+					rounded
+					(click)="add(activity)"
+					label="S'inscrire"
+					icon="pi pi-check"
+				></p-button>
+			</ng-template>
+		</p-card>
+	</div>
 </div>

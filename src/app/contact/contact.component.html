@@ -1,0 +1,29 @@
+<h1>Laissez nous un message</h1>
+<div class="activity-form-container">
+	<div class="card flex justify-content-center"></div>
+	<form #myForm="ngForm" (ngSubmit)="onSubmit(myForm)" class="activity-form">
+		<app-avatar-pseudo></app-avatar-pseudo>
+		<p>Voter Email</p>
+		<app-text-field
+			id="Email"
+			name="Email"
+			[required]="true"
+			#Email="ngModel"
+			[form]="myForm"
+			[(ngModel)]="formData.Email"
+			class="input-activity-form"
+		></app-text-field>
+		<p>Votre message</p>
+		<app-textarea
+			inputId="message"
+			name="message"
+			[required]="true"
+			#message="ngModel"
+			[(ngModel)]="formData.message"
+		></app-textarea>
+
+		<div class="card flex justify-content-center">
+			<p-button rounded label="Envoyer" type="submit"></p-button>
+		</div>
+	</form>
+</div>

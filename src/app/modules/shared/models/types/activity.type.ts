@@ -1,10 +1,11 @@
 import { Category } from './category.type';
+import { City } from './city.type';
 
 export type Activity = {
 	id: string;
 	name: string;
 	departement: string;
-	city: string;
+	activityCity: City;
 	date: string;
 	age?: number;
 	imgUrl?: string;
