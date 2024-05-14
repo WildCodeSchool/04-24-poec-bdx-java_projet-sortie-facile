@@ -18,6 +18,7 @@ import { SharedModule } from '@shared/shared.module';
 import { AccountProfileManagementComponent } from '@user/components/feature/account-profile-management/account-profile-management.component';
 import { AccountCardInfoComponent } from '@user/components/ui/account-card-info/account-card-info.component';
 import { AccountContainerContentComponent } from '@user/components/ui/account-container-content/account-container-content.component';
+import { AccountActivitiesManagementComponent } from './components/feature/account-activities-management/account-activities-management.component';
 
 @NgModule({
 	declarations: [
@@ -36,6 +37,7 @@ import { AccountContainerContentComponent } from '@user/components/ui/account-co
 		AccountProfileManagementComponent,
 		AccountContainerContentComponent,
 		AccountCardInfoComponent,
+  AccountActivitiesManagementComponent,
 	],
 	imports: [CommonModule, UserRoutingModule, SharedModule],
 })
