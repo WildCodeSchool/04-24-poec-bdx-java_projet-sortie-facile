@@ -9,6 +9,8 @@ import { FormsModule } from '@angular/forms';
 import { ProfileAccountComponent } from '@authentication/pages/profile-account/profile-account.component';
 import { CreateAccountComponent } from '@authentication/pages/create-account/create-account.component';
 import { SharedModule } from '@shared/shared.module';
+import { ScrollToTopComponent } from './components/scroll-to-top/scroll-to-top.component';
+import { ContactComponent } from './contact/contact.component';
 
 @NgModule({
 	declarations: [
@@ -17,6 +19,8 @@ import { SharedModule } from '@shared/shared.module';
 		HeaderComponent,
 		CreateAccountComponent,
 		ProfileAccountComponent,
+		ScrollToTopComponent,
+		ContactComponent,
 	],
 	imports: [
 		BrowserModule,

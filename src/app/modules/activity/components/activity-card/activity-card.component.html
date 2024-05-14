@@ -3,20 +3,22 @@
 		<p-card
 			[header]="activity.name"
 			subheader="Card Subheader"
-			[style]="{ width: '360px' }"
+			[style]="{ width: '480px' }"
 		>
 			<ng-template pTemplate="header">
 				<img alt="{{ activity.name }}" [src]="activity.imgUrl" />
 			</ng-template>
+			<i class="pi pi-chevron-circle-down" style="font-size: 1.5rem"></i>
+			<i class="pi pi-user" style="font-size: 1.5rem"></i>
 			<p>
 				{{ activity.description }}
 			</p>
 			<ng-template pTemplate="footer">
-				<p-button [routerLink]="['/activity/details', activity.id]">
+				<p-button rounded [routerLink]="['/activity/details', activity.id]">
 					Voir Plus
 				</p-button>
-				<p-button (click)="delete(activity.id)"> supprimer </p-button>
-				<p-button (click)="update(activity.id)"> modifier </p-button>
+				<p-button rounded (click)="delete(activity.id)"> supprimer </p-button>
+				<p-button rounded (click)="update(activity.id)"> modifier </p-button>
 			</ng-template>
 		</p-card>
 	</div>
