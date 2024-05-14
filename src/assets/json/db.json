@@ -22,65 +22,8 @@
       "role": "user"
     },
     {
-      "id": "b2a1",
-      "username": "wdfh",
-      "email": "toto@toto.fr",
-      "password": "12345678+9",
-      "confirmation": "123456789"
-    },
-    {
-      "id": "ff55",
-      "username": "wdfh",
-      "email": "toto@toto.fr",
-      "password": "azertyuiop",
-      "confirmation": "azertyuiop"
-    },
-    {
-      "id": "c923",
-      "username": "sgh",
-      "email": "totoo@toto.fr",
-      "password": "123456789",
-      "confirmation": "123456789"
-    },
-    {
-      "id": "19a8",
-      "username": "azerty",
-      "email": "titi@titi.fr",
-      "password": "azertyuiop",
-      "confirmation": "azertyuiop"
-    },
-    {
-      "id": "9881",
-      "username": "azerty",
-      "email": "titi@titi.fr",
-      "password": "azertyuiop",
-      "confirmation": "azertyuiop"
-    },
-    {
-      "id": "b59b",
-      "username": "aqw",
-      "email": "toto@toto.fr",
-      "password": "azertyuiop",
-      "confirmation": "azertyuiop"
-    },
-    {
-      "id": "1090",
-      "username": "yoyodes1000",
-      "email": "toto@toto.fr",
-      "password": "123654789",
-      "passwordConfirm": "123654789"
-    },
-    {
-      "id": "c439",
-      "username": "yoyodes1000",
-      "email": "toto@toto.fr",
-      "password": "123654789",
-      "passwordConfirm": "123654789",
-      "role": "user"
-    },
-    {
-      "id": "3254",
-      "username": "Pimpoye",
+      "id": "47b3",
+      "username": "treza",
       "email": "Pimpoye@medoc.fr",
       "password": "mafemmecestmasoeur",
       "passwordConfirm": "mafemmecestmasoeur",

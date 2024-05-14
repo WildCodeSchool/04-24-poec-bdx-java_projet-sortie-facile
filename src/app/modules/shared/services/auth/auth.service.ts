@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, map, tap } from 'rxjs';
+import { Observable, map, switchMap, tap } from 'rxjs';
 import { Router } from '@angular/router';
 import {
 	UserAuth,
@@ -111,4 +111,15 @@ export class AuthService {
 		this._userConnected.status = AccountStatus.INACTIVE;
 		return this._httpClient.patch<UserAuth>('http://localhost:3000/user/', this._userConnected)
 	}
+
+	public increaseId(): Observable<string> {
+		return this._httpClient
+			.get<newUser[]>('http://localhost:3000/user')
+			.pipe (
+				map( (users: newUser[]) => {
+					const lastId = users[users.length - 1].id;
+					return (Number(lastId) + 1).toString();
+				})
+			);
+		}	
 }
