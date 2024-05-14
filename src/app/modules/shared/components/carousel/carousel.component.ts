@@ -9,6 +9,7 @@ import { CarouselResponsiveOption } from '@shared/models/types/carouselResponsiv
 })
 export class CarouselComponent implements OnInit {
 	@Input() activityList!: Activity[];
+	@Input() numVisible!: number;
 
 	responsiveOptions!: CarouselResponsiveOption[];
 

@@ -15,20 +15,30 @@ export class ActivityService {
 	activities!: Activity;
 	category!: Category;
 	categories!: Category[];
+
+	private readonly _BASE_URL = 'http://localhost:3000/activity';
+
 	constructor(private http: HttpClient) {}
 
 	getActivityList$(): Observable<Activity[]> {
 		return this.http
-			.get<Activities>('http://localhost:3000/activity')
+			.get<Activities>(this._BASE_URL)
 			.pipe(map((response: Activities) => response));
 	}
 
 	getActivityById$(id: number): Observable<Activity> {
-		return this.http.get<Activity>(`http://localhost:3000/activity/${id}`).pipe(
+		return this.http.get<Activity>(`${this._BASE_URL}/${id}`).pipe(
 			tap(value => console.log(value)),
 			map((response: Activity) => response),
 		);
 	}
+
+	getActivityListByCreatedUser$(limit: number = -1): Observable<Activity[]> {
+		return this.http
+			.get<Activities>(this._BASE_URL)
+			.pipe(map((response: Activities) => response.slice(0, limit)));
+	}
+
 	getActivityCategoryList$(): Observable<Category[]> {
 		return this.http
 			.get<Category[]>(`http://localhost:3000/category`)
@@ -37,7 +47,7 @@ export class ActivityService {
 
 	getCategoryById$(id: number): Observable<string> {
 		return this.http
-			.get<Activity[]>(`http://localhost:3000/activity?categoryId=${id}`)
+			.get<Activity[]>(`${this._BASE_URL}?categoryId=${id}`)
 			.pipe(
 				map((activities: Activity[]) =>
 					activities.map(activity => activity.name).join(', '),
@@ -45,20 +55,16 @@ export class ActivityService {
 			);
 	}
 	getCategoryTitle$(categoryId: string): Observable<string> {
-		return this.http
-			.get<any>(`http://localhost:3000/category/${categoryId}`)
-			.pipe(
-				map((category: any) => {
-					// Supposons que le titre de la catégorie soit stocké dans une propriété "title"
-					return category.title;
-				}),
-			);
+		return this.http.get<any>(`${this._BASE_URL}/${categoryId}`).pipe(
+			map((category: any) => {
+				// Supposons que le titre de la catégorie soit stocké dans une propriété "title"
+				return category.title;
+			}),
+		);
 	}
 
 	getActivityListByCategoryId$(id: number): Observable<Activity[]> {
-		return this.http.get<Activity[]>(
-			`http://localhost:3000/activity?categoryId=${id}`,
-		);
+		return this.http.get<Activity[]>(`${this._BASE_URL}?categoryId=${id}`);
 	}
 	filteredActivityList$(name: string): Observable<Activity[]> {
 		return this.getActivityList$().pipe(
@@ -81,7 +87,7 @@ export class ActivityService {
 	//   );
 	// }
 	postNewActivity$(newActivity: Activity): Observable<ActivityCopy> {
-		return this.http.get<Activity[]>('http://localhost:3000/activity').pipe(
+		return this.http.get<Activity[]>(this._BASE_URL).pipe(
 			switchMap(activities => {
 				const nextId =
 					activities.length > 0
@@ -89,10 +95,7 @@ export class ActivityService {
 						: 1;
 				newActivity.id = String(nextId);
 
-				return this.http.post<ActivityCopy>(
-					'http://localhost:3000/activity',
-					newActivity,
-				);
+				return this.http.post<ActivityCopy>(this._BASE_URL, newActivity);
 			}),
 			tap(data => {
 				console.log('POST Request is successful ', data);
@@ -105,7 +108,7 @@ export class ActivityService {
 	}
 
 	deleteActivity$(id: string): Observable<unknown> {
-		return this.http.delete(`http://localhost:3000/activity/${id}`).pipe(
+		return this.http.delete(`${this._BASE_URL}/${id}`).pipe(
 			tap(data => {
 				console.log('Delete Request is successful ', data);
 			}),
@@ -118,7 +121,7 @@ export class ActivityService {
 
 	// faire la page modofication d'activité
 	updateActivity$(id: string): Observable<unknown> {
-		return this.http.delete(`http://localhost:3000/activity/${id}`).pipe(
+		return this.http.delete(`${this._BASE_URL}/${id}`).pipe(
 			tap(data => {
 				console.log('Delete Request is successful ', data);
 			}),

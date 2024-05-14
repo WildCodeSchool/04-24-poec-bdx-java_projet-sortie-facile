@@ -27,7 +27,7 @@ export class AccountActivitiesManagementComponent implements OnInit {
 	ngOnInit(): void {
 		this.connectedUser = this._authService.getConnectedUserData();
 		this._activityService
-			.getActivityList$()
+			.getActivityListByCreatedUser$(10)
 			.pipe(
 				tap(activities => {
 					this.activityList = activities;
