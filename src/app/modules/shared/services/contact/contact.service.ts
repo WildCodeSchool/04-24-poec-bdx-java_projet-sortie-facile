@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { Contact } from '@shared/models/types/contact.type';
 import { Observable, catchError, switchMap, tap } from 'rxjs';
 
@@ -15,7 +16,16 @@ export class ContactService {
 	// 		.get<Contacts>('http://localhost:3000/contact')
 	// 		.pipe(map((response: Contacts) => response));
 	// }
-
+	onSubmit(form: NgForm): void {
+		console.log('fvalue', form.value);
+		this.postNewContact$(form.value)
+			.pipe(
+				tap(contact => {
+					console.log('test', contact);
+				}),
+			)
+			.subscribe();
+	}
 	postNewContact$(newContact: Contact): Observable<Contact> {
 		return this.http.get<Contact[]>('http://localhost:3000/contact').pipe(
 			switchMap(contacts => {
