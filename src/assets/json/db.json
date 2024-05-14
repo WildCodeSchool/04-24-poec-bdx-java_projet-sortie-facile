@@ -20,6 +20,14 @@
       "email": "junior.doe@mail.com",
       "password": "123456789",
       "role": "user"
+    },
+    {
+      "id": "47b3",
+      "username": "treza",
+      "email": "Pimpoye@medoc.fr",
+      "password": "mafemmecestmasoeur",
+      "passwordConfirm": "mafemmecestmasoeur",
+      "role": "user"
     }
   ],
   "user_details": [
