@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { Category } from '@shared/models/types/category.type';
 import { UserDetails } from '@shared/models/types/user-details.type';
 import { UserAuthPrimaryDatas } from '@shared/models/types/user-list-response-api.type';
@@ -21,6 +22,10 @@ export class AccountCenterOfInterestManagementComponent implements OnInit {
 	connectedUser!: UserAuthPrimaryDatas;
 	categoryList$!: Observable<Category[]>;
 	userCategoryList$!: Observable<Category[]>;
+
+	formDatas: {
+		category: string;
+	} = { category: '' };
 
 	constructor(
 		private _authService: AuthService,
@@ -47,5 +52,9 @@ export class AccountCenterOfInterestManagementComponent implements OnInit {
 						),
 				),
 			);
+	}
+
+	onSubmit(form: NgForm): void {
+		console.log(form.value);
 	}
 }

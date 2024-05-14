@@ -7,6 +7,25 @@
 		[pageDescription]="pageDescription"
 	>
 		<app-account-container-content
+			sectionTitle="Ajouter un Centre d’intérêts"
+			[hideBtn]="true"
+		>
+			<div class="content-box" data>
+				<form #addCategoryForm="ngForm" (ngSubmit)="onSubmit(addCategoryForm)">
+					<app-select-category
+						inputId="categoryId"
+						name="categoryId"
+						[required]="true"
+						#category="ngModel"
+						[(ngModel)]="formDatas.category"
+					></app-select-category>
+
+					<button type="submit">ok</button>
+				</form>
+			</div>
+		</app-account-container-content>
+
+		<app-account-container-content
 			sectionTitle="Mes centres d’intérêts"
 			[hideBtn]="true"
 		>

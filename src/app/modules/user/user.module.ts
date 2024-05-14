@@ -20,6 +20,7 @@ import { AccountCardInfoComponent } from '@user/components/ui/account-card-info/
 import { AccountContainerContentComponent } from '@user/components/ui/account-container-content/account-container-content.component';
 import { AccountActivitiesManagementComponent } from './components/feature/account-activities-management/account-activities-management.component';
 import { AccountCenterOfInterestManagementComponent } from './components/feature/account-center-of-interest-management/account-center-of-interest-management.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
 	declarations: [
@@ -39,8 +40,8 @@ import { AccountCenterOfInterestManagementComponent } from './components/feature
 		AccountContainerContentComponent,
 		AccountCardInfoComponent,
 		AccountActivitiesManagementComponent,
-  AccountCenterOfInterestManagementComponent,
+		AccountCenterOfInterestManagementComponent,
 	],
-	imports: [CommonModule, UserRoutingModule, SharedModule],
+	imports: [CommonModule, UserRoutingModule, SharedModule, FormsModule],
 })
 export class UserModule {}
