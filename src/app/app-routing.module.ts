@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ActivityModule } from './modules/activity/activity.module';
-import { AdminModule } from './modules/admin/admin.module';
+import { AdminModule } from '@admin/admin.module';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { ContactComponent } from './contact/contact.component';
+import { ActivityModule } from './modules/activity/activity.module';
 
 const routes: Routes = [
 	{

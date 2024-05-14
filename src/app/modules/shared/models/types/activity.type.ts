@@ -1,5 +1,5 @@
-import { Category } from './category.type';
-import { City } from './city.type';
+import { Category } from '@models/types/category.type';
+import { City } from '@models/types/city.type';
 
 export type Activity = {
 	id: string;

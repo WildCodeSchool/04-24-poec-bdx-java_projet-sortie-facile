@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { newUser } from '../../../shared/models/types/newUser.model';
+import { newUser } from '@shared/models/types/newUser.model';
 
 @Component({
 	selector: 'app-create-account',

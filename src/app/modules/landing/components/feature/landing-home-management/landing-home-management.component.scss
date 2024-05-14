@@ -1,0 +1,90 @@
+.content-top {
+	padding: 2rem 0rem;
+	display: flex;
+	flex-direction: column;
+	gap: 0rem;
+
+	.content-top-text {
+		width: 100%;
+
+		h2 {
+			color: var(--black-color);
+			font-size: 1.35rem;
+			margin: 0;
+			margin-bottom: 1.5rem;
+		}
+
+		p {
+			color: var(--black-color);
+			font-size: 0.85rem;
+			margin: 0;
+			margin-bottom: 1.25rem;
+		}
+	}
+
+	.img-top {
+		width: 100%;
+		max-width: 500px;
+		margin: 0 auto;
+		margin-top: -20px;
+	}
+
+	@media (min-width: 768px) {
+		flex-direction: row;
+		justify-content: space-between;
+		padding: 2rem 1.5rem 2rem;
+		gap: 1.5rem;
+
+		.img-top {
+			width: 70%;
+			margin-top: -40px;
+		}
+	}
+
+	@media (min-width: 960px) {
+		flex-direction: row;
+		justify-content: space-between;
+		padding: 2rem 1.5rem 2rem;
+		gap: 2rem;
+
+		.img-top {
+			width: 60%;
+			margin-top: -40px;
+		}
+	}
+
+	@media (min-width: 1280px) {
+		padding: 4rem 5rem 6em 5rem;
+		gap: 2rem;
+
+		.content-top-text {
+			max-width: 900px;
+		}
+
+		.img-top {
+			width: 60%;
+			margin-top: -70px;
+		}
+	}
+}
+
+.functioning h3 {
+	font-size: 1.15rem;
+}
+
+.functioning .functioning-list {
+	display: flex;
+	flex-direction: column;
+	align-items: space-between;
+	gap: 1.5rem;
+	margin-bottom: 1.5rem;
+	width: 100%;
+
+	@media (min-width: 768px) AND (max-width: 959px) {
+		flex-direction: row;
+	}
+
+	@media (min-width: 960px) {
+		flex-direction: row;
+	}
+}

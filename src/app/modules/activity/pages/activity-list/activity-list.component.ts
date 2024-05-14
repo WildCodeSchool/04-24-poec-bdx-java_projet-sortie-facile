@@ -6,8 +6,8 @@ import {
 	SimpleChanges,
 } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Activity } from '../../../shared/models/types/activity.type';
-import { ActivityService } from '../../../shared/services/activity.service';
+import { Activity } from '@shared/models/types/activity.type';
+import { ActivityService } from '@shared/services/activity.service';
 
 @Component({
 	selector: 'app-activity-list',
