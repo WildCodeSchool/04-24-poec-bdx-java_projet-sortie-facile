@@ -44,8 +44,11 @@ export class UpdateActivityComponent implements OnInit {
 	onSubmit(form: NgForm): void {
 		console.log('fvalue', form.value);
 
+		const id: string = this.formData.id; // Récupérer l'ID de l'activité
+		const updatedData = form.value; // Récupérer les données mises à jour du formulaire
+
 		this.activityService
-			.updateActivity$(form.value)
+			.updateActivity$(id, updatedData)
 			.pipe(
 				tap(activity => {
 					console.log('test', activity);

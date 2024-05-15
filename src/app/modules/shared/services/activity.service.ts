@@ -117,15 +117,17 @@ export class ActivityService {
 	}
 
 	// faire la page modofication d'activité
-	updateActivity$(id: string): Observable<unknown> {
-		return this.http.delete(`http://localhost:3000/activity/${id}`).pipe(
-			tap(data => {
-				console.log('Delete Request is successful ', data);
-			}),
-			catchError(error => {
-				console.log('Error', error);
-				throw error;
-			}),
-		);
+	updateActivity$(id: string, updatedData: any): Observable<unknown> {
+		return this.http
+			.patch(`http://localhost:3000/activity/${id}`, updatedData)
+			.pipe(
+				tap(data => {
+					console.log('Update Request is successful ', data);
+				}),
+				catchError(error => {
+					console.log('Error', error);
+					throw error;
+				}),
+			);
 	}
 }
