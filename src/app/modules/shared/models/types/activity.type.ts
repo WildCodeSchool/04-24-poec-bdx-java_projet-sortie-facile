@@ -24,7 +24,7 @@ export type ActivityCopy = {
 		name: string;
 	};
 	date: string;
-	age: number;
+	age?: number;
 	imgUrl: string;
 	link: string;
 	description: string;

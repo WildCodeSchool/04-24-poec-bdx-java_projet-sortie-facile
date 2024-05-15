@@ -15,52 +15,63 @@
 		></app-text-field>
 
 		<p>Date de l'évènement</p>
-		<app-input-date
-			inputId=" date"
+		<app-text-field
+			id="date"
 			name="date"
 			[required]="true"
 			#date="ngModel"
+			[form]="myForm"
 			[(ngModel)]="formData.date"
-		></app-input-date>
+			class="input-activity-form"
+		></app-text-field>
 
-		<p>Heure de l'évènement</p>
-		<app-input-hour
+		<!-- <p>Heure de l'évènement</p>
+		<app-text-field
+			id="hour"
 			inputId="hour"
 			name="hour"
 			[required]="true"
 			#hour="ngModel"
+			[form]="myForm"
 			[(ngModel)]="formData.hour"
-		></app-input-hour>
+			class="input-activity-form"
+		></app-text-field> -->
 
 		<p>Lieu</p>
-		<app-select-city
+		<app-text-field
+			id="city"
 			inputId="city"
 			name="activityCity"
 			[required]="true"
 			#activityCity="ngModel"
-			[(ngModel)]="formData.activityCity"
-		>
-		</app-select-city>
+			[form]="myForm"
+			[(ngModel)]="formData.activityCity.name"
+			class="input-activity-form"
+		></app-text-field>
 
 		<p>Catégorie</p>
-		<app-select-category
+		<app-text-field
+			id="categoryId"
 			inputId="categoryId"
 			name="categoryId"
 			[required]="true"
-			#category="ngModel"
-			[(ngModel)]="formData.categoryId"
-		></app-select-category>
+			#categoryId="ngModel"
+			[form]="myForm"
+			[(ngModel)]="formData.categoryId.title"
+		></app-text-field>
 
 		<p>Nbre de participants</p>
-		<app-select-number
+		<app-text-field
+			id="categoryId"
 			inputId="nbGuest"
 			name="nbGuest"
 			[required]="true"
 			#nbGuest="ngModel"
+			[form]="myForm"
 			[(ngModel)]="formData.nbGuest"
-		></app-select-number>
-		<p>Description de l'évènement</p>
+		></app-text-field>
 
+		<p>Description de l'évènement</p>
 		<app-textarea
 			inputId="description"
 			name="description"
@@ -68,7 +79,14 @@
 			#description="ngModel"
 			[(ngModel)]="formData.description"
 		></app-textarea>
-		<p>img</p>
+		<p>Image</p>
+		<img
+			[src]="formData.imgUrl"
+			alt="{{ formData.name }}"
+			*ngIf="formData.imgUrl"
+			class="activity-image"
+		/>
+
 		<i class="pi pi-download" style="font-size: 1.5rem"></i>
 
 		<input

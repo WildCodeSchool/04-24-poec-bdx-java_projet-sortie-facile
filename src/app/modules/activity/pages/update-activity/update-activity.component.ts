@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Activity } from '@shared/models/types/activity.type';
@@ -13,6 +13,12 @@ import { Observable, tap } from 'rxjs';
 export class UpdateActivityComponent implements OnInit {
 	updateActivity$!: Observable<Activity>;
 	activity$!: Observable<Activity>;
+	@Input() type!: string; // text or email
+	@Input() id!: string;
+	@Input() name!: string;
+	@Input() labelFor!: string;
+	@Input() labelContent!: string;
+	@Input() form!: NgForm;
 
 	constructor(
 		private activityService: ActivityService,
@@ -23,6 +29,7 @@ export class UpdateActivityComponent implements OnInit {
 	formData: Activity = {
 		id: '',
 		departement: '',
+		age: 0,
 		name: '',
 		date: '',
 		hour: '',

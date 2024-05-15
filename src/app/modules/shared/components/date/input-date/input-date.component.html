@@ -1,9 +1,18 @@
 <div class="flex-auto">
-	<label for="calendar-24h" class="font-bold block mb-2"></label>
+	<label
+		for="calendar-24h"
+		class="font-bold block mb-2"
+		*ngIf="labelFor && labelContent"
+		[for]="labelFor"
+		>{{ labelContent }}</label
+	>
 	<p-calendar
 		inputId="calendar-24h"
-		[(ngModel)]="datetime24h"
+		[id]="id"
+		[name]="name"
+		[(ngModel)]="date"
 		(ngModelChange)="onInputChange($event)"
 		(focus)="markAsTouched()"
+		#ref="ngModel"
 	/>
 </div>
