@@ -1,0 +1,33 @@
+<div class="container">
+	<app-account-layout
+		[avatarSrc]="avatarSrc"
+		[avatarAlt]="avatarAlt"
+		[username]="connectedUser.username"
+		[pageTitle]="pageTitle"
+		[pageDescription]="pageDescription"
+	>
+		<app-account-container-content
+			sectionTitle="Mes dernières activités"
+			[hideBtn]="true"
+		>
+			<div class="content-box" data>
+				<app-carousel
+					[activityList]="activityByCreatedUserList"
+					[numVisible]="4"
+				></app-carousel>
+			</div>
+		</app-account-container-content>
+
+		<app-account-container-content
+			sectionTitle="Les dernières activités auxquelles j'ai participé"
+			[hideBtn]="true"
+		>
+			<div class="content-box" data>
+				<app-carousel
+					[activityList]="activityByCreatedUserList"
+					[numVisible]="4"
+				></app-carousel>
+			</div>
+		</app-account-container-content>
+	</app-account-layout>
+</div>

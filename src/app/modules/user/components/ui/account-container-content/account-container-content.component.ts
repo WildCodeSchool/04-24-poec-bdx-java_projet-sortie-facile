@@ -8,6 +8,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 export class AccountContainerContentComponent {
 	@Input() sectionTitle!: string;
 	@Input() isViewDatas!: boolean;
+	@Input() hideBtn!: boolean;
 
 	@Output() sendIsViewDatas: EventEmitter<boolean> = new EventEmitter<boolean>(
 		this.isViewDatas,
