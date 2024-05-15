@@ -13,6 +13,7 @@ export type Activity = {
 	description: string;
 	nbGuest: number;
 	categoryId: Category;
+	hour: string;
 };
 export type ActivityCopy = {
 	id: string;

@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Activity } from '@shared/models/types/activity.type';
-import { Category } from '@shared/models/types/category.type';
 import { ActivityService } from '@shared/services/activity.service';
 import { Observable, tap } from 'rxjs';
 
@@ -21,44 +20,26 @@ export class UpdateActivityComponent implements OnInit {
 
 		private router: Router,
 	) {}
-
-	formData: {
-		name: string;
-		departement: string;
-		activityCity: {
-			id: number;
-			name: string;
-		};
-		date: string;
-		age: number;
-		imgUrl: string;
-		link: string;
-		description: string;
-		nbGuest: number;
-		categoryId: Category;
-		hour: string;
-	} = {
-		name: 'toto',
+	formData: Activity = {
+		id: '',
 		departement: '',
-		activityCity: {
-			id: 0,
-			name: '',
-		},
+		name: '',
 		date: '',
-		age: 0,
+		hour: '',
+		activityCity: { id: 0, name: '' },
+		categoryId: { id: 0, title: '' },
+		nbGuest: 0,
+		description: '',
 		imgUrl: '',
 		link: '',
-		description: '',
-		nbGuest: 0,
-		categoryId: {
-			id: 0,
-			title: '',
-		},
-		hour: '',
 	};
 	ngOnInit(): void {
 		const id: number = Number(this.route.snapshot.paramMap.get('id'));
 		this.activity$ = this.activityService.getActivityById$(id);
+		this.activity$.subscribe(activity => {
+			this.formData = activity;
+			console.log(this.formData); // Initialiser formData avec les informations de l'activité
+		});
 	}
 	onSubmit(form: NgForm): void {
 		console.log('fvalue', form.value);
