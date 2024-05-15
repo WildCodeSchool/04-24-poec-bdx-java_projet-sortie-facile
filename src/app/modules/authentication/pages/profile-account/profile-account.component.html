@@ -1,12 +1,4 @@
-<!-- <form #profileAccount="ngForm" (ngSubmit)="onSubmit(profileAccount)">
-	<app-date-field
-		labelFor="birthDate"
-		labelContent="Date de naissance :"
-		id="birthDate"
-		name="birthDate"
-		[(ngModel)]="newProfile.birthdate"
-	></app-date-field>
-
+<form #profileAccount="ngForm" (ngSubmit)="onSubmit(profileAccount)">
 	<app-text-field
 		labelFor="firstname"
 		labelContent="Prénom :"
@@ -24,6 +16,14 @@
 		name="lastname"
 		[(ngModel)]="newProfile.lastname"
 	></app-text-field>
+
+	<app-date-field
+		labelFor="birthDate"
+		labelContent="Date de naissance :"
+		id="birthDate"
+		name="birthDate"
+		[(ngModel)]="newProfile.birthdate"
+	></app-date-field>
 
 	<app-text-field
 		labelFor="city"
@@ -53,4 +53,4 @@
 	<div class="btn-container">
 		<p-button type="submit" icon="pi pi-arrow-right"></p-button>
 	</div>
-</form> -->
+</form>

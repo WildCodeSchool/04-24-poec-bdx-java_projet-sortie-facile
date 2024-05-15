@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { AccountStatus, UserRoleEnum } from '@shared/models/enums/user-role.enum';
 import { newUser } from '@shared/models/types/newUser.model';
 
 @Component({
@@ -9,10 +10,13 @@ import { newUser } from '@shared/models/types/newUser.model';
 })
 export class ModifyAccountComponent {
     modifiedUser: newUser = {
+		id: '0',
 		username: '',
 		email: '',
 		password: '',
-		confirmation: '',
+		passwordConfirm: '',
+		role: UserRoleEnum.USER,
+		status: AccountStatus.ACTIVE,
 	};
 
 	onSubmit(form: NgForm) {

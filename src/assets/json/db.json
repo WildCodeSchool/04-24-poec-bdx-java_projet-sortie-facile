@@ -22,12 +22,22 @@
       "role": "user"
     },
     {
-      "id": "47b3",
-      "username": "treza",
+      "id": "144a",
+      "username": "Pimpoye",
       "email": "Pimpoye@medoc.fr",
       "password": "mafemmecestmasoeur",
       "passwordConfirm": "mafemmecestmasoeur",
-      "role": "user"
+      "role": "user",
+      "status": "active"
+    },
+    {
+      "id": "2149",
+      "username": "Pimpoye",
+      "email": "Pimpoye@medoc.fr",
+      "password": "mafemmecestmasoeur",
+      "passwordConfirm": "mafemmecestmasoeur",
+      "role": "user",
+      "status": "active"
     }
   ],
   "user_details": [

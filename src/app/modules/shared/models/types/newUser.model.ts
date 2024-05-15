@@ -5,7 +5,7 @@ export type newUser = {
 	username: string;
 	email: string;
 	password: string;
-	confirmation: string;
+	passwordConfirm: string;
 	role: UserRoleEnum;
 	status: AccountStatus;
 };

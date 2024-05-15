@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { UserRoleEnum } from '@shared/models/enums/user-role.enum';
+import { AccountStatus, UserRoleEnum } from '@shared/models/enums/user-role.enum';
 import { AuthRedirect } from '@shared/models/types/auth-redirect.type';
 import { newUser } from '@shared/models/types/newUser.model';
 import { AuthProvider } from '@shared/models/types/provider.type';
@@ -18,19 +18,22 @@ export class AuthRegisterManagementComponent implements OnInit {
 
 	lastUserId!: string;
 
+	formStep: number = 1;
+
 	redirect: AuthRedirect = {
 		text: 'Vous avez déjà un compte ?',
 		link: ['/auth/login'],
 		linkLabel: 'Se connecter',
 	};
 
-	newUser: any = {
+	newUser: newUser = {
 		id: '0',
 		username: '',
 		email: '',
 		password: '',
 		passwordConfirm: '',
-		role: UserRoleEnum.USER
+		role: UserRoleEnum.USER,
+		status: AccountStatus.INACTIVE,
 	};
 
 	constructor(private authService: AuthService) {}
@@ -48,7 +51,8 @@ export class AuthRegisterManagementComponent implements OnInit {
 			email: 'Pimpoye@medoc.fr',
 			password: 'mafemmecestmasoeur',
 			passwordConfirm: 'mafemmecestmasoeur',
-			role: UserRoleEnum.USER
+			role: UserRoleEnum.USER,
+			status: AccountStatus.ACTIVE,
 		};
 		this.providerNameList = this.authService.getProviderNameList();
 	}
@@ -62,6 +66,13 @@ export class AuthRegisterManagementComponent implements OnInit {
 			.subscribe((user: UserAuthPrimaryDatas) => {
 				localStorage.setItem('user', JSON.stringify(user));
 			});
+	}
 
+	formNextStep(): void {
+		this.formStep = 2;
+	}
+
+	formPreviousStep(): void {
+		this.formStep = 1;
 	}
 }
