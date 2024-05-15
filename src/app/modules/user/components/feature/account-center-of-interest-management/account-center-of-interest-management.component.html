@@ -1,0 +1,44 @@
+<div class="container">
+	<app-account-layout
+		[avatarSrc]="avatarSrc"
+		[avatarAlt]="avatarAlt"
+		[username]="connectedUser.username"
+		[pageTitle]="pageTitle"
+		[pageDescription]="pageDescription"
+	>
+		<app-account-container-content
+			sectionTitle="Ajouter un Centre d’intérêts"
+			[hideBtn]="true"
+		>
+			<div class="content-box" data>
+				<form #addCategoryForm="ngForm" (ngSubmit)="onSubmit(addCategoryForm)">
+					<app-select-category
+						inputId="categoryId"
+						name="categoryId"
+						[required]="true"
+						#category="ngModel"
+						[(ngModel)]="formDatas.category"
+					></app-select-category>
+
+					<button type="submit">ok</button>
+				</form>
+			</div>
+		</app-account-container-content>
+
+		<app-account-container-content
+			sectionTitle="Mes centres d’intérêts"
+			[hideBtn]="true"
+		>
+			<div class="content-box" data>
+				<div class="categories-container">
+					<div
+						class="category-card"
+						*ngFor="let category of userCategoryList$ | async"
+					>
+						<p>{{ category.title }}</p>
+					</div>
+				</div>
+			</div>
+		</app-account-container-content>
+	</app-account-layout>
+</div>
