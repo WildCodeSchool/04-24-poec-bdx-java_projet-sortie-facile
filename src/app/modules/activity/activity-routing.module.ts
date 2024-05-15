@@ -10,7 +10,7 @@ const routes: Routes = [
 	{ path: 'createActivity', component: ActivityHomeComponent },
 	{ path: 'home', component: ActivitySearchComponent },
 	{ path: 'details/:id', component: ActivityDetailsComponent },
-	{ path: 'update', component: UpdateActivityComponent },
+	{ path: 'update/:id', component: UpdateActivityComponent },
 ];
 
 @NgModule({

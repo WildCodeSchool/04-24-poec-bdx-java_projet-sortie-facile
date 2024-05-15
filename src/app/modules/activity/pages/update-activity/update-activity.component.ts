@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Activity } from '@shared/models/types/activity.type';
 import { Category } from '@shared/models/types/category.type';
 import { ActivityService } from '@shared/services/activity.service';
@@ -11,11 +11,14 @@ import { Observable, tap } from 'rxjs';
 	templateUrl: './update-activity.component.html',
 	styleUrl: './update-activity.component.scss',
 })
-export class UpdateActivityComponent {
-	upActivity$!: Observable<Activity>;
+export class UpdateActivityComponent implements OnInit {
+	updateActivity$!: Observable<Activity>;
+	activity$!: Observable<Activity>;
 
 	constructor(
 		private activityService: ActivityService,
+		private route: ActivatedRoute,
+
 		private router: Router,
 	) {}
 
@@ -53,17 +56,20 @@ export class UpdateActivityComponent {
 		},
 		hour: '',
 	};
-
+	ngOnInit(): void {
+		const id: number = Number(this.route.snapshot.paramMap.get('id'));
+		this.activity$ = this.activityService.getActivityById$(id);
+	}
 	onSubmit(form: NgForm): void {
 		console.log('fvalue', form.value);
 
 		this.activityService
-			.postNewActivity$(form.value)
+			.updateActivity$(form.value)
 			.pipe(
 				tap(activity => {
 					console.log('test', activity);
 
-					this.router.navigate(['/activity/details', activity.id]);
+					// this.router.navigate(['/activity/details', activity.id]);
 				}),
 			)
 			.subscribe();
