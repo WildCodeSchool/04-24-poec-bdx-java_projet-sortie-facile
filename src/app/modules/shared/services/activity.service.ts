@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Activity, ActivityCopy } from '@models/types/activity.type';
+import { Activity } from '@models/types/activity.type';
 import { Observable, catchError, map, switchMap } from 'rxjs';
 import { Activities } from '@models/types/activities.type';
 import { Category } from '@models/types/category.type';
@@ -75,7 +75,7 @@ export class ActivityService {
 		);
 	}
 
-	postNewActivity$(newActivity: Activity): Observable<ActivityCopy> {
+	postNewActivity$(newActivity: Activity): Observable<Activity> {
 		return this.http.get<Activity[]>(this._BASE_URL).pipe(
 			switchMap(activities => {
 				const nextId =
@@ -84,7 +84,7 @@ export class ActivityService {
 						: 1;
 				newActivity.id = String(nextId);
 
-				return this.http.post<ActivityCopy>(this._BASE_URL, newActivity);
+				return this.http.post<Activity>(this._BASE_URL, newActivity);
 			}),
 
 			catchError(error => {
