@@ -19,6 +19,8 @@ import { InputIconModule } from 'primeng/inputicon';
 import { DragDropModule } from 'primeng/dragdrop';
 import { TabMenuModule } from 'primeng/tabmenu';
 import { ScrollTopModule } from 'primeng/scrolltop';
+import { CarouselModule } from 'primeng/carousel';
+
 @NgModule({
 	exports: [
 		ButtonModule,
@@ -42,6 +44,7 @@ import { ScrollTopModule } from 'primeng/scrolltop';
 		DragDropModule,
 		TabMenuModule,
 		ScrollTopModule,
+		CarouselModule,
 	],
 })
 export class PrimengModule {}

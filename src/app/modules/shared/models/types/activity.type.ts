@@ -14,6 +14,7 @@ export type Activity = {
 	nbGuest: number;
 	categoryId: Category;
 	hour: string;
+	userId: string;
 };
 export type ActivityCopy = {
 	id: string;
@@ -31,4 +32,5 @@ export type ActivityCopy = {
 	nbGuest: number;
 	categoryId: Category;
 	hour: string;
+	userId: string;
 };

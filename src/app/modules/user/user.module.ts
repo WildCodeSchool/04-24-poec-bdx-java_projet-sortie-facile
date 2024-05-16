@@ -18,6 +18,9 @@ import { SharedModule } from '@shared/shared.module';
 import { AccountProfileManagementComponent } from '@user/components/feature/account-profile-management/account-profile-management.component';
 import { AccountCardInfoComponent } from '@user/components/ui/account-card-info/account-card-info.component';
 import { AccountContainerContentComponent } from '@user/components/ui/account-container-content/account-container-content.component';
+import { AccountActivitiesManagementComponent } from './components/feature/account-activities-management/account-activities-management.component';
+import { AccountCenterOfInterestManagementComponent } from './components/feature/account-center-of-interest-management/account-center-of-interest-management.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
 	declarations: [
@@ -36,7 +39,9 @@ import { AccountContainerContentComponent } from '@user/components/ui/account-co
 		AccountProfileManagementComponent,
 		AccountContainerContentComponent,
 		AccountCardInfoComponent,
+		AccountActivitiesManagementComponent,
+		AccountCenterOfInterestManagementComponent,
 	],
-	imports: [CommonModule, UserRoutingModule, SharedModule],
+	imports: [CommonModule, UserRoutingModule, SharedModule, FormsModule],
 })
 export class UserModule {}

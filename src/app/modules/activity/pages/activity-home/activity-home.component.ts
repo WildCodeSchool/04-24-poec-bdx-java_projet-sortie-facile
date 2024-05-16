@@ -49,7 +49,7 @@ export class ActivityHomeComponent {
 		description: '',
 		nbGuest: 0,
 		categoryId: {
-			id: 0,
+			id: '0',
 			title: '',
 		},
 		hour: '',
