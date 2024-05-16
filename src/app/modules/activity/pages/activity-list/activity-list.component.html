@@ -1,21 +1,17 @@
 <div class="container">
-	<div class="content-box">
-		<div class="filters-box">
-			<app-select-category></app-select-category>
-			<app-select-city></app-select-city>
-		</div>
+	<div class="filters-box">
+		<label for="">Rechercher</label>
+		<app-search-bar (emitChanges)="onSearch($event)"></app-search-bar>
 
-		<div class="activities-box">
-			<div class="activities-top"></div>
-			<div class="activities-cards">
-				<ng-container *ngIf="activityList$ | async as activities">
-					<app-activity-card
-						*ngFor="let activity of activities"
-						[activity]="activity"
-						[connectedUser]="connectedUser"
-					></app-activity-card>
-				</ng-container>
-			</div>
-		</div>
+		<app-divider [align]="'center'" [type]="'solid'"></app-divider>
+
+		<!-- <app-select-category></app-select-category>
+		<app-select-city></app-select-city> -->
+	</div>
+
+	<div class="activities-box">
+		<app-activity-list-management
+			[searchedValue]="searchedValue"
+		></app-activity-list-management>
 	</div>
 </div>
