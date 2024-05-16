@@ -24,6 +24,7 @@ import { DateFieldComponent } from '@shared/components/form/date-field/date-fiel
 import { AccountNavActiveLinkPipe } from './pipes/account-nav-active-link/account-nav-active-link.pipe';
 import { SearchBarComponent } from '@shared/components/search-bar/search-bar.component';
 import { CarouselComponent } from '@shared/components/carousel/carousel.component';
+import { CardActivitySmallComponent } from './components/cards/card-activity-small/card-activity-small.component';
 
 @NgModule({
 	declarations: [
@@ -48,6 +49,7 @@ import { CarouselComponent } from '@shared/components/carousel/carousel.componen
 		AccountNavActiveLinkPipe,
 		SearchBarComponent,
 		CarouselComponent,
+		CardActivitySmallComponent,
 	],
 	imports: [
 		CommonModule,
@@ -80,6 +82,7 @@ import { CarouselComponent } from '@shared/components/carousel/carousel.componen
 		AccountNavActiveLinkPipe,
 		SearchBarComponent,
 		CarouselComponent,
+		CardActivitySmallComponent,
 	],
 })
 export class SharedModule {}

@@ -1,25 +1,60 @@
 <div class="activity-card-container">
-	<div class="card flex justify-content-center">
-		<p-card
-			[header]="activity.name"
-			subheader="Card Subheader"
-			[style]="{ width: '480px' }"
-		>
-			<ng-template pTemplate="header">
-				<img alt="{{ activity.name }}" [src]="activity.imgUrl" />
-			</ng-template>
-			<i class="pi pi-chevron-circle-down" style="font-size: 1.5rem"></i>
-			<i class="pi pi-user" style="font-size: 1.5rem"></i>
-			<p>
-				{{ activity.description }}
-			</p>
-			<ng-template pTemplate="footer">
-				<p-button rounded [routerLink]="['/activity/details', activity.id]">
-					Voir Plus
-				</p-button>
-				<p-button rounded (click)="delete(activity.id)"> supprimer </p-button>
-				<p-button rounded (click)="update(activity.id)"> modifier </p-button>
-			</ng-template>
-		</p-card>
-	</div>
+	<p-card>
+		<ng-template pTemplate="header">
+			<div class="btn-admin">
+				<p-button
+					icon="pi pi-pencil"
+					[rounded]="true"
+					severity="success"
+					(click)="update(activity.id)"
+				/>
+				<p-button
+					icon="pi pi-trash"
+					[rounded]="true"
+					severity="danger"
+					(click)="delete(activity.id)"
+				/>
+			</div>
+			<img
+				class="card-img"
+				alt="{{ activity.name }}"
+				[src]="
+					activity.imgUrl ? activity.imgUrl : '/assets/photos/no-image.jpg'
+				"
+			/>
+		</ng-template>
+		<h3>
+			{{ activity.name }}
+		</h3>
+
+		<p-divider />
+
+		<p>
+			{{ activity.description }}
+		</p>
+
+		<p-divider />
+
+		<div class="bottom-content">
+			<div class="bottom-item">
+				<i class="pi pi-chevron-circle-down"></i>
+				<p>{{ activity.date | date: 'd MMM y' }}</p>
+			</div>
+
+			<div class="bottom-item">
+				<i class="pi pi-chevron-circle-down"></i>
+				<p>{{ activity.activityCity.name }}</p>
+			</div>
+		</div>
+
+		<ng-template pTemplate="footer">
+			<p-button
+				rounded
+				[routerLink]="['/activity/details', activity.id]"
+				class="btn-register"
+			>
+				Voir Plus
+			</p-button>
+		</ng-template>
+	</p-card>
 </div>
