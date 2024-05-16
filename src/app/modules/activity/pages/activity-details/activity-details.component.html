@@ -21,13 +21,15 @@
 			>
 
 			<ng-template pTemplate="footer">
-				<p-button
+				<!-- <p-button
 					rounded
 					(click)="add(activity)"
 					label="S'inscrire"
 					icon="pi pi-check"
-				></p-button>
-
+				></p-button> -->
+				<app-modal-confirm-reservation
+					[myForm]="myForm"
+				></app-modal-confirm-reservation>
 				<p-button rounded [routerLink]="['/update', activity.id]">
 					page modifier
 				</p-button>

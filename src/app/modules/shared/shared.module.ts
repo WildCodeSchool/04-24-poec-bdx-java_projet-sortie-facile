@@ -25,6 +25,7 @@ import { SearchBarComponent } from '@shared/components/search-bar/search-bar.com
 import { CarouselComponent } from '@shared/components/carousel/carousel.component';
 import { CardActivitySmallComponent } from '@shared/components/cards/card-activity-small/card-activity-small.component';
 import { SelectCategoryComponent } from '@shared/components/select/select-category/select-category.component';
+import { ModalConfirmReservationComponent } from './components/modal/modal-confirm-reservation/modal-confirm-reservation.component';
 
 @NgModule({
 	declarations: [
@@ -50,6 +51,7 @@ import { SelectCategoryComponent } from '@shared/components/select/select-catego
 		SearchBarComponent,
 		CarouselComponent,
 		CardActivitySmallComponent,
+		ModalConfirmReservationComponent,
 	],
 	imports: [
 		CommonModule,
@@ -83,6 +85,7 @@ import { SelectCategoryComponent } from '@shared/components/select/select-catego
 		SearchBarComponent,
 		CarouselComponent,
 		CardActivitySmallComponent,
+		ModalConfirmReservationComponent,
 	],
 })
 export class SharedModule {}
