@@ -78,7 +78,7 @@ export class ActivityService {
 	onSubmit(form: NgForm): void {
 		this.postNewActivity$(form.value).subscribe();
 	}
-	postNewActivity$(newActivity: Activity): Observable<ActivityCopy> {
+	postNewActivity$(newActivity: Activity): Observable<Activity> {
 		return this.http.get<Activity[]>(this._BASE_URL).pipe(
 			switchMap(activities => {
 				const nextId =
