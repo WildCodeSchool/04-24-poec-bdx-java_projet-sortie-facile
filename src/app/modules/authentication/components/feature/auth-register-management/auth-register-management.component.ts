@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { UserRoleEnum } from '@shared/models/enums/user-role.enum';
+import {
+	AccountStatus,
+	UserRoleEnum,
+} from '@shared/models/enums/user-role.enum';
 import { AuthRedirect } from '@shared/models/types/auth-redirect.type';
+import { newUserFormDatas } from '@shared/models/types/newUser.model';
 import { AuthProvider } from '@shared/models/types/provider.type';
 import { UserAuthPrimaryDatas } from '@shared/models/types/user-list-response-api.type';
 import { AuthService } from '@shared/services/auth.service';
@@ -21,13 +25,14 @@ export class AuthRegisterManagementComponent implements OnInit {
 		linkLabel: 'Se connecter',
 	};
 
-	newUser: any = {
+	newUser: newUserFormDatas = {
 		id: '0',
 		username: '',
 		email: '',
 		password: '',
 		passwordConfirm: '',
 		role: UserRoleEnum.USER,
+		status: AccountStatus.ACTIVE,
 	};
 
 	constructor(private authService: AuthService) {}
@@ -40,6 +45,7 @@ export class AuthRegisterManagementComponent implements OnInit {
 			password: 'mafemmecestmasoeur',
 			passwordConfirm: 'mafemmecestmasoeur',
 			role: UserRoleEnum.USER,
+			status: AccountStatus.ACTIVE,
 		};
 		this.providerNameList = this.authService.getProviderNameList();
 	}

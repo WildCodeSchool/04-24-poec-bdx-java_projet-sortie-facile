@@ -8,7 +8,11 @@ import {
 	UserAuthPrimaryDatas,
 	UserListResponseApi,
 } from '@shared/models/types/user-list-response-api.type';
-import { newUser, newUserDatas } from '@shared/models/types/newUser.model';
+import {
+	newUser,
+	newUserDatas,
+	newUserFormDatas,
+} from '@shared/models/types/newUser.model';
 import { AccountStatus } from '@shared/models/enums/user-role.enum';
 import { AuthProvider } from '@shared/models/types/provider.type';
 import { AuthProviderNameEnum } from '@shared/models/enums/auth-provider';
@@ -56,7 +60,9 @@ export class AuthService {
 			);
 	}
 
-	createUserWithEmailAndPassword(newUser: newUser): Observable<newUserDatas> {
+	createUserWithEmailAndPassword(
+		newUser: newUserFormDatas,
+	): Observable<newUserDatas> {
 		return this._httpClient
 			.post<newUser>('http://localhost:3000/user', newUser)
 			.pipe(

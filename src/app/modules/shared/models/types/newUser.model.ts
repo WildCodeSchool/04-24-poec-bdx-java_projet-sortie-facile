@@ -14,3 +14,10 @@ export type newUserDatas = Pick<
 	newUser,
 	'id' | 'username' | 'email' | 'role' | 'status' | 'password'
 >;
+
+export type newUserFormDatas = Pick<
+	newUser,
+	'id' | 'username' | 'email' | 'role' | 'status' | 'password'
+> & {
+	passwordConfirm: string;
+};

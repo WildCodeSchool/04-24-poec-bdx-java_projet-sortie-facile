@@ -1,9 +1,8 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable no-console */
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Activity, ActivityCopy } from '@models/types/activity.type';
-import { Observable, catchError, map, switchMap, tap } from 'rxjs';
+import { Observable, catchError, map, switchMap } from 'rxjs';
 import { Activities } from '@models/types/activities.type';
 import { Category } from '@models/types/category.type';
 
@@ -27,10 +26,9 @@ export class ActivityService {
 	}
 
 	getActivityById$(id: number): Observable<Activity> {
-		return this.http.get<Activity>(`${this._BASE_URL}/${id}`).pipe(
-			tap(value => console.log(value)),
-			map((response: Activity) => response),
-		);
+		return this.http
+			.get<Activity>(`${this._BASE_URL}/${id}`)
+			.pipe(map((response: Activity) => response));
 	}
 
 	getActivityListByCreatedUser$(limit: number = -1): Observable<Activity[]> {
@@ -55,11 +53,13 @@ export class ActivityService {
 			);
 	}
 	getCategoryTitle$(categoryId: string): Observable<string> {
-		return this.http.get<any>(`${this._BASE_URL}/${categoryId}`).pipe(
-			map((category: any) => {
-				return category.title;
-			}),
-		);
+		return this.http
+			.get<Category>(`http://localhost:3000/category/${categoryId}`)
+			.pipe(
+				map((category: Category) => {
+					return category.title;
+				}),
+			);
 	}
 
 	getActivityListByCategoryId$(id: number): Observable<Activity[]> {
@@ -86,9 +86,7 @@ export class ActivityService {
 
 				return this.http.post<ActivityCopy>(this._BASE_URL, newActivity);
 			}),
-			tap(data => {
-				console.log('POST Request is successful ', data);
-			}),
+
 			catchError(error => {
 				console.log('Error', error);
 				throw error;
@@ -98,9 +96,6 @@ export class ActivityService {
 
 	deleteActivity$(id: string): Observable<unknown> {
 		return this.http.delete(`${this._BASE_URL}/${id}`).pipe(
-			tap(data => {
-				console.log('Delete Request is successful ', data);
-			}),
 			catchError(error => {
 				console.log('Error', error);
 				throw error;
@@ -108,11 +103,11 @@ export class ActivityService {
 		);
 	}
 
-	updateActivity$(id: string, updatedData: any): Observable<unknown> {
+	updateActivity$(
+		id: string,
+		updatedData: Partial<Activity>,
+	): Observable<unknown> {
 		return this.http.patch(`${this._BASE_URL}/${id}`, updatedData).pipe(
-			tap(data => {
-				console.log('Update Request is successful ', data);
-			}),
 			catchError(error => {
 				console.log('Error', error);
 				throw error;

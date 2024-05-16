@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import { Component, Input } from '@angular/core';
 import { Activity } from '@shared/models/types/activity.type';
 import { ActivityService } from '@shared/services/activity.service';

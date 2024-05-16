@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Observable, tap } from 'rxjs';
@@ -60,8 +59,6 @@ export class ActivityHomeComponent {
 			.postNewActivity$(form.value)
 			.pipe(
 				tap(activity => {
-					console.log('test', activity);
-
 					this.router.navigate(['/activity/details', activity.id]);
 				}),
 			)
