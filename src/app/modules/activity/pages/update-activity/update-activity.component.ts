@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Activity } from '@shared/models/types/activity.type';
 import { ActivityService } from '@shared/services/activity.service';
 import { Observable } from 'rxjs';
@@ -23,6 +23,7 @@ export class UpdateActivityComponent implements OnInit {
 	constructor(
 		private activityService: ActivityService,
 		private route: ActivatedRoute,
+		private router: Router,
 	) {}
 
 	formData: Activity = {
@@ -54,5 +55,6 @@ export class UpdateActivityComponent implements OnInit {
 		const updatedData = form.value;
 
 		this.activityService.updateActivity$(id, updatedData).subscribe();
+		this.router.navigate(['/activity/details/', id]);
 	}
 }
