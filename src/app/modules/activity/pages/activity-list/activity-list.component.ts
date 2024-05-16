@@ -16,8 +16,7 @@ export class ActivityListComponent implements OnInit, OnChanges {
 
 	connectedUser!: UserAuthPrimaryDatas;
 
-	@Input()
-	searchedValue: string = '';
+	@Input() searchedValue: string = '';
 
 	constructor(
 		private activityService: ActivityService,
