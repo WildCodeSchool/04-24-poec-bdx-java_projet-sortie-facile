@@ -36,7 +36,7 @@ export class ActivityDetailsComponent implements OnInit {
 			.postNewReservation$(newReservation)
 			.pipe(
 				tap(() => {
-					this.router.navigate(['/booking/home']);
+					this.router.navigate(['/user/home']);
 				}),
 			)
 			.subscribe();
