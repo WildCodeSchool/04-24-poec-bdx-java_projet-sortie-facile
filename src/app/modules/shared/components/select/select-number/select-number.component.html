@@ -1,6 +1,9 @@
-<div class="card flex justify-content-center">
+<div class="form-control">
+	<label *ngIf="labelFor && labelContent" [for]="labelFor">{{
+		labelContent
+	}}</label>
+
 	<p-inputNumber
-		[(ngModel)]="value1"
 		[style]="{ width: '4rem' }"
 		[showButtons]="true"
 		buttonLayout="horizontal"
@@ -10,6 +13,7 @@
 		incrementButtonClass="p-button-secondary"
 		incrementButtonIcon="pi pi-plus"
 		decrementButtonIcon="pi pi-minus"
+		[(ngModel)]="value"
 		(ngModelChange)="onInputChange($event)"
 		(focus)="markAsTouched()"
 	/>

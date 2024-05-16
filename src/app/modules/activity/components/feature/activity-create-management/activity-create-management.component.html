@@ -63,8 +63,9 @@
 			[(ngModel)]="newActivity.categoryId"
 		></app-select-category>
 
-		<p>Nbre de participants</p>
 		<app-select-number
+			labelFor="nbGuest"
+			labelContent="Nbre de participants :"
 			inputId="nbGuest"
 			name="nbGuest"
 			[required]="true"
