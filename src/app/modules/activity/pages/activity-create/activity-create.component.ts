@@ -7,11 +7,11 @@ import { Category } from '@shared/models/types/category.type';
 import { ActivityService } from '@shared/services/activity.service';
 
 @Component({
-	selector: 'app-activity-home',
-	templateUrl: './activity-home.component.html',
-	styleUrl: './activity-home.component.scss',
+	selector: 'app-activity-create',
+	templateUrl: './activity-create.component.html',
+	styleUrl: './activity-create.component.scss',
 })
-export class ActivityHomeComponent {
+export class ActivityCreateComponent {
 	newActivity$!: Observable<Activity>;
 
 	constructor(
@@ -19,7 +19,7 @@ export class ActivityHomeComponent {
 		private router: Router,
 	) {}
 
-	formData: {
+	NewActivity: {
 		name: string;
 		departement: string;
 		activityCity: {

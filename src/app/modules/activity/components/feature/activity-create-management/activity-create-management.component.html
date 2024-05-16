@@ -1,0 +1,100 @@
+<app-activity-form-layout
+	pageTitle="Création d'une activité"
+	backgroundImage="/assets/photos/create-activity.jpg"
+>
+	<form #createActivityForm="ngForm" (ngSubmit)="onSubmit(createActivityForm)">
+		<app-text-field
+			labelFor="name"
+			labelContent="Titre de l'activité :"
+			type="text"
+			id="name"
+			name="name"
+			[form]="createActivityForm"
+			[required]="true"
+			[minlength]="3"
+			[maxlength]="50"
+			[(ngModel)]="newActivity.name"
+			class="input-activity-form"
+		></app-text-field>
+
+		<p>Date de l'évènement</p>
+		<app-input-date
+			inputId=" date"
+			name="date"
+			[required]="true"
+			#date="ngModel"
+			[(ngModel)]="newActivity.date"
+		></app-input-date>
+
+		<p>Heure de l'évènement</p>
+		<app-input-hour
+			inputId="hour"
+			name="hour"
+			[required]="true"
+			#hour="ngModel"
+			[(ngModel)]="newActivity.hour"
+		></app-input-hour>
+
+		<p>Lieu</p>
+		<app-select-city
+			inputId="city"
+			name="activityCity"
+			[required]="true"
+			#activityCity="ngModel"
+			[(ngModel)]="newActivity.activityCity"
+		>
+		</app-select-city>
+
+		<p>Catégorie</p>
+		<app-select-category
+			inputId="categoryId"
+			name="categoryId"
+			[required]="true"
+			#category="ngModel"
+			[(ngModel)]="newActivity.categoryId"
+		></app-select-category>
+
+		<p>Nbre de participants</p>
+		<app-select-number
+			inputId="nbGuest"
+			name="nbGuest"
+			[required]="true"
+			#nbGuest="ngModel"
+			[(ngModel)]="newActivity.nbGuest"
+		></app-select-number>
+		<p>Description de l'évènement</p>
+
+		<app-textarea
+			inputId="description"
+			name="description"
+			[required]="true"
+			#description="ngModel"
+			[(ngModel)]="newActivity.description"
+		></app-textarea>
+		<p>img</p>
+		<i class="pi pi-download" style="font-size: 1.5rem"></i>
+
+		<input
+			inputId="imgUrl"
+			name="imgUrl"
+			#imgUrl="ngModel"
+			[(ngModel)]="newActivity.imgUrl"
+			type="file"
+			class="file-upload"
+		/>
+		<p>Lien</p>
+		<i class="pi pi-download" style="font-size: 1.5rem"></i>
+
+		<input
+			inputId="link"
+			name="link"
+			#link="ngModel"
+			[(ngModel)]="newActivity.link"
+			type="url"
+		/>
+
+		<div class="btn-container">
+			<app-button-form iconName="arrow-right"></app-button-form>
+		</div>
+	</form>
+</app-activity-form-layout>

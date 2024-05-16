@@ -16,3 +16,5 @@ export type Activity = {
 	hour: string;
 	userId: string;
 };
+
+export type NewActivity = Omit<Activity, 'id'>;
