@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
+import { AccountService } from '@shared/services/account.service';
 import { MenuItem } from 'primeng/api';
 
 @Component({
@@ -12,76 +13,12 @@ export class LayoutNavResponsiveComponent implements OnInit {
 	activeItem!: MenuItem;
 
 	constructor(
-		private _router: Router,
 		private _activatedRoute: ActivatedRoute,
+		private _accountService: AccountService,
 	) {}
 
 	ngOnInit() {
-		this.items = [
-			{
-				id: '1',
-				label: 'General',
-				command: () => {
-					this._router.navigateByUrl('/user/home');
-				},
-				state: { path: '/user/home' },
-			},
-			{
-				id: '2',
-				label: 'Profil',
-				command: () => {
-					this._router.navigateByUrl('/user/profile');
-				},
-				state: { path: '/user/profile' },
-			},
-			{
-				id: '3',
-				label: 'Mot de passe',
-				command: () => {
-					this._router.navigateByUrl('/user/password');
-				},
-				state: { path: '/user/password' },
-			},
-			{
-				id: '4',
-				label: "Centres d'intérêts",
-				command: () => {
-					this._router.navigateByUrl('/user/center-of-interests');
-				},
-				state: { path: '/user/center-of-interests' },
-			},
-			{
-				id: '5',
-				label: 'Notifications',
-				command: () => {
-					this._router.navigateByUrl('/user/notification');
-				},
-				state: { path: '/user/notification' },
-			},
-			{
-				id: '6',
-				label: 'Mes activités',
-				command: () => {
-					this._router.navigateByUrl('/user/activities');
-				},
-				state: { path: '/user/activities' },
-			},
-			{
-				id: '7',
-				label: 'Mon calendrier',
-				command: () => {
-					this._router.navigateByUrl('/user/calendar');
-				},
-				state: { path: '/user/calendar' },
-			},
-			{
-				id: '8',
-				label: 'Supprimer mon compte',
-				styleClass: 'delete-item',
-				state: { path: '' },
-			},
-		];
-
+		this.items = this._accountService.getNavItems();
 		this.activeItem = this._setActiveItem(this.items);
 	}
 

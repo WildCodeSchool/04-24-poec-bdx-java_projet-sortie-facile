@@ -1,7 +1,7 @@
 <div class="activity-card-container">
 	<p-card>
 		<ng-template pTemplate="header">
-			<div class="btn-admin">
+			<div class="btn-admin" *ngIf="connectedUser">
 				<p-button
 					icon="pi pi-pencil"
 					[rounded]="true"

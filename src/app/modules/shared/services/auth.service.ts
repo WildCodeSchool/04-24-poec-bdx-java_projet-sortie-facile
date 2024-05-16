@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, map, tap } from 'rxjs';
+import { BehaviorSubject, Observable, map, tap } from 'rxjs';
 import { Router } from '@angular/router';
 import {
 	UserAuth,
@@ -22,6 +22,9 @@ import { AuthProviderNameEnum } from '@shared/models/enums/auth-provider';
 })
 export class AuthService {
 	private _userConnected!: UserAuthPrimaryDatas;
+	private _isLoggedInSubject: BehaviorSubject<boolean> =
+		new BehaviorSubject<boolean>(false);
+
 	private _providerNameList: AuthProvider[] = [
 		{ name: AuthProviderNameEnum.GOOGLE },
 		{ name: AuthProviderNameEnum.FACEBOOK },
@@ -55,7 +58,8 @@ export class AuthService {
 				})),
 				tap((user: UserAuthPrimaryDatas) => {
 					this.setConnectedUserData(user);
-					this._redirectUser();
+					this.notifyLoggedInStatus(true);
+					this._router.navigateByUrl('/user/home');
 				}),
 			);
 	}
@@ -76,7 +80,7 @@ export class AuthService {
 				})),
 				tap((user: newUserDatas) => {
 					this.setConnectedUserData(user);
-					this._redirectUser();
+					this._router.navigateByUrl('/user/home');
 				}),
 			);
 	}
@@ -97,6 +101,12 @@ export class AuthService {
 			);
 	}
 
+	public logout(): void {
+		localStorage.removeItem('user');
+		this.notifyLoggedInStatus(false);
+		this._router.navigateByUrl('/auth/login');
+	}
+
 	public getConnectedUserData(): UserAuthPrimaryDatas {
 		return this._userConnected;
 	}
@@ -107,10 +117,6 @@ export class AuthService {
 
 	public getProviderNameList(): AuthProvider[] {
 		return this._providerNameList;
-	}
-
-	private _redirectUser(): void {
-		this._router.navigateByUrl('/user/home');
 	}
 
 	public deleteConnectedUser(): Observable<UserAuth> {
@@ -128,5 +134,13 @@ export class AuthService {
 				return (Number(lastId) + 1).toString();
 			}),
 		);
+	}
+
+	public get isLoggedIn(): Observable<boolean> {
+		return this._isLoggedInSubject.asObservable();
+	}
+
+	public notifyLoggedInStatus(status: boolean): void {
+		this._isLoggedInSubject.next(status);
 	}
 }

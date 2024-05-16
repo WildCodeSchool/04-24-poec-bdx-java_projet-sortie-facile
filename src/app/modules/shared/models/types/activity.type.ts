@@ -16,21 +16,3 @@ export type Activity = {
 	hour: string;
 	userId: string;
 };
-export type ActivityCopy = {
-	id: string;
-	name: string;
-	departement: string;
-	activityCity: {
-		id: number;
-		name: string;
-	};
-	date: string;
-	age?: number;
-	imgUrl: string;
-	link: string;
-	description: string;
-	nbGuest: number;
-	categoryId: Category;
-	hour: string;
-	userId: string;
-};

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '@shared/services/auth.service';
+import { HeaderService } from '@shared/services/header.service';
 import { MenuItem } from 'primeng/api';
 
 @Component({
@@ -7,36 +9,23 @@ import { MenuItem } from 'primeng/api';
 	styleUrl: './header.component.scss',
 })
 export class HeaderComponent implements OnInit {
-	items: MenuItem[] | undefined;
+	items!: MenuItem[];
+
+	constructor(
+		private _authService: AuthService,
+		private _headerService: HeaderService,
+	) {}
 
 	ngOnInit() {
-		this.items = [
-			{
-				label: 'Accueil',
-				icon: 'pi pi-fw pi-file',
-				routerLink: '/',
-			},
-			{
-				label: 'Contact',
-				icon: 'pi pi-fw pi-pencil',
-				routerLink: '/contact',
-			},
+		if (localStorage.getItem('user')) {
+			this._authService.setConnectedUserData(
+				JSON.parse(localStorage.getItem('user') as string),
+			);
+			this._authService.notifyLoggedInStatus(true);
+		}
 
-			{
-				label: 'Activités',
-				icon: 'pi pi-shopping-cart',
-				routerLink: '/activity/home',
-			},
-			{
-				label: 'Mon Compte',
-				icon: 'pi pi-fw pi-user',
-				routerLink: '/user/home',
-			},
-			{
-				label: 'Connexion',
-				icon: 'pi pi-power-off',
-				routerLink: '/auth/login',
-			},
-		];
+		this._authService.isLoggedIn.subscribe((loggedIn: boolean) => {
+			this.items = this._headerService.getConnectedItems(loggedIn);
+		});
 	}
 }
