@@ -13,6 +13,7 @@ export type Activity = {
 	description: string;
 	nbGuest: number;
 	categoryId: Category;
+	hour: string;
 	userId: string;
 };
 export type ActivityCopy = {
@@ -24,7 +25,7 @@ export type ActivityCopy = {
 		name: string;
 	};
 	date: string;
-	age: number;
+	age?: number;
 	imgUrl: string;
 	link: string;
 	description: string;

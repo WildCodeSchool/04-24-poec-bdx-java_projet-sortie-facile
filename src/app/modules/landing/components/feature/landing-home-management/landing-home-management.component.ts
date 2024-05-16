@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LandingFunctioningDatas } from '@shared/models/types/landing-functioning-datas.type';
-import { LandingHomeService } from '@shared/services/landing/landing-home.service';
+import { LandingHomeService } from '@shared/services/landing-home.service';
 
 @Component({
 	selector: 'app-landing-home-management',

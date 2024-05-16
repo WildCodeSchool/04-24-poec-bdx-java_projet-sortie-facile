@@ -8,6 +8,7 @@ import { ActivityDetailsComponent } from '@activity/pages/activity-details/activ
 import { ActivityCardComponent } from '@activity/components/activity-card/activity-card.component';
 import { ActivitySearchComponent } from '@activity/pages/activity-search/activity-search.component';
 import { SharedModule } from '@shared/shared.module';
+import { UpdateActivityComponent } from './pages/update-activity/update-activity.component';
 
 @NgModule({
 	declarations: [
@@ -16,6 +17,7 @@ import { SharedModule } from '@shared/shared.module';
 		ActivityDetailsComponent,
 		ActivityCardComponent,
 		ActivitySearchComponent,
+		UpdateActivityComponent,
 	],
 	imports: [CommonModule, ActivityRoutingModule, SharedModule],
 })

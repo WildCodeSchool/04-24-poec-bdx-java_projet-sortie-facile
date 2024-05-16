@@ -1,12 +1,5 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Component } from '@angular/core';
 import { MessageService } from 'primeng/api';
-
-interface UploadEvent {
-	originalEvent: Event;
-	files: File[];
-}
 
 @Component({
 	selector: 'app-dropzone-field',

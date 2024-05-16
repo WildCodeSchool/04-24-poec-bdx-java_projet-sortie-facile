@@ -6,8 +6,9 @@
 					icon="pi pi-pencil"
 					[rounded]="true"
 					severity="success"
-					(click)="update(activity.id)"
+					[routerLink]="['/activity/update', activity.id]"
 				/>
+
 				<p-button
 					icon="pi pi-trash"
 					[rounded]="true"
@@ -15,6 +16,7 @@
 					(click)="delete(activity.id)"
 				/>
 			</div>
+
 			<img
 				class="card-img"
 				alt="{{ activity.name }}"
@@ -23,6 +25,7 @@
 				"
 			/>
 		</ng-template>
+
 		<h3>
 			{{ activity.name }}
 		</h3>
@@ -37,12 +40,12 @@
 
 		<div class="bottom-content">
 			<div class="bottom-item">
-				<i class="pi pi-chevron-circle-down"></i>
+				<i class="pi pi-calendar"></i>
 				<p>{{ activity.date | date: 'd MMM y' }}</p>
 			</div>
 
 			<div class="bottom-item">
-				<i class="pi pi-chevron-circle-down"></i>
+				<i class="pi pi-map-marker"></i>
 				<p>{{ activity.activityCity.name }}</p>
 			</div>
 		</div>

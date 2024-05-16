@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { isConnectedGuard } from '@guards/is-connected/is-connected.guard';
+import { isConnectedGuard } from '@shared/guards/is-connected.guard';
 import { UserHomeComponent } from '@user/pages/user-home/user-home.component';
 import { UserProfileComponent } from '@user/pages/user-profile/user-profile.component';
 import { UserPasswordComponent } from '@user/pages/user-password/user-password.component';
