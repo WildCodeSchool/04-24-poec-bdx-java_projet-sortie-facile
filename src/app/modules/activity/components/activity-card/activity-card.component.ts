@@ -15,7 +15,6 @@ export class ActivityCardComponent {
 		this.activityService.deleteActivity$(id).subscribe(
 			() => {
 				console.log('Activity deleted successfully.');
-				// Vous pouvez ajouter des actions supplémentaires ici si nécessaire
 			},
 			error => {
 				console.error('Error deleting activity:', error);

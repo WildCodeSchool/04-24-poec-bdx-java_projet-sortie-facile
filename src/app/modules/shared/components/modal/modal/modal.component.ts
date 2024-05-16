@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { ContactService } from '@shared/services/contact/contact.service';
+import { ContactService } from '@shared/services/contact.service';
 import { ConfirmationService, MessageService } from 'primeng/api';
 
 @Component({
@@ -17,24 +17,16 @@ export class ModalComponent {
 		private messageService: MessageService,
 		private contactService: ContactService,
 	) {
-		this.myForm = {} as NgForm; // Initialiser myForm dans le constructeur
+		this.myForm = {} as NgForm;
 	}
 
 	onSubmit() {
 		if (this.myForm && this.myForm.valid) {
-			// Vérifiez que 'form' est bien défini et valide
 			this.confirmationService.confirm({
 				header: 'Are you sure?',
 				message: 'Please confirm to proceed.',
 				accept: () => {
 					this.contactService.onSubmit(this.myForm);
-					console.log(this.myForm);
-					// this.messageService.add({
-					// 	severity: 'info',
-					// 	summary: 'Confirmed',
-					// 	detail: 'You have accepted',
-					// 	life: 3000,
-					// });
 				},
 				reject: () => {
 					this.messageService.add({
@@ -46,7 +38,6 @@ export class ModalComponent {
 				},
 			});
 		} else {
-			// Gérer le cas où le formulaire n'est pas valide
 			this.messageService.add({
 				severity: 'error',
 				summary: 'Invalid Form',

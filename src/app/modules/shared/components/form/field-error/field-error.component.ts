@@ -9,7 +9,6 @@ import { NgModel } from '@angular/forms';
 export class FieldErrorComponent {
 	@Input({ required: true }) ref!: NgModel;
 
-	// eslint-disable-next-line @typescript-eslint/no-explicit-any
 	errorMessages: any = {
 		required: { message: 'Ce champs est requis' },
 		minlength: { message: 'Ce champs doit comporter 8 caractère minimum' },

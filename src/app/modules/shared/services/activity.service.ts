@@ -57,7 +57,6 @@ export class ActivityService {
 	getCategoryTitle$(categoryId: string): Observable<string> {
 		return this.http.get<any>(`${this._BASE_URL}/${categoryId}`).pipe(
 			map((category: any) => {
-				// Supposons que le titre de la catégorie soit stocké dans une propriété "title"
 				return category.title;
 			}),
 		);
@@ -76,16 +75,6 @@ export class ActivityService {
 		);
 	}
 
-	// finir filtre de laliste par cetegorie
-	// filteredActivityListByCategoryId$(id: Number): Observable<Category[]> {
-	//   return this.getActivityList$().pipe(
-	//     map((activityList: activity[]) =>
-	//       activityList.filter((category: Category) =>
-	//         activity.category.toLowerCase().includes(categorie.toLowerCase())
-	//       )
-	//     )
-	//   );
-	// }
 	postNewActivity$(newActivity: Activity): Observable<ActivityCopy> {
 		return this.http.get<Activity[]>(this._BASE_URL).pipe(
 			switchMap(activities => {
@@ -119,7 +108,6 @@ export class ActivityService {
 		);
 	}
 
-	// faire la page modofication d'activité
 	updateActivity$(id: string, updatedData: any): Observable<unknown> {
 		return this.http.patch(`${this._BASE_URL}/${id}`, updatedData).pipe(
 			tap(data => {

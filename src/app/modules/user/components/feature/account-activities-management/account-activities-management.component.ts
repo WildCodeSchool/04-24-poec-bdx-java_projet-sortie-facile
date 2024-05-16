@@ -2,7 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Activity } from '@shared/models/types/activity.type';
 import { UserAuthPrimaryDatas } from '@shared/models/types/user-list-response-api.type';
 import { ActivityService } from '@shared/services/activity.service';
-import { AuthService } from '@shared/services/auth/auth.service';
+import { AuthService } from '@shared/services/auth.service';
 import { tap } from 'rxjs';
 
 @Component({
@@ -37,7 +37,7 @@ export class AccountActivitiesManagementComponent implements OnInit {
 			.subscribe();
 
 		// TODO
-		// create service for reservation by user
+		// create service reservation by user
 		this._activityService
 			.getActivityListByCreatedUser$(10)
 			.pipe(

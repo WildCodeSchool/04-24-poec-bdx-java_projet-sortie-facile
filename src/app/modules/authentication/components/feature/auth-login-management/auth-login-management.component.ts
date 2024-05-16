@@ -3,7 +3,7 @@ import { AuthRedirect } from '@shared/models/types/auth-redirect.type';
 import { connectedUserDatas } from '@shared/models/types/connectedUserDatas.model';
 import { AuthProvider } from '@shared/models/types/provider.type';
 import { UserAuthPrimaryDatas } from '@shared/models/types/user-list-response-api.type';
-import { AuthService } from '@shared/services/auth/auth.service';
+import { AuthService } from '@shared/services/auth.service';
 
 @Component({
 	selector: 'app-auth-login-management',

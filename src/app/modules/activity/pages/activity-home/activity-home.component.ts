@@ -1,11 +1,11 @@
 /* eslint-disable no-console */
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { ActivityService } from '@shared/services/activity.service';
 import { Observable, tap } from 'rxjs';
 import { Activity } from '@shared/models/types/activity.type';
 import { Router } from '@angular/router';
 import { Category } from '@shared/models/types/category.type';
+import { ActivityService } from '@shared/services/activity.service';
 
 @Component({
 	selector: 'app-activity-home',
@@ -56,8 +56,6 @@ export class ActivityHomeComponent {
 	};
 
 	onSubmit(form: NgForm): void {
-		console.log('fvalue', form.value);
-
 		this.activityService
 			.postNewActivity$(form.value)
 			.pipe(

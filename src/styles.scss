@@ -1,11 +1,8 @@
-@import "assets/theme/scss/light/theme.scss";
-// @import "assets/theme/css/dark/theme.css";
+@import 'assets/theme/scss/light/theme.scss';
 
-@import "primeng/resources/primeng.css";
-@import "primeicons/primeicons.css";
+@import 'primeng/resources/primeng.css';
+@import 'primeicons/primeicons.css';
 
 * {
-  //   padding: 0;
-  //   margin: 0;
-  box-sizing: border-box;
+	box-sizing: border-box;
 }

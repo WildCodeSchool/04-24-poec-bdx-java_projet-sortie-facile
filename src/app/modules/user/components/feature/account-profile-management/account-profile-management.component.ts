@@ -5,8 +5,8 @@ import {
 	UserDetailsPersonalInfosForm,
 } from '@shared/models/types/user-details.type';
 import { UserAuthPrimaryDatas } from '@shared/models/types/user-list-response-api.type';
-import { AuthService } from '@shared/services/auth/auth.service';
-import { UserService } from '@shared/services/user/user.service';
+import { AuthService } from '@shared/services/auth.service';
+import { UserService } from '@shared/services/user.service';
 import { Observable, map, switchMap, tap } from 'rxjs';
 
 @Component({

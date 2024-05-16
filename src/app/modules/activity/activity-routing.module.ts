@@ -6,7 +6,6 @@ import { ActivitySearchComponent } from './pages/activity-search/activity-search
 import { UpdateActivityComponent } from './pages/update-activity/update-activity.component';
 
 const routes: Routes = [
-	// Dans le fichier account-routing.module.ts
 	{ path: 'createActivity', component: ActivityHomeComponent },
 	{ path: 'home', component: ActivitySearchComponent },
 	{ path: 'details/:id', component: ActivityDetailsComponent },

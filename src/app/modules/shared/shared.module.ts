@@ -13,7 +13,6 @@ import { DividerComponent } from '@shared/components/divider/divider.component';
 import { ButtonFormComponent } from '@shared/components/button/button-form/button-form.component';
 import { AuthTypographyWithRedirectComponent } from '@shared/components/typography/auth-typography-with-redirect/auth-typography-with-redirect.component';
 import { SelectCityComponent } from '@shared/components/select/select-city/select-city.component';
-import { SelectCategoryComponent } from '@shared/components/select/select-category/select-category.component';
 import { SelectNumberComponent } from '@shared/components/select/select-number/select-number.component';
 import { AvatarPseudoComponent } from '@shared/components/avatar/avatar-pseudo/avatar-pseudo.component';
 import { TextareaComponent } from '@shared/components/form/textarea/textarea.component';
@@ -24,7 +23,8 @@ import { DateFieldComponent } from '@shared/components/form/date-field/date-fiel
 import { AccountNavActiveLinkPipe } from './pipes/account-nav-active-link/account-nav-active-link.pipe';
 import { SearchBarComponent } from '@shared/components/search-bar/search-bar.component';
 import { CarouselComponent } from '@shared/components/carousel/carousel.component';
-import { CardActivitySmallComponent } from './components/cards/card-activity-small/card-activity-small.component';
+import { CardActivitySmallComponent } from '@shared/components/cards/card-activity-small/card-activity-small.component';
+import { SelectCategoryComponent } from '@shared/components/select/select-category/select-category.component';
 
 @NgModule({
 	declarations: [

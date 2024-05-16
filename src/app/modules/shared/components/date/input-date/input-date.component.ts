@@ -19,7 +19,7 @@ import {
 })
 export class InputDateComponent implements ControlValueAccessor {
 	date: Date[] | undefined;
-	@Input() type!: string; // text or email
+	@Input() type!: string;
 	@Input() id!: string;
 	@Input() name!: string;
 	@Input() labelFor!: string;

@@ -2,7 +2,9 @@
 	<div class="card flex justify-content-center"></div>
 	<form #myForm="ngForm" (ngSubmit)="onSubmit(myForm)" class="activity-form">
 		<app-avatar-pseudo></app-avatar-pseudo>
+
 		<p>Titre de l'activité</p>
+
 		<app-text-field
 			id="name"
 			name="name"
@@ -88,7 +90,7 @@
 			[(ngModel)]="formData.link"
 			type="url"
 		/>
-		<!-- <app-modal></app-modal> -->
+
 		<div class="card flex justify-content-center">
 			<p-button rounded label="Check" type="submit">Submit</p-button>
 		</div>

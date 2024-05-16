@@ -3,7 +3,7 @@
 	backgroundImage="/assets/photos/signup.jpg"
 	[redirect]="redirect"
 >
-	<form #registerForm="ngForm" (ngSubmit)="onSubmit(registerForm)">
+	<form #registerForm="ngForm" (ngSubmit)="onSubmit()">
 		<app-text-field
 			labelFor="username"
 			labelContent="Nom d'utilisateur :"

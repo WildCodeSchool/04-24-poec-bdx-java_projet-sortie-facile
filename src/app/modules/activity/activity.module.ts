@@ -17,7 +17,7 @@ import { UpdateActivityComponent } from './pages/update-activity/update-activity
 		ActivityDetailsComponent,
 		ActivityCardComponent,
 		ActivitySearchComponent,
-  UpdateActivityComponent,
+		UpdateActivityComponent,
 	],
 	imports: [CommonModule, ActivityRoutingModule, SharedModule],
 })

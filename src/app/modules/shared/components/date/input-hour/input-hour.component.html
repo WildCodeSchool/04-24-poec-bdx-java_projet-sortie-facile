@@ -1,10 +1,10 @@
 <div class="flex-auto">
-  <label for="calendar-timeonly" class="font-bold block mb-2"> </label>
-  <p-calendar
-    inputId="calendar-timeonly"
-    [(ngModel)]="value"
-    [timeOnly]="true"
-    (ngModelChange)="onInputChange($event)"
-    (focus)="markAsTouched()"
-  />
+	<label for="calendar-timeonly" class="font-bold block mb-2"> </label>
+	<p-calendar
+		inputId="calendar-timeonly"
+		[(ngModel)]="value"
+		[timeOnly]="true"
+		(ngModelChange)="onInputChange($event)"
+		(focus)="markAsTouched()"
+	/>
 </div>
