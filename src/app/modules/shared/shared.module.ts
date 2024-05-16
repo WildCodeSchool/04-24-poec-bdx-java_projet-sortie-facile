@@ -26,6 +26,8 @@ import { CarouselComponent } from '@shared/components/carousel/carousel.componen
 import { CardActivitySmallComponent } from '@shared/components/cards/card-activity-small/card-activity-small.component';
 import { SelectCategoryComponent } from '@shared/components/select/select-category/select-category.component';
 import { ModalConfirmReservationComponent } from './components/modal/modal-confirm-reservation/modal-confirm-reservation.component';
+import { ModalConfirmCreatActivityComponent } from './components/modal/modal-confirm-creat-activity/modal-confirm-creat-activity.component';
+import { ModalConfirmUpdateActivityComponent } from './components/modal/modal-confirm-update-activity/modal-confirm-update-activity.component';
 
 @NgModule({
 	declarations: [
@@ -52,6 +54,8 @@ import { ModalConfirmReservationComponent } from './components/modal/modal-confi
 		CarouselComponent,
 		CardActivitySmallComponent,
 		ModalConfirmReservationComponent,
+		ModalConfirmCreatActivityComponent,
+		ModalConfirmUpdateActivityComponent,
 	],
 	imports: [
 		CommonModule,
@@ -86,6 +90,8 @@ import { ModalConfirmReservationComponent } from './components/modal/modal-confi
 		CarouselComponent,
 		CardActivitySmallComponent,
 		ModalConfirmReservationComponent,
+		ModalConfirmUpdateActivityComponent,
+		ModalConfirmCreatActivityComponent,
 	],
 })
 export class SharedModule {}
