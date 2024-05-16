@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { AccountService } from '@shared/services/account.service';
 import { MenuItem } from 'primeng/api';
 
 @Component({
@@ -17,19 +18,11 @@ export class AccountLayoutComponent implements OnInit {
 	activeItem: MenuItem | undefined;
 
 	ngOnInit() {
-		this.items = [
-			{ label: 'General' },
-			{ label: 'Edit profil' },
-			{ label: 'Password' },
-			{ label: "Centres d'intérêts" },
-			{ label: 'Notifications' },
-			{ label: 'Mes activités' },
-			{ label: 'Mon calendrier' },
-			{ label: 'Supprimer mon compte', styleClass: 'delete-item' },
-		];
-
+		this.items = this._accountService.getLayoutItems();
 		this.activeItem = this.items[0];
 	}
+
+	constructor(private _accountService: AccountService) {}
 
 	onActiveItemChange(event: MenuItem) {
 		this.activeItem = event;

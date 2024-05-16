@@ -1,6 +1,9 @@
 <div class="container">
 	<div class="content-box">
-		<div class="filters-box"></div>
+		<div class="filters-box">
+			<app-select-category></app-select-category>
+			<app-select-city></app-select-city>
+		</div>
 
 		<div class="activities-box">
 			<div class="activities-top"></div>
@@ -9,6 +12,7 @@
 					<app-activity-card
 						*ngFor="let activity of activities"
 						[activity]="activity"
+						[connectedUser]="connectedUser"
 					></app-activity-card>
 				</ng-container>
 			</div>

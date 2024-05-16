@@ -1,6 +1,7 @@
 /* eslint-disable no-console */
 import { Component, Input } from '@angular/core';
 import { Activity } from '@shared/models/types/activity.type';
+import { UserAuthPrimaryDatas } from '@shared/models/types/user-list-response-api.type';
 import { ActivityService } from '@shared/services/activity.service';
 
 @Component({
@@ -10,6 +11,8 @@ import { ActivityService } from '@shared/services/activity.service';
 })
 export class ActivityCardComponent {
 	@Input() activity!: Activity;
+	@Input() connectedUser!: UserAuthPrimaryDatas;
+
 	constructor(private activityService: ActivityService) {}
 
 	delete(id: string): void {
