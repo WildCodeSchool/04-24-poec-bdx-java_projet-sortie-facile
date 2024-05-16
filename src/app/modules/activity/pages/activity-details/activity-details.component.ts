@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Activity } from '@shared/models/types/activity.type';
 import { Observable, tap } from 'rxjs';
 import { ActivityService } from '@shared/services/activity.service';
@@ -7,6 +7,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { BookingService } from '@shared/services/booking.service';
 import { reservation } from '@shared/models/types/reservation.type';
 import { UserDetails } from '@shared/models/types/user-details.type';
+import { NgForm } from '@angular/forms';
 
 @Component({
 	selector: 'app-activity-details',
@@ -18,13 +19,20 @@ export class ActivityDetailsComponent implements OnInit {
 	activity$!: Observable<Activity>;
 	categoryTitle$!: Observable<string>;
 	userDetails!: UserDetails;
+
+	@Input() myForm: NgForm;
+
 	constructor(
 		private activityService: ActivityService,
 		private reservationService: BookingService,
 		private route: ActivatedRoute,
 		private router: Router,
-	) {}
-
+	) {
+		this.myForm = {} as NgForm;
+	}
+	onSubmit(form: NgForm): void {
+		this.reservationService.postNewReservation$(form.value).subscribe();
+	}
 	add(activity: Activity): void {
 		const newReservation: reservation = {
 			id: '',
