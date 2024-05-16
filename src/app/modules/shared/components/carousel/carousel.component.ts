@@ -10,6 +10,9 @@ import { CarouselResponsiveOption } from '@shared/models/types/carouselResponsiv
 export class CarouselComponent implements OnInit {
 	@Input() activityList!: Activity[];
 	@Input() numVisible!: number;
+	@Input() numScroll!: number;
+	@Input() circular!: boolean;
+	@Input() imgSrc!: string;
 
 	responsiveOptions!: CarouselResponsiveOption[];
 

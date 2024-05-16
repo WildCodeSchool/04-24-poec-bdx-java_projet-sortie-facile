@@ -55,3 +55,18 @@ app-account-container-content {
 		border-top-right-radius: 0px;
 	}
 }
+
+:host ::ng-deep app-select-category {
+	position: relative;
+	z-index: 1000000;
+	background-color: red;
+	.p-dropdown {
+		width: 100%;
+	}
+
+	.btn-box {
+		display: flex;
+		justify-content: flex-end;
+		margin-top: 1.5rem;
+	}
+}
