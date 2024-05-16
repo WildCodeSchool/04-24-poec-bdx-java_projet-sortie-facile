@@ -59,7 +59,7 @@ export class AuthService {
 				tap((user: UserAuthPrimaryDatas) => {
 					this.setConnectedUserData(user);
 					this.notifyLoggedInStatus(true);
-					this._redirectUser();
+					this._router.navigateByUrl('/user/home');
 				}),
 			);
 	}
@@ -80,7 +80,7 @@ export class AuthService {
 				})),
 				tap((user: newUserDatas) => {
 					this.setConnectedUserData(user);
-					this._redirectUser();
+					this._router.navigateByUrl('/user/home');
 				}),
 			);
 	}
@@ -101,6 +101,12 @@ export class AuthService {
 			);
 	}
 
+	public logout(): void {
+		localStorage.removeItem('user');
+		this.notifyLoggedInStatus(false);
+		this._router.navigateByUrl('/auth/login');
+	}
+
 	public getConnectedUserData(): UserAuthPrimaryDatas {
 		return this._userConnected;
 	}
@@ -111,10 +117,6 @@ export class AuthService {
 
 	public getProviderNameList(): AuthProvider[] {
 		return this._providerNameList;
-	}
-
-	private _redirectUser(): void {
-		this._router.navigateByUrl('/user/home');
 	}
 
 	public deleteConnectedUser(): Observable<UserAuth> {

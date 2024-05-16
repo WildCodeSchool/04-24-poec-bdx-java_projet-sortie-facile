@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { MenuItem } from 'primeng/api';
+import { AuthService } from './auth.service';
 
 @Injectable({
 	providedIn: 'root',
@@ -9,7 +10,7 @@ export class HeaderService {
 	private connectedItems!: MenuItem[];
 	private notConnectedItems!: MenuItem[];
 
-	constructor() {
+	constructor(private _authService: AuthService) {
 		this.primaryItems = [
 			{
 				label: 'Accueil',
@@ -33,6 +34,11 @@ export class HeaderService {
 				label: 'Mon Compte',
 				icon: 'pi pi-fw pi-user',
 				routerLink: '/user/home',
+			},
+			{
+				label: 'Déconnexion',
+				icon: 'pi pi-power-off',
+				command: () => this._authService.logout(),
 			},
 		];
 
