@@ -23,16 +23,22 @@ export class ModalComponent {
 	onSubmit() {
 		if (this.myForm && this.myForm.valid) {
 			this.confirmationService.confirm({
-				header: 'Are you sure?',
-				message: 'Please confirm to proceed.',
+				header: 'Confirmation',
+				message: 'Comfirmer envoie du message',
 				accept: () => {
 					this.contactService.onSubmit(this.myForm);
+					this.messageService.add({
+						severity: 'info',
+						summary: 'Envoyé',
+						detail: 'Votre message a bien été envoyé',
+						life: 3000,
+					});
 				},
 				reject: () => {
 					this.messageService.add({
 						severity: 'error',
-						summary: 'Rejected',
-						detail: 'You have rejected',
+						summary: 'Refuser',
+						detail: 'Vous avez refusé',
 						life: 3000,
 					});
 				},
