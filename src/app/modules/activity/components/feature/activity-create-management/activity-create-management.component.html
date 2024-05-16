@@ -110,8 +110,10 @@
 			[(ngModel)]="newActivity.link"
 		></app-text-field>
 
-		<div class="btn-container">
-			<app-button-form iconName="arrow-right"></app-button-form>
+		<div class="card flex justify-content-center">
+			<app-modal-confirm-creat-activity
+				[myForm]="createActivityForm"
+			></app-modal-confirm-creat-activity>
 		</div>
 	</form>
 </app-activity-form-layout>

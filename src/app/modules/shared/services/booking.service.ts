@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { reservation } from '@shared/models/types/reservation.type';
 import { reservations } from '@shared/models/types/reservations.type';
 import { Observable, catchError, map, switchMap } from 'rxjs';
@@ -9,6 +10,10 @@ import { Observable, catchError, map, switchMap } from 'rxjs';
 })
 export class BookingService {
 	constructor(private http: HttpClient) {}
+
+	onSubmit(form: NgForm): void {
+		this.postNewReservation$(form.value).subscribe();
+	}
 
 	getReservationList$(): Observable<reservation[]> {
 		return this.http

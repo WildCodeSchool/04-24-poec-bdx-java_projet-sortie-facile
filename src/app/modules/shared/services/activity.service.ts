@@ -5,6 +5,7 @@ import { Activity } from '@models/types/activity.type';
 import { Observable, catchError, map, switchMap } from 'rxjs';
 import { Activities } from '@models/types/activities.type';
 import { Category } from '@models/types/category.type';
+import { NgForm } from '@angular/forms';
 
 @Injectable({
 	providedIn: 'root',
@@ -74,7 +75,9 @@ export class ActivityService {
 			),
 		);
 	}
-
+	onSubmit(form: NgForm): void {
+		this.postNewActivity$(form.value).subscribe();
+	}
 	postNewActivity$(newActivity: Activity): Observable<Activity> {
 		return this.http.get<Activity[]>(this._BASE_URL).pipe(
 			switchMap(activities => {
