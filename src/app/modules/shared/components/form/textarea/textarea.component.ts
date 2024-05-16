@@ -14,11 +14,15 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 	],
 })
 export class TextareaComponent implements ControlValueAccessor {
-	@Input() type!: string;
 	@Input() id!: string;
 	@Input() name!: string;
 	@Input() labelFor!: string;
 	@Input() labelContent!: string;
+	@Input() cols!: number;
+	@Input() rows!: number;
+	@Input() required!: boolean;
+	@Input() minlength!: number;
+	@Input() maxlength!: number;
 
 	disabled!: boolean;
 	value!: string;

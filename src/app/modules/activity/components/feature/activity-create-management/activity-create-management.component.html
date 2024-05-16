@@ -17,26 +17,33 @@
 			class="input-activity-form"
 		></app-text-field>
 
-		<p>Date de l'évènement</p>
 		<app-input-date
-			inputId=" date"
+			labelFor="date"
+			labelContent="Date de l'activité :"
+			inputId="date"
+			id="date"
 			name="date"
+			[showIcon]="true"
 			[required]="true"
 			#date="ngModel"
 			[(ngModel)]="newActivity.date"
 		></app-input-date>
 
-		<p>Heure de l'évènement</p>
 		<app-input-hour
+			labelFor="date"
+			labelContent="Heure de l'activité :"
 			inputId="hour"
+			id="hour"
 			name="hour"
 			[required]="true"
 			#hour="ngModel"
 			[(ngModel)]="newActivity.hour"
 		></app-input-hour>
 
-		<p>Lieu</p>
 		<app-select-city
+			labelFor="city"
+			labelContent="Lieu :"
+			id="city"
 			inputId="city"
 			name="activityCity"
 			[required]="true"
@@ -45,8 +52,10 @@
 		>
 		</app-select-city>
 
-		<p>Catégorie</p>
 		<app-select-category
+			labelFor="categoryId"
+			labelContent="Catégorie :"
+			id="categoryId"
 			inputId="categoryId"
 			name="categoryId"
 			[required]="true"
@@ -62,15 +71,19 @@
 			#nbGuest="ngModel"
 			[(ngModel)]="newActivity.nbGuest"
 		></app-select-number>
-		<p>Description de l'évènement</p>
 
 		<app-textarea
-			inputId="description"
+			labelFor="description"
+			labelContent="Description de l'évènement :"
+			id="description"
 			name="description"
+			[cols]="5"
+			[rows]="5"
 			[required]="true"
 			#description="ngModel"
 			[(ngModel)]="newActivity.description"
 		></app-textarea>
+
 		<p>img</p>
 		<i class="pi pi-download" style="font-size: 1.5rem"></i>
 
@@ -82,16 +95,19 @@
 			type="file"
 			class="file-upload"
 		/>
-		<p>Lien</p>
-		<i class="pi pi-download" style="font-size: 1.5rem"></i>
 
-		<input
-			inputId="link"
-			name="link"
-			#link="ngModel"
-			[(ngModel)]="newActivity.link"
+		<app-text-field
+			labelFor="link"
+			labelContent="Lien :"
 			type="url"
-		/>
+			id="link"
+			name="link"
+			[form]="createActivityForm"
+			[required]="true"
+			[minlength]="3"
+			[maxlength]="50"
+			[(ngModel)]="newActivity.link"
+		></app-text-field>
 
 		<div class="btn-container">
 			<app-button-form iconName="arrow-right"></app-button-form>

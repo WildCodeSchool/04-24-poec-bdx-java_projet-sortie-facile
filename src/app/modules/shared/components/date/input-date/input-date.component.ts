@@ -18,13 +18,16 @@ import {
 	],
 })
 export class InputDateComponent implements ControlValueAccessor {
-	date: Date[] | undefined;
-	@Input() type!: string;
+	time: Date | undefined;
+	@Input() inputId!: string;
 	@Input() id!: string;
 	@Input() name!: string;
 	@Input() labelFor!: string;
 	@Input() labelContent!: string;
+	@Input() showIcon!: boolean;
+
 	@Input() form!: NgForm;
+
 	disabled!: boolean;
 	value!: string;
 
