@@ -34,11 +34,12 @@ export class UpdateActivityComponent implements OnInit {
 		date: '',
 		hour: '',
 		activityCity: { id: 0, name: '' },
-		categoryId: { id: 0, title: '' },
+		categoryId: { id: '0', title: '' },
 		nbGuest: 0,
 		description: '',
 		imgUrl: '',
 		link: '',
+		userId: '',
 	};
 	ngOnInit(): void {
 		const id: number = Number(this.route.snapshot.paramMap.get('id'));
