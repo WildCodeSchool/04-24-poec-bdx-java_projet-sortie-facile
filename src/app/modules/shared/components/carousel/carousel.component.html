@@ -1,26 +1,16 @@
 <p-carousel
 	[value]="activityList"
-	[numVisible]="4"
-	[numScroll]="1"
-	[circular]="false"
+	[numVisible]="numVisible"
+	[numScroll]="numScroll"
+	[circular]="circular"
 	[responsiveOptions]="responsiveOptions"
 >
 	<ng-template let-activity pTemplate="item">
-		<div
-			class="carousel-card"
+		<app-card-activity-small
+			[imgSrc]="activity.imgUrl"
+			imgAlt=""
+			[name]="activity.name"
 			[routerLink]="['/activity/details/', activity.id]"
-		>
-			<div class="carousel-img">
-				<img
-					[src]="
-						activity.imgUrl !== ''
-							? activity.imgUrl
-							: '/assets/photos/no-image.jpg'
-					"
-					alt=""
-				/>
-			</div>
-			<h4 class="card-title">{{ activity.name }}</h4>
-		</div>
+		></app-card-activity-small>
 	</ng-template>
 </p-carousel>

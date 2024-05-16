@@ -3,21 +3,20 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { AuthLayoutComponent } from './auth-layout.component';
 
 describe('AuthLayoutComponent', () => {
-  let component: AuthLayoutComponent;
-  let fixture: ComponentFixture<AuthLayoutComponent>;
+	let component: AuthLayoutComponent;
+	let fixture: ComponentFixture<AuthLayoutComponent>;
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [AuthLayoutComponent]
-    })
-    .compileComponents();
-    
-    fixture = TestBed.createComponent(AuthLayoutComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+	beforeEach(async () => {
+		await TestBed.configureTestingModule({
+			declarations: [AuthLayoutComponent],
+		}).compileComponents();
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+		fixture = TestBed.createComponent(AuthLayoutComponent);
+		component = fixture.componentInstance;
+		fixture.detectChanges();
+	});
+
+	it('should create', () => {
+		expect(component).toBeTruthy();
+	});
 });

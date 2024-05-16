@@ -11,10 +11,7 @@ export class SearchBarComponent {
 
 	searchedValue: string = '';
 
-	onChange(value: string) {
-		// eslint-disable-next-line no-console
-		console.log(value);
-
+	onChange() {
 		this.emitChanges.emit(this.searchedValue);
 	}
 }

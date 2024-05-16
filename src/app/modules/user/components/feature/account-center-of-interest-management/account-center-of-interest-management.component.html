@@ -11,7 +11,7 @@
 			[hideBtn]="true"
 		>
 			<div class="content-box" data>
-				<form #addCategoryForm="ngForm" (ngSubmit)="onSubmit(addCategoryForm)">
+				<form #addCategoryForm="ngForm" (ngSubmit)="onSubmit()">
 					<app-select-category
 						inputId="categoryId"
 						name="categoryId"
@@ -20,7 +20,9 @@
 						[(ngModel)]="formDatas.category"
 					></app-select-category>
 
-					<button type="submit">ok</button>
+					<div class="btn-box">
+						<p-button label="Sauvegarder" [rounded]="true" />
+					</div>
 				</form>
 			</div>
 		</app-account-container-content>

@@ -63,18 +63,18 @@ $highlightTextColor: rgba(255, 255, 255, 0.87) !default;
 $highlightFocusBg: rgba($primaryColor, 0.24) !default;
 
 $colors: (
-  "blue": #3b82f6,
-  "green": #22c55e,
-  "yellow": #eab308,
-  "cyan": #06b6d4,
-  "pink": #ec4899,
-  "indigo": #6366f1,
-  "teal": #14b8a6,
-  "orange": #f97316,
-  "bluegray": #64748b,
-  "purple": #a855f7,
-  "red": #ff3d32,
-  "primary": $primaryColor,
+	'blue': #3b82f6,
+	'green': #22c55e,
+	'yellow': #eab308,
+	'cyan': #06b6d4,
+	'pink': #ec4899,
+	'indigo': #6366f1,
+	'teal': #14b8a6,
+	'orange': #f97316,
+	'bluegray': #64748b,
+	'purple': #a855f7,
+	'red': #ff3d32,
+	'primary': $primaryColor,
 );
 
 //password
@@ -114,10 +114,10 @@ $ratingCancelIconColor: #f87171 !default;
 $ratingCancelIconHoverColor: #ef4444 !default;
 
 // fonts
-$fontFamily: "Inter var", sans-serif !default;
-$fontFamilySecondary: "Inter var", sans-serif !default;
+$fontFamily: 'Inter var', sans-serif !default;
+$fontFamilySecondary: 'Inter var', sans-serif !default;
 
-@import "_variables";
-@import "_fonts";
-@import "../theme-base/components";
+@import '_variables';
+@import '_fonts';
+@import '../theme-base/components';
 // @import '../extensions/_extensions';

@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { Router } from '@angular/router';
-import { ContactService } from '@shared/services/contact/contact.service';
-import { tap } from 'rxjs';
+import { ContactService } from '@shared/services/contact.service';
 
 @Component({
 	selector: 'app-contact',
@@ -10,10 +8,7 @@ import { tap } from 'rxjs';
 	styleUrl: './contact.component.scss',
 })
 export class ContactComponent {
-	constructor(
-		private contactService: ContactService,
-		private router: Router,
-	) {}
+	constructor(private contactService: ContactService) {}
 
 	formData: {
 		Email: string;
@@ -24,14 +19,6 @@ export class ContactComponent {
 	};
 
 	onSubmit(form: NgForm): void {
-		console.log('fvalue', form.value);
-		this.contactService
-			.postNewContact$(form.value)
-			.pipe(
-				tap(contact => {
-					console.log('test', contact);
-				}),
-			)
-			.subscribe();
+		this.contactService.postNewContact$(form.value).subscribe();
 	}
 }

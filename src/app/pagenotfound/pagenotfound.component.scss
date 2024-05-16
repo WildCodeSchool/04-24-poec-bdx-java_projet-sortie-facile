@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,600,700');
 @import url('https://fonts.googleapis.com/css?family=Catamaran:400,800');
+
 .error-container {
 	text-align: center;
 	font-size: 106px;
@@ -7,10 +8,12 @@
 	font-weight: 800;
 	margin: 70px 15px;
 }
+
 .error-container > span {
 	display: inline-block;
 	position: relative;
 }
+
 .error-container > span.four {
 	width: 136px;
 	height: 43px;
@@ -33,6 +36,7 @@
 		),
 		linear-gradient(to right, #d89ca4, #e27b7e);
 }
+
 .error-container > span.four:before,
 .error-container > span.four:after {
 	content: '';
@@ -40,6 +44,7 @@
 	position: absolute;
 	border-radius: 999px;
 }
+
 .error-container > span.four:before {
 	width: 43px;
 	height: 156px;
@@ -61,6 +66,7 @@
 		),
 		linear-gradient(to top, #99749d, #b895ab, #cc9aa6, #d7969e, #e0787f);
 }
+
 .error-container > span.four:after {
 	width: 137px;
 	height: 43px;
@@ -102,6 +108,7 @@
 	overflow: hidden;
 	animation: bgshadow 5s infinite;
 }
+
 .error-container > span.zero:before {
 	content: '';
 	display: block;
@@ -130,6 +137,7 @@
 			transparent 100%
 		);
 }
+
 .error-container > span.zero:after {
 	content: '';
 	display: block;
@@ -153,12 +161,15 @@
 	0% {
 		box-shadow: inset -160px 160px 0px 5px rgba(0, 0, 0, 0.4);
 	}
+
 	45% {
 		box-shadow: inset 0px 0px 0px 0px rgba(0, 0, 0, 0.1);
 	}
+
 	55% {
 		box-shadow: inset 0px 0px 0px 0px rgba(0, 0, 0, 0.1);
 	}
+
 	100% {
 		box-shadow: inset 160px -160px 0px 5px rgba(0, 0, 0, 0.4);
 	}
@@ -170,10 +181,12 @@
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
 }
+
 body {
 	background-color: #fdfaf5;
 	margin-bottom: 50px;
 }
+
 html,
 button,
 input,
@@ -182,19 +195,23 @@ textarea {
 	font-family: 'Montserrat', Helvetica, sans-serif;
 	color: #bbb;
 }
+
 h1 {
 	text-align: center;
 	margin: 30px 15px;
 }
+
 .zoom-area {
 	max-width: 490px;
 	margin: 30px auto 30px;
 	font-size: 19px;
 	text-align: center;
 }
+
 .link-container {
 	text-align: center;
 }
+
 a.more-link {
 	text-transform: uppercase;
 	font-size: 13px;

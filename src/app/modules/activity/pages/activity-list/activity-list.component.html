@@ -1,6 +1,21 @@
-<div class="activities-list" *ngIf="activityList$ | async as activities">
-	<app-activity-card
-		*ngFor="let activity of activities"
-		[activity]="activity"
-	></app-activity-card>
+<div class="container">
+	<div class="content-box">
+		<div class="filters-box">
+			<app-select-category></app-select-category>
+			<app-select-city></app-select-city>
+		</div>
+
+		<div class="activities-box">
+			<div class="activities-top"></div>
+			<div class="activities-cards">
+				<ng-container *ngIf="activityList$ | async as activities">
+					<app-activity-card
+						*ngFor="let activity of activities"
+						[activity]="activity"
+						[connectedUser]="connectedUser"
+					></app-activity-card>
+				</ng-container>
+			</div>
+		</div>
+	</div>
 </div>

@@ -1,10 +1,21 @@
-<div *ngIf="formStep === 1">
-	<app-auth-layout
-		pageTitle="Inscription"
-		backgroundImage="/assets/photos/signup.jpg"
-		[redirect]="redirect"
-	>
-		<form #registerForm="ngForm" (ngSubmit)="onSubmit(registerForm)">
+<app-auth-layout
+	pageTitle="Inscription"
+	backgroundImage="/assets/photos/signup.jpg"
+	[redirect]="redirect"
+>
+	<form #registerForm="ngForm" (ngSubmit)="onSubmit()">
+		<app-text-field
+			labelFor="username"
+			labelContent="Nom d'utilisateur :"
+			type="text"
+			id="username"
+			name="username"
+			[(ngModel)]="newUser.username"
+			[form]="registerForm"
+			[required]="true"
+			[minlength]="3"
+			[maxlength]="50"
+		></app-text-field>
 
 				<app-text-field
 					labelFor="username"
@@ -68,7 +79,6 @@
 			</ng-container>
 		</div>
 	</app-auth-layout>
-</div>
 
 <div *ngIf="formStep === 2">
 	<app-auth-layout
@@ -76,7 +86,7 @@
 		backgroundImage="/assets/photos/signup.jpg"
 		[redirect]="redirect"
 	>
-		<form #registerForm="ngForm" (ngSubmit)="onSubmit(registerForm)">
+		<form #registerForm="ngForm" (ngSubmit)="onSubmit()">
 
 				<app-text-field
 					labelFor="username"

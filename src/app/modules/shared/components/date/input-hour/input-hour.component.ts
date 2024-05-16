@@ -15,7 +15,7 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 })
 export class InputHourComponent implements ControlValueAccessor {
 	time: Date | undefined;
-	@Input() type!: string; // text or email
+	@Input() type!: string;
 	@Input() id!: string;
 	@Input() name!: string;
 	@Input() labelFor!: string;

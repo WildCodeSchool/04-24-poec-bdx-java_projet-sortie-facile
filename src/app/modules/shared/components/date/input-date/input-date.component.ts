@@ -1,5 +1,9 @@
 import { Component, Input, forwardRef } from '@angular/core';
-import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
+import {
+	ControlValueAccessor,
+	NG_VALUE_ACCESSOR,
+	NgForm,
+} from '@angular/forms';
 
 @Component({
 	selector: 'app-input-date',
@@ -14,13 +18,13 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 	],
 })
 export class InputDateComponent implements ControlValueAccessor {
-	datetime24h: Date[] | undefined;
-	@Input() type!: string; // text or email
+	date: Date[] | undefined;
+	@Input() type!: string;
 	@Input() id!: string;
 	@Input() name!: string;
 	@Input() labelFor!: string;
 	@Input() labelContent!: string;
-
+	@Input() form!: NgForm;
 	disabled!: boolean;
 	value!: string;
 

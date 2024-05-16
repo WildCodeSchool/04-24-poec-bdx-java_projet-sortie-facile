@@ -1,13 +1,9 @@
-import {
-	Component,
-	Input,
-	OnChanges,
-	OnInit,
-	SimpleChanges,
-} from '@angular/core';
+import { Component, Input, OnChanges, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Activity } from '@shared/models/types/activity.type';
 import { ActivityService } from '@shared/services/activity.service';
+import { UserAuthPrimaryDatas } from '@shared/models/types/user-list-response-api.type';
+import { AuthService } from '@shared/services/auth.service';
 
 @Component({
 	selector: 'app-activity-list',
@@ -18,26 +14,30 @@ export class ActivityListComponent implements OnInit, OnChanges {
 	activityList$!: Observable<Activity[]>;
 	activity$!: Observable<Activity>;
 
-	constructor(private activityService: ActivityService) {}
-	@Input()
-	searchedValue: string = '';
+	connectedUser!: UserAuthPrimaryDatas;
 
-	ngOnChanges(changes: SimpleChanges): void {
-		// si searchedValue est vide, ma méthode "filter" renvoie TOUS les burgers
-		// sinon, elle renvera les burgers filtrés
+	@Input() searchedValue: string = '';
+
+	constructor(
+		private activityService: ActivityService,
+		private _authService: AuthService,
+	) {}
+
+	ngOnChanges(): void {
 		this.activityList$ = this.activityService.filteredActivityList$(
 			this.searchedValue,
 		);
-
-		// eslint-disable-next-line no-console
-		console.log(changes);
 	}
 
 	ngOnInit(): void {
-		this.activityList$ = this.activityService.getActivityList$();
+		if (!this.connectedUser) {
+			this._authService.setConnectedUserData(
+				JSON.parse(localStorage.getItem('user') as string),
+			);
+			this.connectedUser = this._authService.getConnectedUserData();
+		}
 
-		// eslint-disable-next-line no-console
-		console.log(this.activityList$);
+		this.activityList$ = this.activityService.getActivityList$();
 	}
 
 	getCategoryTitle(categoryId: number): Observable<string> {

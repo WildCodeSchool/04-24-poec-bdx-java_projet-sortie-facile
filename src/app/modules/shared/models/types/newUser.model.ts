@@ -1,4 +1,4 @@
-import { AccountStatus, UserRoleEnum } from "../enums/user-role.enum";
+import { AccountStatus, UserRoleEnum } from '@models/enums/user-role.enum';
 
 export type newUser = {
 	id: string;
@@ -14,3 +14,10 @@ export type newUserDatas = Pick<
 	newUser,
 	'id' | 'username' | 'email' | 'role' | 'status' | 'password'
 >;
+
+export type newUserFormDatas = Pick<
+	newUser,
+	'id' | 'username' | 'email' | 'role' | 'status' | 'password'
+> & {
+	passwordConfirm: string;
+};

@@ -1,24 +1,5 @@
 :host ::ng-deep .p-carousel-items-container {
 	gap: 0rem;
-
-	.carousel-card {
-		width: 100%;
-		height: 240px;
-		padding: 0.5rem;
-		cursor: pointer;
-	}
-
-	.carousel-img {
-		height: auto;
-
-		img {
-			border-radius: 10px;
-			overflow: hidden;
-			width: 100%;
-			object-fit: initial;
-			height: 200px;
-		}
-	}
 }
 
 :host ::ng-deep .p-carousel .p-carousel-content .p-carousel-prev,
@@ -37,14 +18,6 @@
 :host ::ng-deep .p-carousel-container {
 	position: relative;
 	padding-top: 2.75rem;
-}
-
-:host ::ng-deep .card-title {
-	font-size: 1rem;
-	margin: 0;
-	margin-top: 0.5rem;
-	color: var(--black-color);
-	text-align: center;
 }
 
 :host ::ng-deep .p-carousel .p-carousel-indicators {

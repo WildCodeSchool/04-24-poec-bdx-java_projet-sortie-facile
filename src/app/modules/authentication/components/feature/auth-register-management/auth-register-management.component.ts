@@ -1,12 +1,18 @@
 import { Component, OnInit } from '@angular/core';
+<<<<<<< HEAD
 import { NgForm } from '@angular/forms';
 import { AccountStatus, UserRoleEnum } from '@shared/models/enums/user-role.enum';
+=======
+import {
+	AccountStatus,
+	UserRoleEnum,
+} from '@shared/models/enums/user-role.enum';
+>>>>>>> 2fb17e49ec37ad64c88e7032f233791d6e59c48f
 import { AuthRedirect } from '@shared/models/types/auth-redirect.type';
-import { newUser } from '@shared/models/types/newUser.model';
+import { newUserFormDatas } from '@shared/models/types/newUser.model';
 import { AuthProvider } from '@shared/models/types/provider.type';
 import { UserAuthPrimaryDatas } from '@shared/models/types/user-list-response-api.type';
-import { AuthService } from '@shared/services/auth/auth.service';
-import { map, tap } from 'rxjs';
+import { AuthService } from '@shared/services/auth.service';
 
 @Component({
 	selector: 'app-auth-register-management',
@@ -26,25 +32,23 @@ export class AuthRegisterManagementComponent implements OnInit {
 		linkLabel: 'Se connecter',
 	};
 
+<<<<<<< HEAD
 	newUser: newUser = {
+=======
+	newUser: newUserFormDatas = {
+>>>>>>> 2fb17e49ec37ad64c88e7032f233791d6e59c48f
 		id: '0',
 		username: '',
 		email: '',
 		password: '',
 		passwordConfirm: '',
 		role: UserRoleEnum.USER,
-		status: AccountStatus.INACTIVE,
+		status: AccountStatus.ACTIVE,
 	};
 
 	constructor(private authService: AuthService) {}
 
 	ngOnInit(): void {
-		// this.authService.increaseId().pipe(
-		// 	tap(value => this.lastUserId = value)
-		// )
-		// .subscribe();
-		console.log('lastUserId', this.lastUserId);
-		
 		this.newUser = {
 			id: this.lastUserId,
 			username: 'Pimpoye',
@@ -57,15 +61,13 @@ export class AuthRegisterManagementComponent implements OnInit {
 		this.providerNameList = this.authService.getProviderNameList();
 	}
 
-	onSubmit(form: NgForm): void {
-		// console.log('submit register', form.value);
+	onSubmit(): void {
 		this.authService
-			.createUserWithEmailAndPassword(
-				this.newUser
-			)
+			.createUserWithEmailAndPassword(this.newUser)
 			.subscribe((user: UserAuthPrimaryDatas) => {
 				localStorage.setItem('user', JSON.stringify(user));
 			});
+<<<<<<< HEAD
 	}
 
 	formNextStep(): void {
@@ -74,5 +76,7 @@ export class AuthRegisterManagementComponent implements OnInit {
 
 	formPreviousStep(): void {
 		this.formStep = 1;
+=======
+>>>>>>> 2fb17e49ec37ad64c88e7032f233791d6e59c48f
 	}
 }

@@ -1,11 +1,10 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
 import { Category } from '@shared/models/types/category.type';
 import { UserDetails } from '@shared/models/types/user-details.type';
 import { UserAuthPrimaryDatas } from '@shared/models/types/user-list-response-api.type';
 import { ActivityService } from '@shared/services/activity.service';
-import { AuthService } from '@shared/services/auth/auth.service';
-import { UserService } from '@shared/services/user/user.service';
+import { AuthService } from '@shared/services/auth.service';
+import { UserService } from '@shared/services/user.service';
 import { Observable, map, switchMap } from 'rxjs';
 
 @Component({
@@ -54,7 +53,5 @@ export class AccountCenterOfInterestManagementComponent implements OnInit {
 			);
 	}
 
-	onSubmit(form: NgForm): void {
-		console.log(form.value);
-	}
+	onSubmit(): void {}
 }
