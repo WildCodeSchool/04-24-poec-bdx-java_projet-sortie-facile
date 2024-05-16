@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 import { ContactService } from '@shared/services/contact.service';
 import { ConfirmationService, MessageService } from 'primeng/api';
 
@@ -16,6 +17,7 @@ export class ModalComponent {
 		private confirmationService: ConfirmationService,
 		private messageService: MessageService,
 		private contactService: ContactService,
+		private router: Router,
 	) {
 		this.myForm = {} as NgForm;
 	}
@@ -23,16 +25,25 @@ export class ModalComponent {
 	onSubmit() {
 		if (this.myForm && this.myForm.valid) {
 			this.confirmationService.confirm({
-				header: 'Are you sure?',
-				message: 'Please confirm to proceed.',
+				header: 'Confirmation',
+				message: 'Comfirmer envoie du message',
 				accept: () => {
 					this.contactService.onSubmit(this.myForm);
+					this.messageService.add({
+						severity: 'info',
+						summary: 'Envoyé',
+						detail: 'Votre message a bien été envoyé',
+						life: 3000,
+					});
+					setTimeout(() => {
+						this.router.navigateByUrl('/');
+					}, 3000); // 5000 milliseconds = 5 seconds
 				},
 				reject: () => {
 					this.messageService.add({
 						severity: 'error',
-						summary: 'Rejected',
-						detail: 'You have rejected',
+						summary: 'Refuser',
+						detail: 'Vous avez refusé',
 						life: 3000,
 					});
 				},
