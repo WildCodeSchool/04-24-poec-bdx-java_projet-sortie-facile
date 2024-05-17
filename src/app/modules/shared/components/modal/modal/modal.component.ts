@@ -27,6 +27,8 @@ export class ModalComponent {
 			this.confirmationService.confirm({
 				header: 'Confirmation',
 				message: 'Comfirmer envoie du message',
+				acceptLabel: 'Oui', // Personnalisation du bouton Oui
+				rejectLabel: 'Non',
 				accept: () => {
 					this.contactService.onSubmit(this.myForm);
 					this.messageService.add({

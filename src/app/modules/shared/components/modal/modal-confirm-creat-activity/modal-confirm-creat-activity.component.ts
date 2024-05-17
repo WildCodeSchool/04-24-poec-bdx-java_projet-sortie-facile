@@ -25,6 +25,8 @@ export class ModalConfirmCreatActivityComponent {
 			this.confirmationService.confirm({
 				header: 'Confirmation',
 				message: 'Confirmer la création de votre activité',
+				acceptLabel: 'Oui', // Personnalisation du bouton Oui
+				rejectLabel: 'Non',
 				accept: () => {
 					this.activityService.postNewActivity$(this.myForm.value).subscribe(
 						(activity: Activity) => {

@@ -26,6 +26,8 @@ export class ModalConfirmReservationComponent {
 		this.confirmationService.confirm({
 			header: 'Confirmation',
 			message: 'Comfirmer votre inscription',
+			acceptLabel: 'Oui', // Personnalisation du bouton Oui
+			rejectLabel: 'Non',
 			accept: () => {
 				this.bookingService.onSubmit(this.myForm);
 				this.messageService.add({
