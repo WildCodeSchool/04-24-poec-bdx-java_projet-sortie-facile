@@ -109,12 +109,14 @@ export class ActivityService {
 	updateActivity$(
 		id: string,
 		updatedData: Partial<Activity>,
-	): Observable<unknown> {
-		return this.http.patch(`${this._BASE_URL}/${id}`, updatedData).pipe(
-			catchError(error => {
-				console.log('Error', error);
-				throw error;
-			}),
-		);
+	): Observable<Activity> {
+		return this.http
+			.patch<Activity>(`${this._BASE_URL}/${id}`, updatedData)
+			.pipe(
+				catchError(error => {
+					console.log('Error', error);
+					throw error;
+				}),
+			);
 	}
 }
