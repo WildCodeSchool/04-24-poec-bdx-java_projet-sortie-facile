@@ -1,5 +1,9 @@
 import { Component, Input, forwardRef } from '@angular/core';
-import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
+import {
+	ControlValueAccessor,
+	NG_VALUE_ACCESSOR,
+	NgForm,
+} from '@angular/forms';
 
 @Component({
 	selector: 'app-input-hour',
@@ -15,11 +19,12 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 })
 export class InputHourComponent implements ControlValueAccessor {
 	time: Date | undefined;
-	@Input() type!: string;
+	@Input() inputId!: string;
 	@Input() id!: string;
 	@Input() name!: string;
 	@Input() labelFor!: string;
 	@Input() labelContent!: string;
+	@Input() form!: NgForm;
 
 	disabled!: boolean;
 	value!: string;

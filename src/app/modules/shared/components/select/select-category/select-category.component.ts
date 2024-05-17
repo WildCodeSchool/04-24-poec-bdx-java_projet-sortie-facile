@@ -18,7 +18,6 @@ import { ActivatedRoute } from '@angular/router';
 	],
 })
 export class SelectCategoryComponent implements OnInit, ControlValueAccessor {
-	@Input() type!: string;
 	@Input() id!: string;
 	@Input() name!: string;
 	@Input() labelFor!: string;

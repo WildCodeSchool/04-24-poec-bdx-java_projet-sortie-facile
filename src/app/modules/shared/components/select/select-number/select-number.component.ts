@@ -14,7 +14,6 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 	],
 })
 export class SelectNumberComponent implements ControlValueAccessor {
-	value1: number = 50;
 	@Input() type!: string; // text or email
 	@Input() id!: string;
 	@Input() name!: string;
@@ -22,7 +21,7 @@ export class SelectNumberComponent implements ControlValueAccessor {
 	@Input() labelContent!: string;
 
 	disabled!: boolean;
-	value!: string;
+	value!: number;
 
 	onChanged!: (value: string) => void;
 	onTouched!: () => void;
@@ -35,7 +34,7 @@ export class SelectNumberComponent implements ControlValueAccessor {
 		this.onChanged(value);
 	}
 
-	writeValue(value: string): void {
+	writeValue(value: number): void {
 		this.value = value;
 	}
 

@@ -1,10 +1,16 @@
-<div class="flex-auto">
-	<label for="calendar-timeonly" class="font-bold block mb-2"> </label>
+<div class="form-control">
+	<label *ngIf="labelFor && labelContent" [for]="labelFor">{{
+		labelContent
+	}}</label>
+
 	<p-calendar
-		inputId="calendar-timeonly"
+		[inputId]="inputId"
+		[id]="id"
+		[name]="name"
 		[(ngModel)]="value"
 		[timeOnly]="true"
 		(ngModelChange)="onInputChange($event)"
 		(focus)="markAsTouched()"
+		#ref="ngModel"
 	/>
 </div>

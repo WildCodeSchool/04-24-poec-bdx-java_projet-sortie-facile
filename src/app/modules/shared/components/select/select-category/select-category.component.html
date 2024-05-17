@@ -1,14 +1,16 @@
-<div
-	class="card flex justify-content-center"
-	*ngIf="activityCategoryList$ | async as categoriesItem"
->
+<div class="form-control">
+	<label *ngIf="labelFor && labelContent" [for]="labelFor">{{
+		labelContent
+	}}</label>
+
 	<p-dropdown
-		label="Categories"
+		*ngIf="activityCategoryList$ | async as categoriesItem"
 		[options]="categoriesItem"
-		[(ngModel)]="selectedCategory"
+		[(ngModel)]="value"
 		optionLabel="title"
 		placeholder="Select a Category"
 		(ngModelChange)="onInputChange($event)"
 		(focus)="markAsTouched()"
+		#ref="ngModel"
 	/>
 </div>

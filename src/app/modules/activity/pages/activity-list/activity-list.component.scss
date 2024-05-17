@@ -1,4 +1,6 @@
 .container {
+	display: flex;
+	gap: 1rem;
 	max-width: 1920px;
 	width: 100%;
 	padding: 1.5rem;
@@ -12,21 +14,22 @@
 }
 
 .filters-box {
-	width: 30%;
 	display: flex;
+	flex-direction: column;
+	background-color: rgba(103, 11, 255, 0.05);
+	width: 30%;
+	border-radius: 10px;
+	padding: 1rem;
+
+	label {
+		color: var(--black-color);
+		font-size: 0.9rem;
+		margin-bottom: 0.5rem;
+	}
 }
 
 .activities-box {
 	width: 100%;
 	display: flex;
-}
-
-.activities-top {
-}
-
-.activities-cards {
-	width: 100%;
-	display: flex;
-	gap: 1rem;
-	flex-wrap: wrap;
+	flex-direction: column;
 }
