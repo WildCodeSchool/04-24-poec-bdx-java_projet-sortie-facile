@@ -1,15 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-<<<<<<< HEAD
-import { NgForm } from '@angular/forms';
-import { AccountStatus, UserRoleEnum } from '@shared/models/enums/user-role.enum';
-=======
 import {
 	AccountStatus,
 	UserRoleEnum,
 } from '@shared/models/enums/user-role.enum';
->>>>>>> 2fb17e49ec37ad64c88e7032f233791d6e59c48f
 import { AuthRedirect } from '@shared/models/types/auth-redirect.type';
-import { newUserFormDatas } from '@shared/models/types/newUser.model';
+import { newUser } from '@shared/models/types/newUser.model';
 import { AuthProvider } from '@shared/models/types/provider.type';
 import { UserAuthPrimaryDatas } from '@shared/models/types/user-list-response-api.type';
 import { AuthService } from '@shared/services/auth.service';
@@ -32,11 +27,7 @@ export class AuthRegisterManagementComponent implements OnInit {
 		linkLabel: 'Se connecter',
 	};
 
-<<<<<<< HEAD
 	newUser: newUser = {
-=======
-	newUser: newUserFormDatas = {
->>>>>>> 2fb17e49ec37ad64c88e7032f233791d6e59c48f
 		id: '0',
 		username: '',
 		email: '',
@@ -67,7 +58,6 @@ export class AuthRegisterManagementComponent implements OnInit {
 			.subscribe((user: UserAuthPrimaryDatas) => {
 				localStorage.setItem('user', JSON.stringify(user));
 			});
-<<<<<<< HEAD
 	}
 
 	formNextStep(): void {
@@ -76,7 +66,5 @@ export class AuthRegisterManagementComponent implements OnInit {
 
 	formPreviousStep(): void {
 		this.formStep = 1;
-=======
->>>>>>> 2fb17e49ec37ad64c88e7032f233791d6e59c48f
 	}
 }
