@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { BookingRoutingModule } from '@booking/booking-routing.module';
 import { BookingHomeComponent } from '@booking/pages/booking-home/booking-home.component';
-import { SharedModule } from 'primeng/api';
+import { SharedModule } from '@shared/shared.module';
 
 @NgModule({
 	declarations: [BookingHomeComponent],
