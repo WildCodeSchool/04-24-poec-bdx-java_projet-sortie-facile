@@ -1,0 +1,14 @@
+<div class="activities-top">
+	<p-button rounded [routerLink]="['/activity/create']"
+		>Créer une activité</p-button
+	>
+</div>
+<div class="activities-cards">
+	<ng-container *ngIf="activityList$ | async as activities">
+		<app-activity-card
+			*ngFor="let activity of activities"
+			[activity]="activity"
+			[connectedUser]="connectedUser"
+		></app-activity-card>
+	</ng-container>
+</div>

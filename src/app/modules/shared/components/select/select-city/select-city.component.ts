@@ -16,10 +16,8 @@ import { NG_VALUE_ACCESSOR } from '@angular/forms';
 })
 export class SelectCityComponent implements OnInit {
 	cities!: City[];
-
 	selectedCity!: City;
 
-	@Input() type!: string; // text or email
 	@Input() id!: string;
 	@Input() name!: string;
 	@Input() labelFor!: string;

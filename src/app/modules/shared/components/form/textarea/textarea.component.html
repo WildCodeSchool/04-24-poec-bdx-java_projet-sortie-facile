@@ -1,12 +1,22 @@
-<span class="p-float-label">
+<div class="form-control">
+	<label *ngIf="labelFor && labelContent" [for]="labelFor">{{
+		labelContent
+	}}</label>
+
 	<textarea
 		pInputTextarea
+		[id]="id"
 		[name]="name"
+		[rows]="rows"
+		[cols]="cols"
+		[autoResize]="false"
 		[(ngModel)]="value"
 		(ngModelChange)="onInputChange($event)"
 		(focus)="markAsTouched()"
-		rows="5"
-		cols="30"
+		#ref="ngModel"
+		[required]="required"
+		[minlength]="minlength"
+		[maxlength]="maxlength"
 	></textarea>
 	<label for="float-input">Summary</label>
-</span>
+</div>
