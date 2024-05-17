@@ -55,6 +55,6 @@ export class UpdateActivityComponent implements OnInit {
 		const updatedData = form.value;
 
 		this.activityService.updateActivity$(id, updatedData).subscribe();
-		this.router.navigate(['/activity/details/', id]);
+		this.router.navigate(['/activity/home']);
 	}
 }
