@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '@shared/services/auth.service';
 import { HeaderService } from '@shared/services/header.service';
 import { MenuItem } from 'primeng/api';
+import { Observable } from 'rxjs';
 
 @Component({
 	selector: 'app-header',
@@ -9,7 +10,7 @@ import { MenuItem } from 'primeng/api';
 	styleUrl: './header.component.scss',
 })
 export class HeaderComponent implements OnInit {
-	items!: MenuItem[];
+	items$!: Observable<MenuItem[]>;
 
 	constructor(
 		private _authService: AuthService,
@@ -25,7 +26,7 @@ export class HeaderComponent implements OnInit {
 		}
 
 		this._authService.isLoggedIn.subscribe((loggedIn: boolean) => {
-			this.items = this._headerService.getConnectedItems(loggedIn);
+			this.items$ = this._headerService.getConnectedItems(loggedIn);
 		});
 	}
 }
