@@ -31,6 +31,8 @@ export class AuthService {
 		{ name: AuthProviderNameEnum.TWITTER },
 	];
 
+	private BASE_URL: string = 'http://localhost:3000/user';
+
 	constructor(
 		private _httpClient: HttpClient,
 		private _router: Router,
@@ -40,49 +42,45 @@ export class AuthService {
 		username: string,
 		password: string,
 	): Observable<UserAuthPrimaryDatas> {
-		return this._httpClient
-			.get<UserListResponseApi>('http://localhost:3000/user')
-			.pipe(
-				map(
-					(users: UserListResponseApi) =>
-						users.find((user: UserAuth) => {
-							return user.username === username && user.password === password;
-						}) as UserAuth,
-				),
-				map((user: UserAuthPrimaryDatas) => ({
-					id: user.id,
-					username: user.username,
-					email: user.email,
-					role: user.role,
-					status: user.status,
-				})),
-				tap((user: UserAuthPrimaryDatas) => {
-					this.setConnectedUserData(user);
-					this.notifyLoggedInStatus(true);
-					this._router.navigateByUrl('/user/home');
-				}),
-			);
+		return this._httpClient.get<UserListResponseApi>(this.BASE_URL).pipe(
+			map(
+				(users: UserListResponseApi) =>
+					users.find((user: UserAuth) => {
+						return user.username === username && user.password === password;
+					}) as UserAuth,
+			),
+			map((user: UserAuthPrimaryDatas) => ({
+				id: user.id,
+				username: user.username,
+				email: user.email,
+				role: user.role,
+				status: user.status,
+			})),
+			tap((user: UserAuthPrimaryDatas) => {
+				this.setConnectedUserData(user);
+				this.notifyLoggedInStatus(true);
+				this._router.navigateByUrl('/user/home');
+			}),
+		);
 	}
 
 	createUserWithEmailAndPassword(
 		newUser: newUserFormDatas,
 	): Observable<newUserDatas> {
-		return this._httpClient
-			.post<newUser>('http://localhost:3000/user', newUser)
-			.pipe(
-				map((user: newUser) => ({
-					id: user.id,
-					username: user.username,
-					email: user.email,
-					password: user.password,
-					role: user.role,
-					status: user.status,
-				})),
-				tap((user: newUserDatas) => {
-					this.setConnectedUserData(user);
-					this._router.navigateByUrl('/user/home');
-				}),
-			);
+		return this._httpClient.post<newUser>(this.BASE_URL, newUser).pipe(
+			map((user: newUser) => ({
+				id: user.id,
+				username: user.username,
+				email: user.email,
+				password: user.password,
+				role: user.role,
+				status: user.status,
+			})),
+			tap((user: newUserDatas) => {
+				this.setConnectedUserData(user);
+				this._router.navigateByUrl('/user/home');
+			}),
+		);
 	}
 
 	public patchConnectedUser(
@@ -90,7 +88,7 @@ export class AuthService {
 	): Observable<UserAuth> {
 		return this._httpClient
 			.patch<UserAuth>(
-				`http://localhost:3000/user/${this._userConnected.id}`,
+				`${this.BASE_URL}/${this._userConnected.id}`,
 				userAuthInfoPatch,
 			)
 			.pipe(
@@ -121,14 +119,11 @@ export class AuthService {
 
 	public deleteConnectedUser(): Observable<UserAuth> {
 		this._userConnected.status = AccountStatus.INACTIVE;
-		return this._httpClient.patch<UserAuth>(
-			'http://localhost:3000/user/',
-			this._userConnected,
-		);
+		return this._httpClient.patch<UserAuth>(this.BASE_URL, this._userConnected);
 	}
 
 	public increaseId(): Observable<string> {
-		return this._httpClient.get<newUser[]>('http://localhost:3000/user').pipe(
+		return this._httpClient.get<newUser[]>(this.BASE_URL).pipe(
 			map((users: newUser[]) => {
 				const lastId = users[users.length - 1].id;
 				return (Number(lastId) + 1).toString();
@@ -142,5 +137,15 @@ export class AuthService {
 
 	public notifyLoggedInStatus(status: boolean): void {
 		this._isLoggedInSubject.next(status);
+	}
+
+	public checkIfUserIsConnectedAndNotifyLoggedInStatus(): void {
+		if (localStorage.getItem('user')) {
+			this.setConnectedUserData(
+				JSON.parse(localStorage.getItem('user') as string),
+			);
+
+			this.notifyLoggedInStatus(true);
+		}
 	}
 }

@@ -18,15 +18,7 @@ export class HeaderComponent implements OnInit {
 	) {}
 
 	ngOnInit() {
-		if (localStorage.getItem('user')) {
-			this._authService.setConnectedUserData(
-				JSON.parse(localStorage.getItem('user') as string),
-			);
-			this._authService.notifyLoggedInStatus(true);
-		}
-
-		this._authService.isLoggedIn.subscribe((loggedIn: boolean) => {
-			this.items$ = this._headerService.getConnectedItems(loggedIn);
-		});
+		this._authService.checkIfUserIsConnectedAndNotifyLoggedInStatus();
+		this.items$ = this._headerService.getHeaderItems$();
 	}
 }

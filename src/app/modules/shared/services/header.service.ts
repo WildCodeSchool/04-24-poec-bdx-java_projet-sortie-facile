@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { MenuItem } from 'primeng/api';
 import { AuthService } from './auth.service';
-import { Observable, combineLatest, map, of } from 'rxjs';
+import { Observable, combineLatest, map, of, switchMap } from 'rxjs';
 
 @Injectable({
 	providedIn: 'root',
@@ -52,22 +52,22 @@ export class HeaderService {
 		]);
 	}
 
-	public getPrimaryItems(): Observable<MenuItem[]> {
-		return this._primaryItems$;
-	}
-
-	public getConnectedItems(loggedIn: boolean): Observable<MenuItem[]> {
-		if (loggedIn) {
-			return this._combineHeaderItems$(
-				this._primaryItems$,
-				this._connectedItems$,
-			);
-		} else {
-			return this._combineHeaderItems$(
-				this._primaryItems$,
-				this._notConnectedItems$,
-			);
-		}
+	public getHeaderItems$(): Observable<MenuItem[]> {
+		return this._authService.isLoggedIn.pipe(
+			switchMap((loggedIn: boolean) => {
+				if (loggedIn) {
+					return this._combineHeaderItems$(
+						this._primaryItems$,
+						this._connectedItems$,
+					);
+				} else {
+					return this._combineHeaderItems$(
+						this._primaryItems$,
+						this._notConnectedItems$,
+					);
+				}
+			}),
+		);
 	}
 
 	private _combineHeaderItems$(
