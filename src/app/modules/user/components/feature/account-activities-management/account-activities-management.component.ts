@@ -1,8 +1,8 @@
-import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Activity } from '@shared/models/types/activity.type';
-import { UserAuthPrimaryDatas } from '@shared/models/types/user-list-response-api.type';
 import { ActivityService } from '@shared/services/activity.service';
 import { AuthService } from '@shared/services/auth.service';
+import { BaseAccountManagementComponent } from '@user/directives/account-management.class';
 import { Subscription, tap } from 'rxjs';
 
 @Component({
@@ -10,24 +10,25 @@ import { Subscription, tap } from 'rxjs';
 	templateUrl: './account-activities-management.component.html',
 	styleUrl: './account-activities-management.component.scss',
 })
-export class AccountActivitiesManagementComponent implements OnInit, OnDestroy {
-	@Input() avatarSrc!: string;
-	@Input() avatarAlt!: string;
-	@Input() pageTitle!: string;
-	@Input() pageDescription!: string;
+export class AccountActivitiesManagementComponent
+	extends BaseAccountManagementComponent
+	implements OnInit, OnDestroy
+{
 	activityByCreatedUserList!: Activity[];
 	activityParticipateList!: Activity[];
 
-	connectedUser!: UserAuthPrimaryDatas;
 	private _subscription: Subscription = new Subscription();
 
 	constructor(
-		private _authService: AuthService,
+		protected override _authService: AuthService,
 		private _activityService: ActivityService,
-	) {}
+	) {
+		super(_authService);
+	}
 
-	ngOnInit(): void {
-		this.connectedUser = this._authService.getConnectedUserData();
+	override ngOnInit(): void {
+		super.ngOnInit();
+
 		this._activityService
 			.getActivityListByCreatedUser$(10)
 			.pipe(

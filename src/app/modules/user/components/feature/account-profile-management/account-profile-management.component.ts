@@ -1,23 +1,14 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { UserAuthPrimaryDatas } from '@shared/models/types/user-list-response-api.type';
+import { Component } from '@angular/core';
 import { AuthService } from '@shared/services/auth.service';
+import { BaseAccountManagementComponent } from '@user/directives/account-management.class';
 
 @Component({
 	selector: 'app-account-profile-management',
 	templateUrl: './account-profile-management.component.html',
 	styleUrl: './account-profile-management.component.scss',
 })
-export class AccountProfileManagementComponent implements OnInit {
-	@Input() avatarSrc!: string;
-	@Input() avatarAlt!: string;
-	@Input() pageTitle!: string;
-	@Input() pageDescription!: string;
-
-	connectedUser!: UserAuthPrimaryDatas;
-
-	constructor(private _authService: AuthService) {}
-
-	ngOnInit(): void {
-		this.connectedUser = this._authService.getConnectedUserData();
+export class AccountProfileManagementComponent extends BaseAccountManagementComponent {
+	constructor(protected override _authService: AuthService) {
+		super(_authService);
 	}
 }
