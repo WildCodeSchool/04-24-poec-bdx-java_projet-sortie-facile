@@ -1,18 +1,18 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Activity, NewActivity } from '@shared/models/types/activity.type';
 import { ActivityService } from '@shared/services/activity.service';
-import { AuthService } from '@shared/services/auth.service';
-import { Observable, tap } from 'rxjs';
+import { Observable, Subscription, tap } from 'rxjs';
 
 @Component({
 	selector: 'app-activity-create-management',
 	templateUrl: './activity-create-management.component.html',
 	styleUrl: './activity-create-management.component.scss',
 })
-export class ActivityCreateManagementComponent {
+export class ActivityCreateManagementComponent implements OnDestroy {
 	newActivity$!: Observable<Activity>;
+	private _subscription: Subscription = new Subscription();
 
 	newActivity: NewActivity = {
 		name: 'toto',
@@ -36,7 +36,6 @@ export class ActivityCreateManagementComponent {
 	};
 
 	constructor(
-		private authService: AuthService,
 		private activityService: ActivityService,
 		private router: Router,
 	) {}
@@ -50,5 +49,9 @@ export class ActivityCreateManagementComponent {
 				}),
 			)
 			.subscribe();
+	}
+
+	ngOnDestroy(): void {
+		this._subscription.unsubscribe();
 	}
 }
