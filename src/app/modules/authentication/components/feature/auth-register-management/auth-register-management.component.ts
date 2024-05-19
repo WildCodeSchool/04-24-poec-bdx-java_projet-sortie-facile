@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import {
 	AccountStatus,
 	UserRoleEnum,
@@ -8,16 +8,17 @@ import { newUserFormDatas } from '@shared/models/types/newUser.model';
 import { AuthProvider } from '@shared/models/types/provider.type';
 import { UserAuthPrimaryDatas } from '@shared/models/types/user-list-response-api.type';
 import { AuthService } from '@shared/services/auth.service';
+import { Subscription } from 'rxjs';
 
 @Component({
 	selector: 'app-auth-register-management',
 	templateUrl: './auth-register-management.component.html',
 	styleUrl: './auth-register-management.component.scss',
 })
-export class AuthRegisterManagementComponent implements OnInit {
+export class AuthRegisterManagementComponent implements OnInit, OnDestroy {
 	providerNameList!: AuthProvider[];
-
 	lastUserId!: string;
+	private _subscription: Subscription = new Subscription();
 
 	redirect: AuthRedirect = {
 		text: 'Vous avez déjà un compte ?',
@@ -51,10 +52,16 @@ export class AuthRegisterManagementComponent implements OnInit {
 	}
 
 	onSubmit(): void {
-		this.authService
-			.createUserWithEmailAndPassword(this.newUser)
-			.subscribe((user: UserAuthPrimaryDatas) => {
-				localStorage.setItem('user', JSON.stringify(user));
-			});
+		this._subscription.add(
+			this.authService
+				.createUserWithEmailAndPassword(this.newUser)
+				.subscribe((user: UserAuthPrimaryDatas) => {
+					localStorage.setItem('user', JSON.stringify(user));
+				}),
+		);
+	}
+
+	ngOnDestroy(): void {
+		this._subscription.unsubscribe();
 	}
 }

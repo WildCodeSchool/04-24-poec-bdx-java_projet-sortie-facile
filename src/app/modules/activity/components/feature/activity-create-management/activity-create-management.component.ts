@@ -41,14 +41,16 @@ export class ActivityCreateManagementComponent implements OnDestroy {
 	) {}
 
 	onSubmit(form: NgForm): void {
-		this.activityService
-			.postNewActivity$(form.value)
-			.pipe(
-				tap((activity: Activity) => {
-					this.router.navigate(['/activity/details', activity.id]);
-				}),
-			)
-			.subscribe();
+		this._subscription.add(
+			this.activityService
+				.postNewActivity$(form.value)
+				.pipe(
+					tap((activity: Activity) => {
+						this.router.navigate(['/activity/details', activity.id]);
+					}),
+				)
+				.subscribe(),
+		);
 	}
 
 	ngOnDestroy(): void {

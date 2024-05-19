@@ -1,8 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { Observable, tap } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { Activity } from '@shared/models/types/activity.type';
-import { Router } from '@angular/router';
 import { Category } from '@shared/models/types/category.type';
 import { ActivityService } from '@shared/services/activity.service';
 
@@ -11,13 +10,11 @@ import { ActivityService } from '@shared/services/activity.service';
 	templateUrl: './activity-create.component.html',
 	styleUrl: './activity-create.component.scss',
 })
-export class ActivityCreateComponent {
+export class ActivityCreateComponent implements OnDestroy {
 	newActivity$!: Observable<Activity>;
+	private _subscription: Subscription = new Subscription();
 
-	constructor(
-		private activityService: ActivityService,
-		private router: Router,
-	) {}
+	constructor(private activityService: ActivityService) {}
 
 	NewActivity: {
 		name: string;
@@ -55,13 +52,12 @@ export class ActivityCreateComponent {
 	};
 
 	onSubmit(form: NgForm): void {
-		this.activityService
-			.postNewActivity$(form.value)
-			.pipe(
-				tap(activity => {
-					this.router.navigate(['/activity/details', activity.id]);
-				}),
-			)
-			.subscribe();
+		this._subscription.add(
+			this.activityService.postNewActivity$(form.value).subscribe(),
+		);
+	}
+
+	ngOnDestroy(): void {
+		this._subscription.unsubscribe();
 	}
 }

@@ -1,18 +1,20 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Activity } from '@shared/models/types/activity.type';
 import { ActivityService } from '@shared/services/activity.service';
-import { Observable } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 
 @Component({
 	selector: 'app-update-activity',
 	templateUrl: './update-activity.component.html',
 	styleUrl: './update-activity.component.scss',
 })
-export class UpdateActivityComponent implements OnInit {
+export class UpdateActivityComponent implements OnInit, OnDestroy {
 	updateActivity$!: Observable<Activity>;
 	activity$!: Observable<Activity>;
+	private _subscription: Subscription = new Subscription();
+
 	@Input() type!: string;
 	@Input() id!: string;
 	@Input() name!: string;
@@ -54,7 +56,13 @@ export class UpdateActivityComponent implements OnInit {
 		const id: string = this.formData.id;
 		const updatedData = form.value;
 
-		this.activityService.updateActivity$(id, updatedData).subscribe();
+		this._subscription.add(
+			this.activityService.updateActivity$(id, updatedData).subscribe(),
+		);
 		this.router.navigate(['/activity/home']);
+	}
+
+	ngOnDestroy(): void {
+		this._subscription.unsubscribe();
 	}
 }

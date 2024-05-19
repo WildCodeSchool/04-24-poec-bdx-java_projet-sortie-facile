@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import { Component, Input } from '@angular/core';
 import { Activity } from '@shared/models/types/activity.type';
 import { UserAuthPrimaryDatas } from '@shared/models/types/user-list-response-api.type';
@@ -16,13 +15,6 @@ export class ActivityCardComponent {
 	constructor(private activityService: ActivityService) {}
 
 	delete(id: string): void {
-		this.activityService.deleteActivity$(id).subscribe(
-			() => {
-				console.log('Activity deleted successfully.');
-			},
-			error => {
-				console.error('Error deleting activity:', error);
-			},
-		);
+		this.activityService.deleteActivity$(id).subscribe();
 	}
 }
