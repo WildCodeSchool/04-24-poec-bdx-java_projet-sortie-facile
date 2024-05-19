@@ -1,9 +1,11 @@
+import { NewActivity } from '@activity/models/classes/new-activity.class';
 import { Component, OnDestroy } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { Router } from '@angular/router';
-import { Activity, NewActivity } from '@shared/models/types/activity.type';
+import { Category } from '@shared/models/classes/category.class';
+import { City } from '@shared/models/classes/city.class';
+import { Activity } from '@shared/models/types/activity.type';
 import { ActivityService } from '@shared/services/activity.service';
-import { Observable, Subscription, tap } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 
 @Component({
 	selector: 'app-activity-create-management',
@@ -14,42 +16,26 @@ export class ActivityCreateManagementComponent implements OnDestroy {
 	newActivity$!: Observable<Activity>;
 	private _subscription: Subscription = new Subscription();
 
-	newActivity: NewActivity = {
-		name: 'toto',
-		departement: '',
-		activityCity: {
-			id: 0,
-			name: '',
-		},
-		date: '',
-		age: 0,
-		imgUrl: '',
-		link: '',
-		description: '',
-		nbGuest: 0,
-		categoryId: {
-			id: '0',
-			title: '',
-		},
-		hour: '',
-		userId: '1',
-	};
+	constructor(private activityService: ActivityService) {}
 
-	constructor(
-		private activityService: ActivityService,
-		private router: Router,
-	) {}
+	newActivity: NewActivity = new NewActivity(
+		'toto',
+		'',
+		new City(1, ''),
+		'',
+		0,
+		'',
+		'',
+		'',
+		0,
+		new Category('1', ''),
+		'',
+		'1',
+	);
 
 	onSubmit(form: NgForm): void {
 		this._subscription.add(
-			this.activityService
-				.postNewActivity$(form.value)
-				.pipe(
-					tap((activity: Activity) => {
-						this.router.navigate(['/activity/details', activity.id]);
-					}),
-				)
-				.subscribe(),
+			this.activityService.postNewActivity$(form.value).subscribe(),
 		);
 	}
 

@@ -1,13 +1,13 @@
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
-import { Activity } from '@shared/models/types/activity.type';
 import { Observable, Subscription } from 'rxjs';
 import { ActivityService } from '@shared/services/activity.service';
 import { Activities } from '@shared/models/types/activities.type';
 import { ActivatedRoute } from '@angular/router';
 import { BookingService } from '@shared/services/booking.service';
-import { reservation } from '@shared/models/types/reservation.type';
 import { UserDetails } from '@shared/models/types/user-details.type';
 import { NgForm } from '@angular/forms';
+import { Activity } from '@activity/models/classes/activity.class';
+import { Booking } from '@shared/models/classes/booking.class';
 
 @Component({
 	selector: 'app-activity-details',
@@ -40,11 +40,7 @@ export class ActivityDetailsComponent implements OnInit, OnDestroy {
 	}
 
 	add(activity: Activity): void {
-		const newReservation: reservation = {
-			id: '',
-			activityId: activity,
-			userId: this.userDetails,
-		};
+		const newReservation: Booking = new Booking('', this.userDetails, activity);
 
 		this._subscription.add(
 			this.reservationService.postNewReservation$(newReservation).subscribe(),

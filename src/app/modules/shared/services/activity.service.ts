@@ -1,10 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Activity } from '@models/types/activity.type';
 import { Observable, catchError, map, switchMap, tap } from 'rxjs';
 import { Activities } from '@models/types/activities.type';
 import { Category } from '@models/types/category.type';
 import { Router } from '@angular/router';
+import { Activity } from '@activity/models/classes/activity.class';
 
 @Injectable({
 	providedIn: 'root',

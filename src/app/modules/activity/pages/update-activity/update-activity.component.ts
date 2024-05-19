@@ -1,7 +1,9 @@
+import { Activity } from '@activity/models/classes/activity.class';
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Activity } from '@shared/models/types/activity.type';
+import { Category } from '@shared/models/classes/category.class';
+import { City } from '@shared/models/classes/city.class';
 import { ActivityService } from '@shared/services/activity.service';
 import { Observable, Subscription } from 'rxjs';
 
@@ -28,21 +30,21 @@ export class UpdateActivityComponent implements OnInit, OnDestroy {
 		private router: Router,
 	) {}
 
-	formData: Activity = {
-		id: '',
-		departement: '',
-		age: 0,
-		name: '',
-		date: '',
-		hour: '',
-		activityCity: { id: 0, name: '' },
-		categoryId: { id: '0', title: '' },
-		nbGuest: 0,
-		description: '',
-		imgUrl: '',
-		link: '',
-		userId: '',
-	};
+	formData: Activity = new Activity(
+		'',
+		'',
+		'',
+		new City(0, ''),
+		'',
+		0,
+		'',
+		'',
+		'',
+		0,
+		new Category('0', ''),
+		'',
+		'',
+	);
 
 	ngOnInit(): void {
 		const id: number = Number(this.route.snapshot.paramMap.get('id'));

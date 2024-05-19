@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { UserConnectedDatas } from '@shared/models/classes/user-connected-datas.class';
 import { AuthRedirect } from '@shared/models/types/auth-redirect.type';
-import { connectedUserDatas } from '@shared/models/types/connectedUserDatas.model';
 import { AuthProvider } from '@shared/models/types/provider.type';
 import { UserAuthPrimaryDatas } from '@shared/models/types/user-list-response-api.type';
 import { AuthService } from '@shared/services/auth.service';
@@ -19,11 +19,11 @@ export class AuthLoginManagementComponent implements OnInit {
 		linkLabel: 'S’inscrire',
 	};
 
-	connectedUser: connectedUserDatas = {
-		username: 'johndoe',
-		password: '123456789',
-		email: 'j.doe@mail.com',
-	};
+	connectedUser: UserConnectedDatas = new UserConnectedDatas(
+		'johndoe',
+		'123456789',
+		'j.doe@mail.com',
+	);
 
 	constructor(private authService: AuthService) {}
 

@@ -8,14 +8,11 @@ import {
 	UserAuthPrimaryDatas,
 	UserListResponseApi,
 } from '@shared/models/types/user-list-response-api.type';
-import {
-	newUser,
-	newUserDatas,
-	newUserFormDatas,
-} from '@shared/models/types/newUser.model';
+import { newUser, newUserDatas } from '@shared/models/types/newUser.model';
 import { AccountStatus } from '@shared/models/enums/user-role.enum';
 import { AuthProvider } from '@shared/models/types/provider.type';
 import { AuthProviderNameEnum } from '@shared/models/enums/auth-provider';
+import { NewUserFormDatas } from '@shared/models/classes/new-user-form-datas.class';
 
 @Injectable({
 	providedIn: 'root',
@@ -65,7 +62,7 @@ export class AuthService {
 	}
 
 	createUserWithEmailAndPassword(
-		newUser: newUserFormDatas,
+		newUser: NewUserFormDatas,
 	): Observable<newUserDatas> {
 		return this._httpClient.post<newUser>(this.BASE_URL, newUser).pipe(
 			map((user: newUser) => ({

@@ -10,5 +10,6 @@
 	"bracketSameLine": false,
 	"arrowParens": "avoid",
 	"quoteProps": "as-needed",
-	"singleAttributePerLine": false
+	"singleAttributePerLine": false,
+	"printWidth": 80
 }

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { NewUser } from '@shared/models/classes/new-user.class';
 import {
 	AccountStatus,
 	UserRoleEnum,
@@ -12,15 +13,15 @@ import { newUser } from '@shared/models/types/newUser.model';
 	styleUrl: './modify-account.component.scss',
 })
 export class ModifyAccountComponent {
-	modifiedUser: newUser = {
-		id: '',
-		username: '',
-		email: '',
-		password: '',
-		confirmation: '',
-		role: UserRoleEnum.USER,
-		status: AccountStatus.ACTIVE,
-	};
+	modifiedUser: NewUser = new NewUser(
+		'',
+		'',
+		'',
+		'',
+		'',
+		UserRoleEnum.USER,
+		AccountStatus.ACTIVE,
+	);
 
 	onSubmit(form: NgForm) {}
 }

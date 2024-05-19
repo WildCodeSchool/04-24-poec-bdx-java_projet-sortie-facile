@@ -1,10 +1,10 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { NewUserFormDatas } from '@shared/models/classes/new-user-form-datas.class';
 import {
 	AccountStatus,
 	UserRoleEnum,
 } from '@shared/models/enums/user-role.enum';
 import { AuthRedirect } from '@shared/models/types/auth-redirect.type';
-import { newUserFormDatas } from '@shared/models/types/newUser.model';
 import { AuthProvider } from '@shared/models/types/provider.type';
 import { UserAuthPrimaryDatas } from '@shared/models/types/user-list-response-api.type';
 import { AuthService } from '@shared/services/auth.service';
@@ -26,28 +26,19 @@ export class AuthRegisterManagementComponent implements OnInit, OnDestroy {
 		linkLabel: 'Se connecter',
 	};
 
-	newUser: newUserFormDatas = {
-		id: '0',
-		username: '',
-		email: '',
-		password: '',
-		passwordConfirm: '',
-		role: UserRoleEnum.USER,
-		status: AccountStatus.ACTIVE,
-	};
+	newUser: NewUserFormDatas = new NewUserFormDatas(
+		this.lastUserId,
+		'Pimpoye',
+		'Pimpoye@medoc.fr',
+		'mafemmecestmasoeur',
+		'mafemmecestmasoeur',
+		UserRoleEnum.USER,
+		AccountStatus.ACTIVE,
+	);
 
 	constructor(private authService: AuthService) {}
 
 	ngOnInit(): void {
-		this.newUser = {
-			id: this.lastUserId,
-			username: 'Pimpoye',
-			email: 'Pimpoye@medoc.fr',
-			password: 'mafemmecestmasoeur',
-			passwordConfirm: 'mafemmecestmasoeur',
-			role: UserRoleEnum.USER,
-			status: AccountStatus.ACTIVE,
-		};
 		this.providerNameList = this.authService.getProviderNameList();
 	}
 
