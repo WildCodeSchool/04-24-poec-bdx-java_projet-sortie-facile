@@ -2,7 +2,7 @@
   "user": [
     {
       "username": "johndoe",
-      "email": "j.doe@mail.com",
+      "email": "j.doe@test.com",
       "password": "123456789",
       "role": "admin",
       "id": "1"
@@ -35,8 +35,8 @@
       "id": "1",
       "first_name": "john",
       "last_name": "Doe",
-      "streetNumber": "1501542",
-      "street": "Rue de paix",
+      "streetNumber": "15015",
+      "street": "Rue de la réppublique",
       "region": "Nouvelle-Aquitaine",
       "postalCode": 33000,
       "city": "Sainte Foy Les Lyon",
@@ -47,7 +47,7 @@
       "birthday": "10/02/1998",
       "genre": "masculin",
       "userId": "1",
-      "email": "j.doe@mail.com",
+      "email": "j.doe@test.com",
       "categorieIds": [
         "1",
         "4",
