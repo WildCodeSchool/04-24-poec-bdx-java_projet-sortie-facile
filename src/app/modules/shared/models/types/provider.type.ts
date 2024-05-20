@@ -1,4 +1,4 @@
-import { AuthProviderNameEnum } from '@models/enums/auth-provider';
+import { AuthProviderNameEnum } from '../enums/auth-provider';
 
 export type AuthProvider = {
 	name: AuthProviderNameEnum;

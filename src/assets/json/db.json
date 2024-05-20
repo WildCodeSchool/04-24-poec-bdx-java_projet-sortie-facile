@@ -2,7 +2,7 @@
   "user": [
     {
       "username": "johndoe",
-      "email": "j.doe@mail.com",
+      "email": "j.doe@test.com",
       "password": "123456789",
       "role": "admin",
       "id": "1"
@@ -33,10 +33,10 @@
   "user_details": [
     {
       "id": "1",
-      "first_name": "johntgfvy",
+      "first_name": "john",
       "last_name": "Doe",
-      "streetNumber": "1501542",
-      "street": "Rue de paix",
+      "streetNumber": "15015",
+      "street": "Rue de la réppublique",
       "region": "Nouvelle-Aquitaine",
       "postalCode": 33000,
       "city": "Sainte Foy Les Lyon",
@@ -47,7 +47,7 @@
       "birthday": "10/02/1998",
       "genre": "masculin",
       "userId": "1",
-      "email": "j.doe@mail.com",
+      "email": "j.doe@test.com",
       "categorieIds": [
         "1",
         "4",
@@ -797,6 +797,60 @@
       "description": "voir dune",
       "imgUrl": "C:\\fakepath\\img2.profil.png",
       "link": "www.youyube.com"
+    },
+    {
+      "id": "27",
+      "name": "totoftvg",
+      "date": "2024-05-20T22:00:00.000Z",
+      "hour": "2024-05-19T17:58:07.354Z",
+      "activityCity": {
+        "id": 2,
+        "name": "Rome"
+      },
+      "categoryId": {
+        "id": "4",
+        "title": "Travel"
+      },
+      "nbGuest": 4,
+      "description": "rf(vtgrftvg",
+      "imgUrl": "C:\\fakepath\\Capture d’écran 2024-05-06 à 18.38.23.png",
+      "link": "rf§tgf"
+    },
+    {
+      "id": "28",
+      "name": "totogvby h",
+      "date": "2024-05-01T22:00:00.000Z",
+      "hour": "2024-05-20T06:57:01.570Z",
+      "activityCity": {
+        "id": 2,
+        "name": "Rome"
+      },
+      "categoryId": {
+        "id": "3",
+        "title": "Cinema"
+      },
+      "nbGuest": 2,
+      "description": "vgvyhfvy hb",
+      "imgUrl": "C:\\fakepath\\Capture d’écran 2024-05-06 à 18.38.23.png",
+      "link": "vyhgbv gb"
+    },
+    {
+      "id": "29",
+      "name": "totogbyh ",
+      "date": "2024-05-01T22:00:00.000Z",
+      "hour": "2024-05-20T06:57:42.762Z",
+      "activityCity": {
+        "id": 2,
+        "name": "Rome"
+      },
+      "categoryId": {
+        "id": "3",
+        "title": "Cinema"
+      },
+      "nbGuest": 3,
+      "description": "ghbuhjgbh ",
+      "imgUrl": "C:\\fakepath\\Capture d’écran 2024-05-06 à 18.38.23.png",
+      "link": "gbyhvnb "
     }
   ],
   "contact": [
@@ -924,6 +978,11 @@
       "id": "25",
       "Email": "laurore83@yahoo.fr",
       "message": "j'aimerai voir dune aussi"
+    },
+    {
+      "id": "26",
+      "Email": "fvtg",
+      "message": "fgyvhgb"
     }
   ]
 }

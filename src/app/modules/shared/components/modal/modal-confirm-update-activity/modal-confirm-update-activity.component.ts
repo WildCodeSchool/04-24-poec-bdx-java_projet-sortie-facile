@@ -26,50 +26,57 @@ export class ModalConfirmUpdateActivityComponent {
 			this.confirmationService.confirm({
 				header: 'Confirmation',
 				message: 'Confirmer la création de votre activité',
-				accept: () => {
-					const updatedData = this.myForm.value;
-					this.activityService
-						.updateActivity$(this.activityId, updatedData)
-						.subscribe(
-							(activity: Activity) => {
-								this.messageService.add({
-									severity: 'info',
-									summary: 'Bravo',
-									detail: 'Votre activité a bien été créée',
-									life: 3000,
-								});
-								setTimeout(() => {
-									this.router.navigate(['/activity/details', activity?.id]);
-								}, 3000);
-							},
-							error => {
-								console.error('Error creating activity:', error);
-								this.messageService.add({
-									severity: 'error',
-									summary: 'Erreur',
-									detail:
-										"Une erreur s'est produite lors de la création de l'activité",
-									life: 3000,
-								});
-							},
-						);
+				accept: () => this.onAccept(),
+				reject: () => this.onReject(),
+			});
+		} else {
+			this.onError();
+		}
+	}
+
+	private onError(): void {
+		this.messageService.add({
+			severity: 'error',
+			summary: 'Formulaire invalide',
+			detail: 'Veuillez remplir les champs obligatoires',
+			life: 3000,
+		});
+	}
+
+	private onReject(): void {
+		this.messageService.add({
+			severity: 'error',
+			summary: 'Abandonné',
+			detail: 'Création abandonnée',
+			life: 3000,
+		});
+	}
+
+	private onAccept(): void {
+		const updatedData = this.myForm.value;
+		this.activityService
+			.updateActivity$(this.activityId, updatedData)
+			.subscribe(
+				(activity: Activity) => {
+					this.messageService.add({
+						severity: 'info',
+						summary: 'Bravo',
+						detail: 'Votre activité a bien été créée',
+						life: 3000,
+					});
+					setTimeout(() => {
+						this.router.navigate(['/activity/details', activity?.id]);
+					}, 3000);
 				},
-				reject: () => {
+				() => {
 					this.messageService.add({
 						severity: 'error',
-						summary: 'Abandonné',
-						detail: 'Création abandonnée',
+						summary: 'Erreur',
+						detail:
+							"Une erreur s'est produite lors de la création de l'activité",
 						life: 3000,
 					});
 				},
-			});
-		} else {
-			this.messageService.add({
-				severity: 'error',
-				summary: 'Formulaire invalide',
-				detail: 'Veuillez remplir les champs obligatoires',
-				life: 3000,
-			});
-		}
+			);
 	}
 }

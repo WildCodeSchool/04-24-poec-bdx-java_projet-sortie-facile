@@ -1,23 +1,24 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { NewUserFormDatas } from '@shared/models/classes/new-user-form-datas.class';
 import {
 	AccountStatus,
 	UserRoleEnum,
 } from '@shared/models/enums/user-role.enum';
 import { AuthRedirect } from '@shared/models/types/auth-redirect.type';
-import { newUserFormDatas } from '@shared/models/types/newUser.model';
 import { AuthProvider } from '@shared/models/types/provider.type';
 import { UserAuthPrimaryDatas } from '@shared/models/types/user-list-response-api.type';
 import { AuthService } from '@shared/services/auth.service';
+import { Subscription } from 'rxjs';
 
 @Component({
 	selector: 'app-auth-register-management',
 	templateUrl: './auth-register-management.component.html',
 	styleUrl: './auth-register-management.component.scss',
 })
-export class AuthRegisterManagementComponent implements OnInit {
+export class AuthRegisterManagementComponent implements OnInit, OnDestroy {
 	providerNameList!: AuthProvider[];
-
 	lastUserId!: string;
+	private _subscription: Subscription = new Subscription();
 
 	redirect: AuthRedirect = {
 		text: 'Vous avez déjà un compte ?',
@@ -25,36 +26,33 @@ export class AuthRegisterManagementComponent implements OnInit {
 		linkLabel: 'Se connecter',
 	};
 
-	newUser: newUserFormDatas = {
-		id: '0',
-		username: '',
-		email: '',
-		password: '',
-		passwordConfirm: '',
-		role: UserRoleEnum.USER,
-		status: AccountStatus.ACTIVE,
-	};
+	newUser: NewUserFormDatas = new NewUserFormDatas(
+		this.lastUserId,
+		'Pimpoye',
+		'Pimpoye@medoc.fr',
+		'mafemmecestmasoeur',
+		'mafemmecestmasoeur',
+		UserRoleEnum.USER,
+		AccountStatus.ACTIVE,
+	);
 
 	constructor(private authService: AuthService) {}
 
 	ngOnInit(): void {
-		this.newUser = {
-			id: this.lastUserId,
-			username: 'Pimpoye',
-			email: 'Pimpoye@medoc.fr',
-			password: 'mafemmecestmasoeur',
-			passwordConfirm: 'mafemmecestmasoeur',
-			role: UserRoleEnum.USER,
-			status: AccountStatus.ACTIVE,
-		};
 		this.providerNameList = this.authService.getProviderNameList();
 	}
 
 	onSubmit(): void {
-		this.authService
-			.createUserWithEmailAndPassword(this.newUser)
-			.subscribe((user: UserAuthPrimaryDatas) => {
-				localStorage.setItem('user', JSON.stringify(user));
-			});
+		this._subscription.add(
+			this.authService
+				.createUserWithEmailAndPassword(this.newUser)
+				.subscribe((user: UserAuthPrimaryDatas) => {
+					localStorage.setItem('user', JSON.stringify(user));
+				}),
+		);
+	}
+
+	ngOnDestroy(): void {
+		this._subscription.unsubscribe();
 	}
 }

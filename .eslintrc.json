@@ -34,7 +34,8 @@
 						"style": "kebab-case"
 					}
 				],
-				"no-console": "warn"
+				"no-console": "warn",
+				"max-len": [0, 80, 2, { "ignoreUrls": true }]
 			}
 		},
 		{
