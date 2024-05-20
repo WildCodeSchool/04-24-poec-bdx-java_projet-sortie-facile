@@ -38,6 +38,24 @@
       "passwordConfirm": "mafemmecestmasoeur",
       "role": "user",
       "status": "active"
+    },
+    {
+      "id": "7105",
+      "username": "Pimpoye",
+      "email": "Pimpoye@medoc.fr",
+      "password": "mafemmecestmasoeur",
+      "passwordConfirm": "mafemmecestmasoeur",
+      "role": "user",
+      "status": "active"
+    },
+    {
+      "id": "1a32",
+      "username": "Pimpoye",
+      "email": "Pimpoye@medoc.fr",
+      "password": "mafemmecestmasoeur",
+      "passwordConfirm": "mafemmecestmasoeur",
+      "role": "user",
+      "status": "active"
     }
   ],
   "user_details": [
@@ -170,6 +188,54 @@
       "genre": "masculin",
       "categoryIds": [],
       "userId": "06c6"
+    },
+    {
+      "id": "aeca",
+      "firstname": "",
+      "lastname": "",
+      "streetNumber": "",
+      "street": "",
+      "region": "",
+      "postalCode": 33000,
+      "description": "",
+      "department": {
+        "id": "1",
+        "name": ""
+      },
+      "city": {
+        "id": 1,
+        "name": ""
+      },
+      "avatar": "",
+      "phone": "",
+      "birthdate": "",
+      "genre": "masculin",
+      "categoryIds": [],
+      "userId": "7105"
+    },
+    {
+      "id": "a402",
+      "firstname": "",
+      "lastname": "",
+      "streetNumber": "",
+      "street": "",
+      "region": "",
+      "postalCode": 33000,
+      "description": "",
+      "department": {
+        "id": "1",
+        "name": ""
+      },
+      "city": {
+        "id": 1,
+        "name": ""
+      },
+      "avatar": "",
+      "phone": "",
+      "birthdate": "",
+      "genre": "masculin",
+      "categoryIds": [],
+      "userId": "1a32"
     }
   ],
   "category": [

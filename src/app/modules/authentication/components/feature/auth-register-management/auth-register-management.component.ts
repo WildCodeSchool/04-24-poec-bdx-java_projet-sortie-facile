@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { City } from '@shared/models/classes/city.class';
 import { Department } from '@shared/models/classes/department.class';
 import { NewUserFormDatas } from '@shared/models/classes/new-user-form-datas.class';

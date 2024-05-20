@@ -80,6 +80,8 @@ export class AuthService {
 			})),
 			tap((user: newUserDatas) => {
 				this.setConnectedUserData(user);
+				this.notifyLoggedInStatus(true);
+				localStorage.setItem('user', JSON.stringify(user));
 			}),
 
 			switchMap((newUser: newUserDatas) =>
@@ -88,6 +90,9 @@ export class AuthService {
 					userId: newUser.id,
 				}),
 			),
+			tap(() => {
+				this._router.navigateByUrl('/user/home');
+			}),
 		);
 	}
 
