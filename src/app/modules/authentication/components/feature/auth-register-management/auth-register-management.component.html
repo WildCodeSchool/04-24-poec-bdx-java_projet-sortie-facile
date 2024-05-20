@@ -114,6 +114,17 @@
 			></app-text-field>
 
 			<app-select-department
+				labelFor="region"
+				labelContent="Region :"
+				id="region"
+				inputId="region"
+				name="region"
+				[required]="true"
+				#region="ngModel"
+				[(ngModel)]="newUserPersonalInfos.region"
+			></app-select-department>
+
+			<app-select-department
 				labelFor="departement"
 				labelContent="Département :"
 				id="departement"

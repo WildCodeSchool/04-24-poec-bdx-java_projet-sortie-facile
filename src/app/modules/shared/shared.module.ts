@@ -29,6 +29,7 @@ import { ModalConfirmReservationComponent } from './components/modal/modal-confi
 import { ModalConfirmCreatActivityComponent } from './components/modal/modal-confirm-creat-activity/modal-confirm-creat-activity.component';
 import { ModalConfirmUpdateActivityComponent } from './components/modal/modal-confirm-update-activity/modal-confirm-update-activity.component';
 import { SelectDepartmentComponent } from './components/select/select-department/select-department.component';
+import { SelectRegionComponent } from './components/select/select-region/select-region.component';
 
 @NgModule({
 	declarations: [
@@ -58,6 +59,7 @@ import { SelectDepartmentComponent } from './components/select/select-department
 		ModalConfirmCreatActivityComponent,
 		ModalConfirmUpdateActivityComponent,
 		SelectDepartmentComponent,
+		SelectRegionComponent,
 	],
 	imports: [
 		CommonModule,
@@ -95,6 +97,7 @@ import { SelectDepartmentComponent } from './components/select/select-department
 		ModalConfirmUpdateActivityComponent,
 		ModalConfirmCreatActivityComponent,
 		SelectDepartmentComponent,
+		SelectRegionComponent,
 	],
 })
 export class SharedModule {}
