@@ -3,10 +3,93 @@
 	backgroundImage="/assets/photos/signup.jpg"
 	[redirect]="redirect"
 >
-	{{ 'current step : ' + step }}
-	<app-stepper-register (sendStepValueToParent)="onChangeStep($event)">
-		<div firstStep>toto</div>
-		<div secondStep>c ok</div>
+	<app-stepper-register
+		[newUserAuth]="newUserAuth"
+		[newUserPersonalInfos]="newUserPersonalInfos"
+		(sendStepValueToParent)="onChangeStep($event)"
+		(register)="onRegister()"
+	>
+		<div firstStep>
+			<form #registerForm="ngForm" (ngSubmit)="onSubmit()">
+				<app-text-field
+					labelFor="username"
+					labelContent="Nom d'utilisateur :"
+					type="text"
+					id="username"
+					name="username"
+					[(ngModel)]="newUserAuth.username"
+					[form]="registerForm"
+					[required]="true"
+					[minlength]="3"
+					[maxlength]="50"
+				></app-text-field>
+
+				<app-text-field
+					labelFor="email"
+					labelContent="Email :"
+					type="text"
+					id="email"
+					name="email"
+					[(ngModel)]="newUserAuth.email"
+					[form]="registerForm"
+					[required]="true"
+					[email]="true"
+				></app-text-field>
+
+				<app-password-field
+					labelFor="password"
+					labelContent="Password :"
+					id="password"
+					name="password"
+					[(ngModel)]="newUserAuth.password"
+					[form]="registerForm"
+					[required]="true"
+					[minlength]="3"
+					[maxlength]="50"
+				></app-password-field>
+
+				<app-password-field
+					labelFor="passwordConfirm"
+					labelContent="Confirmation de votre mot de passe :"
+					id="passwordConfirm"
+					name="passwordConfirm"
+					[(ngModel)]="newUserAuth.passwordConfirm"
+					[form]="registerForm"
+					[required]="true"
+					[minlength]="3"
+					[maxlength]="50"
+				></app-password-field>
+			</form>
+		</div>
+		<div secondStep>
+			<form #registerPersonalInfosForm="ngForm" (ngSubmit)="onSubmit()">
+				<app-text-field
+					labelFor="lastname"
+					labelContent="Nom : *"
+					type="text"
+					id="lastname"
+					name="lastname"
+					[(ngModel)]="newUserPersonalInfos.lastname"
+					[form]="registerPersonalInfosForm"
+					[required]="true"
+					[minlength]="3"
+					[maxlength]="50"
+				></app-text-field>
+
+				<app-text-field
+					labelFor="firstname"
+					labelContent="Firstname :"
+					type="text"
+					id="firstname"
+					name="firstname"
+					[(ngModel)]="newUserPersonalInfos.firstname"
+					[form]="registerPersonalInfosForm"
+					[required]="true"
+					[minlength]="3"
+					[maxlength]="50"
+				></app-text-field>
+			</form>
+		</div>
 	</app-stepper-register>
 
 	<app-divider align="center" type="solid" text="ou"></app-divider>

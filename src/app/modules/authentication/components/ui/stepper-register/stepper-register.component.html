@@ -36,7 +36,10 @@
 						(click)="onClick(1); prevCallback.emit()"
 					></app-button-form>
 
-					<app-button-form iconName="arrow-right"></app-button-form>
+					<app-button-form
+						iconName="arrow-right"
+						(click)="onRegister()"
+					></app-button-form>
 				</div>
 			</ng-template>
 		</p-stepperPanel>

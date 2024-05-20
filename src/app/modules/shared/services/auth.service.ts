@@ -75,7 +75,6 @@ export class AuthService {
 			})),
 			tap((user: newUserDatas) => {
 				this.setConnectedUserData(user);
-				this._router.navigateByUrl('/user/home');
 			}),
 		);
 	}

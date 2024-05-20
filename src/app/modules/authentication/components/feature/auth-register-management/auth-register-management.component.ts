@@ -1,5 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { NewUserFormDatas } from '@shared/models/classes/new-user-form-datas.class';
+import { NewUserPersonalInfosFormDatas } from '@shared/models/classes/new-user-personal-infos-form-datas.class';
 import {
 	AccountStatus,
 	UserRoleEnum,
@@ -27,8 +28,8 @@ export class AuthRegisterManagementComponent implements OnInit, OnDestroy {
 		linkLabel: 'Se connecter',
 	};
 
-	newUser: NewUserFormDatas = new NewUserFormDatas(
-		this.lastUserId,
+	newUserAuth: NewUserFormDatas = new NewUserFormDatas(
+		String(Number(this.lastUserId) + 1),
 		'Pimpoye',
 		'Pimpoye@medoc.fr',
 		'mafemmecestmasoeur',
@@ -36,6 +37,9 @@ export class AuthRegisterManagementComponent implements OnInit, OnDestroy {
 		UserRoleEnum.USER,
 		AccountStatus.ACTIVE,
 	);
+
+	newUserPersonalInfos: NewUserPersonalInfosFormDatas =
+		new NewUserPersonalInfosFormDatas('', '', '');
 
 	constructor(private authService: AuthService) {}
 
@@ -47,7 +51,7 @@ export class AuthRegisterManagementComponent implements OnInit, OnDestroy {
 	onSubmit(): void {
 		this._subscription.add(
 			this.authService
-				.createUserWithEmailAndPassword(this.newUser)
+				.createUserWithEmailAndPassword(this.newUserAuth)
 				.subscribe((user: UserAuthPrimaryDatas) => {
 					localStorage.setItem('user', JSON.stringify(user));
 				}),
@@ -55,7 +59,12 @@ export class AuthRegisterManagementComponent implements OnInit, OnDestroy {
 	}
 
 	onChangeStep(newStepValue: number): void {
+		// this.onSubmit();
 		this.step = newStepValue;
+	}
+
+	onRegister(): void {
+		console.log(this.newUserPersonalInfos);
 	}
 
 	ngOnDestroy(): void {
