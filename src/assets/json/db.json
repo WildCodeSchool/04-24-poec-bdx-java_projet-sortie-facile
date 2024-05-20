@@ -649,44 +649,6 @@
       "imgUrl": "",
       "link": "",
       "userId": "1"
-    },
-    {
-      "id": "9",
-      "name": "toto",
-      "date": "",
-      "hour": "",
-      "activityCity": {
-        "id": 1,
-        "name": ""
-      },
-      "categoryId": {
-        "id": "1",
-        "title": ""
-      },
-      "nbGuest": 0,
-      "description": "",
-      "imgUrl": "",
-      "link": "",
-      "userId": "1"
-    },
-    {
-      "id": "10",
-      "name": "totogdyhfgdbfychj",
-      "date": "",
-      "hour": "",
-      "activityCity": {
-        "id": 2,
-        "name": "Rome"
-      },
-      "categoryId": {
-        "id": "2",
-        "title": "Music"
-      },
-      "nbGuest": 0,
-      "description": "",
-      "imgUrl": "",
-      "link": "",
-      "userId": "1"
     }
   ],
   "contact": [
