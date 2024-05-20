@@ -9,87 +9,122 @@
 		(sendStepValueToParent)="onChangeStep($event)"
 		(register)="onRegister()"
 	>
-		<div firstStep>
-			<form #registerForm="ngForm" (ngSubmit)="onSubmit()">
-				<app-text-field
-					labelFor="username"
-					labelContent="Nom d'utilisateur :"
-					type="text"
-					id="username"
-					name="username"
-					[(ngModel)]="newUserAuth.username"
-					[form]="registerForm"
-					[required]="true"
-					[minlength]="3"
-					[maxlength]="50"
-				></app-text-field>
+		<form #registerForm="ngForm" (ngSubmit)="onSubmit()" firstStep>
+			<app-text-field
+				labelFor="username"
+				labelContent="Nom d'utilisateur :"
+				type="text"
+				id="username"
+				name="username"
+				[(ngModel)]="newUserAuth.username"
+				[form]="registerForm"
+				[required]="true"
+				[minlength]="3"
+				[maxlength]="50"
+			></app-text-field>
 
-				<app-text-field
-					labelFor="email"
-					labelContent="Email :"
-					type="text"
-					id="email"
-					name="email"
-					[(ngModel)]="newUserAuth.email"
-					[form]="registerForm"
-					[required]="true"
-					[email]="true"
-				></app-text-field>
+			<app-text-field
+				labelFor="email"
+				labelContent="Email :"
+				type="text"
+				id="email"
+				name="email"
+				[(ngModel)]="newUserAuth.email"
+				[form]="registerForm"
+				[required]="true"
+				[email]="true"
+			></app-text-field>
 
-				<app-password-field
-					labelFor="password"
-					labelContent="Password :"
-					id="password"
-					name="password"
-					[(ngModel)]="newUserAuth.password"
-					[form]="registerForm"
-					[required]="true"
-					[minlength]="3"
-					[maxlength]="50"
-				></app-password-field>
+			<app-password-field
+				labelFor="password"
+				labelContent="Password :"
+				id="password"
+				name="password"
+				[(ngModel)]="newUserAuth.password"
+				[form]="registerForm"
+				[required]="true"
+				[minlength]="3"
+				[maxlength]="50"
+			></app-password-field>
 
-				<app-password-field
-					labelFor="passwordConfirm"
-					labelContent="Confirmation de votre mot de passe :"
-					id="passwordConfirm"
-					name="passwordConfirm"
-					[(ngModel)]="newUserAuth.passwordConfirm"
-					[form]="registerForm"
-					[required]="true"
-					[minlength]="3"
-					[maxlength]="50"
-				></app-password-field>
-			</form>
-		</div>
-		<div secondStep>
-			<form #registerPersonalInfosForm="ngForm" (ngSubmit)="onSubmit()">
-				<app-text-field
-					labelFor="lastname"
-					labelContent="Nom : *"
-					type="text"
-					id="lastname"
-					name="lastname"
-					[(ngModel)]="newUserPersonalInfos.lastname"
-					[form]="registerPersonalInfosForm"
-					[required]="true"
-					[minlength]="3"
-					[maxlength]="50"
-				></app-text-field>
+			<app-password-field
+				labelFor="passwordConfirm"
+				labelContent="Confirmation de votre mot de passe :"
+				id="passwordConfirm"
+				name="passwordConfirm"
+				[(ngModel)]="newUserAuth.passwordConfirm"
+				[form]="registerForm"
+				[required]="true"
+				[minlength]="3"
+				[maxlength]="50"
+			></app-password-field>
+		</form>
 
-				<app-text-field
-					labelFor="firstname"
-					labelContent="Firstname :"
-					type="text"
-					id="firstname"
-					name="firstname"
-					[(ngModel)]="newUserPersonalInfos.firstname"
-					[form]="registerPersonalInfosForm"
-					[required]="true"
-					[minlength]="3"
-					[maxlength]="50"
-				></app-text-field>
-			</form>
-		</div>
+		<form
+			#registerPersonalInfosForm="ngForm"
+			(ngSubmit)="onSubmit()"
+			secondStep
+		>
+			<app-text-field
+				labelFor="lastname"
+				labelContent="Nom : *"
+				type="text"
+				id="lastname"
+				name="lastname"
+				[(ngModel)]="newUserPersonalInfos.lastname"
+				[form]="registerPersonalInfosForm"
+				[required]="true"
+				[minlength]="3"
+				[maxlength]="50"
+			></app-text-field>
+
+			<app-text-field
+				labelFor="firstname"
+				labelContent="Firstname :"
+				type="text"
+				id="firstname"
+				name="firstname"
+				[(ngModel)]="newUserPersonalInfos.firstname"
+				[form]="registerPersonalInfosForm"
+				[required]="true"
+				[minlength]="3"
+				[maxlength]="50"
+			></app-text-field>
+
+			<app-textarea
+				labelFor="firstname"
+				labelContent="Firstname :"
+				id="firstname"
+				name="firstname"
+				[rows]="5"
+				[(ngModel)]="newUserPersonalInfos.description"
+				[form]="registerPersonalInfosForm"
+				[minlength]="20"
+				[maxlength]="500"
+			></app-textarea>
+
+			<app-select-city
+				labelFor="city"
+				labelContent="Lieu :"
+				id="city"
+				inputId="city"
+				name="activityCity"
+				[required]="true"
+				[(ngModel)]="newUserPersonalInfos.city"
+			>
+			</app-select-city>
+
+			<app-select-category
+				labelFor="categoryIds"
+				labelContent="Centres d'interêts :"
+				id="categoryIds"
+				inputId="categoryIds"
+				name="categoryIds"
+				[required]="true"
+				#category="ngModel"
+				[(ngModel)]="newUserPersonalInfos.categoryIds"
+			></app-select-category>
+		</form>
 	</app-stepper-register>
 
 	<app-divider align="center" type="solid" text="ou"></app-divider>

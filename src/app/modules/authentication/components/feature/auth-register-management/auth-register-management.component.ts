@@ -1,4 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { City } from '@shared/models/classes/city.class';
 import { NewUserFormDatas } from '@shared/models/classes/new-user-form-datas.class';
 import { NewUserPersonalInfosFormDatas } from '@shared/models/classes/new-user-personal-infos-form-datas.class';
 import {
@@ -39,7 +40,7 @@ export class AuthRegisterManagementComponent implements OnInit, OnDestroy {
 	);
 
 	newUserPersonalInfos: NewUserPersonalInfosFormDatas =
-		new NewUserPersonalInfosFormDatas('', '', '');
+		new NewUserPersonalInfosFormDatas('', '', '', '', new City(1, ''), []);
 
 	constructor(private authService: AuthService) {}
 

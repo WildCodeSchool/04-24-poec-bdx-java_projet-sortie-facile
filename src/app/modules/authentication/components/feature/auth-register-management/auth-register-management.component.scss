@@ -6,13 +6,8 @@ app-auth-layout {
 form {
 	display: flex;
 	flex-direction: column;
-	gap: 0rem;
+	gap: 1rem;
 	width: 100%;
-}
-
-app-text-field,
-app-password-field {
-	margin-top: 1rem;
 }
 
 .forgot-password-link-container {
