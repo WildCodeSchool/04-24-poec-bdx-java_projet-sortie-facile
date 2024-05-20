@@ -18,6 +18,7 @@ import { Subscription } from 'rxjs';
 export class AuthRegisterManagementComponent implements OnInit, OnDestroy {
 	providerNameList!: AuthProvider[];
 	lastUserId!: string;
+	step!: number;
 	private _subscription: Subscription = new Subscription();
 
 	redirect: AuthRedirect = {
@@ -40,6 +41,7 @@ export class AuthRegisterManagementComponent implements OnInit, OnDestroy {
 
 	ngOnInit(): void {
 		this.providerNameList = this.authService.getProviderNameList();
+		this.step = 1;
 	}
 
 	onSubmit(): void {
@@ -50,6 +52,10 @@ export class AuthRegisterManagementComponent implements OnInit, OnDestroy {
 					localStorage.setItem('user', JSON.stringify(user));
 				}),
 		);
+	}
+
+	onChangeStep(newStepValue: number): void {
+		this.step = newStepValue;
 	}
 
 	ngOnDestroy(): void {

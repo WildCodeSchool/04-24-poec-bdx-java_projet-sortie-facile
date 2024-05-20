@@ -13,7 +13,7 @@
 				<div class="btn-box btn-box-right">
 					<app-button-form
 						iconName="arrow-right"
-						(click)="nextCallback.emit()"
+						(click)="onClick(2); nextCallback.emit()"
 					></app-button-form>
 				</div>
 			</ng-template>
@@ -33,7 +33,7 @@
 				<div class="btn-box btn-box-between">
 					<app-button-form
 						iconName="arrow-left"
-						(click)="prevCallback.emit()"
+						(click)="onClick(1); prevCallback.emit()"
 					></app-button-form>
 
 					<app-button-form iconName="arrow-right"></app-button-form>
