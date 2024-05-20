@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { UserInfo } from '@shared/models/classes/user-infos.type';
+import { UserInfo } from '@shared/models/types/userInfos.type';
 
 @Component({
 	selector: 'app-avatar-pseudo',

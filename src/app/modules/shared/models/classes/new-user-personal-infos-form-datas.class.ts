@@ -3,7 +3,6 @@ import { City } from './city.class';
 import { Department } from './department.class';
 
 export class NewUserPersonalInfosFormDatas {
-	id: string;
 	firstname: string;
 	lastname: string;
 	streetNumber: string;
@@ -21,7 +20,6 @@ export class NewUserPersonalInfosFormDatas {
 	userId: string;
 
 	constructor(
-		id: string,
 		firstname: string,
 		lastname: string,
 		streetNumber: string,
@@ -38,7 +36,6 @@ export class NewUserPersonalInfosFormDatas {
 		categoryIds: string[],
 		userId: string,
 	) {
-		this.id = id;
 		this.firstname = firstname;
 		this.lastname = lastname;
 		this.streetNumber = streetNumber;

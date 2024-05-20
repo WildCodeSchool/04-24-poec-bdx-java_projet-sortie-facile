@@ -10,7 +10,6 @@ import {
 } from '@shared/models/enums/user-role.enum';
 import { AuthRedirect } from '@shared/models/types/auth-redirect.type';
 import { AuthProvider } from '@shared/models/types/provider.type';
-import { UserAuthPrimaryDatas } from '@shared/models/types/user-list-response-api.type';
 import { AuthService } from '@shared/services/auth.service';
 import { Subscription } from 'rxjs';
 
@@ -19,7 +18,7 @@ import { Subscription } from 'rxjs';
 	templateUrl: './auth-register-management.component.html',
 	styleUrl: './auth-register-management.component.scss',
 })
-export class AuthRegisterManagementComponent implements OnInit, OnDestroy {
+export class AuthRegisterManagementComponent implements OnInit {
 	providerNameList!: AuthProvider[];
 	lastUserId!: string;
 	step!: number;
@@ -32,7 +31,6 @@ export class AuthRegisterManagementComponent implements OnInit, OnDestroy {
 	};
 
 	newUserAuth: NewUserFormDatas = new NewUserFormDatas(
-		String(Number(this.lastUserId) + 1),
 		'Pimpoye',
 		'Pimpoye@medoc.fr',
 		'mafemmecestmasoeur',
@@ -48,7 +46,6 @@ export class AuthRegisterManagementComponent implements OnInit, OnDestroy {
 			'',
 			'',
 			'',
-			'',
 			33000,
 			'',
 			new Department('1', ''),
@@ -58,37 +55,19 @@ export class AuthRegisterManagementComponent implements OnInit, OnDestroy {
 			'',
 			UserGenderEnum.MALE,
 			[],
-			'1',
+			'',
 		);
 
-	constructor(private authService: AuthService) {}
+	constructor(private _authService: AuthService) {}
 
 	ngOnInit(): void {
-		this.providerNameList = this.authService.getProviderNameList();
+		this.providerNameList = this._authService.getProviderNameList();
 		this.step = 1;
 	}
 
-	onSubmit(): void {
-		this._subscription.add(
-			this.authService
-				.createUserWithEmailAndPassword(this.newUserAuth)
-				.subscribe((user: UserAuthPrimaryDatas) => {
-					localStorage.setItem('user', JSON.stringify(user));
-				}),
-		);
-	}
-
 	onChangeStep(newStepValue: number): void {
-		// this.onSubmit();
 		this.step = newStepValue;
-		console.log(this.newUserAuth);
 	}
 
-	onRegister(): void {
-		console.log(this.newUserPersonalInfos);
-	}
-
-	ngOnDestroy(): void {
-		this._subscription.unsubscribe();
-	}
+	onRegister(): void {}
 }

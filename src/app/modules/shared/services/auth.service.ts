@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, map, tap } from 'rxjs';
+import { BehaviorSubject, Observable, map, switchMap, tap } from 'rxjs';
 import { Router } from '@angular/router';
 import {
 	UserAuth,
@@ -13,6 +13,9 @@ import { AccountStatus } from '@shared/models/enums/user-role.enum';
 import { AuthProvider } from '@shared/models/types/provider.type';
 import { AuthProviderNameEnum } from '@shared/models/enums/auth-provider';
 import { NewUserFormDatas } from '@shared/models/classes/new-user-form-datas.class';
+import { UserService } from './user.service';
+import { NewUserPersonalInfosFormDatas } from '@shared/models/classes/new-user-personal-infos-form-datas.class';
+import { UserInfo } from '@shared/models/classes/user-infos.type';
 
 @Injectable({
 	providedIn: 'root',
@@ -33,6 +36,7 @@ export class AuthService {
 	constructor(
 		private _httpClient: HttpClient,
 		private _router: Router,
+		private _userService: UserService,
 	) {}
 
 	loginWithEmailAndPassword(
@@ -62,9 +66,10 @@ export class AuthService {
 	}
 
 	createUserWithEmailAndPassword(
-		newUser: NewUserFormDatas,
-	): Observable<newUserDatas> {
-		return this._httpClient.post<newUser>(this.BASE_URL, newUser).pipe(
+		newUserAuthInfos: NewUserFormDatas,
+		newUserPersonalInfos: NewUserPersonalInfosFormDatas,
+	): Observable<UserInfo> {
+		return this._httpClient.post<newUser>(this.BASE_URL, newUserAuthInfos).pipe(
 			map((user: newUser) => ({
 				id: user.id,
 				username: user.username,
@@ -76,6 +81,13 @@ export class AuthService {
 			tap((user: newUserDatas) => {
 				this.setConnectedUserData(user);
 			}),
+
+			switchMap((newUser: newUserDatas) =>
+				this._userService.postUserInfos$({
+					...newUserPersonalInfos,
+					userId: newUser.id,
+				}),
+			),
 		);
 	}
 
