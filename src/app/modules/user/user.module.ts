@@ -43,8 +43,8 @@ import { AccountAddressFormComponent } from './components/ui/account-form/accoun
 		AccountCardInfoComponent,
 		AccountActivitiesManagementComponent,
 		AccountCenterOfInterestManagementComponent,
-  AccountPersonalInfosFormComponent,
-  AccountAddressFormComponent,
+		AccountPersonalInfosFormComponent,
+		AccountAddressFormComponent,
 	],
 	imports: [CommonModule, UserRoutingModule, SharedModule, FormsModule],
 })

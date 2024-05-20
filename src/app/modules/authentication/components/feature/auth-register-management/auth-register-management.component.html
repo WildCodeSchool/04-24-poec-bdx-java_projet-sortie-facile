@@ -3,7 +3,11 @@
 	backgroundImage="/assets/photos/signup.jpg"
 	[redirect]="redirect"
 >
-	<form #registerForm="ngForm" (ngSubmit)="onSubmit()">
+	<app-stepper-register>
+		<div firstStep>toto</div>
+		<div secondStep>c ok</div>
+	</app-stepper-register>
+	<!-- <form #registerForm="ngForm" (ngSubmit)="onSubmit()">
 		<app-text-field
 			labelFor="username"
 			labelContent="Nom d'utilisateur :"
@@ -56,7 +60,7 @@
 		<div class="btn-container">
 			<app-button-form iconName="arrow-right"></app-button-form>
 		</div>
-	</form>
+	</form> -->
 
 	<app-divider align="center" type="solid" text="ou"></app-divider>
 

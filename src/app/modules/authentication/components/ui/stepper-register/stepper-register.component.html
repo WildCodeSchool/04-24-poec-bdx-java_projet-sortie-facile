@@ -1,0 +1,44 @@
+<div class="">
+	<p-stepper>
+		<p-stepperPanel header="Infos d’authentification">
+			<ng-template
+				pTemplate="content"
+				let-nextCallback="nextCallback"
+				let-index="index"
+			>
+				<div>
+					<ng-content select="[firstStep]"></ng-content>
+				</div>
+
+				<div class="btn-box btn-box-right">
+					<app-button-form
+						iconName="arrow-right"
+						(click)="nextCallback.emit()"
+					></app-button-form>
+				</div>
+			</ng-template>
+		</p-stepperPanel>
+
+		<p-stepperPanel header="Infos de profil">
+			<ng-template
+				pTemplate="content"
+				let-prevCallback="prevCallback"
+				let-nextCallback="nextCallback"
+				let-index="index"
+			>
+				<div>
+					<ng-content select="[secondStep]"></ng-content>
+				</div>
+
+				<div class="btn-box btn-box-between">
+					<app-button-form
+						iconName="arrow-left"
+						(click)="prevCallback.emit()"
+					></app-button-form>
+
+					<app-button-form iconName="arrow-right"></app-button-form>
+				</div>
+			</ng-template>
+		</p-stepperPanel>
+	</p-stepper>
+</div>

@@ -8,6 +8,7 @@ import { AuthLoginManagementComponent } from '@authentication/components/feature
 import { AuthLayoutComponent } from './components/ui/auth-layout/auth-layout.component';
 import { AuthRegisterManagementComponent } from './components/feature/auth-register-management/auth-register-management.component';
 import { AuthRegisterComponent } from './pages/auth-register/auth-register.component';
+import { StepperRegisterComponent } from './components/ui/stepper-register/stepper-register.component';
 
 @NgModule({
 	declarations: [
@@ -16,6 +17,7 @@ import { AuthRegisterComponent } from './pages/auth-register/auth-register.compo
 		AuthLayoutComponent,
 		AuthRegisterManagementComponent,
 		AuthRegisterComponent,
+		StepperRegisterComponent,
 	],
 	imports: [
 		CommonModule,
