@@ -1,9 +1,12 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Activity } from '@shared/models/types/activity.type';
+import { UserAuthPrimaryDatas } from '@shared/models/types/user-list-response-api.type';
 import { ActivityService } from '@shared/services/activity.service';
+import { AuthService } from '@shared/services/auth.service';
 import { ConfirmationService, MessageService } from 'primeng/api';
+import { catchError, tap } from 'rxjs';
 
 @Component({
 	selector: 'app-modal-confirm-creat-activity',
@@ -11,14 +14,22 @@ import { ConfirmationService, MessageService } from 'primeng/api';
 	styleUrl: './modal-confirm-creat-activity.component.scss',
 	providers: [ConfirmationService, MessageService],
 })
-export class ModalConfirmCreatActivityComponent {
+export class ModalConfirmCreatActivityComponent implements OnInit {
 	@Input() myForm!: NgForm;
+
+	connectedUser!: UserAuthPrimaryDatas;
+
 	constructor(
 		private confirmationService: ConfirmationService,
 		private messageService: MessageService,
 		private activityService: ActivityService,
 		private router: Router,
+		private _authService: AuthService,
 	) {}
+
+	ngOnInit(): void {
+		this.connectedUser = this._authService.getConnectedUserData();
+	}
 
 	onSubmit() {
 		if (this.myForm && this.myForm.valid) {
@@ -43,27 +54,33 @@ export class ModalConfirmCreatActivityComponent {
 	}
 
 	private onAccept(): void {
-		this.activityService.postNewActivity$(this.myForm.value).subscribe(
-			(activity: Activity) => {
-				this.messageService.add({
-					severity: 'info',
-					summary: 'Bravo',
-					detail: 'Votre activité a bien été créée',
-					life: 3000,
-				});
-				setTimeout(() => {
-					this.router.navigate(['/activity/details', activity.id]);
-				}, 3000);
-			},
-			() => {
-				this.messageService.add({
-					severity: 'error',
-					summary: 'Erreur',
-					detail: "Une erreur s'est produite lors de la création de l'activité",
-					life: 3000,
-				});
-			},
-		);
+		this.activityService
+			.postNewActivity$({ ...this.myForm.value, userId: this.connectedUser.id })
+			.pipe(
+				tap((activity: Activity) => {
+					this.messageService.add({
+						severity: 'info',
+						summary: 'Bravo',
+						detail: 'Votre activité a bien été créée',
+						life: 3000,
+					});
+					setTimeout(() => {
+						this.router.navigate(['/activity/details', activity.id]);
+					}, 3000);
+				}),
+				catchError(() => {
+					this.messageService.add({
+						severity: 'error',
+						summary: 'Erreur',
+						detail:
+							"Une erreur s'est produite lors de la création de l'activité",
+						life: 3000,
+					});
+
+					return [];
+				}),
+			)
+			.subscribe();
 	}
 
 	private onError() {

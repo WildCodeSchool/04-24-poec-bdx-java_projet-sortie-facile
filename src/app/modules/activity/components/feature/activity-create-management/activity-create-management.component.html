@@ -10,9 +10,6 @@
 			id="name"
 			name="name"
 			[form]="addActivityForm"
-			[required]="true"
-			[minlength]="3"
-			[maxlength]="50"
 			[(ngModel)]="newActivity.name"
 			class="input-activity-form"
 		></app-text-field>
@@ -24,7 +21,6 @@
 			id="date"
 			name="date"
 			[showIcon]="true"
-			[required]="true"
 			#date="ngModel"
 			[(ngModel)]="newActivity.date"
 		></app-input-date>
@@ -35,7 +31,6 @@
 			inputId="hour"
 			id="hour"
 			name="hour"
-			[required]="true"
 			#hour="ngModel"
 			[(ngModel)]="newActivity.hour"
 		></app-input-hour>
@@ -46,7 +41,6 @@
 			id="city"
 			inputId="city"
 			name="activityCity"
-			[required]="true"
 			#activityCity="ngModel"
 			[(ngModel)]="newActivity.activityCity"
 		>
@@ -58,7 +52,6 @@
 			id="categoryId"
 			inputId="categoryId"
 			name="categoryId"
-			[required]="true"
 			#category="ngModel"
 			[(ngModel)]="newActivity.categoryId"
 		></app-select-category>
@@ -68,7 +61,6 @@
 			labelContent="Nbre de participants :"
 			inputId="nbGuest"
 			name="nbGuest"
-			[required]="true"
 			#nbGuest="ngModel"
 			[(ngModel)]="newActivity.nbGuest"
 		></app-select-number>
@@ -80,7 +72,6 @@
 			name="description"
 			[cols]="5"
 			[rows]="5"
-			[required]="true"
 			#description="ngModel"
 			[form]="addActivityForm"
 			[(ngModel)]="newActivity.description"
@@ -105,9 +96,6 @@
 			id="link"
 			name="link"
 			[form]="addActivityForm"
-			[required]="true"
-			[minlength]="3"
-			[maxlength]="50"
 			[(ngModel)]="newActivity.link"
 		></app-text-field>
 

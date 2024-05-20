@@ -28,13 +28,14 @@ export class ActivityCreateManagementComponent implements OnDestroy {
 		0,
 		new Category('1', ''),
 		'',
-		'1',
+		'',
 	);
 
 	onSubmit(form: NgForm): void {
-		this._subscription.add(
-			this.activityService.postNewActivity$(form.value).subscribe(),
-		);
+		// console.log(this.newActivity);
+		// this._subscription.add(
+		// 	this.activityService.postNewActivity$(form.value).subscribe(),
+		// );
 	}
 
 	ngOnDestroy(): void {
