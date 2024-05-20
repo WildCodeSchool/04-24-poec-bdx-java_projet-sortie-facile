@@ -210,11 +210,15 @@
 		</form>
 	</app-stepper-register>
 
-	<app-divider align="center" type="solid" text="ou"></app-divider>
+	<ng-container *ngIf="step === 1">
+		<app-divider align="center" type="solid" text="ou"></app-divider>
 
-	<div class="btn-social-container">
-		<ng-container *ngFor="let providerName of providerNameList">
-			<app-button-social [providerName]="providerName.name"></app-button-social>
-		</ng-container>
-	</div>
+		<div class="btn-social-container">
+			<ng-container *ngFor="let providerName of providerNameList">
+				<app-button-social
+					[providerName]="providerName.name"
+				></app-button-social>
+			</ng-container>
+		</div>
+	</ng-container>
 </app-auth-layout>

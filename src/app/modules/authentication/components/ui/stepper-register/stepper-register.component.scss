@@ -13,14 +13,20 @@
 			height: 30px;
 		}
 
-		&.p-highlight .p-stepper-action .p-stepper-number {
-			background-color: var(--primary-color);
-			color: var(--white-color);
-		}
-
 		.p-stepper-title {
 			color: var(--dark-color);
 			font-size: 1rem;
+		}
+
+		&.p-highlight {
+			.p-stepper-action .p-stepper-number {
+				background-color: var(--primary-color);
+				color: var(--white-color);
+			}
+
+			.p-stepper-title {
+				font-weight: bold;
+			}
 		}
 	}
 
