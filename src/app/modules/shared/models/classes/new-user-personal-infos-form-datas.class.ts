@@ -1,4 +1,5 @@
 import { City } from './city.class';
+import { Department } from './department.class';
 
 export class NewUserPersonalInfosFormDatas {
 	id: string;
@@ -7,6 +8,7 @@ export class NewUserPersonalInfosFormDatas {
 	description: string;
 	city: City;
 	categoryIds: string[];
+	department: Department;
 
 	constructor(
 		id: string,
@@ -15,6 +17,7 @@ export class NewUserPersonalInfosFormDatas {
 		description: string,
 		city: City,
 		categoryIds: string[],
+		department: Department,
 	) {
 		this.id = id;
 		this.firstname = firstname;
@@ -22,5 +25,6 @@ export class NewUserPersonalInfosFormDatas {
 		this.description = description;
 		this.city = city;
 		this.categoryIds = categoryIds;
+		this.department = department;
 	}
 }

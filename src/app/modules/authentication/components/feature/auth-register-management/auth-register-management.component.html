@@ -105,7 +105,7 @@
 
 			<app-select-city
 				labelFor="city"
-				labelContent="Lieu :"
+				labelContent="Ville :"
 				id="city"
 				inputId="city"
 				name="activityCity"
@@ -124,6 +124,17 @@
 				#category="ngModel"
 				[(ngModel)]="newUserPersonalInfos.categoryIds"
 			></app-select-category>
+
+			<app-select-department
+				labelFor="departement"
+				labelContent="Département :"
+				id="departement"
+				inputId="departement"
+				name="departement"
+				[required]="true"
+				#departement="ngModel"
+				[(ngModel)]="newUserPersonalInfos.department"
+			></app-select-department>
 		</form>
 	</app-stepper-register>
 
