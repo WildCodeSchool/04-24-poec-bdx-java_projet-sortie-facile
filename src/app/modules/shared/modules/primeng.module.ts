@@ -21,6 +21,7 @@ import { TabMenuModule } from 'primeng/tabmenu';
 import { ScrollTopModule } from 'primeng/scrolltop';
 import { CarouselModule } from 'primeng/carousel';
 import { StepperModule } from 'primeng/stepper';
+import { InputMaskModule } from 'primeng/inputmask';
 
 @NgModule({
 	exports: [
@@ -47,6 +48,7 @@ import { StepperModule } from 'primeng/stepper';
 		ScrollTopModule,
 		CarouselModule,
 		StepperModule,
+		InputMaskModule,
 	],
 })
 export class PrimengModule {}

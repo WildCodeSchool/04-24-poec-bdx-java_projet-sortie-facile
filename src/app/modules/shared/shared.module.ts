@@ -31,6 +31,7 @@ import { ModalConfirmUpdateActivityComponent } from './components/modal/modal-co
 import { SelectDepartmentComponent } from './components/select/select-department/select-department.component';
 import { SelectRegionComponent } from './components/select/select-region/select-region.component';
 import { NumberFieldComponent } from './components/form/number-field/number-field.component';
+import { MaskFieldComponent } from './components/form/mask-field/mask-field.component';
 
 @NgModule({
 	declarations: [
@@ -62,6 +63,7 @@ import { NumberFieldComponent } from './components/form/number-field/number-fiel
 		SelectDepartmentComponent,
 		SelectRegionComponent,
 		NumberFieldComponent,
+		MaskFieldComponent,
 	],
 	imports: [
 		CommonModule,
@@ -101,6 +103,7 @@ import { NumberFieldComponent } from './components/form/number-field/number-fiel
 		SelectDepartmentComponent,
 		SelectRegionComponent,
 		NumberFieldComponent,
+		MaskFieldComponent,
 	],
 })
 export class SharedModule {}

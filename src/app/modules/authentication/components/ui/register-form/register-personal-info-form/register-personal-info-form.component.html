@@ -25,27 +25,30 @@
 		[maxlength]="50"
 	></app-text-field>
 
-	<app-text-field
+	<app-mask-field
 		labelFor="phone"
 		labelContent="Téléphone :"
-		type="text"
 		id="phone"
 		name="phone"
+		placeholder="99-99-99-99-99"
+		mask="99-99-99-99-99"
 		[(ngModel)]="newUserPersonalInfos.phone"
 		[form]="registerPersonalInfosForm"
 		[required]="true"
-	></app-text-field>
+	></app-mask-field>
 
-	<app-text-field
+	<app-mask-field
 		labelFor="birthdate"
 		labelContent="Date de naissance :"
-		type="text"
 		id="birthdate"
 		name="birthdate"
+		placeholder="99/99/9999"
+		mask="99/99/9999"
+		slotChar="dd/mm/yyyy"
 		[(ngModel)]="newUserPersonalInfos.birthdate"
 		[form]="registerPersonalInfosForm"
 		[required]="true"
-	></app-text-field>
+	></app-mask-field>
 
 	<app-select-department
 		labelFor="region"
@@ -72,7 +75,6 @@
 	<app-number-field
 		labelFor="streetNumber"
 		labelContent="N° de rue :"
-		type="text"
 		id="streetNumber"
 		name="streetNumber"
 		[mode]="inputNumberModeEnum.DECIMAL"
@@ -94,19 +96,17 @@
 		[required]="true"
 	></app-text-field>
 
-	<app-number-field
+	<app-mask-field
 		labelFor="postalCode"
 		labelContent="Code postal :"
-		type="text"
 		id="postalCode"
 		name="postalCode"
-		[mode]="inputNumberModeEnum.DECIMAL"
-		[min]="0"
-		[max]="5"
+		placeholder="99999"
+		mask="99999"
 		[(ngModel)]="newUserPersonalInfos.postalCode"
 		[form]="registerPersonalInfosForm"
 		[required]="true"
-	></app-number-field>
+	></app-mask-field>
 
 	<app-select-city
 		labelFor="city"
@@ -120,10 +120,10 @@
 	</app-select-city>
 
 	<app-textarea
-		labelFor="firstname"
-		labelContent="Firstname :"
-		id="firstname"
-		name="firstname"
+		labelFor="description"
+		labelContent="Description :"
+		id="description"
+		name="description"
 		[rows]="5"
 		[(ngModel)]="newUserPersonalInfos.description"
 		[form]="registerPersonalInfosForm"
