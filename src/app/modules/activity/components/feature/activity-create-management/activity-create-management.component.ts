@@ -13,7 +13,6 @@ import { Observable, Subscription } from 'rxjs';
 	styleUrl: './activity-create-management.component.scss',
 })
 export class ActivityCreateManagementComponent implements OnDestroy {
-	newActivity$!: Observable<Activity>;
 	private _subscription: Subscription = new Subscription();
 
 	constructor(private activityService: ActivityService) {}
