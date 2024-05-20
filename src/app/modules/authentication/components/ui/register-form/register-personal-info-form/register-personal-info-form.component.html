@@ -1,0 +1,144 @@
+<form #registerPersonalInfosForm="ngForm">
+	<app-text-field
+		labelFor="lastname"
+		labelContent="Nom :"
+		type="text"
+		id="lastname"
+		name="lastname"
+		[(ngModel)]="newUserPersonalInfos.lastname"
+		[form]="registerPersonalInfosForm"
+		[required]="true"
+		[minlength]="3"
+		[maxlength]="50"
+	></app-text-field>
+
+	<app-text-field
+		labelFor="firstname"
+		labelContent="Firstname :"
+		type="text"
+		id="firstname"
+		name="firstname"
+		[(ngModel)]="newUserPersonalInfos.firstname"
+		[form]="registerPersonalInfosForm"
+		[required]="true"
+		[minlength]="3"
+		[maxlength]="50"
+	></app-text-field>
+
+	<app-mask-field
+		labelFor="phone"
+		labelContent="Téléphone :"
+		id="phone"
+		name="phone"
+		placeholder="99-99-99-99-99"
+		mask="99-99-99-99-99"
+		[(ngModel)]="newUserPersonalInfos.phone"
+		[form]="registerPersonalInfosForm"
+		[required]="true"
+	></app-mask-field>
+
+	<app-mask-field
+		labelFor="birthdate"
+		labelContent="Date de naissance :"
+		id="birthdate"
+		name="birthdate"
+		placeholder="99/99/9999"
+		mask="99/99/9999"
+		slotChar="dd/mm/yyyy"
+		[(ngModel)]="newUserPersonalInfos.birthdate"
+		[form]="registerPersonalInfosForm"
+		[required]="true"
+	></app-mask-field>
+
+	<app-select-region
+		labelFor="region"
+		labelContent="Region :"
+		id="region"
+		inputId="region"
+		name="region"
+		[required]="true"
+		#region="ngModel"
+		[(ngModel)]="newUserPersonalInfos.region"
+	></app-select-region>
+
+	<app-select-department
+		labelFor="departement"
+		labelContent="Département :"
+		id="departement"
+		inputId="departement"
+		name="departement"
+		[required]="true"
+		#departement="ngModel"
+		[(ngModel)]="newUserPersonalInfos.department"
+	></app-select-department>
+
+	<app-number-field
+		labelFor="streetNumber"
+		labelContent="N° de rue :"
+		id="streetNumber"
+		name="streetNumber"
+		[mode]="inputNumberModeEnum.DECIMAL"
+		[min]="0"
+		[max]="5"
+		[(ngModel)]="newUserPersonalInfos.streetNumber"
+		[form]="registerPersonalInfosForm"
+		[required]="true"
+	></app-number-field>
+
+	<app-text-field
+		labelFor="street"
+		labelContent="Rue :"
+		type="text"
+		id="street"
+		name="street"
+		[(ngModel)]="newUserPersonalInfos.street"
+		[form]="registerPersonalInfosForm"
+		[required]="true"
+	></app-text-field>
+
+	<app-mask-field
+		labelFor="postalCode"
+		labelContent="Code postal :"
+		id="postalCode"
+		name="postalCode"
+		placeholder="99999"
+		mask="99999"
+		[(ngModel)]="newUserPersonalInfos.postalCode"
+		[form]="registerPersonalInfosForm"
+		[required]="true"
+	></app-mask-field>
+
+	<app-select-city
+		labelFor="city"
+		labelContent="Ville :"
+		id="city"
+		inputId="city"
+		name="activityCity"
+		[required]="true"
+		[(ngModel)]="newUserPersonalInfos.city"
+	>
+	</app-select-city>
+
+	<app-textarea
+		labelFor="description"
+		labelContent="Description :"
+		id="description"
+		name="description"
+		[rows]="5"
+		[(ngModel)]="newUserPersonalInfos.description"
+		[form]="registerPersonalInfosForm"
+		[minlength]="20"
+		[maxlength]="500"
+	></app-textarea>
+
+	<app-select-category
+		labelFor="categoryIds"
+		labelContent="Centres d'interêts :"
+		id="categoryIds"
+		inputId="categoryIds"
+		name="categoryIds"
+		[required]="true"
+		#category="ngModel"
+		[(ngModel)]="newUserPersonalInfos.categoryIds"
+	></app-select-category>
+</form>

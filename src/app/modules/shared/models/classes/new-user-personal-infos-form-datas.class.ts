@@ -2,8 +2,7 @@ import { UserGenderEnum } from '../enums/user-genre.enum';
 import { City } from './city.class';
 import { Department } from './department.class';
 
-export class UserInfo {
-	id: string;
+export class NewUserPersonalInfosFormDatas {
 	firstname: string;
 	lastname: string;
 	streetNumber: string;
@@ -21,7 +20,6 @@ export class UserInfo {
 	userId: string;
 
 	constructor(
-		id: string,
 		firstname: string,
 		lastname: string,
 		streetNumber: string,
@@ -38,7 +36,6 @@ export class UserInfo {
 		categoryIds: string[],
 		userId: string,
 	) {
-		this.id = id;
 		this.firstname = firstname;
 		this.lastname = lastname;
 		this.streetNumber = streetNumber;

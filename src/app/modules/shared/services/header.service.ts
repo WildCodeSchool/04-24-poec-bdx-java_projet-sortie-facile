@@ -49,6 +49,11 @@ export class HeaderService {
 				icon: 'pi pi-power-off',
 				routerLink: '/auth/login',
 			},
+			{
+				label: 'Inscription',
+				icon: 'pi pi-sign-in',
+				routerLink: '/auth/register',
+			},
 		]);
 	}
 

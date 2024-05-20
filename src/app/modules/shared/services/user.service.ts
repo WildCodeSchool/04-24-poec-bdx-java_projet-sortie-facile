@@ -1,5 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { NewUserPersonalInfosFormDatas } from '@shared/models/classes/new-user-personal-infos-form-datas.class';
+import { UserInfo } from '@shared/models/classes/user-infos.type';
 import {
 	UserDetails,
 	UserDetailsPatch,
@@ -11,12 +13,20 @@ import { Observable } from 'rxjs';
 	providedIn: 'root',
 })
 export class UserService {
+	private readonly _BASE_URL = 'http://localhost:3000/user_details';
+
 	constructor(private _httpClient: HttpClient) {}
 
 	getUserInfos$(authUserConnectedId: string): Observable<UserDetails> {
 		return this._httpClient.get<UserDetails>(
-			`http://localhost:3000/user_details/${authUserConnectedId}`,
+			`${this._BASE_URL}/${authUserConnectedId}`,
 		);
+	}
+
+	postUserInfos$(
+		userInfos: NewUserPersonalInfosFormDatas,
+	): Observable<UserInfo> {
+		return this._httpClient.post<UserInfo>(this._BASE_URL, userInfos);
 	}
 
 	putUserInfo$(
@@ -24,7 +34,7 @@ export class UserService {
 		userInfos: UserDetailsPersonalInfosForm,
 	): Observable<UserDetails> {
 		return this._httpClient.put<UserDetails>(
-			`http://localhost:3000/user_details/${authUserConnectedId}`,
+			`${this._BASE_URL}/${authUserConnectedId}`,
 			userInfos,
 		);
 	}
@@ -34,7 +44,7 @@ export class UserService {
 		newUsersDatas: UserDetailsPatch,
 	): Observable<UserDetails> {
 		return this._httpClient.patch<UserDetails>(
-			`http://localhost:3000/user_details/${authUserConnectedId}`,
+			`${this._BASE_URL}/${authUserConnectedId}`,
 			newUsersDatas,
 		);
 	}

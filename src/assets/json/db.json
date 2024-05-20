@@ -22,19 +22,47 @@
       "role": "user"
     },
     {
-      "id": "47b3",
-      "username": "treza",
+      "id": "c809",
+      "username": "Pimpoye",
       "email": "Pimpoye@medoc.fr",
       "password": "mafemmecestmasoeur",
       "passwordConfirm": "mafemmecestmasoeur",
-      "role": "user"
+      "role": "user",
+      "status": "active"
+    },
+    {
+      "id": "06c6",
+      "username": "Pimpoye",
+      "email": "Pimpoye@medoc.fr",
+      "password": "mafemmecestmasoeur",
+      "passwordConfirm": "mafemmecestmasoeur",
+      "role": "user",
+      "status": "active"
+    },
+    {
+      "id": "7105",
+      "username": "Pimpoye",
+      "email": "Pimpoye@medoc.fr",
+      "password": "mafemmecestmasoeur",
+      "passwordConfirm": "mafemmecestmasoeur",
+      "role": "user",
+      "status": "active"
+    },
+    {
+      "id": "1a32",
+      "username": "Pimpoye",
+      "email": "Pimpoye@medoc.fr",
+      "password": "mafemmecestmasoeur",
+      "passwordConfirm": "mafemmecestmasoeur",
+      "role": "user",
+      "status": "active"
     }
   ],
   "user_details": [
     {
       "id": "1",
-      "first_name": "john",
-      "last_name": "Doe",
+      "firstname": "john",
+      "lastname": "Doe",
       "streetNumber": "15015",
       "street": "Rue de la réppublique",
       "region": "Nouvelle-Aquitaine",
@@ -60,8 +88,8 @@
     },
     {
       "id": "2",
-      "first_name": "Jane",
-      "last_name": "Doe",
+      "firstname": "Jane",
+      "lastname": "Doe",
       "streetNumber": 15,
       "street": "Rue de la république",
       "region": "Nouvelle-Aquitaine",
@@ -86,8 +114,8 @@
     },
     {
       "id": "3",
-      "first_name": "Junior",
-      "last_name": "Doe",
+      "firstname": "Junior",
+      "lastname": "Doe",
       "streetNumber": 15,
       "street": "Rue de la république",
       "region": "Nouvelle-Aquitaine",
@@ -109,6 +137,105 @@
         "2",
         "10"
       ]
+    },
+    {
+      "id": "",
+      "firstname": "",
+      "lastname": "",
+      "streetNumber": "",
+      "street": "",
+      "region": {
+        "id": "3",
+        "name": "Nouvelle-Aquitaine"
+      },
+      "postalCode": 33000,
+      "description": "",
+      "department": {
+        "id": "33",
+        "name": "Gironde"
+      },
+      "city": {
+        "id": 1,
+        "name": ""
+      },
+      "avatar": "",
+      "phone": "",
+      "birthdate": "",
+      "genre": "masculin",
+      "categoryIds": [],
+      "userId": "c809"
+    },
+    {
+      "id": "6453",
+      "firstname": "",
+      "lastname": "",
+      "streetNumber": "",
+      "street": "",
+      "region": "",
+      "postalCode": 33000,
+      "description": "",
+      "department": {
+        "id": "1",
+        "name": ""
+      },
+      "city": {
+        "id": 1,
+        "name": ""
+      },
+      "avatar": "",
+      "phone": "",
+      "birthdate": "",
+      "genre": "masculin",
+      "categoryIds": [],
+      "userId": "06c6"
+    },
+    {
+      "id": "aeca",
+      "firstname": "",
+      "lastname": "",
+      "streetNumber": "",
+      "street": "",
+      "region": "",
+      "postalCode": 33000,
+      "description": "",
+      "department": {
+        "id": "1",
+        "name": ""
+      },
+      "city": {
+        "id": 1,
+        "name": ""
+      },
+      "avatar": "",
+      "phone": "",
+      "birthdate": "",
+      "genre": "masculin",
+      "categoryIds": [],
+      "userId": "7105"
+    },
+    {
+      "id": "a402",
+      "firstname": "",
+      "lastname": "",
+      "streetNumber": "",
+      "street": "",
+      "region": "",
+      "postalCode": 33000,
+      "description": "",
+      "department": {
+        "id": "1",
+        "name": ""
+      },
+      "city": {
+        "id": 1,
+        "name": ""
+      },
+      "avatar": "",
+      "phone": "",
+      "birthdate": "",
+      "genre": "masculin",
+      "categoryIds": [],
+      "userId": "1a32"
     }
   ],
   "category": [
