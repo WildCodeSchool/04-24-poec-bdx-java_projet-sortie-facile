@@ -1,17 +1,19 @@
 <app-activity-form-layout
-	pageTitle="Création d'une activité"
-	backgroundImage="/assets/photos/create-activity.jpg"
+	pageTitle="Modifier une activité"
+	backgroundImage="/assets/photos/update-activity.jpg"
 >
-	<form #addActivityForm="ngForm" (ngSubmit)="onSubmit(addActivityForm)">
+	<form #updateActivityForm="ngForm" (ngSubmit)="onSubmit(updateActivityForm)">
+		<app-avatar-pseudo></app-avatar-pseudo>
+
 		<app-text-field
 			labelFor="name"
 			labelContent="Titre de l'activité :"
 			type="text"
 			id="name"
 			name="name"
-			[form]="addActivityForm"
-			[(ngModel)]="newActivity.name"
-			class="input-activity-form"
+			[form]="updateActivityForm"
+			[(ngModel)]="formData.name"
+			[required]="true"
 		></app-text-field>
 
 		<app-input-date
@@ -22,7 +24,7 @@
 			name="date"
 			[showIcon]="true"
 			#date="ngModel"
-			[(ngModel)]="newActivity.date"
+			[(ngModel)]="formData.date"
 		></app-input-date>
 
 		<app-input-hour
@@ -32,7 +34,7 @@
 			id="hour"
 			name="hour"
 			#hour="ngModel"
-			[(ngModel)]="newActivity.hour"
+			[(ngModel)]="formData.hour"
 		></app-input-hour>
 
 		<app-select-city
@@ -42,7 +44,7 @@
 			inputId="city"
 			name="activityCity"
 			#activityCity="ngModel"
-			[(ngModel)]="newActivity.activityCity"
+			[(ngModel)]="formData.activityCity"
 		>
 		</app-select-city>
 
@@ -53,7 +55,7 @@
 			inputId="categoryId"
 			name="categoryId"
 			#category="ngModel"
-			[(ngModel)]="newActivity.categoryId"
+			[(ngModel)]="formData.categoryId"
 		></app-select-category>
 
 		<app-select-number
@@ -62,7 +64,7 @@
 			inputId="nbGuest"
 			name="nbGuest"
 			#nbGuest="ngModel"
-			[(ngModel)]="newActivity.nbGuest"
+			[(ngModel)]="formData.nbGuest"
 		></app-select-number>
 
 		<app-textarea
@@ -73,8 +75,8 @@
 			[cols]="5"
 			[rows]="5"
 			#description="ngModel"
-			[form]="addActivityForm"
-			[(ngModel)]="newActivity.description"
+			[form]="updateActivityForm"
+			[(ngModel)]="formData.description"
 		></app-textarea>
 
 		<p>img</p>
@@ -84,7 +86,7 @@
 			inputId="imgUrl"
 			name="imgUrl"
 			#imgUrl="ngModel"
-			[(ngModel)]="newActivity.imgUrl"
+			[(ngModel)]="formData.imgUrl"
 			type="file"
 			class="file-upload"
 		/>
@@ -95,14 +97,12 @@
 			type="url"
 			id="link"
 			name="link"
-			[form]="addActivityForm"
-			[(ngModel)]="newActivity.link"
+			[form]="updateActivityForm"
+			[(ngModel)]="formData.link"
 		></app-text-field>
 
-		<div class="card flex justify-content-center">
-			<app-modal-confirm-creat-activity
-				[myForm]="addActivityForm"
-			></app-modal-confirm-creat-activity>
+		<div>
+			<p-button rounded label="Modifier" type="submit"></p-button>
 		</div>
 	</form>
 </app-activity-form-layout>
