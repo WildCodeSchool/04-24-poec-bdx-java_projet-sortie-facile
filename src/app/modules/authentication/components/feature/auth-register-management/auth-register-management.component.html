@@ -135,16 +135,19 @@
 				[(ngModel)]="newUserPersonalInfos.department"
 			></app-select-department>
 
-			<app-text-field
+			<app-number-field
 				labelFor="streetNumber"
 				labelContent="N° de rue :"
 				type="text"
 				id="streetNumber"
 				name="streetNumber"
+				[mode]="inputNumberModeEnum.DECIMAL"
+				[min]="0"
+				[max]="5"
 				[(ngModel)]="newUserPersonalInfos.streetNumber"
 				[form]="registerPersonalInfosForm"
 				[required]="true"
-			></app-text-field>
+			></app-number-field>
 
 			<app-text-field
 				labelFor="street"
@@ -157,16 +160,19 @@
 				[required]="true"
 			></app-text-field>
 
-			<app-text-field
+			<app-number-field
 				labelFor="postalCode"
 				labelContent="Code postal :"
 				type="text"
 				id="postalCode"
 				name="postalCode"
+				[mode]="inputNumberModeEnum.DECIMAL"
+				[min]="0"
+				[max]="5"
 				[(ngModel)]="newUserPersonalInfos.postalCode"
 				[form]="registerPersonalInfosForm"
 				[required]="true"
-			></app-text-field>
+			></app-number-field>
 
 			<app-select-city
 				labelFor="city"

@@ -3,6 +3,7 @@ import { City } from '@shared/models/classes/city.class';
 import { Department } from '@shared/models/classes/department.class';
 import { NewUserFormDatas } from '@shared/models/classes/new-user-form-datas.class';
 import { NewUserPersonalInfosFormDatas } from '@shared/models/classes/new-user-personal-infos-form-datas.class';
+import { InputNumberModeEnum } from '@shared/models/enums/InputNumberMode.enum';
 import { UserGenderEnum } from '@shared/models/enums/user-genre.enum';
 import {
 	AccountStatus,
@@ -20,6 +21,8 @@ import { Subscription } from 'rxjs';
 	styleUrl: './auth-register-management.component.scss',
 })
 export class AuthRegisterManagementComponent implements OnInit, OnDestroy {
+	readonly inputNumberModeEnum = InputNumberModeEnum;
+
 	providerNameList!: AuthProvider[];
 	lastUserId!: string;
 	step!: number;
