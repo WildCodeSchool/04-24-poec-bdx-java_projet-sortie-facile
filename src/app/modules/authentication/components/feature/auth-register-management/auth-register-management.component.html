@@ -91,17 +91,71 @@
 				[maxlength]="50"
 			></app-text-field>
 
-			<app-textarea
-				labelFor="firstname"
-				labelContent="Firstname :"
-				id="firstname"
-				name="firstname"
-				[rows]="5"
-				[(ngModel)]="newUserPersonalInfos.description"
+			<app-text-field
+				labelFor="phone"
+				labelContent="Téléphone :"
+				type="text"
+				id="phone"
+				name="phone"
+				[(ngModel)]="newUserPersonalInfos.phone"
 				[form]="registerPersonalInfosForm"
-				[minlength]="20"
-				[maxlength]="500"
-			></app-textarea>
+				[required]="true"
+			></app-text-field>
+
+			<app-text-field
+				labelFor="birthdate"
+				labelContent="Date de naissance :"
+				type="text"
+				id="birthdate"
+				name="birthdate"
+				[(ngModel)]="newUserPersonalInfos.birthdate"
+				[form]="registerPersonalInfosForm"
+				[required]="true"
+			></app-text-field>
+
+			<app-select-department
+				labelFor="departement"
+				labelContent="Département :"
+				id="departement"
+				inputId="departement"
+				name="departement"
+				[required]="true"
+				#departement="ngModel"
+				[(ngModel)]="newUserPersonalInfos.department"
+			></app-select-department>
+
+			<app-text-field
+				labelFor="streetNumber"
+				labelContent="N° de rue :"
+				type="text"
+				id="streetNumber"
+				name="streetNumber"
+				[(ngModel)]="newUserPersonalInfos.streetNumber"
+				[form]="registerPersonalInfosForm"
+				[required]="true"
+			></app-text-field>
+
+			<app-text-field
+				labelFor="street"
+				labelContent="Rue :"
+				type="text"
+				id="street"
+				name="street"
+				[(ngModel)]="newUserPersonalInfos.street"
+				[form]="registerPersonalInfosForm"
+				[required]="true"
+			></app-text-field>
+
+			<app-text-field
+				labelFor="postalCode"
+				labelContent="Code postal :"
+				type="text"
+				id="postalCode"
+				name="postalCode"
+				[(ngModel)]="newUserPersonalInfos.postalCode"
+				[form]="registerPersonalInfosForm"
+				[required]="true"
+			></app-text-field>
 
 			<app-select-city
 				labelFor="city"
@@ -114,6 +168,18 @@
 			>
 			</app-select-city>
 
+			<app-textarea
+				labelFor="firstname"
+				labelContent="Firstname :"
+				id="firstname"
+				name="firstname"
+				[rows]="5"
+				[(ngModel)]="newUserPersonalInfos.description"
+				[form]="registerPersonalInfosForm"
+				[minlength]="20"
+				[maxlength]="500"
+			></app-textarea>
+
 			<app-select-category
 				labelFor="categoryIds"
 				labelContent="Centres d'interêts :"
@@ -124,17 +190,6 @@
 				#category="ngModel"
 				[(ngModel)]="newUserPersonalInfos.categoryIds"
 			></app-select-category>
-
-			<app-select-department
-				labelFor="departement"
-				labelContent="Département :"
-				id="departement"
-				inputId="departement"
-				name="departement"
-				[required]="true"
-				#departement="ngModel"
-				[(ngModel)]="newUserPersonalInfos.department"
-			></app-select-department>
 		</form>
 	</app-stepper-register>
 

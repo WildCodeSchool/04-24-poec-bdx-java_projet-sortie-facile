@@ -3,6 +3,7 @@ import { City } from '@shared/models/classes/city.class';
 import { Department } from '@shared/models/classes/department.class';
 import { NewUserFormDatas } from '@shared/models/classes/new-user-form-datas.class';
 import { NewUserPersonalInfosFormDatas } from '@shared/models/classes/new-user-personal-infos-form-datas.class';
+import { UserGenderEnum } from '@shared/models/enums/user-genre.enum';
 import {
 	AccountStatus,
 	UserRoleEnum,
@@ -46,9 +47,18 @@ export class AuthRegisterManagementComponent implements OnInit, OnDestroy {
 			'',
 			'',
 			'',
-			new City(1, ''),
-			[],
+			'',
+			'',
+			33000,
+			'',
 			new Department('1', ''),
+			new City(1, ''),
+			'',
+			'',
+			'',
+			UserGenderEnum.MALE,
+			[],
+			'1',
 		);
 
 	constructor(private authService: AuthService) {}

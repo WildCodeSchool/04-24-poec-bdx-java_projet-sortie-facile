@@ -25,8 +25,8 @@
 	"user_details": [
 		{
 			"id": "1",
-			"first_name": "john",
-			"last_name": "Doe",
+			"firstname": "john",
+			"lastname": "Doe",
 			"streetNumber": "15015",
 			"street": "Rue de la réppublique",
 			"region": "Nouvelle-Aquitaine",
@@ -44,8 +44,8 @@
 		},
 		{
 			"id": "2",
-			"first_name": "Jane",
-			"last_name": "Doe",
+			"firstname": "Jane",
+			"lastname": "Doe",
 			"streetNumber": 15,
 			"street": "Rue de la république",
 			"region": "Nouvelle-Aquitaine",
@@ -62,8 +62,8 @@
 		},
 		{
 			"id": "3",
-			"first_name": "Junior",
-			"last_name": "Doe",
+			"firstname": "Junior",
+			"lastname": "Doe",
 			"streetNumber": 15,
 			"street": "Rue de la république",
 			"region": "Nouvelle-Aquitaine",
