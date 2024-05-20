@@ -2,14 +2,14 @@
 	pageTitle="Création d'une activité"
 	backgroundImage="/assets/photos/create-activity.jpg"
 >
-	<form #createActivityForm="ngForm" (ngSubmit)="onSubmit(createActivityForm)">
+	<form #addActivityForm="ngForm" (ngSubmit)="onSubmit(addActivityForm)">
 		<app-text-field
 			labelFor="name"
 			labelContent="Titre de l'activité :"
 			type="text"
 			id="name"
 			name="name"
-			[form]="createActivityForm"
+			[form]="addActivityForm"
 			[required]="true"
 			[minlength]="3"
 			[maxlength]="50"
@@ -82,6 +82,7 @@
 			[rows]="5"
 			[required]="true"
 			#description="ngModel"
+			[form]="addActivityForm"
 			[(ngModel)]="newActivity.description"
 		></app-textarea>
 
@@ -103,7 +104,7 @@
 			type="url"
 			id="link"
 			name="link"
-			[form]="createActivityForm"
+			[form]="addActivityForm"
 			[required]="true"
 			[minlength]="3"
 			[maxlength]="50"
@@ -112,7 +113,7 @@
 
 		<div class="card flex justify-content-center">
 			<app-modal-confirm-creat-activity
-				[myForm]="createActivityForm"
+				[myForm]="addActivityForm"
 			></app-modal-confirm-creat-activity>
 		</div>
 	</form>

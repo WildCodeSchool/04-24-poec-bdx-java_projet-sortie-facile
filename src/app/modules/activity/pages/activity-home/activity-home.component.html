@@ -1,6 +1,10 @@
 <div class="activity-form-container">
 	<div class="card flex justify-content-center"></div>
-	<form #myForm="ngForm" (ngSubmit)="onSubmit(myForm)" class="activity-form">
+	<form
+		#addActivityForm="ngForm"
+		(ngSubmit)="onSubmit(addActivityForm)"
+		class="activity-form"
+	>
 		<app-avatar-pseudo></app-avatar-pseudo>
 
 		<p>Titre de l'activité</p>
@@ -10,7 +14,7 @@
 			name="name"
 			[required]="true"
 			#name="ngModel"
-			[form]="myForm"
+			[form]="addActivityForm"
 			[(ngModel)]="formData.name"
 			class="input-activity-form"
 		></app-text-field>
@@ -67,6 +71,7 @@
 			name="description"
 			[required]="true"
 			#description="ngModel"
+			[form]="addActivityForm"
 			[(ngModel)]="formData.description"
 		></app-textarea>
 		<p>img</p>
@@ -93,7 +98,7 @@
 
 		<div class="card flex justify-content-center">
 			<app-modal-confirm-creat-activity
-				[myForm]="myForm"
+				[addActivityForm]="addActivityForm"
 			></app-modal-confirm-creat-activity>
 		</div>
 	</form>

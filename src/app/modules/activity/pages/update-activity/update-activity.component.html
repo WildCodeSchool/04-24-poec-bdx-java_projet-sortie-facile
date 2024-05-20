@@ -1,7 +1,11 @@
 <h1>Modifier mon activité</h1>
 <div class="activity-form-container">
 	<div class="card flex justify-content-center"></div>
-	<form #myForm="ngForm" (ngSubmit)="onSubmit(myForm)" class="activity-form">
+	<form
+		#updateActivityForm="ngForm"
+		(ngSubmit)="onSubmit(updateActivityForm)"
+		class="activity-form"
+	>
 		<app-avatar-pseudo></app-avatar-pseudo>
 		<p>Titre de l'activité</p>
 		<app-text-field
@@ -9,7 +13,7 @@
 			name="name"
 			[required]="true"
 			#name="ngModel"
-			[form]="myForm"
+			[form]="updateActivityForm"
 			[(ngModel)]="formData.name"
 			class="input-activity-form"
 		></app-text-field>
@@ -20,7 +24,7 @@
 			name="date"
 			[required]="true"
 			#date="ngModel"
-			[form]="myForm"
+			[form]="updateActivityForm"
 			[(ngModel)]="formData.date"
 			class="input-activity-form"
 		></app-text-field>
@@ -32,7 +36,7 @@
 			name="activityCity"
 			[required]="true"
 			#activityCity="ngModel"
-			[form]="myForm"
+			[form]="updateActivityForm"
 			[(ngModel)]="formData.activityCity.name"
 			class="input-activity-form"
 		></app-text-field>
@@ -44,7 +48,7 @@
 			name="categoryId"
 			[required]="true"
 			#categoryId="ngModel"
-			[form]="myForm"
+			[form]="updateActivityForm"
 			[(ngModel)]="formData.categoryId.title"
 		></app-text-field>
 
@@ -55,7 +59,7 @@
 			name="nbGuest"
 			[required]="true"
 			#nbGuest="ngModel"
-			[form]="myForm"
+			[form]="updateActivityForm"
 			[(ngModel)]="formData.nbGuest"
 		></app-text-field>
 
@@ -65,6 +69,7 @@
 			name="description"
 			[required]="true"
 			#description="ngModel"
+			[form]="updateActivityForm"
 			[(ngModel)]="formData.description"
 		></app-textarea>
 		<p>Image</p>

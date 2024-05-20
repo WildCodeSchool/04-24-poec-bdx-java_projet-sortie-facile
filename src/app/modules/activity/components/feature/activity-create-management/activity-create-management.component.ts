@@ -3,9 +3,8 @@ import { Component, OnDestroy } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Category } from '@shared/models/classes/category.class';
 import { City } from '@shared/models/classes/city.class';
-import { Activity } from '@shared/models/types/activity.type';
 import { ActivityService } from '@shared/services/activity.service';
-import { Observable, Subscription } from 'rxjs';
+import { Subscription } from 'rxjs';
 
 @Component({
 	selector: 'app-activity-create-management',
