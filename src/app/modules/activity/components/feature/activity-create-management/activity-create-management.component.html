@@ -2,17 +2,14 @@
 	pageTitle="Création d'une activité"
 	backgroundImage="/assets/photos/create-activity.jpg"
 >
-	<form #createActivityForm="ngForm" (ngSubmit)="onSubmit(createActivityForm)">
+	<form #addActivityForm="ngForm" (ngSubmit)="onSubmit(addActivityForm)">
 		<app-text-field
 			labelFor="name"
 			labelContent="Titre de l'activité :"
 			type="text"
 			id="name"
 			name="name"
-			[form]="createActivityForm"
-			[required]="true"
-			[minlength]="3"
-			[maxlength]="50"
+			[form]="addActivityForm"
 			[(ngModel)]="newActivity.name"
 			class="input-activity-form"
 		></app-text-field>
@@ -24,7 +21,6 @@
 			id="date"
 			name="date"
 			[showIcon]="true"
-			[required]="true"
 			#date="ngModel"
 			[(ngModel)]="newActivity.date"
 		></app-input-date>
@@ -35,7 +31,6 @@
 			inputId="hour"
 			id="hour"
 			name="hour"
-			[required]="true"
 			#hour="ngModel"
 			[(ngModel)]="newActivity.hour"
 		></app-input-hour>
@@ -46,7 +41,6 @@
 			id="city"
 			inputId="city"
 			name="activityCity"
-			[required]="true"
 			#activityCity="ngModel"
 			[(ngModel)]="newActivity.activityCity"
 		>
@@ -58,7 +52,6 @@
 			id="categoryId"
 			inputId="categoryId"
 			name="categoryId"
-			[required]="true"
 			#category="ngModel"
 			[(ngModel)]="newActivity.categoryId"
 		></app-select-category>
@@ -68,7 +61,6 @@
 			labelContent="Nbre de participants :"
 			inputId="nbGuest"
 			name="nbGuest"
-			[required]="true"
 			#nbGuest="ngModel"
 			[(ngModel)]="newActivity.nbGuest"
 		></app-select-number>
@@ -80,8 +72,8 @@
 			name="description"
 			[cols]="5"
 			[rows]="5"
-			[required]="true"
 			#description="ngModel"
+			[form]="addActivityForm"
 			[(ngModel)]="newActivity.description"
 		></app-textarea>
 
@@ -103,16 +95,13 @@
 			type="url"
 			id="link"
 			name="link"
-			[form]="createActivityForm"
-			[required]="true"
-			[minlength]="3"
-			[maxlength]="50"
+			[form]="addActivityForm"
 			[(ngModel)]="newActivity.link"
 		></app-text-field>
 
 		<div class="card flex justify-content-center">
 			<app-modal-confirm-creat-activity
-				[myForm]="createActivityForm"
+				[myForm]="addActivityForm"
 			></app-modal-confirm-creat-activity>
 		</div>
 	</form>

@@ -27,34 +27,44 @@ export class ModalComponent {
 			this.confirmationService.confirm({
 				header: 'Confirmation',
 				message: 'Comfirmer envoie du message',
-				accept: () => {
-					this.contactService.onSubmit(this.myForm);
-					this.messageService.add({
-						severity: 'info',
-						summary: 'Envoyé',
-						detail: 'Votre message a bien été envoyé',
-						life: 3000,
-					});
-					setTimeout(() => {
-						this.router.navigateByUrl('/');
-					}, 3000); // 5000 milliseconds = 5 seconds
-				},
-				reject: () => {
-					this.messageService.add({
-						severity: 'error',
-						summary: 'Refuser',
-						detail: 'Vous avez refusé',
-						life: 3000,
-					});
-				},
+				accept: () => this.onAccept(),
+				reject: () => this.onReject(),
+				acceptLabel: 'Oui', // Personnalisation du bouton Oui
+				rejectLabel: 'Non',
 			});
 		} else {
-			this.messageService.add({
-				severity: 'error',
-				summary: 'Invalid Form',
-				detail: 'Please fill in all required fields',
-				life: 3000,
-			});
+			this.onError();
 		}
+	}
+
+	private onError(): void {
+		this.messageService.add({
+			severity: 'error',
+			summary: 'Invalid Form',
+			detail: 'Please fill in all required fields',
+			life: 3000,
+		});
+	}
+
+	private onReject(): void {
+		this.messageService.add({
+			severity: 'error',
+			summary: 'Refuser',
+			detail: 'Vous avez refusé',
+			life: 3000,
+		});
+	}
+
+	private onAccept(): void {
+		this.contactService.onSubmit(this.myForm);
+		this.messageService.add({
+			severity: 'info',
+			summary: 'Envoyé',
+			detail: 'Votre message a bien été envoyé',
+			life: 3000,
+		});
+		setTimeout(() => {
+			this.router.navigateByUrl('/');
+		}, 3000); // 5000 milliseconds = 5 seconds
 	}
 }

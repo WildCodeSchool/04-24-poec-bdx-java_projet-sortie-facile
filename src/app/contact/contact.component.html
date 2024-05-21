@@ -2,7 +2,11 @@
 <div class="activity-form-container">
 	<div class="card flex justify-content-center"></div>
 
-	<form #myForm="ngForm" (ngSubmit)="onSubmit(myForm)" class="activity-form">
+	<form
+		#contactForm="ngForm"
+		(ngSubmit)="onSubmit(contactForm)"
+		class="activity-form"
+	>
 		<app-avatar-pseudo></app-avatar-pseudo>
 
 		<p>Votre Email</p>
@@ -12,7 +16,7 @@
 			name="Email"
 			[required]="true"
 			#Email="ngModel"
-			[form]="myForm"
+			[form]="contactForm"
 			[(ngModel)]="formData.Email"
 			class="input-activity-form"
 		></app-text-field>
@@ -24,11 +28,12 @@
 			name="message"
 			[required]="true"
 			#message="ngModel"
+			[form]="contactForm"
 			[(ngModel)]="formData.message"
 		></app-textarea>
 
 		<div class="card flex justify-content-center">
-			<app-modal [myForm]="myForm"></app-modal>
+			<app-modal [myForm]="contactForm"></app-modal>
 		</div>
 	</form>
 </div>

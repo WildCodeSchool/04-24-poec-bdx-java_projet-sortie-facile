@@ -1,10 +1,10 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Category } from '@shared/models/types/category.type';
 import { UserDetails } from '@shared/models/types/user-details.type';
-import { UserAuthPrimaryDatas } from '@shared/models/types/user-list-response-api.type';
 import { ActivityService } from '@shared/services/activity.service';
 import { AuthService } from '@shared/services/auth.service';
 import { UserService } from '@shared/services/user.service';
+import { BaseAccountManagementComponent } from '@user/directives/account-management.class';
 import { Observable, map, switchMap } from 'rxjs';
 
 @Component({
@@ -12,13 +12,10 @@ import { Observable, map, switchMap } from 'rxjs';
 	templateUrl: './account-center-of-interest-management.component.html',
 	styleUrl: './account-center-of-interest-management.component.scss',
 })
-export class AccountCenterOfInterestManagementComponent implements OnInit {
-	@Input() avatarSrc!: string;
-	@Input() avatarAlt!: string;
-	@Input() pageTitle!: string;
-	@Input() pageDescription!: string;
-
-	connectedUser!: UserAuthPrimaryDatas;
+export class AccountCenterOfInterestManagementComponent
+	extends BaseAccountManagementComponent
+	implements OnInit
+{
 	categoryList$!: Observable<Category[]>;
 	userCategoryList$!: Observable<Category[]>;
 
@@ -27,13 +24,16 @@ export class AccountCenterOfInterestManagementComponent implements OnInit {
 	} = { category: '' };
 
 	constructor(
-		private _authService: AuthService,
+		protected override _authService: AuthService,
 		private _activityService: ActivityService,
 		private _userService: UserService,
-	) {}
+	) {
+		super(_authService);
+	}
 
-	ngOnInit(): void {
-		this.connectedUser = this._authService.getConnectedUserData();
+	override ngOnInit(): void {
+		super.ngOnInit();
+
 		this.categoryList$ = this._activityService.getCategoryList$();
 		this.userCategoryList$ = this._userService
 			.getUserInfos$(this.connectedUser.id)

@@ -1,13 +1,17 @@
 import { Component, OnInit } from '@angular/core';
+import { City } from '@shared/models/classes/city.class';
+import { Department } from '@shared/models/classes/department.class';
+import { NewUserFormDatas } from '@shared/models/classes/new-user-form-datas.class';
+import { NewUserPersonalInfosFormDatas } from '@shared/models/classes/new-user-personal-infos-form-datas.class';
+import { UserGenderEnum } from '@shared/models/enums/user-genre.enum';
 import {
 	AccountStatus,
 	UserRoleEnum,
 } from '@shared/models/enums/user-role.enum';
 import { AuthRedirect } from '@shared/models/types/auth-redirect.type';
-import { newUser } from '@shared/models/types/newUser.model';
 import { AuthProvider } from '@shared/models/types/provider.type';
-import { UserAuthPrimaryDatas } from '@shared/models/types/user-list-response-api.type';
 import { AuthService } from '@shared/services/auth.service';
+import { Subscription } from 'rxjs';
 
 @Component({
 	selector: 'app-auth-register-management',
@@ -16,8 +20,9 @@ import { AuthService } from '@shared/services/auth.service';
 })
 export class AuthRegisterManagementComponent implements OnInit {
 	providerNameList!: AuthProvider[];
-
 	lastUserId!: string;
+	step!: number;
+	private _subscription: Subscription = new Subscription();
 
 	formStep: number = 1;
 
@@ -27,39 +32,46 @@ export class AuthRegisterManagementComponent implements OnInit {
 		linkLabel: 'Se connecter',
 	};
 
-	newUser: newUser = {
-		id: '0',
-		username: '',
-		email: '',
-		password: '',
-		passwordConfirm: '',
-		role: UserRoleEnum.USER,
-		status: AccountStatus.ACTIVE,
-	};
+	newUserAuth: NewUserFormDatas = new NewUserFormDatas(
+		'Pimpoye',
+		'Pimpoye@medoc.fr',
+		'mafemmecestmasoeur',
+		'mafemmecestmasoeur',
+		UserRoleEnum.USER,
+		AccountStatus.ACTIVE,
+	);
 
-	constructor(private authService: AuthService) {}
+	newUserPersonalInfos: NewUserPersonalInfosFormDatas =
+		new NewUserPersonalInfosFormDatas(
+			'',
+			'',
+			'',
+			'',
+			'',
+			33000,
+			'',
+			new Department('1', ''),
+			new City(1, ''),
+			'',
+			'',
+			'',
+			UserGenderEnum.MALE,
+			[],
+			'',
+		);
+
+	constructor(private _authService: AuthService) {}
 
 	ngOnInit(): void {
-		this.newUser = {
-			id: this.lastUserId,
-			username: 'Pimpoye',
-			email: 'Pimpoye@medoc.fr',
-			password: 'mafemmecestmasoeur',
-			passwordConfirm: 'mafemmecestmasoeur',
-			role: UserRoleEnum.USER,
-			status: AccountStatus.ACTIVE,
-		};
-		this.providerNameList = this.authService.getProviderNameList();
+		this.providerNameList = this._authService.getProviderNameList();
+		this.step = 1;
 	}
 
-	onSubmit(): void {
-		this.authService
-			.createUserWithEmailAndPassword(this.newUser)
-			.subscribe((user: UserAuthPrimaryDatas) => {
-				localStorage.setItem('user', JSON.stringify(user));
-			});
+	onChangeStep(newStepValue: number): void {
+		this.step = newStepValue;
 	}
 
+<<<<<<< HEAD
 	formNextStep(): void {
 		this.formStep = 2;
 	}
@@ -67,4 +79,7 @@ export class AuthRegisterManagementComponent implements OnInit {
 	formPreviousStep(): void {
 		this.formStep = 1;
 	}
+=======
+	onRegister(): void {}
+>>>>>>> be91e0fa6cbb9b2a4161894a990757496804f8c6
 }

@@ -1,9 +1,6 @@
 import { Component, Input, forwardRef } from '@angular/core';
-import {
-	ControlValueAccessor,
-	NG_VALUE_ACCESSOR,
-	NgForm,
-} from '@angular/forms';
+import { NG_VALUE_ACCESSOR, NgForm } from '@angular/forms';
+import { FormInputControlValueAccessor } from '@shared/models/classes/form-input-control-value-accessor.class';
 
 @Component({
 	selector: 'app-input-hour',
@@ -17,7 +14,7 @@ import {
 		},
 	],
 })
-export class InputHourComponent implements ControlValueAccessor {
+export class InputHourComponent extends FormInputControlValueAccessor {
 	time: Date | undefined;
 	@Input() inputId!: string;
 	@Input() id!: string;
@@ -25,38 +22,4 @@ export class InputHourComponent implements ControlValueAccessor {
 	@Input() labelFor!: string;
 	@Input() labelContent!: string;
 	@Input() form!: NgForm;
-
-	disabled!: boolean;
-	value!: string;
-
-	onChanged!: (value: string) => void;
-	onTouched!: () => void;
-
-	onInputChange(value: string): void {
-		if (this.disabled) {
-			return;
-		}
-
-		this.onChanged(value);
-	}
-
-	writeValue(value: string): void {
-		this.value = value;
-	}
-
-	registerOnChange(fn: (value: string) => void): void {
-		this.onChanged = fn;
-	}
-
-	registerOnTouched(fn: () => void): void {
-		this.onTouched = fn;
-	}
-
-	setDisabledState(isDisabled: boolean): void {
-		this.disabled = isDisabled;
-	}
-
-	markAsTouched(): void {
-		this.onTouched();
-	}
 }

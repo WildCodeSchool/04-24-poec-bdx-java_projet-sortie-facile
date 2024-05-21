@@ -1,0 +1,101 @@
+<app-account-container-content
+	sectionTitle="Infos personnelles"
+	[isViewDatas]="isViewDatas"
+	(sendIsViewDatas)="showIsViewDatas($event)"
+>
+	<div
+		class="content-box"
+		data
+		*ngIf="userDetails$ | async as userPersonalInfosDetails"
+	>
+		<app-account-card-info
+			title="Prénom"
+			[content]="userPersonalInfosDetails.firstname"
+			[isViewDatas]="isViewDatas"
+		>
+			<app-text-field
+				*ngIf="!isViewDatas"
+				input
+				type="text"
+				id="firstname"
+				name="firstname"
+				[(ngModel)]="userPersonalInfosDatasForm.firstname"
+			></app-text-field>
+		</app-account-card-info>
+
+		<app-account-card-info
+			title="Nom de famille"
+			[content]="userPersonalInfosDetails.lastname"
+			[isViewDatas]="isViewDatas"
+		>
+			<app-text-field
+				*ngIf="!isViewDatas"
+				input
+				type="text"
+				id="lastname"
+				name="lastname"
+				[(ngModel)]="userPersonalInfosDatasForm.lastname"
+			></app-text-field
+		></app-account-card-info>
+
+		<app-account-card-info
+			title="Email"
+			[content]="connectedUser.email"
+			[isViewDatas]="isViewDatas"
+			><app-text-field
+				*ngIf="!isViewDatas"
+				input
+				type="text"
+				id="firstname"
+				name="firstname"
+				[(ngModel)]="userPersonalInfosDatasForm.email"
+			></app-text-field
+		></app-account-card-info>
+
+		<app-account-card-info
+			title="Téléphone"
+			[content]="userPersonalInfosDetails.phone"
+			[isViewDatas]="isViewDatas"
+			><app-text-field
+				*ngIf="!isViewDatas"
+				input
+				type="text"
+				id="phone"
+				name="phone"
+				[(ngModel)]="userPersonalInfosDatasForm.phone"
+			></app-text-field
+		></app-account-card-info>
+
+		<app-account-card-info
+			title="Date de naissance"
+			[content]="userPersonalInfosDetails.birthday"
+			[isViewDatas]="isViewDatas"
+			><app-text-field
+				*ngIf="!isViewDatas"
+				input
+				type="text"
+				id="date"
+				name="date"
+				[(ngModel)]="userPersonalInfosDatasForm.birthday"
+			></app-text-field
+		></app-account-card-info>
+
+		<app-account-card-info
+			title="Genre"
+			[content]="userPersonalInfosDetails.genre"
+			[isViewDatas]="isViewDatas"
+			><app-text-field
+				*ngIf="!isViewDatas"
+				input
+				type="text"
+				id="genre"
+				name="genre"
+				[(ngModel)]="userPersonalInfosDatasForm.genre"
+			></app-text-field
+		></app-account-card-info>
+
+		<div class="btn-form-box" *ngIf="!isViewDatas">
+			<p-button label="Sauvegarder" [rounded]="true" (click)="onSave()" />
+		</div>
+	</div>
+</app-account-container-content>

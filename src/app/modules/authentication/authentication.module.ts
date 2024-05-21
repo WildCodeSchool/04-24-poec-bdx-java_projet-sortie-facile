@@ -8,6 +8,9 @@ import { AuthLoginManagementComponent } from '@authentication/components/feature
 import { AuthLayoutComponent } from './components/ui/auth-layout/auth-layout.component';
 import { AuthRegisterManagementComponent } from './components/feature/auth-register-management/auth-register-management.component';
 import { AuthRegisterComponent } from './pages/auth-register/auth-register.component';
+import { StepperRegisterComponent } from './components/ui/stepper-register/stepper-register.component';
+import { RegisterAuthFormComponent } from './components/ui/register-form/register-auth-form/register-auth-form.component';
+import { RegisterPersonalInfoFormComponent } from './components/ui/register-form/register-personal-info-form/register-personal-info-form.component';
 
 @NgModule({
 	declarations: [
@@ -16,6 +19,9 @@ import { AuthRegisterComponent } from './pages/auth-register/auth-register.compo
 		AuthLayoutComponent,
 		AuthRegisterManagementComponent,
 		AuthRegisterComponent,
+		StepperRegisterComponent,
+		RegisterAuthFormComponent,
+		RegisterPersonalInfoFormComponent,
 	],
 	imports: [
 		CommonModule,

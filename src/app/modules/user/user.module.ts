@@ -21,6 +21,10 @@ import { AccountContainerContentComponent } from '@user/components/ui/account-co
 import { AccountActivitiesManagementComponent } from './components/feature/account-activities-management/account-activities-management.component';
 import { AccountCenterOfInterestManagementComponent } from './components/feature/account-center-of-interest-management/account-center-of-interest-management.component';
 import { FormsModule } from '@angular/forms';
+import { AccountPersonalInfosFormComponent } from './components/ui/account-form/account-personal-infos-form/account-personal-infos-form.component';
+import { AccountAddressFormComponent } from './components/ui/account-form/account-address-form/account-address-form.component';
+import { AccountPasswordManagementComponent } from './components/feature/account-password-management/account-password-management.component';
+import { AccountPasswordFormComponent } from './components/ui/account-form/account-password-form/account-password-form.component';
 
 @NgModule({
 	declarations: [
@@ -41,6 +45,10 @@ import { FormsModule } from '@angular/forms';
 		AccountCardInfoComponent,
 		AccountActivitiesManagementComponent,
 		AccountCenterOfInterestManagementComponent,
+		AccountPersonalInfosFormComponent,
+		AccountAddressFormComponent,
+  AccountPasswordManagementComponent,
+  AccountPasswordFormComponent,
 	],
 	imports: [CommonModule, UserRoutingModule, SharedModule, FormsModule],
 })

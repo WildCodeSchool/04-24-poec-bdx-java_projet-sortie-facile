@@ -28,6 +28,10 @@ import { SelectCategoryComponent } from '@shared/components/select/select-catego
 import { ModalConfirmReservationComponent } from './components/modal/modal-confirm-reservation/modal-confirm-reservation.component';
 import { ModalConfirmCreatActivityComponent } from './components/modal/modal-confirm-creat-activity/modal-confirm-creat-activity.component';
 import { ModalConfirmUpdateActivityComponent } from './components/modal/modal-confirm-update-activity/modal-confirm-update-activity.component';
+import { SelectDepartmentComponent } from './components/select/select-department/select-department.component';
+import { SelectRegionComponent } from './components/select/select-region/select-region.component';
+import { NumberFieldComponent } from './components/form/number-field/number-field.component';
+import { MaskFieldComponent } from './components/form/mask-field/mask-field.component';
 
 @NgModule({
 	declarations: [
@@ -56,6 +60,10 @@ import { ModalConfirmUpdateActivityComponent } from './components/modal/modal-co
 		ModalConfirmReservationComponent,
 		ModalConfirmCreatActivityComponent,
 		ModalConfirmUpdateActivityComponent,
+		SelectDepartmentComponent,
+		SelectRegionComponent,
+		NumberFieldComponent,
+		MaskFieldComponent,
 	],
 	imports: [
 		CommonModule,
@@ -92,6 +100,10 @@ import { ModalConfirmUpdateActivityComponent } from './components/modal/modal-co
 		ModalConfirmReservationComponent,
 		ModalConfirmUpdateActivityComponent,
 		ModalConfirmCreatActivityComponent,
+		SelectDepartmentComponent,
+		SelectRegionComponent,
+		NumberFieldComponent,
+		MaskFieldComponent,
 	],
 })
 export class SharedModule {}
