@@ -22,6 +22,7 @@ import { ScrollTopModule } from 'primeng/scrolltop';
 import { CarouselModule } from 'primeng/carousel';
 import { StepperModule } from 'primeng/stepper';
 import { InputMaskModule } from 'primeng/inputmask';
+import { MultiSelectModule } from 'primeng/multiselect';
 
 @NgModule({
 	exports: [
@@ -49,6 +50,7 @@ import { InputMaskModule } from 'primeng/inputmask';
 		CarouselModule,
 		StepperModule,
 		InputMaskModule,
+		MultiSelectModule,
 	],
 })
 export class PrimengModule {}

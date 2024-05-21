@@ -3,7 +3,6 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { Category } from '@models/types/category.type';
 import { ActivityService } from '@shared/services/activity.service';
 import { Observable } from 'rxjs';
-import { ActivatedRoute } from '@angular/router';
 
 @Component({
 	selector: 'app-select-category',
@@ -22,16 +21,14 @@ export class SelectCategoryComponent implements OnInit, ControlValueAccessor {
 	@Input() name!: string;
 	@Input() labelFor!: string;
 	@Input() labelContent!: string;
+	@Input() isMultiple!: boolean;
 
 	categories!: Category[];
 	category$!: Observable<Category>;
 	activityCategoryList$!: Observable<Category[]>;
 	selectedCategory!: Category;
 
-	constructor(
-		private activityService: ActivityService,
-		private route: ActivatedRoute,
-	) {}
+	constructor(private activityService: ActivityService) {}
 
 	ngOnInit(): void {
 		this.activityCategoryList$ = this.activityService.getCategoryList$();
