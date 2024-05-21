@@ -1,5 +1,5 @@
 export type newProfile = {
-	birthdate: Date;
+	dateOfBirth: Date;
 	firstname: string;
 	lastname: string;
 	city: string;

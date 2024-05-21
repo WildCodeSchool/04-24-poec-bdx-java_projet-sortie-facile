@@ -15,7 +15,7 @@ export class UserInfo {
 	city: City;
 	avatar: string;
 	phone: string;
-	birthdate: string;
+	dateOfBirth: string;
 	genre: UserGenderEnum;
 	categoryIds: string[];
 	userId: string;
@@ -33,7 +33,7 @@ export class UserInfo {
 		city: City,
 		avatar: string,
 		phone: string,
-		birthdate: string,
+		dateOfBirth: string,
 		genre: UserGenderEnum,
 		categoryIds: string[],
 		userId: string,
@@ -50,7 +50,7 @@ export class UserInfo {
 		this.city = city;
 		this.avatar = avatar;
 		this.phone = phone;
-		this.birthdate = birthdate;
+		this.dateOfBirth = dateOfBirth;
 		this.genre = genre;
 		this.categoryIds = categoryIds;
 		this.userId = userId;

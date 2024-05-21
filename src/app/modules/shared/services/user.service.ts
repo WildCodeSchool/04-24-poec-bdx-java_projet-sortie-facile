@@ -8,7 +8,7 @@ import {
 	UserDetailsPersonalInfosForm,
 } from '@shared/models/types/user-details.type';
 import { Observable } from 'rxjs';
-
+('ok');
 @Injectable({
 	providedIn: 'root',
 })
@@ -28,11 +28,11 @@ export class UserService {
 	}
 
 	putUserInfo$(
-		authUserConnectedId: string,
+		UserId: string,
 		userInfos: UserDetailsPersonalInfosForm,
 	): Observable<UserDetails> {
 		return this._httpClient.put<UserDetails>(
-			`${this._BASE_URL}/${authUserConnectedId}`,
+			`${this._BASE_URL}/${UserId}`,
 			userInfos,
 		);
 	}

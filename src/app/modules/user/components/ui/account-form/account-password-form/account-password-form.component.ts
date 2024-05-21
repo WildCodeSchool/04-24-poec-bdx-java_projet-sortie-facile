@@ -30,7 +30,7 @@ export class AccountPasswordFormComponent implements OnDestroy {
 					this.accountPasswordFormDatas.oldPassword,
 					this.accountPasswordFormDatas.newPassword,
 				)
-				.subscribe(),
+				.subscribe(() => form.reset()),
 		);
 	}
 

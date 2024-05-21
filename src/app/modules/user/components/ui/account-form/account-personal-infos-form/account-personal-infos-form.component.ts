@@ -55,7 +55,7 @@ export class AccountPersonalInfosFormComponent implements OnInit {
 				switchMap(() =>
 					this._userService
 						.putUserInfo$(
-							this.connectedUser.id,
+							this.connectedUser.userDetailsId,
 							this.userPersonalInfosDatasForm,
 						)
 						.pipe(

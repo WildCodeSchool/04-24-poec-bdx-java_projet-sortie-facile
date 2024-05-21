@@ -38,14 +38,14 @@
 	></app-mask-field>
 
 	<app-mask-field
-		labelFor="birthdate"
+		labelFor="dateOfBirth"
 		labelContent="Date de naissance :"
-		id="birthdate"
-		name="birthdate"
+		id="dateOfBirth"
+		name="dateOfBirth"
 		placeholder="99/99/9999"
 		mask="99/99/9999"
 		slotChar="dd/mm/yyyy"
-		[(ngModel)]="newUserPersonalInfos.birthdate"
+		[(ngModel)]="newUserPersonalInfos.dateOfBirth"
 		[form]="registerPersonalInfosForm"
 		[required]="true"
 	></app-mask-field>
@@ -140,5 +140,6 @@
 		[required]="true"
 		#category="ngModel"
 		[(ngModel)]="newUserPersonalInfos.categoryIds"
+		[isMultiple]="true"
 	></app-select-category>
 </form>

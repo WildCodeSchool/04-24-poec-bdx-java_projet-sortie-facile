@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {
 	UserDetails,
 	UserDetailsAddressForm,
@@ -13,7 +13,7 @@ import { Observable, map } from 'rxjs';
 	templateUrl: './account-address-form.component.html',
 	styleUrl: './account-address-form.component.scss',
 })
-export class AccountAddressFormComponent {
+export class AccountAddressFormComponent implements OnInit {
 	connectedUser!: UserAuthPrimaryDatas;
 	userDetails$!: Observable<UserDetails>;
 	isViewDatas: boolean = true;
@@ -47,7 +47,7 @@ export class AccountAddressFormComponent {
 
 	onSave(): void {
 		this.userDetails$ = this._userService.patchUserInfo$(
-			this.connectedUser.id,
+			this.connectedUser.userDetailsId,
 			this.userAddressDatasForm,
 		);
 
