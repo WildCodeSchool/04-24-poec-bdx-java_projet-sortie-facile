@@ -3,7 +3,7 @@
 		{
 			"username": "johndoe",
 			"email": "j.doe@test.com",
-			"password": "TTTTTTTTTTT",
+			"password": "123456789",
 			"role": "admin",
 			"id": "1"
 		},
@@ -20,6 +20,15 @@
 			"email": "junior.doe@mail.com",
 			"password": "123456789",
 			"role": "user"
+		},
+		{
+			"id": "d875",
+			"username": "Pimpoye",
+			"email": "Pimpoye@medoc.fr",
+			"password": "mafemmecestmasoeur",
+			"passwordConfirm": "mafemmecestmasoeur",
+			"role": "user",
+			"status": "active"
 		}
 	],
 	"user_details": [
@@ -36,7 +45,7 @@
 			"avatar": "https://images.radio-canada.ca/w_635,h_357/v1/ici-tele/jeunesse/16x9/arthur-et-les-minimoys-arthur.jpg",
 			"description": "it's me but i'm not sure",
 			"phone": "01-23-45-67-09",
-			"birthday": "10/02/1998",
+			"dateOfBirth": "10/02/1998",
 			"genre": "masculin",
 			"userId": "1",
 			"email": "j.doe@test.com",
@@ -55,7 +64,7 @@
 			"avatar": "https://images.radio-canada.ca/w_635,h_357/v1/ici-tele/jeunesse/16x9/arthur-et-les-minimoys-selenia.jpg",
 			"description": "'maybe you can find me in the forest'",
 			"phone": "01-23-45-67-89",
-			"birthday": "14/05/1990",
+			"dateOfBirth": "14/05/1990",
 			"genre": "féminin",
 			"userId": "2",
 			"categorieIds": ["1", "4", "5", "6", "9", "2", "10"]
@@ -73,10 +82,37 @@
 			"avatar": "https://images.radio-canada.ca/w_635,h_357/v1/ici-tele/jeunesse/16x9/arthur-et-les-minimoys-mul-mul.jpg",
 			"description": "'i'm the little one'",
 			"phone": "01-23-45-67-89",
-			"birthday": "19/09/1995",
+			"dateOfBirth": "19/09/1995",
 			"genre": "masculin",
 			"userId": "3",
 			"categorieIds": ["1", "4", "5", "6", "9", "2", "10"]
+		},
+		{
+			"id": "ee67",
+			"firstname": "doe",
+			"lastname": "john",
+			"streetNumber": 5,
+			"street": "23 allée des érables",
+			"region": {
+				"id": "3",
+				"name": "Nouvelle-Aquitaine"
+			},
+			"postalCode": "33210",
+			"description": "Dessert chocolate bar lemon drops liquorice caramels sugar plum toffee apple pie candy canes. Jelly-o biscuit carrot cake chocolate cake croissant marshmallow. Sesame snaps chocolate lemon drops brownie chocolate bar. Sweet icing chupa chups croissant bonbon candy canes jujubes gummies.",
+			"department": {
+				"id": "33",
+				"name": "Gironde"
+			},
+			"city": {
+				"id": 3,
+				"name": "London"
+			},
+			"avatar": "",
+			"phone": "01-23-45-67-89",
+			"dateOfBirth": "26/12/1980",
+			"genre": "masculin",
+			"categoryIds": ["3", "4", "5"],
+			"userId": "d875"
 		}
 	],
 	"category": [

@@ -68,7 +68,7 @@
 
 		<app-account-card-info
 			title="Date de naissance"
-			[content]="userPersonalInfosDetails.birthday"
+			[content]="userPersonalInfosDetails.dateOfBirth"
 			[isViewDatas]="isViewDatas"
 			><app-text-field
 				*ngIf="!isViewDatas"
@@ -76,7 +76,7 @@
 				type="text"
 				id="date"
 				name="date"
-				[(ngModel)]="userPersonalInfosDatasForm.birthday"
+				[(ngModel)]="userPersonalInfosDatasForm.dateOfBirth"
 			></app-text-field
 		></app-account-card-info>
 

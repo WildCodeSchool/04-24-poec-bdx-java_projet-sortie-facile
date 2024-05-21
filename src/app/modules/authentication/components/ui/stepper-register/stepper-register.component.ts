@@ -35,16 +35,14 @@ export class StepperRegisterComponent implements OnDestroy {
 	}
 
 	onRegister(): void {
-		console.log(this.newUserPersonalInfos);
-
-		// this._subscription.add(
-		// 	this._authService
-		// 		.createUserWithEmailAndPassword(
-		// 			this.newUserAuth,
-		// 			this.newUserPersonalInfos,
-		// 		)
-		// 		.subscribe(),
-		// );
+		this._subscription.add(
+			this._authService
+				.createUserWithEmailAndPassword(
+					this.newUserAuth,
+					this.newUserPersonalInfos,
+				)
+				.subscribe(),
+		);
 	}
 
 	ngOnDestroy(): void {
