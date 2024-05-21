@@ -1,7 +1,7 @@
 export type UserDetails = {
 	id: string;
-	first_name: string;
-	last_name: string;
+	firstname: string;
+	lastname: string;
 	streetNumber: number;
 	street: string;
 	region: string;
@@ -19,7 +19,7 @@ export type UserDetails = {
 
 export type UserDetailsPersonalInfosForm = Pick<
 	UserDetails,
-	'first_name' | 'last_name' | 'phone' | 'birthday' | 'genre'
+	'firstname' | 'lastname' | 'phone' | 'birthday' | 'genre'
 > & {
 	email: string;
 };

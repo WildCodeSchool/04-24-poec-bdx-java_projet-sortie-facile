@@ -10,7 +10,7 @@
 	>
 		<app-account-card-info
 			title="Prénom"
-			[content]="userPersonalInfosDetails.first_name"
+			[content]="userPersonalInfosDetails.firstname"
 			[isViewDatas]="isViewDatas"
 		>
 			<app-text-field
@@ -19,13 +19,13 @@
 				type="text"
 				id="firstname"
 				name="firstname"
-				[(ngModel)]="userPersonalInfosDatasForm.first_name"
+				[(ngModel)]="userPersonalInfosDatasForm.firstname"
 			></app-text-field>
 		</app-account-card-info>
 
 		<app-account-card-info
 			title="Nom de famille"
-			[content]="userPersonalInfosDetails.last_name"
+			[content]="userPersonalInfosDetails.lastname"
 			[isViewDatas]="isViewDatas"
 		>
 			<app-text-field
@@ -34,7 +34,7 @@
 				type="text"
 				id="lastname"
 				name="lastname"
-				[(ngModel)]="userPersonalInfosDatasForm.last_name"
+				[(ngModel)]="userPersonalInfosDatasForm.lastname"
 			></app-text-field
 		></app-account-card-info>
 

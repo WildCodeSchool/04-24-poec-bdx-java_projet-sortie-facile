@@ -1,15 +1,58 @@
-export class UserInfo {
-	id: number;
-	firstName?: string;
-	lastName?: string;
-	pseudonym: string;
-	imgUrl: string;
+import { UserGenderEnum } from '../enums/user-genre.enum';
+import { City } from './city.class';
+import { Department } from './department.class';
 
-	constructor(id: number, pseudonym: string, imgUrl: string) {
+export class UserInfo {
+	id: string;
+	firstname: string;
+	lastname: string;
+	streetNumber: string;
+	street: string;
+	region: string;
+	postalCode: 33000;
+	description: string;
+	department: Department;
+	city: City;
+	avatar: string;
+	phone: string;
+	birthdate: string;
+	genre: UserGenderEnum;
+	categoryIds: string[];
+	userId: string;
+
+	constructor(
+		id: string,
+		firstname: string,
+		lastname: string,
+		streetNumber: string,
+		street: string,
+		region: string,
+		postalCode: 33000,
+		description: string,
+		department: Department,
+		city: City,
+		avatar: string,
+		phone: string,
+		birthdate: string,
+		genre: UserGenderEnum,
+		categoryIds: string[],
+		userId: string,
+	) {
 		this.id = id;
-		this.firstName = this.firstName;
-		this.lastName = this.lastName;
-		this.pseudonym = pseudonym;
-		this.imgUrl = imgUrl;
+		this.firstname = firstname;
+		this.lastname = lastname;
+		this.streetNumber = streetNumber;
+		this.street = street;
+		this.region = region;
+		this.postalCode = postalCode;
+		this.description = description;
+		this.department = department;
+		this.city = city;
+		this.avatar = avatar;
+		this.phone = phone;
+		this.birthdate = birthdate;
+		this.genre = genre;
+		this.categoryIds = categoryIds;
+		this.userId = userId;
 	}
 }

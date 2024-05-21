@@ -1,7 +1,6 @@
 import { AccountStatus, UserRoleEnum } from '../enums/user-role.enum';
 
 export class NewUserFormDatas {
-	id: string;
 	username: string;
 	email: string;
 	password: string;
@@ -10,7 +9,6 @@ export class NewUserFormDatas {
 	status: AccountStatus;
 
 	constructor(
-		id: string,
 		username: string,
 		email: string,
 		password: string,
@@ -18,7 +16,6 @@ export class NewUserFormDatas {
 		role: UserRoleEnum,
 		status: AccountStatus,
 	) {
-		this.id = id;
 		this.username = username;
 		this.email = email;
 		this.password = password;
