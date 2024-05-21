@@ -1,0 +1,23 @@
+<div class="form-control">
+	<label *ngIf="labelFor && labelContent" [for]="labelFor">{{
+		labelContent
+	}}</label>
+
+	<input
+		pInputText
+		[type]="type"
+		[id]="id"
+		[name]="name"
+		[(ngModel)]="value"
+		(ngModelChange)="onInputChange($event)"
+		(focus)="markAsTouched()"
+		#ref="ngModel"
+		[required]="required"
+		[minlength]="minlength"
+		[maxlength]="maxlength"
+	/>
+
+	<div *ngIf="ref.errors && form.submitted">
+		<app-field-error [ref]="ref"></app-field-error>
+	</div>
+</div>

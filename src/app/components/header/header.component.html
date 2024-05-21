@@ -1,0 +1,12 @@
+<ng-container *ngIf="items$ | async as items">
+	<p-menubar [model]="items" class="menubar">
+		<ng-template pTemplate="start">
+			<img
+				src="/assets/photos/logoSortieFacile.png"
+				height="40"
+				class="mr-2"
+				alt="logo of sortie facile"
+			/> </ng-template
+		><i class="pi pi-user" style="font-size: 1.5rem"></i>
+	</p-menubar>
+</ng-container>

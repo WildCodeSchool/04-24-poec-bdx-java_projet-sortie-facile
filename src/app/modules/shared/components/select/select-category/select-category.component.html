@@ -1,0 +1,16 @@
+<div class="form-control">
+	<label *ngIf="labelFor && labelContent" [for]="labelFor">{{
+		labelContent
+	}}</label>
+
+	<p-dropdown
+		*ngIf="activityCategoryList$ | async as categoriesItem"
+		[options]="categoriesItem"
+		[(ngModel)]="value"
+		optionLabel="title"
+		placeholder="Select a Category"
+		(ngModelChange)="onInputChange($event)"
+		(focus)="markAsTouched()"
+		#ref="ngModel"
+	/>
+</div>

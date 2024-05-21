@@ -1,0 +1,14 @@
+<div class="container">
+	<div class="filters-box">
+		<label for="">Rechercher</label>
+		<app-search-bar (emitChanges)="onSearch($event)"></app-search-bar>
+
+		<app-divider [align]="'center'" [type]="'solid'"></app-divider>
+	</div>
+
+	<div class="activities-box">
+		<app-activity-list-management
+			[searchedValue]="searchedValue"
+		></app-activity-list-management>
+	</div>
+</div>

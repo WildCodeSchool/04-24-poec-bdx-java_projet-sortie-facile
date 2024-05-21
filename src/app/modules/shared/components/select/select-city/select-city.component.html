@@ -1,0 +1,15 @@
+<div class="form-control">
+	<label *ngIf="labelFor && labelContent" [for]="labelFor">{{
+		labelContent
+	}}</label>
+
+	<p-dropdown
+		[options]="cities"
+		[(ngModel)]="value"
+		optionLabel="name"
+		placeholder="Select a City"
+		(ngModelChange)="onInputChange($event)"
+		(focus)="markAsTouched()"
+		#ref="ngModel"
+	/>
+</div>

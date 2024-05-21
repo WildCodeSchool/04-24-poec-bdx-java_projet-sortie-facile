@@ -1,0 +1,13 @@
+.container {
+	display: flex;
+	justify-content: center;
+	gap: 0;
+	background-color: transparent;
+	min-height: calc(100vh - 84px);
+}
+
+app-activity-create-management {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+}

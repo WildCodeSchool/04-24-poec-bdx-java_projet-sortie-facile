@@ -1,0 +1,20 @@
+<div class="form-control">
+	<label *ngIf="labelFor && labelContent" [for]="labelFor">{{
+		labelContent
+	}}</label>
+
+	<p-inputNumber
+		[style]="{ width: '4rem' }"
+		[showButtons]="true"
+		buttonLayout="horizontal"
+		spinnerMode="horizontal"
+		inputId="horizontal"
+		decrementButtonClass="p-button-secondary"
+		incrementButtonClass="p-button-secondary"
+		incrementButtonIcon="pi pi-plus"
+		decrementButtonIcon="pi pi-minus"
+		[(ngModel)]="value"
+		(ngModelChange)="onInputChange($event)"
+		(focus)="markAsTouched()"
+	/>
+</div>

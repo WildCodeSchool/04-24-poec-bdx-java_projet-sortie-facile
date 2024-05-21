@@ -1,0 +1,16 @@
+<div class="form-control">
+	<label *ngIf="labelFor && labelContent" [for]="labelFor">{{
+		labelContent
+	}}</label>
+
+	<p-calendar
+		[inputId]="inputId"
+		[id]="id"
+		[name]="name"
+		[(ngModel)]="value"
+		[timeOnly]="true"
+		(ngModelChange)="onInputChange($event)"
+		(focus)="markAsTouched()"
+		#ref="ngModel"
+	/>
+</div>

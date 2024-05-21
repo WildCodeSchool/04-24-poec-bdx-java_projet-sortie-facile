@@ -1,0 +1,119 @@
+<app-activity-form-layout
+	pageTitle="Création d'une activité"
+	backgroundImage="/assets/photos/create-activity.jpg"
+>
+	<form #createActivityForm="ngForm" (ngSubmit)="onSubmit(createActivityForm)">
+		<app-text-field
+			labelFor="name"
+			labelContent="Titre de l'activité :"
+			type="text"
+			id="name"
+			name="name"
+			[form]="createActivityForm"
+			[required]="true"
+			[minlength]="3"
+			[maxlength]="50"
+			[(ngModel)]="newActivity.name"
+			class="input-activity-form"
+		></app-text-field>
+
+		<app-input-date
+			labelFor="date"
+			labelContent="Date de l'activité :"
+			inputId="date"
+			id="date"
+			name="date"
+			[showIcon]="true"
+			[required]="true"
+			#date="ngModel"
+			[(ngModel)]="newActivity.date"
+		></app-input-date>
+
+		<app-input-hour
+			labelFor="date"
+			labelContent="Heure de l'activité :"
+			inputId="hour"
+			id="hour"
+			name="hour"
+			[required]="true"
+			#hour="ngModel"
+			[(ngModel)]="newActivity.hour"
+		></app-input-hour>
+
+		<app-select-city
+			labelFor="city"
+			labelContent="Lieu :"
+			id="city"
+			inputId="city"
+			name="activityCity"
+			[required]="true"
+			#activityCity="ngModel"
+			[(ngModel)]="newActivity.activityCity"
+		>
+		</app-select-city>
+
+		<app-select-category
+			labelFor="categoryId"
+			labelContent="Catégorie :"
+			id="categoryId"
+			inputId="categoryId"
+			name="categoryId"
+			[required]="true"
+			#category="ngModel"
+			[(ngModel)]="newActivity.categoryId"
+		></app-select-category>
+
+		<app-select-number
+			labelFor="nbGuest"
+			labelContent="Nbre de participants :"
+			inputId="nbGuest"
+			name="nbGuest"
+			[required]="true"
+			#nbGuest="ngModel"
+			[(ngModel)]="newActivity.nbGuest"
+		></app-select-number>
+
+		<app-textarea
+			labelFor="description"
+			labelContent="Description de l'évènement :"
+			id="description"
+			name="description"
+			[cols]="5"
+			[rows]="5"
+			[required]="true"
+			#description="ngModel"
+			[(ngModel)]="newActivity.description"
+		></app-textarea>
+
+		<p>img</p>
+		<i class="pi pi-download" style="font-size: 1.5rem"></i>
+
+		<input
+			inputId="imgUrl"
+			name="imgUrl"
+			#imgUrl="ngModel"
+			[(ngModel)]="newActivity.imgUrl"
+			type="file"
+			class="file-upload"
+		/>
+
+		<app-text-field
+			labelFor="link"
+			labelContent="Lien :"
+			type="url"
+			id="link"
+			name="link"
+			[form]="createActivityForm"
+			[required]="true"
+			[minlength]="3"
+			[maxlength]="50"
+			[(ngModel)]="newActivity.link"
+		></app-text-field>
+
+		<div class="card flex justify-content-center">
+			<app-modal-confirm-creat-activity
+				[myForm]="createActivityForm"
+			></app-modal-confirm-creat-activity>
+		</div>
+	</form>
+</app-activity-form-layout>

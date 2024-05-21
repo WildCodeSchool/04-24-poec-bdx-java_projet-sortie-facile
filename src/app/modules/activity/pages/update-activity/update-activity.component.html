@@ -1,0 +1,102 @@
+<h1>Modifier mon activité</h1>
+<div class="activity-form-container">
+	<div class="card flex justify-content-center"></div>
+	<form #myForm="ngForm" (ngSubmit)="onSubmit(myForm)" class="activity-form">
+		<app-avatar-pseudo></app-avatar-pseudo>
+		<p>Titre de l'activité</p>
+		<app-text-field
+			id="name"
+			name="name"
+			[required]="true"
+			#name="ngModel"
+			[form]="myForm"
+			[(ngModel)]="formData.name"
+			class="input-activity-form"
+		></app-text-field>
+
+		<p>Date de l'évènement</p>
+		<app-text-field
+			id="date"
+			name="date"
+			[required]="true"
+			#date="ngModel"
+			[form]="myForm"
+			[(ngModel)]="formData.date"
+			class="input-activity-form"
+		></app-text-field>
+
+		<p>Lieu</p>
+		<app-text-field
+			id="city"
+			inputId="city"
+			name="activityCity"
+			[required]="true"
+			#activityCity="ngModel"
+			[form]="myForm"
+			[(ngModel)]="formData.activityCity.name"
+			class="input-activity-form"
+		></app-text-field>
+
+		<p>Catégorie</p>
+		<app-text-field
+			id="categoryId"
+			inputId="categoryId"
+			name="categoryId"
+			[required]="true"
+			#categoryId="ngModel"
+			[form]="myForm"
+			[(ngModel)]="formData.categoryId.title"
+		></app-text-field>
+
+		<p>Nbre de participants</p>
+		<app-text-field
+			id="categoryId"
+			inputId="nbGuest"
+			name="nbGuest"
+			[required]="true"
+			#nbGuest="ngModel"
+			[form]="myForm"
+			[(ngModel)]="formData.nbGuest"
+		></app-text-field>
+
+		<p>Description de l'évènement</p>
+		<app-textarea
+			inputId="description"
+			name="description"
+			[required]="true"
+			#description="ngModel"
+			[(ngModel)]="formData.description"
+		></app-textarea>
+		<p>Image</p>
+		<img
+			[src]="formData.imgUrl"
+			alt="{{ formData.name }}"
+			*ngIf="formData.imgUrl"
+			class="activity-image"
+		/>
+
+		<i class="pi pi-download" style="font-size: 1.5rem"></i>
+
+		<input
+			inputId="imgUrl"
+			name="imgUrl"
+			#imgUrl="ngModel"
+			[(ngModel)]="formData.imgUrl"
+			type="file"
+			class="file-upload"
+		/>
+		<p>Lien</p>
+		<i class="pi pi-download" style="font-size: 1.5rem"></i>
+
+		<input
+			inputId="link"
+			name="link"
+			#link="ngModel"
+			[(ngModel)]="formData.link"
+			type="url"
+		/>
+		<div class="card flex justify-content-center">
+			<p-button rounded label="Check" type="submit">Modifier</p-button>
+		</div>
+	</form>
+</div>

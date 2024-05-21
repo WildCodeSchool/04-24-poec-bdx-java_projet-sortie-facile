@@ -1,0 +1,53 @@
+.participate {
+	background-color: var(--gray-500);
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+
+	padding: 1rem;
+	border-radius: 10px;
+
+	.participate-card-body {
+		width: 100%;
+
+		h4 {
+			font-size: 1.025rem;
+			color: var(--black-color);
+			margin: 0;
+			margin-bottom: 1.5rem;
+		}
+
+		p {
+			color: var(--black-color);
+			font-size: 0.85rem;
+			margin: 0;
+			margin-bottom: 0.85rem;
+		}
+
+		.btn-container {
+			display: flex;
+			gap: 1rem;
+		}
+	}
+
+	.img-box {
+		display: none;
+	}
+
+	@media (min-width: 768px) {
+		.functioning-card-body {
+			width: 65%;
+		}
+
+		.img-box {
+			display: flex;
+			justify-content: center;
+			width: 20%;
+
+			img {
+				width: 100%;
+				max-width: 175px;
+			}
+		}
+	}
+}

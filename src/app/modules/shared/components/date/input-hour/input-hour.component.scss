@@ -1,0 +1,24 @@
+.form-control {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	gap: 0rem;
+}
+
+label {
+	font-family: var(--font-family-primary);
+	margin-bottom: 0.4rem;
+	color: var(--black-color);
+}
+
+:host ::ng-deep .p-calendar {
+	width: 100%;
+
+	.p-inputtext {
+		border-radius: 0.35rem;
+		background-color: var(--gray-500);
+		border: 1px solid var(--gray-200);
+		height: 45px;
+		margin-bottom: 0.2rem;
+	}
+}

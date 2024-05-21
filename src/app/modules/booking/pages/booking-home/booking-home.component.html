@@ -1,0 +1,10 @@
+<p>booking-home works!</p>
+<ng-container *ngIf="reservations$ | async as reservations">
+	<div *ngFor="let reservation of reservations">
+		{{ reservation | json }}
+
+		<p>{{ reservation.id }}</p>
+	</div>
+</ng-container>
+
+<p-divider /><p-divider />

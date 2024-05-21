@@ -1,0 +1,33 @@
+<div class="activity-card-container">
+	<div class="details" *ngIf="activity$ | async as activity">
+		<p-card
+			[header]="activity.name"
+			subheader="Card Subheader"
+			[style]="{ width: '360px' }"
+		>
+			<ng-template pTemplate="header">
+				<img alt="{{ activity.name }}" [src]="activity.imgUrl" />
+			</ng-template>
+
+			<p>
+				{{ activity.description }}
+			</p>
+
+			<p>Catégorie : {{ activity.categoryId.title }}</p>
+			<p>City : {{ activity.activityCity.name }}</p>
+
+			<a [href]="activity.link" [title]="activity.name" target="_blank"
+				>Voir Plus</a
+			>
+
+			<ng-template pTemplate="footer">
+				<app-modal-confirm-reservation
+					[myForm]="myForm"
+				></app-modal-confirm-reservation>
+				<p-button rounded [routerLink]="['/update', activity.id]">
+					Modifier
+				</p-button>
+			</ng-template>
+		</p-card>
+	</div>
+</div>

@@ -1,0 +1,12 @@
+<p-iconField iconPosition="left">
+	<p-inputIcon styleClass="pi pi-search" />
+	<input
+		type="text"
+		pInputText
+		placeholder="Search"
+		name="search-video"
+		id="search-video"
+		[(ngModel)]="searchedValue"
+		(ngModelChange)="onChange()"
+	/>
+</p-iconField>
