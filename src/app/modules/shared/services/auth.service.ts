@@ -1,6 +1,15 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, map, switchMap, tap } from 'rxjs';
+import {
+	BehaviorSubject,
+	EMPTY,
+	Observable,
+	catchError,
+	filter,
+	map,
+	switchMap,
+	tap,
+} from 'rxjs';
 import { Router } from '@angular/router';
 import {
 	UserAuth,
@@ -116,6 +125,34 @@ export class AuthService {
 		localStorage.removeItem('user');
 		this.notifyLoggedInStatus(false);
 		this._router.navigateByUrl('/auth/login');
+	}
+
+	public updatePassword(
+		connectedUser: UserAuthPrimaryDatas,
+		oldPassword: string,
+		newPassword: string,
+	): Observable<UserAuthPrimaryDatas> {
+		return this._httpClient.get<UserListResponseApi>(this.BASE_URL).pipe(
+			map((users: UserListResponseApi) => {
+				return (
+					users.find((user: UserAuth) => {
+						return (
+							user.username === connectedUser.username &&
+							user.password === oldPassword
+						);
+					}) || null
+				);
+			}),
+			filter((user: UserAuth | null) => user !== null),
+			switchMap(() =>
+				this.patchConnectedUser({
+					password: newPassword,
+				}),
+			),
+			catchError(() => {
+				return EMPTY;
+			}),
+		);
 	}
 
 	public getConnectedUserData(): UserAuthPrimaryDatas {

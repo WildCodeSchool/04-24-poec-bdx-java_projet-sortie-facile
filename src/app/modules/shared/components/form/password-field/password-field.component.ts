@@ -26,4 +26,5 @@ export class PasswordFieldComponent extends FormInputControlValueAccessor {
 	@Input() required!: boolean;
 	@Input() minlength!: number;
 	@Input() maxlength!: number;
+	@Input() inputInfo!: string;
 }
