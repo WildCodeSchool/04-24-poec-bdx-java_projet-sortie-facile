@@ -27,13 +27,17 @@
 
 .content-box {
 	width: 100%;
-	max-width: 400px;
+	max-width: 450px;
 }
 
 h1 {
 	margin: 0;
 	margin-bottom: 1.75rem;
 	color: var(--black-color);
+}
+
+.text-with-redirect {
+	margin-top: 2rem;
 }
 
 .secondary-container {

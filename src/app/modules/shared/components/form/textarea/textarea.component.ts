@@ -1,5 +1,6 @@
 import { Component, Input, forwardRef } from '@angular/core';
-import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { NG_VALUE_ACCESSOR, NgForm, ValidationErrors } from '@angular/forms';
+import { FormInputControlValueAccessor } from '@shared/models/classes/form-input-control-value-accessor.class';
 
 @Component({
 	selector: 'app-textarea',
@@ -13,48 +14,16 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 		},
 	],
 })
-export class TextareaComponent implements ControlValueAccessor {
+export class TextareaComponent extends FormInputControlValueAccessor {
 	@Input() id!: string;
 	@Input() name!: string;
 	@Input() labelFor!: string;
 	@Input() labelContent!: string;
 	@Input() cols!: number;
 	@Input() rows!: number;
+	@Input() errorMessage!: string;
+	@Input() error!: ValidationErrors | null | undefined;
+	@Input() form!: NgForm;
 	@Input() required!: boolean;
 	@Input() minlength!: number;
-	@Input() maxlength!: number;
-
-	disabled!: boolean;
-	value!: string;
-
-	onChanged!: (value: string) => void;
-	onTouched!: () => void;
-
-	onInputChange(value: string): void {
-		if (this.disabled) {
-			return;
-		}
-
-		this.onChanged(value);
-	}
-
-	writeValue(value: string): void {
-		this.value = value;
-	}
-
-	registerOnChange(fn: (value: string) => void): void {
-		this.onChanged = fn;
-	}
-
-	registerOnTouched(fn: () => void): void {
-		this.onTouched = fn;
-	}
-
-	setDisabledState(isDisabled: boolean): void {
-		this.disabled = isDisabled;
-	}
-
-	markAsTouched(): void {
-		this.onTouched();
-	}
 }

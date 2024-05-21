@@ -19,10 +19,6 @@ export const isConnectedGuard: CanActivateFn = () => {
 	) {
 		authService.setConnectedUserData(userData);
 
-		// TODO
-		// when back java ok
-		// verify auth token
-
 		return true;
 	}
 

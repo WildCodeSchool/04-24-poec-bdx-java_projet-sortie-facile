@@ -11,6 +11,7 @@ import { ActivityListManagementComponent } from './components/feature/activity-l
 import { ActivityCreateManagementComponent } from './components/feature/activity-create-management/activity-create-management.component';
 import { ActivityCreateComponent } from './pages/activity-create/activity-create.component';
 import { ActivityFormLayoutComponent } from './components/ui/activity-form-layout/activity-form-layout.component';
+import { ActivityUpdateManagementComponent } from './components/feature/activity-update-management/activity-update-management.component';
 
 @NgModule({
 	declarations: [
@@ -22,6 +23,7 @@ import { ActivityFormLayoutComponent } from './components/ui/activity-form-layou
 		ActivityListManagementComponent,
 		ActivityFormLayoutComponent,
 		ActivityCreateComponent,
+  ActivityUpdateManagementComponent,
 	],
 	imports: [CommonModule, ActivityRoutingModule, SharedModule],
 })
