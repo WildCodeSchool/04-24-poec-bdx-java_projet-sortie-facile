@@ -28,6 +28,8 @@ export class ModalConfirmUpdateActivityComponent {
 				message: 'Confirmer la création de votre activité',
 				accept: () => this.onAccept(),
 				reject: () => this.onReject(),
+				acceptLabel: 'Oui', // Personnalisation du bouton Oui
+				rejectLabel: 'Non',
 			});
 		} else {
 			this.onError();
