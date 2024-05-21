@@ -65,6 +65,7 @@ export class AuthService {
 				email: user.email,
 				role: user.role,
 				status: user.status,
+				userDetailsId: '',
 			})),
 			tap((user: UserAuthPrimaryDatas) => {
 				this.setConnectedUserData(user);
@@ -92,14 +93,21 @@ export class AuthService {
 				this.notifyLoggedInStatus(true);
 				localStorage.setItem('user', JSON.stringify(user));
 			}),
-
 			switchMap((newUser: newUserDatas) =>
 				this._userService.postUserInfos$({
 					...newUserPersonalInfos,
 					userId: newUser.id,
 				}),
 			),
-			tap(() => {
+			tap(newUser => {
+				const user = JSON.parse(localStorage.getItem('user') as string);
+				localStorage.setItem(
+					'user',
+					JSON.stringify({ ...user, userDetailsId: newUser.id }),
+				);
+
+				this.setConnectedUserData({ ...user, userDetailsId: newUser.id });
+
 				this._router.navigateByUrl('/user/home');
 			}),
 		);
@@ -159,7 +167,7 @@ export class AuthService {
 		return this._userConnected;
 	}
 
-	public setConnectedUserData(user: UserAuthPrimaryDatas): void {
+	public setConnectedUserData(user: any): void {
 		this._userConnected = user;
 	}
 

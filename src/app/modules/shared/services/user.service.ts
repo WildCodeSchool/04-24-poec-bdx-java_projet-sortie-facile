@@ -17,10 +17,8 @@ export class UserService {
 
 	constructor(private _httpClient: HttpClient) {}
 
-	getUserInfos$(authUserConnectedId: string): Observable<UserDetails> {
-		return this._httpClient.get<UserDetails>(
-			`${this._BASE_URL}/${authUserConnectedId}`,
-		);
+	getUserInfos$(userId: string): Observable<UserDetails> {
+		return this._httpClient.get<UserDetails>(`${this._BASE_URL}/${userId}`);
 	}
 
 	postUserInfos$(
