@@ -47,7 +47,7 @@ export class AccountAddressFormComponent implements OnInit {
 
 	onSave(): void {
 		this.userDetails$ = this._userService.patchUserInfo$(
-			this.connectedUser.id,
+			this.connectedUser.userDetailsId,
 			this.userAddressDatasForm,
 		);
 

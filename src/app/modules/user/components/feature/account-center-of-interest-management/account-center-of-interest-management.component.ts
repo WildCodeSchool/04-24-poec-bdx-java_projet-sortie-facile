@@ -5,7 +5,7 @@ import { ActivityService } from '@shared/services/activity.service';
 import { AuthService } from '@shared/services/auth.service';
 import { UserService } from '@shared/services/user.service';
 import { BaseAccountManagementComponent } from '@user/directives/account-management.class';
-import { Observable, map, switchMap } from 'rxjs';
+import { Observable, map, switchMap, tap } from 'rxjs';
 
 @Component({
 	selector: 'app-account-center-of-interest-management',
@@ -36,9 +36,9 @@ export class AccountCenterOfInterestManagementComponent
 
 		this.categoryList$ = this._activityService.getCategoryList$();
 		this.userCategoryList$ = this._userService
-			.getUserInfos$(this.connectedUser.id)
+			.getUserInfos$(this.connectedUser.userDetailsId)
 			.pipe(
-				map((userInfos: UserDetails) => userInfos.categorieIds),
+				map((userInfos: UserDetails) => userInfos.categoryIds),
 				switchMap((categoryIds: string[]) =>
 					this._activityService
 						.getCategoryList$()
