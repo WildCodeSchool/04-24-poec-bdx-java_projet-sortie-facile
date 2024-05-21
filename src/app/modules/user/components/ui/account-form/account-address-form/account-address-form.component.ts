@@ -26,7 +26,9 @@ export class AccountAddressFormComponent {
 
 	ngOnInit(): void {
 		this.connectedUser = this._authService.getConnectedUserData();
-		this.userDetails$ = this._userService.getUserInfos$(this.connectedUser.id);
+		this.userDetails$ = this._userService.getUserInfos$(
+			this.connectedUser.userDetailsId,
+		);
 		this.userDetails$
 			.pipe(
 				map((userDetails: UserDetails) => {

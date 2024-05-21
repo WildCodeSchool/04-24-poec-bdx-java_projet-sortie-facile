@@ -10,13 +10,14 @@ export type UserAuth = {
 	password: string;
 	role: UserRoleEnum;
 	status: AccountStatus;
+	userDetailsId: string;
 };
 
 export type UserListResponseApi = UserAuth[];
 
 export type UserAuthPrimaryDatas = Pick<
 	UserAuth,
-	'id' | 'username' | 'email' | 'role' | 'status'
+	'id' | 'username' | 'email' | 'role' | 'status' | 'userDetailsId'
 >;
 
 export type UserAuthPatch = Partial<UserAuth>;
