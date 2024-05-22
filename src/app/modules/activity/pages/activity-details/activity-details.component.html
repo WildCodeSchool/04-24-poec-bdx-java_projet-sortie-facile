@@ -16,7 +16,11 @@
 			<p>Catégorie : {{ activity.categoryId.title }}</p>
 			<p>City : {{ activity.activityCity.name }}</p>
 
-			<a [href]="activity.link" [title]="activity.name" target="_blank"
+			<a
+				*ngIf="activity.link"
+				[href]="activity.link"
+				[title]="activity.name"
+				target="_blank"
 				>Voir Plus</a
 			>
 
