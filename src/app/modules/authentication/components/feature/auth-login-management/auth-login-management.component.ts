@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { UserConnectedDatas } from '@shared/models/classes/user-connected-datas.class';
 import { AuthRedirect } from '@shared/models/types/auth-redirect.type';
 import { AuthProvider } from '@shared/models/types/provider.type';
-import { UserAuthPrimaryDatas } from '@shared/models/types/user-list-response-api.type';
 import { AuthService } from '@shared/services/auth.service';
 
 @Component({
@@ -37,8 +36,6 @@ export class AuthLoginManagementComponent implements OnInit {
 				this.connectedUser.username,
 				this.connectedUser.password,
 			)
-			.subscribe((user: UserAuthPrimaryDatas) => {
-				localStorage.setItem('user', JSON.stringify(user));
-			});
+			.subscribe();
 	}
 }

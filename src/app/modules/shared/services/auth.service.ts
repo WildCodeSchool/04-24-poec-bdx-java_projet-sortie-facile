@@ -65,11 +65,12 @@ export class AuthService {
 				email: user.email,
 				role: user.role,
 				status: user.status,
-				userDetailsId: '',
+				userDetailsId: user.userDetailsId,
 			})),
 			tap((user: UserAuthPrimaryDatas) => {
 				this.setConnectedUserData(user);
 				this.notifyLoggedInStatus(true);
+				localStorage.setItem('user', JSON.stringify(user));
 				this._router.navigateByUrl('/user/home');
 			}),
 		);
@@ -78,39 +79,50 @@ export class AuthService {
 	createUserWithEmailAndPassword(
 		newUserAuthInfos: NewUserFormDatas,
 		newUserPersonalInfos: NewUserPersonalInfosFormDatas,
-	): Observable<UserInfo> {
-		return this._httpClient.post<newUser>(this.BASE_URL, newUserAuthInfos).pipe(
-			map((user: newUser) => ({
-				id: user.id,
-				username: user.username,
-				email: user.email,
-				password: user.password,
-				role: user.role,
-				status: user.status,
-			})),
-			tap((user: newUserDatas) => {
-				this.setConnectedUserData(user);
-				this.notifyLoggedInStatus(true);
-				localStorage.setItem('user', JSON.stringify(user));
-			}),
-			switchMap((newUser: newUserDatas) =>
-				this._userService.postUserInfos$({
-					...newUserPersonalInfos,
-					userId: newUser.id,
+	): Observable<any> {
+		return this._httpClient
+			.post<newUser>(`${this.BASE_URL}`, newUserAuthInfos)
+			.pipe(
+				switchMap((createdUser: newUser) => {
+					return this._userService
+						.postUserInfos$({
+							...newUserPersonalInfos,
+							userId: createdUser.id,
+						})
+						.pipe(
+							map((createdUserInfo: UserInfo) => {
+								return {
+									...createdUser,
+									userDetailsId: createdUserInfo.id,
+								};
+							}),
+						);
 				}),
-			),
-			tap(newUser => {
-				const user = JSON.parse(localStorage.getItem('user') as string);
-				localStorage.setItem(
-					'user',
-					JSON.stringify({ ...user, userDetailsId: newUser.id }),
-				);
-
-				this.setConnectedUserData({ ...user, userDetailsId: newUser.id });
-
-				this._router.navigateByUrl('/user/home');
-			}),
-		);
+				switchMap((updatedUser: newUser) =>
+					this._httpClient.put<newUser>(
+						`${this.BASE_URL}/${updatedUser.id}`,
+						updatedUser,
+					),
+				),
+				map((finalUser: newUser) => {
+					const userToStore = {
+						id: finalUser.id,
+						username: finalUser.username,
+						email: finalUser.email,
+						password: finalUser.password,
+						role: finalUser.role,
+						status: finalUser.status,
+						userDetailsId: finalUser.userDetailsId,
+					};
+					localStorage.setItem('user', JSON.stringify(userToStore));
+					this.setConnectedUserData(userToStore);
+					this.notifyLoggedInStatus(true);
+					return finalUser;
+				}),
+				tap(() => {
+					this._router.navigateByUrl('/user/home');
+				}),
+			);
 	}
 
 	public patchConnectedUser(
