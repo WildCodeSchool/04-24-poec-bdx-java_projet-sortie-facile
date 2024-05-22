@@ -33,11 +33,23 @@ export class ActivityService {
 			.get<Activity>(`${this._BASE_URL}/${id}`)
 			.pipe(map((response: Activity) => response));
 	}
-
-	getActivityListByCreatedUser$(limit: number = -1): Observable<Activity[]> {
-		return this._httpClient
-			.get<Activities>(this._BASE_URL)
-			.pipe(map((response: Activities) => response.slice(0, limit)));
+	//  ajouter parametre id + filtre au niveau du map userid = userid
+	getActivityListByCreatedUser$(
+		limit: number = -1,
+		id: string,
+	): Observable<Activities> {
+		return this._httpClient.get<Activity[]>(this._BASE_URL).pipe(
+			map((activities: Activity[]) => {
+				// Filter activities by user ID
+				const filteredActivities = activities.filter(
+					activity => activity.userId === id,
+				);
+				// Apply limit if greater than 0
+				return limit > 0
+					? filteredActivities.slice(0, limit)
+					: filteredActivities;
+			}),
+		);
 	}
 	filteredActivityList$(name: string): Observable<Activity[]> {
 		return this.getActivityList$().pipe(
