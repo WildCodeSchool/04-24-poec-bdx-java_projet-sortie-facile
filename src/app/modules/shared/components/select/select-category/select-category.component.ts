@@ -2,6 +2,7 @@ import { Component, Input, OnInit, forwardRef } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { Category } from '@models/types/category.type';
 import { ActivityService } from '@shared/services/activity.service';
+import { CategoryService } from '@shared/services/category.service';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -28,10 +29,13 @@ export class SelectCategoryComponent implements OnInit, ControlValueAccessor {
 	activityCategoryList$!: Observable<Category[]>;
 	selectedCategory!: Category;
 
-	constructor(private activityService: ActivityService) {}
+	constructor(
+		private activityService: ActivityService,
+		private categoryService: CategoryService,
+	) {}
 
 	ngOnInit(): void {
-		this.activityCategoryList$ = this.activityService.getCategoryList$();
+		this.activityCategoryList$ = this.categoryService.getCategoryList$();
 	}
 
 	disabled!: boolean;

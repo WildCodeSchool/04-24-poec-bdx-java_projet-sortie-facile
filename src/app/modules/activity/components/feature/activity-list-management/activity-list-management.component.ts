@@ -3,6 +3,7 @@ import { Activity } from '@shared/models/types/activity.type';
 import { UserAuthPrimaryDatas } from '@shared/models/types/user-list-response-api.type';
 import { ActivityService } from '@shared/services/activity.service';
 import { AuthService } from '@shared/services/auth.service';
+import { CategoryService } from '@shared/services/category.service';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -20,6 +21,7 @@ export class ActivityListManagementComponent implements OnInit, OnChanges {
 
 	constructor(
 		private activityService: ActivityService,
+		private categoryService: CategoryService,
 		private _authService: AuthService,
 	) {}
 
@@ -41,6 +43,6 @@ export class ActivityListManagementComponent implements OnInit, OnChanges {
 	}
 
 	getCategoryTitle(categoryId: number): Observable<string> {
-		return this.activityService.getCategoryById$(categoryId);
+		return this.categoryService.getCategoryById$(categoryId);
 	}
 }
