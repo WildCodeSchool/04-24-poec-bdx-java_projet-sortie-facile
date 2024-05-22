@@ -18,6 +18,7 @@ export class TextFieldComponent extends FormInputControlValueAccessor {
 	@Input() type!: string;
 	@Input() id!: string;
 	@Input() name!: string;
+	@Input() fieldName!: string;
 	@Input() labelFor!: string;
 	@Input() labelContent!: string;
 	@Input() errorMessage!: string;

@@ -9,6 +9,7 @@ import {
 	map,
 	switchMap,
 	tap,
+	throwError,
 } from 'rxjs';
 import { Router } from '@angular/router';
 import {
@@ -25,6 +26,7 @@ import { NewUserFormDatas } from '@shared/models/classes/new-user-form-datas.cla
 import { UserService } from './user.service';
 import { NewUserPersonalInfosFormDatas } from '@shared/models/classes/new-user-personal-infos-form-datas.class';
 import { UserInfo } from '@shared/models/classes/user-infos.type';
+import { FormErrorMessageService } from './form-errors.service';
 
 @Injectable({
 	providedIn: 'root',
@@ -46,6 +48,7 @@ export class AuthService {
 		private _httpClient: HttpClient,
 		private _router: Router,
 		private _userService: UserService,
+		private _formErrorMessage: FormErrorMessageService,
 	) {}
 
 	loginWithEmailAndPassword(
@@ -59,18 +62,31 @@ export class AuthService {
 						return user.username === username && user.password === password;
 					}) as UserAuth,
 			),
-			map((user: UserAuthPrimaryDatas) => ({
-				id: user.id,
-				username: user.username,
-				email: user.email,
-				role: user.role,
-				status: user.status,
-				userDetailsId: '',
-			})),
+			map((user: UserAuth) => {
+				if (!user) {
+					throw new Error(this._formErrorMessage.loginErrorMessage);
+				}
+				return {
+					id: user.id,
+					username: user.username,
+					email: user.email,
+					role: user.role,
+					status: user.status,
+					userDetailsId: '',
+				} as UserAuthPrimaryDatas;
+			}),
 			tap((user: UserAuthPrimaryDatas) => {
 				this.setConnectedUserData(user);
 				this.notifyLoggedInStatus(true);
 				this._router.navigateByUrl('/user/home');
+			}),
+			catchError(() => {
+				return throwError(
+					() =>
+						new Error(
+							"Votre nom d'utilisateur ou votre mot de passe incorrect",
+						),
+				);
 			}),
 		);
 	}
