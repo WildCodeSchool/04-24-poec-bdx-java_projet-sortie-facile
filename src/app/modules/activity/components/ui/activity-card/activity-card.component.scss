@@ -20,13 +20,14 @@ p {
 	margin-bottom: 1rem;
 	height: 80px;
 	overflow: hidden;
-	.clamp-text {
-		display: -webkit-box;
-		-webkit-box-orient: vertical;
-		-webkit-line-clamp: 4;
-		text-overflow: ellipsis;
-	}
 }
+//...apres text
+.clamp-text {
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 4;
+	text-overflow: ellipsis;
+
 
 :host ::ng-deep p-card {
 	.p-card {

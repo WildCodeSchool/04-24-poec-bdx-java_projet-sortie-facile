@@ -4,6 +4,15 @@
 	border-radius: 0;
 	position: relative;
 }
+:host {
+	::ng-deep .p-menubar {
+		padding: 10px;
+		padding-bottom: 40px;
+		border-radius: 0;
+		position: relative;
+		background-color: #3f51b5;
+	}
+}
 
 .p-menuitem-icon {
 	color: white;
