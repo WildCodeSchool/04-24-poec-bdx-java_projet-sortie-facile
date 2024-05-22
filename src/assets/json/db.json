@@ -34,20 +34,16 @@
       "id": "a9fe",
       "username": "Pimpoye",
       "email": "Pimpoye@medoc.fr",
-<<<<<<< HEAD
-      "password": "mafemmecestmasoeur",
+      "password": "juniordoe",
       "passwordConfirm": "mafemmecestmasoeur",
       "role": "user",
       "status": "active"
     },
     {
-      "id": "da45",
+      "id": "fdc2",
       "username": "Pimpoye",
       "email": "Pimpoye@medoc.fr",
       "password": "mafemmecestmasoeur",
-=======
-      "password": "juniordoe",
->>>>>>> b638f04a90e8d8d4d01bc2f92879e36807da521f
       "passwordConfirm": "mafemmecestmasoeur",
       "role": "user",
       "status": "active"
@@ -195,6 +191,30 @@
       ],
       "userId": "a9fe",
       "email": "Pimpoye@medoc.fr"
+    },
+    {
+      "id": "e1ab",
+      "firstname": "",
+      "lastname": "",
+      "streetNumber": "",
+      "street": "",
+      "region": "",
+      "postalCode": 33000,
+      "description": "",
+      "department": {
+        "id": "1",
+        "name": ""
+      },
+      "city": {
+        "id": 1,
+        "name": ""
+      },
+      "avatar": "",
+      "phone": "",
+      "dateOfBirth": "",
+      "genre": "masculin",
+      "categoryIds": [],
+      "userId": "fdc2"
     }
   ],
   "category": [
