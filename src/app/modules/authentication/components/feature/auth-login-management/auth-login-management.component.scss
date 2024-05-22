@@ -3,6 +3,10 @@ app-auth-layout {
 	width: 100%;
 }
 
+app-global-form-error {
+	display: flex;
+}
+
 form {
 	display: flex;
 	flex-direction: column;

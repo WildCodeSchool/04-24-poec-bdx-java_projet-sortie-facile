@@ -18,6 +18,7 @@ export class MaskFieldComponent extends FormInputControlValueAccessor {
 	@Input() type!: string;
 	@Input() id!: string;
 	@Input() name!: string;
+	@Input() fieldName!: string;
 	@Input() mask!: string;
 	@Input() placeholder!: string;
 	@Input() slotChar: string = '';
