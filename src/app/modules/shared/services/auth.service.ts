@@ -123,8 +123,20 @@ export class AuthService {
 			)
 			.pipe(
 				tap((user: UserAuth) => {
-					localStorage.setItem('user', JSON.stringify(user));
-					this.setConnectedUserData(user);
+					const currentUser = JSON.parse(
+						localStorage.getItem('user') as string,
+					);
+					localStorage.setItem(
+						'user',
+						JSON.stringify({
+							...user,
+							userDetailsId: currentUser.userDetailsId,
+						}),
+					);
+					this.setConnectedUserData({
+						...user,
+						userDetailsId: currentUser.userDetailsId,
+					});
 				}),
 			);
 	}

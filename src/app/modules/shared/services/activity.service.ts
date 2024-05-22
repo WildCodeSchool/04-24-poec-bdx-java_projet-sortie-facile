@@ -39,37 +39,6 @@ export class ActivityService {
 			.get<Activities>(this._BASE_URL)
 			.pipe(map((response: Activities) => response.slice(0, limit)));
 	}
-
-	getCategoryList$(): Observable<Category[]> {
-		return this._httpClient
-			.get<Category[]>(`http://localhost:3000/category`)
-			.pipe(map((response: Category[]) => response));
-	}
-
-	getCategoryById$(id: number): Observable<string> {
-		return this._httpClient
-			.get<Activity[]>(`${this._BASE_URL}?categoryId=${id}`)
-			.pipe(
-				map((activities: Activity[]) =>
-					activities.map(activity => activity.name).join(', '),
-				),
-			);
-	}
-	getCategoryTitle$(categoryId: string): Observable<string> {
-		return this._httpClient
-			.get<Category>(`http://localhost:3000/category/${categoryId}`)
-			.pipe(
-				map((category: Category) => {
-					return category.title;
-				}),
-			);
-	}
-
-	getActivityListByCategoryId$(id: number): Observable<Activity[]> {
-		return this._httpClient.get<Activity[]>(
-			`${this._BASE_URL}?categoryId=${id}`,
-		);
-	}
 	filteredActivityList$(name: string): Observable<Activity[]> {
 		return this.getActivityList$().pipe(
 			map((activityList: Activity[]) =>

@@ -56,28 +56,33 @@
 			title="Téléphone"
 			[content]="userPersonalInfosDetails.phone"
 			[isViewDatas]="isViewDatas"
-			><app-text-field
+			><app-mask-field
 				*ngIf="!isViewDatas"
 				input
 				type="text"
 				id="phone"
 				name="phone"
+				placeholder="99-99-99-99-99"
+				mask="99-99-99-99-99"
 				[(ngModel)]="userPersonalInfosDatasForm.phone"
-			></app-text-field
+			></app-mask-field
 		></app-account-card-info>
 
 		<app-account-card-info
 			title="Date de naissance"
-			[content]="userPersonalInfosDetails.birthday"
+			[content]="userPersonalInfosDetails.dateOfBirth"
 			[isViewDatas]="isViewDatas"
-			><app-text-field
+			><app-mask-field
 				*ngIf="!isViewDatas"
 				input
 				type="text"
-				id="date"
-				name="date"
-				[(ngModel)]="userPersonalInfosDatasForm.birthday"
-			></app-text-field
+				id="dateOfBirth"
+				name="dateOfBirth"
+				placeholder="99/99/9999"
+				mask="99/99/9999"
+				slotChar="dd/mm/yyyy"
+				[(ngModel)]="userPersonalInfosDatasForm.dateOfBirth"
+			></app-mask-field
 		></app-account-card-info>
 
 		<app-account-card-info

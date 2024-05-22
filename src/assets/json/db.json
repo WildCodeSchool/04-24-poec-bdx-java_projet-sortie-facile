@@ -3,7 +3,7 @@
     {
       "username": "johndoe",
       "email": "j.doe@test.com",
-      "password": "TTTTTTTTTTT",
+      "password": "123456789",
       "role": "admin",
       "id": "1"
     },
@@ -22,18 +22,19 @@
       "role": "user"
     },
     {
-      "id": "c809",
+      "id": "5c35",
       "username": "Pimpoye",
       "email": "Pimpoye@medoc.fr",
-      "password": "mafemmecestmasoeur",
+      "password": "aaaaaaaaaaaaaaaaa",
       "passwordConfirm": "mafemmecestmasoeur",
       "role": "user",
       "status": "active"
     },
     {
-      "id": "06c6",
+      "id": "a9fe",
       "username": "Pimpoye",
       "email": "Pimpoye@medoc.fr",
+<<<<<<< HEAD
       "password": "mafemmecestmasoeur",
       "passwordConfirm": "mafemmecestmasoeur",
       "role": "user",
@@ -44,6 +45,9 @@
       "username": "Pimpoye",
       "email": "Pimpoye@medoc.fr",
       "password": "mafemmecestmasoeur",
+=======
+      "password": "juniordoe",
+>>>>>>> b638f04a90e8d8d4d01bc2f92879e36807da521f
       "passwordConfirm": "mafemmecestmasoeur",
       "role": "user",
       "status": "active"
@@ -63,11 +67,11 @@
       "avatar": "https://images.radio-canada.ca/w_635,h_357/v1/ici-tele/jeunesse/16x9/arthur-et-les-minimoys-arthur.jpg",
       "description": "it's me but i'm not sure",
       "phone": "01-23-45-67-09",
-      "birthday": "10/02/1998",
+      "dateOfBirth": "10/02/1998",
       "genre": "masculin",
       "userId": "1",
       "email": "j.doe@test.com",
-      "categorieIds": [
+      "categoryIds": [
         "1",
         "4",
         "5",
@@ -90,10 +94,10 @@
       "avatar": "https://images.radio-canada.ca/w_635,h_357/v1/ici-tele/jeunesse/16x9/arthur-et-les-minimoys-selenia.jpg",
       "description": "'maybe you can find me in the forest'",
       "phone": "01-23-45-67-89",
-      "birthday": "14/05/1990",
+      "dateOfBirth": "14/05/1990",
       "genre": "féminin",
       "userId": "2",
-      "categorieIds": [
+      "categoryIds": [
         "1",
         "4",
         "5",
@@ -116,10 +120,10 @@
       "avatar": "https://images.radio-canada.ca/w_635,h_357/v1/ici-tele/jeunesse/16x9/arthur-et-les-minimoys-mul-mul.jpg",
       "description": "'i'm the little one'",
       "phone": "01-23-45-67-89",
-      "birthday": "19/09/1995",
+      "dateOfBirth": "19/09/1995",
       "genre": "masculin",
       "userId": "3",
-      "categorieIds": [
+      "categoryIds": [
         "1",
         "4",
         "5",
@@ -130,277 +134,67 @@
       ]
     },
     {
-      "id": "",
-      "firstname": "",
-      "lastname": "",
-      "streetNumber": "",
-      "street": "",
-      "region": {
-        "id": "3",
-        "name": "Nouvelle-Aquitaine"
-      },
-      "postalCode": 33000,
-      "description": "",
-      "department": {
-        "id": "33",
-        "name": "Gironde"
-      },
-      "city": {
-        "id": 1,
-        "name": ""
-      },
-      "avatar": "",
-      "phone": "",
-      "birthdate": "",
-      "genre": "masculin",
-      "categoryIds": [],
-      "userId": "c809"
-    },
-    {
-      "id": "6453",
-      "firstname": "",
-      "lastname": "",
-      "streetNumber": "",
-      "street": "",
-      "region": "",
-      "postalCode": 33000,
-      "description": "",
-      "department": {
-        "id": "1",
-        "name": ""
-      },
-      "city": {
-        "id": 1,
-        "name": ""
-      },
-      "avatar": "",
-      "phone": "",
-      "birthdate": "",
-      "genre": "masculin",
-      "categoryIds": [],
-      "userId": "06c6"
-    },
-    {
-      "id": "aeca",
-      "firstname": "",
-      "lastname": "",
-      "streetNumber": "",
-      "street": "",
-      "region": "",
-      "postalCode": 33000,
-      "description": "",
-      "department": {
-        "id": "1",
-        "name": ""
-      },
-      "city": {
-        "id": 1,
-        "name": ""
-      },
-      "avatar": "",
-      "phone": "",
-      "birthdate": "",
-      "genre": "masculin",
-      "categoryIds": [],
-      "userId": "7105"
-    },
-    {
-      "id": "a402",
-      "firstname": "",
-      "lastname": "",
-      "streetNumber": "",
-      "street": "",
-      "region": "",
-      "postalCode": 33000,
-      "description": "",
-      "department": {
-        "id": "1",
-        "name": ""
-      },
-      "city": {
-        "id": 1,
-        "name": ""
-      },
-      "avatar": "",
-      "phone": "",
-      "birthdate": "",
-      "genre": "masculin",
-      "categoryIds": [],
-      "userId": "1a32"
-    },
-    {
-      "id": "e3b3",
-      "firstname": "rdf(ctg",
-      "lastname": "rf§(tgf",
-      "streetNumber": 5,
-      "street": "yrfvyhngby h",
+      "id": "6e76",
+      "firstname": "rf§tgf",
+      "lastname": "does",
+      "streetNumber": 3,
+      "street": "fvtgfvb ",
       "region": {
         "id": "2",
         "name": "Hauts-de-France"
       },
-      "postalCode": "24545",
-      "description": "f§yrhf§ytghfgvyh",
+      "postalCode": 33000,
+      "description": "rfvtgfvtgfbv ",
       "department": {
         "id": "2",
         "name": "Aisne"
       },
       "city": {
-        "id": 2,
-        "name": "Rome"
+        "id": 3,
+        "name": "London"
       },
       "avatar": "",
-      "phone": "04-54-65-76-75",
-      "birthdate": "23/35/5678",
+      "phone": "23-33-54-56-77",
+      "dateOfBirth": "43/35/4567",
       "genre": "masculin",
-      "categoryIds": {
-        "id": "4",
-        "title": "Travel"
-      },
-      "userId": "2784"
+      "categoryIds": [
+        "4",
+        "3",
+        "2"
+      ],
+      "userId": "5c35",
+      "email": "Pimpoye@medoc.fr"
     },
     {
-      "id": "fc53",
-      "firstname": "gyhg",
-      "lastname": "ftvygh",
+      "id": "cc9c",
+      "firstname": "dfctrfg",
+      "lastname": "doe",
       "streetNumber": "",
-      "street": "",
-      "region": "",
+      "street": "doe",
+      "region": {
+        "id": "2",
+        "name": "Hauts-de-France"
+      },
       "postalCode": 33000,
-      "description": "",
+      "description": "gfyhfgvyh",
       "department": {
         "id": "1",
-        "name": ""
+        "name": "Ain"
       },
       "city": {
-        "id": 1,
-        "name": ""
+        "id": 3,
+        "name": "London"
       },
       "avatar": "",
-      "phone": "",
-      "birthdate": "",
+      "phone": "12-23-43-45-56",
+      "dateOfBirth": "35/36/5777",
       "genre": "masculin",
-      "categoryIds": [],
-      "userId": "4d27"
-    },
-    {
-      "id": "0de8",
-      "firstname": "",
-      "lastname": "",
-      "streetNumber": "",
-      "street": "",
-      "region": "",
-      "postalCode": 33000,
-      "description": "",
-      "department": {
-        "id": "1",
-        "name": ""
-      },
-      "city": {
-        "id": 1,
-        "name": ""
-      },
-      "avatar": "",
-      "phone": "",
-      "birthdate": "",
-      "genre": "masculin",
-      "categoryIds": [],
-      "userId": "ca61"
-    },
-    {
-      "id": "99cc",
-      "firstname": "",
-      "lastname": "",
-      "streetNumber": "",
-      "street": "",
-      "region": "",
-      "postalCode": 33000,
-      "description": "",
-      "department": {
-        "id": "1",
-        "name": ""
-      },
-      "city": {
-        "id": 1,
-        "name": ""
-      },
-      "avatar": "",
-      "phone": "",
-      "birthdate": "",
-      "genre": "masculin",
-      "categoryIds": [],
-      "userId": "2cfb"
-    },
-    {
-      "id": "49fc",
-      "firstname": "",
-      "lastname": "",
-      "streetNumber": "",
-      "street": "",
-      "region": "",
-      "postalCode": 33000,
-      "description": "",
-      "department": {
-        "id": "1",
-        "name": ""
-      },
-      "city": {
-        "id": 1,
-        "name": ""
-      },
-      "avatar": "",
-      "phone": "",
-      "birthdate": "",
-      "genre": "masculin",
-      "categoryIds": [],
-      "userId": "ed5b"
-    },
-    {
-      "id": "d2af",
-      "firstname": "",
-      "lastname": "",
-      "streetNumber": "",
-      "street": "",
-      "region": "",
-      "postalCode": 33000,
-      "description": "",
-      "department": {
-        "id": "1",
-        "name": ""
-      },
-      "city": {
-        "id": 1,
-        "name": ""
-      },
-      "avatar": "",
-      "phone": "",
-      "birthdate": "",
-      "genre": "masculin",
-      "categoryIds": [],
-      "userId": "513a"
-    },
-    {
-      "id": "dd2b",
-      "firstname": "",
-      "lastname": "",
-      "streetNumber": "",
-      "street": "",
-      "region": "",
-      "postalCode": 33000,
-      "description": "",
-      "department": {
-        "id": "1",
-        "name": ""
-      },
-      "city": {
-        "id": 1,
-        "name": ""
-      },
-      "avatar": "",
-      "phone": "",
-      "birthdate": "",
-      "genre": "masculin",
-      "categoryIds": [],
-      "userId": "6630"
+      "categoryIds": [
+        "3",
+        "2"
+      ],
+      "userId": "a9fe",
+      "email": "Pimpoye@medoc.fr"
     }
   ],
   "category": [
@@ -851,6 +645,25 @@
       "description": "Oat cake dragée pastry powder shortbread sweet roll macaroon powder oat cake. Gummi bears gingerbread pudding powder lemon drops. Halvah oat cake jelly marshmallow dragée sesame snaps cotton candy. Sweet brownie carrot cake lemon drops powder cake liquorice.",
       "imgUrl": "",
       "link": "fvyhfvghbfvg",
+      "userId": "1"
+    },
+    {
+      "id": "11",
+      "name": "balade",
+      "date": "2024-05-29T22:00:00.000Z",
+      "hour": "2024-05-22T12:28:26.134Z",
+      "activityCity": {
+        "id": 5,
+        "name": "Paris"
+      },
+      "categoryId": {
+        "id": "3",
+        "title": "Cinema"
+      },
+      "nbGuest": 4,
+      "description": "sdzfergthyjui",
+      "imgUrl": "",
+      "link": "",
       "userId": "1"
     }
   ],
