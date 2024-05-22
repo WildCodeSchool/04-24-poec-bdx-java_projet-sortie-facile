@@ -71,7 +71,6 @@ export class AuthRegisterManagementComponent implements OnInit {
 		this.step = newStepValue;
 	}
 
-<<<<<<< HEAD
 	formNextStep(): void {
 		this.formStep = 2;
 	}
@@ -79,7 +78,5 @@ export class AuthRegisterManagementComponent implements OnInit {
 	formPreviousStep(): void {
 		this.formStep = 1;
 	}
-=======
 	onRegister(): void {}
->>>>>>> be91e0fa6cbb9b2a4161894a990757496804f8c6
 }
