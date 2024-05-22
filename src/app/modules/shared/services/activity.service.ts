@@ -60,6 +60,17 @@ export class ActivityService {
 			),
 		);
 	}
+	filteredActivityListByCategory$(
+		categoryId: Category,
+	): Observable<Activity[]> {
+		return this.getActivityList$().pipe(
+			map((activityList: Activity[]) =>
+				activityList.filter((activity: Activity) => {
+					return activity.categoryId.id === categoryId.id;
+				}),
+			),
+		);
+	}
 
 	postNewActivity$(newActivity: Activity): Observable<Activity> {
 		return this._httpClient.get<Activity[]>(this._BASE_URL).pipe(

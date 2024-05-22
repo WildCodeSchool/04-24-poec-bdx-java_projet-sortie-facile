@@ -26,7 +26,7 @@ export class CategoryService {
 			.pipe(map((response: Category[]) => response));
 	}
 
-	getCategoryById$(id: number): Observable<string> {
+	getCategoryById$(id: string): Observable<string> {
 		return this._httpClient
 			.get<Activity[]>(`${this._BASE_URL}?categoryId=${id}`)
 			.pipe(
@@ -45,7 +45,7 @@ export class CategoryService {
 			);
 	}
 
-	getActivityListByCategoryId$(id: number): Observable<Activity[]> {
+	getActivityListByCategoryId$(id: string): Observable<Activity[]> {
 		return this._httpClient.get<Activity[]>(
 			`${this._BASE_URL}?categoryId=${id}`,
 		);
