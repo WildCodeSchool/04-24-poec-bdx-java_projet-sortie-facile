@@ -17,6 +17,7 @@ import { FormInputControlValueAccessor } from '@shared/models/classes/form-input
 export class PasswordFieldComponent extends FormInputControlValueAccessor {
 	@Input() id!: string;
 	@Input() name!: string;
+	@Input() fieldName!: string;
 	@Input() labelFor!: string;
 	@Input() labelContent!: string;
 	@Input() toggleMask!: string;

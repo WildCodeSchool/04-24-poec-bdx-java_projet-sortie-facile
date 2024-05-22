@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { UserConnectedDatas } from '@shared/models/classes/user-connected-datas.class';
 import { AuthRedirect } from '@shared/models/types/auth-redirect.type';
 import { AuthProvider } from '@shared/models/types/provider.type';
@@ -32,19 +33,23 @@ export class AuthLoginManagementComponent implements OnInit {
 		this.providerNameList = this.authService.getProviderNameList();
 	}
 
-	onSubmit(): void {
-		this.authService
-			.loginWithEmailAndPassword(
-				this.connectedUser.username,
-				this.connectedUser.password,
-			)
-			.subscribe({
-				next: (user: UserAuthPrimaryDatas) => {
-					localStorage.setItem('user', JSON.stringify(user));
-				},
-				error: (error: any) => {
-					this.errorLoginQueryMessage = error.message;
-				},
-			});
+	onSubmit(form: NgForm): void {
+		console.log(form.status === 'VALID');
+
+		if (form.status === 'VALID') {
+			this.authService
+				.loginWithEmailAndPassword(
+					this.connectedUser.username,
+					this.connectedUser.password,
+				)
+				.subscribe({
+					next: (user: UserAuthPrimaryDatas) => {
+						localStorage.setItem('user', JSON.stringify(user));
+					},
+					error: (error: any) => {
+						this.errorLoginQueryMessage = error.message;
+					},
+				});
+		}
 	}
 }

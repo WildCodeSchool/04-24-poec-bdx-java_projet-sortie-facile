@@ -3,18 +3,19 @@
 	backgroundImage="/assets/photos/signin.jpg"
 	[redirect]="redirect"
 >
-	<app-global-form-error
-		*ngIf="errorLoginQueryMessage"
-		[errorMessage]="errorLoginQueryMessage"
-	></app-global-form-error>
+	<form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)">
+		<app-global-form-error
+			*ngIf="errorLoginQueryMessage"
+			[errorMessage]="errorLoginQueryMessage"
+		></app-global-form-error>
 
-	<form #loginForm="ngForm" (ngSubmit)="onSubmit()">
 		<app-text-field
 			labelFor="username"
 			labelContent="Nom d'utilisateur :"
 			type="text"
 			id="username"
 			name="username"
+			fieldName="nom d'utilisateur"
 			[(ngModel)]="connectedUser.username"
 			[form]="loginForm"
 			[required]="true"
@@ -27,6 +28,7 @@
 			labelContent="Password :"
 			id="password"
 			name="password"
+			fieldName="password"
 			[(ngModel)]="connectedUser.password"
 			[form]="loginForm"
 			[required]="true"
