@@ -3,6 +3,11 @@
 	backgroundImage="/assets/photos/signin.jpg"
 	[redirect]="redirect"
 >
+	<app-global-form-error
+		*ngIf="errorLoginQueryMessage"
+		[errorMessage]="errorLoginQueryMessage"
+	></app-global-form-error>
+
 	<form #loginForm="ngForm" (ngSubmit)="onSubmit()">
 		<app-text-field
 			labelFor="username"

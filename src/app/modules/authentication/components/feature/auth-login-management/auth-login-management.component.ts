@@ -12,6 +12,7 @@ import { AuthService } from '@shared/services/auth.service';
 })
 export class AuthLoginManagementComponent implements OnInit {
 	providerNameList!: AuthProvider[];
+	errorLoginQueryMessage: string | null = null;
 
 	redirect: AuthRedirect = {
 		text: 'Vous n’avez pas encore de compte ?',
@@ -37,8 +38,13 @@ export class AuthLoginManagementComponent implements OnInit {
 				this.connectedUser.username,
 				this.connectedUser.password,
 			)
-			.subscribe((user: UserAuthPrimaryDatas) => {
-				localStorage.setItem('user', JSON.stringify(user));
+			.subscribe({
+				next: (user: UserAuthPrimaryDatas) => {
+					localStorage.setItem('user', JSON.stringify(user));
+				},
+				error: (error: any) => {
+					this.errorLoginQueryMessage = error.message;
+				},
 			});
 	}
 }
