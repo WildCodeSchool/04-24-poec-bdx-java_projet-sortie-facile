@@ -22,7 +22,7 @@ export class ActivityDetailsComponent implements OnInit, OnDestroy {
 	private _subscription: Subscription = new Subscription();
 
 	@Input() myForm: NgForm;
-
+	@Input() imgSrc!: string;
 	constructor(
 		private activityService: ActivityService,
 		private reservationService: BookingService,

@@ -6,7 +6,12 @@
 			[style]="{ width: '360px' }"
 		>
 			<ng-template pTemplate="header">
-				<img alt="{{ activity.name }}" [src]="activity.imgUrl" />
+				<img
+					[src]="
+						activity.imgUrl ? activity.imgUrl : '/assets/photos/no-image.jpg'
+					"
+					alt="{{ activity.name }}"
+				/>
 			</ng-template>
 
 			<p>
