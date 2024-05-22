@@ -34,7 +34,20 @@
       "id": "a9fe",
       "username": "Pimpoye",
       "email": "Pimpoye@medoc.fr",
+<<<<<<< HEAD
+      "password": "mafemmecestmasoeur",
+      "passwordConfirm": "mafemmecestmasoeur",
+      "role": "user",
+      "status": "active"
+    },
+    {
+      "id": "da45",
+      "username": "Pimpoye",
+      "email": "Pimpoye@medoc.fr",
+      "password": "mafemmecestmasoeur",
+=======
       "password": "juniordoe",
+>>>>>>> b638f04a90e8d8d4d01bc2f92879e36807da521f
       "passwordConfirm": "mafemmecestmasoeur",
       "role": "user",
       "status": "active"
@@ -524,7 +537,7 @@
   "activity": [
     {
       "id": "3",
-      "name": "sport",
+      "name": "cuisine",
       "date": "2024-05-01T22:00:00.000Z",
       "activityCity": "Rome",
       "categoryId": "Music",
@@ -536,7 +549,7 @@
     },
     {
       "id": "5",
-      "name": "cuisine fat",
+      "name": "sport",
       "date": "2024-05-01T22:00:00.000Z",
       "activityCity": "New York",
       "categoryId": "Travel",
@@ -782,8 +795,8 @@
     },
     {
       "id": "26",
-      "Email": "fvtg",
-      "message": "fgyvhgb"
+      "Email": "yoyo@toto.fr",
+      "message": "IStamboul!!!!"
     }
   ]
 }
