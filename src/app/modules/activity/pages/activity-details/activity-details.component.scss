@@ -13,3 +13,16 @@
 	padding: 40px;
 	border-color: #c2c2c2;
 }
+
+// desktop
+
+@media (min-width: 1280px) {
+	:host ::ng-deep p-card {
+		.p-card {
+			width: 80%;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+		}
+	}
+}
