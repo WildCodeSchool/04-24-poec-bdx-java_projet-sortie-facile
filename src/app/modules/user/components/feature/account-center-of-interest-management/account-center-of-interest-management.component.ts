@@ -5,7 +5,7 @@ import { ActivityService } from '@shared/services/activity.service';
 import { AuthService } from '@shared/services/auth.service';
 import { UserService } from '@shared/services/user.service';
 import { BaseAccountManagementComponent } from '@user/directives/account-management.class';
-import { Observable, map, switchMap, tap } from 'rxjs';
+import { Observable, map, switchMap } from 'rxjs';
 
 @Component({
 	selector: 'app-account-center-of-interest-management',
