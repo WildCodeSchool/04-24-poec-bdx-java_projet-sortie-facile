@@ -35,6 +35,15 @@
 			[(ngModel)]="newActivity.hour"
 		></app-input-hour>
 
+		<label for="">Département</label>
+		<app-select-department
+			id="departments"
+			inputId="departments"
+			name="departments"
+			#departments="ngModel"
+			[(ngModel)]="departments"
+		></app-select-department>
+
 		<app-select-city
 			labelFor="city"
 			labelContent="Lieu :"
