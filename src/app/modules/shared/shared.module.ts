@@ -5,7 +5,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TextFieldComponent } from '@shared/components/form/text-field/text-field.component';
 import { PasswordFieldComponent } from '@shared/components/form/password-field/password-field.component';
 import { FieldErrorComponent } from '@shared/components/form/field-error/field-error.component';
-import { ModalComponent } from '@shared/components/modal/modal/modal.component';
 import { InputDateComponent } from '@shared/components/date/input-date/input-date.component';
 import { InputHourComponent } from '@shared/components/date/input-hour/input-hour.component';
 import { ButtonSocialComponent } from '@shared/components/button/button-social/button-social.component';
@@ -33,6 +32,7 @@ import { SelectRegionComponent } from './components/select/select-region/select-
 import { NumberFieldComponent } from './components/form/number-field/number-field.component';
 import { MaskFieldComponent } from './components/form/mask-field/mask-field.component';
 import { GlobalFormErrorComponent } from './components/form/global-form-error/global-form-error.component';
+import { ModalConfirmContactComponent } from './components/modal/modal-confirm-contact/modal-confirm-contact.component';
 
 @NgModule({
 	declarations: [
@@ -47,7 +47,7 @@ import { GlobalFormErrorComponent } from './components/form/global-form-error/gl
 		FieldErrorComponent,
 		InputDateComponent,
 		InputHourComponent,
-		ModalComponent,
+		ModalConfirmContactComponent,
 		PasswordFieldComponent,
 		SelectCityComponent,
 		SelectCategoryComponent,
@@ -80,7 +80,7 @@ import { GlobalFormErrorComponent } from './components/form/global-form-error/gl
 		TextFieldComponent,
 		PasswordFieldComponent,
 		FieldErrorComponent,
-		ModalComponent,
+		ModalConfirmContactComponent,
 		InputDateComponent,
 		InputHourComponent,
 		ButtonSocialComponent,
