@@ -52,4 +52,23 @@ export class NewUserPersonalInfosFormDatas {
 		this.categoryIds = categoryIds;
 		this.userId = userId;
 	}
+
+	deleteUserInfos(newUserId: string): void {
+		if (newUserId == this.userId) {
+			this.firstname = '';
+			this.lastname = '';
+			this.streetNumber = '';
+			this.street = '';
+			this.region = '';
+			this.postalCode = 33000;
+			this.description = '';
+			this.department = { id: '', name: '' };
+			this.city = { id: 0, name: '' };
+			this.avatar = '';
+			this.phone = '';
+			this.dateOfBirth = '';
+			this.genre = UserGenderEnum.MALE;
+			this.categoryIds = [];
+		}
+	}
 }

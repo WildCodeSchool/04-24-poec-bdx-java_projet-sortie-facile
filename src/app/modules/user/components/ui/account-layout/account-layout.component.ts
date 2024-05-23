@@ -1,4 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { NewUserPersonalInfosFormDatas } from '@shared/models/classes/new-user-personal-infos-form-datas.class';
+import { AccountStatus } from '@shared/models/enums/user-role.enum';
+import { newUser } from '@shared/models/types/newUser.model';
 import { AccountService } from '@shared/services/account.service';
 import { MenuItem } from 'primeng/api';
 
@@ -16,6 +19,8 @@ export class AccountLayoutComponent implements OnInit {
 
 	items: MenuItem[] | undefined;
 	activeItem: MenuItem | undefined;
+	newUser!: newUser;
+	newUserPersonalInfosFormDatas!: NewUserPersonalInfosFormDatas;
 
 	ngOnInit() {
 		this.items = this._accountService.getLayoutItems();
@@ -26,5 +31,10 @@ export class AccountLayoutComponent implements OnInit {
 
 	onActiveItemChange(event: MenuItem) {
 		this.activeItem = event;
+	}
+
+	onUnsubscribe() {
+		this.newUser.status = AccountStatus.INACTIVE;
+		this.newUserPersonalInfosFormDatas.deleteUserInfos(this.newUser.id);
 	}
 }
