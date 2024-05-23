@@ -7,6 +7,14 @@
 					<h1 class="activity-title">{{ activity.name }}</h1>
 				</ng-template>
 				<ng-template pTemplate="header">
+					<div class="btn-admin">
+						<p-button
+							icon="pi pi-pencil"
+							[rounded]="true"
+							severity="success"
+							[routerLink]="['/activity/update', activity.id]"
+						/>
+					</div>
 					<img
 						[src]="
 							activity.imgUrl ? activity.imgUrl : '/assets/photos/no-image.jpg'
@@ -17,7 +25,10 @@
 
 				<app-divider [align]="'center'" [type]="'solid'"></app-divider>
 
-				<div [innerHTML]="activity.description | paragraphSplit"></div>
+				<div
+					[innerHTML]="activity.description | paragraphSplit"
+					class="activity-description"
+				></div>
 
 				<p>Catégorie : {{ activity.categoryId.title }}</p>
 				<p>City : {{ activity.activityCity.name }}</p>
@@ -31,12 +42,23 @@
 				>
 
 				<ng-template pTemplate="footer">
-					<app-modal-confirm-reservation
-						[myForm]="myForm"
-					></app-modal-confirm-reservation>
-					<p-button rounded [routerLink]="['/update', activity.id]">
-						Modifier
-					</p-button>
+					<div class="btns-box">
+						<p-button
+							label="Activité précédente"
+							[rounded]="true"
+							[outlined]="true"
+						/>
+
+						<app-modal-confirm-reservation
+							[myForm]="myForm"
+						></app-modal-confirm-reservation>
+
+						<p-button
+							label="Activité suivante"
+							[rounded]="true"
+							[outlined]="true"
+						/>
+					</div>
 				</ng-template>
 			</p-card>
 		</ng-container>

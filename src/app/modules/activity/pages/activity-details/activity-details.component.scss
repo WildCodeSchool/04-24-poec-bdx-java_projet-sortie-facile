@@ -38,10 +38,30 @@ p {
 		width: 100%;
 	}
 
-	.p-card-header img {
-		width: 100%;
-		height: 300px;
-		object-fit: cover;
+	.p-card-header {
+		position: relative;
+
+		.btn-admin {
+			position: absolute;
+			top: 0.35rem;
+			right: 0.35rem;
+			display: flex;
+			gap: 0.5rem;
+			.p-button.p-button-icon-only {
+				width: 2rem;
+				height: 2rem;
+			}
+
+			.pi {
+				font-size: 0.85rem;
+			}
+		}
+
+		img {
+			width: 100%;
+			height: 300px;
+			object-fit: cover;
+		}
 	}
 
 	.activity-title {
@@ -55,5 +75,19 @@ p {
 		width: 100%;
 		max-width: 200px;
 		margin: 0 auto;
+	}
+
+	.activity-description {
+		color: var(--black-color);
+		font-size: 1rem;
+	}
+
+	.btns-box {
+		display: flex;
+		justify-content: space-between;
+
+		button {
+			padding: 0.3rem 3rem;
+		}
 	}
 }
