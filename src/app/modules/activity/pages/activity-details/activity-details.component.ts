@@ -32,7 +32,7 @@ export class ActivityDetailsComponent implements OnInit, OnDestroy {
 	}
 
 	ngOnInit(): void {
-		const id: number = Number(this.route.snapshot.paramMap.get('id'));
+		const id: string = this.route.snapshot.paramMap.get('id') as string;
 		this.activity$ = this.activityService.getActivityById$(id);
 	}
 	onSubmit(form: NgForm): void {

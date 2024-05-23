@@ -33,6 +33,7 @@ import { SelectRegionComponent } from './components/select/select-region/select-
 import { NumberFieldComponent } from './components/form/number-field/number-field.component';
 import { MaskFieldComponent } from './components/form/mask-field/mask-field.component';
 import { GlobalFormErrorComponent } from './components/form/global-form-error/global-form-error.component';
+import { DataBookingComponent } from './components/dashboard/data-booking/data-booking.component';
 
 @NgModule({
 	declarations: [
@@ -66,6 +67,7 @@ import { GlobalFormErrorComponent } from './components/form/global-form-error/gl
 		NumberFieldComponent,
 		MaskFieldComponent,
 		GlobalFormErrorComponent,
+		DataBookingComponent,
 	],
 	imports: [
 		CommonModule,
@@ -107,6 +109,7 @@ import { GlobalFormErrorComponent } from './components/form/global-form-error/gl
 		NumberFieldComponent,
 		MaskFieldComponent,
 		GlobalFormErrorComponent,
+		DataBookingComponent,
 	],
 })
 export class SharedModule {}

@@ -11,7 +11,7 @@ import { Activity } from '@activity/models/classes/activity.class';
 })
 export class ActivityService {
 	activity!: Activity;
-	activities!: Activity;
+	activities!: Activity[];
 	category!: Category;
 	categories!: Category[];
 
@@ -28,7 +28,7 @@ export class ActivityService {
 			.pipe(map((response: Activities) => response));
 	}
 
-	getActivityById$(id: number): Observable<Activity> {
+	getActivityById$(id: string): Observable<Activity> {
 		return this._httpClient
 			.get<Activity>(`${this._BASE_URL}/${id}`)
 			.pipe(map((response: Activity) => response));

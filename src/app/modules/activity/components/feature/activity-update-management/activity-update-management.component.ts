@@ -38,7 +38,7 @@ export class ActivityUpdateManagementComponent implements OnInit, OnDestroy {
 	);
 
 	ngOnInit(): void {
-		const id: number = Number(this.route.snapshot.paramMap.get('id'));
+		const id: string = this.route.snapshot.paramMap.get('id') as string;
 		this.activityService
 			.getActivityById$(id)
 			.pipe(map((activity: Activity) => (this.formData = activity)))
