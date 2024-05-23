@@ -10,19 +10,56 @@
 	width: 80%;
 	border: solid 1px;
 	border-radius: 20px;
-	padding: 40px;
+	// padding: 40px;
 	border-color: #c2c2c2;
 }
 
 // desktop
 
-@media (min-width: 1280px) {
-	:host ::ng-deep p-card {
+//@media (min-width: 1280px) {
+	:host ::ng-deep  p-card{
+		width: 100%;
+
 		.p-card {
-			width: 80%;
-			display: flex;
-			align-items: center;
-			justify-content: space-between;
+			width: 100%;
 		}
-	}
+		.p-card-body {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+		}
+		.p-element {
+			width: 90%;
+			display:flex;
+			justify-content: space-around;
+			align-items: center;
+			margin: 10px;
+		}
+		div.p-component {
+			width: 100%;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: end;
+		}
+		div.p-card-header {
+			width: 90%;
+		}
+		// .activity-card-container {
+		// 	width: 80%;
+		// 	display: flex;
+		// 	align-items: center;
+		// 	justify-content: space-between;
+		// }
+
+		// .details {
+		// 	width: 100%;
+		// 	display: flex;
+		// 	justify-content: center;
+		// 	border: solid 1px;
+		// 	border-radius: 20px;
+		// 	padding: 40px;
+		// 	border-color: #c2c2c2;
+		
+	
 }

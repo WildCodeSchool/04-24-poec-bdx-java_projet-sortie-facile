@@ -1,1 +1,17 @@
-<p>modal-confirm-update-activity works!</p>
+<div class="card flex justify-content-center">
+	<p-toast></p-toast>
+	<p-confirmDialog>
+		<ng-template pTemplate="message" let-message>
+			<div>
+				<div></div>
+				<p>{{ message.message }}</p>
+			</div>
+		</ng-template>
+	</p-confirmDialog>
+	<p-button
+		rounded
+		(click)="onSubmit()"
+		icon="pi pi-check"
+		label="Modifier"
+	></p-button>
+</div>
