@@ -3,40 +3,39 @@
 		<p-card
 			[header]="activity.name"
 			subheader="Card Subheader"
-			[style]="{ width: '360px' }"
 		>
-			<ng-template pTemplate="header">
-				<img
-					[src]="
-						activity.imgUrl ? activity.imgUrl : '/assets/photos/no-image.jpg'
-					"
-					alt="{{ activity.name }}"
-				/>
-			</ng-template>
+		<ng-template pTemplate="header">
+			<img
+				[src]="
+					activity.imgUrl ? activity.imgUrl : '/assets/photos/no-image.jpg'
+				"
+				alt="{{ activity.name }}"
+			/>
+		</ng-template>
 
-			<p>
-				{{ activity.description }}
-			</p>
+		<p>
+			{{ activity.description }}
+		</p>
 
-			<p>Catégorie : {{ activity.categoryId.title }}</p>
-			<p>City : {{ activity.activityCity.name }}</p>
+		<p>Catégorie : {{ activity.categoryId.title }}</p>
+		<p>City : {{ activity.activityCity.name }}</p>
 
-			<a
-				*ngIf="activity.link"
-				[href]="activity.link"
-				[title]="activity.name"
-				target="_blank"
-				>Voir Plus</a
-			>
+		<a
+			*ngIf="activity.link"
+			[href]="activity.link"
+			[title]="activity.name"
+			target="_blank"
+			>Voir Plus
+		</a>
 
-			<ng-template pTemplate="footer">
-				<app-modal-confirm-reservation
-					[myForm]="myForm"
-				></app-modal-confirm-reservation>
-				<p-button rounded [routerLink]="['/update', activity.id]">
-					Modifier
-				</p-button>
-			</ng-template>
+		<ng-template pTemplate="footer">
+			<app-modal-confirm-reservation
+				[myForm]="myForm"
+			></app-modal-confirm-reservation>
+			<p-button rounded [routerLink]="['/update', activity.id]">
+				Modifier
+			</p-button>
+		</ng-template>
 		</p-card>
 	</div>
 </div>
