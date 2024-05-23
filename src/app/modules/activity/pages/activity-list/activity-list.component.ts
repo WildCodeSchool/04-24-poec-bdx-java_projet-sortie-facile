@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Category } from '@shared/models/classes/category.class';
 
 @Component({
 	selector: 'app-activity-list',
@@ -8,7 +9,9 @@ import { Component } from '@angular/core';
 export class ActivityListComponent {
 	searchedValue: string = '';
 
-	onSearch(event: string) {
-		this.searchedValue = event;
+	selectedCategoryId!: Category;
+
+	onSearch(value: string): void {
+		this.searchedValue = value;
 	}
 }

@@ -102,7 +102,12 @@
 		></app-text-field>
 
 		<div>
-			<p-button rounded label="Modifier" type="submit"></p-button>
+			<app-modal-confirm-update-activity
+				[myForm]="updateActivityForm"
+				[activityId]="formData.id"
+			></app-modal-confirm-update-activity>
 		</div>
+
+		{{ formData | json }}
 	</form>
 </app-activity-form-layout>
