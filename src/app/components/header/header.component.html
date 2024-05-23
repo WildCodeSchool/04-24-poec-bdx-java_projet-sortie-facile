@@ -1,3 +1,5 @@
+<!-- eslint-disable @angular-eslint/template/interactive-supports-focus -->
+<!-- eslint-disable @angular-eslint/template/click-events-have-key-events -->
 <ng-container *ngIf="items$ | async as items">
 	<p-menubar [model]="items" class="menubar">
 		<ng-template pTemplate="start">
@@ -7,6 +9,16 @@
 				class="mr-2"
 				alt="logo of sortie facile"
 			/> </ng-template
-		><i class="pi pi-user" style="font-size: 1.5rem"></i>
+		>
+		<ng-container *ngIf="profileItems$ | async as profileItems">
+			<div class="card flex justify-content-center">
+				<i class="pi pi-user" style="font-size: 1.5rem" (click)="menu.toggle($event)" >
+					<p-tieredMenu #menu [model]="profileItems" [popup]="true" />
+				</i>
+			</div>
+		</ng-container>
 	</p-menubar>
 </ng-container>
+
+
+

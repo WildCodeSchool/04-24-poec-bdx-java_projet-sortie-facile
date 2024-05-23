@@ -5,7 +5,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TextFieldComponent } from '@shared/components/form/text-field/text-field.component';
 import { PasswordFieldComponent } from '@shared/components/form/password-field/password-field.component';
 import { FieldErrorComponent } from '@shared/components/form/field-error/field-error.component';
-import { ModalComponent } from '@shared/components/modal/modal/modal.component';
 import { InputDateComponent } from '@shared/components/date/input-date/input-date.component';
 import { InputHourComponent } from '@shared/components/date/input-hour/input-hour.component';
 import { ButtonSocialComponent } from '@shared/components/button/button-social/button-social.component';
@@ -34,6 +33,7 @@ import { NumberFieldComponent } from './components/form/number-field/number-fiel
 import { MaskFieldComponent } from './components/form/mask-field/mask-field.component';
 import { GlobalFormErrorComponent } from './components/form/global-form-error/global-form-error.component';
 import { ParagraphSplitPipe } from './pipes/paragraph-split.pipe';
+import { ModalConfirmContactComponent } from './components/modal/modal-confirm-contact/modal-confirm-contact.component';
 
 @NgModule({
 	declarations: [
@@ -48,7 +48,7 @@ import { ParagraphSplitPipe } from './pipes/paragraph-split.pipe';
 		FieldErrorComponent,
 		InputDateComponent,
 		InputHourComponent,
-		ModalComponent,
+		ModalConfirmContactComponent,
 		PasswordFieldComponent,
 		SelectCityComponent,
 		SelectCategoryComponent,
@@ -82,7 +82,7 @@ import { ParagraphSplitPipe } from './pipes/paragraph-split.pipe';
 		TextFieldComponent,
 		PasswordFieldComponent,
 		FieldErrorComponent,
-		ModalComponent,
+		ModalConfirmContactComponent,
 		InputDateComponent,
 		InputHourComponent,
 		ButtonSocialComponent,
