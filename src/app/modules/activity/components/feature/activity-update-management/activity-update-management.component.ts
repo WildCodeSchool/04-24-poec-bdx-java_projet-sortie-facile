@@ -5,7 +5,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Category } from '@shared/models/classes/category.class';
 import { City } from '@shared/models/classes/city.class';
 import { ActivityService } from '@shared/services/activity.service';
-import { Observable, Subscription, map } from 'rxjs';
+import { Subscription, map } from 'rxjs';
 
 @Component({
 	selector: 'app-activity-update-management',
