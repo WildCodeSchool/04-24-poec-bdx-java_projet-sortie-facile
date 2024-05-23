@@ -39,6 +39,7 @@ export class AuthRegisterManagementComponent implements OnInit {
 		'mafemmecestmasoeur',
 		UserRoleEnum.USER,
 		AccountStatus.ACTIVE,
+		'',
 	);
 
 	newUserPersonalInfos: NewUserPersonalInfosFormDatas =

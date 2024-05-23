@@ -7,6 +7,7 @@ export class NewUserFormDatas {
 	passwordConfirm: string;
 	role: UserRoleEnum;
 	status: AccountStatus;
+	userDetailsId: string;
 
 	constructor(
 		username: string,
@@ -15,6 +16,7 @@ export class NewUserFormDatas {
 		passwordConfirm: string,
 		role: UserRoleEnum,
 		status: AccountStatus,
+		userDetailsId: string,
 	) {
 		this.username = username;
 		this.email = email;
@@ -22,5 +24,6 @@ export class NewUserFormDatas {
 		this.passwordConfirm = passwordConfirm;
 		this.role = role;
 		this.status = status;
+		this.userDetailsId = userDetailsId;
 	}
 }
