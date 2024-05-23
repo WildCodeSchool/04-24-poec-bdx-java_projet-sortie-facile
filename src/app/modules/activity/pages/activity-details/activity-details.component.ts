@@ -32,7 +32,7 @@ export class ActivityDetailsComponent implements OnInit, OnDestroy {
 	}
 
 	ngOnInit(): void {
-		const id: number = Number(this.route.snapshot.paramMap.get('id'));
+		const id: string = this.route.snapshot.paramMap.get('id') as string;
 		this.activity$ = this.activityService.getActivityById$(id);
 	}
 	onSubmit(form: NgForm): void {
@@ -40,7 +40,11 @@ export class ActivityDetailsComponent implements OnInit, OnDestroy {
 	}
 
 	add(activity: Activity): void {
-		const newReservation: Booking = new Booking('', this.userDetails, activity);
+		const newReservation: Booking = new Booking(
+			'',
+			this.userDetails.userId,
+			activity.id,
+		);
 
 		this._subscription.add(
 			this.reservationService.postNewReservation$(newReservation).subscribe(),
