@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, map, switchMap, tap } from 'rxjs';
+import { Observable, catchError, map, switchMap, tap, throwError } from 'rxjs';
 import { Router } from '@angular/router';
 import {
 	UserAuth,
@@ -14,6 +14,7 @@ import { NewUserPersonalInfosFormDatas } from '@shared/models/classes/new-user-p
 import { UserInfo } from '@shared/models/classes/user-infos.type';
 import { AccountStatus } from '@shared/models/enums/user-role.enum';
 import { AuthUserServiceUtils } from '@shared/models/classes/auth-user-service-utils.class';
+import { FormErrorMessageService } from './form-errors.service';
 
 @Injectable({
 	providedIn: 'root',
@@ -23,6 +24,7 @@ export class AuthService extends AuthUserServiceUtils {
 		private _httpClient: HttpClient,
 		private _router: Router,
 		private _userService: UserService,
+		private _formErrorMessage: FormErrorMessageService,
 	) {
 		super();
 	}
@@ -40,12 +42,32 @@ export class AuthService extends AuthUserServiceUtils {
 						password,
 					) as UserAuth,
 			),
-			map((user: UserAuthPrimaryDatas) => this.getAuthUserFormatted(user)),
+			map((user: UserAuth) => {
+				if (!user) {
+					throw new Error(this._formErrorMessage.loginErrorMessage);
+				}
+				return {
+					id: user.id,
+					username: user.username,
+					email: user.email,
+					role: user.role,
+					status: user.status,
+					userDetailsId: '',
+				} as UserAuthPrimaryDatas;
+			}),
 			tap((user: UserAuthPrimaryDatas) => {
 				localStorage.setItem('user', JSON.stringify(user));
 				this.setConnectedUserData(user);
 				this.notifyLoggedInStatus(true);
 				this._router.navigateByUrl('/user/home');
+			}),
+			catchError(() => {
+				return throwError(
+					() =>
+						new Error(
+							"Votre nom d'utilisateur ou votre mot de passe incorrect",
+						),
+				);
 			}),
 		);
 	}

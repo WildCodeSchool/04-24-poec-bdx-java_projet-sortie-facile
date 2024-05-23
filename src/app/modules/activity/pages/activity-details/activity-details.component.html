@@ -1,33 +1,91 @@
 <div class="activity-card-container">
-	<div class="details" *ngIf="activity$ | async as activity">
-		<p-card
-			[header]="activity.name"
-			subheader="Card Subheader"
-			[style]="{ width: '360px' }"
-		>
-			<ng-template pTemplate="header">
-				<img alt="{{ activity.name }}" [src]="activity.imgUrl" />
-			</ng-template>
+	<ng-container *ngIf="activity$ | async as activity">
+		<div class="secondary-box">
+			<div class="infos-container activity-informations">
+				<h3>Infos pratiques</h3>
 
-			<p>
-				{{ activity.description }}
-			</p>
+				<div class="activity-info-items-box">
+					<div class="activity-info-item">
+						<i class="pi pi-map-marker"></i>
+						<p>À {{ activity.activityCity }} (33), Gironde</p>
+					</div>
 
-			<p>Catégorie : {{ activity.categoryId.title }}</p>
-			<p>City : {{ activity.activityCity.name }}</p>
+					<div class="activity-info-item">
+						<i class="pi pi-calendar"></i>
+						<p>Le {{ activity.date }}</p>
+					</div>
 
-			<a [href]="activity.link" [title]="activity.name" target="_blank"
-				>Voir Plus</a
-			>
+					<div class="activity-info-item">
+						<i class="pi pi-user"></i>
+						<p>De 18 à 50 ans</p>
+					</div>
+				</div>
+			</div>
+			<div class="infos-container activity-creator-informations">
+				<h2>Infos sur l’auteur</h2>
+			</div>
+		</div>
+		<div class="primary-box">
+			<p-card>
+				<ng-template pTemplate="title">
+					<h1 class="activity-title">{{ activity.name }}</h1>
+				</ng-template>
+				<ng-template pTemplate="header">
+					<div class="btn-admin">
+						<p-button
+							icon="pi pi-pencil"
+							[rounded]="true"
+							severity="success"
+							[routerLink]="['/activity/update', activity.id]"
+						/>
+					</div>
+					<img
+						[src]="
+							activity.imgUrl ? activity.imgUrl : '/assets/photos/no-image.jpg'
+						"
+						alt="{{ activity.name }}"
+					/>
+				</ng-template>
 
-			<ng-template pTemplate="footer">
-				<app-modal-confirm-reservation
-					[myForm]="myForm"
-				></app-modal-confirm-reservation>
-				<p-button rounded [routerLink]="['/update', activity.id]">
-					Modifier
-				</p-button>
-			</ng-template>
-		</p-card>
-	</div>
+				<app-divider [align]="'center'" [type]="'solid'"></app-divider>
+
+				<div
+					[innerHTML]="activity.description | paragraphSplit"
+					class="activity-description"
+				></div>
+
+				<p>Catégorie : {{ activity.categoryId.title }}</p>
+				<p>City : {{ activity.activityCity.name }}</p>
+
+				<a
+					*ngIf="activity.link"
+					href="{{ activity.link | link }}"
+					[title]="activity.name"
+					target="_blank"
+					rel="noopener noreferrer"
+					>Voir Plus</a
+				>
+
+				<ng-template pTemplate="footer">
+					<div class="btns-box">
+						<p-button
+							label="Activité précédente"
+							[rounded]="true"
+							[outlined]="true"
+						/>
+
+						<app-modal-confirm-reservation
+							[myForm]="myForm"
+						></app-modal-confirm-reservation>
+
+						<p-button
+							label="Activité suivante"
+							[rounded]="true"
+							[outlined]="true"
+						/>
+					</div>
+				</ng-template>
+			</p-card>
+		</div>
+	</ng-container>
 </div>

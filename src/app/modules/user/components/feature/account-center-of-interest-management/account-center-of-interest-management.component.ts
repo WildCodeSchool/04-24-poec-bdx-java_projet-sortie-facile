@@ -3,6 +3,7 @@ import { Category } from '@shared/models/types/category.type';
 import { UserDetails } from '@shared/models/types/user-details.type';
 import { ActivityService } from '@shared/services/activity.service';
 import { AuthService } from '@shared/services/auth.service';
+import { CategoryService } from '@shared/services/category.service';
 import { UserService } from '@shared/services/user.service';
 import { BaseAccountManagementComponent } from '@user/directives/account-management.class';
 import { Observable, map, switchMap } from 'rxjs';
@@ -26,6 +27,7 @@ export class AccountCenterOfInterestManagementComponent
 	constructor(
 		protected override _authService: AuthService,
 		private _activityService: ActivityService,
+		private categoryService: CategoryService,
 		private _userService: UserService,
 	) {
 		super(_authService);
@@ -34,13 +36,13 @@ export class AccountCenterOfInterestManagementComponent
 	override ngOnInit(): void {
 		super.ngOnInit();
 
-		this.categoryList$ = this._activityService.getCategoryList$();
+		this.categoryList$ = this.categoryService.getCategoryList$();
 		this.userCategoryList$ = this._userService
 			.getUserInfos$(this.connectedUser.userDetailsId)
 			.pipe(
 				map((userInfos: UserDetails) => userInfos.categoryIds),
 				switchMap((categoryIds: string[]) =>
-					this._activityService
+					this.categoryService
 						.getCategoryList$()
 						.pipe(
 							map(categoryList =>

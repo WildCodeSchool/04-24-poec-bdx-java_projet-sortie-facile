@@ -47,8 +47,8 @@ import { AccountPasswordFormComponent } from './components/ui/account-form/accou
 		AccountCenterOfInterestManagementComponent,
 		AccountPersonalInfosFormComponent,
 		AccountAddressFormComponent,
-  AccountPasswordManagementComponent,
-  AccountPasswordFormComponent,
+		AccountPasswordManagementComponent,
+		AccountPasswordFormComponent,
 	],
 	imports: [CommonModule, UserRoutingModule, SharedModule, FormsModule],
 })

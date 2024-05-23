@@ -5,12 +5,12 @@ import { ContactService } from '@shared/services/contact.service';
 import { ConfirmationService, MessageService } from 'primeng/api';
 
 @Component({
-	selector: 'app-modal',
-	templateUrl: './modal.component.html',
-	styleUrl: './modal.component.scss',
+	selector: 'app-modal-confirm-contact',
+	templateUrl: './modal-confirm-contact.component.html',
+	styleUrl: './modal-confirm-contact.component.scss',
 	providers: [ConfirmationService, MessageService],
 })
-export class ModalComponent {
+export class ModalConfirmContactComponent {
 	@Input() myForm: NgForm;
 
 	constructor(
@@ -26,10 +26,10 @@ export class ModalComponent {
 		if (this.myForm && this.myForm.valid) {
 			this.confirmationService.confirm({
 				header: 'Confirmation',
-				message: 'Comfirmer envoie du message',
+				message: "Confirmer l'envoie du message",
 				accept: () => this.onAccept(),
 				reject: () => this.onReject(),
-				acceptLabel: 'Oui', // Personnalisation du bouton Oui
+				acceptLabel: 'Oui',
 				rejectLabel: 'Non',
 			});
 		} else {

@@ -4,11 +4,28 @@
 		<app-search-bar (emitChanges)="onSearch($event)"></app-search-bar>
 
 		<app-divider [align]="'center'" [type]="'solid'"></app-divider>
+
+		<label for="">Catégories</label>
+		<app-select-category
+			id="categoryId"
+			inputId="categoryId"
+			name="categoryId"
+			#categoryId="ngModel"
+			[(ngModel)]="selectedCategoryId"
+		></app-select-category>
+
+		<label for="">Département</label>
+		<app-select-department></app-select-department>
+		<label for="">Région</label>
+		<app-select-region></app-select-region>
+		<label for="">City</label>
+		<app-select-city></app-select-city>
 	</div>
 
 	<div class="activities-box">
 		<app-activity-list-management
 			[searchedValue]="searchedValue"
+			[selectedCategoryId]="selectedCategoryId"
 		></app-activity-list-management>
 	</div>
 </div>

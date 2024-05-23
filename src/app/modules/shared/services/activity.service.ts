@@ -11,7 +11,7 @@ import { Activity } from '@activity/models/classes/activity.class';
 })
 export class ActivityService {
 	activity!: Activity;
-	activities!: Activity;
+	activities!: Activity[];
 	category!: Category;
 	categories!: Category[];
 
@@ -28,46 +28,27 @@ export class ActivityService {
 			.pipe(map((response: Activities) => response));
 	}
 
-	getActivityById$(id: number): Observable<Activity> {
+	getActivityById$(id: string): Observable<Activity> {
 		return this._httpClient
 			.get<Activity>(`${this._BASE_URL}/${id}`)
 			.pipe(map((response: Activity) => response));
 	}
-
-	getActivityListByCreatedUser$(limit: number = -1): Observable<Activity[]> {
-		return this._httpClient
-			.get<Activities>(this._BASE_URL)
-			.pipe(map((response: Activities) => response.slice(0, limit)));
-	}
-
-	getCategoryList$(): Observable<Category[]> {
-		return this._httpClient
-			.get<Category[]>(`http://localhost:3000/category`)
-			.pipe(map((response: Category[]) => response));
-	}
-
-	getCategoryById$(id: number): Observable<string> {
-		return this._httpClient
-			.get<Activity[]>(`${this._BASE_URL}?categoryId=${id}`)
-			.pipe(
-				map((activities: Activity[]) =>
-					activities.map(activity => activity.name).join(', '),
-				),
-			);
-	}
-	getCategoryTitle$(categoryId: string): Observable<string> {
-		return this._httpClient
-			.get<Category>(`http://localhost:3000/category/${categoryId}`)
-			.pipe(
-				map((category: Category) => {
-					return category.title;
-				}),
-			);
-	}
-
-	getActivityListByCategoryId$(id: number): Observable<Activity[]> {
-		return this._httpClient.get<Activity[]>(
-			`${this._BASE_URL}?categoryId=${id}`,
+	//  ajouter parametre id + filtre au niveau du map userid = userid
+	getActivityListByCreatedUser$(
+		limit: number = -1,
+		id: string,
+	): Observable<Activities> {
+		return this._httpClient.get<Activity[]>(this._BASE_URL).pipe(
+			map((activities: Activity[]) => {
+				// Filter activities by user ID
+				const filteredActivities = activities.filter(
+					activity => activity.userId === id,
+				);
+				// Apply limit if greater than 0
+				return limit > 0
+					? filteredActivities.slice(0, limit)
+					: filteredActivities;
+			}),
 		);
 	}
 	filteredActivityList$(name: string): Observable<Activity[]> {
@@ -76,6 +57,17 @@ export class ActivityService {
 				activityList.filter((activity: Activity) =>
 					activity.name.toLowerCase().includes(name.toLowerCase()),
 				),
+			),
+		);
+	}
+	filteredActivityListByCategory$(
+		categoryId: Category,
+	): Observable<Activity[]> {
+		return this.getActivityList$().pipe(
+			map((activityList: Activity[]) =>
+				activityList.filter((activity: Activity) => {
+					return activity.categoryId.id === categoryId.id;
+				}),
 			),
 		);
 	}

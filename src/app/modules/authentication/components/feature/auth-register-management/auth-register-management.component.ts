@@ -24,6 +24,8 @@ export class AuthRegisterManagementComponent implements OnInit {
 	step!: number;
 	private _subscription: Subscription = new Subscription();
 
+	formStep: number = 1;
+
 	redirect: AuthRedirect = {
 		text: 'Vous avez déjà un compte ?',
 		link: ['/auth/login'],
@@ -70,5 +72,12 @@ export class AuthRegisterManagementComponent implements OnInit {
 		this.step = newStepValue;
 	}
 
+	formNextStep(): void {
+		this.formStep = 2;
+	}
+
+	formPreviousStep(): void {
+		this.formStep = 1;
+	}
 	onRegister(): void {}
 }

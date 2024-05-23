@@ -5,7 +5,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TextFieldComponent } from '@shared/components/form/text-field/text-field.component';
 import { PasswordFieldComponent } from '@shared/components/form/password-field/password-field.component';
 import { FieldErrorComponent } from '@shared/components/form/field-error/field-error.component';
-import { ModalComponent } from '@shared/components/modal/modal/modal.component';
 import { InputDateComponent } from '@shared/components/date/input-date/input-date.component';
 import { InputHourComponent } from '@shared/components/date/input-hour/input-hour.component';
 import { ButtonSocialComponent } from '@shared/components/button/button-social/button-social.component';
@@ -32,6 +31,11 @@ import { SelectDepartmentComponent } from './components/select/select-department
 import { SelectRegionComponent } from './components/select/select-region/select-region.component';
 import { NumberFieldComponent } from './components/form/number-field/number-field.component';
 import { MaskFieldComponent } from './components/form/mask-field/mask-field.component';
+import { GlobalFormErrorComponent } from './components/form/global-form-error/global-form-error.component';
+import { ParagraphSplitPipe } from './pipes/paragraph-split.pipe';
+import { DataBookingComponent } from './components/dashboard/data-booking/data-booking.component';
+import { ModalConfirmContactComponent } from './components/modal/modal-confirm-contact/modal-confirm-contact.component';
+import { LinkPipe } from './pipes/link.pipe';
 
 @NgModule({
 	declarations: [
@@ -46,7 +50,7 @@ import { MaskFieldComponent } from './components/form/mask-field/mask-field.comp
 		FieldErrorComponent,
 		InputDateComponent,
 		InputHourComponent,
-		ModalComponent,
+		ModalConfirmContactComponent,
 		PasswordFieldComponent,
 		SelectCityComponent,
 		SelectCategoryComponent,
@@ -64,6 +68,10 @@ import { MaskFieldComponent } from './components/form/mask-field/mask-field.comp
 		SelectRegionComponent,
 		NumberFieldComponent,
 		MaskFieldComponent,
+		GlobalFormErrorComponent,
+		ParagraphSplitPipe,
+		LinkPipe,
+		DataBookingComponent,
 	],
 	imports: [
 		CommonModule,
@@ -78,7 +86,7 @@ import { MaskFieldComponent } from './components/form/mask-field/mask-field.comp
 		TextFieldComponent,
 		PasswordFieldComponent,
 		FieldErrorComponent,
-		ModalComponent,
+		ModalConfirmContactComponent,
 		InputDateComponent,
 		InputHourComponent,
 		ButtonSocialComponent,
@@ -104,6 +112,10 @@ import { MaskFieldComponent } from './components/form/mask-field/mask-field.comp
 		SelectRegionComponent,
 		NumberFieldComponent,
 		MaskFieldComponent,
+		GlobalFormErrorComponent,
+		ParagraphSplitPipe,
+		LinkPipe,
+		DataBookingComponent,
 	],
 })
 export class SharedModule {}
