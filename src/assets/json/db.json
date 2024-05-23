@@ -47,6 +47,15 @@
       "passwordConfirm": "mafemmecestmasoeur",
       "role": "user",
       "status": "active"
+    },
+    {
+      "id": "0c67",
+      "username": "Johann",
+      "email": "yoyo@gmail.com",
+      "password": "123456789",
+      "passwordConfirm": "123456789",
+      "role": "user",
+      "status": "active"
     }
   ],
   "user_details": [
@@ -215,6 +224,37 @@
       "genre": "masculin",
       "categoryIds": [],
       "userId": "fdc2"
+    },
+    {
+      "id": "67ce",
+      "firstname": "Johann",
+      "lastname": "Liardet",
+      "streetNumber": 5,
+      "street": "Rue Gaston Saux",
+      "region": {
+        "id": "3",
+        "name": "Nouvelle-Aquitaine"
+      },
+      "postalCode": 33000,
+      "description": "Je suis moi et t'es toi!",
+      "department": {
+        "id": "33",
+        "name": "Gironde"
+      },
+      "city": {
+        "id": 1,
+        "name": "New York"
+      },
+      "avatar": "",
+      "phone": "06-10-17-33-57",
+      "dateOfBirth": "29/11/1977",
+      "genre": "masculin",
+      "categoryIds": [
+        "1",
+        "2",
+        "3"
+      ],
+      "userId": "0c67"
     }
   ],
   "category": [
@@ -272,7 +312,7 @@
     },
     {
       "id": "3",
-      "activityId": "3",
+      "activityId": null,
       "userId": "3"
     },
     {
@@ -555,18 +595,6 @@
     }
   ],
   "activity": [
-    {
-      "id": "3",
-      "name": "cuisine",
-      "date": "2024-05-01T22:00:00.000Z",
-      "activityCity": "Rome",
-      "categoryId": "Music",
-      "nbGuest": "10",
-      "description": "Tart candy danish oat cake sweet roll. Chocolate cake sugar plum shortbread chocolate bar cupcake brownie candy apple pie. Jelly beans brownie macaroon croissant chocolate cake gingerbread bear claw jelly sesame snaps.",
-      "imgUrl": "",
-      "link": "",
-      "userId": "1"
-    },
     {
       "id": "5",
       "name": "sport",
