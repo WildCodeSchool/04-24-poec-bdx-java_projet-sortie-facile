@@ -1,798 +1,524 @@
 {
-  "user": [
-    {
-      "username": "johndoe",
-      "email": "j.doe@test.com",
-      "password": "123456789",
-      "role": "admin",
-      "id": "1"
-    },
-    {
-      "id": "2",
-      "username": "janedoe",
-      "email": "jane.doe@mail.com",
-      "password": "123456789",
-      "role": "user"
-    },
-    {
-      "id": "3",
-      "username": "juniordoe",
-      "email": "junior.doe@mail.com",
-      "password": "123456789",
-      "role": "user"
-    },
-    {
-      "id": "5c35",
-      "username": "Pimpoye",
-      "email": "Pimpoye@medoc.fr",
-      "password": "aaaaaaaaaaaaaaaaa",
-      "passwordConfirm": "mafemmecestmasoeur",
-      "role": "user",
-      "status": "active"
-    },
-    {
-      "id": "a9fe",
-      "username": "Pimpoye",
-      "email": "Pimpoye@medoc.fr",
-      "password": "mafemmecestmasoeur",
-      "passwordConfirm": "mafemmecestmasoeur",
-      "role": "user",
-      "status": "active"
-    },
-    {
-      "id": "da45",
-      "username": "Pimpoye",
-      "email": "Pimpoye@medoc.fr",
-      "password": "mafemmecestmasoeur",
-      "passwordConfirm": "mafemmecestmasoeur",
-      "role": "user",
-      "status": "active"
-    }
-  ],
-  "user_details": [
-    {
-      "id": "1",
-      "firstname": "john",
-      "lastname": "Doe",
-      "streetNumber": "15015",
-      "street": "Rue de la réppublique",
-      "region": "Nouvelle-Aquitaine",
-      "postalCode": 33000,
-      "city": "Sainte Foy Les Lyon",
-      "departement": "Rhône",
-      "avatar": "https://images.radio-canada.ca/w_635,h_357/v1/ici-tele/jeunesse/16x9/arthur-et-les-minimoys-arthur.jpg",
-      "description": "it's me but i'm not sure",
-      "phone": "01-23-45-67-09",
-      "dateOfBirth": "10/02/1998",
-      "genre": "masculin",
-      "userId": "1",
-      "email": "j.doe@test.com",
-      "categoryIds": [
-        "1",
-        "4",
-        "5",
-        "6",
-        "9",
-        "2",
-        "10"
-      ]
-    },
-    {
-      "id": "2",
-      "firstname": "Jane",
-      "lastname": "Doe",
-      "streetNumber": 15,
-      "street": "Rue de la république",
-      "region": "Nouvelle-Aquitaine",
-      "postalCode": 33000,
-      "city": "Montaigue de Quercy",
-      "departement": "Tarn-et-Garonne",
-      "avatar": "https://images.radio-canada.ca/w_635,h_357/v1/ici-tele/jeunesse/16x9/arthur-et-les-minimoys-selenia.jpg",
-      "description": "'maybe you can find me in the forest'",
-      "phone": "01-23-45-67-89",
-      "dateOfBirth": "14/05/1990",
-      "genre": "féminin",
-      "userId": "2",
-      "categoryIds": [
-        "1",
-        "4",
-        "5",
-        "6",
-        "9",
-        "2",
-        "10"
-      ]
-    },
-    {
-      "id": "3",
-      "firstname": "Junior",
-      "lastname": "Doe",
-      "streetNumber": 15,
-      "street": "Rue de la république",
-      "region": "Nouvelle-Aquitaine",
-      "postalCode": 33000,
-      "city": "Payolle",
-      "departement": "Hautes-Pyrénées",
-      "avatar": "https://images.radio-canada.ca/w_635,h_357/v1/ici-tele/jeunesse/16x9/arthur-et-les-minimoys-mul-mul.jpg",
-      "description": "'i'm the little one'",
-      "phone": "01-23-45-67-89",
-      "dateOfBirth": "19/09/1995",
-      "genre": "masculin",
-      "userId": "3",
-      "categoryIds": [
-        "1",
-        "4",
-        "5",
-        "6",
-        "9",
-        "2",
-        "10"
-      ]
-    },
-    {
-      "id": "6e76",
-      "firstname": "rf§tgf",
-      "lastname": "does",
-      "streetNumber": 3,
-      "street": "fvtgfvb ",
-      "region": {
-        "id": "2",
-        "name": "Hauts-de-France"
-      },
-      "postalCode": 33000,
-      "description": "rfvtgfvtgfbv ",
-      "department": {
-        "id": "2",
-        "name": "Aisne"
-      },
-      "city": {
-        "id": 3,
-        "name": "London"
-      },
-      "avatar": "",
-      "phone": "23-33-54-56-77",
-      "dateOfBirth": "43/35/4567",
-      "genre": "masculin",
-      "categoryIds": [
-        "4",
-        "3",
-        "2"
-      ],
-      "userId": "5c35",
-      "email": "Pimpoye@medoc.fr"
-    },
-    {
-      "id": "cc9c",
-      "firstname": "dfctrfg",
-      "lastname": "doe",
-      "streetNumber": "",
-      "street": "doe",
-      "region": {
-        "id": "2",
-        "name": "Hauts-de-France"
-      },
-      "postalCode": 33000,
-      "description": "gfyhfgvyh",
-      "department": {
-        "id": "1",
-        "name": "Ain"
-      },
-      "city": {
-        "id": 3,
-        "name": "London"
-      },
-      "avatar": "",
-      "phone": "12-23-43-45-56",
-      "dateOfBirth": "35/36/5777",
-      "genre": "masculin",
-      "categoryIds": [
-        "3",
-        "2"
-      ],
-      "userId": "a9fe",
-      "email": "Pimpoye@medoc.fr"
-    }
-  ],
-  "category": [
-    {
-      "id": "1",
-      "title": "Sport"
-    },
-    {
-      "id": "2",
-      "title": "Music"
-    },
-    {
-      "id": "3",
-      "title": "Cinema"
-    },
-    {
-      "id": "4",
-      "title": "Travel"
-    },
-    {
-      "id": "5",
-      "title": "Food"
-    },
-    {
-      "id": "6",
-      "title": "Art"
-    },
-    {
-      "id": "7",
-      "title": "Science"
-    },
-    {
-      "id": "8",
-      "title": "Technology"
-    },
-    {
-      "id": "9",
-      "title": "Literature"
-    },
-    {
-      "id": "10",
-      "title": "History"
-    }
-  ],
-  "reservation": [
-    {
-      "id": "1",
-      "activityId": null,
-      "userId": "1"
-    },
-    {
-      "id": "2",
-      "activityId": "2",
-      "userId": "2"
-    },
-    {
-      "id": "3",
-      "activityId": "3",
-      "userId": "3"
-    },
-    {
-      "id": "4",
-      "activityId": "4",
-      "userId": "1"
-    },
-    {
-      "id": "5",
-      "activityId": "5",
-      "userId": "2"
-    },
-    {
-      "id": "6",
-      "activityId": null,
-      "userId": "123"
-    },
-    {
-      "id": "7",
-      "activityId": null,
-      "userId": "123"
-    },
-    {
-      "id": "8",
-      "activityId": null,
-      "userId": "123"
-    },
-    {
-      "id": "9",
-      "activityId": "7",
-      "userId": "123"
-    },
-    {
-      "id": "10",
-      "activityId": "8",
-      "userId": "123"
-    },
-    {
-      "id": "11",
-      "activityId": "8",
-      "userId": "123"
-    },
-    {
-      "id": "12",
-      "activityId": "8",
-      "userId": "123"
-    },
-    {
-      "id": "13",
-      "activityId": "8",
-      "userId": "123"
-    },
-    {
-      "id": "14",
-      "activityId": "8",
-      "userId": "123"
-    },
-    {
-      "id": "15",
-      "activityId": "8",
-      "userId": "123"
-    },
-    {
-      "id": "16",
-      "activityId": "8",
-      "userId": "123"
-    },
-    {
-      "id": "17",
-      "activityId": null,
-      "userId": "123"
-    },
-    {
-      "id": "18",
-      "activityId": {
-        "id": "1",
-        "name": "trouloulou",
-        "departement": "Rhône",
-        "activityCity": {
-          "id": 5,
-          "name": "Paris"
-        },
-        "date": "2021-12-12",
-        "age": 18,
-        "imgUrl": "https://static5.depositphotos.com/1037262/443/i/380/depositphotos_4436189-stock-photo-paradise-beach.jpg",
-        "link": "https://primeng.org/iconfield",
-        "description": "trouloulou is a great activity for everyone",
-        "nbGuest": 10,
-        "categoryId": 1
-      }
-    },
-    {
-      "id": "19",
-      "activityId": {
-        "id": "7",
-        "name": "totoedzrfegr",
-        "date": "2024-05-13T22:00:00.000Z",
-        "hour": "2024-05-13T14:55:40.460Z",
-        "activityCity": {
-          "id": 5,
-          "name": "Paris"
-        },
-        "categoryId": {
-          "id": 0,
-          "title": ""
-        },
-        "nbGuest": 0,
-        "description": "",
-        "imgUrl": "",
-        "link": ""
-      }
-    },
-    {
-      "id": "20",
-      "activityId": {
-        "id": "7",
-        "name": "totoedzrfegr",
-        "date": "2024-05-13T22:00:00.000Z",
-        "hour": "2024-05-13T14:55:40.460Z",
-        "activityCity": {
-          "id": 5,
-          "name": "Paris"
-        },
-        "categoryId": {
-          "id": 0,
-          "title": ""
-        },
-        "nbGuest": 0,
-        "description": "",
-        "imgUrl": "",
-        "link": ""
-      }
-    },
-    {
-      "id": "21",
-      "activityId": {
-        "id": "7",
-        "name": "totoedzrfegr",
-        "date": "2024-05-13T22:00:00.000Z",
-        "hour": "2024-05-13T14:55:40.460Z",
-        "activityCity": {
-          "id": 5,
-          "name": "Paris"
-        },
-        "categoryId": {
-          "id": 0,
-          "title": ""
-        },
-        "nbGuest": 0,
-        "description": "",
-        "imgUrl": "",
-        "link": ""
-      }
-    },
-    {
-      "id": "22",
-      "activityId": {
-        "id": "7",
-        "name": "totoedzrfegr",
-        "date": "2024-05-13T22:00:00.000Z",
-        "hour": "2024-05-13T14:55:40.460Z",
-        "activityCity": {
-          "id": 5,
-          "name": "Paris"
-        },
-        "categoryId": {
-          "id": 0,
-          "title": ""
-        },
-        "nbGuest": 0,
-        "description": "",
-        "imgUrl": "",
-        "link": ""
-      }
-    },
-    {
-      "id": "23",
-      "activityId": {
-        "id": "1",
-        "name": "trouloulou",
-        "departement": "Rhône",
-        "activityCity": {
-          "id": 5,
-          "name": "Paris"
-        },
-        "date": "2021-12-12",
-        "age": 18,
-        "imgUrl": "https://static5.depositphotos.com/1037262/443/i/380/depositphotos_4436189-stock-photo-paradise-beach.jpg",
-        "link": "https://primeng.org/iconfield",
-        "description": "trouloulou is a great activity for everyone",
-        "nbGuest": 10,
-        "categoryId": 1,
-        "userId": "1"
-      }
-    },
-    {
-      "id": "24",
-      "activityId": {
-        "id": "1",
-        "name": "trouloulou",
-        "departement": "Rhône",
-        "activityCity": "jnk,l",
-        "date": "2021-12-12",
-        "age": 18,
-        "imgUrl": "https://static5.depositphotos.com/1037262/443/i/380/depositphotos_4436189-stock-photo-paradise-beach.jpg",
-        "link": "https://primeng.org/iconfield",
-        "description": "trouloulou is a great activity for everyone",
-        "nbGuest": 10,
-        "categoryId": "njk,l;mù",
-        "userId": "1"
-      }
-    },
-    {
-      "id": "25",
-      "activityId": {
-        "id": "1",
-        "name": "trouloulou",
-        "departement": "Rhône",
-        "activityCity": "jnk,l",
-        "date": "2021-12-12",
-        "age": 18,
-        "imgUrl": "https://static5.depositphotos.com/1037262/443/i/380/depositphotos_4436189-stock-photo-paradise-beach.jpg",
-        "link": "https://primeng.org/iconfield",
-        "description": "trouloulou is a great activity for everyone",
-        "nbGuest": 10,
-        "categoryId": "njk,l;mù",
-        "userId": "1"
-      }
-    },
-    {
-      "id": "26",
-      "activityId": {
-        "id": "1",
-        "name": "trouloulou",
-        "departement": "Rhône",
-        "activityCity": "jnk,l",
-        "date": "2021-12-12",
-        "age": 18,
-        "imgUrl": "https://static5.depositphotos.com/1037262/443/i/380/depositphotos_4436189-stock-photo-paradise-beach.jpg",
-        "link": "https://primeng.org/iconfield",
-        "description": "trouloulou is a great activity for everyone",
-        "nbGuest": 10,
-        "categoryId": "njk,l;mù",
-        "userId": "1"
-      }
-    },
-    {
-      "id": "27",
-      "activityId": {
-        "id": "1",
-        "name": "trouloulou",
-        "departement": "Rhône",
-        "activityCity": "jnk,l",
-        "date": "2021-12-12",
-        "age": 18,
-        "imgUrl": "https://static5.depositphotos.com/1037262/443/i/380/depositphotos_4436189-stock-photo-paradise-beach.jpg",
-        "link": "https://primeng.org/iconfield",
-        "description": "trouloulou is a great activity for everyone",
-        "nbGuest": 10,
-        "categoryId": "njk,l;mù",
-        "userId": "1"
-      }
-    },
-    {
-      "id": "28",
-      "activityId": {
-        "id": "1",
-        "name": "trouloulou",
-        "departement": "Rhône",
-        "activityCity": "jnk,l",
-        "date": "2021-12-12",
-        "age": 18,
-        "imgUrl": "https://static5.depositphotos.com/1037262/443/i/380/depositphotos_4436189-stock-photo-paradise-beach.jpg",
-        "link": "https://primeng.org/iconfield",
-        "description": "trouloulou is a great activity for everyone",
-        "nbGuest": 10,
-        "categoryId": "njk,l;mù",
-        "userId": "1"
-      }
-    }
-  ],
-  "activity": [
-    {
-      "id": "3",
-      "name": "cuisine",
-      "date": "2024-05-01T22:00:00.000Z",
-      "activityCity": "Rome",
-      "categoryId": "Music",
-      "nbGuest": "10",
-      "description": "Tart candy danish oat cake sweet roll. Chocolate cake sugar plum shortbread chocolate bar cupcake brownie candy apple pie. Jelly beans brownie macaroon croissant chocolate cake gingerbread bear claw jelly sesame snaps.",
-      "imgUrl": "",
-      "link": "",
-      "userId": "1"
-    },
-    {
-      "id": "5",
-      "name": "sport",
-      "date": "2024-05-01T22:00:00.000Z",
-      "activityCity": "New York",
-      "categoryId": "Travel",
-      "nbGuest": "20",
-      "description": "Sweet roll dragée candy canes topping soufflé. Topping pastry tootsie roll sugar plum cake jelly candy cupcake sweet. Candy wafer bonbon sweet roll donut tootsie roll. Dragée oat cake sweet cake chocolate cheesecake sugar plum. Lollipop croissant jelly beans biscuit donut jelly candy. Marzipan danish jelly wafer cake. Cake oat cake tiramisu jujubes chupa chups bonbon. Tootsie roll donut cupcake gummi bears pastry sesame snaps fruitcake. Pastry soufflé cake cheesecake bonbon dragée gingerbread cake. Sweet roll pastry wafer liquorice cheesecake. Oat cake jelly tootsie roll cake powder oat cake sugar plum chocolate bar tiramisu. Biscuit topping wafer chocolate bar pastry sesame snaps caramels chocolate bar.  Cotton candy chocolate cake jelly ice cream gummi bears marshmallow sugar plum cotton candy fruitcake. Icing apple pie bonbon apple pie chupa chups cupcake sweet roll. Gingerbread icing pie cheesecake danish marshmallow sesame snaps dragée candy. Dragée pie pudding bear claw sweet jelly beans lemon drops lollipop jelly-o. Sugar plum halvah gummi bears apple pie oat cake sweet gingerbread. Cupcake jelly cheesecake topping shortbread shortbread. Pudding biscuit icing bear claw brownie fruitcake dragée donut candy. Icing jelly dessert apple pie pastry. Icing jujubes cheesecake jelly beans tootsie roll. Cookie halvah marshmallow powder toffee cookie candy brownie. Chupa chups wafer pastry tiramisu topping liquorice gingerbread topping. Tiramisu chocolate bar shortbread gingerbread brownie shortbread. Pastry gummies fruitcake cake pudding marshmallow bonbon topping caramels.  Lollipop cupcake lollipop sugar plum bonbon tart. Marzipan cheesecake fruitcake pie bear claw soufflé. Jelly-o cookie muffin toffee danish icing. Chupa chups jelly sugar plum liquorice cheesecake apple pie halvah chocolate. Liquorice pie topping icing oat cake chocolate bar cake croissant. Tiramisu caramels jelly candy sweet roll pastry tootsie roll. Marshmallow danish tootsie roll candy canes halvah oat cake pastry. Lemon drops sugar plum gummi bears tart brownie chocolate sesame snaps chocolate chocolate bar. Pudding topping bear claw donut pastry chocolate oat cake halvah. Wafer topping shortbread marshmallow tart. Chocolate candy canes candy canes sweet marshmallow jujubes cotton candy cupcake. Bonbon shortbread wafer sesame snaps sweet toffee.",
-      "imgUrl": "https://images.unsplash.com/photo-1716414458161-91b34446b749?q=80&w=2664&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      "link": "www.google.fr",
-      "userId": "1"
-    },
-    {
-      "id": "6",
-      "name": "babyfooty",
-      "date": "",
-      "hour": "2024-05-13T13:51:12.334Z",
-      "activityCity": "London",
-      "categoryId": "Food",
-      "nbGuest": 58,
-      "description": "",
-      "imgUrl": "",
-      "link": "",
-      "userId": "2"
-    },
-    {
-      "id": "7",
-      "name": "toto",
-      "date": "",
-      "hour": "",
-      "activityCity": {
-        "id": 1,
-        "name": ""
-      },
-      "categoryId": {
-        "id": "1",
-        "title": ""
-      },
-      "nbGuest": 0,
-      "description": "",
-      "imgUrl": "",
-      "link": ""
-    },
-    {
-      "id": "8",
-      "name": "toto",
-      "date": "",
-      "hour": "",
-      "activityCity": {
-        "id": 1,
-        "name": ""
-      },
-      "categoryId": {
-        "id": "1",
-        "title": ""
-      },
-      "nbGuest": 0,
-      "description": "",
-      "imgUrl": "",
-      "link": "",
-      "userId": "1"
-    },
-    {
-      "id": "9",
-      "name": "toto",
-      "date": "",
-      "hour": "",
-      "activityCity": {
-        "id": 1,
-        "name": ""
-      },
-      "categoryId": {
-        "id": "1",
-        "title": ""
-      },
-      "nbGuest": 0,
-      "description": "",
-      "imgUrl": "",
-      "link": "ed(rfdxc",
-      "userId": "1"
-    },
-    {
-      "id": "10",
-      "name": "toto",
-      "date": "2024-04-30T22:00:00.000Z",
-      "hour": "2024-05-20T18:33:05.669Z",
-      "activityCity": {
-        "id": 2,
-        "name": "Rome"
-      },
-      "categoryId": {
-        "id": "3",
-        "title": "Cinema"
-      },
-      "nbGuest": 4,
-      "description": "Oat cake dragée pastry powder shortbread sweet roll macaroon powder oat cake. Gummi bears gingerbread pudding powder lemon drops. Halvah oat cake jelly marshmallow dragée sesame snaps cotton candy. Sweet brownie carrot cake lemon drops powder cake liquorice.",
-      "imgUrl": "",
-      "link": "fvyhfvghbfvg",
-      "userId": "1"
-    },
-    {
-      "id": "11",
-      "name": "balade",
-      "date": "2024-05-29T22:00:00.000Z",
-      "hour": "2024-05-22T12:28:26.134Z",
-      "activityCity": {
-        "id": 5,
-        "name": "Paris"
-      },
-      "categoryId": {
-        "id": "3",
-        "title": "Cinema"
-      },
-      "nbGuest": 4,
-      "description": "sdzfergthyjui",
-      "imgUrl": "",
-      "link": "",
-      "userId": "1"
-    }
-  ],
-  "contact": [
-    {
-      "id": "1",
-      "email": "laurore@yahoo.fr",
-      "message": "bonjour, je voudrais plus de renseingnements sur votre activité."
-    },
-    {
-      "id": "2",
-      "email": "boubou@yahoo.fr",
-      "message": "renseingnements sur votre activité."
-    },
-    {
-      "id": "3",
-      "email": "moimoi@yahoo.fr",
-      "message": "bonjour, je voudrais"
-    },
-    {
-      "id": "4",
-      "Email": "xcvrtb",
-      "message": "efrgvbthynju"
-    },
-    {
-      "id": "5",
-      "Email": "",
-      "message": ""
-    },
-    {
-      "id": "6",
-      "Email": "laurore83@yahoo.fr",
-      "message": "qsdfgtyhujikolpm"
-    },
-    {
-      "id": "7",
-      "Email": "",
-      "message": ""
-    },
-    {
-      "id": "8",
-      "Email": "sdzfegrhtjykuli",
-      "message": "wXQDCSFVDGRBHTJYKULI"
-    },
-    {
-      "id": "9",
-      "Email": "laurore83@yahoo.fr",
-      "message": "sdxfcgvhbjnk,l;m:"
-    },
-    {
-      "id": "10",
-      "Email": "laurore83@yahoo.fr",
-      "message": "sdcfv"
-    },
-    {
-      "id": "11",
-      "Email": "laurore83@yahoo.fr",
-      "message": "sdcfv"
-    },
-    {
-      "id": "12",
-      "Email": "laurore83@yahoo.fr",
-      "message": "sdcfv"
-    },
-    {
-      "id": "13",
-      "Email": "zsdfv",
-      "message": "sdfcvb "
-    },
-    {
-      "id": "14",
-      "Email": "laurore83@yahoo.fr",
-      "message": "zsdfcv "
-    },
-    {
-      "id": "15",
-      "Email": "laurore83@yahoo.fr",
-      "message": "aqzsdfghujikol"
-    },
-    {
-      "id": "16",
-      "Email": "sdfegvrb",
-      "message": "qxscdvfbgh"
-    },
-    {
-      "id": "17",
-      "Email": "sdfegvrb",
-      "message": "qxscdvfbgh"
-    },
-    {
-      "id": "18",
-      "Email": "laurore83@yahoo.fr",
-      "message": "zwexrcftvgyhujikolpm"
-    },
-    {
-      "id": "19",
-      "Email": "qsdfgthjk;",
-      "message": "qSADZFEGRHTJYUKIK"
-    },
-    {
-      "id": "20",
-      "Email": "DFEVGRHTJYKUILO",
-      "message": "SDZFEVGRBTHNYJU.IL"
-    },
-    {
-      "id": "21",
-      "Email": "DZFEGRHTJYKU",
-      "message": "SFDVGRTHJYUKILO"
-    },
-    {
-      "id": "22",
-      "Email": "DZFCEVGRBTNG",
-      "message": "EFGRHTYJU"
-    },
-    {
-      "id": "23",
-      "Email": "sdf",
-      "message": "qsdfc"
-    },
-    {
-      "id": "24",
-      "Email": "rtyuiop",
-      "message": "esrdftyguhijoklm"
-    },
-    {
-      "id": "25",
-      "Email": "laurore83@yahoo.fr",
-      "message": "j'aimerai voir dune aussi"
-    },
-    {
-      "id": "26",
-      "Email": "yoyo@toto.fr",
-      "message": "IStamboul!!!!"
-    }
-  ]
+	"user": [
+		{
+			"username": "johndoe",
+			"email": "j.doe@test.com",
+			"password": "123456789",
+			"role": "admin",
+			"id": "1"
+		},
+		{
+			"id": "2",
+			"username": "janedoe",
+			"email": "jane.doe@mail.com",
+			"password": "123456789",
+			"role": "user"
+		},
+		{
+			"id": "3",
+			"username": "juniordoe",
+			"email": "junior.doe@mail.com",
+			"password": "123456789",
+			"role": "user"
+		},
+		{
+			"id": "5c35",
+			"username": "Pimpoye",
+			"email": "Pimpoye@medoc.fr",
+			"password": "aaaaaaaaaaaaaaaaa",
+			"passwordConfirm": "mafemmecestmasoeur",
+			"role": "user",
+			"status": "active"
+		},
+		{
+			"id": "a9fe",
+			"username": "Pimpoye",
+			"email": "Pimpoye@medoc.fr",
+			"password": "mafemmecestmasoeur",
+			"passwordConfirm": "mafemmecestmasoeur",
+			"role": "user",
+			"status": "active"
+		},
+		{
+			"id": "da45",
+			"username": "Pimpoye",
+			"email": "Pimpoye@medoc.fr",
+			"password": "mafemmecestmasoeur",
+			"passwordConfirm": "mafemmecestmasoeur",
+			"role": "user",
+			"status": "active"
+		}
+	],
+	"user_details": [
+		{
+			"id": "1",
+			"firstname": "john",
+			"lastname": "Doe",
+			"streetNumber": "15015",
+			"street": "Rue de la réppublique",
+			"region": "Nouvelle-Aquitaine",
+			"postalCode": 33000,
+			"city": "Sainte Foy Les Lyon",
+			"departement": "Rhône",
+			"avatar": "https://images.radio-canada.ca/w_635,h_357/v1/ici-tele/jeunesse/16x9/arthur-et-les-minimoys-arthur.jpg",
+			"description": "it's me but i'm not sure",
+			"phone": "01-23-45-67-09",
+			"dateOfBirth": "10/02/1998",
+			"genre": "masculin",
+			"userId": "1",
+			"email": "j.doe@test.com",
+			"categoryIds": ["1", "4", "5", "6", "9", "2", "10"]
+		},
+		{
+			"id": "2",
+			"firstname": "Jane",
+			"lastname": "Doe",
+			"streetNumber": 15,
+			"street": "Rue de la république",
+			"region": "Nouvelle-Aquitaine",
+			"postalCode": 33000,
+			"city": "Montaigue de Quercy",
+			"departement": "Tarn-et-Garonne",
+			"avatar": "https://images.radio-canada.ca/w_635,h_357/v1/ici-tele/jeunesse/16x9/arthur-et-les-minimoys-selenia.jpg",
+			"description": "'maybe you can find me in the forest'",
+			"phone": "01-23-45-67-89",
+			"dateOfBirth": "14/05/1990",
+			"genre": "féminin",
+			"userId": "2",
+			"categoryIds": ["1", "4", "5", "6", "9", "2", "10"]
+		},
+		{
+			"id": "3",
+			"firstname": "Junior",
+			"lastname": "Doe",
+			"streetNumber": 15,
+			"street": "Rue de la république",
+			"region": "Nouvelle-Aquitaine",
+			"postalCode": 33000,
+			"city": "Payolle",
+			"departement": "Hautes-Pyrénées",
+			"avatar": "https://images.radio-canada.ca/w_635,h_357/v1/ici-tele/jeunesse/16x9/arthur-et-les-minimoys-mul-mul.jpg",
+			"description": "'i'm the little one'",
+			"phone": "01-23-45-67-89",
+			"dateOfBirth": "19/09/1995",
+			"genre": "masculin",
+			"userId": "3",
+			"categoryIds": ["1", "4", "5", "6", "9", "2", "10"]
+		},
+		{
+			"id": "6e76",
+			"firstname": "rf§tgf",
+			"lastname": "does",
+			"streetNumber": 3,
+			"street": "fvtgfvb ",
+			"region": {
+				"id": "2",
+				"name": "Hauts-de-France"
+			},
+			"postalCode": 33000,
+			"description": "rfvtgfvtgfbv ",
+			"department": {
+				"id": "2",
+				"name": "Aisne"
+			},
+			"city": {
+				"id": 3,
+				"name": "London"
+			},
+			"avatar": "",
+			"phone": "23-33-54-56-77",
+			"dateOfBirth": "43/35/4567",
+			"genre": "masculin",
+			"categoryIds": ["4", "3", "2"],
+			"userId": "5c35",
+			"email": "Pimpoye@medoc.fr"
+		},
+		{
+			"id": "cc9c",
+			"firstname": "dfctrfg",
+			"lastname": "doe",
+			"streetNumber": "",
+			"street": "doe",
+			"region": {
+				"id": "2",
+				"name": "Hauts-de-France"
+			},
+			"postalCode": 33000,
+			"description": "gfyhfgvyh",
+			"department": {
+				"id": "1",
+				"name": "Ain"
+			},
+			"city": {
+				"id": 3,
+				"name": "London"
+			},
+			"avatar": "",
+			"phone": "12-23-43-45-56",
+			"dateOfBirth": "35/36/5777",
+			"genre": "masculin",
+			"categoryIds": ["3", "2"],
+			"userId": "a9fe",
+			"email": "Pimpoye@medoc.fr"
+		}
+	],
+	"category": [
+		{
+			"id": "1",
+			"title": "Sport"
+		},
+		{
+			"id": "2",
+			"title": "Music"
+		},
+		{
+			"id": "3",
+			"title": "Cinema"
+		},
+		{
+			"id": "4",
+			"title": "Travel"
+		},
+		{
+			"id": "5",
+			"title": "Food"
+		},
+		{
+			"id": "6",
+			"title": "Art"
+		},
+		{
+			"id": "7",
+			"title": "Science"
+		},
+		{
+			"id": "8",
+			"title": "Technology"
+		},
+		{
+			"id": "9",
+			"title": "Literature"
+		},
+		{
+			"id": "10",
+			"title": "History"
+		}
+	],
+	"reservation": [
+		{
+			"id": "3",
+			"activityId": "3",
+			"userId": "3"
+		},
+		{
+			"id": "5",
+			"activityId": "5",
+			"userId": "2"
+		},
+		{
+			"id": "9",
+			"activityId": "7",
+			"userId": "123"
+		},
+		{
+			"id": "10",
+			"activityId": "8",
+			"userId": "123"
+		},
+		{
+			"id": "11",
+			"activityId": "8",
+			"userId": "123"
+		},
+		{
+			"id": "12",
+			"activityId": "8",
+			"userId": "123"
+		},
+		{
+			"id": "13",
+			"activityId": "8",
+			"userId": "123"
+		},
+		{
+			"id": "14",
+			"activityId": "8",
+			"userId": "123"
+		},
+		{
+			"id": "15",
+			"activityId": "8",
+			"userId": "123"
+		},
+		{
+			"id": "16",
+			"activityId": "8",
+			"userId": "123"
+		}
+	],
+	"activity": [
+		{
+			"id": "3",
+			"name": "cuisine",
+			"date": "2024-05-01T22:00:00.000Z",
+			"activityCity": "Rome",
+			"categoryId": "Music",
+			"nbGuest": "10",
+			"description": "Tart candy danish oat cake sweet roll. Chocolate cake sugar plum shortbread chocolate bar cupcake brownie candy apple pie. Jelly beans brownie macaroon croissant chocolate cake gingerbread bear claw jelly sesame snaps.",
+			"imgUrl": "",
+			"link": "",
+			"userId": "1"
+		},
+		{
+			"id": "5",
+			"name": "sport",
+			"date": "2024-05-01T22:00:00.000Z",
+			"activityCity": "New York",
+			"categoryId": "Travel",
+			"nbGuest": "20",
+			"description": "Sweet roll dragée candy canes topping soufflé. Topping pastry tootsie roll sugar plum cake jelly candy cupcake sweet. Candy wafer bonbon sweet roll donut tootsie roll. Dragée oat cake sweet cake chocolate cheesecake sugar plum. Lollipop croissant jelly beans biscuit donut jelly candy. Marzipan danish jelly wafer cake. Cake oat cake tiramisu jujubes chupa chups bonbon. Tootsie roll donut cupcake gummi bears pastry sesame snaps fruitcake. Pastry soufflé cake cheesecake bonbon dragée gingerbread cake. Sweet roll pastry wafer liquorice cheesecake. Oat cake jelly tootsie roll cake powder oat cake sugar plum chocolate bar tiramisu. Biscuit topping wafer chocolate bar pastry sesame snaps caramels chocolate bar.  Cotton candy chocolate cake jelly ice cream gummi bears marshmallow sugar plum cotton candy fruitcake. Icing apple pie bonbon apple pie chupa chups cupcake sweet roll. Gingerbread icing pie cheesecake danish marshmallow sesame snaps dragée candy. Dragée pie pudding bear claw sweet jelly beans lemon drops lollipop jelly-o. Sugar plum halvah gummi bears apple pie oat cake sweet gingerbread. Cupcake jelly cheesecake topping shortbread shortbread. Pudding biscuit icing bear claw brownie fruitcake dragée donut candy. Icing jelly dessert apple pie pastry. Icing jujubes cheesecake jelly beans tootsie roll. Cookie halvah marshmallow powder toffee cookie candy brownie. Chupa chups wafer pastry tiramisu topping liquorice gingerbread topping. Tiramisu chocolate bar shortbread gingerbread brownie shortbread. Pastry gummies fruitcake cake pudding marshmallow bonbon topping caramels.  Lollipop cupcake lollipop sugar plum bonbon tart. Marzipan cheesecake fruitcake pie bear claw soufflé. Jelly-o cookie muffin toffee danish icing. Chupa chups jelly sugar plum liquorice cheesecake apple pie halvah chocolate. Liquorice pie topping icing oat cake chocolate bar cake croissant. Tiramisu caramels jelly candy sweet roll pastry tootsie roll. Marshmallow danish tootsie roll candy canes halvah oat cake pastry. Lemon drops sugar plum gummi bears tart brownie chocolate sesame snaps chocolate chocolate bar. Pudding topping bear claw donut pastry chocolate oat cake halvah. Wafer topping shortbread marshmallow tart. Chocolate candy canes candy canes sweet marshmallow jujubes cotton candy cupcake. Bonbon shortbread wafer sesame snaps sweet toffee.",
+			"imgUrl": "https://images.unsplash.com/photo-1716414458161-91b34446b749?q=80&w=2664&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+			"link": "www.google.fr",
+			"userId": "1"
+		},
+		{
+			"id": "6",
+			"name": "babyfooty",
+			"date": "",
+			"hour": "2024-05-13T13:51:12.334Z",
+			"activityCity": "London",
+			"categoryId": "Food",
+			"nbGuest": 58,
+			"description": "",
+			"imgUrl": "",
+			"link": "",
+			"userId": "2"
+		},
+		{
+			"id": "7",
+			"name": "toto",
+			"date": "",
+			"hour": "",
+			"activityCity": {
+				"id": 1,
+				"name": ""
+			},
+			"categoryId": {
+				"id": "1",
+				"title": ""
+			},
+			"nbGuest": 0,
+			"description": "",
+			"imgUrl": "",
+			"link": ""
+		},
+		{
+			"id": "8",
+			"name": "toto",
+			"date": "",
+			"hour": "",
+			"activityCity": {
+				"id": 1,
+				"name": ""
+			},
+			"categoryId": {
+				"id": "1",
+				"title": ""
+			},
+			"nbGuest": 0,
+			"description": "",
+			"imgUrl": "",
+			"link": "",
+			"userId": "1"
+		},
+		{
+			"id": "9",
+			"name": "toto",
+			"date": "",
+			"hour": "",
+			"activityCity": {
+				"id": 1,
+				"name": ""
+			},
+			"categoryId": {
+				"id": "1",
+				"title": ""
+			},
+			"nbGuest": 0,
+			"description": "",
+			"imgUrl": "",
+			"link": "ed(rfdxc",
+			"userId": "1"
+		},
+		{
+			"id": "10",
+			"name": "toto",
+			"date": "2024-04-30T22:00:00.000Z",
+			"hour": "2024-05-20T18:33:05.669Z",
+			"activityCity": {
+				"id": 2,
+				"name": "Rome"
+			},
+			"categoryId": {
+				"id": "3",
+				"title": "Cinema"
+			},
+			"nbGuest": 4,
+			"description": "Oat cake dragée pastry powder shortbread sweet roll macaroon powder oat cake. Gummi bears gingerbread pudding powder lemon drops. Halvah oat cake jelly marshmallow dragée sesame snaps cotton candy. Sweet brownie carrot cake lemon drops powder cake liquorice.",
+			"imgUrl": "",
+			"link": "fvyhfvghbfvg",
+			"userId": "1"
+		},
+		{
+			"id": "11",
+			"name": "balade",
+			"date": "2024-05-29T22:00:00.000Z",
+			"hour": "2024-05-22T12:28:26.134Z",
+			"activityCity": {
+				"id": 5,
+				"name": "Paris"
+			},
+			"categoryId": {
+				"id": "3",
+				"title": "Cinema"
+			},
+			"nbGuest": 4,
+			"description": "sdzfergthyjui",
+			"imgUrl": "",
+			"link": "",
+			"userId": "1"
+		}
+	],
+	"contact": [
+		{
+			"id": "1",
+			"email": "laurore@yahoo.fr",
+			"message": "bonjour, je voudrais plus de renseingnements sur votre activité."
+		},
+		{
+			"id": "2",
+			"email": "boubou@yahoo.fr",
+			"message": "renseingnements sur votre activité."
+		},
+		{
+			"id": "3",
+			"email": "moimoi@yahoo.fr",
+			"message": "bonjour, je voudrais"
+		},
+		{
+			"id": "4",
+			"Email": "xcvrtb",
+			"message": "efrgvbthynju"
+		},
+		{
+			"id": "5",
+			"Email": "",
+			"message": ""
+		},
+		{
+			"id": "6",
+			"Email": "laurore83@yahoo.fr",
+			"message": "qsdfgtyhujikolpm"
+		},
+		{
+			"id": "7",
+			"Email": "",
+			"message": ""
+		},
+		{
+			"id": "8",
+			"Email": "sdzfegrhtjykuli",
+			"message": "wXQDCSFVDGRBHTJYKULI"
+		},
+		{
+			"id": "9",
+			"Email": "laurore83@yahoo.fr",
+			"message": "sdxfcgvhbjnk,l;m:"
+		},
+		{
+			"id": "10",
+			"Email": "laurore83@yahoo.fr",
+			"message": "sdcfv"
+		},
+		{
+			"id": "11",
+			"Email": "laurore83@yahoo.fr",
+			"message": "sdcfv"
+		},
+		{
+			"id": "12",
+			"Email": "laurore83@yahoo.fr",
+			"message": "sdcfv"
+		},
+		{
+			"id": "13",
+			"Email": "zsdfv",
+			"message": "sdfcvb "
+		},
+		{
+			"id": "14",
+			"Email": "laurore83@yahoo.fr",
+			"message": "zsdfcv "
+		},
+		{
+			"id": "15",
+			"Email": "laurore83@yahoo.fr",
+			"message": "aqzsdfghujikol"
+		},
+		{
+			"id": "16",
+			"Email": "sdfegvrb",
+			"message": "qxscdvfbgh"
+		},
+		{
+			"id": "17",
+			"Email": "sdfegvrb",
+			"message": "qxscdvfbgh"
+		},
+		{
+			"id": "18",
+			"Email": "laurore83@yahoo.fr",
+			"message": "zwexrcftvgyhujikolpm"
+		},
+		{
+			"id": "19",
+			"Email": "qsdfgthjk;",
+			"message": "qSADZFEGRHTJYUKIK"
+		},
+		{
+			"id": "20",
+			"Email": "DFEVGRHTJYKUILO",
+			"message": "SDZFEVGRBTHNYJU.IL"
+		},
+		{
+			"id": "21",
+			"Email": "DZFEGRHTJYKU",
+			"message": "SFDVGRTHJYUKILO"
+		},
+		{
+			"id": "22",
+			"Email": "DZFCEVGRBTNG",
+			"message": "EFGRHTYJU"
+		},
+		{
+			"id": "23",
+			"Email": "sdf",
+			"message": "qsdfc"
+		},
+		{
+			"id": "24",
+			"Email": "rtyuiop",
+			"message": "esrdftyguhijoklm"
+		},
+		{
+			"id": "25",
+			"Email": "laurore83@yahoo.fr",
+			"message": "j'aimerai voir dune aussi"
+		},
+		{
+			"id": "26",
+			"Email": "yoyo@toto.fr",
+			"message": "IStamboul!!!!"
+		}
+	]
 }
