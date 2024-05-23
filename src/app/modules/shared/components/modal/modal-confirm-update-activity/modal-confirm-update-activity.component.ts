@@ -14,6 +14,7 @@ import { ConfirmationService, MessageService } from 'primeng/api';
 export class ModalConfirmUpdateActivityComponent {
 	@Input() myForm!: NgForm;
 	@Input() activityId!: string;
+
 	constructor(
 		private confirmationService: ConfirmationService,
 		private messageService: MessageService,
@@ -25,10 +26,10 @@ export class ModalConfirmUpdateActivityComponent {
 		if (this.myForm && this.myForm.valid) {
 			this.confirmationService.confirm({
 				header: 'Confirmation',
-				message: 'Confirmer la création de votre activité',
+				message: 'Confirmer la modification de votre activité',
 				accept: () => this.onAccept(),
 				reject: () => this.onReject(),
-				acceptLabel: 'Oui', // Personnalisation du bouton Oui
+				acceptLabel: 'Oui',
 				rejectLabel: 'Non',
 			});
 		} else {
@@ -61,9 +62,9 @@ export class ModalConfirmUpdateActivityComponent {
 			.subscribe(
 				(activity: Activity) => {
 					this.messageService.add({
-						severity: 'info',
+						severity: 'success',
 						summary: 'Bravo',
-						detail: 'Votre activité a bien été créée',
+						detail: 'Votre activité a bien été modifié',
 						life: 3000,
 					});
 					setTimeout(() => {
@@ -75,7 +76,7 @@ export class ModalConfirmUpdateActivityComponent {
 						severity: 'error',
 						summary: 'Erreur',
 						detail:
-							"Une erreur s'est produite lors de la création de l'activité",
+							"Une erreur s'est produite lors de la modification de l'activité",
 						life: 3000,
 					});
 				},
