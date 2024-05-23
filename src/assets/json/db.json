@@ -47,6 +47,16 @@
       "passwordConfirm": "mafemmecestmasoeur",
       "role": "user",
       "status": "active"
+    },
+    {
+      "id": "afa0",
+      "username": "",
+      "email": "",
+      "password": "",
+      "passwordConfirm": "mafemmecestmasoeur",
+      "role": "user",
+      "status": "inactive",
+      "userDetailsId": ""
     }
   ],
   "user_details": [
@@ -246,6 +256,30 @@
         "3"
       ],
       "userId": "0c67"
+    },
+    {
+      "id": "4737",
+      "firstname": "",
+      "lastname": "",
+      "streetNumber": "",
+      "street": "",
+      "region": "",
+      "postalCode": 33000,
+      "description": "",
+      "department": {
+        "id": "1",
+        "name": ""
+      },
+      "city": {
+        "id": 1,
+        "name": ""
+      },
+      "avatar": "",
+      "phone": "",
+      "dateOfBirth": "",
+      "genre": "masculin",
+      "categoryIds": [],
+      "userId": "afa0"
     }
   ],
   "category": [

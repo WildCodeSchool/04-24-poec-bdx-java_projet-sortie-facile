@@ -234,4 +234,16 @@ export class AuthService {
 			this.notifyLoggedInStatus(true);
 		}
 	}
+
+	public deleteUser(userId: string): Observable<UserAuthPrimaryDatas> {
+		return this._httpClient
+			.patch<UserAuthPrimaryDatas>(`${this.BASE_URL}/${userId}`, {
+				email: '',
+				password: '',
+				username: '',
+				status: AccountStatus.INACTIVE,
+				userDetailsId: '',
+			})
+			.pipe(tap(() => this.logout()));
+	}
 }

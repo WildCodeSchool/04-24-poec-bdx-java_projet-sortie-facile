@@ -1,3 +1,5 @@
+<!-- eslint-disable @angular-eslint/template/interactive-supports-focus -->
+<!-- eslint-disable @angular-eslint/template/click-events-have-key-events -->
 <div class="container">
 	<app-layout-header
 		[avatarSrc]="avatarSrc"
@@ -16,7 +18,10 @@
 			<app-layout-nav></app-layout-nav>
 
 			<div class="delete-box">
-				<a [routerLink]="['/']" class="delete-link">Supprimer mon compte </a>
+				<button (click)="onDeleteUser()" 
+					class="delete-link"
+					>Supprimer mon compte
+				</button>
 			</div>
 		</div>
 
