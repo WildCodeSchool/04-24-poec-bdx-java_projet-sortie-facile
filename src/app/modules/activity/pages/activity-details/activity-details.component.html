@@ -35,9 +35,10 @@
 
 				<a
 					*ngIf="activity.link"
-					[href]="activity.link"
+					href="{{ activity.link | link }}"
 					[title]="activity.name"
 					target="_blank"
+					rel="noopener noreferrer"
 					>Voir Plus</a
 				>
 

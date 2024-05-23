@@ -34,6 +34,7 @@ import { MaskFieldComponent } from './components/form/mask-field/mask-field.comp
 import { GlobalFormErrorComponent } from './components/form/global-form-error/global-form-error.component';
 import { ParagraphSplitPipe } from './pipes/paragraph-split.pipe';
 import { ModalConfirmContactComponent } from './components/modal/modal-confirm-contact/modal-confirm-contact.component';
+import { LinkPipe } from './pipes/link.pipe';
 
 @NgModule({
 	declarations: [
@@ -68,6 +69,7 @@ import { ModalConfirmContactComponent } from './components/modal/modal-confirm-c
 		MaskFieldComponent,
 		GlobalFormErrorComponent,
 		ParagraphSplitPipe,
+		LinkPipe,
 	],
 	imports: [
 		CommonModule,
@@ -110,6 +112,7 @@ import { ModalConfirmContactComponent } from './components/modal/modal-confirm-c
 		MaskFieldComponent,
 		GlobalFormErrorComponent,
 		ParagraphSplitPipe,
+		LinkPipe,
 	],
 })
 export class SharedModule {}
