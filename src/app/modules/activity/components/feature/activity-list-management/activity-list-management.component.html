@@ -14,7 +14,7 @@
 	</ng-container>
 </div>
 
-<div class="paginator-container">
+<div class="paginator-container" *ngIf="pagedActivities.length">
 	<div>
 		<span>Activités par pages : </span>
 		<p-dropdown
@@ -38,3 +38,15 @@
 		></p-paginator>
 	</div>
 </div>
+
+<p-messages severity="error" *ngIf="!pagedActivities.length">
+	<ng-template pTemplate>
+		<div class="message-content">
+			<i class="pi pi-times"></i>
+			<p>
+				Votre recherche n'a retourné aucun résultat. Veuillez essayer avec
+				d'autres filtres ou critères.
+			</p>
+		</div>
+	</ng-template>
+</p-messages>

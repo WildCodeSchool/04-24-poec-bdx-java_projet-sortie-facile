@@ -67,6 +67,16 @@
       "role": "user",
       "status": "active",
       "userDetailsId": "5f3a"
+    },
+    {
+      "id": "9868",
+      "username": "jeyofdev",
+      "email": "jeyofdev@gmail.fr",
+      "password": "jeyofdev",
+      "passwordConfirm": "123456789",
+      "role": "user",
+      "status": "active",
+      "userDetailsId": "c48d"
     }
   ],
   "user_details": [
@@ -268,6 +278,38 @@
       "categoryIds": [],
       "userId": "51a0",
       "email": "Pimpoye@medoc.fr"
+    },
+    {
+      "id": "c48d",
+      "firstname": "gregoire",
+      "lastname": "jeremy",
+      "streetNumber": "12",
+      "street": "avenue de la liberté",
+      "region": {
+        "id": "3",
+        "name": "Nouvelle-Aquitaine"
+      },
+      "postalCode": 33000,
+      "description": "Cupcake ipsum dolor sit amet. Jelly beans candy candy canes liquorice carrot cake chupa chups gummies soufflé. Muffin soufflé tart bear claw macaroon fruitcake chocolate jelly-o. Lollipop jujubes apple pie pie cookie carrot cake sweet roll cake carrot cake. Sweet gummies dessert tart cheesecake jelly cookie cookie. Carrot cake croissant lollipop danish lollipop. Cake cheesecake sweet sugar plum gummies sweet roll.\n\nCotton candy croissant bear claw biscuit candy lemon drops candy canes candy canes. Marzipan dessert cupcake cheesecake donut jelly-o. Sweet cotton candy bonbon candy biscuit cake halvah. Dessert bear claw jelly oat cake jelly apple pie powder cake sesame snaps. Tiramisu wafer dessert powder ice cream gummi bears. Candy fruitcake danish wafer dragée jelly-o liquorice shortbread gummies. Fruitcake fruitcake halvah sweet roll soufflé caramels cake jelly-o. Brownie chocolate bar tart halvah ice cream. Jelly beans gummi bears jujubes marzipan powder tart candy canes gummies gummi bears.",
+      "department": {
+        "id": "33",
+        "name": "Gironde"
+      },
+      "city": {
+        "id": 5,
+        "name": "Paris"
+      },
+      "avatar": "",
+      "phone": "01-23-45-67-89",
+      "dateOfBirth": "26/11/2013",
+      "genre": "masculin",
+      "categoryIds": [
+        "5",
+        "4",
+        "3"
+      ],
+      "userId": "9868",
+      "email": "jeyofdev@gmail.fr"
     }
   ],
   "category": [
