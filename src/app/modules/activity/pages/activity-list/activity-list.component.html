@@ -15,7 +15,14 @@
 		></app-select-category>
 
 		<label for="">Département</label>
-		<app-select-department></app-select-department>
+		<app-select-department
+			id="departments"
+			inputId="departments"
+			name="departments"
+			#departments="ngModel"
+			[(ngModel)]="departments"
+		></app-select-department>
+
 		<label for="">Région</label>
 		<app-select-region></app-select-region>
 		<label for="">City</label>

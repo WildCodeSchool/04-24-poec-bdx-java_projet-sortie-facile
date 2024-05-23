@@ -2,7 +2,7 @@ import { Component, Input, OnDestroy, OnInit, forwardRef } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { Department } from '@shared/models/classes/department.class';
 import { DepartmentService } from '@shared/services/department.service';
-import { Subscription, map } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 
 @Component({
 	selector: 'app-select-department',
@@ -21,6 +21,7 @@ export class SelectDepartmentComponent
 {
 	departments!: Department[];
 	selectedDepartments!: Department;
+	activityDepartmentsList$!: Observable<Department[]>;
 	private _subscription: Subscription = new Subscription();
 
 	@Input() id!: string;
@@ -33,15 +34,19 @@ export class SelectDepartmentComponent
 
 	constructor(private _departmentService: DepartmentService) {}
 
-	ngOnInit() {
-		this._subscription.add(
-			this._departmentService
-				.getDepartmentsList$()
-				.pipe(map(departments => (this.departments = departments)))
-				.subscribe(),
-		);
-	}
+	// ngOnInit() {
+	// 	this._subscription.add(
+	// 		this._departmentService
+	// 			.getDepartmentsList$()
+	// 			.pipe(map(departments => (this.departments = departments)))
+	// 			.subscribe(),
+	// 	);
+	// }
 
+	ngOnInit(): void {
+		this.activityDepartmentsList$ =
+			this._departmentService.getDepartmentsList$();
+	}
 	onChanged!: (value: string) => void;
 	onTouched!: () => void;
 

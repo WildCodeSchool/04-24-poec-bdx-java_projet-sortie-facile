@@ -4,6 +4,7 @@
 	}}</label>
 
 	<p-dropdown
+		*ngIf="activityDepartmentsList$ | async as departments"
 		[options]="departments"
 		[(ngModel)]="value"
 		optionLabel="name"
