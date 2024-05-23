@@ -214,46 +214,6 @@
 			"id": "5",
 			"activityId": "5",
 			"userId": "2"
-		},
-		{
-			"id": "9",
-			"activityId": "7",
-			"userId": "123"
-		},
-		{
-			"id": "10",
-			"activityId": "8",
-			"userId": "123"
-		},
-		{
-			"id": "11",
-			"activityId": "8",
-			"userId": "123"
-		},
-		{
-			"id": "12",
-			"activityId": "8",
-			"userId": "123"
-		},
-		{
-			"id": "13",
-			"activityId": "8",
-			"userId": "123"
-		},
-		{
-			"id": "14",
-			"activityId": "8",
-			"userId": "123"
-		},
-		{
-			"id": "15",
-			"activityId": "8",
-			"userId": "123"
-		},
-		{
-			"id": "16",
-			"activityId": "8",
-			"userId": "123"
 		}
 	],
 	"activity": [
