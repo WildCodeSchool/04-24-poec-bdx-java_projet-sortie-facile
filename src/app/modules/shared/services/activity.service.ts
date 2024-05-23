@@ -24,11 +24,15 @@ export class ActivityService {
 	) {}
 
 	getActivityList$(): Observable<Activity[]> {
-		return this._httpClient
-			.get<Activities>(this._BASE_URL)
-			.pipe(map((response: Activities) => response));
+		return this._httpClient.get<Activity[]>(this._BASE_URL).pipe(
+			map(activities =>
+				activities.filter(activity => activity.isVisible === true),
+			),
+			catchError(error => {
+				throw error;
+			}),
+		);
 	}
-
 	getActivityById$(id: string): Observable<Activity> {
 		return this._httpClient
 			.get<Activity>(`${this._BASE_URL}/${id}`)
