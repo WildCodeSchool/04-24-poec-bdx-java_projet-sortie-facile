@@ -17,9 +17,7 @@
 
 				<app-divider [align]="'center'" [type]="'solid'"></app-divider>
 
-				<p>
-					{{ activity.description }}
-				</p>
+				<div [innerHTML]="activity.description | paragraphSplit"></div>
 
 				<p>Catégorie : {{ activity.categoryId.title }}</p>
 				<p>City : {{ activity.activityCity.name }}</p>
