@@ -1,7 +1,31 @@
 <div class="activity-card-container">
-	<div class="secondary-box">sec</div>
-	<div class="primary-box">
-		<ng-container *ngIf="activity$ | async as activity">
+	<ng-container *ngIf="activity$ | async as activity">
+		<div class="secondary-box">
+			<div class="infos-container activity-informations">
+				<h3>Infos pratiques</h3>
+
+				<div class="activity-info-items-box">
+					<div class="activity-info-item">
+						<i class="pi pi-map-marker"></i>
+						<p>À {{ activity.activityCity }} (33), Gironde</p>
+					</div>
+
+					<div class="activity-info-item">
+						<i class="pi pi-calendar"></i>
+						<p>Le {{ activity.date }}</p>
+					</div>
+
+					<div class="activity-info-item">
+						<i class="pi pi-user"></i>
+						<p>De 18 à 50 ans</p>
+					</div>
+				</div>
+			</div>
+			<div class="infos-container activity-creator-informations">
+				<h2>Infos sur l’auteur</h2>
+			</div>
+		</div>
+		<div class="primary-box">
 			<p-card>
 				<ng-template pTemplate="title">
 					<h1 class="activity-title">{{ activity.name }}</h1>
@@ -62,6 +86,6 @@
 					</div>
 				</ng-template>
 			</p-card>
-		</ng-container>
-	</div>
+		</div>
+	</ng-container>
 </div>
