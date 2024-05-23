@@ -20,23 +20,34 @@ import { Observable, map } from 'rxjs';
 })
 export class ActivityListManagementComponent implements OnInit, OnChanges {
 	activityList$!: Observable<Activity[]>;
-	activity$!: Observable<Activity>;
-
+	pagedActivities: Activity[] = [];
 	connectedUser!: UserAuthPrimaryDatas;
 
 	@Input() searchedValue: string = '';
 	@Input() selectedCategoryId!: Category;
+
+	rows: number = 1;
+	first: number = 0;
+	totalRecords: number = 0;
+
+	rowsPerPageOptions = [
+		{ label: '1', value: 1 },
+		{ label: '2', value: 2 },
+		{ label: '3', value: 3 },
+	];
 
 	constructor(
 		private activityService: ActivityService,
 		private categoryService: CategoryService,
 		private _authService: AuthService,
 	) {}
+
 	ngOnInit(): void {
 		if (!this.connectedUser) {
 			this._authService.setConnectedUserData(
 				JSON.parse(localStorage.getItem('user') as string),
 			);
+
 			this.connectedUser = this._authService.getConnectedUserData();
 		}
 
@@ -50,7 +61,6 @@ export class ActivityListManagementComponent implements OnInit, OnChanges {
 	}
 
 	filterActivities(): void {
-		console.log(this.selectedCategoryId);
 		if (this.selectedCategoryId) {
 			this.activityList$ = this.activityService.filteredActivityListByCategory$(
 				this.selectedCategoryId,
@@ -58,6 +68,7 @@ export class ActivityListManagementComponent implements OnInit, OnChanges {
 		} else {
 			this.activityList$ = this.activityService.getActivityList$();
 		}
+
 		this.activityList$ = this.activityList$.pipe(
 			map(activities =>
 				activities.filter(activity =>
@@ -67,6 +78,31 @@ export class ActivityListManagementComponent implements OnInit, OnChanges {
 				),
 			),
 		);
+
+		this.activityList$.subscribe(activities => {
+			this.totalRecords = activities.length;
+			this.updatePageActivities(activities);
+		});
+	}
+
+	onPageChange(event: any): void {
+		this.first = event.first;
+		this.rows = event.rows;
+		this.activityList$.subscribe(activities => {
+			this.updatePageActivities(activities);
+		});
+	}
+
+	onRowsChange(): void {
+		this.first = 0;
+
+		this.activityList$.subscribe(activities => {
+			this.updatePageActivities(activities);
+		});
+	}
+
+	updatePageActivities(activities: Activity[]): void {
+		this.pagedActivities = activities.slice(this.first, this.first + this.rows);
 	}
 
 	getCategoryTitle(categoryId: string): Observable<string> {

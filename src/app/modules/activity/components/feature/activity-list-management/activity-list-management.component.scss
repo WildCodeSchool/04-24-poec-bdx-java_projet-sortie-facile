@@ -4,3 +4,24 @@
 	gap: 1rem;
 	flex-wrap: wrap;
 }
+
+:host ::ng-deep .paginator-container {
+	background: red;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+
+	.p-paginator {
+		background-color: red;
+	}
+
+	.p-dropdown {
+		margin-right: 1rem;
+	}
+
+	.paginator-center {
+		flex-grow: 1;
+		display: flex;
+		justify-content: center;
+	}
+}

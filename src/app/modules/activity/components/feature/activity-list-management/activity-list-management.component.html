@@ -3,12 +3,38 @@
 		>Créer une activité</p-button
 	>
 </div>
+
 <div class="activities-cards">
-	<ng-container *ngIf="activityList$ | async as activities">
+	<ng-container *ngIf="pagedActivities.length">
 		<app-activity-card
-			*ngFor="let activity of activities"
+			*ngFor="let activity of pagedActivities"
 			[activity]="activity"
 			[connectedUser]="connectedUser"
 		></app-activity-card>
 	</ng-container>
+</div>
+
+<div class="paginator-container">
+	<div>
+		<span>Items per page: </span>
+		<p-dropdown
+			[options]="rowsPerPageOptions"
+			optionLabel="label"
+			optionValue="value"
+			[(ngModel)]="rows"
+			(ngModelChange)="onRowsChange()"
+		></p-dropdown>
+	</div>
+
+	<div>
+		<p-paginator
+			[first]="first"
+			[rows]="rows"
+			[totalRecords]="totalRecords"
+			(onPageChange)="onPageChange($event)"
+			[showFirstLastIcon]="false"
+			[showCurrentPageReport]="true"
+			currentPageReportTemplate="{first} - {last} sur {totalRecords}"
+		></p-paginator>
+	</div>
 </div>
