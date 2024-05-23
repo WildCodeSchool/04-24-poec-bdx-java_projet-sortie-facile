@@ -103,7 +103,22 @@ export class ActivityService {
 			}),
 		);
 	}
+	updateActivityVisibility(
+		activityId: string,
+		isVisible: boolean,
+	): Observable<Activity> {
+		return this._httpClient.patch<Activity>(`${this._BASE_URL}/${activityId}`, {
+			isVisible,
+		});
+	}
 
+	getVisibleActivities(): Observable<Activity[]> {
+		return this._httpClient
+			.get<Activity[]>(this._BASE_URL)
+			.pipe(
+				map(activities => activities.filter(activity => activity.isVisible)),
+			);
+	}
 	updateActivity$(
 		id: string,
 		updatedData: Partial<Activity>,

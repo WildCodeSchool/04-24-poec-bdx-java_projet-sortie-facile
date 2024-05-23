@@ -35,6 +35,7 @@ export class ActivityUpdateManagementComponent implements OnInit, OnDestroy {
 		new Category('0', ''),
 		'',
 		'',
+		true,
 	);
 
 	ngOnInit(): void {

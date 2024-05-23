@@ -1,5 +1,5 @@
+import { Activity } from '@activity/models/classes/activity.class';
 import { Component, Input, OnDestroy } from '@angular/core';
-import { Activity } from '@shared/models/types/activity.type';
 import { UserAuthPrimaryDatas } from '@shared/models/types/user-list-response-api.type';
 import { ActivityService } from '@shared/services/activity.service';
 import { Subscription } from 'rxjs';
@@ -16,10 +16,19 @@ export class ActivityCardComponent implements OnDestroy {
 
 	constructor(private activityService: ActivityService) {}
 
-	delete(id: string): void {
-		this._subscription.add(
-			this.activityService.deleteActivity$(id).subscribe(),
-		);
+	// delete(id: string): void {
+	// 	this._subscription.add(
+	// 		this.activityService.deleteActivity$(id).subscribe(),
+	// 	);
+	// }
+	hideActivity(activityId: string): void {
+		this.activityService.updateActivityVisibility(activityId, false).subscribe({
+			next: () => {
+				console.log('Activity hidden successfully');
+				// Actualisez ou mettez à jour la liste des activités après modification si nécessaire
+			},
+			error: err => console.error('Error hiding activity:', err),
+		});
 	}
 
 	ngOnDestroy(): void {

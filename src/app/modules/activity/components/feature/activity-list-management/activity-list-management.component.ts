@@ -1,3 +1,4 @@
+import { Activity } from '@activity/models/classes/activity.class';
 import {
 	Component,
 	Input,
@@ -6,7 +7,6 @@ import {
 	SimpleChanges,
 } from '@angular/core';
 import { Category } from '@shared/models/classes/category.class';
-import { Activity } from '@shared/models/types/activity.type';
 import { UserAuthPrimaryDatas } from '@shared/models/types/user-list-response-api.type';
 import { ActivityService } from '@shared/services/activity.service';
 import { AuthService } from '@shared/services/auth.service';

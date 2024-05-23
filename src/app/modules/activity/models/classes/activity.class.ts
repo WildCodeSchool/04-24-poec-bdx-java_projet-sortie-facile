@@ -15,6 +15,7 @@ export class Activity {
 	categoryId: Category;
 	hour: string;
 	userId: string;
+	isVisible: boolean;
 
 	constructor(
 		id: string,
@@ -30,6 +31,7 @@ export class Activity {
 		categoryId: Category,
 		hour: string,
 		userId: string,
+		isVisible: boolean,
 	) {
 		this.id = id;
 		this.name = name;
@@ -44,5 +46,6 @@ export class Activity {
 		this.categoryId = categoryId;
 		this.hour = hour;
 		this.userId = userId;
+		this.isVisible = true;
 	}
 }
