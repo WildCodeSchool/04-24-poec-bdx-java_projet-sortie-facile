@@ -1,42 +1,46 @@
 <div class="activity-card-container">
-	<div class="details" *ngIf="activity$ | async as activity">
-		<p-card
-			[header]="activity.name"
-			subheader="Card Subheader"
-			[style]="{ width: '360px' }"
-		>
-			<ng-template pTemplate="header">
-				<img
-					[src]="
-						activity.imgUrl ? activity.imgUrl : '/assets/photos/no-image.jpg'
-					"
-					alt="{{ activity.name }}"
-				/>
-			</ng-template>
+	<div class="secondary-box">sec</div>
+	<div class="primary-box">
+		<ng-container *ngIf="activity$ | async as activity">
+			<p-card>
+				<ng-template pTemplate="title">
+					<h1 class="activity-title">{{ activity.name }}</h1>
+				</ng-template>
+				<ng-template pTemplate="header">
+					<img
+						[src]="
+							activity.imgUrl ? activity.imgUrl : '/assets/photos/no-image.jpg'
+						"
+						alt="{{ activity.name }}"
+					/>
+				</ng-template>
 
-			<p>
-				{{ activity.description }}
-			</p>
+				<app-divider [align]="'center'" [type]="'solid'"></app-divider>
 
-			<p>Catégorie : {{ activity.categoryId.title }}</p>
-			<p>City : {{ activity.activityCity.name }}</p>
+				<p>
+					{{ activity.description }}
+				</p>
 
-			<a
-				*ngIf="activity.link"
-				[href]="activity.link"
-				[title]="activity.name"
-				target="_blank"
-				>Voir Plus</a
-			>
+				<p>Catégorie : {{ activity.categoryId.title }}</p>
+				<p>City : {{ activity.activityCity.name }}</p>
 
-			<ng-template pTemplate="footer">
-				<app-modal-confirm-reservation
-					[myForm]="myForm"
-				></app-modal-confirm-reservation>
-				<p-button rounded [routerLink]="['/update', activity.id]">
-					Modifier
-				</p-button>
-			</ng-template>
-		</p-card>
+				<a
+					*ngIf="activity.link"
+					[href]="activity.link"
+					[title]="activity.name"
+					target="_blank"
+					>Voir Plus</a
+				>
+
+				<ng-template pTemplate="footer">
+					<app-modal-confirm-reservation
+						[myForm]="myForm"
+					></app-modal-confirm-reservation>
+					<p-button rounded [routerLink]="['/update', activity.id]">
+						Modifier
+					</p-button>
+				</ng-template>
+			</p-card>
+		</ng-container>
 	</div>
 </div>

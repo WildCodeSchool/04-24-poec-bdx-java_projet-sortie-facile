@@ -1,28 +1,59 @@
 .activity-card-container {
 	display: flex;
 	justify-content: space-around;
+	gap: 1rem;
 	margin-block: 20px;
+	max-width: 1920px;
+	width: 100%;
+	padding: 1.5rem;
+	margin: 0 auto;
 }
 
-.details {
-	display: flex;
-	justify-content: center;
-	width: 80%;
-	border: solid 1px;
-	border-radius: 20px;
-	padding: 40px;
-	border-color: #c2c2c2;
+.primary-box {
+	width: 60%;
 }
 
-// desktop
+.secondary-box {
+	width: 40%;
+	background: red;
+}
 
-@media (min-width: 1280px) {
-	:host ::ng-deep p-card {
-		.p-card {
-			width: 80%;
-			display: flex;
-			align-items: center;
-			justify-content: space-between;
-		}
+h1,
+h2,
+h3,
+h4,
+h5,
+p {
+	margin: 0;
+	padding: 0;
+}
+
+:host ::ng-deep p-card {
+	.p-card {
+		padding: 0.7rem;
+		border-radius: 10px;
+		background-color: var(--gray-500);
+		border: 1px solid var(--gray-200);
+		box-shadow: none;
+		width: 100%;
+	}
+
+	.p-card-header img {
+		width: 100%;
+		height: 300px;
+		object-fit: cover;
+	}
+
+	.activity-title {
+		text-align: center;
+		color: var(--black-color);
+		font-size: 2rem;
+	}
+
+	app-divider {
+		display: block;
+		width: 100%;
+		max-width: 200px;
+		margin: 0 auto;
 	}
 }
