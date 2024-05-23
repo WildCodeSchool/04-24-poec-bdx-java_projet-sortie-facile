@@ -1,3 +1,11 @@
+:host ::ng-deep .activities-top {
+	> p-button .p-button {
+		padding: 0.25rem 1rem;
+		color: 1rem;
+		margin-bottom: 1rem;
+	}
+}
+
 .activities-cards {
 	width: 100%;
 	display: flex;
