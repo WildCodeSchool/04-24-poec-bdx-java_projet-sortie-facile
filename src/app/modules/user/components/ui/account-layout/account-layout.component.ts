@@ -32,9 +32,4 @@ export class AccountLayoutComponent implements OnInit {
 	onActiveItemChange(event: MenuItem) {
 		this.activeItem = event;
 	}
-
-	onUnsubscribe() {
-		this.newUser.status = AccountStatus.INACTIVE;
-		this.newUserPersonalInfosFormDatas.deleteUserInfos(this.newUser.id);
-	}
 }
