@@ -16,13 +16,13 @@ import { UserService } from './user.service';
 import { Booking } from '@shared/models/classes/booking.class';
 import { Activity } from '@activity/models/classes/activity.class';
 import { User } from '@shared/models/classes/user.class';
-import { UserDetails } from '@shared/models/types/user-details.type';
 
+// TODO creates a class instead of an interface
 export interface BookingTuto {
 	id: string;
 	userId: string;
 	activityId: string;
-	user?: UserDetails;
+	user?: User;
 	activity?: Activity;
 }
 
@@ -55,7 +55,7 @@ export class BookingService {
 		return this.http.get<Booking[]>('http://localhost:3000/reservation').pipe(
 			mergeMap((reservations: Booking[]) => {
 				const detailedReservations$ = reservations.map(reservation => {
-					const user$ = this.http.get<UserDetails>(
+					const user$ = this.http.get<User>(
 						`http://localhost:3000/user/${reservation.userId}`,
 					);
 
