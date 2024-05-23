@@ -22,61 +22,24 @@
       "role": "user"
     },
     {
-      "id": "5c35",
+      "id": "7a44",
       "username": "Pimpoye",
-      "email": "Pimpoye@medoc.fr",
-      "password": "aaaaaaaaaaaaaaaaa",
-      "passwordConfirm": "mafemmecestmasoeur",
-      "role": "user",
-      "status": "active"
-    },
-    {
-      "id": "a9fe",
-      "username": "Pimpoye",
-      "email": "Pimpoye@medoc.fr",
-      "password": "mafemmecestmasoeur",
-      "passwordConfirm": "mafemmecestmasoeur",
-      "role": "user",
-      "status": "active"
-    },
-    {
-      "id": "da45",
-      "username": "Pimpoye",
-      "email": "Pimpoye@medoc.fr",
-      "password": "mafemmecestmasoeur",
-      "passwordConfirm": "mafemmecestmasoeur",
-      "role": "user",
-      "status": "active"
-    },
-    {
-      "id": "01f7",
-      "username": "Pimpoye",
-      "email": "Pimpoye@medoc.fr",
-      "password": "tytytytytyty",
+      "email": "jeram@medoc.fr",
+      "password": "123456789",
       "passwordConfirm": "mafemmecestmasoeur",
       "role": "user",
       "status": "active",
-      "userDetailsId": "186e"
+      "userDetailsId": "7721"
     },
     {
-      "id": "51a0",
-      "username": "Pimpoye",
+      "id": "7eb1",
+      "username": "Pimpoyee",
       "email": "Pimpoye@medoc.fr",
       "password": "mafemmecestmasoeur",
       "passwordConfirm": "mafemmecestmasoeur",
       "role": "user",
       "status": "active",
-      "userDetailsId": "5f3a"
-    },
-    {
-      "id": "9868",
-      "username": "jeyofdev",
-      "email": "jeyofdev@gmail.fr",
-      "password": "jeyofdev",
-      "passwordConfirm": "123456789",
-      "role": "user",
-      "status": "active",
-      "userDetailsId": "c48d"
+      "userDetailsId": "c34a"
     }
   ],
   "user_details": [
@@ -310,6 +273,67 @@
       ],
       "userId": "9868",
       "email": "jeyofdev@gmail.fr"
+    },
+    {
+      "id": "7721",
+      "firstname": "jerem",
+      "lastname": "gereg",
+      "streetNumber": "34",
+      "street": "tgrftd",
+      "region": {
+        "id": "5",
+        "name": "Occitanie"
+      },
+      "postalCode": "34545",
+      "description": "",
+      "department": {
+        "id": "28",
+        "name": "Eure-et-Loir"
+      },
+      "city": {
+        "id": 5,
+        "name": "Paris"
+      },
+      "avatar": "",
+      "phone": "35-56-67-78-79",
+      "dateOfBirth": "34/56/7890",
+      "genre": "masculin",
+      "categoryIds": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "userId": "7a44",
+      "email": "jeram@medoc.fr"
+    },
+    {
+      "id": "c34a",
+      "firstname": "",
+      "lastname": "",
+      "streetNumber": "",
+      "street": "",
+      "region": "",
+      "postalCode": 33000,
+      "description": "",
+      "department": {
+        "id": "1",
+        "name": ""
+      },
+      "city": {
+        "id": 1,
+        "name": ""
+      },
+      "avatar": "",
+      "phone": "",
+      "dateOfBirth": "",
+      "genre": "masculin",
+      "categoryIds": [
+        "4",
+        "3",
+        "2"
+      ],
+      "userId": "7eb1"
     }
   ],
   "category": [
@@ -485,6 +509,44 @@
       "imgUrl": "",
       "link": "",
       "userId": "1"
+    },
+    {
+      "id": "12",
+      "name": "toto",
+      "date": "",
+      "hour": "",
+      "activityCity": {
+        "id": 1,
+        "name": ""
+      },
+      "categoryId": {
+        "id": "1",
+        "title": ""
+      },
+      "nbGuest": 0,
+      "description": "",
+      "imgUrl": "",
+      "link": "",
+      "userId": "7a44"
+    },
+    {
+      "id": "13",
+      "name": "toto",
+      "date": "",
+      "hour": "",
+      "activityCity": {
+        "id": 1,
+        "name": ""
+      },
+      "categoryId": {
+        "id": "1",
+        "title": ""
+      },
+      "nbGuest": 0,
+      "description": "",
+      "imgUrl": "",
+      "link": "",
+      "userId": "7a44"
     }
   ],
   "contact": [
