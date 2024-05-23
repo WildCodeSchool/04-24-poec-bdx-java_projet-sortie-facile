@@ -936,9 +936,55 @@
       "imgUrl": "",
       "link": "",
       "userId": "3cb0"
+    },
+    {
+      "id": "24",
+      "name": "departmement",
+      "date": "2024-05-13T22:00:00.000Z",
+      "hour": "2024-05-23T15:10:32.381Z",
+      "departments": {
+        "id": "1",
+        "name": "Ain"
+      },
+      "activityCity": {
+        "id": 1,
+        "name": "New York"
+      },
+      "categoryId": {
+        "id": "2",
+        "title": "Music"
+      },
+      "nbGuest": 6,
+      "description": "qsxcdvf",
+      "imgUrl": "",
+      "link": "",
+      "userId": "3cb0"
+    },
+    {
+      "id": "25",
+      "name": "totosadzfedvs",
+      "date": "2024-05-03T22:00:00.000Z",
+      "hour": "2024-05-23T17:06:26.461Z",
+      "departments": {
+        "id": "1",
+        "name": "Ain"
+      },
+      "activityCity": {
+        "id": 2,
+        "name": "Rome"
+      },
+      "categoryId": {
+        "id": "2",
+        "title": "Music"
+      },
+      "nbGuest": 3,
+      "description": "dzed",
+      "imgUrl": "",
+      "link": "",
+      "userId": "3cb0"
     }
   ],
-  "departments": [
+  "department": [
     {
       "id": "1",
       "name": "Ain"

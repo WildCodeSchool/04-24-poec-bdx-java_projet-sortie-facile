@@ -1,7 +1,7 @@
+import { Activity } from '@activity/models/classes/activity.class';
 import { Component, Input } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Activity } from '@shared/models/types/activity.type';
 import { ActivityService } from '@shared/services/activity.service';
 import { ConfirmationService, MessageService } from 'primeng/api';
 

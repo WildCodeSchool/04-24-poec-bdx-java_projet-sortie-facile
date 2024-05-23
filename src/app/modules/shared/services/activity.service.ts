@@ -4,6 +4,7 @@ import { Observable, catchError, map, switchMap, tap } from 'rxjs';
 import { Activities } from '@models/types/activities.type';
 import { Category } from '@models/types/category.type';
 import { Router } from '@angular/router';
+import { Department } from '@shared/models/classes/department.class';
 import { Activity } from '@activity/models/classes/activity.class';
 
 @Injectable({
@@ -14,6 +15,7 @@ export class ActivityService {
 	activities!: Activity;
 	category!: Category;
 	categories!: Category[];
+	department!: Department;
 
 	private readonly _BASE_URL = 'http://localhost:3000/activity';
 
@@ -67,6 +69,18 @@ export class ActivityService {
 			map((activityList: Activity[]) =>
 				activityList.filter((activity: Activity) => {
 					return activity.categoryId.id === categoryId.id;
+				}),
+			),
+		);
+	}
+
+	filteredActivityListByDepartment$(
+		department: Department,
+	): Observable<Activity[]> {
+		return this.getActivityList$().pipe(
+			map((activityList: Activity[]) =>
+				activityList.filter((activity: Activity) => {
+					return activity.department === department.id;
 				}),
 			),
 		);

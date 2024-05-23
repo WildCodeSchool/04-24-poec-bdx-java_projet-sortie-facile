@@ -1,0 +1,39 @@
+:host ::ng-deep .p-tabmenu .p-tabmenu-nav {
+  background-color: transparent;
+  border-color: transparent;
+  justify-content: flex-start;
+}
+:host ::ng-deep .p-tabmenu .p-tabmenu-nav .p-tabmenuitem.delete-item .p-menuitem-link .p-menuitem-text {
+  color: var(--danger-color);
+}
+:host ::ng-deep .p-tabmenu .p-tabmenu-nav .p-tabmenuitem .p-menuitem-link {
+  background-color: transparent;
+  border-color: transparent;
+}
+:host ::ng-deep .p-tabmenu .p-tabmenu-nav .p-tabmenuitem.p-highlight .p-menuitem-link {
+  background-color: transparent;
+  border-color: var(--primary-color);
+}
+:host ::ng-deep .p-tabmenu .p-tabmenu-nav .p-tabmenuitem.p-highlight .p-menuitem-link .p-menuitem-text {
+  color: var(--primary-color);
+  font-weight: 500;
+}
+:host ::ng-deep .p-tabmenu .p-tabmenu-nav .p-tabmenuitem .p-menuitem-link .p-menuitem-text {
+  color: var(--black-color);
+  font-size: 0.75rem;
+  font-weight: initial;
+}
+:host ::ng-deep .p-tabmenu .p-tabmenu-nav-content {
+  background: transparent;
+  padding: 0;
+}
+:host ::ng-deep .p-tabmenu .p-tabmenu-nav-btn {
+  background-color: var(--gray-500);
+  width: auto;
+  padding: 0.5rem;
+  color: var(--primary-color);
+  box-shadow: none;
+}
+:host ::ng-deep .p-tabmenu .p-tabmenu-nav-btn:focus {
+  outline: none;
+}/*# sourceMappingURL=layout-nav-responsive.component.css.map */

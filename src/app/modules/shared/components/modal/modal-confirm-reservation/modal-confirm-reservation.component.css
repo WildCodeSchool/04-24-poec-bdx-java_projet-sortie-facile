@@ -1,0 +1,54 @@
+:host ::ng-deep p-button {
+  width: 100%;
+}
+
+:host ::ng-deep p-confirmdialog .p-dialog-mask {
+  background-color: rgba(0, 0, 0, 0.75);
+}
+:host ::ng-deep p-confirmdialog .p-dialog {
+  align-items: center;
+  border-radius: 20px;
+  width: 100%;
+  max-width: 500px;
+  background-color: var(--white-color);
+}
+:host ::ng-deep p-confirmdialog .p-dialog .p-dialog-header {
+  display: flex;
+  justify-content: center;
+  width: 90%;
+  padding-top: 2.5rem;
+}
+:host ::ng-deep p-confirmdialog .p-dialog .p-dialog-header .p-dialog-title {
+  display: block;
+  color: var(--black-color);
+  font-size: 1.5rem;
+}
+:host ::ng-deep p-confirmdialog .p-dialog .p-dialog-content {
+  display: flex;
+  justify-content: center;
+}
+:host ::ng-deep p-confirmdialog .p-dialog .p-dialog-content p {
+  color: var(--black-color);
+}
+:host ::ng-deep p-confirmdialog .p-dialog .p-dialog-footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 2.5rem;
+}
+:host ::ng-deep p-confirmdialog .p-dialog .p-dialog-footer button {
+  border-radius: 10px;
+  border: 2px solid var(--primary-color);
+}
+:host ::ng-deep p-confirmdialog .p-dialog .p-dialog-footer button.p-confirm-dialog-reject {
+  background-color: transparent;
+  color: var(--primary-color);
+}
+:host ::ng-deep p-confirmdialog .p-dialog .p-dialog-header .p-dialog-header-icon {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  color: var(--primary-color);
+  border-radius: 100%;
+  background: #d4dbe9;
+}/*# sourceMappingURL=modal-confirm-reservation.component.css.map */

@@ -1,5 +1,5 @@
+import { Activity } from '@activity/models/classes/activity.class';
 import { Component, Input, OnDestroy } from '@angular/core';
-import { Activity } from '@shared/models/types/activity.type';
 import { UserAuthPrimaryDatas } from '@shared/models/types/user-list-response-api.type';
 import { ActivityService } from '@shared/services/activity.service';
 import { Subscription } from 'rxjs';

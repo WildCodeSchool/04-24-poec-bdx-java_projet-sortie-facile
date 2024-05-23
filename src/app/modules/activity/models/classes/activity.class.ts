@@ -4,7 +4,7 @@ import { City } from '@shared/models/classes/city.class';
 export class Activity {
 	id: string;
 	name: string;
-	departement: string;
+	department: string;
 	activityCity: City;
 	date: string;
 	age: number;
@@ -19,7 +19,7 @@ export class Activity {
 	constructor(
 		id: string,
 		name: string,
-		departement: string,
+		department: string,
 		activityCity: City,
 		date: string,
 		age: number,
@@ -33,7 +33,7 @@ export class Activity {
 	) {
 		this.id = id;
 		this.name = name;
-		this.departement = departement;
+		this.department = department;
 		this.activityCity = activityCity;
 		this.date = date;
 		this.age = age;

@@ -1,3 +1,4 @@
+import { Activity } from '@activity/models/classes/activity.class';
 import {
 	Component,
 	Input,
@@ -6,11 +7,12 @@ import {
 	SimpleChanges,
 } from '@angular/core';
 import { Category } from '@shared/models/classes/category.class';
-import { Activity } from '@shared/models/types/activity.type';
+import { Department } from '@shared/models/classes/department.class';
 import { UserAuthPrimaryDatas } from '@shared/models/types/user-list-response-api.type';
 import { ActivityService } from '@shared/services/activity.service';
 import { AuthService } from '@shared/services/auth.service';
 import { CategoryService } from '@shared/services/category.service';
+import { DepartmentService } from '@shared/services/department.service';
 import { Observable, map } from 'rxjs';
 
 @Component({
@@ -26,12 +28,15 @@ export class ActivityListManagementComponent implements OnInit, OnChanges {
 
 	@Input() searchedValue: string = '';
 	@Input() selectedCategoryId!: Category;
+	@Input() selectedDepartments!: Department;
 
 	constructor(
 		private activityService: ActivityService,
 		private categoryService: CategoryService,
+		private departmentService: DepartmentService,
 		private _authService: AuthService,
 	) {}
+
 	ngOnInit(): void {
 		if (!this.connectedUser) {
 			this._authService.setConnectedUserData(
@@ -44,29 +49,70 @@ export class ActivityListManagementComponent implements OnInit, OnChanges {
 	}
 
 	ngOnChanges(changes: SimpleChanges): void {
-		if (changes[`searchedValue`] || changes[`selectedCategoryId`]) {
+		if (
+			changes['searchedValue'] ||
+			changes['selectedCategoryId'] ||
+			changes['selectedDepartments']
+		) {
 			this.filterActivities();
 		}
 	}
 
 	filterActivities(): void {
-		console.log(this.selectedCategoryId);
+		console.log('Selected Category:', this.selectedCategoryId);
+		console.log('Selected Departments:', this.selectedDepartments);
+
 		if (this.selectedCategoryId) {
-			this.activityList$ = this.activityService.filteredActivityListByCategory$(
-				this.selectedCategoryId,
-			);
+			this.activityList$ = this.activityService
+				.filteredActivityListByCategory$(this.selectedCategoryId)
+				.pipe(
+					map(activities =>
+						activities.filter(activity =>
+							activity.name
+								.toLowerCase()
+								.includes(this.searchedValue.toLowerCase()),
+						),
+					),
+				);
+		} else if (this.selectedDepartments) {
+			this.activityList$ = this.activityService
+				.filteredActivityListByDepartment$(this.selectedDepartments)
+				.pipe(
+					map(activities => {
+						console.log(
+							'Activities before filtering by department:',
+							activities,
+						);
+						return activities.filter(activity =>
+							activity.name
+								.toLowerCase()
+								.includes(this.searchedValue.toLowerCase()),
+						);
+					}),
+					map(activities => {
+						const filteredActivities = activities.filter(
+							activity => activity.department === this.selectedDepartments.id,
+						);
+						console.log(
+							'Filtered activities by department:',
+							filteredActivities,
+						);
+						return filteredActivities;
+					}),
+				);
 		} else {
-			this.activityList$ = this.activityService.getActivityList$();
+			this.activityList$ = this.activityService
+				.getActivityList$()
+				.pipe(
+					map(activities =>
+						activities.filter(activity =>
+							activity.name
+								.toLowerCase()
+								.includes(this.searchedValue.toLowerCase()),
+						),
+					),
+				);
 		}
-		this.activityList$ = this.activityList$.pipe(
-			map(activities =>
-				activities.filter(activity =>
-					activity.name
-						.toLowerCase()
-						.includes(this.searchedValue.toLowerCase()),
-				),
-			),
-		);
 	}
 
 	getCategoryTitle(categoryId: string): Observable<string> {

@@ -1,5 +1,5 @@
+import { Activity } from '@activity/models/classes/activity.class';
 import { Component, Input, OnInit } from '@angular/core';
-import { Activity } from '@shared/models/types/activity.type';
 import { CarouselResponsiveOption } from '@shared/models/types/carouselResponsiveOption.type';
 
 @Component({

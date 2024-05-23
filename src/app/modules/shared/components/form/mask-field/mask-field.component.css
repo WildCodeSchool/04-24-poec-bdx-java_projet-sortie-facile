@@ -1,0 +1,34 @@
+.form-control {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 0.4rem;
+}
+
+label {
+  font-family: var(--font-family-primary);
+  color: var(--black-color);
+}
+
+.p-inputtext {
+  padding: 0;
+  border-radius: 0;
+  border: none;
+}
+
+:host ::ng-deep .p-inputmask {
+  border-radius: 0.35rem;
+  background-color: var(--gray-500);
+  border: 1px solid var(--gray-200);
+  height: 45px;
+  width: 100%;
+}
+:host ::ng-deep .p-inputmask .p-password-input {
+  width: 100%;
+  background-color: transparent;
+  border: none;
+  color: var(--black-color);
+}
+:host ::ng-deep .p-inputmask .p-icon-wrapper {
+  color: var(--black-color);
+}/*# sourceMappingURL=mask-field.component.css.map */

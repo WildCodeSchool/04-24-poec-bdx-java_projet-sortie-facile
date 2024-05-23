@@ -1,0 +1,20 @@
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+}
+
+.forgot-password-link-container {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 0.25rem;
+}
+.forgot-password-link-container > a {
+  font-size: 0.85rem;
+  text-decoration: none;
+  color: var(--black-color);
+}
+.forgot-password-link-container > a:hover {
+  text-decoration: underline;
+}/*# sourceMappingURL=register-auth-form.component.css.map */

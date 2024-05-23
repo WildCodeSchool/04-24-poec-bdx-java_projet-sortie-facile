@@ -1,4 +1,4 @@
-import { Component, Input, OnDestroy, OnInit, forwardRef } from '@angular/core';
+import { Component, Input, OnInit, forwardRef } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { Department } from '@shared/models/classes/department.class';
 import { DepartmentService } from '@shared/services/department.service';
@@ -7,7 +7,7 @@ import { Observable, Subscription } from 'rxjs';
 @Component({
 	selector: 'app-select-department',
 	templateUrl: './select-department.component.html',
-	styleUrl: './select-department.component.scss',
+	styleUrls: ['./select-department.component.scss'],
 	providers: [
 		{
 			provide: NG_VALUE_ACCESSOR,
@@ -16,11 +16,11 @@ import { Observable, Subscription } from 'rxjs';
 		},
 	],
 })
-export class SelectDepartmentComponent
-	implements OnInit, OnDestroy, ControlValueAccessor
-{
-	departments!: Department[];
-	selectedDepartments!: Department;
+export class SelectDepartmentComponent implements OnInit, ControlValueAccessor {
+	departments: Department[] = [];
+	selectedDepartmentId: string = ''; // Changed to string type
+	selectedDepartment: Department | undefined;
+
 	activityDepartmentsList$!: Observable<Department[]>;
 	private _subscription: Subscription = new Subscription();
 
@@ -28,25 +28,23 @@ export class SelectDepartmentComponent
 	@Input() name!: string;
 	@Input() labelFor!: string;
 	@Input() labelContent!: string;
-
+	@Input() isMultiple!: boolean;
 	disabled!: boolean;
 	value!: string;
 
 	constructor(private _departmentService: DepartmentService) {}
 
-	// ngOnInit() {
-	// 	this._subscription.add(
-	// 		this._departmentService
-	// 			.getDepartmentsList$()
-	// 			.pipe(map(departments => (this.departments = departments)))
-	// 			.subscribe(),
-	// 	);
-	// }
-
 	ngOnInit(): void {
 		this.activityDepartmentsList$ =
 			this._departmentService.getDepartmentsList$();
+		this._subscription.add(
+			this.activityDepartmentsList$.subscribe(departments => {
+				this.departments = departments;
+				console.log('Departments loaded:', this.departments);
+			}),
+		);
 	}
+
 	onChanged!: (value: string) => void;
 	onTouched!: () => void;
 
@@ -54,12 +52,23 @@ export class SelectDepartmentComponent
 		if (this.disabled) {
 			return;
 		}
-
+		this.value = value;
+		this.selectedDepartmentId = value;
+		// Trouver le département correspondant dans la liste des départements
+		this.selectedDepartment = this.departments.find(dept => dept.id === value);
+		console.log('Selected Department:', this.selectedDepartment);
 		this.onChanged(value);
+		this.markAsTouched();
 	}
 
 	writeValue(value: string): void {
-		this.value = value;
+		this.selectedDepartmentId = value;
+		if (this.departments && this.departments.length > 0) {
+			this.selectedDepartment = this.departments.find(
+				dept => dept.id === value,
+			);
+			console.log('writeValue - Selected Department:', this.selectedDepartment);
+		}
 	}
 
 	registerOnChange(fn: (value: string) => void): void {
@@ -76,9 +85,5 @@ export class SelectDepartmentComponent
 
 	markAsTouched(): void {
 		this.onTouched();
-	}
-
-	ngOnDestroy(): void {
-		this._subscription.unsubscribe();
 	}
 }

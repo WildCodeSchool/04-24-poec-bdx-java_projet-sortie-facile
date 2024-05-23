@@ -1,0 +1,12 @@
+:host ::ng-deep .p-divider.p-divider-horizontal {
+  margin: 1.5rem 0;
+  opacity: 0.4;
+}
+:host ::ng-deep .p-divider.p-divider-horizontal:before {
+  border-top: 1.5px solid var(--gray-200);
+}
+:host ::ng-deep .p-divider.p-divider-horizontal .divider-text {
+  color: var(--gray-200);
+  font-size: 1rem;
+  font-weight: initial;
+}/*# sourceMappingURL=divider.component.css.map */

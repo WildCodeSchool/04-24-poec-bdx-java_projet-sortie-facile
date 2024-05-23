@@ -1,0 +1,9 @@
+.activity-form-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+  border: solid 1px;
+  border-radius: 20px;
+  padding: 40px;
+  border-color: #c2c2c2;
+}/*# sourceMappingURL=contact.component.css.map */
