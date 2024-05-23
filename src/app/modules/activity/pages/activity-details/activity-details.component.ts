@@ -23,6 +23,7 @@ export class ActivityDetailsComponent implements OnInit, OnDestroy {
 
 	@Input() myForm: NgForm;
 	@Input() imgSrc!: string;
+
 	constructor(
 		private activityService: ActivityService,
 		private reservationService: BookingService,
