@@ -351,7 +351,8 @@
       "description": "",
       "imgUrl": "",
       "link": "",
-      "userId": "1"
+      "userId": "1",
+      "isVisible": false
     },
     {
       "id": "9",
@@ -370,7 +371,8 @@
       "description": "",
       "imgUrl": "",
       "link": "ed(rfdxc",
-      "userId": "1"
+      "userId": "1",
+      "isVisible": false
     },
     {
       "id": "10",
@@ -408,7 +410,8 @@
       "description": "sdzfergthyjui",
       "imgUrl": "",
       "link": "",
-      "userId": "1"
+      "userId": "1",
+      "isVisible": false
     },
     {
       "id": "12",
@@ -425,6 +428,45 @@
       },
       "nbGuest": 6,
       "description": "dazfert",
+      "imgUrl": "",
+      "link": "",
+      "userId": "1",
+      "isVisible": false
+    },
+    {
+      "id": "13",
+      "name": "visible true",
+      "date": "2024-05-03T22:00:00.000Z",
+      "hour": "2024-05-22T22:15:51.923Z",
+      "activityCity": {
+        "id": 5,
+        "name": "Paris"
+      },
+      "categoryId": {
+        "id": "2",
+        "title": "Music"
+      },
+      "nbGuest": 5,
+      "description": "qswdf",
+      "imgUrl": "",
+      "link": "",
+      "userId": "1"
+    },
+    {
+      "id": "324e",
+      "name": "danse ",
+      "date": "2024-05-03T22:00:00.000Z",
+      "hour": "2024-05-22T22:24:23.904Z",
+      "activityCity": {
+        "id": 2,
+        "name": "Rome"
+      },
+      "categoryId": {
+        "id": "2",
+        "title": "Music"
+      },
+      "nbGuest": 3,
+      "description": "dAD",
       "imgUrl": "",
       "link": "",
       "userId": "1",

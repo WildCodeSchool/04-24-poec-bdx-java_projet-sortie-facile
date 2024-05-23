@@ -46,6 +46,6 @@ export class Activity {
 		this.categoryId = categoryId;
 		this.hour = hour;
 		this.userId = userId;
-		this.isVisible = true;
+		this.isVisible = isVisible;
 	}
 }

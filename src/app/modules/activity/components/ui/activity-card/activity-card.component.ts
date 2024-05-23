@@ -1,7 +1,9 @@
 import { Activity } from '@activity/models/classes/activity.class';
 import { Component, Input, OnDestroy } from '@angular/core';
+import { Router } from '@angular/router';
 import { UserAuthPrimaryDatas } from '@shared/models/types/user-list-response-api.type';
 import { ActivityService } from '@shared/services/activity.service';
+import { ConfirmationService } from 'primeng/api';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -12,15 +14,35 @@ import { Subscription } from 'rxjs';
 export class ActivityCardComponent implements OnDestroy {
 	@Input() activity!: Activity;
 	@Input() connectedUser!: UserAuthPrimaryDatas;
+
 	private _subscription: Subscription = new Subscription();
 
-	constructor(private activityService: ActivityService) {}
+	constructor(
+		private activityService: ActivityService,
+		private confirmationService: ConfirmationService,
+		private router: Router,
+	) {}
 
 	// delete(id: string): void {
 	// 	this._subscription.add(
 	// 		this.activityService.deleteActivity$(id).subscribe(),
 	// 	);
 	// }
+	confirmHideActivity(activityId: string): void {
+		this.confirmationService.confirm({
+			message: 'Êtes-vous sûr de vouloir masquer cette activité ?',
+			header: 'Confirmation',
+			icon: 'pi pi-exclamation-triangle',
+			accept: () => {
+				this.hideActivity(activityId);
+				this.confirmationService.close();
+				this.router.navigate(['/activity/home']);
+			},
+			reject: () => {
+				this.confirmationService.close();
+			},
+		});
+	}
 	hideActivity(activityId: string): void {
 		this.activityService.updateActivityVisibility(activityId, false).subscribe({
 			next: () => {

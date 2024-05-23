@@ -21,7 +21,6 @@ import { Observable, map } from 'rxjs';
 export class ActivityListManagementComponent implements OnInit, OnChanges {
 	activityList$!: Observable<Activity[]>;
 	activity$!: Observable<Activity>;
-
 	connectedUser!: UserAuthPrimaryDatas;
 
 	@Input() searchedValue: string = '';
@@ -71,5 +70,9 @@ export class ActivityListManagementComponent implements OnInit, OnChanges {
 
 	getCategoryTitle(categoryId: string): Observable<string> {
 		return this.categoryService.getCategoryById$(categoryId);
+	}
+	onActivityHidden(activity: Activity): void {
+		// Mettez à jour la liste des activités après avoir masqué une activité
+		this.filterActivities();
 	}
 }

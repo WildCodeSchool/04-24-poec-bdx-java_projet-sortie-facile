@@ -16,7 +16,7 @@
 					icon="pi pi-trash"
 					[rounded]="true"
 					severity="danger"
-					(click)="hideActivity(activity.id)"
+					(click)="confirmHideActivity(activity.id)"
 				/>
 			</div>
 
@@ -64,3 +64,7 @@
 		</ng-template>
 	</p-card>
 </div>
+<p-confirmDialog
+	header="Confirmation"
+	icon="pi pi-exclamation-triangle"
+></p-confirmDialog>
