@@ -1,5 +1,8 @@
-import { Component, OnDestroy } from '@angular/core';
+import { Activity } from '@activity/models/classes/activity.class';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { UserAuthPrimaryDatas } from '@shared/models/types/user-list-response-api.type';
+import { AuthService } from '@shared/services/auth.service';
 import { ContactService } from '@shared/services/contact.service';
 import { Subscription } from 'rxjs';
 
@@ -8,10 +11,15 @@ import { Subscription } from 'rxjs';
 	templateUrl: './contact.component.html',
 	styleUrl: './contact.component.scss',
 })
-export class ContactComponent implements OnDestroy {
+export class ContactComponent implements OnDestroy, OnInit {
+	@Input() activity!: Activity;
+	@Input() connectedUser!: UserAuthPrimaryDatas;
 	private _subscription: Subscription = new Subscription();
 
-	constructor(private contactService: ContactService) {}
+	constructor(
+		private contactService: ContactService,
+		private authService: AuthService,
+	) {}
 
 	formData: {
 		Email: string;
@@ -20,6 +28,10 @@ export class ContactComponent implements OnDestroy {
 		Email: '',
 		message: '',
 	};
+
+	ngOnInit(): void {
+		this.connectedUser = this.authService.getConnectedUserData();
+	}
 
 	onSubmit(form: NgForm): void {
 		this._subscription.add(
