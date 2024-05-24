@@ -122,4 +122,25 @@ export class AuthService extends AuthUserServiceUtils {
 		this._userConnected.status = AccountStatus.INACTIVE;
 		return this._httpClient.patch<UserAuth>(this.BASE_URL, this._userConnected);
 	}
+
+	public increaseId(): Observable<string> {
+		return this._httpClient.get<newUser[]>(this.BASE_URL).pipe(
+			map((users: newUser[]) => {
+				const lastId = users[users.length - 1].id;
+				return (Number(lastId) + 1).toString();
+			}),
+		);
+	}
+
+	public deleteUser(userId: string): Observable<UserAuthPrimaryDatas> {
+		return this._httpClient
+			.patch<UserAuthPrimaryDatas>(`${this.BASE_URL}/${userId}`, {
+				email: '',
+				password: '',
+				username: '',
+				status: AccountStatus.INACTIVE,
+				userDetailsId: '',
+			})
+			.pipe(tap(() => this.logout()));
+	}
 }

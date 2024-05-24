@@ -40,6 +40,16 @@
       "role": "user",
       "status": "active",
       "userDetailsId": "c34a"
+    },
+    {
+      "id": "9a2a",
+      "username": "",
+      "email": "",
+      "password": "",
+      "passwordConfirm": "mafemmecestmasoeur",
+      "role": "user",
+      "status": "inactive",
+      "userDetailsId": ""
     }
   ],
   "user_details": [
@@ -214,8 +224,31 @@
         "4",
         "2"
       ],
-      "userId": "01f7",
-      "email": "Pimpoye@medoc.fr"
+      "userId": "0c67"
+    },
+    {
+      "id": "4737",
+      "firstname": "",
+      "lastname": "",
+      "streetNumber": "",
+      "street": "",
+      "region": "",
+      "postalCode": 33000,
+      "description": "",
+      "department": {
+        "id": "1",
+        "name": ""
+      },
+      "city": {
+        "id": 1,
+        "name": ""
+      },
+      "avatar": "",
+      "phone": "",
+      "dateOfBirth": "",
+      "genre": "masculin",
+      "categoryIds": [],
+      "userId": "afa0"
     },
     {
       "id": "5f3a",
@@ -334,6 +367,30 @@
         "2"
       ],
       "userId": "7eb1"
+    },
+    {
+      "id": "f576",
+      "firstname": "",
+      "lastname": "",
+      "streetNumber": "",
+      "street": "",
+      "region": "",
+      "postalCode": 33000,
+      "description": "",
+      "department": {
+        "id": "1",
+        "name": ""
+      },
+      "city": {
+        "id": 1,
+        "name": ""
+      },
+      "avatar": "",
+      "phone": "",
+      "dateOfBirth": "",
+      "genre": "masculin",
+      "categoryIds": [],
+      "userId": "9a2a"
     }
   ],
   "category": [
