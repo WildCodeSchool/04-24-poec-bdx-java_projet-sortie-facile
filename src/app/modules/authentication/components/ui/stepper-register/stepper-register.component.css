@@ -1,0 +1,39 @@
+:host ::ng-deep .p-stepper {
+  display: flex;
+  flex-basis: 50rem;
+}
+:host ::ng-deep .p-stepper .p-stepper-header .p-stepper-action .p-stepper-number {
+  background-color: transparent;
+  border: 1px solid var(--primary-color);
+  color: var(--primary-color);
+  font-size: 1rem;
+  font-weight: bold;
+  width: 30px;
+  height: 30px;
+}
+:host ::ng-deep .p-stepper .p-stepper-header .p-stepper-title {
+  color: var(--dark-color);
+  font-size: 1rem;
+}
+:host ::ng-deep .p-stepper .p-stepper-header.p-highlight .p-stepper-action .p-stepper-number {
+  background-color: var(--primary-color);
+  color: var(--white-color);
+}
+:host ::ng-deep .p-stepper .p-stepper-header.p-highlight .p-stepper-title {
+  font-weight: bold;
+}
+:host ::ng-deep .p-stepper .btn-box {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 2rem;
+}
+:host ::ng-deep .p-stepper .btn-box.btn-box-right {
+  justify-content: flex-end;
+}
+:host ::ng-deep .p-stepper .btn-box.btn-box-between {
+  justify-content: space-between;
+}
+:host ::ng-deep .p-stepper .p-stepper-panels {
+  margin-top: 2rem;
+  padding: 0;
+}/*# sourceMappingURL=stepper-register.component.css.map */

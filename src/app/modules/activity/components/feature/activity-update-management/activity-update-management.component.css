@@ -1,0 +1,11 @@
+app-activity-form-layout {
+  display: flex;
+  width: 100%;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+}/*# sourceMappingURL=activity-update-management.component.css.map */

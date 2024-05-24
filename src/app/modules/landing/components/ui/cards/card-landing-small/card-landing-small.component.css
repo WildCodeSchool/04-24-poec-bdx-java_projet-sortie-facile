@@ -1,0 +1,63 @@
+.functioning-card {
+  background-color: var(--gray-500);
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  border-radius: 10px;
+  gap: 1rem;
+}
+.functioning-card h4 {
+  font-size: 1.025rem;
+  color: var(--black-color);
+  margin: 0;
+  margin-bottom: 0.85rem;
+}
+.functioning-card p {
+  color: var(--black-color);
+  font-size: 0.85rem;
+  margin: 0;
+  margin-bottom: 0.85rem;
+}
+.functioning-card .img-box {
+  width: 70%;
+}
+.functioning-card .img-box img {
+  width: 100%;
+  max-width: 100px;
+}
+.functioning-card a {
+  color: var(--primary-color);
+  font-size: 0.85rem;
+  margin: 0;
+  text-decoration: none;
+  font-weight: 700;
+}
+.functioning-card a:hover {
+  text-decoration: underline;
+}
+@media (min-width: 768px) and (max-width: 960px) {
+  .functioning-card .img-box {
+    display: none;
+  }
+}
+@media (min-width: 960px) {
+  .functioning-card {
+    justify-content: space-around;
+  }
+  .functioning-card .functioning-card .img-box {
+    display: none;
+  }
+}
+@media (min-width: 1280px) {
+  .functioning-card {
+    justify-content: space-around;
+    gap: 2.5rem;
+  }
+  .functioning-card .img-box {
+    width: 30%;
+  }
+  .functioning-card .img-box img {
+    width: 100%;
+    max-width: 150px;
+  }
+}/*# sourceMappingURL=card-landing-small.component.css.map */
