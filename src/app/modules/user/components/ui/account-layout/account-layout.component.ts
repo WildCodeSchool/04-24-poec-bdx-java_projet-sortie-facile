@@ -38,7 +38,6 @@ export class AccountLayoutComponent implements OnInit, OnDestroy {
 	}
 
 	onDeleteUser(): void {
-		console.log("ca marche???");
 		this._authService.deleteUser(this.connectedUser.id).subscribe();
 	}
 

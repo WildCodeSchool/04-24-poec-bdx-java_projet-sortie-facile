@@ -1,11 +1,11 @@
 {
   "user": [
     {
+      "id": "1",
       "username": "johndoe",
-      "email": "j.doe@test.com",
+      "email": "john.Doe@mail.com",
       "password": "123456789",
-      "role": "admin",
-      "id": "1"
+      "role": "admin"
     },
     {
       "id": "2",
