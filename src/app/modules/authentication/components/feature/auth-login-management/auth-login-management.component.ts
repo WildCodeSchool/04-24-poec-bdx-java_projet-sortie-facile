@@ -34,8 +34,6 @@ export class AuthLoginManagementComponent implements OnInit {
 	}
 
 	onSubmit(form: NgForm): void {
-		console.log(form.status === 'VALID');
-
 		if (form.status === 'VALID') {
 			this.authService
 				.loginWithEmailAndPassword(

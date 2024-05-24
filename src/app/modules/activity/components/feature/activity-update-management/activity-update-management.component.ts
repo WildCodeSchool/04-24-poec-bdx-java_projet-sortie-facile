@@ -5,7 +5,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Category } from '@shared/models/classes/category.class';
 import { City } from '@shared/models/classes/city.class';
 import { ActivityService } from '@shared/services/activity.service';
-import { Observable, Subscription, map } from 'rxjs';
+import { Subscription, map } from 'rxjs';
 
 @Component({
 	selector: 'app-activity-update-management',
@@ -35,10 +35,11 @@ export class ActivityUpdateManagementComponent implements OnInit, OnDestroy {
 		new Category('0', ''),
 		'',
 		'',
+		true,
 	);
 
 	ngOnInit(): void {
-		const id: number = Number(this.route.snapshot.paramMap.get('id'));
+		const id: string = this.route.snapshot.paramMap.get('id') as string;
 		this.activityService
 			.getActivityById$(id)
 			.pipe(map((activity: Activity) => (this.formData = activity)))

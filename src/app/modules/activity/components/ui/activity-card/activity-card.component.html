@@ -1,7 +1,10 @@
 <div class="activity-card-container">
 	<p-card>
 		<ng-template pTemplate="header">
-			<div class="btn-admin" *ngIf="connectedUser.id === activity.userId">
+			<div
+				class="btn-admin"
+				*ngIf="connectedUser && connectedUser.id === activity.userId"
+			>
 				<p-button
 					icon="pi pi-pencil"
 					[rounded]="true"
@@ -13,7 +16,7 @@
 					icon="pi pi-trash"
 					[rounded]="true"
 					severity="danger"
-					(click)="delete(activity.id)"
+					(click)="confirmHideActivity(activity.id)"
 				/>
 			</div>
 
@@ -61,3 +64,7 @@
 		</ng-template>
 	</p-card>
 </div>
+<p-confirmDialog
+	header="Confirmation"
+	icon="pi pi-exclamation-triangle"
+></p-confirmDialog>

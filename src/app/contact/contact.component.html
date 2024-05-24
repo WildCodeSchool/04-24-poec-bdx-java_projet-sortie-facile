@@ -1,41 +1,49 @@
-<h1>Laissez nous un message</h1>
-<div class="activity-form-container">
-	<div class="card flex justify-content-center"></div>
-
-	<form
-		#contactForm="ngForm"
-		(ngSubmit)="onSubmit(contactForm)"
-		class="activity-form"
-	>
-		<app-avatar-pseudo></app-avatar-pseudo>
-
-		<p>Votre Email</p>
-
-		<app-text-field
-			id="Email"
-			name="Email"
-			[required]="true"
-			#Email="ngModel"
-			[form]="contactForm"
-			[(ngModel)]="formData.Email"
-			class="input-activity-form"
-		></app-text-field>
-
-		<p>Votre message</p>
-
-		<app-textarea
-			inputId="message"
-			name="message"
-			[required]="true"
-			#message="ngModel"
-			[form]="contactForm"
-			[(ngModel)]="formData.message"
-		></app-textarea>
-
-		<div class="card flex justify-content-center">
-			<app-modal-confirm-contact
-				[myForm]="contactForm"
-			></app-modal-confirm-contact>
+<div class="contact">
+	<div class="activity-form-container">
+		<div class="title-contact">
+			<h1>Laissez nous un message</h1>
 		</div>
-	</form>
+		<div class="card flex justify-content-center"></div>
+
+		<form
+			#contactForm="ngForm"
+			(ngSubmit)="onSubmit(contactForm)"
+			class="activity-form"
+		>
+			<div *ngIf="connectedUser">
+				<app-avatar-pseudo></app-avatar-pseudo>
+			</div>
+			<p>Votre Email</p>
+
+			<app-text-field
+				id="Email"
+				name="Email"
+				[required]="true"
+				#Email="ngModel"
+				[form]="contactForm"
+				[(ngModel)]="formData.Email"
+				class="input-activity-form"
+			></app-text-field>
+
+			<p>Votre message</p>
+
+			<app-textarea
+				inputId="message"
+				name="message"
+				[required]="true"
+				#message="ngModel"
+				[form]="contactForm"
+				[(ngModel)]="formData.message"
+			></app-textarea>
+
+			<div class="card flex justify-content-center">
+				<app-modal-confirm-contact
+					[myForm]="contactForm"
+				></app-modal-confirm-contact>
+			</div>
+		</form>
+	</div>
+	<div class="img-box">
+		<img src="assets/photos/signup.jpg" alt="contact" />
+	</div>
 </div>

@@ -6,13 +6,14 @@ import { Category } from '@models/types/category.type';
 import { Router } from '@angular/router';
 import { Department } from '@shared/models/classes/department.class';
 import { Activity } from '@activity/models/classes/activity.class';
+import { ConfirmationService } from 'primeng/api';
 
 @Injectable({
 	providedIn: 'root',
 })
 export class ActivityService {
 	activity!: Activity;
-	activities!: Activity;
+	activities!: Activity[];
 	category!: Category;
 	categories!: Category[];
 	department!: Department;
@@ -25,12 +26,16 @@ export class ActivityService {
 	) {}
 
 	getActivityList$(): Observable<Activity[]> {
-		return this._httpClient
-			.get<Activities>(this._BASE_URL)
-			.pipe(map((response: Activities) => response));
+		return this._httpClient.get<Activity[]>(this._BASE_URL).pipe(
+			map(activities =>
+				activities.filter(activity => activity.isVisible === true),
+			),
+			catchError(error => {
+				throw error;
+			}),
+		);
 	}
-
-	getActivityById$(id: number): Observable<Activity> {
+	getActivityById$(id: string): Observable<Activity> {
 		return this._httpClient
 			.get<Activity>(`${this._BASE_URL}/${id}`)
 			.pipe(map((response: Activity) => response));
@@ -87,23 +92,15 @@ export class ActivityService {
 	}
 
 	postNewActivity$(newActivity: Activity): Observable<Activity> {
-		return this._httpClient.get<Activity[]>(this._BASE_URL).pipe(
-			switchMap(activities => {
-				const nextId =
-					activities.length > 0
-						? Number(activities[activities.length - 1].id) + 1
-						: 1;
-				newActivity.id = String(nextId);
+		const activityToPost = {
+			...newActivity,
+			isVisible: true, // Assurez-vous que isVisible est bien initialisé à true
+		};
 
-				return this._httpClient
-					.post<Activity>(this._BASE_URL, newActivity)
-					.pipe(
-						tap(activity => {
-							this._router.navigate(['/activity/details', activity.id]);
-						}),
-					);
+		return this._httpClient.post<Activity>(this._BASE_URL, activityToPost).pipe(
+			tap(activity => {
+				this._router.navigate(['/activity/details', activity.id]);
 			}),
-
 			catchError(error => {
 				throw error;
 			}),
@@ -117,7 +114,22 @@ export class ActivityService {
 			}),
 		);
 	}
+	updateActivityVisibility(
+		activityId: string,
+		isVisible: boolean,
+	): Observable<Activity> {
+		return this._httpClient.patch<Activity>(`${this._BASE_URL}/${activityId}`, {
+			isVisible,
+		});
+	}
 
+	getVisibleActivities(): Observable<Activity[]> {
+		return this._httpClient
+			.get<Activity[]>(this._BASE_URL)
+			.pipe(
+				map(activities => activities.filter(activity => activity.isVisible)),
+			);
+	}
 	updateActivity$(
 		id: string,
 		updatedData: Partial<Activity>,

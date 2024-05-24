@@ -11,6 +11,7 @@ export type newUser = {
 	passwordConfirm: string;
 	role: UserRoleEnum;
 	status: AccountStatus;
+	userDetailsId: string;
 };
 
 export type newUserDatas = Pick<

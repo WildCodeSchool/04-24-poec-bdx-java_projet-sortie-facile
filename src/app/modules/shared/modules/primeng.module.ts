@@ -23,7 +23,9 @@ import { CarouselModule } from 'primeng/carousel';
 import { StepperModule } from 'primeng/stepper';
 import { InputMaskModule } from 'primeng/inputmask';
 import { MultiSelectModule } from 'primeng/multiselect';
+import { TableModule } from 'primeng/table';
 import { TieredMenuModule } from 'primeng/tieredmenu';
+import { PaginatorModule } from 'primeng/paginator';
 
 @NgModule({
 	exports: [
@@ -52,7 +54,9 @@ import { TieredMenuModule } from 'primeng/tieredmenu';
 		StepperModule,
 		InputMaskModule,
 		MultiSelectModule,
+		TableModule,
 		TieredMenuModule,
+		PaginatorModule,
 	],
 })
 export class PrimengModule {}

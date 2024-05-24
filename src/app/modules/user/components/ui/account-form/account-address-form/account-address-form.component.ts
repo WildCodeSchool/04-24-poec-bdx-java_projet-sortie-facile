@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { InputNumberModeEnum } from '@shared/models/enums/InputNumberMode.enum';
 import {
 	UserDetails,
 	UserDetailsAddressForm,
@@ -18,6 +19,8 @@ export class AccountAddressFormComponent implements OnInit {
 	userDetails$!: Observable<UserDetails>;
 	isViewDatas: boolean = true;
 	userAddressDatasForm!: UserDetailsAddressForm;
+
+	readonly inputNumberModeEnum = InputNumberModeEnum;
 
 	constructor(
 		private _authService: AuthService,
@@ -46,6 +49,8 @@ export class AccountAddressFormComponent implements OnInit {
 	}
 
 	onSave(): void {
+		console.log(this.connectedUser.userDetailsId, this.userAddressDatasForm);
+
 		this.userDetails$ = this._userService.patchUserInfo$(
 			this.connectedUser.userDetailsId,
 			this.userAddressDatasForm,
