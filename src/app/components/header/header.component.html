@@ -8,17 +8,19 @@
 				height="40"
 				class="mr-2"
 				alt="logo of sortie facile"
-			/> </ng-template
-		>
+			/>
+		</ng-template>
+
 		<ng-container *ngIf="profileItems$ | async as profileItems">
-			<div class="card flex justify-content-center">
-				<i class="pi pi-user" style="font-size: 1.5rem" (click)="menu.toggle($event)" >
+			<div>
+				<i
+					class="pi pi-user"
+					style="font-size: 1.5rem"
+					(click)="menu.toggle($event)"
+				>
 					<p-tieredMenu #menu [model]="profileItems" [popup]="true" />
 				</i>
 			</div>
 		</ng-container>
 	</p-menubar>
 </ng-container>
-
-
-

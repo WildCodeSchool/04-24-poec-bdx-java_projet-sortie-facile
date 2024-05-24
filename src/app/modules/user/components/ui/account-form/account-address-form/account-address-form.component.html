@@ -13,7 +13,6 @@
 			[content]="userAddressDetails.streetNumber"
 			[isViewDatas]="isViewDatas"
 		>
-			{{ isViewDatas }}
 			<app-text-field
 				*ngIf="!isViewDatas"
 				input
@@ -44,14 +43,15 @@
 			[content]="userAddressDetails.region.name"
 			[isViewDatas]="isViewDatas"
 		>
-			<app-text-field
+			<app-select-region
 				*ngIf="!isViewDatas"
 				input
-				type="text"
 				id="region"
+				inputId="region"
 				name="region"
+				#region="ngModel"
 				[(ngModel)]="userAddressDatasForm.region"
-			></app-text-field>
+			></app-select-region>
 		</app-account-card-info>
 
 		<app-account-card-info
@@ -59,14 +59,16 @@
 			[content]="userAddressDetails.department.name"
 			[isViewDatas]="isViewDatas"
 		>
-			<app-text-field
+			<app-select-department
 				*ngIf="!isViewDatas"
 				input
-				type="text"
 				id="departement"
+				inputId="departement"
 				name="departement"
+				[required]="true"
+				#departement="ngModel"
 				[(ngModel)]="userAddressDatasForm.department"
-			></app-text-field>
+			></app-select-department>
 		</app-account-card-info>
 
 		<app-account-card-info
@@ -74,14 +76,15 @@
 			[content]="userAddressDetails.postalCode"
 			[isViewDatas]="isViewDatas"
 		>
-			<app-text-field
+			<app-mask-field
 				*ngIf="!isViewDatas"
 				input
-				type="text"
 				id="postalCode"
 				name="postalCode"
+				placeholder="99999"
+				mask="99999"
 				[(ngModel)]="userAddressDatasForm.postalCode"
-			></app-text-field>
+			></app-mask-field>
 		</app-account-card-info>
 
 		<app-account-card-info
@@ -89,14 +92,15 @@
 			[content]="userAddressDetails.city.name"
 			[isViewDatas]="isViewDatas"
 		>
-			<app-text-field
+			<app-select-city
 				*ngIf="!isViewDatas"
 				input
-				type="text"
 				id="city"
+				inputId="city"
 				name="city"
 				[(ngModel)]="userAddressDatasForm.city"
-			></app-text-field>
+			>
+			</app-select-city>
 		</app-account-card-info>
 
 		<div class="btn-form-box" *ngIf="!isViewDatas">

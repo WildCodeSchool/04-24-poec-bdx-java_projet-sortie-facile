@@ -36,6 +36,8 @@ import { ParagraphSplitPipe } from './pipes/paragraph-split.pipe';
 import { DataBookingComponent } from './components/dashboard/data-booking/data-booking.component';
 import { ModalConfirmContactComponent } from './components/modal/modal-confirm-contact/modal-confirm-contact.component';
 import { LinkPipe } from './pipes/link.pipe';
+import { ModalConfirmDeleteActivityComponent } from './components/modal/modal-confirm-delete-activity/modal-confirm-delete-activity.component';
+import { ConfirmationService } from 'primeng/api';
 
 @NgModule({
 	declarations: [
@@ -72,6 +74,7 @@ import { LinkPipe } from './pipes/link.pipe';
 		ParagraphSplitPipe,
 		LinkPipe,
 		DataBookingComponent,
+		ModalConfirmDeleteActivityComponent,
 	],
 	imports: [
 		CommonModule,
@@ -79,6 +82,10 @@ import { LinkPipe } from './pipes/link.pipe';
 		FormsModule,
 		HttpClientModule,
 		ReactiveFormsModule,
+	],
+	providers: [
+		ConfirmationService, // Fournissez ConfirmationService ici
+		// autres services
 	],
 	exports: [
 		PrimengModule,
@@ -116,6 +123,7 @@ import { LinkPipe } from './pipes/link.pipe';
 		ParagraphSplitPipe,
 		LinkPipe,
 		DataBookingComponent,
+		ModalConfirmDeleteActivityComponent,
 	],
 })
 export class SharedModule {}
