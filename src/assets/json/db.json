@@ -22,34 +22,27 @@
       "role": "user"
     },
     {
-      "id": "5c35",
+      "id": "7a44",
       "username": "Pimpoye",
-      "email": "Pimpoye@medoc.fr",
-      "password": "aaaaaaaaaaaaaaaaa",
+      "email": "jeram@medoc.fr",
+      "password": "123456789",
       "passwordConfirm": "mafemmecestmasoeur",
       "role": "user",
-      "status": "active"
+      "status": "active",
+      "userDetailsId": "7721"
     },
     {
-      "id": "a9fe",
-      "username": "Pimpoye",
-      "email": "Pimpoye@medoc.fr",
-      "password": "mafemmecestmasoeur",
-      "passwordConfirm": "mafemmecestmasoeur",
-      "role": "user",
-      "status": "active"
-    },
-    {
-      "id": "da45",
-      "username": "Pimpoye",
+      "id": "7eb1",
+      "username": "Pimpoyee",
       "email": "Pimpoye@medoc.fr",
       "password": "mafemmecestmasoeur",
       "passwordConfirm": "mafemmecestmasoeur",
       "role": "user",
-      "status": "active"
+      "status": "active",
+      "userDetailsId": "c34a"
     },
     {
-      "id": "afa0",
+      "id": "9a2a",
       "username": "",
       "email": "",
       "password": "",
@@ -231,7 +224,6 @@
         "4",
         "2"
       ],
-<<<<<<< HEAD
       "userId": "0c67"
     },
     {
@@ -257,10 +249,148 @@
       "genre": "masculin",
       "categoryIds": [],
       "userId": "afa0"
-=======
-      "userId": "01f7",
+    },
+    {
+      "id": "5f3a",
+      "firstname": "",
+      "lastname": "'rd(terdfcv",
+      "streetNumber": "",
+      "street": "",
+      "region": "",
+      "postalCode": 33000,
+      "description": "",
+      "department": {
+        "id": "1",
+        "name": ""
+      },
+      "city": {
+        "id": 1,
+        "name": ""
+      },
+      "avatar": "",
+      "phone": "",
+      "dateOfBirth": "",
+      "genre": "masculin",
+      "categoryIds": [],
+      "userId": "51a0",
       "email": "Pimpoye@medoc.fr"
->>>>>>> 4b0d79f473268c53aba867b6aa02530b21b16f71
+    },
+    {
+      "id": "c48d",
+      "firstname": "gregoire",
+      "lastname": "jeremy",
+      "streetNumber": "12",
+      "street": "avenue de la liberté",
+      "region": {
+        "id": "3",
+        "name": "Nouvelle-Aquitaine"
+      },
+      "postalCode": 33000,
+      "description": "Cupcake ipsum dolor sit amet. Jelly beans candy candy canes liquorice carrot cake chupa chups gummies soufflé. Muffin soufflé tart bear claw macaroon fruitcake chocolate jelly-o. Lollipop jujubes apple pie pie cookie carrot cake sweet roll cake carrot cake. Sweet gummies dessert tart cheesecake jelly cookie cookie. Carrot cake croissant lollipop danish lollipop. Cake cheesecake sweet sugar plum gummies sweet roll.\n\nCotton candy croissant bear claw biscuit candy lemon drops candy canes candy canes. Marzipan dessert cupcake cheesecake donut jelly-o. Sweet cotton candy bonbon candy biscuit cake halvah. Dessert bear claw jelly oat cake jelly apple pie powder cake sesame snaps. Tiramisu wafer dessert powder ice cream gummi bears. Candy fruitcake danish wafer dragée jelly-o liquorice shortbread gummies. Fruitcake fruitcake halvah sweet roll soufflé caramels cake jelly-o. Brownie chocolate bar tart halvah ice cream. Jelly beans gummi bears jujubes marzipan powder tart candy canes gummies gummi bears.",
+      "department": {
+        "id": "33",
+        "name": "Gironde"
+      },
+      "city": {
+        "id": 5,
+        "name": "Paris"
+      },
+      "avatar": "",
+      "phone": "01-23-45-67-89",
+      "dateOfBirth": "26/11/2013",
+      "genre": "masculin",
+      "categoryIds": [
+        "5",
+        "4",
+        "3"
+      ],
+      "userId": "9868",
+      "email": "jeyofdev@gmail.fr"
+    },
+    {
+      "id": "7721",
+      "firstname": "jerem",
+      "lastname": "gereg",
+      "streetNumber": "34",
+      "street": "tgrftd",
+      "region": {
+        "id": "5",
+        "name": "Occitanie"
+      },
+      "postalCode": "34545",
+      "description": "",
+      "department": {
+        "id": "28",
+        "name": "Eure-et-Loir"
+      },
+      "city": {
+        "id": 5,
+        "name": "Paris"
+      },
+      "avatar": "",
+      "phone": "35-56-67-78-79",
+      "dateOfBirth": "34/56/7890",
+      "genre": "masculin",
+      "categoryIds": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "userId": "7a44",
+      "email": "jeram@medoc.fr"
+    },
+    {
+      "id": "c34a",
+      "firstname": "",
+      "lastname": "",
+      "streetNumber": "",
+      "street": "",
+      "region": "",
+      "postalCode": 33000,
+      "description": "",
+      "department": {
+        "id": "1",
+        "name": ""
+      },
+      "city": {
+        "id": 1,
+        "name": ""
+      },
+      "avatar": "",
+      "phone": "",
+      "dateOfBirth": "",
+      "genre": "masculin",
+      "categoryIds": [
+        "4",
+        "3",
+        "2"
+      ],
+      "userId": "7eb1"
+    },
+    {
+      "id": "f576",
+      "firstname": "",
+      "lastname": "",
+      "streetNumber": "",
+      "street": "",
+      "region": "",
+      "postalCode": 33000,
+      "description": "",
+      "department": {
+        "id": "1",
+        "name": ""
+      },
+      "city": {
+        "id": 1,
+        "name": ""
+      },
+      "avatar": "",
+      "phone": "",
+      "dateOfBirth": "",
+      "genre": "masculin",
+      "categoryIds": [],
+      "userId": "9a2a"
     }
   ],
   "category": [
@@ -308,7 +438,7 @@
   "reservation": [
     {
       "id": "3",
-      "activityId": "3",
+      "activityId": null,
       "userId": "3"
     },
     {
@@ -318,18 +448,6 @@
     }
   ],
   "activity": [
-    {
-      "id": "3",
-      "name": "cuisine",
-      "date": "2024-05-01T22:00:00.000Z",
-      "activityCity": "Rome",
-      "categoryId": "Music",
-      "nbGuest": "10",
-      "description": "Tart candy danish oat cake sweet roll. Chocolate cake sugar plum shortbread chocolate bar cupcake brownie candy apple pie. Jelly beans brownie macaroon croissant chocolate cake gingerbread bear claw jelly sesame snaps.",
-      "imgUrl": "",
-      "link": "",
-      "userId": "1"
-    },
     {
       "id": "5",
       "name": "sport",
@@ -448,6 +566,44 @@
       "imgUrl": "",
       "link": "",
       "userId": "1"
+    },
+    {
+      "id": "12",
+      "name": "toto",
+      "date": "",
+      "hour": "",
+      "activityCity": {
+        "id": 1,
+        "name": ""
+      },
+      "categoryId": {
+        "id": "1",
+        "title": ""
+      },
+      "nbGuest": 0,
+      "description": "",
+      "imgUrl": "",
+      "link": "",
+      "userId": "7a44"
+    },
+    {
+      "id": "13",
+      "name": "toto",
+      "date": "",
+      "hour": "",
+      "activityCity": {
+        "id": 1,
+        "name": ""
+      },
+      "categoryId": {
+        "id": "1",
+        "title": ""
+      },
+      "nbGuest": 0,
+      "description": "",
+      "imgUrl": "",
+      "link": "",
+      "userId": "7a44"
     }
   ],
   "contact": [

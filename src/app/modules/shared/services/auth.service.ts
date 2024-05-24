@@ -46,13 +46,14 @@ export class AuthService extends AuthUserServiceUtils {
 				if (!user) {
 					throw new Error(this._formErrorMessage.loginErrorMessage);
 				}
+
 				return {
 					id: user.id,
 					username: user.username,
 					email: user.email,
 					role: user.role,
 					status: user.status,
-					userDetailsId: '',
+					userDetailsId: user.userDetailsId,
 				} as UserAuthPrimaryDatas;
 			}),
 			tap((user: UserAuthPrimaryDatas) => {
@@ -63,10 +64,7 @@ export class AuthService extends AuthUserServiceUtils {
 			}),
 			catchError(() => {
 				return throwError(
-					() =>
-						new Error(
-							"Votre nom d'utilisateur ou votre mot de passe incorrect",
-						),
+					() => new Error(this._formErrorMessage.loginErrorMessage),
 				);
 			}),
 		);
@@ -132,24 +130,6 @@ export class AuthService extends AuthUserServiceUtils {
 				return (Number(lastId) + 1).toString();
 			}),
 		);
-	}
-
-	public get isLoggedIn(): Observable<boolean> {
-		return this._isLoggedInSubject.asObservable();
-	}
-
-	public notifyLoggedInStatus(status: boolean): void {
-		this._isLoggedInSubject.next(status);
-	}
-
-	public checkIfUserIsConnectedAndNotifyLoggedInStatus(): void {
-		if (localStorage.getItem('user')) {
-			this.setConnectedUserData(
-				JSON.parse(localStorage.getItem('user') as string),
-			);
-
-			this.notifyLoggedInStatus(true);
-		}
 	}
 
 	public deleteUser(userId: string): Observable<UserAuthPrimaryDatas> {

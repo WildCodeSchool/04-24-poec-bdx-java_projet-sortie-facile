@@ -15,7 +15,7 @@ export class HeaderService {
 		this._primaryItems$ = of([
 			{
 				label: 'Accueil',
-				icon: 'pi pi-fw pi-file',
+				icon: 'pi pi-home',
 				routerLink: '/',
 			},
 			{
@@ -57,22 +57,20 @@ export class HeaderService {
 		]);
 	}
 
-	public getHeaderItems$(): Observable<MenuItem[]> {
+	public getIsLoggedInItems$(): Observable<MenuItem[]> {
 		return this._authService.isLoggedIn.pipe(
 			switchMap((loggedIn: boolean) => {
 				if (loggedIn) {
-					return this._combineHeaderItems$(
-						this._primaryItems$,
-						this._connectedItems$,
-					);
+					return this._connectedItems$;
 				} else {
-					return this._combineHeaderItems$(
-						this._primaryItems$,
-						this._notConnectedItems$,
-					);
+					return this._notConnectedItems$;
 				}
 			}),
 		);
+	}
+
+	public getPrimaryItems$(): Observable<MenuItem[]> {
+		return this._primaryItems$;
 	}
 
 	private _combineHeaderItems$(
