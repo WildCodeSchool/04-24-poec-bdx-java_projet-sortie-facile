@@ -24,7 +24,7 @@ export class AuthLoginManagementComponent implements OnInit {
 	connectedUser: UserConnectedDatas = new UserConnectedDatas(
 		'johndoe',
 		'123456789',
-		'j.doe@mail.com',
+		'j.doe@test.com',
 	);
 
 	constructor(private authService: AuthService) {}

@@ -30,14 +30,14 @@ export class ActivityListManagementComponent implements OnInit, OnChanges {
 	@Input() selectedCategoryId!: Category;
 	@Input({ required: true }) selectedDepartments!: Department;
 
-	rows: number = 2;
+	rows: number = 8;
 	first: number = 0;
 	totalRecords: number = 0;
 
 	rowsPerPageOptions = [
-		{ label: '1', value: 1 },
-		{ label: '2', value: 2 },
-		{ label: '3', value: 3 },
+		{ label: '4', value: 4 },
+		{ label: '12', value: 12 },
+		{ label: '20', value: 20 },
 	];
 
 	constructor(
