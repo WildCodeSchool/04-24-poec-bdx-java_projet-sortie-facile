@@ -1,15 +1,53 @@
 <div class="activities-top">
-	<p-button rounded [routerLink]="['/activity/create']"
+	<p-button *ngIf="connectedUser" rounded [routerLink]="['/activity/create']"
 		>Créer une activité</p-button
 	>
 </div>
+
 <div class="activities-cards">
-	<ng-container *ngIf="activityList$ | async as activities">
+	<ng-container *ngIf="pagedActivities.length">
 		<app-activity-card
-			*ngFor="let activity of activities"
+			*ngFor="let activity of pagedActivities"
 			[activity]="activity"
 			[connectedUser]="connectedUser"
 		>
 		</app-activity-card>
 	</ng-container>
 </div>
+
+<div class="paginator-container" *ngIf="pagedActivities.length">
+	<div>
+		<span>Activités par pages : </span>
+		<p-dropdown
+			[options]="rowsPerPageOptions"
+			optionLabel="label"
+			optionValue="value"
+			[(ngModel)]="rows"
+			(ngModelChange)="onRowsChange()"
+		></p-dropdown>
+	</div>
+
+	<div>
+		<p-paginator
+			[first]="first"
+			[rows]="rows"
+			[totalRecords]="totalRecords"
+			(onPageChange)="onPageChange($event)"
+			[showFirstLastIcon]="false"
+			[showCurrentPageReport]="true"
+			currentPageReportTemplate="{first} - {last} sur {totalRecords}"
+		></p-paginator>
+	</div>
+</div>
+
+<p-messages severity="error" *ngIf="!pagedActivities.length">
+	<ng-template pTemplate>
+		<div class="message-content">
+			<i class="pi pi-times"></i>
+			<p>
+				Votre recherche n'a retourné aucun résultat. Veuillez essayer avec
+				d'autres filtres ou critères.
+			</p>
+		</div>
+	</ng-template>
+</p-messages>

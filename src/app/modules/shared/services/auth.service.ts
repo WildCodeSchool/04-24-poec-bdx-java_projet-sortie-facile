@@ -46,13 +46,14 @@ export class AuthService extends AuthUserServiceUtils {
 				if (!user) {
 					throw new Error(this._formErrorMessage.loginErrorMessage);
 				}
+
 				return {
 					id: user.id,
 					username: user.username,
 					email: user.email,
 					role: user.role,
 					status: user.status,
-					userDetailsId: '',
+					userDetailsId: user.userDetailsId,
 				} as UserAuthPrimaryDatas;
 			}),
 			tap((user: UserAuthPrimaryDatas) => {
@@ -63,10 +64,7 @@ export class AuthService extends AuthUserServiceUtils {
 			}),
 			catchError(() => {
 				return throwError(
-					() =>
-						new Error(
-							"Votre nom d'utilisateur ou votre mot de passe incorrect",
-						),
+					() => new Error(this._formErrorMessage.loginErrorMessage),
 				);
 			}),
 		);
@@ -123,5 +121,26 @@ export class AuthService extends AuthUserServiceUtils {
 	public deleteConnectedUser(): Observable<UserAuth> {
 		this._userConnected.status = AccountStatus.INACTIVE;
 		return this._httpClient.patch<UserAuth>(this.BASE_URL, this._userConnected);
+	}
+
+	public increaseId(): Observable<string> {
+		return this._httpClient.get<newUser[]>(this.BASE_URL).pipe(
+			map((users: newUser[]) => {
+				const lastId = users[users.length - 1].id;
+				return (Number(lastId) + 1).toString();
+			}),
+		);
+	}
+
+	public deleteUser(userId: string): Observable<UserAuthPrimaryDatas> {
+		return this._httpClient
+			.patch<UserAuthPrimaryDatas>(`${this.BASE_URL}/${userId}`, {
+				email: '',
+				password: '',
+				username: '',
+				status: AccountStatus.INACTIVE,
+				userDetailsId: '',
+			})
+			.pipe(tap(() => this.logout()));
 	}
 }
