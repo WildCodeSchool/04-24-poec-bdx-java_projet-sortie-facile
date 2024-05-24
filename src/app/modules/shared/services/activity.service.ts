@@ -82,6 +82,8 @@ export class ActivityService {
 	filteredActivityListByDepartment$(
 		department: Department,
 	): Observable<Activity[]> {
+		console.log(department);
+
 		return this.getActivityList$().pipe(
 			map((activityList: Activity[]) =>
 				activityList.filter((activity: Activity) => {
