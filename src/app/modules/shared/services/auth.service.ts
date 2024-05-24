@@ -134,23 +134,6 @@ export class AuthService extends AuthUserServiceUtils {
 		);
 	}
 
-	// public get isLoggedIn(): Observable<boolean> {
-	// 	return this._isLoggedInSubject.asObservable();
-	// }
-
-	// public notifyLoggedInStatus(status: boolean): void {
-	// 	this._isLoggedInSubject.next(status);
-	// }
-
-	// public checkIfUserIsConnectedAndNotifyLoggedInStatus(): void {
-	// 	if (localStorage.getItem('user')) {
-	// 		this.setConnectedUserData(
-	// 			JSON.parse(localStorage.getItem('user') as string),
-	// 		);
-	// 		this.notifyLoggedInStatus(true);
-	// 	}
-	// }
-
 	public deleteUser(userId: string): Observable<UserAuthPrimaryDatas> {
 		return this._httpClient
 			.patch<UserAuthPrimaryDatas>(`${this.BASE_URL}/${userId}`, {
