@@ -1,10 +1,11 @@
 import { Category } from '@models/types/category.type';
 import { City } from '@models/types/city.type';
+import { Department } from '../classes/department.class';
 
 export type Activity = {
 	id: string;
 	name: string;
-	departement: string;
+	department: Department;
 	activityCity: City;
 	date: string;
 	age?: number;

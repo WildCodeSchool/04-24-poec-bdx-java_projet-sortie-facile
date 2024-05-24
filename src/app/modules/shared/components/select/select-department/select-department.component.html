@@ -4,12 +4,13 @@
 	}}</label>
 
 	<p-dropdown
+		*ngIf="activityDepartmentsList$ | async as departments"
 		[options]="departments"
-		[(ngModel)]="value"
+		[(ngModel)]="selectedDepartmentId"
 		optionLabel="name"
 		placeholder="Choisir un département"
 		(ngModelChange)="onInputChange($event)"
 		(focus)="markAsTouched()"
 		#ref="ngModel"
-	/>
+	></p-dropdown>
 </div>

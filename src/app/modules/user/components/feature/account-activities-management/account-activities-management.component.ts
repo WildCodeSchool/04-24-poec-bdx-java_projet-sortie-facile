@@ -1,5 +1,5 @@
+import { Activity } from '@activity/models/classes/activity.class';
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Activity } from '@shared/models/types/activity.type';
 import { ActivityService } from '@shared/services/activity.service';
 import { AuthService } from '@shared/services/auth.service';
 import { BaseAccountManagementComponent } from '@user/directives/account-management.class';
