@@ -5,6 +5,7 @@ import {
 } from '@shared/models/types/user-details.type';
 import { UserAuthPrimaryDatas } from '@shared/models/types/user-list-response-api.type';
 import { AuthService } from '@shared/services/auth.service';
+import { UserAuthCrudService } from '@shared/services/user-auth-crud.service';
 import { UserService } from '@shared/services/user.service';
 import { Observable, map, switchMap, tap } from 'rxjs';
 
@@ -22,10 +23,12 @@ export class AccountPersonalInfosFormComponent implements OnInit {
 	constructor(
 		private _authService: AuthService,
 		private _userService: UserService,
+		private _userAuthCrudService: UserAuthCrudService,
 	) {}
 
 	ngOnInit(): void {
 		this.connectedUser = this._authService.getConnectedUserData();
+		console.log(this.connectedUser);
 
 		this.userDetails$ = this._userService.getUserInfos$(
 			this.connectedUser.userDetailsId,
@@ -47,10 +50,13 @@ export class AccountPersonalInfosFormComponent implements OnInit {
 	}
 
 	onSave(): void {
-		this.userDetails$ = this._authService
-			.patchConnectedUser({
-				email: this.userPersonalInfosDatasForm.email,
-			})
+		this.userDetails$ = this._userAuthCrudService
+			.patchConnectedUser(
+				{
+					email: this.userPersonalInfosDatasForm.email,
+				},
+				this.connectedUser,
+			)
 			.pipe(
 				switchMap(() =>
 					this._userService

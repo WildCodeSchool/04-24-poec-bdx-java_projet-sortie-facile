@@ -32,7 +32,10 @@ import { SelectRegionComponent } from './components/select/select-region/select-
 import { NumberFieldComponent } from './components/form/number-field/number-field.component';
 import { MaskFieldComponent } from './components/form/mask-field/mask-field.component';
 import { GlobalFormErrorComponent } from './components/form/global-form-error/global-form-error.component';
+import { ParagraphSplitPipe } from './pipes/paragraph-split.pipe';
+import { DataBookingComponent } from './components/dashboard/data-booking/data-booking.component';
 import { ModalConfirmContactComponent } from './components/modal/modal-confirm-contact/modal-confirm-contact.component';
+import { LinkPipe } from './pipes/link.pipe';
 
 @NgModule({
 	declarations: [
@@ -66,6 +69,9 @@ import { ModalConfirmContactComponent } from './components/modal/modal-confirm-c
 		NumberFieldComponent,
 		MaskFieldComponent,
 		GlobalFormErrorComponent,
+		ParagraphSplitPipe,
+		LinkPipe,
+		DataBookingComponent,
 	],
 	imports: [
 		CommonModule,
@@ -107,6 +113,9 @@ import { ModalConfirmContactComponent } from './components/modal/modal-confirm-c
 		NumberFieldComponent,
 		MaskFieldComponent,
 		GlobalFormErrorComponent,
+		ParagraphSplitPipe,
+		LinkPipe,
+		DataBookingComponent,
 	],
 })
 export class SharedModule {}

@@ -23,6 +23,7 @@ import { CarouselModule } from 'primeng/carousel';
 import { StepperModule } from 'primeng/stepper';
 import { InputMaskModule } from 'primeng/inputmask';
 import { MultiSelectModule } from 'primeng/multiselect';
+import { TableModule } from 'primeng/table';
 import { TieredMenuModule } from 'primeng/tieredmenu';
 
 @NgModule({
@@ -52,6 +53,7 @@ import { TieredMenuModule } from 'primeng/tieredmenu';
 		StepperModule,
 		InputMaskModule,
 		MultiSelectModule,
+		TableModule,
 		TieredMenuModule,
 	],
 })
