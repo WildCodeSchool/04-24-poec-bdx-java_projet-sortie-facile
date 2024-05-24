@@ -49,14 +49,14 @@
       "status": "active"
     },
     {
-      "id": "01f7",
-      "username": "Pimpoye",
-      "email": "Pimpoye@medoc.fr",
-      "password": "tytytytytyty",
+      "id": "afa0",
+      "username": "",
+      "email": "",
+      "password": "",
       "passwordConfirm": "mafemmecestmasoeur",
       "role": "user",
-      "status": "active",
-      "userDetailsId": "186e"
+      "status": "inactive",
+      "userDetailsId": ""
     }
   ],
   "user_details": [
@@ -231,8 +231,36 @@
         "4",
         "2"
       ],
+<<<<<<< HEAD
+      "userId": "0c67"
+    },
+    {
+      "id": "4737",
+      "firstname": "",
+      "lastname": "",
+      "streetNumber": "",
+      "street": "",
+      "region": "",
+      "postalCode": 33000,
+      "description": "",
+      "department": {
+        "id": "1",
+        "name": ""
+      },
+      "city": {
+        "id": 1,
+        "name": ""
+      },
+      "avatar": "",
+      "phone": "",
+      "dateOfBirth": "",
+      "genre": "masculin",
+      "categoryIds": [],
+      "userId": "afa0"
+=======
       "userId": "01f7",
       "email": "Pimpoye@medoc.fr"
+>>>>>>> 4b0d79f473268c53aba867b6aa02530b21b16f71
     }
   ],
   "category": [

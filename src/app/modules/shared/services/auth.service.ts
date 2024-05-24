@@ -124,4 +124,43 @@ export class AuthService extends AuthUserServiceUtils {
 		this._userConnected.status = AccountStatus.INACTIVE;
 		return this._httpClient.patch<UserAuth>(this.BASE_URL, this._userConnected);
 	}
+
+	public increaseId(): Observable<string> {
+		return this._httpClient.get<newUser[]>(this.BASE_URL).pipe(
+			map((users: newUser[]) => {
+				const lastId = users[users.length - 1].id;
+				return (Number(lastId) + 1).toString();
+			}),
+		);
+	}
+
+	public get isLoggedIn(): Observable<boolean> {
+		return this._isLoggedInSubject.asObservable();
+	}
+
+	public notifyLoggedInStatus(status: boolean): void {
+		this._isLoggedInSubject.next(status);
+	}
+
+	public checkIfUserIsConnectedAndNotifyLoggedInStatus(): void {
+		if (localStorage.getItem('user')) {
+			this.setConnectedUserData(
+				JSON.parse(localStorage.getItem('user') as string),
+			);
+
+			this.notifyLoggedInStatus(true);
+		}
+	}
+
+	public deleteUser(userId: string): Observable<UserAuthPrimaryDatas> {
+		return this._httpClient
+			.patch<UserAuthPrimaryDatas>(`${this.BASE_URL}/${userId}`, {
+				email: '',
+				password: '',
+				username: '',
+				status: AccountStatus.INACTIVE,
+				userDetailsId: '',
+			})
+			.pipe(tap(() => this.logout()));
+	}
 }
