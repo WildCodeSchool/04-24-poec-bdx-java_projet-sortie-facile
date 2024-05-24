@@ -22,34 +22,41 @@
       "role": "user"
     },
     {
-      "id": "7a44",
+      "id": "5c35",
       "username": "Pimpoye",
-      "email": "jeram@medoc.fr",
-      "password": "123456789",
+      "email": "Pimpoye@medoc.fr",
+      "password": "aaaaaaaaaaaaaaaaa",
       "passwordConfirm": "mafemmecestmasoeur",
       "role": "user",
-      "status": "active",
-      "userDetailsId": "7721"
+      "status": "active"
     },
     {
-      "id": "7eb1",
-      "username": "Pimpoyee",
+      "id": "a9fe",
+      "username": "Pimpoye",
       "email": "Pimpoye@medoc.fr",
       "password": "mafemmecestmasoeur",
       "passwordConfirm": "mafemmecestmasoeur",
       "role": "user",
-      "status": "active",
-      "userDetailsId": "c34a"
+      "status": "active"
     },
     {
-      "id": "9a2a",
-      "username": "",
-      "email": "",
-      "password": "",
+      "id": "da45",
+      "username": "Pimpoye",
+      "email": "Pimpoye@medoc.fr",
+      "password": "mafemmecestmasoeur",
       "passwordConfirm": "mafemmecestmasoeur",
       "role": "user",
-      "status": "inactive",
-      "userDetailsId": ""
+      "status": "active"
+    },
+    {
+      "id": "01f7",
+      "username": "Pimpoye",
+      "email": "Pimpoye@medoc.fr",
+      "password": "tytytytytyty",
+      "passwordConfirm": "mafemmecestmasoeur",
+      "role": "user",
+      "status": "active",
+      "userDetailsId": "186e"
     }
   ],
   "user_details": [
@@ -224,173 +231,8 @@
         "4",
         "2"
       ],
-      "userId": "0c67"
-    },
-    {
-      "id": "4737",
-      "firstname": "",
-      "lastname": "",
-      "streetNumber": "",
-      "street": "",
-      "region": "",
-      "postalCode": 33000,
-      "description": "",
-      "department": {
-        "id": "1",
-        "name": ""
-      },
-      "city": {
-        "id": 1,
-        "name": ""
-      },
-      "avatar": "",
-      "phone": "",
-      "dateOfBirth": "",
-      "genre": "masculin",
-      "categoryIds": [],
-      "userId": "afa0"
-    },
-    {
-      "id": "5f3a",
-      "firstname": "",
-      "lastname": "'rd(terdfcv",
-      "streetNumber": "",
-      "street": "",
-      "region": "",
-      "postalCode": 33000,
-      "description": "",
-      "department": {
-        "id": "1",
-        "name": ""
-      },
-      "city": {
-        "id": 1,
-        "name": ""
-      },
-      "avatar": "",
-      "phone": "",
-      "dateOfBirth": "",
-      "genre": "masculin",
-      "categoryIds": [],
-      "userId": "51a0",
+      "userId": "01f7",
       "email": "Pimpoye@medoc.fr"
-    },
-    {
-      "id": "c48d",
-      "firstname": "gregoire",
-      "lastname": "jeremy",
-      "streetNumber": "12",
-      "street": "avenue de la liberté",
-      "region": {
-        "id": "3",
-        "name": "Nouvelle-Aquitaine"
-      },
-      "postalCode": 33000,
-      "description": "Cupcake ipsum dolor sit amet. Jelly beans candy candy canes liquorice carrot cake chupa chups gummies soufflé. Muffin soufflé tart bear claw macaroon fruitcake chocolate jelly-o. Lollipop jujubes apple pie pie cookie carrot cake sweet roll cake carrot cake. Sweet gummies dessert tart cheesecake jelly cookie cookie. Carrot cake croissant lollipop danish lollipop. Cake cheesecake sweet sugar plum gummies sweet roll.\n\nCotton candy croissant bear claw biscuit candy lemon drops candy canes candy canes. Marzipan dessert cupcake cheesecake donut jelly-o. Sweet cotton candy bonbon candy biscuit cake halvah. Dessert bear claw jelly oat cake jelly apple pie powder cake sesame snaps. Tiramisu wafer dessert powder ice cream gummi bears. Candy fruitcake danish wafer dragée jelly-o liquorice shortbread gummies. Fruitcake fruitcake halvah sweet roll soufflé caramels cake jelly-o. Brownie chocolate bar tart halvah ice cream. Jelly beans gummi bears jujubes marzipan powder tart candy canes gummies gummi bears.",
-      "department": {
-        "id": "33",
-        "name": "Gironde"
-      },
-      "city": {
-        "id": 5,
-        "name": "Paris"
-      },
-      "avatar": "",
-      "phone": "01-23-45-67-89",
-      "dateOfBirth": "26/11/2013",
-      "genre": "masculin",
-      "categoryIds": [
-        "5",
-        "4",
-        "3"
-      ],
-      "userId": "9868",
-      "email": "jeyofdev@gmail.fr"
-    },
-    {
-      "id": "7721",
-      "firstname": "jerem",
-      "lastname": "gereg",
-      "streetNumber": "34",
-      "street": "tgrftd",
-      "region": {
-        "id": "5",
-        "name": "Occitanie"
-      },
-      "postalCode": "34545",
-      "description": "",
-      "department": {
-        "id": "28",
-        "name": "Eure-et-Loir"
-      },
-      "city": {
-        "id": 5,
-        "name": "Paris"
-      },
-      "avatar": "",
-      "phone": "35-56-67-78-79",
-      "dateOfBirth": "34/56/7890",
-      "genre": "masculin",
-      "categoryIds": [
-        "1",
-        "2",
-        "3",
-        "4"
-      ],
-      "userId": "7a44",
-      "email": "jeram@medoc.fr"
-    },
-    {
-      "id": "c34a",
-      "firstname": "",
-      "lastname": "",
-      "streetNumber": "",
-      "street": "",
-      "region": "",
-      "postalCode": 33000,
-      "description": "",
-      "department": {
-        "id": "1",
-        "name": ""
-      },
-      "city": {
-        "id": 1,
-        "name": ""
-      },
-      "avatar": "",
-      "phone": "",
-      "dateOfBirth": "",
-      "genre": "masculin",
-      "categoryIds": [
-        "4",
-        "3",
-        "2"
-      ],
-      "userId": "7eb1"
-    },
-    {
-      "id": "f576",
-      "firstname": "",
-      "lastname": "",
-      "streetNumber": "",
-      "street": "",
-      "region": "",
-      "postalCode": 33000,
-      "description": "",
-      "department": {
-        "id": "1",
-        "name": ""
-      },
-      "city": {
-        "id": 1,
-        "name": ""
-      },
-      "avatar": "",
-      "phone": "",
-      "dateOfBirth": "",
-      "genre": "masculin",
-      "categoryIds": [],
-      "userId": "9a2a"
     }
   ],
   "category": [
@@ -458,7 +300,8 @@
       "description": "Sweet roll dragée candy canes topping soufflé. Topping pastry tootsie roll sugar plum cake jelly candy cupcake sweet. Candy wafer bonbon sweet roll donut tootsie roll. Dragée oat cake sweet cake chocolate cheesecake sugar plum. Lollipop croissant jelly beans biscuit donut jelly candy. Marzipan danish jelly wafer cake. Cake oat cake tiramisu jujubes chupa chups bonbon. Tootsie roll donut cupcake gummi bears pastry sesame snaps fruitcake. Pastry soufflé cake cheesecake bonbon dragée gingerbread cake. Sweet roll pastry wafer liquorice cheesecake. Oat cake jelly tootsie roll cake powder oat cake sugar plum chocolate bar tiramisu. Biscuit topping wafer chocolate bar pastry sesame snaps caramels chocolate bar.  Cotton candy chocolate cake jelly ice cream gummi bears marshmallow sugar plum cotton candy fruitcake. Icing apple pie bonbon apple pie chupa chups cupcake sweet roll. Gingerbread icing pie cheesecake danish marshmallow sesame snaps dragée candy. Dragée pie pudding bear claw sweet jelly beans lemon drops lollipop jelly-o. Sugar plum halvah gummi bears apple pie oat cake sweet gingerbread. Cupcake jelly cheesecake topping shortbread shortbread. Pudding biscuit icing bear claw brownie fruitcake dragée donut candy. Icing jelly dessert apple pie pastry. Icing jujubes cheesecake jelly beans tootsie roll. Cookie halvah marshmallow powder toffee cookie candy brownie. Chupa chups wafer pastry tiramisu topping liquorice gingerbread topping. Tiramisu chocolate bar shortbread gingerbread brownie shortbread. Pastry gummies fruitcake cake pudding marshmallow bonbon topping caramels.  Lollipop cupcake lollipop sugar plum bonbon tart. Marzipan cheesecake fruitcake pie bear claw soufflé. Jelly-o cookie muffin toffee danish icing. Chupa chups jelly sugar plum liquorice cheesecake apple pie halvah chocolate. Liquorice pie topping icing oat cake chocolate bar cake croissant. Tiramisu caramels jelly candy sweet roll pastry tootsie roll. Marshmallow danish tootsie roll candy canes halvah oat cake pastry. Lemon drops sugar plum gummi bears tart brownie chocolate sesame snaps chocolate chocolate bar. Pudding topping bear claw donut pastry chocolate oat cake halvah. Wafer topping shortbread marshmallow tart. Chocolate candy canes candy canes sweet marshmallow jujubes cotton candy cupcake. Bonbon shortbread wafer sesame snaps sweet toffee.",
       "imgUrl": "https://images.unsplash.com/photo-1716414458161-91b34446b749?q=80&w=2664&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       "link": "www.google.fr",
-      "userId": "1"
+      "userId": "1",
+      "isVisible": false
     },
     {
       "id": "6",
@@ -471,7 +314,8 @@
       "description": "",
       "imgUrl": "",
       "link": "",
-      "userId": "2"
+      "userId": "2",
+      "isVisible": true
     },
     {
       "id": "7",
@@ -489,7 +333,9 @@
       "nbGuest": 0,
       "description": "",
       "imgUrl": "",
-      "link": ""
+      "link": "",
+      "userId": "1",
+      "isVisible": true
     },
     {
       "id": "8",
@@ -508,7 +354,8 @@
       "description": "",
       "imgUrl": "",
       "link": "",
-      "userId": "1"
+      "userId": "1",
+      "isVisible": true
     },
     {
       "id": "9",
@@ -527,7 +374,8 @@
       "description": "",
       "imgUrl": "",
       "link": "ed(rfdxc",
-      "userId": "1"
+      "userId": "1",
+      "isVisible": true
     },
     {
       "id": "10",
@@ -546,7 +394,8 @@
       "description": "Oat cake dragée pastry powder shortbread sweet roll macaroon powder oat cake. Gummi bears gingerbread pudding powder lemon drops. Halvah oat cake jelly marshmallow dragée sesame snaps cotton candy. Sweet brownie carrot cake lemon drops powder cake liquorice.",
       "imgUrl": "",
       "link": "fvyhfvghbfvg",
-      "userId": "1"
+      "userId": "1",
+      "isVisible": true
     },
     {
       "id": "11",
@@ -565,45 +414,68 @@
       "description": "sdzfergthyjui",
       "imgUrl": "",
       "link": "",
-      "userId": "1"
+      "userId": "1",
+      "isVisible": true
     },
     {
       "id": "12",
-      "name": "toto",
-      "date": "",
-      "hour": "",
+      "name": "visible",
+      "date": "2024-05-23T22:00:00.000Z",
+      "hour": "2024-05-23T21:47:10.074Z",
       "activityCity": {
         "id": 1,
-        "name": ""
+        "name": "New York"
       },
       "categoryId": {
-        "id": "1",
-        "title": ""
+        "id": "5",
+        "title": "Food"
       },
-      "nbGuest": 0,
-      "description": "",
+      "nbGuest": 6,
+      "description": "dazfert",
       "imgUrl": "",
       "link": "",
-      "userId": "7a44"
+      "userId": "1",
+      "isVisible": true
     },
     {
       "id": "13",
-      "name": "toto",
-      "date": "",
-      "hour": "",
+      "name": "visible true",
+      "date": "2024-05-03T22:00:00.000Z",
+      "hour": "2024-05-22T22:15:51.923Z",
       "activityCity": {
-        "id": 1,
-        "name": ""
+        "id": 5,
+        "name": "Paris"
       },
       "categoryId": {
-        "id": "1",
-        "title": ""
+        "id": "2",
+        "title": "Music"
       },
-      "nbGuest": 0,
-      "description": "",
+      "nbGuest": 5,
+      "description": "qswdf",
       "imgUrl": "",
       "link": "",
-      "userId": "7a44"
+      "userId": "1",
+      "isVisible": true
+    },
+    {
+      "id": "324e",
+      "name": "danse ",
+      "date": "2024-05-03T22:00:00.000Z",
+      "hour": "2024-05-22T22:24:23.904Z",
+      "activityCity": {
+        "id": 2,
+        "name": "Rome"
+      },
+      "categoryId": {
+        "id": "2",
+        "title": "Music"
+      },
+      "nbGuest": 3,
+      "description": "dAD",
+      "imgUrl": "",
+      "link": "",
+      "userId": "1",
+      "isVisible": true
     }
   ],
   "contact": [
