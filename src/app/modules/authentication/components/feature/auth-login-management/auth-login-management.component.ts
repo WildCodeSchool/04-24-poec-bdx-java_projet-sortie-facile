@@ -5,6 +5,7 @@ import { AuthService } from '@shared/services/auth.service';
 import { AuthProvider } from '@shared/models/types/auth/provider.type';
 import { AuthRedirect } from '@shared/models/types/auth/auth-redirect.type';
 import { UserConnectedDatas } from '@shared/models/classes/utils/user-connected-datas.class';
+import { FullAuthenticationRouteEnum } from '@shared/models/enums/routes/full-routes';
 
 @Component({
 	selector: 'app-auth-login-management',
@@ -17,7 +18,7 @@ export class AuthLoginManagementComponent implements OnInit {
 
 	redirect: AuthRedirect = {
 		text: 'Vous n’avez pas encore de compte ?',
-		link: ['/auth/register'],
+		link: [FullAuthenticationRouteEnum.REGISTER],
 		linkLabel: 'S’inscrire',
 	};
 

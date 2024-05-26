@@ -8,6 +8,7 @@ import { Activity } from '@activity/models/classes/activity.class';
 import { Booking } from '@shared/models/classes/booking/booking.class';
 import { UserDetails } from '@shared/models/classes/user-details/user-details.class';
 import { ActivityListResponseApi } from '@shared/models/classes/activity';
+import { FullActivityRouteEnum } from '@shared/models/enums/routes/full-routes';
 
 @Component({
 	selector: 'app-activity-details',
@@ -15,10 +16,12 @@ import { ActivityListResponseApi } from '@shared/models/classes/activity';
 	styleUrl: './activity-details.component.scss',
 })
 export class ActivityDetailsComponent implements OnInit, OnDestroy {
+	fullActivityRoute = FullActivityRouteEnum;
 	activities$!: Observable<ActivityListResponseApi>;
 	activity$!: Observable<Activity>;
 	categoryTitle$!: Observable<string>;
 	userDetails!: UserDetails;
+
 	private _subscription: Subscription = new Subscription();
 
 	@Input() myForm: NgForm;

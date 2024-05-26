@@ -38,8 +38,8 @@ export enum UserRouteEnum {
 	HOME = 'home',
 	PROFILE = 'profile',
 	PASSWORD = 'password',
-	CENTER_OF_INTERESTS = 'center-of-interests',
-	NOTIFICATION = 'notifications',
-	ACTIVITY = 'activities',
+	CENTER_OF_INTERESTS = 'center-of-interest',
+	NOTIFICATION = 'notification',
+	ACTIVITY = 'activity',
 	CALENDAR = 'calendar',
 }

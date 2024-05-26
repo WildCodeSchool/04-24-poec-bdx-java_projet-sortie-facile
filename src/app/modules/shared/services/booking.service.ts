@@ -16,6 +16,7 @@ import { Activity } from '@activity/models/classes/activity.class';
 import { AuthUser } from '@shared/models/classes/auth-user/auth-user.class';
 import { BookingListResponseApi } from '@shared/models/classes/booking';
 import { BookingUserActivity } from '@shared/models/classes/booking/booking-user-activity.class';
+import { FullUserRouteEnum } from '@shared/models/enums/routes/full-routes';
 
 @Injectable({
 	providedIn: 'root',
@@ -71,7 +72,7 @@ export class BookingService {
 
 				return this.http.post<Booking>(this._BASE_URL, newBooking).pipe(
 					tap(() => {
-						this.router.navigate(['/user/home']);
+						this.router.navigate([FullUserRouteEnum.HOME]);
 					}),
 				);
 			}),

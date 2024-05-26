@@ -4,7 +4,7 @@ import { ActivityDetailsComponent } from '@activity/pages/activity-details/activ
 import { UpdateActivityComponent } from '@activity/pages/update-activity/update-activity.component';
 import { ActivityListComponent } from '@activity/pages/activity-list/activity-list.component';
 import { ActivityCreateComponent } from '@activity/pages/activity-create/activity-create.component';
-import { ActivityRouteEnum } from '@shared/models/enums/route.enum';
+import { ActivityRouteEnum } from '@shared/models/enums/routes/route.enum';
 
 const routes: Routes = [
 	{ path: ActivityRouteEnum.HOME, component: ActivityListComponent },

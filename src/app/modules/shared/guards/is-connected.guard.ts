@@ -3,6 +3,7 @@ import { CanActivateFn, Router } from '@angular/router';
 import { UserRoleEnum } from '@shared/models/enums/user-role.enum';
 import { AuthUserPrimaryDatas } from '@shared/models/classes/auth-user/auth-user-primary-datas.class';
 import { AuthService } from '@shared/services/auth.service';
+import { FullAuthenticationRouteEnum } from '@shared/models/enums/routes/full-routes';
 
 export const isConnectedGuard: CanActivateFn = () => {
 	const router = inject(Router);
@@ -22,6 +23,6 @@ export const isConnectedGuard: CanActivateFn = () => {
 		return true;
 	}
 
-	router.navigate(['/auth/login']);
+	router.navigate([FullAuthenticationRouteEnum.LOGIN]);
 	return false;
 };

@@ -4,7 +4,7 @@ import { AdminModule } from '@admin/admin.module';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { ContactComponent } from './contact/contact.component';
 import { ActivityModule } from '@activity/activity.module';
-import { PrimaryRouteEnum } from '@shared/models/enums/route.enum';
+import { PrimaryRouteEnum } from '@shared/models/enums/routes/route.enum';
 
 const routes: Routes = [
 	{

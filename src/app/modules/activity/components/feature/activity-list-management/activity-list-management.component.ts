@@ -14,6 +14,7 @@ import { AuthService } from '@shared/services/auth.service';
 import { CategoryService } from '@shared/services/category.service';
 import { Observable, map } from 'rxjs';
 import { LazyLoadEvent } from 'primeng/api';
+import { FullActivityRouteEnum } from '@shared/models/enums/routes/full-routes';
 
 @Component({
 	selector: 'app-activity-list-management',
@@ -21,6 +22,8 @@ import { LazyLoadEvent } from 'primeng/api';
 	styleUrl: './activity-list-management.component.scss',
 })
 export class ActivityListManagementComponent implements OnInit, OnChanges {
+	fullActivityRoute = FullActivityRouteEnum;
+
 	activityList$!: Observable<Activity[]>;
 	activity$!: Observable<Activity>;
 	pagedActivities: Activity[] = [];

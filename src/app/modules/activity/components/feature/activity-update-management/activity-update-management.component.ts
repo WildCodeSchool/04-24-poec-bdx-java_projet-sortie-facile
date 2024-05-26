@@ -6,6 +6,7 @@ import { Category } from '@shared/models/classes/category/category.class';
 import { City } from '@shared/models/classes/address/city.class';
 import { ActivityService } from '@shared/services/activity.service';
 import { Subscription, map } from 'rxjs';
+import { FullActivityRouteEnum } from '@shared/models/enums/routes/full-routes';
 
 @Component({
 	selector: 'app-activity-update-management',
@@ -53,7 +54,7 @@ export class ActivityUpdateManagementComponent implements OnInit, OnDestroy {
 		this._subscription.add(
 			this.activityService.updateActivity$(id, updatedData).subscribe(),
 		);
-		this.router.navigate(['/activity/home']);
+		this.router.navigate([FullActivityRouteEnum.HOME]);
 	}
 
 	ngOnDestroy(): void {

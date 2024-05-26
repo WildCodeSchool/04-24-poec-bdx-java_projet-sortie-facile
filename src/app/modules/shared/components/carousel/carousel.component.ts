@@ -1,6 +1,7 @@
 import { Activity } from '@activity/models/classes/activity.class';
 import { Component, Input, OnInit } from '@angular/core';
 import { CarouselResponsiveOption } from '@shared/models/classes/utils/carousel-responsive-option.class';
+import { FullActivityRouteEnum } from '@shared/models/enums/routes/full-routes';
 
 @Component({
 	selector: 'app-carousel',
@@ -14,6 +15,7 @@ export class CarouselComponent implements OnInit {
 	@Input() circular!: boolean;
 	@Input() imgSrc!: string;
 
+	fullActivityRoute = FullActivityRouteEnum;
 	responsiveOptions!: CarouselResponsiveOption[];
 
 	ngOnInit() {

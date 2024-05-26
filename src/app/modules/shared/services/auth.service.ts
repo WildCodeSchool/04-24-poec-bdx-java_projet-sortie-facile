@@ -13,6 +13,10 @@ import { NewUserUserDetailsFormDatas } from '@shared/models/classes/user-details
 import { AuthUser } from '@shared/models/classes/auth-user/auth-user.class';
 import { AuthUserPrimaryDatas } from '@shared/models/classes/auth-user/auth-user-primary-datas.class';
 import { AuthUserServiceUtils } from '@shared/models/classes/utils/auth-user-service-utils.class';
+import {
+	FullAuthenticationRouteEnum,
+	FullUserRouteEnum,
+} from '@shared/models/enums/routes/full-routes';
 
 @Injectable({
 	providedIn: 'root',
@@ -58,7 +62,7 @@ export class AuthService extends AuthUserServiceUtils {
 				localStorage.setItem('user', JSON.stringify(user));
 				this.setConnectedUserData(user);
 				this.notifyLoggedInStatus(true);
-				this._router.navigateByUrl('/user/home');
+				this._router.navigateByUrl(FullUserRouteEnum.HOME);
 			}),
 			catchError(() => {
 				return throwError(
@@ -105,7 +109,7 @@ export class AuthService extends AuthUserServiceUtils {
 					return finalUser;
 				}),
 				tap(() => {
-					this._router.navigateByUrl('/user/home');
+					this._router.navigateByUrl(FullUserRouteEnum.HOME);
 				}),
 			);
 	}
@@ -113,7 +117,7 @@ export class AuthService extends AuthUserServiceUtils {
 	public logout(): void {
 		localStorage.removeItem('user');
 		this.notifyLoggedInStatus(false);
-		this._router.navigateByUrl('/auth/login');
+		this._router.navigateByUrl(FullAuthenticationRouteEnum.LOGIN);
 	}
 
 	public deleteConnectedUser(): Observable<AuthUser> {

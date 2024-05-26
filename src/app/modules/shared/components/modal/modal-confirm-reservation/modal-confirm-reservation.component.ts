@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
+import { FullUserRouteEnum } from '@shared/models/enums/routes/full-routes';
 import { BookingService } from '@shared/services/booking.service';
 import { ConfirmationService, MessageService } from 'primeng/api';
 
@@ -37,7 +38,7 @@ export class ModalConfirmReservationComponent {
 					life: 3000,
 				});
 				setTimeout(() => {
-					this.router.navigateByUrl('/user/profile');
+					this.router.navigateByUrl(FullUserRouteEnum.PROFILE);
 				}, 3000);
 			},
 			reject: () => {

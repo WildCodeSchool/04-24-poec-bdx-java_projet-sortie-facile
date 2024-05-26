@@ -3,6 +3,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthUserPrimaryDatas } from '@shared/models/classes/auth-user/auth-user-primary-datas.class';
+import { FullActivityRouteEnum } from '@shared/models/enums/routes/full-routes';
 import { ActivityService } from '@shared/services/activity.service';
 import { AuthService } from '@shared/services/auth.service';
 import { ConfirmationService, MessageService } from 'primeng/api';
@@ -67,7 +68,7 @@ export class ModalConfirmCreatActivityComponent implements OnInit {
 						life: 3000,
 					});
 					setTimeout(() => {
-						this.router.navigate(['/activity/details', activity.id]);
+						this.router.navigate([FullActivityRouteEnum.DETAILS, activity.id]);
 					}, 3000);
 				}),
 				catchError(() => {

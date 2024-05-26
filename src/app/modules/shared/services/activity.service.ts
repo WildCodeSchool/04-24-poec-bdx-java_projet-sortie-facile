@@ -6,6 +6,7 @@ import { Department } from '@shared/models/classes/address/department.class';
 import { Activity } from '@activity/models/classes/activity.class';
 import { ActivityListResponseApi } from '@shared/models/classes/activity';
 import { Category } from '@shared/models/classes/category/category.class';
+import { FullActivityRouteEnum } from '@shared/models/enums/routes/full-routes';
 
 @Injectable({
 	providedIn: 'root',
@@ -100,7 +101,7 @@ export class ActivityService {
 
 		return this._httpClient.post<Activity>(this._BASE_URL, activityToPost).pipe(
 			tap((activity: Activity) => {
-				this._router.navigate(['/activity/details', activity.id]);
+				this._router.navigate([FullActivityRouteEnum.DETAILS, activity.id]);
 			}),
 			catchError(error => {
 				throw error;

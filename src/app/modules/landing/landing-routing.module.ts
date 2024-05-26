@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LandingHomeComponent } from '@landing/pages/landing-home/landing-home.component';
-import { LandingRouteEnum } from '@shared/models/enums/route.enum';
+import { LandingRouteEnum } from '@shared/models/enums/routes/route.enum';
 
 const routes: Routes = [
 	{

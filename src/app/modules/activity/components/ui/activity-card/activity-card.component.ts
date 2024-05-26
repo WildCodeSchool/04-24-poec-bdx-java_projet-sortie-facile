@@ -2,6 +2,7 @@ import { Activity } from '@activity/models/classes/activity.class';
 import { Component, Input, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthUserPrimaryDatas } from '@shared/models/classes/auth-user/auth-user-primary-datas.class';
+import { FullActivityRouteEnum } from '@shared/models/enums/routes/full-routes';
 import { ActivityService } from '@shared/services/activity.service';
 import { ConfirmationService } from 'primeng/api';
 import { Subscription } from 'rxjs';
@@ -14,6 +15,8 @@ import { Subscription } from 'rxjs';
 export class ActivityCardComponent implements OnDestroy {
 	@Input() activity!: Activity;
 	@Input() connectedUser!: AuthUserPrimaryDatas;
+
+	fullActivityRoute = FullActivityRouteEnum;
 
 	private _subscription: Subscription = new Subscription();
 
@@ -31,7 +34,7 @@ export class ActivityCardComponent implements OnDestroy {
 			accept: () => {
 				this.hideActivity(activityId);
 				this.confirmationService.close();
-				this.router.navigate(['/activity/home']);
+				this.router.navigate([FullActivityRouteEnum.HOME]);
 			},
 			reject: () => {
 				this.confirmationService.close();

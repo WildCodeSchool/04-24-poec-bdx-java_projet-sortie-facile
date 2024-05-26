@@ -3,6 +3,7 @@ import { City } from '@shared/models/classes/address/city.class';
 import { Department } from '@shared/models/classes/address/department.class';
 import { NewAuthUserFormDatas } from '@shared/models/classes/auth-user/new-auth-user-form-datas.class';
 import { NewUserUserDetailsFormDatas } from '@shared/models/classes/user-details/new-user-details-form-datas.class';
+import { FullAuthenticationRouteEnum } from '@shared/models/enums/routes/full-routes';
 import { UserGenderEnum } from '@shared/models/enums/user-genre.enum';
 import {
 	AccountStatus,
@@ -28,7 +29,7 @@ export class AuthRegisterManagementComponent implements OnInit {
 
 	redirect: AuthRedirect = {
 		text: 'Vous avez déjà un compte ?',
-		link: ['/auth/login'],
+		link: [FullAuthenticationRouteEnum.LOGIN],
 		linkLabel: 'Se connecter',
 	};
 

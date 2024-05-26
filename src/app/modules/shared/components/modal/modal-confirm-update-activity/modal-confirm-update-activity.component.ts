@@ -2,6 +2,7 @@ import { Activity } from '@activity/models/classes/activity.class';
 import { Component, Input } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
+import { FullActivityRouteEnum } from '@shared/models/enums/routes/full-routes';
 import { ActivityService } from '@shared/services/activity.service';
 import { ConfirmationService, MessageService } from 'primeng/api';
 
@@ -68,7 +69,7 @@ export class ModalConfirmUpdateActivityComponent {
 						life: 3000,
 					});
 					setTimeout(() => {
-						this.router.navigate(['/activity/details', activity?.id]);
+						this.router.navigate([FullActivityRouteEnum.DETAILS, activity?.id]);
 					}, 3000);
 				},
 				() => {
