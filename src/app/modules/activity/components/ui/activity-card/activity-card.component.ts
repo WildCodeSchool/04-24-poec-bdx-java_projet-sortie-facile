@@ -23,11 +23,6 @@ export class ActivityCardComponent implements OnDestroy {
 		private router: Router,
 	) {}
 
-	// delete(id: string): void {
-	// 	this._subscription.add(
-	// 		this.activityService.deleteActivity$(id).subscribe(),
-	// 	);
-	// }
 	confirmHideActivity(activityId: string): void {
 		this.confirmationService.confirm({
 			message: 'Êtes-vous sûr de vouloir masquer cette activité ?',
@@ -44,13 +39,9 @@ export class ActivityCardComponent implements OnDestroy {
 		});
 	}
 	hideActivity(activityId: string): void {
-		this.activityService.updateActivityVisibility(activityId, false).subscribe({
-			next: () => {
-				console.log('Activity hidden successfully');
-				// Actualisez ou mettez à jour la liste des activités après modification si nécessaire
-			},
-			error: err => console.error('Error hiding activity:', err),
-		});
+		this.activityService
+			.updateActivityVisibility(activityId, false)
+			.subscribe();
 	}
 
 	ngOnDestroy(): void {

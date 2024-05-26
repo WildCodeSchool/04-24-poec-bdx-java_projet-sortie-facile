@@ -12,7 +12,6 @@ import { AuthUserPrimaryDatas } from '@shared/models/classes/auth-user/auth-user
 import { ActivityService } from '@shared/services/activity.service';
 import { AuthService } from '@shared/services/auth.service';
 import { CategoryService } from '@shared/services/category.service';
-import { DepartmentService } from '@shared/services/department.service';
 import { Observable, map } from 'rxjs';
 
 @Component({
@@ -43,7 +42,6 @@ export class ActivityListManagementComponent implements OnInit, OnChanges {
 	constructor(
 		private activityService: ActivityService,
 		private categoryService: CategoryService,
-		private departmentService: DepartmentService,
 		private _authService: AuthService,
 	) {}
 
@@ -70,9 +68,6 @@ export class ActivityListManagementComponent implements OnInit, OnChanges {
 	}
 
 	filterActivities(): void {
-		console.log('Selected Category:', this.selectedCategoryId);
-		console.log('Selected Departments:', this.selectedDepartments);
-
 		if (this.selectedCategoryId) {
 			this.activityList$ = this.activityService
 				.filteredActivityListByCategory$(this.selectedCategoryId)
@@ -86,16 +81,10 @@ export class ActivityListManagementComponent implements OnInit, OnChanges {
 					),
 				);
 		} else if (this.selectedDepartments) {
-			console.log('ooooooooooo');
-
 			this.activityList$ = this.activityService
 				.filteredActivityListByDepartment$(this.selectedDepartments)
 				.pipe(
 					map(activities => {
-						console.log(
-							'Activities before filtering by department:',
-							activities,
-						);
 						return activities.filter(activity =>
 							activity.name
 								.toLowerCase()
@@ -106,10 +95,7 @@ export class ActivityListManagementComponent implements OnInit, OnChanges {
 						const filteredActivities = activities.filter(
 							activity => activity.department === this.selectedDepartments.id,
 						);
-						console.log(
-							'Filtered activities by department:',
-							filteredActivities,
-						);
+
 						return filteredActivities;
 					}),
 				);

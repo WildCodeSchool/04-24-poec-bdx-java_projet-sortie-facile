@@ -37,10 +37,10 @@ export class SelectDepartmentComponent implements OnInit, ControlValueAccessor {
 	ngOnInit(): void {
 		this.activityDepartmentsList$ =
 			this._departmentService.getDepartmentsList$();
+
 		this._subscription.add(
 			this.activityDepartmentsList$.subscribe(departments => {
 				this.departments = departments;
-				console.log('Departments loaded:', this.departments);
 			}),
 		);
 	}
@@ -52,22 +52,22 @@ export class SelectDepartmentComponent implements OnInit, ControlValueAccessor {
 		if (this.disabled) {
 			return;
 		}
+
 		this.value = value;
 		this.selectedDepartmentId = value;
-		// Trouver le département correspondant dans la liste des départements
 		this.selectedDepartment = this.departments.find(dept => dept.id === value);
-		console.log('Selected Department:', this.selectedDepartment);
+
 		this.onChanged(value);
 		this.markAsTouched();
 	}
 
 	writeValue(value: string): void {
 		this.selectedDepartmentId = value;
+
 		if (this.departments && this.departments.length > 0) {
 			this.selectedDepartment = this.departments.find(
 				dept => dept.id === value,
 			);
-			console.log('writeValue - Selected Department:', this.selectedDepartment);
 		}
 	}
 

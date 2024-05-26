@@ -26,7 +26,6 @@ export class AccountPersonalInfosFormComponent implements OnInit {
 
 	ngOnInit(): void {
 		this.connectedUser = this._authService.getConnectedUserData();
-		console.log(this.connectedUser);
 
 		this.userDetails$ = this._userService.getUserInfos$(
 			this.connectedUser.userDetailsId,

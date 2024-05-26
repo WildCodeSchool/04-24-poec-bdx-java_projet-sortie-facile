@@ -47,8 +47,6 @@ export class AccountAddressFormComponent implements OnInit {
 	}
 
 	onSave(): void {
-		console.log(this.connectedUser.userDetailsId, this.userAddressDatasForm);
-
 		this.userDetails$ = this._userService.patchUserInfo$(
 			this.connectedUser.userDetailsId,
 			this.userAddressDatasForm,
