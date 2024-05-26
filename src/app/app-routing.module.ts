@@ -4,43 +4,48 @@ import { AdminModule } from '@admin/admin.module';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { ContactComponent } from './contact/contact.component';
 import { ActivityModule } from '@activity/activity.module';
+import { PrimaryRouteEnum } from '@shared/models/enums/route.enum';
 
 const routes: Routes = [
 	{
-		path: '',
+		path: PrimaryRouteEnum.DEFAULT,
 		loadChildren: () =>
 			import('./modules/landing/landing.module').then(m => m.LandingModule),
 	},
 	{
-		path: 'activity',
+		path: PrimaryRouteEnum.ACTIVITY,
 		loadChildren: () =>
 			import('./modules/activity/activity.module').then(m => m.ActivityModule),
 	},
 	{
-		path: 'admin',
+		path: PrimaryRouteEnum.ADMIN,
 		loadChildren: () =>
 			import('./modules/admin/admin.module').then(m => m.AdminModule),
 	},
 	{
-		path: 'booking',
+		path: PrimaryRouteEnum.BOOKING,
 		loadChildren: () =>
 			import('./modules/booking/booking.module').then(m => m.BookingModule),
 	},
 	{
-		path: 'user',
+		path: PrimaryRouteEnum.USER,
 		loadChildren: () =>
 			import('./modules/user/user.module').then(m => m.UserModule),
 	},
 
 	{
-		path: 'auth',
+		path: PrimaryRouteEnum.AUTHENTICATION,
 		loadChildren: () =>
 			import('./modules/authentication/authentication.module').then(
 				m => m.AuthenticationModule,
 			),
 	},
-	{ path: 'contact', component: ContactComponent },
-	{ path: '**', pathMatch: 'full', component: PagenotfoundComponent },
+	{ path: PrimaryRouteEnum.CONTACT, component: ContactComponent },
+	{
+		path: PrimaryRouteEnum.NOT_FOUND,
+		pathMatch: 'full',
+		component: PagenotfoundComponent,
+	},
 ];
 
 @NgModule({

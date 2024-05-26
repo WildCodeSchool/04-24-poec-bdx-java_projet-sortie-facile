@@ -4,12 +4,13 @@ import { ActivityDetailsComponent } from '@activity/pages/activity-details/activ
 import { UpdateActivityComponent } from '@activity/pages/update-activity/update-activity.component';
 import { ActivityListComponent } from '@activity/pages/activity-list/activity-list.component';
 import { ActivityCreateComponent } from '@activity/pages/activity-create/activity-create.component';
+import { ActivityRouteEnum } from '@shared/models/enums/route.enum';
 
 const routes: Routes = [
-	{ path: 'create', component: ActivityCreateComponent },
-	{ path: 'home', component: ActivityListComponent },
-	{ path: 'details/:id', component: ActivityDetailsComponent },
-	{ path: 'update/:id', component: UpdateActivityComponent },
+	{ path: ActivityRouteEnum.HOME, component: ActivityListComponent },
+	{ path: ActivityRouteEnum.POST, component: ActivityCreateComponent },
+	{ path: ActivityRouteEnum.DETAILS, component: ActivityDetailsComponent },
+	{ path: ActivityRouteEnum.UPDATE, component: UpdateActivityComponent },
 ];
 
 @NgModule({
