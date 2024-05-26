@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Booking } from '@shared/models/classes/booking/booking.class';
-import { BookingService, BookingTuto } from '@shared/services/booking.service';
+import { BookingUserActivity } from '@shared/models/classes/booking/booking-user-activity.class';
+import { BookingService } from '@shared/services/booking.service';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -9,8 +9,8 @@ import { Observable } from 'rxjs';
 	styleUrl: './booking-home.component.scss',
 })
 export class BookingHomeComponent implements OnInit {
-	reservations$!: Observable<BookingTuto[]>;
-	reservation$!: Observable<BookingTuto>;
+	reservations$!: Observable<BookingUserActivity[]>;
+	reservation$!: Observable<BookingUserActivity>;
 
 	constructor(private bookingService: BookingService) {}
 

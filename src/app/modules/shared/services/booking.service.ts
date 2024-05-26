@@ -17,15 +17,7 @@ import { Booking } from '@shared/models/classes/booking/booking.class';
 import { Activity } from '@activity/models/classes/activity.class';
 import { AuthUser } from '@shared/models/classes/auth-user/auth-user.class';
 import { BookingListResponseApi } from '@shared/models/classes/booking';
-
-// TODO creates a class instead of an interface
-export interface BookingTuto {
-	id: string;
-	userId: string;
-	activityId: string;
-	user?: AuthUser;
-	activity?: Activity;
-}
+import { BookingUserActivity } from '@shared/models/classes/booking/booking-user-activity.class';
 
 @Injectable({
 	providedIn: 'root',
@@ -52,7 +44,7 @@ export class BookingService {
 	// 		.pipe(map((response: reservations) => response));
 	// }
 
-	getReservationList$(): Observable<BookingTuto[]> {
+	getReservationList$(): Observable<BookingUserActivity[]> {
 		return this.http.get<Booking[]>('http://localhost:3000/reservation').pipe(
 			mergeMap((reservations: BookingListResponseApi) => {
 				const detailedReservations$ = reservations.map(
