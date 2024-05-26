@@ -26,7 +26,7 @@ export class ModalConfirmReservationComponent {
 		this.confirmationService.confirm({
 			header: 'Confirmation',
 			message: 'Comfirmer votre inscription',
-			acceptLabel: 'Oui', // Personnalisation du bouton Oui
+			acceptLabel: 'Oui',
 			rejectLabel: 'Non',
 			accept: () => {
 				this.bookingService.onSubmit(this.myForm);
@@ -38,7 +38,7 @@ export class ModalConfirmReservationComponent {
 				});
 				setTimeout(() => {
 					this.router.navigateByUrl('/user/profile');
-				}, 3000); // 5000 milliseconds = 5 seconds
+				}, 3000);
 			},
 			reject: () => {
 				this.messageService.add({

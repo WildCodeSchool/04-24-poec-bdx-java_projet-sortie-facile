@@ -28,10 +28,9 @@ export class AccountActivitiesManagementComponent
 
 	override ngOnInit(): void {
 		super.ngOnInit();
-		// get connecteduser pour récuperer l'id de l'utilisateur connecté,
 		this._activityService
 			.getActivityListByCreatedUser$(10, this.connectedUser.id)
-			// .getActivityListByCreatedUser$(10, this.connectedUser.id)
+			
 			.pipe(
 				tap(activities => {
 					this.activityByCreatedUserList = activities;

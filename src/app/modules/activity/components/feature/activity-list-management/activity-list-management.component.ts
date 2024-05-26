@@ -13,6 +13,7 @@ import { ActivityService } from '@shared/services/activity.service';
 import { AuthService } from '@shared/services/auth.service';
 import { CategoryService } from '@shared/services/category.service';
 import { Observable, map } from 'rxjs';
+import { LazyLoadEvent } from 'primeng/api';
 
 @Component({
 	selector: 'app-activity-list-management',
@@ -129,9 +130,9 @@ export class ActivityListManagementComponent implements OnInit, OnChanges {
 		});
 	}
 
-	onPageChange(event: any): void {
-		this.first = event.first;
-		this.rows = event.rows;
+	onPageChange(event: LazyLoadEvent): void {
+		this.first = event.first as number;
+		this.rows = event.rows as number;
 		this.activityList$.subscribe(activities => {
 			this.updatePageActivities(activities);
 		});
@@ -152,8 +153,8 @@ export class ActivityListManagementComponent implements OnInit, OnChanges {
 	getCategoryTitle(categoryId: string): Observable<string> {
 		return this.categoryService.getCategoryById$(categoryId);
 	}
-	onActivityHidden(activity: Activity): void {
-		// Mettez à jour la liste des activités après avoir masqué une activité
+
+	onActivityHidden(): void {
 		this.filterActivities();
 	}
 }

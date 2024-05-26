@@ -39,18 +39,16 @@ export class ActivityService {
 			.get<Activity>(`${this._BASE_URL}/${id}`)
 			.pipe(map((response: Activity) => response));
 	}
-	//  ajouter parametre id + filtre au niveau du map userid = userid
 	getActivityListByCreatedUser$(
 		limit: number = -1,
 		id: string,
 	): Observable<ActivityListResponseApi> {
 		return this._httpClient.get<Activity[]>(this._BASE_URL).pipe(
 			map((activities: Activity[]) => {
-				// Filter activities by user ID
 				const filteredActivities = activities.filter(
 					activity => activity.userId === id,
 				);
-				// Apply limit if greater than 0
+
 				return limit > 0
 					? filteredActivities.slice(0, limit)
 					: filteredActivities;
@@ -93,7 +91,7 @@ export class ActivityService {
 	postNewActivity$(newActivity: Activity): Observable<Activity> {
 		const activityToPost = {
 			...newActivity,
-			isVisible: true, // Assurez-vous que isVisible est bien initialisé à true
+			isVisible: true,
 		};
 
 		return this._httpClient.post<Activity>(this._BASE_URL, activityToPost).pipe(

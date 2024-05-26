@@ -61,7 +61,7 @@ export class AuthUserServiceUtils {
 		return this._userConnected;
 	}
 
-	public setConnectedUserData(user: any): void {
+	public setConnectedUserData(user: AuthUserPrimaryDatas): void {
 		this._userConnected = user;
 	}
 

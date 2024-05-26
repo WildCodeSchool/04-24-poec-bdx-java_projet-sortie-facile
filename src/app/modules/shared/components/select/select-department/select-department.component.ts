@@ -18,7 +18,7 @@ import { Observable, Subscription } from 'rxjs';
 })
 export class SelectDepartmentComponent implements OnInit, ControlValueAccessor {
 	departments: Department[] = [];
-	selectedDepartmentId: string = ''; // Changed to string type
+	selectedDepartmentId: string = '';
 	selectedDepartment: Department | undefined;
 
 	activityDepartmentsList$!: Observable<Department[]>;

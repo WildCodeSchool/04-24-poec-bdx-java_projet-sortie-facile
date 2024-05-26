@@ -44,7 +44,7 @@ export class AuthLoginManagementComponent implements OnInit {
 					next: (user: AuthUserPrimaryDatas) => {
 						localStorage.setItem('user', JSON.stringify(user));
 					},
-					error: (error: any) => {
+					error: (error: Error) => {
 						this.errorLoginQueryMessage = error.message;
 					},
 				});

@@ -15,10 +15,4 @@ export class DepartmentService {
 			.get<Department[]>(this._BASE_URL)
 			.pipe(map((response: Department[]) => response));
 	}
-
-	// getActivityListByDepartmentsId$(id: string): Observable<Department[]> {
-	// 	return this._httpClient.get<Department[]>(
-	// 		`${this._BASE_URL}?departments=${id}`,
-	// 	);
-	// }
 }

@@ -71,7 +71,7 @@ export class AuthService extends AuthUserServiceUtils {
 	createUserWithEmailAndPassword(
 		newUserAuthInfos: NewAuthUserFormDatas,
 		newUserPersonalInfos: NewUserUserDetailsFormDatas,
-	): Observable<any> {
+	): Observable<NewAuthUser> {
 		return this._httpClient
 			.post<NewAuthUser>(`${this.BASE_URL}`, newUserAuthInfos)
 			.pipe(

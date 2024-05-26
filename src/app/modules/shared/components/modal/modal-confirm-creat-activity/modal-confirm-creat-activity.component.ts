@@ -38,7 +38,7 @@ export class ModalConfirmCreatActivityComponent implements OnInit {
 				message: 'Confirmer la création de votre activité',
 				accept: () => this.onAccept(),
 				reject: () => this.onReject(),
-				acceptLabel: 'Oui', // Personnalisation du bouton Oui
+				acceptLabel: 'Oui',
 				rejectLabel: 'Non',
 			});
 		} else {
