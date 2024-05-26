@@ -1,5 +1,5 @@
-import { Category } from '@shared/models/classes/category.class';
-import { City } from '@shared/models/classes/city.class';
+import { Category } from '@shared/models/classes/category/category.class';
+import { City } from '@shared/models/classes/address/city.class';
 
 export class Activity {
 	id: string;

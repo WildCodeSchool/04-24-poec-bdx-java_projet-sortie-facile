@@ -1,13 +1,13 @@
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { Observable, Subscription } from 'rxjs';
 import { ActivityService } from '@shared/services/activity.service';
-import { Activities } from '@shared/models/types/activities.type';
 import { ActivatedRoute } from '@angular/router';
 import { BookingService } from '@shared/services/booking.service';
-import { UserDetails } from '@shared/models/types/user-details.type';
 import { NgForm } from '@angular/forms';
 import { Activity } from '@activity/models/classes/activity.class';
-import { Booking } from '@shared/models/classes/booking.class';
+import { Booking } from '@shared/models/classes/booking/booking.class';
+import { UserDetails } from '@shared/models/classes/user-details/user-details.class';
+import { ActivityListResponseApi } from '@shared/models/classes/activity';
 
 @Component({
 	selector: 'app-activity-details',
@@ -15,7 +15,7 @@ import { Booking } from '@shared/models/classes/booking.class';
 	styleUrl: './activity-details.component.scss',
 })
 export class ActivityDetailsComponent implements OnInit, OnDestroy {
-	activities$!: Observable<Activities>;
+	activities$!: Observable<ActivityListResponseApi>;
 	activity$!: Observable<Activity>;
 	categoryTitle$!: Observable<string>;
 	userDetails!: UserDetails;

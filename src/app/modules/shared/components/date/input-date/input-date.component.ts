@@ -1,6 +1,6 @@
 import { Component, Input, forwardRef } from '@angular/core';
 import { NG_VALUE_ACCESSOR, NgForm } from '@angular/forms';
-import { FormInputControlValueAccessor } from '@shared/models/classes/form-input-control-value-accessor.class';
+import { FormInputControlValueAccessor } from '@shared/models/classes/utils/form-input-control-value-accessor.class';
 
 @Component({
 	selector: 'app-input-date',

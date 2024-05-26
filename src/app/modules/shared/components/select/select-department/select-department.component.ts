@@ -1,6 +1,6 @@
 import { Component, Input, OnInit, forwardRef } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { Department } from '@shared/models/classes/department.class';
+import { Department } from '@shared/models/classes/address/department.class';
 import { DepartmentService } from '@shared/services/department.service';
 import { Observable, Subscription } from 'rxjs';
 

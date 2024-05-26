@@ -1,14 +1,11 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { NewUserPersonalInfosFormDatas } from '@shared/models/classes/new-user-personal-infos-form-datas.class';
-import { UserInfo } from '@shared/models/classes/user-infos.type';
-import {
-	UserDetails,
-	UserDetailsPatch,
-	UserDetailsPersonalInfosForm,
-} from '@shared/models/types/user-details.type';
+import { NewUserUserDetailsFormDatas } from '@shared/models/classes/user-details/new-user-details-form-datas.class';
+import { UserDetailsPatch } from '@shared/models/classes/user-details/user-details-patch.class';
+import { UserDetailsPersonalInfosForm } from '@shared/models/classes/user-details/user-details-personal-info-form.class';
+import { UserDetails } from '@shared/models/classes/user-details/user-details.class';
 import { Observable } from 'rxjs';
-('ok');
+
 @Injectable({
 	providedIn: 'root',
 })
@@ -22,9 +19,9 @@ export class UserService {
 	}
 
 	postUserInfos$(
-		userInfos: NewUserPersonalInfosFormDatas,
-	): Observable<UserInfo> {
-		return this._httpClient.post<UserInfo>(this._BASE_URL, userInfos);
+		userInfos: NewUserUserDetailsFormDatas,
+	): Observable<UserDetails> {
+		return this._httpClient.post<UserDetails>(this._BASE_URL, userInfos);
 	}
 
 	putUserInfo$(

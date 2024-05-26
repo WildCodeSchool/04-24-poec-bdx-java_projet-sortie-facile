@@ -1,12 +1,11 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, catchError, map, switchMap, tap } from 'rxjs';
-import { Activities } from '@models/types/activities.type';
-import { Category } from '@models/types/category.type';
+import { Observable, catchError, map, tap } from 'rxjs';
 import { Router } from '@angular/router';
-import { Department } from '@shared/models/classes/department.class';
+import { Department } from '@shared/models/classes/address/department.class';
 import { Activity } from '@activity/models/classes/activity.class';
-import { ConfirmationService } from 'primeng/api';
+import { ActivityListResponseApi } from '@shared/models/classes/activity';
+import { Category } from '@shared/models/classes/category/category.class';
 
 @Injectable({
 	providedIn: 'root',
@@ -44,7 +43,7 @@ export class ActivityService {
 	getActivityListByCreatedUser$(
 		limit: number = -1,
 		id: string,
-	): Observable<Activities> {
+	): Observable<ActivityListResponseApi> {
 		return this._httpClient.get<Activity[]>(this._BASE_URL).pipe(
 			map((activities: Activity[]) => {
 				// Filter activities by user ID

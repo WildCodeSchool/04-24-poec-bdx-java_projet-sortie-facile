@@ -2,7 +2,7 @@ import { Activity } from '@activity/models/classes/activity.class';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { Category } from '@shared/models/classes/category.class';
+import { Category } from '@shared/models/classes/category/category.class';
 import { Observable, map } from 'rxjs';
 
 @Injectable({
@@ -40,7 +40,7 @@ export class CategoryService {
 			.get<Category>(`http://localhost:3000/category/${categoryId}`)
 			.pipe(
 				map((category: Category) => {
-					return category.title;
+					return category.name;
 				}),
 			);
 	}

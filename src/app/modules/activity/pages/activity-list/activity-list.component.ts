@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { Category } from '@shared/models/classes/category.class';
-import { Department } from '@shared/models/classes/department.class';
+import { Category } from '@shared/models/classes/category/category.class';
+import { Department } from '@shared/models/classes/address/department.class';
 
 @Component({
 	selector: 'app-activity-list',

@@ -1,8 +1,8 @@
 import { NewActivity } from '@activity/models/classes/new-activity.class';
 import { Component, OnDestroy } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { Category } from '@shared/models/classes/category.class';
-import { City } from '@shared/models/classes/city.class';
+import { City } from '@shared/models/classes/address/city.class';
+import { Category } from '@shared/models/classes/category/category.class';
 import { ActivityService } from '@shared/services/activity.service';
 import { Subscription } from 'rxjs';
 
@@ -19,7 +19,7 @@ export class ActivityCreateManagementComponent implements OnDestroy {
 	newActivity: NewActivity = new NewActivity(
 		'toto',
 		'',
-		new City(1, ''),
+		new City('', ''),
 		'',
 		0,
 		'',
@@ -29,6 +29,7 @@ export class ActivityCreateManagementComponent implements OnDestroy {
 		new Category('1', ''),
 		'',
 		'',
+		true,
 	);
 
 	onSubmit(form: NgForm): void {

@@ -2,8 +2,8 @@ import { Activity } from '@activity/models/classes/activity.class';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Category } from '@shared/models/classes/category.class';
-import { City } from '@shared/models/classes/city.class';
+import { Category } from '@shared/models/classes/category/category.class';
+import { City } from '@shared/models/classes/address/city.class';
 import { ActivityService } from '@shared/services/activity.service';
 import { Subscription, map } from 'rxjs';
 
@@ -25,7 +25,7 @@ export class ActivityUpdateManagementComponent implements OnInit, OnDestroy {
 		'',
 		'',
 		'',
-		new City(0, ''),
+		new City('', ''),
 		'',
 		0,
 		'',

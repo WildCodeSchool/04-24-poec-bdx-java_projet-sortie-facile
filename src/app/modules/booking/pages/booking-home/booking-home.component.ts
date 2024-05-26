@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Booking } from '@shared/models/classes/booking.class';
+import { Booking } from '@shared/models/classes/booking/booking.class';
 import { BookingService, BookingTuto } from '@shared/services/booking.service';
 import { Observable } from 'rxjs';
 

@@ -6,9 +6,9 @@ import {
 	OnInit,
 	SimpleChanges,
 } from '@angular/core';
-import { Category } from '@shared/models/classes/category.class';
-import { Department } from '@shared/models/classes/department.class';
-import { UserAuthPrimaryDatas } from '@shared/models/types/user-list-response-api.type';
+import { Department } from '@shared/models/classes/address/department.class';
+import { Category } from '@shared/models/classes/category/category.class';
+import { AuthUserPrimaryDatas } from '@shared/models/classes/auth-user/auth-user-primary-datas.class';
 import { ActivityService } from '@shared/services/activity.service';
 import { AuthService } from '@shared/services/auth.service';
 import { CategoryService } from '@shared/services/category.service';
@@ -24,7 +24,7 @@ export class ActivityListManagementComponent implements OnInit, OnChanges {
 	activityList$!: Observable<Activity[]>;
 	activity$!: Observable<Activity>;
 	pagedActivities: Activity[] = [];
-	connectedUser!: UserAuthPrimaryDatas;
+	connectedUser!: AuthUserPrimaryDatas;
 
 	@Input() searchedValue: string = '';
 	@Input() selectedCategoryId!: Category;

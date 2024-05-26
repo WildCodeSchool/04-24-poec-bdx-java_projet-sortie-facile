@@ -1,6 +1,6 @@
 import { Component, Input, OnInit, forwardRef } from '@angular/core';
-import { City } from '@models/types/city.type';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { City } from '@shared/models/classes/address/city.class';
 
 @Component({
 	selector: 'app-select-city',
@@ -28,11 +28,11 @@ export class SelectCityComponent implements OnInit, ControlValueAccessor {
 
 	ngOnInit() {
 		this.cities = [
-			{ id: 1, name: 'New York' },
-			{ id: 2, name: 'Rome' },
-			{ id: 3, name: 'London' },
-			{ id: 4, name: 'Istanbul' },
-			{ id: 5, name: 'Paris' },
+			{ id: '1', name: 'New York' },
+			{ id: '2', name: 'Rome' },
+			{ id: '3', name: 'London' },
+			{ id: '4', name: 'Istanbul' },
+			{ id: '5', name: 'Paris' },
 		];
 	}
 

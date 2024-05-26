@@ -1,6 +1,6 @@
 import { Activity } from '@activity/models/classes/activity.class';
 import { Component, Input, OnInit } from '@angular/core';
-import { CarouselResponsiveOption } from '@shared/models/types/carouselResponsiveOption.type';
+import { CarouselResponsiveOption } from '@shared/models/classes/utils/carousel-responsive-option.class';
 
 @Component({
 	selector: 'app-carousel',
@@ -18,16 +18,8 @@ export class CarouselComponent implements OnInit {
 
 	ngOnInit() {
 		this.responsiveOptions = [
-			{
-				breakpoint: '1199px',
-				numVisible: 1,
-				numScroll: 1,
-			},
-			{
-				breakpoint: '991px',
-				numVisible: 2,
-				numScroll: 1,
-			},
+			new CarouselResponsiveOption('1199px', 1, 1),
+			new CarouselResponsiveOption('991px', 2, 1),
 		];
 	}
 }

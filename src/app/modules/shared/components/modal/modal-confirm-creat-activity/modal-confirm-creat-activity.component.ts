@@ -2,7 +2,7 @@ import { Activity } from '@activity/models/classes/activity.class';
 import { Component, Input, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
-import { UserAuthPrimaryDatas } from '@shared/models/types/user-list-response-api.type';
+import { AuthUserPrimaryDatas } from '@shared/models/classes/auth-user/auth-user-primary-datas.class';
 import { ActivityService } from '@shared/services/activity.service';
 import { AuthService } from '@shared/services/auth.service';
 import { ConfirmationService, MessageService } from 'primeng/api';
@@ -17,7 +17,7 @@ import { catchError, tap } from 'rxjs';
 export class ModalConfirmCreatActivityComponent implements OnInit {
 	@Input() myForm!: NgForm;
 
-	connectedUser!: UserAuthPrimaryDatas;
+	connectedUser!: AuthUserPrimaryDatas;
 
 	constructor(
 		private confirmationService: ConfirmationService,

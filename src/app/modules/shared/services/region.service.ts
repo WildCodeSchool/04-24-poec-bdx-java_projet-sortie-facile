@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Region } from '@shared/models/classes/region.class';
+import { Region } from '@shared/models/classes/address/region.class';
 import { Observable, of } from 'rxjs';
 
 @Injectable({

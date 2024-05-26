@@ -13,16 +13,17 @@ import {
 } from 'rxjs';
 import { ActivityService } from './activity.service';
 import { UserService } from './user.service';
-import { Booking } from '@shared/models/classes/booking.class';
+import { Booking } from '@shared/models/classes/booking/booking.class';
 import { Activity } from '@activity/models/classes/activity.class';
-import { User } from '@shared/models/classes/user.class';
+import { AuthUser } from '@shared/models/classes/auth-user/auth-user.class';
+import { BookingListResponseApi } from '@shared/models/classes/booking';
 
 // TODO creates a class instead of an interface
 export interface BookingTuto {
 	id: string;
 	userId: string;
 	activityId: string;
-	user?: User;
+	user?: AuthUser;
 	activity?: Activity;
 }
 
@@ -53,24 +54,26 @@ export class BookingService {
 
 	getReservationList$(): Observable<BookingTuto[]> {
 		return this.http.get<Booking[]>('http://localhost:3000/reservation').pipe(
-			mergeMap((reservations: Booking[]) => {
-				const detailedReservations$ = reservations.map(reservation => {
-					const user$ = this.http.get<User>(
-						`http://localhost:3000/user/${reservation.userId}`,
-					);
+			mergeMap((reservations: BookingListResponseApi) => {
+				const detailedReservations$ = reservations.map(
+					(reservation: Booking) => {
+						const user$ = this.http.get<AuthUser>(
+							`http://localhost:3000/user/${reservation.userId}`,
+						);
 
-					const activity$ = this.http.get<Activity>(
-						`http://localhost:3000/activity/${reservation.activityId}`,
-					);
+						const activity$ = this.http.get<Activity>(
+							`http://localhost:3000/activity/${reservation.activityId}`,
+						);
 
-					return forkJoin([user$, activity$]).pipe(
-						map(([user, activity]) => ({
-							...reservation,
-							user,
-							activity,
-						})),
-					);
-				});
+						return forkJoin([user$, activity$]).pipe(
+							map(([user, activity]) => ({
+								...reservation,
+								user,
+								activity,
+							})),
+						);
+					},
+				);
 
 				// Utilisez forkJoin pour attendre que toutes les requêtes soient terminées
 				return forkJoin(detailedReservations$);

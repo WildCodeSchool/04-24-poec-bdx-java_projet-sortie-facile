@@ -1,10 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { UserDetailsAddressForm } from '@shared/models/classes/user-details/user-details-address-form.class';
+import { UserDetails } from '@shared/models/classes/user-details/user-details.class';
 import { InputNumberModeEnum } from '@shared/models/enums/InputNumberMode.enum';
-import {
-	UserDetails,
-	UserDetailsAddressForm,
-} from '@shared/models/types/user-details.type';
-import { UserAuthPrimaryDatas } from '@shared/models/types/user-list-response-api.type';
+import { AuthUserPrimaryDatas } from '@shared/models/classes/auth-user/auth-user-primary-datas.class';
 import { AuthService } from '@shared/services/auth.service';
 import { UserService } from '@shared/services/user.service';
 import { Observable, map } from 'rxjs';
@@ -15,7 +13,7 @@ import { Observable, map } from 'rxjs';
 	styleUrl: './account-address-form.component.scss',
 })
 export class AccountAddressFormComponent implements OnInit {
-	connectedUser!: UserAuthPrimaryDatas;
+	connectedUser!: AuthUserPrimaryDatas;
 	userDetails$!: Observable<UserDetails>;
 	isViewDatas: boolean = true;
 	userAddressDatasForm!: UserDetailsAddressForm;

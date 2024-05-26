@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { UserLayoutLink } from '@models/types/user-layout-link';
+import { UserLayoutLink } from '@shared/models/types/utils/user-layout-link.type';
 
 @Component({
 	selector: 'app-layout-nav',

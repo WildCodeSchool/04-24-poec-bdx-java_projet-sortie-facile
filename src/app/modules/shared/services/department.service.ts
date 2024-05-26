@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Department } from '@shared/models/classes/department.class';
+import { Department } from '@shared/models/classes/address/department.class';
 import { Observable, map } from 'rxjs';
 
 @Injectable({

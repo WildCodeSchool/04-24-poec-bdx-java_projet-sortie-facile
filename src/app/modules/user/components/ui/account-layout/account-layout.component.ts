@@ -1,5 +1,5 @@
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
-import { UserAuthPrimaryDatas } from '@shared/models/types/user-list-response-api.type';
+import { AuthUserPrimaryDatas } from '@shared/models/classes/auth-user/auth-user-primary-datas.class';
 import { AccountService } from '@shared/services/account.service';
 import { AuthService } from '@shared/services/auth.service';
 import { MenuItem } from 'primeng/api';
@@ -19,7 +19,7 @@ export class AccountLayoutComponent implements OnInit, OnDestroy {
 
 	items: MenuItem[] | undefined;
 	activeItem: MenuItem | undefined;
-	connectedUser!: UserAuthPrimaryDatas;
+	connectedUser!: AuthUserPrimaryDatas;
 	subscription: Subscription = new Subscription();
 
 	ngOnInit() {
@@ -38,7 +38,7 @@ export class AccountLayoutComponent implements OnInit, OnDestroy {
 	}
 
 	onDeleteUser(): void {
-		console.log("ca marche???");
+		console.log('ca marche???');
 		this._authService.deleteUser(this.connectedUser.id).subscribe();
 	}
 
