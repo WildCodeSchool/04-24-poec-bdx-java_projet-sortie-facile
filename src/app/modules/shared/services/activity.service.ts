@@ -12,7 +12,7 @@ import { Category } from '@shared/models/classes/category/category.class';
 })
 export class ActivityService {
 	activity!: Activity;
-	activities!: Activity[];
+	activities!: ActivityListResponseApi;
 	category!: Category;
 	categories!: Category[];
 	department!: Department;
@@ -24,9 +24,9 @@ export class ActivityService {
 		private _router: Router,
 	) {}
 
-	getActivityList$(): Observable<Activity[]> {
-		return this._httpClient.get<Activity[]>(this._BASE_URL).pipe(
-			map(activities =>
+	getActivityList$(): Observable<ActivityListResponseApi> {
+		return this._httpClient.get<ActivityListResponseApi>(this._BASE_URL).pipe(
+			map((activities: ActivityListResponseApi) =>
 				activities.filter(activity => activity.isVisible === true),
 			),
 			catchError(error => {
@@ -34,18 +34,20 @@ export class ActivityService {
 			}),
 		);
 	}
+
 	getActivityById$(id: string): Observable<Activity> {
 		return this._httpClient
 			.get<Activity>(`${this._BASE_URL}/${id}`)
-			.pipe(map((response: Activity) => response));
+			.pipe(map((activity: Activity) => activity));
 	}
+
 	getActivityListByCreatedUser$(
 		limit: number = -1,
 		id: string,
 	): Observable<ActivityListResponseApi> {
-		return this._httpClient.get<Activity[]>(this._BASE_URL).pipe(
-			map((activities: Activity[]) => {
-				const filteredActivities = activities.filter(
+		return this._httpClient.get<ActivityListResponseApi>(this._BASE_URL).pipe(
+			map((activities: ActivityListResponseApi) => {
+				const filteredActivities: ActivityListResponseApi = activities.filter(
 					activity => activity.userId === id,
 				);
 
@@ -55,20 +57,22 @@ export class ActivityService {
 			}),
 		);
 	}
-	filteredActivityList$(name: string): Observable<Activity[]> {
+
+	filteredActivityList$(name: string): Observable<ActivityListResponseApi> {
 		return this.getActivityList$().pipe(
-			map((activityList: Activity[]) =>
+			map((activityList: ActivityListResponseApi) =>
 				activityList.filter((activity: Activity) =>
 					activity.name.toLowerCase().includes(name.toLowerCase()),
 				),
 			),
 		);
 	}
+
 	filteredActivityListByCategory$(
 		categoryId: Category,
-	): Observable<Activity[]> {
+	): Observable<ActivityListResponseApi> {
 		return this.getActivityList$().pipe(
-			map((activityList: Activity[]) =>
+			map((activityList: ActivityListResponseApi) =>
 				activityList.filter((activity: Activity) => {
 					return activity.categoryId.id === categoryId.id;
 				}),
@@ -78,9 +82,9 @@ export class ActivityService {
 
 	filteredActivityListByDepartment$(
 		department: Department,
-	): Observable<Activity[]> {
+	): Observable<ActivityListResponseApi> {
 		return this.getActivityList$().pipe(
-			map((activityList: Activity[]) =>
+			map((activityList: ActivityListResponseApi) =>
 				activityList.filter((activity: Activity) => {
 					return activity.department === department.id;
 				}),
@@ -95,7 +99,7 @@ export class ActivityService {
 		};
 
 		return this._httpClient.post<Activity>(this._BASE_URL, activityToPost).pipe(
-			tap(activity => {
+			tap((activity: Activity) => {
 				this._router.navigate(['/activity/details', activity.id]);
 			}),
 			catchError(error => {
@@ -120,13 +124,16 @@ export class ActivityService {
 		});
 	}
 
-	getVisibleActivities(): Observable<Activity[]> {
+	getVisibleActivities(): Observable<ActivityListResponseApi> {
 		return this._httpClient
-			.get<Activity[]>(this._BASE_URL)
+			.get<ActivityListResponseApi>(this._BASE_URL)
 			.pipe(
-				map(activities => activities.filter(activity => activity.isVisible)),
+				map((activities: ActivityListResponseApi) =>
+					activities.filter(activity => activity.isVisible),
+				),
 			);
 	}
+
 	updateActivity$(
 		id: string,
 		updatedData: Partial<Activity>,

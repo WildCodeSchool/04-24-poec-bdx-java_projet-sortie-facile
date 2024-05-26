@@ -12,8 +12,8 @@ export class ParagraphSplitPipe implements PipeTransform {
 			return '';
 		}
 
-		const paragraphsSplit = value.split('  ');
-		const paragraphElements = paragraphsSplit
+		const paragraphsSplit: string[] = value.split('  ');
+		const paragraphElements: string = paragraphsSplit
 			.map(paragraph => `<p>${paragraph}</p>`)
 			.join('');
 

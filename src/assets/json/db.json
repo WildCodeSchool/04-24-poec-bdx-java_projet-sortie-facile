@@ -344,7 +344,7 @@
 			"name": "History"
 		}
 	],
-	"reservation": [
+	"booking": [
 		{
 			"id": "1",
 			"userId": "2",

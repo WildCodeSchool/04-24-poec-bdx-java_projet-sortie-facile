@@ -15,6 +15,6 @@ export class DataBookingComponent implements OnInit {
 	constructor(private bookingService: BookingService) {}
 
 	ngOnInit(): void {
-		this.reservations$ = this.bookingService.getReservationList$();
+		this.reservations$ = this.bookingService.getBookingList$();
 	}
 }

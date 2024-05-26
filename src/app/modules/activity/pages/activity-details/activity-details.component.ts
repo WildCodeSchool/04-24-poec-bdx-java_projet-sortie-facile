@@ -37,7 +37,7 @@ export class ActivityDetailsComponent implements OnInit, OnDestroy {
 		this.activity$ = this.activityService.getActivityById$(id);
 	}
 	onSubmit(form: NgForm): void {
-		this.reservationService.postNewReservation$(form.value).subscribe();
+		this.reservationService.postNewBooking$(form.value).subscribe();
 	}
 
 	add(activity: Activity): void {
@@ -48,7 +48,7 @@ export class ActivityDetailsComponent implements OnInit, OnDestroy {
 		);
 
 		this._subscription.add(
-			this.reservationService.postNewReservation$(newReservation).subscribe(),
+			this.reservationService.postNewBooking$(newReservation).subscribe(),
 		);
 	}
 

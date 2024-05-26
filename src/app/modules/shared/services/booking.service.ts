@@ -21,59 +21,59 @@ import { BookingUserActivity } from '@shared/models/classes/booking/booking-user
 	providedIn: 'root',
 })
 export class BookingService {
+	private readonly _BASE_URL = 'http://localhost:3000/booking';
+	private readonly _USER_URL = 'http://localhost:3000/user';
+	private readonly _ACTIVITY_URL = 'http://localhost:3000/activity';
+
 	constructor(
 		private http: HttpClient,
 		private router: Router,
 	) {}
 
 	onSubmit(form: NgForm): void {
-		this.postNewReservation$(form.value).subscribe();
+		this.postNewBooking$(form.value).subscribe();
 	}
 
-	getReservationList$(): Observable<BookingUserActivity[]> {
-		return this.http.get<Booking[]>('http://localhost:3000/reservation').pipe(
-			mergeMap((reservations: BookingListResponseApi) => {
-				const detailedReservations$ = reservations.map(
-					(reservation: Booking) => {
-						const user$ = this.http.get<AuthUser>(
-							`http://localhost:3000/user/${reservation.userId}`,
-						);
+	getBookingList$(): Observable<BookingUserActivity[]> {
+		return this.http.get<Booking[]>(this._BASE_URL).pipe(
+			mergeMap((bookings: BookingListResponseApi) => {
+				const detailedReservations$ = bookings.map((booking: Booking) => {
+					const user$: Observable<AuthUser> = this.http.get<AuthUser>(
+						`${this._USER_URL}/${booking.userId}`,
+					);
 
-						const activity$ = this.http.get<Activity>(
-							`http://localhost:3000/activity/${reservation.activityId}`,
-						);
+					const activity$: Observable<Activity> = this.http.get<Activity>(
+						`${this._ACTIVITY_URL}/${booking.activityId}`,
+					);
 
-						return forkJoin([user$, activity$]).pipe(
-							map(([user, activity]) => ({
-								...reservation,
-								user,
-								activity,
-							})),
-						);
-					},
-				);
+					return forkJoin<[AuthUser, Activity]>([user$, activity$]).pipe(
+						map(([user, activity]) => ({
+							...booking,
+							user,
+							activity,
+						})),
+					);
+				});
 
 				return forkJoin(detailedReservations$);
 			}),
 		);
 	}
 
-	postNewReservation$(newReservation: Booking): Observable<Booking> {
-		return this.http.get<Booking[]>('http://localhost:3000/reservation').pipe(
-			switchMap(reservations => {
+	postNewBooking$(newBooking: Booking): Observable<Booking> {
+		return this.http.get<Booking[]>(this._BASE_URL).pipe(
+			switchMap((bookings: Booking[]) => {
 				const nextId =
-					reservations.length > 0
-						? Number(reservations[reservations.length - 1].id) + 1
+					bookings.length > 0
+						? Number(bookings[bookings.length - 1].id) + 1
 						: 1;
-				newReservation.id = String(nextId);
+				newBooking.id = String(nextId);
 
-				return this.http
-					.post<Booking>('http://localhost:3000/reservation', newReservation)
-					.pipe(
-						tap(() => {
-							this.router.navigate(['/user/home']);
-						}),
-					);
+				return this.http.post<Booking>(this._BASE_URL, newBooking).pipe(
+					tap(() => {
+						this.router.navigate(['/user/home']);
+					}),
+				);
 			}),
 
 			catchError(error => {
