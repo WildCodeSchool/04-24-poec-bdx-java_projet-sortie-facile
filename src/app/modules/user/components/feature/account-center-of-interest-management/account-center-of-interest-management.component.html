@@ -7,27 +7,6 @@
 		[pageDescription]="pageDescription"
 	>
 		<app-account-container-content
-			sectionTitle="Ajouter un Centre d’intérêts"
-			[hideBtn]="true"
-		>
-			<div class="content-box" data>
-				<form #addCategoryForm="ngForm" (ngSubmit)="onSubmit()">
-					<app-select-category
-						inputId="categoryId"
-						name="categoryId"
-						[required]="true"
-						#category="ngModel"
-						[(ngModel)]="formDatas.category"
-					></app-select-category>
-
-					<div class="btn-box">
-						<p-button label="Sauvegarder" [rounded]="true" />
-					</div>
-				</form>
-			</div>
-		</app-account-container-content>
-
-		<app-account-container-content
 			sectionTitle="Mes centres d’intérêts"
 			[hideBtn]="true"
 		>
@@ -39,6 +18,18 @@
 					>
 						<p>{{ category.name }}</p>
 					</div>
+				</div>
+
+				<div class="icon-box">
+					<p-button
+						icon="pi pi-plus"
+						[rounded]="true"
+						(click)="categoryModal.toggleShow()"
+					/>
+					<app-modal-add-category
+						#categoryModal
+						(categoriesUpdated)="onCategoryUpdated()"
+					></app-modal-add-category>
 				</div>
 			</div>
 		</app-account-container-content>

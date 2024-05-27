@@ -107,9 +107,12 @@
       "dateOfBirth": "1980-01-01",
       "genre": "masculin",
       "categoryIds": [
+        "3",
         "1",
-        "2",
-        "3"
+        "10",
+        "7",
+        "8",
+        "6"
       ],
       "userId": "1",
       "email": "j.doe@test.com"
@@ -504,7 +507,8 @@
       "imgUrl": "https://plus.unsplash.com/premium_photo-1664304359829-8763d9cc8046?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw1fHx8ZW58MHx8fHx8",
       "link": "https://example.com/activity1",
       "userId": "1",
-      "isVisible": true
+      "isVisible": true,
+      "department": "1"
     },
     {
       "id": "2",

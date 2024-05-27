@@ -26,6 +26,8 @@ import { MultiSelectModule } from 'primeng/multiselect';
 import { TableModule } from 'primeng/table';
 import { TieredMenuModule } from 'primeng/tieredmenu';
 import { PaginatorModule } from 'primeng/paginator';
+import { DialogModule } from 'primeng/dialog';
+import { CheckboxModule } from 'primeng/checkbox';
 
 @NgModule({
 	exports: [
@@ -57,6 +59,8 @@ import { PaginatorModule } from 'primeng/paginator';
 		TableModule,
 		TieredMenuModule,
 		PaginatorModule,
+		DialogModule,
+		CheckboxModule,
 	],
 })
 export class PrimengModule {}

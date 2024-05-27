@@ -22,6 +22,7 @@ import { DataBookingComponent } from '@shared/components/dashboard/data-booking/
 import { ModalConfirmContactComponent } from '@shared/components/modal/modal-confirm-contact/modal-confirm-contact.component';
 import { ModalConfirmDeleteActivityComponent } from '@shared/components/modal/modal-confirm-delete-activity/modal-confirm-delete-activity.component';
 import { ConfirmationService } from 'primeng/api';
+import { ModalAddCategoryComponent } from './components/modal/modal-add-category/modal-add-category.component';
 
 @NgModule({
 	declarations: [
@@ -40,6 +41,7 @@ import { ConfirmationService } from 'primeng/api';
 		ModalConfirmUpdateActivityComponent,
 		DataBookingComponent,
 		ModalConfirmDeleteActivityComponent,
+		ModalAddCategoryComponent,
 	],
 	imports: [
 		CommonModule,
@@ -70,6 +72,7 @@ import { ConfirmationService } from 'primeng/api';
 		ModalConfirmCreatActivityComponent,
 		DataBookingComponent,
 		ModalConfirmDeleteActivityComponent,
+		ModalAddCategoryComponent,
 	],
 })
 export class SharedModule {}
