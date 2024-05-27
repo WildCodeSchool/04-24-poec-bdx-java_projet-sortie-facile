@@ -38,7 +38,17 @@
 .p-menuitem-icon {
 	color: var(--white-color);
 }
+.icon {
+	display: flex;
+	flex-direction: row;
+}
 
+.green-dot {
+	width: 10px;
+	height: 10px;
+	border-radius: 50%;
+	background-color: rgb(48, 209, 48);
+}
 .p-menuitem-text {
 	color: var(--white-color);
 }
