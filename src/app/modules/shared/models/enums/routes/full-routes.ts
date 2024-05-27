@@ -19,6 +19,7 @@ export enum FullAuthenticationRouteEnum {
 export enum FullBookingRouteEnum {
 	HOME = '/' + PrimaryRouteEnum.BOOKING + '/home',
 	DATA = '/' + PrimaryRouteEnum.BOOKING + '/data',
+	GRAPH = '/' + PrimaryRouteEnum.BOOKING + '/graph',
 }
 // TODO /contacts, /home etc....
 // export enum LandingRouteEnum {

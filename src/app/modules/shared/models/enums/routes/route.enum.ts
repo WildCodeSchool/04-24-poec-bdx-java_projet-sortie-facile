@@ -28,6 +28,7 @@ export enum AuthenticationRouteEnum {
 export enum BookingRouteEnum {
 	HOME = 'home',
 	DATA = 'data',
+	GRAPH = 'graph',
 }
 
 export enum LandingRouteEnum {
