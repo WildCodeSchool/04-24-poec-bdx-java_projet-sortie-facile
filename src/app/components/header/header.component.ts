@@ -13,7 +13,7 @@ import { Observable } from 'rxjs';
 export class HeaderComponent implements OnInit {
 	profileItems$!: Observable<MenuItem[]>;
 	items$!: Observable<MenuItem[]>;
-	isUserLoggedIn: boolean = true;
+	isUserLoggedIn: boolean = false;
 	@Input() connectedUser!: AuthUserPrimaryDatas;
 	constructor(
 		private _authService: AuthService,
@@ -24,5 +24,6 @@ export class HeaderComponent implements OnInit {
 		this._authService.checkIfUserIsConnectedAndNotifyLoggedInStatus();
 		this.items$ = this._headerService.getPrimaryItems$();
 		this.profileItems$ = this._headerService.getIsLoggedInItems$();
+		this.connectedUser = this._authService.getConnectedUserData();
 	}
 }
