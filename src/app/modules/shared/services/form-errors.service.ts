@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Message } from '@shared/models/types/error-message.type';
+import { Message } from '@shared/models/types/utils/message.type';
 
 @Injectable({
 	providedIn: 'root',

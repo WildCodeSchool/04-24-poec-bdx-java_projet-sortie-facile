@@ -1,5 +1,5 @@
 import { Directive, Input, OnInit } from '@angular/core';
-import { UserAuthPrimaryDatas } from '@shared/models/types/user-list-response-api.type';
+import { AuthUserPrimaryDatas } from '@shared/models/classes/auth-user/auth-user-primary-datas.class';
 import { AuthService } from '@shared/services/auth.service';
 
 @Directive()
@@ -9,7 +9,7 @@ export abstract class BaseAccountManagementComponent implements OnInit {
 	@Input() pageTitle!: string;
 	@Input() pageDescription!: string;
 
-	connectedUser!: UserAuthPrimaryDatas;
+	connectedUser!: AuthUserPrimaryDatas;
 
 	constructor(protected _authService: AuthService) {}
 

@@ -7,12 +7,12 @@
 				<div class="activity-info-items-box">
 					<div class="activity-info-item">
 						<i class="pi pi-map-marker"></i>
-						<p>À {{ activity.activityCity }} (33), Gironde</p>
+						<p>À Bordeaux (33), Gironde</p>
 					</div>
 
 					<div class="activity-info-item">
 						<i class="pi pi-calendar"></i>
-						<p>Le {{ activity.date }}</p>
+						<p>Le 24 mai 2024 à 21h</p>
 					</div>
 
 					<div class="activity-info-item">
@@ -36,7 +36,7 @@
 							icon="pi pi-pencil"
 							[rounded]="true"
 							severity="success"
-							[routerLink]="['/activity/update', activity.id]"
+							[routerLink]="[fullActivityRoute.UPDATE, activity.id]"
 						/>
 					</div>
 					<img
@@ -54,7 +54,7 @@
 					class="activity-description"
 				></div>
 
-				<p>Catégorie : {{ activity.categoryId.title }}</p>
+				<p>Catégorie : {{ activity.categoryId.name }}</p>
 				<p>City : {{ activity.activityCity.name }}</p>
 
 				<a

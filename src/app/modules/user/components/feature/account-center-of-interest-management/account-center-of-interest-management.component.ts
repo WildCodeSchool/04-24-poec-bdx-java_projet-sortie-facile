@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Category } from '@shared/models/types/category.type';
-import { UserDetails } from '@shared/models/types/user-details.type';
+import { Category } from '@shared/models/classes/category/category.class';
+import { UserDetails } from '@shared/models/classes/user-details/user-details.class';
 import { ActivityService } from '@shared/services/activity.service';
 import { AuthService } from '@shared/services/auth.service';
 import { CategoryService } from '@shared/services/category.service';

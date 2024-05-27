@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { NewUserFormDatas } from '@shared/models/classes/new-user-form-datas.class';
+import { NewAuthUserFormDatas } from '@shared/models/classes/auth-user/new-auth-user-form-datas.class';
 
 @Component({
 	selector: 'app-register-auth-form',
@@ -7,5 +7,5 @@ import { NewUserFormDatas } from '@shared/models/classes/new-user-form-datas.cla
 	styleUrl: './register-auth-form.component.scss',
 })
 export class RegisterAuthFormComponent {
-	@Input() newUserAuth!: NewUserFormDatas;
+	@Input() newUserAuth!: NewAuthUserFormDatas;
 }

@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { AuthRedirect } from '@shared/models/types/auth-redirect.type';
+import { AuthRedirect } from '@shared/models/types/auth/auth-redirect.type';
 
 @Component({
 	selector: 'app-auth-layout',

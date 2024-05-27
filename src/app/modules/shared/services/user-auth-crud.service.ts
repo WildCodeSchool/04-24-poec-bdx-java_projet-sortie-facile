@@ -9,13 +9,11 @@ import {
 	switchMap,
 	tap,
 } from 'rxjs';
-import {
-	UserAuth,
-	UserAuthPatch,
-	UserAuthPrimaryDatas,
-	UserListResponseApi,
-} from '@shared/models/types/user-list-response-api.type';
-import { AuthUserServiceUtils } from '../models/classes/auth-user-service-utils.class';
+import { AuthUser } from '@shared/models/classes/auth-user/auth-user.class';
+import { AuthUserPrimaryDatas } from '@shared/models/classes/auth-user/auth-user-primary-datas.class';
+import { AuthUserPatch } from '@shared/models/classes/auth-user/auth-user-patch.class';
+import { AuthUserListResponseApi } from '@shared/models/classes/auth-user';
+import { AuthUserServiceUtils } from '@shared/models/classes/utils/auth-user-service-utils.class';
 
 @Injectable({
 	providedIn: 'root',
@@ -26,14 +24,14 @@ export class UserAuthCrudService extends AuthUserServiceUtils {
 	}
 
 	public updatePassword(
-		connectedUser: UserAuthPrimaryDatas,
+		connectedUser: AuthUserPrimaryDatas,
 		oldPassword: string,
 		newPassword: string,
-	): Observable<UserAuthPrimaryDatas> {
-		return this._httpClient.get<UserListResponseApi>(this.BASE_URL).pipe(
-			map((users: UserListResponseApi) => {
+	): Observable<AuthUserPrimaryDatas> {
+		return this._httpClient.get<AuthUserListResponseApi>(this.BASE_URL).pipe(
+			map((users: AuthUserListResponseApi) => {
 				return (
-					users.find((user: UserAuth) => {
+					users.find((user: AuthUser) => {
 						return (
 							user.username === connectedUser.username &&
 							user.password === oldPassword
@@ -41,7 +39,7 @@ export class UserAuthCrudService extends AuthUserServiceUtils {
 					}) || null
 				);
 			}),
-			filter((user: UserAuth | null) => user !== null),
+			filter((user: AuthUser | null) => user !== null),
 			switchMap(() =>
 				this.patchConnectedUser(
 					{
@@ -57,16 +55,16 @@ export class UserAuthCrudService extends AuthUserServiceUtils {
 	}
 
 	public patchConnectedUser(
-		userAuthInfoPatch: UserAuthPatch,
-		connectedUser: UserAuthPrimaryDatas,
-	): Observable<UserAuth> {
+		userAuthInfoPatch: AuthUserPatch,
+		connectedUser: AuthUserPrimaryDatas,
+	): Observable<AuthUser> {
 		return this._httpClient
-			.patch<UserAuth>(
+			.patch<AuthUser>(
 				`${this.BASE_URL}/${connectedUser.id}`,
 				userAuthInfoPatch,
 			)
 			.pipe(
-				tap((user: UserAuth) => {
+				tap((user: AuthUser) => {
 					const currentUser = JSON.parse(
 						localStorage.getItem('user') as string,
 					);

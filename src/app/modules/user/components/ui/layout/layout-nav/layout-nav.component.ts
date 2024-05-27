@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { UserLayoutLink } from '@models/types/user-layout-link';
+import { FullUserRouteEnum } from '@shared/models/enums/routes/full-routes';
+import { UserLayoutLink } from '@shared/models/types/utils/user-layout-link.type';
 
 @Component({
 	selector: 'app-layout-nav',
@@ -11,17 +12,33 @@ export class LayoutNavComponent implements OnInit {
 
 	ngOnInit(): void {
 		this.items = [
-			{ label: 'General', path: '/user/home', active: true },
-			{ label: 'profil', path: '/user/profile', active: false },
-			{ label: 'Mot de passe', path: '/user/password', active: false },
+			{ label: 'General', path: FullUserRouteEnum.HOME, active: true },
+			{ label: 'profil', path: FullUserRouteEnum.PROFILE, active: false },
 			{
-				label: 'Centres d’interêts',
-				path: '/user/center-of-interests',
+				label: 'Mot de passe',
+				path: FullUserRouteEnum.PASSWORD,
 				active: false,
 			},
-			{ label: 'Notifications', path: '/user/notification', active: false },
-			{ label: 'Mes activités', path: '/user/activities', active: false },
-			{ label: 'Mon calendrier', path: '/user/calendar', active: false },
+			{
+				label: 'Centres d’interêts',
+				path: FullUserRouteEnum.CENTER_OF_INTERESTS,
+				active: false,
+			},
+			{
+				label: 'Notifications',
+				path: FullUserRouteEnum.NOTIFICATION,
+				active: false,
+			},
+			{
+				label: 'Mes activités',
+				path: FullUserRouteEnum.ACTIVITY,
+				active: false,
+			},
+			{
+				label: 'Mon calendrier',
+				path: FullUserRouteEnum.CALENDAR,
+				active: false,
+			},
 		];
 	}
 }

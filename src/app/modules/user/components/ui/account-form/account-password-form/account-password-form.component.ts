@@ -1,7 +1,7 @@
 import { Component, Input, OnDestroy } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { UserPasswordFormDatas } from '@shared/models/classes/user-password-form-datas.class';
-import { UserAuthPrimaryDatas } from '@shared/models/types/user-list-response-api.type';
+import { AuthUserPasswordFormDatas } from '@shared/models/classes/auth-user/auth-user-password-form-datas.class';
+import { AuthUserPrimaryDatas } from '@shared/models/classes/auth-user/auth-user-primary-datas.class';
 import { UserAuthCrudService } from '@shared/services/user-auth-crud.service';
 import { Subscription } from 'rxjs';
 
@@ -11,14 +11,11 @@ import { Subscription } from 'rxjs';
 	styleUrl: './account-password-form.component.scss',
 })
 export class AccountPasswordFormComponent implements OnDestroy {
-	@Input() connectedUser!: UserAuthPrimaryDatas;
+	@Input() connectedUser!: AuthUserPrimaryDatas;
 	private _subscription: Subscription = new Subscription();
 
-	accountPasswordFormDatas: UserPasswordFormDatas = new UserPasswordFormDatas(
-		'',
-		'',
-		'',
-	);
+	accountPasswordFormDatas: AuthUserPasswordFormDatas =
+		new AuthUserPasswordFormDatas('', '', '');
 
 	constructor(private _userAuthCrudService: UserAuthCrudService) {}
 

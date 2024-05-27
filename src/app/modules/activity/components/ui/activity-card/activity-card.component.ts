@@ -1,7 +1,8 @@
 import { Activity } from '@activity/models/classes/activity.class';
 import { Component, Input, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
-import { UserAuthPrimaryDatas } from '@shared/models/types/user-list-response-api.type';
+import { AuthUserPrimaryDatas } from '@shared/models/classes/auth-user/auth-user-primary-datas.class';
+import { FullActivityRouteEnum } from '@shared/models/enums/routes/full-routes';
 import { ActivityService } from '@shared/services/activity.service';
 import { ConfirmationService } from 'primeng/api';
 import { Subscription } from 'rxjs';
@@ -13,7 +14,9 @@ import { Subscription } from 'rxjs';
 })
 export class ActivityCardComponent implements OnDestroy {
 	@Input() activity!: Activity;
-	@Input() connectedUser!: UserAuthPrimaryDatas;
+	@Input() connectedUser!: AuthUserPrimaryDatas;
+
+	fullActivityRoute = FullActivityRouteEnum;
 
 	private _subscription: Subscription = new Subscription();
 
@@ -23,11 +26,6 @@ export class ActivityCardComponent implements OnDestroy {
 		private router: Router,
 	) {}
 
-	// delete(id: string): void {
-	// 	this._subscription.add(
-	// 		this.activityService.deleteActivity$(id).subscribe(),
-	// 	);
-	// }
 	confirmHideActivity(activityId: string): void {
 		this.confirmationService.confirm({
 			message: 'Êtes-vous sûr de vouloir masquer cette activité ?',
@@ -36,7 +34,7 @@ export class ActivityCardComponent implements OnDestroy {
 			accept: () => {
 				this.hideActivity(activityId);
 				this.confirmationService.close();
-				this.router.navigate(['/activity/home']);
+				this.router.navigate([FullActivityRouteEnum.HOME]);
 			},
 			reject: () => {
 				this.confirmationService.close();
@@ -44,13 +42,9 @@ export class ActivityCardComponent implements OnDestroy {
 		});
 	}
 	hideActivity(activityId: string): void {
-		this.activityService.updateActivityVisibility(activityId, false).subscribe({
-			next: () => {
-				console.log('Activity hidden successfully');
-				// Actualisez ou mettez à jour la liste des activités après modification si nécessaire
-			},
-			error: err => console.error('Error hiding activity:', err),
-		});
+		this.activityService
+			.updateActivityVisibility(activityId, false)
+			.subscribe();
 	}
 
 	ngOnDestroy(): void {

@@ -1,6 +1,6 @@
 import { Component, Input, OnDestroy, OnInit, forwardRef } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { Region } from '@shared/models/classes/region.class';
+import { Region } from '@shared/models/classes/address/region.class';
 import { RegionService } from '@shared/services/region.service';
 import { Subscription, map } from 'rxjs';
 

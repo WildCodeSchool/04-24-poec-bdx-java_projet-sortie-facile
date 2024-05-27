@@ -65,6 +65,6 @@ export class ModalConfirmContactComponent {
 		});
 		setTimeout(() => {
 			this.router.navigateByUrl('/');
-		}, 3000); // 5000 milliseconds = 5 seconds
+		}, 3000);
 	}
 }

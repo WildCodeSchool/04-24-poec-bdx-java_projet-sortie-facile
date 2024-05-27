@@ -1,7 +1,7 @@
 import { Activity } from '@activity/models/classes/activity.class';
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { UserAuthPrimaryDatas } from '@shared/models/types/user-list-response-api.type';
+import { AuthUserPrimaryDatas } from '@shared/models/classes/auth-user/auth-user-primary-datas.class';
 import { AuthService } from '@shared/services/auth.service';
 import { ContactService } from '@shared/services/contact.service';
 import { Subscription } from 'rxjs';
@@ -13,7 +13,7 @@ import { Subscription } from 'rxjs';
 })
 export class ContactComponent implements OnDestroy, OnInit {
 	@Input() activity!: Activity;
-	@Input() connectedUser!: UserAuthPrimaryDatas;
+	@Input() connectedUser!: AuthUserPrimaryDatas;
 	private _subscription: Subscription = new Subscription();
 
 	constructor(

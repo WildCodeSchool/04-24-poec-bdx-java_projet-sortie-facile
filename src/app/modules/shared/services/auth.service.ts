@@ -2,19 +2,21 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, catchError, map, switchMap, tap, throwError } from 'rxjs';
 import { Router } from '@angular/router';
-import {
-	UserAuth,
-	UserAuthPrimaryDatas,
-	UserListResponseApi,
-} from '@shared/models/types/user-list-response-api.type';
-import { newUser } from '@shared/models/types/newUser.model';
-import { NewUserFormDatas } from '@shared/models/classes/new-user-form-datas.class';
+import { AuthUserListResponseApi } from '@shared/models/classes/auth-user';
+import { NewAuthUser } from '@shared/models/classes/auth-user/new-auth-user.class';
 import { UserService } from './user.service';
-import { NewUserPersonalInfosFormDatas } from '@shared/models/classes/new-user-personal-infos-form-datas.class';
-import { UserInfo } from '@shared/models/classes/user-infos.type';
 import { AccountStatus } from '@shared/models/enums/user-role.enum';
-import { AuthUserServiceUtils } from '@shared/models/classes/auth-user-service-utils.class';
 import { FormErrorMessageService } from './form-errors.service';
+import { NewAuthUserFormDatas } from '@shared/models/classes/auth-user/new-auth-user-form-datas.class';
+import { UserDetails } from '@shared/models/classes/user-details/user-details.class';
+import { NewUserUserDetailsFormDatas } from '@shared/models/classes/user-details/new-user-details-form-datas.class';
+import { AuthUser } from '@shared/models/classes/auth-user/auth-user.class';
+import { AuthUserPrimaryDatas } from '@shared/models/classes/auth-user/auth-user-primary-datas.class';
+import { AuthUserServiceUtils } from '@shared/models/classes/utils/auth-user-service-utils.class';
+import {
+	FullAuthenticationRouteEnum,
+	FullUserRouteEnum,
+} from '@shared/models/enums/routes/full-routes';
 
 @Injectable({
 	providedIn: 'root',
@@ -32,17 +34,17 @@ export class AuthService extends AuthUserServiceUtils {
 	loginWithEmailAndPassword(
 		username: string,
 		password: string,
-	): Observable<UserAuthPrimaryDatas> {
-		return this._httpClient.get<UserListResponseApi>(this.BASE_URL).pipe(
+	): Observable<AuthUserPrimaryDatas> {
+		return this._httpClient.get<AuthUserListResponseApi>(this.BASE_URL).pipe(
 			map(
-				(users: UserListResponseApi) =>
+				(users: AuthUserListResponseApi) =>
 					this.findUserByUsernameAndPassword(
 						users,
 						username,
 						password,
-					) as UserAuth,
+					) as AuthUser,
 			),
-			map((user: UserAuth) => {
+			map((user: AuthUser) => {
 				if (!user) {
 					throw new Error(this._formErrorMessage.loginErrorMessage);
 				}
@@ -54,13 +56,13 @@ export class AuthService extends AuthUserServiceUtils {
 					role: user.role,
 					status: user.status,
 					userDetailsId: user.userDetailsId,
-				} as UserAuthPrimaryDatas;
+				} as AuthUserPrimaryDatas;
 			}),
-			tap((user: UserAuthPrimaryDatas) => {
+			tap((user: AuthUserPrimaryDatas) => {
 				localStorage.setItem('user', JSON.stringify(user));
 				this.setConnectedUserData(user);
 				this.notifyLoggedInStatus(true);
-				this._router.navigateByUrl('/user/home');
+				this._router.navigateByUrl(FullUserRouteEnum.HOME);
 			}),
 			catchError(() => {
 				return throwError(
@@ -71,20 +73,20 @@ export class AuthService extends AuthUserServiceUtils {
 	}
 
 	createUserWithEmailAndPassword(
-		newUserAuthInfos: NewUserFormDatas,
-		newUserPersonalInfos: NewUserPersonalInfosFormDatas,
-	): Observable<any> {
+		newUserAuthInfos: NewAuthUserFormDatas,
+		newUserPersonalInfos: NewUserUserDetailsFormDatas,
+	): Observable<NewAuthUser> {
 		return this._httpClient
-			.post<newUser>(`${this.BASE_URL}`, newUserAuthInfos)
+			.post<NewAuthUser>(`${this.BASE_URL}`, newUserAuthInfos)
 			.pipe(
-				switchMap((createdUser: newUser) => {
+				switchMap((createdUser: NewAuthUser) => {
 					return this._userService
 						.postUserInfos$({
 							...newUserPersonalInfos,
 							userId: createdUser.id,
 						})
 						.pipe(
-							map((createdUserInfo: UserInfo) => {
+							map((createdUserInfo: UserDetails) => {
 								return {
 									...createdUser,
 									userDetailsId: createdUserInfo.id,
@@ -92,13 +94,13 @@ export class AuthService extends AuthUserServiceUtils {
 							}),
 						);
 				}),
-				switchMap((updatedUser: newUser) =>
-					this._httpClient.put<newUser>(
+				switchMap((updatedUser: NewAuthUser) =>
+					this._httpClient.put<NewAuthUser>(
 						`${this.BASE_URL}/${updatedUser.id}`,
 						updatedUser,
 					),
 				),
-				map((finalUser: newUser) => {
+				map((finalUser: NewAuthUser) => {
 					const userToStore = this.getAuthUserFormatted(finalUser);
 
 					localStorage.setItem('user', JSON.stringify(userToStore));
@@ -107,7 +109,7 @@ export class AuthService extends AuthUserServiceUtils {
 					return finalUser;
 				}),
 				tap(() => {
-					this._router.navigateByUrl('/user/home');
+					this._router.navigateByUrl(FullUserRouteEnum.HOME);
 				}),
 			);
 	}
@@ -115,26 +117,26 @@ export class AuthService extends AuthUserServiceUtils {
 	public logout(): void {
 		localStorage.removeItem('user');
 		this.notifyLoggedInStatus(false);
-		this._router.navigateByUrl('/auth/login');
+		this._router.navigateByUrl(FullAuthenticationRouteEnum.LOGIN);
 	}
 
-	public deleteConnectedUser(): Observable<UserAuth> {
+	public deleteConnectedUser(): Observable<AuthUser> {
 		this._userConnected.status = AccountStatus.INACTIVE;
-		return this._httpClient.patch<UserAuth>(this.BASE_URL, this._userConnected);
+		return this._httpClient.patch<AuthUser>(this.BASE_URL, this._userConnected);
 	}
 
 	public increaseId(): Observable<string> {
-		return this._httpClient.get<newUser[]>(this.BASE_URL).pipe(
-			map((users: newUser[]) => {
+		return this._httpClient.get<NewAuthUser[]>(this.BASE_URL).pipe(
+			map((users: NewAuthUser[]) => {
 				const lastId = users[users.length - 1].id;
 				return (Number(lastId) + 1).toString();
 			}),
 		);
 	}
 
-	public deleteUser(userId: string): Observable<UserAuthPrimaryDatas> {
+	public deleteUser(userId: string): Observable<AuthUserPrimaryDatas> {
 		return this._httpClient
-			.patch<UserAuthPrimaryDatas>(`${this.BASE_URL}/${userId}`, {
+			.patch<AuthUserPrimaryDatas>(`${this.BASE_URL}/${userId}`, {
 				email: '',
 				password: '',
 				username: '',
