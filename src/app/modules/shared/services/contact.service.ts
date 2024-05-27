@@ -1,7 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { Contact } from '@shared/models/types/contact.type';
+import { ContactListResponseApi } from '@shared/models/classes/contact';
+import { Contact } from '@shared/models/classes/contact/contact.class';
 import { Observable, catchError, switchMap } from 'rxjs';
 
 @Injectable({
@@ -17,22 +18,24 @@ export class ContactService {
 	}
 
 	postNewContact$(newContact: Contact): Observable<Contact> {
-		return this.http.get<Contact[]>('http://localhost:3000/contact').pipe(
-			switchMap(contacts => {
-				const nextId =
-					contacts.length > 0
-						? Number(contacts[contacts.length - 1].id) + 1
-						: 1;
-				newContact.id = String(nextId);
+		return this.http
+			.get<ContactListResponseApi>('http://localhost:3000/contact')
+			.pipe(
+				switchMap((contacts: ContactListResponseApi) => {
+					const nextId =
+						contacts.length > 0
+							? Number(contacts[contacts.length - 1].id) + 1
+							: 1;
+					newContact.id = String(nextId);
 
-				return this.http.post<Contact>(
-					'http://localhost:3000/contact',
-					newContact,
-				);
-			}),
-			catchError(error => {
-				throw error;
-			}),
-		);
+					return this.http.post<Contact>(
+						'http://localhost:3000/contact',
+						newContact,
+					);
+				}),
+				catchError(error => {
+					throw error;
+				}),
+			);
 	}
 }

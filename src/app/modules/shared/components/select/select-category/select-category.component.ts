@@ -1,6 +1,6 @@
 import { Component, Input, OnInit, forwardRef } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { Category } from '@models/types/category.type';
+import { Category } from '@shared/models/classes/category/category.class';
 import { ActivityService } from '@shared/services/activity.service';
 import { CategoryService } from '@shared/services/category.service';
 import { Observable } from 'rxjs';

@@ -2,10 +2,11 @@ import { Activity } from '@activity/models/classes/activity.class';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Category } from '@shared/models/classes/category.class';
-import { City } from '@shared/models/classes/city.class';
+import { Category } from '@shared/models/classes/category/category.class';
+import { City } from '@shared/models/classes/address/city.class';
 import { ActivityService } from '@shared/services/activity.service';
 import { Subscription, map } from 'rxjs';
+import { FullActivityRouteEnum } from '@shared/models/enums/routes/full-routes';
 
 @Component({
 	selector: 'app-activity-update-management',
@@ -16,16 +17,16 @@ export class ActivityUpdateManagementComponent implements OnInit, OnDestroy {
 	private _subscription: Subscription = new Subscription();
 
 	constructor(
-		private activityService: ActivityService,
-		private route: ActivatedRoute,
-		private router: Router,
+		private _activityService: ActivityService,
+		private _activatedRoute: ActivatedRoute,
+		private _router: Router,
 	) {}
 
 	formData: Activity = new Activity(
 		'',
 		'',
 		'',
-		new City(0, ''),
+		new City('', ''),
 		'',
 		0,
 		'',
@@ -39,10 +40,11 @@ export class ActivityUpdateManagementComponent implements OnInit, OnDestroy {
 	);
 
 	ngOnInit(): void {
-		const id: string = this.route.snapshot.paramMap.get('id') as string;
-		this.activityService
-			.getActivityById$(id)
-			.pipe(map((activity: Activity) => (this.formData = activity)))
+		this._activatedRoute.data
+			.pipe(
+				map(data => data['activityUpdated']),
+				map((activity: Activity) => (this.formData = activity)),
+			)
 			.subscribe();
 	}
 
@@ -51,9 +53,9 @@ export class ActivityUpdateManagementComponent implements OnInit, OnDestroy {
 		const updatedData = form.value;
 
 		this._subscription.add(
-			this.activityService.updateActivity$(id, updatedData).subscribe(),
+			this._activityService.updateActivity$(id, updatedData).subscribe(),
 		);
-		this.router.navigate(['/activity/home']);
+		this._router.navigate([FullActivityRouteEnum.HOME]);
 	}
 
 	ngOnDestroy(): void {

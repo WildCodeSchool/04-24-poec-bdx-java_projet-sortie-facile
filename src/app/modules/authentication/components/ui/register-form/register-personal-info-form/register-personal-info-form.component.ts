@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { NewUserPersonalInfosFormDatas } from '@shared/models/classes/new-user-personal-infos-form-datas.class';
+import { NewUserUserDetailsFormDatas } from '@shared/models/classes/user-details/new-user-details-form-datas.class';
 import { InputNumberModeEnum } from '@shared/models/enums/InputNumberMode.enum';
 
 @Component({
@@ -8,7 +8,7 @@ import { InputNumberModeEnum } from '@shared/models/enums/InputNumberMode.enum';
 	styleUrl: './register-personal-info-form.component.scss',
 })
 export class RegisterPersonalInfoFormComponent {
-	@Input() newUserPersonalInfos!: NewUserPersonalInfosFormDatas;
+	@Input() newUserPersonalInfos!: NewUserUserDetailsFormDatas;
 
 	readonly inputNumberModeEnum = InputNumberModeEnum;
 }

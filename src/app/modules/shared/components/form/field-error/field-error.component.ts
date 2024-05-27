@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { NgModel } from '@angular/forms';
-import { ErrorMessages } from '@shared/models/types/error-message.type';
+import { ErrorMessageList } from '@shared/models/types/utils/error-message-list.type';
 import { FormErrorMessageService } from '@shared/services/form-errors.service';
 
 @Component({
@@ -12,7 +12,7 @@ export class FieldErrorComponent implements OnInit {
 	@Input({ required: true }) ref!: NgModel;
 	@Input({ required: true }) fieldName!: string;
 
-	errorMessages!: ErrorMessages;
+	errorMessages!: ErrorMessageList;
 
 	constructor(private _formErrorMessageService: FormErrorMessageService) {}
 

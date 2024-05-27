@@ -1,13 +1,14 @@
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { Observable, Subscription } from 'rxjs';
 import { ActivityService } from '@shared/services/activity.service';
-import { Activities } from '@shared/models/types/activities.type';
 import { ActivatedRoute } from '@angular/router';
 import { BookingService } from '@shared/services/booking.service';
-import { UserDetails } from '@shared/models/types/user-details.type';
 import { NgForm } from '@angular/forms';
 import { Activity } from '@activity/models/classes/activity.class';
-import { Booking } from '@shared/models/classes/booking.class';
+import { Booking } from '@shared/models/classes/booking/booking.class';
+import { UserDetails } from '@shared/models/classes/user-details/user-details.class';
+import { ActivityListResponseApi } from '@shared/models/classes/activity';
+import { FullActivityRouteEnum } from '@shared/models/enums/routes/full-routes';
 
 @Component({
 	selector: 'app-activity-details',
@@ -15,10 +16,12 @@ import { Booking } from '@shared/models/classes/booking.class';
 	styleUrl: './activity-details.component.scss',
 })
 export class ActivityDetailsComponent implements OnInit, OnDestroy {
-	activities$!: Observable<Activities>;
+	fullActivityRoute = FullActivityRouteEnum;
+	activities$!: Observable<ActivityListResponseApi>;
 	activity$!: Observable<Activity>;
 	categoryTitle$!: Observable<string>;
 	userDetails!: UserDetails;
+
 	private _subscription: Subscription = new Subscription();
 
 	@Input() myForm: NgForm;
@@ -37,7 +40,7 @@ export class ActivityDetailsComponent implements OnInit, OnDestroy {
 		this.activity$ = this.activityService.getActivityById$(id);
 	}
 	onSubmit(form: NgForm): void {
-		this.reservationService.postNewReservation$(form.value).subscribe();
+		this.reservationService.postNewBooking$(form.value).subscribe();
 	}
 
 	add(activity: Activity): void {
@@ -48,7 +51,7 @@ export class ActivityDetailsComponent implements OnInit, OnDestroy {
 		);
 
 		this._subscription.add(
-			this.reservationService.postNewReservation$(newReservation).subscribe(),
+			this.reservationService.postNewBooking$(newReservation).subscribe(),
 		);
 	}
 

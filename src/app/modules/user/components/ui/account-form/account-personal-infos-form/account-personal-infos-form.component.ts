@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {
-	UserDetails,
-	UserDetailsPersonalInfosForm,
-} from '@shared/models/types/user-details.type';
-import { UserAuthPrimaryDatas } from '@shared/models/types/user-list-response-api.type';
+import { UserDetailsPersonalInfosForm } from '@shared/models/classes/user-details/user-details-personal-info-form.class';
+import { UserDetails } from '@shared/models/classes/user-details/user-details.class';
+import { AuthUserPrimaryDatas } from '@shared/models/classes/auth-user/auth-user-primary-datas.class';
 import { AuthService } from '@shared/services/auth.service';
 import { UserAuthCrudService } from '@shared/services/user-auth-crud.service';
 import { UserService } from '@shared/services/user.service';
@@ -15,7 +13,7 @@ import { Observable, map, switchMap, tap } from 'rxjs';
 	styleUrl: './account-personal-infos-form.component.scss',
 })
 export class AccountPersonalInfosFormComponent implements OnInit {
-	connectedUser!: UserAuthPrimaryDatas;
+	connectedUser!: AuthUserPrimaryDatas;
 	userDetails$!: Observable<UserDetails>;
 	isViewDatas: boolean = true;
 	userPersonalInfosDatasForm!: UserDetailsPersonalInfosForm;
@@ -28,7 +26,6 @@ export class AccountPersonalInfosFormComponent implements OnInit {
 
 	ngOnInit(): void {
 		this.connectedUser = this._authService.getConnectedUserData();
-		console.log(this.connectedUser);
 
 		this.userDetails$ = this._userService.getUserInfos$(
 			this.connectedUser.userDetailsId,

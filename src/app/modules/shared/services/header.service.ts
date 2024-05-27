@@ -2,6 +2,11 @@ import { Injectable } from '@angular/core';
 import { MenuItem } from 'primeng/api';
 import { AuthService } from './auth.service';
 import { Observable, combineLatest, map, of, switchMap } from 'rxjs';
+import {
+	FullActivityRouteEnum,
+	FullAuthenticationRouteEnum,
+	FullUserRouteEnum,
+} from '@shared/models/enums/routes/full-routes';
 
 @Injectable({
 	providedIn: 'root',
@@ -26,7 +31,7 @@ export class HeaderService {
 			{
 				label: 'Activités',
 				icon: 'pi pi-shopping-cart',
-				routerLink: '/activity/home',
+				routerLink: FullActivityRouteEnum.HOME,
 			},
 		]);
 
@@ -34,7 +39,7 @@ export class HeaderService {
 			{
 				label: 'Mon Compte',
 				icon: 'pi pi-fw pi-user',
-				routerLink: '/user/home',
+				routerLink: FullUserRouteEnum.HOME,
 			},
 			{
 				label: 'Déconnexion',
@@ -47,12 +52,12 @@ export class HeaderService {
 			{
 				label: 'Connexion',
 				icon: 'pi pi-power-off',
-				routerLink: '/auth/login',
+				routerLink: FullAuthenticationRouteEnum.LOGIN,
 			},
 			{
 				label: 'Inscription',
 				icon: 'pi pi-sign-in',
-				routerLink: '/auth/register',
+				routerLink: FullAuthenticationRouteEnum.REGISTER,
 			},
 		]);
 	}

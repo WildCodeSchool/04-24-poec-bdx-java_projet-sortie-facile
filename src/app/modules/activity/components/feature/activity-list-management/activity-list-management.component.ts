@@ -6,14 +6,15 @@ import {
 	OnInit,
 	SimpleChanges,
 } from '@angular/core';
-import { Category } from '@shared/models/classes/category.class';
-import { Department } from '@shared/models/classes/department.class';
-import { UserAuthPrimaryDatas } from '@shared/models/types/user-list-response-api.type';
+import { Department } from '@shared/models/classes/address/department.class';
+import { Category } from '@shared/models/classes/category/category.class';
+import { AuthUserPrimaryDatas } from '@shared/models/classes/auth-user/auth-user-primary-datas.class';
 import { ActivityService } from '@shared/services/activity.service';
 import { AuthService } from '@shared/services/auth.service';
 import { CategoryService } from '@shared/services/category.service';
-import { DepartmentService } from '@shared/services/department.service';
 import { Observable, map } from 'rxjs';
+import { LazyLoadEvent } from 'primeng/api';
+import { FullActivityRouteEnum } from '@shared/models/enums/routes/full-routes';
 
 @Component({
 	selector: 'app-activity-list-management',
@@ -21,10 +22,12 @@ import { Observable, map } from 'rxjs';
 	styleUrl: './activity-list-management.component.scss',
 })
 export class ActivityListManagementComponent implements OnInit, OnChanges {
+	fullActivityRoute = FullActivityRouteEnum;
+
 	activityList$!: Observable<Activity[]>;
 	activity$!: Observable<Activity>;
 	pagedActivities: Activity[] = [];
-	connectedUser!: UserAuthPrimaryDatas;
+	connectedUser!: AuthUserPrimaryDatas;
 
 	@Input() searchedValue: string = '';
 	@Input() selectedCategoryId!: Category;
@@ -43,7 +46,6 @@ export class ActivityListManagementComponent implements OnInit, OnChanges {
 	constructor(
 		private activityService: ActivityService,
 		private categoryService: CategoryService,
-		private departmentService: DepartmentService,
 		private _authService: AuthService,
 	) {}
 
@@ -70,9 +72,6 @@ export class ActivityListManagementComponent implements OnInit, OnChanges {
 	}
 
 	filterActivities(): void {
-		console.log('Selected Category:', this.selectedCategoryId);
-		console.log('Selected Departments:', this.selectedDepartments);
-
 		if (this.selectedCategoryId) {
 			this.activityList$ = this.activityService
 				.filteredActivityListByCategory$(this.selectedCategoryId)
@@ -86,16 +85,10 @@ export class ActivityListManagementComponent implements OnInit, OnChanges {
 					),
 				);
 		} else if (this.selectedDepartments) {
-			console.log('ooooooooooo');
-
 			this.activityList$ = this.activityService
 				.filteredActivityListByDepartment$(this.selectedDepartments)
 				.pipe(
 					map(activities => {
-						console.log(
-							'Activities before filtering by department:',
-							activities,
-						);
 						return activities.filter(activity =>
 							activity.name
 								.toLowerCase()
@@ -106,10 +99,7 @@ export class ActivityListManagementComponent implements OnInit, OnChanges {
 						const filteredActivities = activities.filter(
 							activity => activity.department === this.selectedDepartments.id,
 						);
-						console.log(
-							'Filtered activities by department:',
-							filteredActivities,
-						);
+
 						return filteredActivities;
 					}),
 				);
@@ -143,9 +133,9 @@ export class ActivityListManagementComponent implements OnInit, OnChanges {
 		});
 	}
 
-	onPageChange(event: any): void {
-		this.first = event.first;
-		this.rows = event.rows;
+	onPageChange(event: LazyLoadEvent): void {
+		this.first = event.first as number;
+		this.rows = event.rows as number;
 		this.activityList$.subscribe(activities => {
 			this.updatePageActivities(activities);
 		});
@@ -166,8 +156,8 @@ export class ActivityListManagementComponent implements OnInit, OnChanges {
 	getCategoryTitle(categoryId: string): Observable<string> {
 		return this.categoryService.getCategoryById$(categoryId);
 	}
-	onActivityHidden(activity: Activity): void {
-		// Mettez à jour la liste des activités après avoir masqué une activité
+
+	onActivityHidden(): void {
 		this.filterActivities();
 	}
 }

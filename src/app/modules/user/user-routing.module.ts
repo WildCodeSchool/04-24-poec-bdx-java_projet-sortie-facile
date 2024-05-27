@@ -8,40 +8,41 @@ import { UserCenterOfInterestComponent } from '@user/pages/user-center-of-intere
 import { UserNotificationComponent } from '@user/pages/user-notification/user-notification.component';
 import { UserActivitiesComponent } from '@user/pages/user-activities/user-activities.component';
 import { UserCalendarComponent } from '@user/pages/user-calendar/user-calendar.component';
+import { UserRouteEnum } from '@shared/models/enums/routes/route.enum';
 
 const routes: Routes = [
 	{
-		path: 'home',
+		path: UserRouteEnum.HOME,
 		component: UserHomeComponent,
 		canActivate: [isConnectedGuard],
 	},
 	{
-		path: 'profile',
+		path: UserRouteEnum.PROFILE,
 		component: UserProfileComponent,
 		canActivate: [isConnectedGuard],
 	},
 	{
-		path: 'password',
+		path: UserRouteEnum.PASSWORD,
 		component: UserPasswordComponent,
 		canActivate: [isConnectedGuard],
 	},
 	{
-		path: 'center-of-interests',
+		path: UserRouteEnum.CENTER_OF_INTERESTS,
 		component: UserCenterOfInterestComponent,
 		canActivate: [isConnectedGuard],
 	},
 	{
-		path: 'notification',
+		path: UserRouteEnum.NOTIFICATION,
 		component: UserNotificationComponent,
 		canActivate: [isConnectedGuard],
 	},
 	{
-		path: 'activities',
+		path: UserRouteEnum.ACTIVITY,
 		component: UserActivitiesComponent,
 		canActivate: [isConnectedGuard],
 	},
 	{
-		path: 'calendar',
+		path: UserRouteEnum.CALENDAR,
 		component: UserCalendarComponent,
 		canActivate: [isConnectedGuard],
 	},

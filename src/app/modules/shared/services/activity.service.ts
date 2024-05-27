@@ -1,19 +1,19 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, catchError, map, switchMap, tap } from 'rxjs';
-import { Activities } from '@models/types/activities.type';
-import { Category } from '@models/types/category.type';
+import { Observable, catchError, map, tap } from 'rxjs';
 import { Router } from '@angular/router';
-import { Department } from '@shared/models/classes/department.class';
+import { Department } from '@shared/models/classes/address/department.class';
 import { Activity } from '@activity/models/classes/activity.class';
-import { ConfirmationService } from 'primeng/api';
+import { ActivityListResponseApi } from '@shared/models/classes/activity';
+import { Category } from '@shared/models/classes/category/category.class';
+import { FullActivityRouteEnum } from '@shared/models/enums/routes/full-routes';
 
 @Injectable({
 	providedIn: 'root',
 })
 export class ActivityService {
 	activity!: Activity;
-	activities!: Activity[];
+	activities!: ActivityListResponseApi;
 	category!: Category;
 	categories!: Category[];
 	department!: Department;
@@ -25,9 +25,9 @@ export class ActivityService {
 		private _router: Router,
 	) {}
 
-	getActivityList$(): Observable<Activity[]> {
-		return this._httpClient.get<Activity[]>(this._BASE_URL).pipe(
-			map(activities =>
+	getActivityList$(): Observable<ActivityListResponseApi> {
+		return this._httpClient.get<ActivityListResponseApi>(this._BASE_URL).pipe(
+			map((activities: ActivityListResponseApi) =>
 				activities.filter(activity => activity.isVisible === true),
 			),
 			catchError(error => {
@@ -35,43 +35,45 @@ export class ActivityService {
 			}),
 		);
 	}
+
 	getActivityById$(id: string): Observable<Activity> {
 		return this._httpClient
 			.get<Activity>(`${this._BASE_URL}/${id}`)
-			.pipe(map((response: Activity) => response));
+			.pipe(map((activity: Activity) => activity));
 	}
-	//  ajouter parametre id + filtre au niveau du map userid = userid
+
 	getActivityListByCreatedUser$(
 		limit: number = -1,
 		id: string,
-	): Observable<Activities> {
-		return this._httpClient.get<Activity[]>(this._BASE_URL).pipe(
-			map((activities: Activity[]) => {
-				// Filter activities by user ID
-				const filteredActivities = activities.filter(
+	): Observable<ActivityListResponseApi> {
+		return this._httpClient.get<ActivityListResponseApi>(this._BASE_URL).pipe(
+			map((activities: ActivityListResponseApi) => {
+				const filteredActivities: ActivityListResponseApi = activities.filter(
 					activity => activity.userId === id,
 				);
-				// Apply limit if greater than 0
+
 				return limit > 0
 					? filteredActivities.slice(0, limit)
 					: filteredActivities;
 			}),
 		);
 	}
-	filteredActivityList$(name: string): Observable<Activity[]> {
+
+	filteredActivityList$(name: string): Observable<ActivityListResponseApi> {
 		return this.getActivityList$().pipe(
-			map((activityList: Activity[]) =>
+			map((activityList: ActivityListResponseApi) =>
 				activityList.filter((activity: Activity) =>
 					activity.name.toLowerCase().includes(name.toLowerCase()),
 				),
 			),
 		);
 	}
+
 	filteredActivityListByCategory$(
 		categoryId: Category,
-	): Observable<Activity[]> {
+	): Observable<ActivityListResponseApi> {
 		return this.getActivityList$().pipe(
-			map((activityList: Activity[]) =>
+			map((activityList: ActivityListResponseApi) =>
 				activityList.filter((activity: Activity) => {
 					return activity.categoryId.id === categoryId.id;
 				}),
@@ -81,11 +83,9 @@ export class ActivityService {
 
 	filteredActivityListByDepartment$(
 		department: Department,
-	): Observable<Activity[]> {
-		console.log(department);
-
+	): Observable<ActivityListResponseApi> {
 		return this.getActivityList$().pipe(
-			map((activityList: Activity[]) =>
+			map((activityList: ActivityListResponseApi) =>
 				activityList.filter((activity: Activity) => {
 					return activity.department === department.id;
 				}),
@@ -96,12 +96,12 @@ export class ActivityService {
 	postNewActivity$(newActivity: Activity): Observable<Activity> {
 		const activityToPost = {
 			...newActivity,
-			isVisible: true, // Assurez-vous que isVisible est bien initialisé à true
+			isVisible: true,
 		};
 
 		return this._httpClient.post<Activity>(this._BASE_URL, activityToPost).pipe(
-			tap(activity => {
-				this._router.navigate(['/activity/details', activity.id]);
+			tap((activity: Activity) => {
+				this._router.navigate([FullActivityRouteEnum.DETAILS, activity.id]);
 			}),
 			catchError(error => {
 				throw error;
@@ -125,13 +125,16 @@ export class ActivityService {
 		});
 	}
 
-	getVisibleActivities(): Observable<Activity[]> {
+	getVisibleActivities(): Observable<ActivityListResponseApi> {
 		return this._httpClient
-			.get<Activity[]>(this._BASE_URL)
+			.get<ActivityListResponseApi>(this._BASE_URL)
 			.pipe(
-				map(activities => activities.filter(activity => activity.isVisible)),
+				map((activities: ActivityListResponseApi) =>
+					activities.filter(activity => activity.isVisible),
+				),
 			);
 	}
+
 	updateActivity$(
 		id: string,
 		updatedData: Partial<Activity>,

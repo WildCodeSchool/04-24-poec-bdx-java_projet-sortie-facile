@@ -9,7 +9,7 @@
 					icon="pi pi-pencil"
 					[rounded]="true"
 					severity="success"
-					[routerLink]="['/activity/update', activity.id]"
+					[routerLink]="[fullActivityRoute.UPDATE, activity.id]"
 				/>
 
 				<p-button
@@ -56,7 +56,7 @@
 		<ng-template pTemplate="footer">
 			<p-button
 				rounded
-				[routerLink]="['/activity/details', activity.id]"
+				[routerLink]="[fullActivityRoute.DETAILS, activity.id]"
 				class="btn-register"
 			>
 				Voir Plus

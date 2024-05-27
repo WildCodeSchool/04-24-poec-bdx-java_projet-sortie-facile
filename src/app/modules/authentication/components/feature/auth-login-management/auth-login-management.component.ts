@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { UserConnectedDatas } from '@shared/models/classes/user-connected-datas.class';
-import { AuthRedirect } from '@shared/models/types/auth-redirect.type';
-import { AuthProvider } from '@shared/models/types/provider.type';
-import { UserAuthPrimaryDatas } from '@shared/models/types/user-list-response-api.type';
+import { AuthUserPrimaryDatas } from '@shared/models/classes/auth-user/auth-user-primary-datas.class';
 import { AuthService } from '@shared/services/auth.service';
+import { AuthProvider } from '@shared/models/types/auth/provider.type';
+import { AuthRedirect } from '@shared/models/types/auth/auth-redirect.type';
+import { UserConnectedDatas } from '@shared/models/classes/utils/user-connected-datas.class';
+import { FullAuthenticationRouteEnum } from '@shared/models/enums/routes/full-routes';
 
 @Component({
 	selector: 'app-auth-login-management',
@@ -17,7 +18,7 @@ export class AuthLoginManagementComponent implements OnInit {
 
 	redirect: AuthRedirect = {
 		text: 'Vous n’avez pas encore de compte ?',
-		link: ['/auth/register'],
+		link: [FullAuthenticationRouteEnum.REGISTER],
 		linkLabel: 'S’inscrire',
 	};
 
@@ -41,10 +42,10 @@ export class AuthLoginManagementComponent implements OnInit {
 					this.connectedUser.password,
 				)
 				.subscribe({
-					next: (user: UserAuthPrimaryDatas) => {
+					next: (user: AuthUserPrimaryDatas) => {
 						localStorage.setItem('user', JSON.stringify(user));
 					},
-					error: (error: any) => {
+					error: (error: Error) => {
 						this.errorLoginQueryMessage = error.message;
 					},
 				});
