@@ -10,6 +10,7 @@ import { SharedModule } from '@shared/shared.module';
 import { ScrollToTopComponent } from './components/scroll-to-top/scroll-to-top.component';
 import { ContactComponent } from './contact/contact.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { MentionLegalesComponent } from './mention-legales/mention-legales.component';
 
 @NgModule({
 	declarations: [
@@ -18,7 +19,8 @@ import { FooterComponent } from './components/footer/footer.component';
 		HeaderComponent,
 		ScrollToTopComponent,
 		ContactComponent,
-  FooterComponent,
+		FooterComponent,
+		MentionLegalesComponent,
 	],
 	imports: [
 		BrowserModule,
