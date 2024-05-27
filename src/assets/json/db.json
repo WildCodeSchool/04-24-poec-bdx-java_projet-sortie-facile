@@ -1,13 +1,11 @@
 {
   "user": [
     {
-      "username": "",
-      "email": "",
-      "password": "",
+      "username": "johndoe",
+      "email": "johndoe@mail.com",
+      "password": "123456789",
       "role": "admin",
-      "id": "1",
-      "status": "inactive",
-      "userDetailsId": ""
+      "id": "1"
     },
     {
       "id": "2",
@@ -59,6 +57,16 @@
       "role": "user",
       "status": "active",
       "userDetailsId": "186e"
+    },
+    {
+      "id": "12f5",
+      "username": "Pimpoye",
+      "email": "Pimpoye@medoc.fr",
+      "password": "mafemmecestmasoeur",
+      "passwordConfirm": "mafemmecestmasoeur",
+      "role": "user",
+      "status": "active",
+      "userDetailsId": "cd28"
     }
   ],
   "user_details": [

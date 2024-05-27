@@ -44,21 +44,21 @@ export class AuthRegisterManagementComponent implements OnInit {
 
 	newUserPersonalInfos: NewUserPersonalInfosFormDatas =
 		new NewUserPersonalInfosFormDatas(
-			'',
-			'',
-			'',
-			'',
-			'',
+			'moi-même',
+			'yoyo',
+			'13',
+			'rue du Quai (spoiler: contrepèterie',
+			'Bordeaux',
 			33000,
-			'',
-			new Department('1', ''),
-			new City(1, ''),
-			'',
-			'',
-			'',
+			'Je suis moi-même',
+			new Department('33', 'Gironde'),
+			new City(1, 'New York'),
+			'la reponse a',
+			'je ne sais pas',
+			'inconnu',
 			UserGenderEnum.MALE,
-			[],
-			'',
+			['1'],
+			'papaye',
 		);
 
 	constructor(private _authService: AuthService) {}
