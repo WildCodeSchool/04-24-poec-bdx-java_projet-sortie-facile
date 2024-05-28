@@ -5,6 +5,7 @@ import { Observable, combineLatest, map, of, switchMap } from 'rxjs';
 import {
 	FullActivityRouteEnum,
 	FullAuthenticationRouteEnum,
+	FullBookingRouteEnum,
 	FullUserRouteEnum,
 } from '@shared/models/enums/routes/full-routes';
 
@@ -45,6 +46,11 @@ export class HeaderService {
 				label: 'Déconnexion',
 				icon: 'pi pi-power-off',
 				command: () => this._authService.logout(),
+			},
+			{
+				label: 'Dashboard',
+				icon: 'pi pi-chart-bar',
+				routerLink: FullBookingRouteEnum.DATA,
 			},
 		]);
 

@@ -28,6 +28,7 @@ import { TieredMenuModule } from 'primeng/tieredmenu';
 import { PaginatorModule } from 'primeng/paginator';
 import { DialogModule } from 'primeng/dialog';
 import { CheckboxModule } from 'primeng/checkbox';
+import { ChartModule } from 'primeng/chart';
 
 @NgModule({
 	exports: [
@@ -61,6 +62,7 @@ import { CheckboxModule } from 'primeng/checkbox';
 		PaginatorModule,
 		DialogModule,
 		CheckboxModule,
+		ChartModule,
 	],
 })
 export class PrimengModule {}

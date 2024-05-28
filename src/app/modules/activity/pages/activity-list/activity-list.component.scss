@@ -7,7 +7,16 @@
 	margin: 0 auto;
 	padding-top: 4rem;
 }
-
+.banner {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-left: 37px;
+}
+.img-banner {
+	width: 78%;
+	height: 225px;
+}
 .content-box {
 	display: flex;
 	gap: 1rem;
