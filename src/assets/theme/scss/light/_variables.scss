@@ -81,7 +81,7 @@ $inputListBorder: $inputBorder !default;
 $inputListPadding: 0.25rem 0.25rem !default;
 $inputListItemPadding: 0.5rem 0.75rem !default;
 $inputListItemBg: transparent !default;
-$inputListItemTextColor: $shade700 !default;
+$inputListItemTextColor: $shade950 !default;
 $inputListItemHoverBg: $shade100 !default;
 $inputListItemTextHoverColor: $shade800 !default;
 $inputListItemFocusBg: $shade200 !default;
@@ -412,7 +412,7 @@ $tabviewHeaderTextActiveColor: $primaryColor !default;
 
 $tabviewContentBorder: 0 none !default;
 $tabviewContentBg: $shade000 !default;
-$tabviewContentTextColor: $textColor !default;
+$tabviewContentTextColor: $shade000 !default;
 $tabviewContentPadding: 0.875rem 1.125rem 1.125rem 1.125rem !default;
 
 //upload
@@ -476,7 +476,7 @@ $tableHeaderPadding: 0.75rem 1rem !default;
 
 $tableHeaderCellPadding: 0.75rem 1rem !default;
 $tableHeaderCellBg: $shade000 !default;
-$tableHeaderCellTextColor: $shade700 !default;
+$tableHeaderCellTextColor: $shade950 !default;
 $tableHeaderCellFontWeight: 600 !default;
 $tableHeaderCellBorder: 1px solid $shade200 !default;
 $tableHeaderCellBorderWidth: 0 0 1px 0 !default;
@@ -491,7 +491,7 @@ $tableHeaderCellHighlightTextHoverColor: $highlightTextColor !default;
 $tableSortableColumnBadgeSize: 1rem !default;
 
 $tableBodyRowBg: $shade000 !default;
-$tableBodyRowTextColor: $shade700 !default;
+$tableBodyRowTextColor: $shade950 !default;
 $tableBodyRowEvenBg: $shade50 !default;
 $tableBodyRowHoverBg: $shade100 !default;
 $tableBodyRowTextHoverColor: $shade800 !default;
