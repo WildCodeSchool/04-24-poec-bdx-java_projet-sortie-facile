@@ -776,7 +776,7 @@
       "imgUrl": "",
       "link": "",
       "userId": "1",
-      "isVisible": true
+      "isVisible": false
     },
     {
       "id": "2941",
@@ -917,6 +917,30 @@
       },
       "nbGuest": 3,
       "description": "rftdgfc",
+      "imgUrl": "",
+      "link": "",
+      "userId": "1",
+      "isVisible": false
+    },
+    {
+      "id": "1a3d",
+      "name": "toto",
+      "date": "2024-05-05T22:00:00.000Z",
+      "hour": "2024-05-28T20:40:56.393Z",
+      "departments": {
+        "id": "2",
+        "name": "Aisne"
+      },
+      "activityCity": {
+        "id": "2",
+        "name": "Rome"
+      },
+      "categoryId": {
+        "id": "3",
+        "name": "Cinema"
+      },
+      "nbGuest": 3,
+      "description": "tgf§yfg",
       "imgUrl": "",
       "link": "",
       "userId": "1",
