@@ -23,9 +23,11 @@ export class ContactComponent implements OnDestroy, OnInit {
 
 	formData: {
 		Email: string;
+		title: string;
 		message: string;
 	} = {
 		Email: '',
+		title: '',
 		message: '',
 	};
 

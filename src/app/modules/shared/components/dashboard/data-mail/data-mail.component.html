@@ -1,1 +1,23 @@
-/
+<h1>Boite Mail</h1>
+<div class="card">
+	<p-table
+		*ngIf="contacts$ | async as contacts"
+		[value]="contacts"
+		[tableStyle]="{ 'min-width': '50rem' }"
+	>
+		<ng-template pTemplate="header">
+			<tr>
+				<th>User Email</th>
+				<th>Title</th>
+				<th>Mail</th>
+			</tr>
+		</ng-template>
+		<ng-template pTemplate="body" let-reservation>
+			<tr *ngFor="let contact of contacts">
+				<td>{{ contact.email }}</td>
+				<td>{{ contact.title }}</td>
+				<td>{{ contact.message }}</td>
+			</tr>
+		</ng-template>
+	</p-table>
+</div>

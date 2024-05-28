@@ -25,6 +25,16 @@
 				class="input-activity-form"
 			></app-text-field>
 
+			<p>Sujet</p>
+
+			<app-text-field
+				inputId="title"
+				name="title"
+				[required]="true"
+				#title="ngModel"
+				[form]="contactForm"
+				[(ngModel)]="formData.title"
+			></app-text-field>
 			<p>Votre message</p>
 
 			<app-textarea
