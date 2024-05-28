@@ -6,15 +6,38 @@ import { Observable } from 'rxjs';
 @Component({
 	selector: 'app-data-mail',
 	templateUrl: './data-mail.component.html',
-	styleUrl: './data-mail.component.scss',
+	styleUrls: ['./data-mail.component.scss'],
 })
 export class DataMailComponent implements OnInit {
 	contacts$!: Observable<Contact[]>;
-
-	selectedContact!: Contact;
+	selectedContact: Contact | undefined;
 
 	constructor(private contactService: ContactService) {}
+
 	ngOnInit(): void {
 		this.contacts$ = this.contactService.getContactList$();
+	}
+
+	showMail(contact: Contact) {
+		this.selectedContact = contact;
+	}
+
+	closeMail() {
+		this.selectedContact = undefined;
+	}
+
+	onRowSelect(event: any) {
+		this.showMail(event.data);
+	}
+
+	onRowUnselect() {
+		this.closeMail();
+	}
+
+	// Close modal on ESC key press
+	onKeyPress(event: Event) {
+		if (event instanceof KeyboardEvent && event.key === 'Escape') {
+			this.closeMail();
+		}
 	}
 }
