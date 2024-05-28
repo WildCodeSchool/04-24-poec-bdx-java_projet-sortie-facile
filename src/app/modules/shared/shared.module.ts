@@ -22,6 +22,9 @@ import { DataBookingComponent } from '@shared/components/dashboard/data-booking/
 import { ModalConfirmContactComponent } from '@shared/components/modal/modal-confirm-contact/modal-confirm-contact.component';
 import { ModalConfirmDeleteActivityComponent } from '@shared/components/modal/modal-confirm-delete-activity/modal-confirm-delete-activity.component';
 import { ConfirmationService } from 'primeng/api';
+import { PieBoardComponent } from './components/dashboard/pie-board/pie-board.component';
+import { VerticalBoardComponent } from './components/dashboard/vertical-board/vertical-board.component';
+import { MultiAxeComponent } from './components/dashboard/multi-axe/multi-axe.component';
 
 @NgModule({
 	declarations: [
@@ -40,6 +43,9 @@ import { ConfirmationService } from 'primeng/api';
 		ModalConfirmUpdateActivityComponent,
 		DataBookingComponent,
 		ModalConfirmDeleteActivityComponent,
+		PieBoardComponent,
+		VerticalBoardComponent,
+		MultiAxeComponent,
 	],
 	imports: [
 		CommonModule,
@@ -70,6 +76,9 @@ import { ConfirmationService } from 'primeng/api';
 		ModalConfirmCreatActivityComponent,
 		DataBookingComponent,
 		ModalConfirmDeleteActivityComponent,
+		PieBoardComponent,
+		VerticalBoardComponent,
+		MultiAxeComponent,
 	],
 })
 export class SharedModule {}

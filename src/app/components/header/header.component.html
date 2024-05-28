@@ -10,17 +10,20 @@
 				alt="logo of sortie facile"
 			/>
 		</ng-template>
-
-		<ng-container *ngIf="profileItems$ | async as profileItems">
-			<div>
-				<i
-					class="pi pi-user"
-					style="font-size: 1.5rem"
-					(click)="menu.toggle($event)"
-				>
-					<p-tieredMenu #menu [model]="profileItems" [popup]="true" />
-				</i>
-			</div>
-		</ng-container>
+		<div class="icon">
+			<ng-container *ngIf="profileItems$ | async as profileItems">
+				<div>
+					<i
+						class="pi pi-user"
+						style="font-size: 1.5rem"
+						(click)="menu.toggle($event)"
+					>
+						<p-tieredMenu #menu [model]="profileItems" [popup]="true" />
+					</i>
+				</div>
+				<div *ngIf="connectedUser" class="green-dot"></div>
+			</ng-container>
+		</div>
 	</p-menubar>
+	<div class="white-block"></div>
 </ng-container>

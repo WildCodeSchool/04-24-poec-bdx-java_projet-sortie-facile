@@ -9,6 +9,8 @@ import { FormsModule } from '@angular/forms';
 import { SharedModule } from '@shared/shared.module';
 import { ScrollToTopComponent } from './components/scroll-to-top/scroll-to-top.component';
 import { ContactComponent } from './contact/contact.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { MentionLegalesComponent } from './mention-legales/mention-legales.component';
 
 @NgModule({
 	declarations: [
@@ -17,6 +19,8 @@ import { ContactComponent } from './contact/contact.component';
 		HeaderComponent,
 		ScrollToTopComponent,
 		ContactComponent,
+		FooterComponent,
+		MentionLegalesComponent,
 	],
 	imports: [
 		BrowserModule,
