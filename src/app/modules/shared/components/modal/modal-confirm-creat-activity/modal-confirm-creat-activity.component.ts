@@ -3,6 +3,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthUserPrimaryDatas } from '@shared/models/classes/auth-user/auth-user-primary-datas.class';
+import { AbstractModal } from '@shared/models/classes/components/absctract-modal.class';
 import { FullActivityRouteEnum } from '@shared/models/enums/routes/full-routes';
 import { ActivityService } from '@shared/services/activity.service';
 import { AuthService } from '@shared/services/auth.service';
@@ -15,7 +16,10 @@ import { catchError, tap } from 'rxjs';
 	styleUrl: './modal-confirm-creat-activity.component.scss',
 	providers: [ConfirmationService, MessageService],
 })
-export class ModalConfirmCreatActivityComponent implements OnInit {
+export class ModalConfirmCreatActivityComponent
+	extends AbstractModal
+	implements OnInit
+{
 	@Input() myForm!: NgForm;
 
 	connectedUser!: AuthUserPrimaryDatas;
@@ -26,13 +30,15 @@ export class ModalConfirmCreatActivityComponent implements OnInit {
 		private activityService: ActivityService,
 		private router: Router,
 		private _authService: AuthService,
-	) {}
+	) {
+		super();
+	}
 
 	ngOnInit(): void {
 		this.connectedUser = this._authService.getConnectedUserData();
 	}
 
-	onSubmit() {
+	protected override onSubmit() {
 		if (this.myForm && this.myForm.valid) {
 			this.confirmationService.confirm({
 				header: 'Confirmation',
@@ -47,7 +53,7 @@ export class ModalConfirmCreatActivityComponent implements OnInit {
 		}
 	}
 
-	private onReject(): void {
+	protected override onReject(): void {
 		this.messageService.add({
 			severity: 'error',
 			summary: 'Abandonné',
@@ -56,7 +62,7 @@ export class ModalConfirmCreatActivityComponent implements OnInit {
 		});
 	}
 
-	private onAccept(): void {
+	protected override onAccept(): void {
 		this.activityService
 			.postNewActivity$({ ...this.myForm.value, userId: this.connectedUser.id })
 			.pipe(
@@ -86,7 +92,7 @@ export class ModalConfirmCreatActivityComponent implements OnInit {
 			.subscribe();
 	}
 
-	private onError() {
+	protected override onError() {
 		this.messageService.add({
 			severity: 'error',
 			summary: 'Formulaire invalide',

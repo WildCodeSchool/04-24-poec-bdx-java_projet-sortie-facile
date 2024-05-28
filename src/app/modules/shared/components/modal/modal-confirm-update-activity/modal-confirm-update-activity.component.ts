@@ -2,6 +2,7 @@ import { Activity } from '@activity/models/classes/activity.class';
 import { Component, Input } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AbstractModal } from '@shared/models/classes/components/absctract-modal.class';
 import { FullActivityRouteEnum } from '@shared/models/enums/routes/full-routes';
 import { ActivityService } from '@shared/services/activity.service';
 import { ConfirmationService, MessageService } from 'primeng/api';
@@ -12,7 +13,7 @@ import { ConfirmationService, MessageService } from 'primeng/api';
 	styleUrl: './modal-confirm-update-activity.component.scss',
 	providers: [ConfirmationService, MessageService],
 })
-export class ModalConfirmUpdateActivityComponent {
+export class ModalConfirmUpdateActivityComponent extends AbstractModal {
 	@Input() myForm!: NgForm;
 	@Input() activityId!: string;
 
@@ -21,9 +22,11 @@ export class ModalConfirmUpdateActivityComponent {
 		private messageService: MessageService,
 		private activityService: ActivityService,
 		private router: Router,
-	) {}
+	) {
+		super();
+	}
 
-	onSubmit() {
+	protected onSubmit() {
 		if (this.myForm && this.myForm.valid) {
 			this.confirmationService.confirm({
 				header: 'Confirmation',
@@ -38,7 +41,7 @@ export class ModalConfirmUpdateActivityComponent {
 		}
 	}
 
-	private onError(): void {
+	protected onError(): void {
 		this.messageService.add({
 			severity: 'error',
 			summary: 'Formulaire invalide',
@@ -47,7 +50,7 @@ export class ModalConfirmUpdateActivityComponent {
 		});
 	}
 
-	private onReject(): void {
+	protected onReject(): void {
 		this.messageService.add({
 			severity: 'error',
 			summary: 'Abandonné',
@@ -56,7 +59,7 @@ export class ModalConfirmUpdateActivityComponent {
 		});
 	}
 
-	private onAccept(): void {
+	protected onAccept(): void {
 		const updatedData = this.myForm.value;
 		this.activityService
 			.updateActivity$(this.activityId, updatedData)

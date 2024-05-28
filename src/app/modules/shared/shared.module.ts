@@ -27,6 +27,7 @@ import { PieBoardComponent } from './components/dashboard/pie-board/pie-board.co
 import { VerticalBoardComponent } from './components/dashboard/vertical-board/vertical-board.component';
 import { MultiAxeComponent } from './components/dashboard/multi-axe/multi-axe.component';
 import { DataMailComponent } from './components/dashboard/data-mail/data-mail.component';
+import { ModalComponent } from './components/modal/modal/modal.component';
 
 @NgModule({
 	declarations: [
@@ -50,6 +51,7 @@ import { DataMailComponent } from './components/dashboard/data-mail/data-mail.co
 		VerticalBoardComponent,
 		MultiAxeComponent,
 		DataMailComponent,
+  ModalComponent,
 	],
 	imports: [
 		CommonModule,
