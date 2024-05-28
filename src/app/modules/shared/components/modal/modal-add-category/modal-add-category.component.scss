@@ -1,0 +1,87 @@
+:host ::ng-deep .icon-box {
+	display: flex;
+	justify-content: center;
+	margin-top: 2rem;
+
+	> p-button .p-button {
+		width: 3.5rem;
+		height: 3.5rem;
+
+		.pi {
+			font-size: 2rem;
+		}
+	}
+}
+
+:host ::ng-deep p-dialog {
+	.p-component-overlay {
+		background-color: black;
+	}
+
+	.p-dialog {
+		width: 100%;
+		max-width: 500px;
+		border-radius: 16px;
+		background-color: var(--white-color);
+
+		.p-dialog-header-icon {
+			color: var(--black-color);
+
+			> .p-button {
+				padding: 0;
+			}
+
+			.p-icon {
+				width: 1.25rem;
+				height: 1.25rem;
+			}
+		}
+
+		.p-dialog-header {
+			justify-content: center;
+			text-align: center;
+			width: 100%;
+			position: relative;
+			padding-bottom: 4rem;
+			border-radius: 16px;
+
+			.p-dialog-header-icons {
+				position: absolute;
+				top: 1.5rem;
+				right: 1rem;
+			}
+
+			> span {
+				margin: 0 auto;
+				color: var(--black-color);
+			}
+		}
+		.p-dialog-footer {
+			text-align: center;
+			padding-top: 2rem;
+			border-radius: 16px;
+
+			> p-button .p-button {
+				width: auto;
+				height: auto;
+			}
+		}
+
+		.checkboxes {
+			display: flex;
+			flex-wrap: wrap;
+			gap: 1rem;
+			width: 85%;
+			margin: 0 auto;
+			padding-left: 3.5rem;
+
+			p-checkbox {
+				width: calc(50% - 1rem);
+
+				.p-checkbox-label {
+					color: var(--black-color);
+				}
+			}
+		}
+	}
+}

@@ -60,6 +60,7 @@ app-account-container-content {
 	position: relative;
 	z-index: 1000000;
 	background-color: red;
+
 	.p-dropdown {
 		width: 100%;
 	}
@@ -68,5 +69,20 @@ app-account-container-content {
 		display: flex;
 		justify-content: flex-end;
 		margin-top: 1.5rem;
+	}
+}
+
+:host ::ng-deep .icon-box {
+	display: flex;
+	justify-content: center;
+	margin-top: 2rem;
+
+	p-button .p-button {
+		width: 3.5rem;
+		height: 3.5rem;
+
+		.pi {
+			font-size: 2rem;
+		}
 	}
 }

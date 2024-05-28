@@ -22,6 +22,7 @@ import { DataBookingComponent } from '@shared/components/dashboard/data-booking/
 import { ModalConfirmContactComponent } from '@shared/components/modal/modal-confirm-contact/modal-confirm-contact.component';
 import { ModalConfirmDeleteActivityComponent } from '@shared/components/modal/modal-confirm-delete-activity/modal-confirm-delete-activity.component';
 import { ConfirmationService } from 'primeng/api';
+import { ModalAddCategoryComponent } from './components/modal/modal-add-category/modal-add-category.component';
 import { PieBoardComponent } from './components/dashboard/pie-board/pie-board.component';
 import { VerticalBoardComponent } from './components/dashboard/vertical-board/vertical-board.component';
 import { MultiAxeComponent } from './components/dashboard/multi-axe/multi-axe.component';
@@ -43,6 +44,7 @@ import { MultiAxeComponent } from './components/dashboard/multi-axe/multi-axe.co
 		ModalConfirmUpdateActivityComponent,
 		DataBookingComponent,
 		ModalConfirmDeleteActivityComponent,
+		ModalAddCategoryComponent,
 		PieBoardComponent,
 		VerticalBoardComponent,
 		MultiAxeComponent,
@@ -76,6 +78,7 @@ import { MultiAxeComponent } from './components/dashboard/multi-axe/multi-axe.co
 		ModalConfirmCreatActivityComponent,
 		DataBookingComponent,
 		ModalConfirmDeleteActivityComponent,
+		ModalAddCategoryComponent,
 		PieBoardComponent,
 		VerticalBoardComponent,
 		MultiAxeComponent,
