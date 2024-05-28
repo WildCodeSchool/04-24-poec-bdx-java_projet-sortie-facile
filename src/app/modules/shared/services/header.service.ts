@@ -48,9 +48,33 @@ export class HeaderService {
 				command: () => this._authService.logout(),
 			},
 			{
+				separator: true,
+			},
+			{
 				label: 'Dashboard',
 				icon: 'pi pi-chart-bar',
-				routerLink: FullBookingRouteEnum.DATA,
+				items: [
+					{
+						label: 'graph',
+						icon: 'pi pi-chart-line',
+						routerLink: FullBookingRouteEnum.GRAPH,
+					},
+					{
+						label: 'data',
+						icon: 'pi pi-chart-bar',
+						routerLink: FullBookingRouteEnum.DATA,
+					},
+					{
+						label: 'mail',
+						icon: 'pi pi-chart-bar',
+						routerLink: FullBookingRouteEnum.MAIL,
+					},
+					{
+						label: 'home',
+						icon: 'pi pi-chart-bar',
+						routerLink: FullBookingRouteEnum.HOME,
+					},
+				],
 			},
 		]);
 
