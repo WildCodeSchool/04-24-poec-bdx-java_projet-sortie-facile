@@ -26,7 +26,10 @@ import { MultiSelectModule } from 'primeng/multiselect';
 import { TableModule } from 'primeng/table';
 import { TieredMenuModule } from 'primeng/tieredmenu';
 import { PaginatorModule } from 'primeng/paginator';
+import { DialogModule } from 'primeng/dialog';
+import { CheckboxModule } from 'primeng/checkbox';
 import { ChartModule } from 'primeng/chart';
+
 @NgModule({
 	exports: [
 		ButtonModule,
@@ -57,6 +60,8 @@ import { ChartModule } from 'primeng/chart';
 		TableModule,
 		TieredMenuModule,
 		PaginatorModule,
+		DialogModule,
+		CheckboxModule,
 		ChartModule,
 	],
 })

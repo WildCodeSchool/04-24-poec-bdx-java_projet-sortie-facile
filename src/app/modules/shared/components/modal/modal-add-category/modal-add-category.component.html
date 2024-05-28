@@ -1,0 +1,25 @@
+<p-dialog
+	header="Choisir mes centres d'intérêts"
+	[(visible)]="visible"
+	[modal]="true"
+	[draggable]="false"
+>
+	<div class="checkboxes">
+		<ng-container *ngFor="let category of categoriesList$ | async">
+			<p-checkbox
+				name="categories"
+				[value]="category.id"
+				[(ngModel)]="selectedCategoryIds"
+				label="{{ category.name }}"
+			></p-checkbox>
+		</ng-container>
+	</div>
+
+	<ng-template pTemplate="footer">
+		<p-button
+			label="Sauvegarder"
+			(click)="visible = false"
+			(click)="onSave()"
+		/>
+	</ng-template>
+</p-dialog>
