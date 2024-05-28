@@ -25,6 +25,7 @@ import { ConfirmationService } from 'primeng/api';
 import { PieBoardComponent } from './components/dashboard/pie-board/pie-board.component';
 import { VerticalBoardComponent } from './components/dashboard/vertical-board/vertical-board.component';
 import { MultiAxeComponent } from './components/dashboard/multi-axe/multi-axe.component';
+import { DataMailComponent } from './components/dashboard/data-mail/data-mail.component';
 
 @NgModule({
 	declarations: [
@@ -46,6 +47,7 @@ import { MultiAxeComponent } from './components/dashboard/multi-axe/multi-axe.co
 		PieBoardComponent,
 		VerticalBoardComponent,
 		MultiAxeComponent,
+		DataMailComponent,
 	],
 	imports: [
 		CommonModule,
@@ -79,6 +81,7 @@ import { MultiAxeComponent } from './components/dashboard/multi-axe/multi-axe.co
 		PieBoardComponent,
 		VerticalBoardComponent,
 		MultiAxeComponent,
+		DataMailComponent,
 	],
 })
 export class SharedModule {}

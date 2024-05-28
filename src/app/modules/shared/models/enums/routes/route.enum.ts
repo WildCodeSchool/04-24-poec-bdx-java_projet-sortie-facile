@@ -30,6 +30,7 @@ export enum BookingRouteEnum {
 	HOME = 'home',
 	DATA = 'data',
 	GRAPH = 'graph',
+	MAIL = 'mail',
 }
 
 export enum LandingRouteEnum {
