@@ -5,6 +5,10 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { AuthUser } from '@shared/models/classes/auth-user/auth-user.class';
 import { AuthUserPrimaryDatas } from '@shared/models/classes/auth-user/auth-user-primary-datas.class';
 import { AuthUserListResponseApi } from '@shared/models/classes/auth-user';
+import {
+	AccountStatus,
+	UserRoleEnum,
+} from '@shared/models/enums/user-role.enum';
 
 export class AuthUserServiceUtils {
 	protected _providerNameList: AuthProvider[] = [
@@ -16,6 +20,16 @@ export class AuthUserServiceUtils {
 	protected BASE_URL: string = 'http://localhost:3000/user';
 
 	protected _userConnected!: AuthUserPrimaryDatas;
+
+	protected _userConnectedSubject: BehaviorSubject<AuthUserPrimaryDatas> =
+		new BehaviorSubject<AuthUserPrimaryDatas>({
+			id: '',
+			username: '',
+			email: '',
+			role: UserRoleEnum.USER,
+			status: AccountStatus.ACTIVE,
+			userDetailsId: '',
+		});
 
 	protected _isLoggedInSubject: BehaviorSubject<boolean> =
 		new BehaviorSubject<boolean>(false);
@@ -44,12 +58,14 @@ export class AuthUserServiceUtils {
 	}
 
 	public checkIfUserIsConnectedAndNotifyLoggedInStatus(): void {
-		if (localStorage.getItem('user')) {
-			this.setConnectedUserData(
-				JSON.parse(localStorage.getItem('user') as string),
-			);
+		const user = localStorage.getItem('user');
 
+		if (user) {
+			const parsedUser = JSON.parse(user) as AuthUserPrimaryDatas;
+			this.setConnectedUserData(parsedUser);
 			this.notifyLoggedInStatus(true);
+		} else {
+			this.notifyLoggedInStatus(false);
 		}
 	}
 
@@ -58,11 +74,15 @@ export class AuthUserServiceUtils {
 	}
 
 	public getConnectedUserData(): AuthUserPrimaryDatas {
-		return this._userConnected;
+		return this._userConnectedSubject.value;
+	}
+
+	public getConnectedUserObservable(): Observable<AuthUserPrimaryDatas> {
+		return this._userConnectedSubject.asObservable();
 	}
 
 	public setConnectedUserData(user: AuthUserPrimaryDatas): void {
-		this._userConnected = user;
+		this._userConnectedSubject.next(user);
 	}
 
 	public get isLoggedIn(): Observable<boolean> {
