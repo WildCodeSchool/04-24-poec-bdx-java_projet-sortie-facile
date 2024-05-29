@@ -25,7 +25,7 @@ export class ModalConfirmReservationComponent extends AbstractModal {
 		this.myForm = {} as NgForm;
 	}
 
-	protected override onSubmit() {
+	public override onSubmit() {
 		this.confirmationService.confirm({
 			header: 'Confirmation',
 			message: 'Comfirmer votre inscription',

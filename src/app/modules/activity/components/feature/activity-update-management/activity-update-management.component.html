@@ -102,6 +102,14 @@
 		></app-text-field>
 
 		<div>
+			<p-button
+				[raised]="true"
+				rounded
+				(click)="onModal()"
+				icon="pi pi-check"
+				label="Modifier"
+			></p-button>
+
 			<app-modal-confirm-update-activity
 				[myForm]="updateActivityForm"
 				[activityId]="formData.id"

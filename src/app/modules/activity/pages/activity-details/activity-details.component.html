@@ -75,6 +75,14 @@
 							[outlined]="true"
 						/>
 
+						<p-button
+							[raised]="true"
+							rounded
+							(click)="onModal()"
+							icon="pi pi-check"
+							label="S'incrire"
+						></p-button>
+
 						<app-modal-confirm-reservation
 							[myForm]="myForm"
 						></app-modal-confirm-reservation>

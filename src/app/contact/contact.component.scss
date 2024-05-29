@@ -11,40 +11,40 @@
 	width: 100%;
 	max-width: none;
 	padding: 1rem 3rem;
-	// width: 100%;
 	display: flex;
 	justify-content: center;
 	flex-direction: column;
-
-	// padding: 40px;
 }
 .img-box {
 	display: flex;
 	width: 100%;
-	// min-height: calc(100vh - 84px);
+
 	img {
 		width: 100%;
 	}
 }
+
 @media (min-width: 768px) {
 	.contact {
 		flex-direction: row;
 		margin-bottom: 131px;
 	}
+
 	.title-contact {
 		display: flex;
 		margin-bottom: 131px;
 	}
+
 	.activity-form-container {
 		width: 40%;
 		max-width: none;
 		padding: 1rem 3rem;
-		// width: 100%;
 		display: flex;
 		justify-content: center;
 		flex-direction: column;
 		border: none;
 	}
+
 	.img-box {
 		display: flex;
 		width: 60%;

@@ -1,4 +1,5 @@
-import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { ModalConfirmReservationComponent } from '@shared/components/modal/modal-confirm-reservation/modal-confirm-reservation.component';
+import { Component, Input, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { Observable, Subscription } from 'rxjs';
 import { ActivityService } from '@shared/services/activity.service';
 import { ActivatedRoute } from '@angular/router';
@@ -27,6 +28,9 @@ export class ActivityDetailsComponent implements OnInit, OnDestroy {
 	@Input() myForm: NgForm;
 	@Input() imgSrc!: string;
 
+	@ViewChild(ModalConfirmReservationComponent, { static: false })
+	modalComponent!: ModalConfirmReservationComponent;
+
 	constructor(
 		private activityService: ActivityService,
 		private reservationService: BookingService,
@@ -53,6 +57,10 @@ export class ActivityDetailsComponent implements OnInit, OnDestroy {
 		this._subscription.add(
 			this.reservationService.postNewBooking$(newReservation).subscribe(),
 		);
+	}
+
+	onModal(): void {
+		this.modalComponent.onSubmit();
 	}
 
 	ngOnDestroy(): void {
