@@ -16,7 +16,7 @@
 					icon="pi pi-trash"
 					[rounded]="true"
 					severity="danger"
-					(click)="confirmHideActivity(activity.id)"
+					(click)="onModal()"
 				/>
 			</div>
 
@@ -65,7 +65,7 @@
 	</p-card>
 </div>
 
-<p-confirmDialog
-	header="Confirmation"
-	icon="pi pi-exclamation-triangle"
-></p-confirmDialog>
+<app-modal-confirm-delete-activity
+	[activityId]="activity.id"
+	(activityDeleted)="onActivityDeleted($event)"
+></app-modal-confirm-delete-activity>

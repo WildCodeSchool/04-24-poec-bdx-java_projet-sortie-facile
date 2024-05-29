@@ -609,7 +609,7 @@
       "imgUrl": "",
       "link": "https://example.com/activity9",
       "userId": "1",
-      "isVisible": true
+      "isVisible": false
     },
     {
       "id": "10",
@@ -1016,7 +1016,55 @@
       "imgUrl": "",
       "link": "",
       "userId": "1",
-      "isVisible": true
+      "isVisible": false
+    },
+    {
+      "id": "ca4b",
+      "name": "toto",
+      "date": "2024-05-05T22:00:00.000Z",
+      "hour": "2024-05-29T20:09:57.357Z",
+      "departments": {
+        "id": "25",
+        "name": "Doubs"
+      },
+      "activityCity": {
+        "id": "2",
+        "name": "Rome"
+      },
+      "categoryId": {
+        "id": "2",
+        "name": "Music"
+      },
+      "nbGuest": 2,
+      "description": "etdtc",
+      "imgUrl": "",
+      "link": "",
+      "userId": "1",
+      "isVisible": false
+    },
+    {
+      "id": "9ffc",
+      "name": "toto",
+      "date": "2024-05-05T22:00:00.000Z",
+      "hour": "2024-05-29T20:28:30.761Z",
+      "departments": {
+        "id": "2",
+        "name": "Aisne"
+      },
+      "activityCity": {
+        "id": "2",
+        "name": "Rome"
+      },
+      "categoryId": {
+        "id": "2",
+        "name": "Music"
+      },
+      "nbGuest": 2,
+      "description": "fgvyhfgvbyh",
+      "imgUrl": "",
+      "link": "",
+      "userId": "1",
+      "isVisible": false
     }
   ],
   "department": [
