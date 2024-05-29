@@ -8,9 +8,23 @@
 	height: 100%;
 }
 
+:host ::ng-deep .title-tooltip {
+	background-color: var(--primary-color);
+	color: white;
+	border-radius: 4px;
+	padding: 10px;
+	font-size: 2rem;
+
+	.ui-tooltip-arrow {
+		border-top-color: #4caf50 !important;
+	}
+}
+
 h3 {
 	color: var(--black-color);
 	margin: 0;
+	margin-top: 1rem;
+	height: 48px;
 }
 
 p {

@@ -21,11 +21,9 @@ export class ActivityCardComponent implements OnDestroy {
 	@Input() activity!: Activity;
 	@Input() connectedUser!: AuthUserPrimaryDatas;
 	@Output() activityDeleted = new EventEmitter<string>();
-
 	@ViewChild(ModalConfirmDeleteActivityComponent, { static: false })
-	modalComponent!: ModalConfirmDeleteActivityComponent;
-
 	fullActivityRoute = FullActivityRouteEnum;
+	modalComponent!: ModalConfirmDeleteActivityComponent;
 
 	private _subscription: Subscription = new Subscription();
 

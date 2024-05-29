@@ -52,6 +52,7 @@ import { ModalConfirmDeleteActivityComponent } from './components/modal/modal-co
 		MultiAxeComponent,
 		DataMailComponent,
 		ModalComponent,
+		
 	],
 	imports: [
 		CommonModule,
@@ -87,6 +88,7 @@ import { ModalConfirmDeleteActivityComponent } from './components/modal/modal-co
 		VerticalBoardComponent,
 		MultiAxeComponent,
 		DataMailComponent,
+		
 	],
 })
 export class SharedModule {}
