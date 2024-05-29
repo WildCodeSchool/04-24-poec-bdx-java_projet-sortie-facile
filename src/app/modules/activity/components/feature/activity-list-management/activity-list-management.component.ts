@@ -160,4 +160,8 @@ export class ActivityListManagementComponent implements OnInit, OnChanges {
 	onActivityHidden(): void {
 		this.filterActivities();
 	}
+
+	onActivityDeleted(): void {
+		this.filterActivities();
+	}
 }

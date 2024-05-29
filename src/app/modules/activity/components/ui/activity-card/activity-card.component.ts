@@ -1,5 +1,11 @@
 import { Activity } from '@activity/models/classes/activity.class';
-import { Component, Input, OnDestroy } from '@angular/core';
+import {
+	Component,
+	EventEmitter,
+	Input,
+	OnDestroy,
+	Output,
+} from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthUserPrimaryDatas } from '@shared/models/classes/auth-user/auth-user-primary-datas.class';
 import { FullActivityRouteEnum } from '@shared/models/enums/routes/full-routes';
@@ -15,6 +21,7 @@ import { Subscription } from 'rxjs';
 export class ActivityCardComponent implements OnDestroy {
 	@Input() activity!: Activity;
 	@Input() connectedUser!: AuthUserPrimaryDatas;
+	@Output() activityDeleted = new EventEmitter<string>();
 
 	fullActivityRoute = FullActivityRouteEnum;
 
@@ -44,7 +51,9 @@ export class ActivityCardComponent implements OnDestroy {
 	hideActivity(activityId: string): void {
 		this.activityService
 			.updateActivityVisibility(activityId, false)
-			.subscribe();
+			.subscribe(() => {
+				this.activityDeleted.emit(activityId);
+			});
 	}
 
 	ngOnDestroy(): void {

@@ -1,13 +1,6 @@
-<div class="card flex justify-content-center">
-	<p-toast></p-toast>
-	<p-confirmDialog>
-		<ng-template pTemplate="message" let-message>
-			<div class="w-full gap-3 border-bottom-1 surface-border">
-				<div class="flex flex-wrap align-item-center"></div>
-				<p>{{ message.message }}</p>
-			</div>
-		</ng-template>
-	</p-confirmDialog>
+<div>
+	<app-modal></app-modal>
+
 	<p-button
 		[raised]="true"
 		rounded

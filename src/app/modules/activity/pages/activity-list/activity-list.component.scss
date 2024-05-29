@@ -7,15 +7,22 @@
 	margin: 0 auto;
 	padding-top: 4rem;
 }
+
 .banner {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	margin-left: 37px;
+	max-width: 1920px;
+	width: 100%;
+	padding: 1.5rem;
+	margin: 0 auto;
 }
+
 .img-banner {
-	width: 78%;
-	height: 225px;
+	width: 100%;
+	height: 340px;
+	object-fit: cover;
+	object-position: top center;
 }
 .content-box {
 	display: flex;

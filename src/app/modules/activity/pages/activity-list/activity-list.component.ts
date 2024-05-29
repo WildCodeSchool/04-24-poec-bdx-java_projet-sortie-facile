@@ -12,6 +12,7 @@ export class ActivityListComponent {
 
 	selectedCategoryId!: Category;
 	selectedDepartments!: Department;
+
 	onSearch(value: string): void {
 		this.searchedValue = value;
 	}
