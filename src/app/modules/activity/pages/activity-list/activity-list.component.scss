@@ -1,3 +1,63 @@
+.banner {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+	max-width: 1920px;
+	width: 100%;
+	padding: 1rem;
+	margin: 0 auto;
+
+	h1 {
+		margin-top: 2rem;
+		margin-bottom: 0;
+	}
+
+	.img-banner {
+		width: 100%;
+		height: 340px;
+		object-fit: cover;
+		object-position: top center;
+	}
+
+	@media (min-width: 768px) {
+		padding: 1.5rem;
+
+		.img-banner {
+			height: 340px;
+			object-position: center;
+		}
+	}
+
+	@media (min-width: 992px) {
+		flex-direction: row;
+
+		h1 {
+			order: 1;
+		}
+
+		.img-banner {
+			height: 340px;
+			object-position: top center;
+			order: 2;
+		}
+	}
+
+	@media (min-width: 1280px) {
+		.img-banner {
+			height: 400px;
+			object-position: top center;
+		}
+	}
+
+	@media (min-width: 1920px) {
+		.img-banner {
+			height: 450px;
+			object-position: top center;
+		}
+	}
+}
+
 .container {
 	display: flex;
 	gap: 1rem;
@@ -5,33 +65,20 @@
 	width: 100%;
 	padding: 1.5rem;
 	margin: 0 auto;
-	padding-top: 4rem;
+	padding-top: 2.5rem;
+
+	@media (min-width: 992px) {
+		padding-top: 2.5rem;
+	}
 }
 
-.banner {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	max-width: 1920px;
-	width: 100%;
-	padding: 1.5rem;
-	margin: 0 auto;
-}
-
-.img-banner {
-	width: 100%;
-	height: 340px;
-	object-fit: cover;
-	object-position: top center;
-}
 .content-box {
 	display: flex;
 	gap: 1rem;
 }
 
 .filters-box {
-	display: flex;
-	flex-direction: column;
+	display: none;
 	background-color: rgba(103, 11, 255, 0.05);
 	width: 30%;
 	border-radius: 10px;
@@ -42,10 +89,48 @@
 		font-size: 0.9rem;
 		margin-bottom: 0.5rem;
 	}
+
+	@media (min-width: 992px) {
+		display: flex;
+		flex-direction: column;
+	}
 }
 
-.activities-box {
+:host ::ng-deep .activities-box {
 	width: 100%;
 	display: flex;
 	flex-direction: column;
+	align-items: center;
+
+	app-activity-card {
+		width: calc(100% - 2rem);
+		max-width: 400px;
+		display: flex;
+		align-items: center;
+	}
+
+	@media (min-width: 768px) {
+		app-activity-card {
+			width: calc((100% / 2) - 1rem);
+			max-width: none;
+		}
+	}
+
+	@media (min-width: 992px) {
+		app-activity-card {
+			width: calc((100% / 2) - 1rem);
+		}
+	}
+
+	@media (min-width: 1280px) {
+		app-activity-card {
+			width: calc((100% / 3) - 1rem);
+		}
+	}
+
+	@media (min-width: 1920px) {
+		app-activity-card {
+			width: calc((100% / 4) - 1rem);
+		}
+	}
 }

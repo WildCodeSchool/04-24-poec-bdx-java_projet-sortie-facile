@@ -9,8 +9,13 @@
 .activities-cards {
 	width: 100%;
 	display: flex;
+	justify-content: center;
 	gap: 1rem;
 	flex-wrap: wrap;
+
+	@media (min-width: 768px) {
+		justify-content: flex-start;
+	}
 }
 
 :host ::ng-deep .paginator-container {
