@@ -7,9 +7,9 @@ import { GraphComponent } from './pages/graph/graph.component';
 import { MaildashboardComponent } from './pages/maildashboard/maildashboard.component';
 
 const routes: Routes = [
+	{ path: BookingRouteEnum.GRAPH, component: GraphComponent },
 	{ path: BookingRouteEnum.HOME, component: BookingHomeComponent },
 	{ path: BookingRouteEnum.DATA, component: DashboardBookingComponent },
-	{ path: BookingRouteEnum.GRAPH, component: GraphComponent },
 	{ path: BookingRouteEnum.MAIL, component: MaildashboardComponent },
 ];
 
