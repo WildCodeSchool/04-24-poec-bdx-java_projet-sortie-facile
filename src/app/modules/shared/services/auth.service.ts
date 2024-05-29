@@ -5,7 +5,10 @@ import { Router } from '@angular/router';
 import { AuthUserListResponseApi } from '@shared/models/classes/auth-user';
 import { NewAuthUser } from '@shared/models/classes/auth-user/new-auth-user.class';
 import { UserService } from './user.service';
-import { AccountStatus } from '@shared/models/enums/user-role.enum';
+import {
+	AccountStatus,
+	UserRoleEnum,
+} from '@shared/models/enums/user-role.enum';
 import { FormErrorMessageService } from './form-errors.service';
 import { NewAuthUserFormDatas } from '@shared/models/classes/auth-user/new-auth-user-form-datas.class';
 import { UserDetails } from '@shared/models/classes/user-details/user-details.class';
@@ -116,6 +119,14 @@ export class AuthService extends AuthUserServiceUtils {
 
 	public logout(): void {
 		localStorage.removeItem('user');
+		this.setConnectedUserData({
+			id: '',
+			username: '',
+			email: '',
+			role: UserRoleEnum.USER,
+			status: AccountStatus.ACTIVE,
+			userDetailsId: '',
+		});
 		this.notifyLoggedInStatus(false);
 		this._router.navigateByUrl(FullAuthenticationRouteEnum.LOGIN);
 	}

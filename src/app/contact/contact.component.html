@@ -10,7 +10,7 @@
 			(ngSubmit)="onSubmit(contactForm)"
 			class="activity-form"
 		>
-			<div *ngIf="connectedUser">
+			<div *ngIf="connectedUser && connectedUser.username">
 				<app-avatar-pseudo></app-avatar-pseudo>
 			</div>
 			<p>Votre Email</p>
