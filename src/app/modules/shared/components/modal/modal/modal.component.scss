@@ -1,6 +1,7 @@
 :host ::ng-deep p-confirmdialog {
 	.p-dialog-mask {
 		background-color: rgba(0, 0, 0, 0.75);
+		z-index: 1000000;
 	}
 	.p-dialog {
 		align-items: center;
