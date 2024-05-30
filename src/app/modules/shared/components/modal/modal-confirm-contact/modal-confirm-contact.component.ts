@@ -24,7 +24,7 @@ export class ModalConfirmContactComponent extends AbstractModal {
 		this.myForm = {} as NgForm;
 	}
 
-	protected override onSubmit() {
+	public override onSubmit() {
 		if (this.myForm && this.myForm.valid) {
 			this.confirmationService.confirm({
 				header: 'Confirmation',

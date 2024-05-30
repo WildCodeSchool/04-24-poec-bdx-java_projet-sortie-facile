@@ -29,6 +29,7 @@ import { PaginatorModule } from 'primeng/paginator';
 import { DialogModule } from 'primeng/dialog';
 import { CheckboxModule } from 'primeng/checkbox';
 import { ChartModule } from 'primeng/chart';
+import { TooltipModule } from 'primeng/tooltip';
 
 @NgModule({
 	exports: [
@@ -63,6 +64,7 @@ import { ChartModule } from 'primeng/chart';
 		DialogModule,
 		CheckboxModule,
 		ChartModule,
+		TooltipModule,
 	],
 })
 export class PrimengModule {}

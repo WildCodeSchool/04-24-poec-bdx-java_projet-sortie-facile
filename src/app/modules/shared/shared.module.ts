@@ -20,7 +20,6 @@ import { ModalConfirmCreatActivityComponent } from '@shared/components/modal/mod
 import { ModalConfirmUpdateActivityComponent } from '@shared/components/modal/modal-confirm-update-activity/modal-confirm-update-activity.component';
 import { DataBookingComponent } from '@shared/components/dashboard/data-booking/data-booking.component';
 import { ModalConfirmContactComponent } from '@shared/components/modal/modal-confirm-contact/modal-confirm-contact.component';
-import { ModalConfirmDeleteActivityComponent } from '@shared/components/modal/modal-confirm-delete-activity/modal-confirm-delete-activity.component';
 import { ConfirmationService } from 'primeng/api';
 import { ModalAddCategoryComponent } from './components/modal/modal-add-category/modal-add-category.component';
 import { PieBoardComponent } from './components/dashboard/pie-board/pie-board.component';
@@ -28,6 +27,7 @@ import { VerticalBoardComponent } from './components/dashboard/vertical-board/ve
 import { MultiAxeComponent } from './components/dashboard/multi-axe/multi-axe.component';
 import { DataMailComponent } from './components/dashboard/data-mail/data-mail.component';
 import { ModalComponent } from './components/modal/modal/modal.component';
+import { ModalConfirmDeleteActivityComponent } from './components/modal/modal-confirm-delete-activity/modal-confirm-delete-activity.component';
 
 @NgModule({
 	declarations: [
@@ -51,7 +51,7 @@ import { ModalComponent } from './components/modal/modal/modal.component';
 		VerticalBoardComponent,
 		MultiAxeComponent,
 		DataMailComponent,
-  ModalComponent,
+		ModalComponent,
 	],
 	imports: [
 		CommonModule,

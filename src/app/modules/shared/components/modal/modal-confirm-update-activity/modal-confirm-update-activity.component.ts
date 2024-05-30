@@ -26,7 +26,7 @@ export class ModalConfirmUpdateActivityComponent extends AbstractModal {
 		super();
 	}
 
-	protected onSubmit() {
+	public override onSubmit() {
 		if (this.myForm && this.myForm.valid) {
 			this.confirmationService.confirm({
 				header: 'Confirmation',
@@ -41,7 +41,7 @@ export class ModalConfirmUpdateActivityComponent extends AbstractModal {
 		}
 	}
 
-	protected onError(): void {
+	public override onError(): void {
 		this.messageService.add({
 			severity: 'error',
 			summary: 'Formulaire invalide',
@@ -50,7 +50,7 @@ export class ModalConfirmUpdateActivityComponent extends AbstractModal {
 		});
 	}
 
-	protected onReject(): void {
+	public override onReject(): void {
 		this.messageService.add({
 			severity: 'error',
 			summary: 'Abandonné',
@@ -59,7 +59,7 @@ export class ModalConfirmUpdateActivityComponent extends AbstractModal {
 		});
 	}
 
-	protected onAccept(): void {
+	public override onAccept(): void {
 		const updatedData = this.myForm.value;
 		this.activityService
 			.updateActivity$(this.activityId, updatedData)

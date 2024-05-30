@@ -1,9 +1,11 @@
 import { Activity } from '@activity/models/classes/activity.class';
 import {
 	Component,
+	EventEmitter,
 	Input,
 	OnChanges,
 	OnInit,
+	Output,
 	SimpleChanges,
 } from '@angular/core';
 import { Department } from '@shared/models/classes/address/department.class';
@@ -28,10 +30,19 @@ export class ActivityListManagementComponent implements OnInit, OnChanges {
 	activity$!: Observable<Activity>;
 	pagedActivities: Activity[] = [];
 	connectedUser!: AuthUserPrimaryDatas;
+	showFilterInMobile: boolean = false;
 
 	@Input() searchedValue: string = '';
 	@Input() selectedCategoryId!: Category;
 	@Input({ required: true }) selectedDepartments!: Department;
+
+	@Output() showFilterInMobileEmitter: EventEmitter<boolean> = new EventEmitter(
+		this.showFilterInMobile,
+	);
+
+	@Output() resetFilterEmitter: EventEmitter<boolean> = new EventEmitter(
+		this.showFilterInMobile,
+	);
 
 	rows: number = 8;
 	first: number = 0;
@@ -163,5 +174,14 @@ export class ActivityListManagementComponent implements OnInit, OnChanges {
 
 	onActivityDeleted(): void {
 		this.filterActivities();
+	}
+
+	onChangeShowFilterInMobile(): void {
+		this.showFilterInMobile = !this.showFilterInMobile;
+		this.showFilterInMobileEmitter.emit(this.showFilterInMobile);
+	}
+
+	onResetFilters(): void {
+		this.resetFilterEmitter.emit(true);
 	}
 }

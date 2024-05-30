@@ -1,0 +1,15 @@
+:host ::ng-deep p-confirmdialog {
+	.p-dialog {
+		align-items: center;
+		border-radius: 20px;
+		width: 100%;
+		max-width: 500px;
+		background-color: var(--white-color);
+
+		.p-dialog-content {
+			.p-confirm-dialog-icon {
+				color: var(--danger-color);
+			}
+		}
+	}
+}

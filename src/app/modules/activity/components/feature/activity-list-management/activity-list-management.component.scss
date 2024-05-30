@@ -1,4 +1,19 @@
 :host ::ng-deep .activities-top {
+	display: flex;
+	gap: 0.75rem;
+
+	.show-filter-btn,
+	.reset-filter-btn {
+		width: 2rem;
+		height: 2rem;
+	}
+
+	@media (min-width: 992px) {
+		.show-filter-btn {
+			display: none;
+		}
+	}
+
 	> p-button .p-button {
 		padding: 0.25rem 1rem;
 		color: 1rem;
@@ -9,8 +24,13 @@
 .activities-cards {
 	width: 100%;
 	display: flex;
+	justify-content: center;
 	gap: 1rem;
 	flex-wrap: wrap;
+
+	@media (min-width: 768px) {
+		justify-content: flex-start;
+	}
 }
 
 :host ::ng-deep .paginator-container {

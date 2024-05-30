@@ -1,40 +1,52 @@
 <div class="banner">
-	<h1>Découvrez nos activités</h1>
 	<img class="img-banner" src="assets/photos/banner.jpg" alt="" />
+	<h1>Découvrez nos activités</h1>
 </div>
 
 <div class="container">
-	<div class="filters-box">
+	<div
+		class="filters-box"
+		[ngClass]="{
+			active: showResponsiveFilters
+		}"
+	>
 		<label for="">Rechercher</label>
-		<app-search-bar (emitChanges)="onSearch($event)"></app-search-bar>
+		<app-search-bar
+			[searchedValue]="searchedValue"
+			(emitChanges)="onSearch($event)"
+		></app-search-bar>
 
 		<app-divider [align]="'center'" [type]="'solid'"></app-divider>
 
-		<label for="">Catégories</label>
-		<app-select-category
-			id="categoryId"
-			inputId="categoryId"
-			name="categoryId"
-			#categoryId="ngModel"
-			[(ngModel)]="selectedCategoryId"
-		></app-select-category>
+		<div class="others-filters-box">
+			<app-select-category
+				labelFor="categoryId"
+				labelContent="Catégories"
+				id="categoryId"
+				inputId="categoryId"
+				name="categoryId"
+				#categoryId="ngModel"
+				[(ngModel)]="selectedCategoryId"
+			></app-select-category>
 
-		<label for="">Département</label>
-		<app-select-department
-			id="departments"
-			inputId="departments"
-			name="departments"
-			#departments="ngModel"
-			[(ngModel)]="selectedDepartments"
-		></app-select-department>
+			<app-select-department
+				labelFor="departments"
+				labelContent="Département"
+				id="departments"
+				inputId="departments"
+				name="departments"
+				#departments="ngModel"
+				[(ngModel)]="selectedDepartments"
+			></app-select-department>
 
-		<label for="">Région</label>
-		<app-select-region></app-select-region>
-		<label for="">City</label>
-		<app-select-city></app-select-city>
-		<p-button Style="margin-top: 10px;" [raised]="true" rounded
-			>Réinitialiser</p-button
-		>
+			<label for="">Région</label>
+			<app-select-region></app-select-region>
+			<label for="">City</label>
+			<app-select-city></app-select-city>
+			<!-- <p-button Style="margin-top: 10px;" [raised]="true" rounded
+				>Réinitialiser</p-button
+			> -->
+		</div>
 	</div>
 
 	<div class="activities-box">
@@ -42,6 +54,8 @@
 			[searchedValue]="searchedValue"
 			[selectedCategoryId]="selectedCategoryId"
 			[selectedDepartments]="selectedDepartments"
+			(showFilterInMobileEmitter)="onShowFilters($event)"
+			(resetFilterEmitter)="onResetFilters()"
 		></app-activity-list-management>
 	</div>
 </div>

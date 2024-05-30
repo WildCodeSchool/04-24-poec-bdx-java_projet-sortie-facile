@@ -46,7 +46,15 @@
 				[(ngModel)]="formData.message"
 			></app-textarea>
 
-			<div class="card flex justify-content-center">
+			<div>
+				<p-button
+					[raised]="true"
+					rounded
+					(click)="onModal()"
+					icon="pi pi-check"
+					label="Envoyer"
+				></p-button>
+
 				<app-modal-confirm-contact
 					[myForm]="contactForm"
 				></app-modal-confirm-contact>

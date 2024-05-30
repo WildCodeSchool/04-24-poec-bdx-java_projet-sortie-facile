@@ -38,7 +38,7 @@ export class ModalConfirmCreatActivityComponent
 		this.connectedUser = this._authService.getConnectedUserData();
 	}
 
-	protected override onSubmit() {
+	public override onSubmit() {
 		if (this.myForm && this.myForm.valid) {
 			this.confirmationService.confirm({
 				header: 'Confirmation',

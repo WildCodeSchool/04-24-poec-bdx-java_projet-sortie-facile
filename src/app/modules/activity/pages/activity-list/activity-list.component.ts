@@ -9,11 +9,21 @@ import { Department } from '@shared/models/classes/address/department.class';
 })
 export class ActivityListComponent {
 	searchedValue: string = '';
+	showResponsiveFilters: boolean = false;
+	resetFilter: boolean = false;
 
 	selectedCategoryId!: Category;
 	selectedDepartments!: Department;
 
 	onSearch(value: string): void {
 		this.searchedValue = value;
+	}
+
+	onShowFilters(args: boolean): void {
+		this.showResponsiveFilters = args;
+	}
+
+	onResetFilters(): void {
+		this.searchedValue = '';
 	}
 }

@@ -1,7 +1,6 @@
 import { Component, Input, OnInit, forwardRef } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { Category } from '@shared/models/classes/category/category.class';
-import { ActivityService } from '@shared/services/activity.service';
 import { CategoryService } from '@shared/services/category.service';
 import { Observable } from 'rxjs';
 
@@ -29,10 +28,7 @@ export class SelectCategoryComponent implements OnInit, ControlValueAccessor {
 	activityCategoryList$!: Observable<Category[]>;
 	selectedCategory!: Category;
 
-	constructor(
-		private activityService: ActivityService,
-		private categoryService: CategoryService,
-	) {}
+	constructor(private categoryService: CategoryService) {}
 
 	ngOnInit(): void {
 		this.activityCategoryList$ = this.categoryService.getCategoryList$();
