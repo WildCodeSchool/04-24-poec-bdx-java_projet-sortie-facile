@@ -22,10 +22,6 @@ export enum FullBookingRouteEnum {
 	DATA = '/' + PrimaryRouteEnum.BOOKING + '/data',
 	MAIL = '/' + PrimaryRouteEnum.BOOKING + '/mail',
 }
-// TODO /contacts, /home etc....
-// export enum LandingRouteEnum {
-// 	DEFAULT = '',
-// }
 
 export enum FullUserRouteEnum {
 	HOME = '/' + PrimaryRouteEnum.USER + '/home',

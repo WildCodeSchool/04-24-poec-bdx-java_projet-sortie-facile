@@ -21,32 +21,25 @@ export class ContactService {
 	getContactList$(): Observable<Contact[]> {
 		return this.http.get<Contact[]>(this._BASE_URL).pipe(
 			catchError(error => {
-				// Handle the error appropriately here
-				console.error('Error fetching contacts:', error);
-				return throwError(error); // Rethrow the error for further handling
+				return throwError(error);
 			}),
 		);
 	}
 
 	postNewContact$(newContact: Contact): Observable<Contact> {
-		return this.http
-			.get<ContactListResponseApi>('http://localhost:3000/contact')
-			.pipe(
-				switchMap((contacts: ContactListResponseApi) => {
-					const nextId =
-						contacts.length > 0
-							? Number(contacts[contacts.length - 1].id) + 1
-							: 1;
-					newContact.id = String(nextId);
+		return this.http.get<ContactListResponseApi>(this._BASE_URL).pipe(
+			switchMap((contacts: ContactListResponseApi) => {
+				const nextId =
+					contacts.length > 0
+						? Number(contacts[contacts.length - 1].id) + 1
+						: 1;
+				newContact.id = String(nextId);
 
-					return this.http.post<Contact>(
-						'http://localhost:3000/contact',
-						newContact,
-					);
-				}),
-				catchError(error => {
-					throw error;
-				}),
-			);
+				return this.http.post<Contact>(this._BASE_URL, newContact);
+			}),
+			catchError(error => {
+				throw error;
+			}),
+		);
 	}
 }
