@@ -16,16 +16,16 @@ export class ModalConfirmDeleteActivityComponent extends AbstractModal {
 	@Output() activityDeleted = new EventEmitter<string>();
 
 	constructor(
-		private confirmationService: ConfirmationService,
-		private messageService: MessageService,
-		private activityService: ActivityService,
-		private router: Router,
+		private _confirmationService: ConfirmationService,
+		private _messageService: MessageService,
+		private _activityService: ActivityService,
+		private _router: Router,
 	) {
 		super();
 	}
 
 	public override onSubmit() {
-		this.confirmationService.confirm({
+		this._confirmationService.confirm({
 			message: 'Êtes-vous sûr de vouloir masquer cette activité ?',
 			header: 'Confirmation',
 			icon: 'pi pi-exclamation-triangle',
@@ -37,7 +37,7 @@ export class ModalConfirmDeleteActivityComponent extends AbstractModal {
 	}
 
 	public override onError(): void {
-		this.messageService.add({
+		this._messageService.add({
 			severity: 'error',
 			summary: 'Erreur',
 			detail: "Une erreur s'est produite lors de la modification de l'activité",
@@ -46,7 +46,7 @@ export class ModalConfirmDeleteActivityComponent extends AbstractModal {
 	}
 
 	public override onReject(): void {
-		this.messageService.add({
+		this._messageService.add({
 			severity: 'error',
 			summary: 'Abandon',
 			detail: 'Suppression abandonnée',
@@ -55,13 +55,12 @@ export class ModalConfirmDeleteActivityComponent extends AbstractModal {
 	}
 
 	public override onAccept(): void {
-		this.activityService
+		this._activityService
 			.updateActivityVisibility(this.activityId, false)
 			.subscribe(() => {
 				this.activityDeleted.emit(this.activityId);
+				this._confirmationService.close();
+				this._router.navigate([FullActivityRouteEnum.HOME]);
 			});
-
-		this.confirmationService.close();
-		this.router.navigate([FullActivityRouteEnum.HOME]);
 	}
 }
