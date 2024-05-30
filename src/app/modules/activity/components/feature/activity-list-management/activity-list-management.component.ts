@@ -17,6 +17,7 @@ import { CategoryService } from '@shared/services/category.service';
 import { Observable, map } from 'rxjs';
 import { LazyLoadEvent } from 'primeng/api';
 import { FullActivityRouteEnum } from '@shared/models/enums/routes/full-routes';
+import { PaginationOption } from '@shared/models/types/utils/pagination.type';
 
 @Component({
 	selector: 'app-activity-list-management',
@@ -31,6 +32,7 @@ export class ActivityListManagementComponent implements OnInit, OnChanges {
 	pagedActivities: Activity[] = [];
 	connectedUser!: AuthUserPrimaryDatas;
 	showFilterInMobile: boolean = false;
+	rowsPerPageOptions!: PaginationOption[];
 
 	@Input() searchedValue: string = '';
 	@Input() selectedCategoryId!: Category;
@@ -48,12 +50,6 @@ export class ActivityListManagementComponent implements OnInit, OnChanges {
 	first: number = 0;
 	totalRecords: number = 0;
 
-	rowsPerPageOptions = [
-		{ label: '4', value: 4 },
-		{ label: '12', value: 12 },
-		{ label: '20', value: 20 },
-	];
-
 	constructor(
 		private activityService: ActivityService,
 		private categoryService: CategoryService,
@@ -61,6 +57,12 @@ export class ActivityListManagementComponent implements OnInit, OnChanges {
 	) {}
 
 	ngOnInit(): void {
+		this.rowsPerPageOptions = [
+			{ label: '4', value: 4 },
+			{ label: '12', value: 12 },
+			{ label: '20', value: 20 },
+		];
+
 		if (!this.connectedUser) {
 			this._authService.setConnectedUserData(
 				JSON.parse(localStorage.getItem('user') as string),
@@ -152,9 +154,9 @@ export class ActivityListManagementComponent implements OnInit, OnChanges {
 		});
 	}
 
-	onRowsChange(): void {
+	onRowsChange(event: number): void {
 		this.first = 0;
-
+		this.rows = event;
 		this.activityList$.subscribe(activities => {
 			this.updatePageActivities(activities);
 		});
