@@ -48,12 +48,6 @@ export class ActivityListManagementComponent implements OnInit, OnChanges {
 	first: number = 0;
 	totalRecords: number = 0;
 
-	rowsPerPageOptions = [
-		{ label: '4', value: 4 },
-		{ label: '12', value: 12 },
-		{ label: '20', value: 20 },
-	];
-
 	constructor(
 		private activityService: ActivityService,
 		private categoryService: CategoryService,
@@ -152,9 +146,9 @@ export class ActivityListManagementComponent implements OnInit, OnChanges {
 		});
 	}
 
-	onRowsChange(): void {
+	onRowsChange(event: number): void {
 		this.first = 0;
-
+		this.rows = event;
 		this.activityList$.subscribe(activities => {
 			this.updatePageActivities(activities);
 		});

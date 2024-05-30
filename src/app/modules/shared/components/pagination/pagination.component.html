@@ -1,0 +1,23 @@
+<div class="paginator-container">
+	<div>
+		<span>Activités par pages : </span>
+		<p-dropdown
+			[options]="rowsPerPageOptions"
+			optionLabel="label"
+			optionValue="value"
+			[(ngModel)]="rows"
+			(ngModelChange)="onRowsChange($event)"
+		></p-dropdown>
+	</div>
+	<div>
+		<p-paginator
+			[first]="first"
+			[rows]="rows"
+			[totalRecords]="totalRecords"
+			(onPageChange)="onPageChange($event)"
+			[showFirstLastIcon]="false"
+			[showCurrentPageReport]="true"
+			currentPageReportTemplate="{first} - {last} sur {totalRecords}"
+		></p-paginator>
+	</div>
+</div>
