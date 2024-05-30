@@ -582,7 +582,7 @@
 			"imgUrl": "",
 			"link": "https://example.com/activity9",
 			"userId": "1",
-			"isVisible": false
+			"isVisible": true
 		},
 		{
 			"id": "10",
@@ -1452,37 +1452,152 @@
 		{
 			"id": "1",
 			"email": "laurore@yahoo.fr",
-			"message": "bonjour, je voudrais plus de renseingnements sur votre activité."
+			"title": "Renseignements",
+			"message": "Bonjour, je voudrais plus de renseignements sur votre activité."
 		},
 		{
 			"id": "2",
 			"email": "boubou@yahoo.fr",
-			"message": "renseingnements sur votre activité."
+			"title": "Informations",
+			"message": "Renseignements sur votre activité."
 		},
 		{
 			"id": "3",
-			"Email": "yoyo@toto.fr",
-			"message": "cool, vous embauchez?"
+			"email": "yoyo@toto.fr",
+			"title": "Embauche",
+			"message": "Cool, vous embauchez?"
 		},
 		{
 			"id": "4",
-			"Email": "yoyo@toto.fr",
-			"message": "ajoutez du style"
+			"email": "yoyo@toto.fr",
+			"title": "Suggestion",
+			"message": "Ajoutez du style."
 		},
 		{
 			"id": "5",
-			"Email": "gbyhgbyh",
+			"email": "gbyhgbyh",
+			"title": "Test",
 			"message": "gèyghgfgvyghfgvyh"
 		},
 		{
 			"id": "6",
-			"Email": "fv§tg",
+			"email": "fv§tg",
+			"title": "Test",
 			"message": "rtgf§vyh"
 		},
 		{
 			"id": "7",
-			"Email": "ftvg",
-			"message": "gfc v"
+			"email": "adzfegr",
+			"title": "Feedback",
+			"message": "safg(ht-jyèu"
+		},
+		{
+			"id": "8",
+			"email": "example8@example.com",
+			"title": "Avis",
+			"message": "J'adore votre service."
+		},
+		{
+			"id": "9",
+			"email": "example9@example.com",
+			"title": "Besoin d'infos",
+			"message": "Besoin de plus d'infos."
+		},
+		{
+			"id": "10",
+			"email": "example10@example.com",
+			"title": "Fonctionnement",
+			"message": "Comment ça marche?"
+		},
+		{
+			"id": "11",
+			"email": "example11@example.com",
+			"title": "Remerciements",
+			"message": "Merci pour votre aide."
+		},
+		{
+			"id": "12",
+			"email": "example12@example.com",
+			"title": "Contact",
+			"message": "Peut-on vous appeler?"
+		},
+		{
+			"id": "13",
+			"email": "example13@example.com",
+			"title": "Feedback",
+			"message": "Super service!"
+		},
+		{
+			"id": "14",
+			"email": "example14@example.com",
+			"title": "Demande",
+			"message": "Contactez-moi svp."
+		},
+		{
+			"id": "15",
+			"email": "example15@example.com",
+			"title": "Tarifs",
+			"message": "Questions sur les tarifs."
+		},
+		{
+			"id": "16",
+			"email": "example16@example.com",
+			"title": "Disponibilité",
+			"message": "Disponible demain?"
+		},
+		{
+			"id": "17",
+			"email": "example17@example.com",
+			"title": "Urgence",
+			"message": "Besoin d'aide urgente."
+		},
+		{
+			"id": "18",
+			"email": "example18@example.com",
+			"title": "Assistance",
+			"message": "Pouvez-vous m'aider?"
+		},
+		{
+			"id": "19",
+			"email": "example19@example.com",
+			"title": "Satisfaction",
+			"message": "C'est vraiment bien."
+		},
+		{
+			"id": "20",
+			"email": "example20@example.com",
+			"title": "Remerciements",
+			"message": "Merci beaucoup."
+		},
+		{
+			"id": "21",
+			"email": "example21@example.com",
+			"title": "Détails",
+			"message": "Des détails svp."
+		},
+		{
+			"id": "22",
+			"email": "example22@example.com",
+			"title": "Prix",
+			"message": "Quel est le prix?"
+		},
+		{
+			"id": "23",
+			"email": "example23@example.com",
+			"title": "Informations",
+			"message": "J'aimerais en savoir plus."
+		},
+		{
+			"id": "24",
+			"email": "example24@example.com",
+			"title": "Confirmation",
+			"message": "Pouvez-vous confirmer?"
+		},
+		{
+			"id": "25",
+			"email": "example25@example.com",
+			"title": "Remerciements",
+			"message": "Merci pour tout."
 		}
 	]
 }
