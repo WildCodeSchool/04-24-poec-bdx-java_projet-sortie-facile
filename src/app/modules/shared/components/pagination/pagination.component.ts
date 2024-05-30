@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { PaginationOption } from '@shared/models/types/utils/pagination.type';
 import { LazyLoadEvent } from 'primeng/api';
 
 @Component({
@@ -10,14 +11,9 @@ export class PaginationComponent {
 	@Input() rows: number = 8;
 	@Input() first: number = 0;
 	@Input() totalRecords: number = 0;
+	@Input() rowsPerPageOptions!: PaginationOption[];
 	@Output() pageChange: EventEmitter<LazyLoadEvent> = new EventEmitter();
 	@Output() rowsChange: EventEmitter<number> = new EventEmitter();
-
-	rowsPerPageOptions = [
-		{ label: '4', value: 4 },
-		{ label: '12', value: 12 },
-		{ label: '20', value: 20 },
-	];
 
 	onPageChange(event: LazyLoadEvent): void {
 		this.pageChange.emit(event);
