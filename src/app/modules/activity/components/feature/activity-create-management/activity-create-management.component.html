@@ -1,4 +1,4 @@
-<app-activity-form-layout
+<app-layout-split
 	pageTitle="Création d'une activité"
 	backgroundImage="/assets/photos/create-activity.jpg"
 >
@@ -108,19 +108,15 @@
 			[(ngModel)]="newActivity.link"
 		></app-text-field>
 
-		<div>
-			<p-button
-				[raised]="true"
-				rounded
+		<div class="btn-container">
+			<app-button-form
+				iconName="arrow-right"
 				(click)="onModal()"
-				icon="pi pi-check"
-				label="Poster"
-			></p-button>
-			<
+			></app-button-form>
 
 			<app-modal-confirm-creat-activity
 				[myForm]="addActivityForm"
 			></app-modal-confirm-creat-activity>
 		</div>
 	</form>
-</app-activity-form-layout>
+</app-layout-split>
