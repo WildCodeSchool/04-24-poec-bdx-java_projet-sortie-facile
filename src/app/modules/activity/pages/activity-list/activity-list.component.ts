@@ -10,6 +10,7 @@ import { Department } from '@shared/models/classes/address/department.class';
 export class ActivityListComponent {
 	searchedValue: string = '';
 	showResponsiveFilters: boolean = false;
+	resetFilter: boolean = false;
 
 	selectedCategoryId!: Category;
 	selectedDepartments!: Department;
@@ -19,7 +20,10 @@ export class ActivityListComponent {
 	}
 
 	onShowFilters(args: boolean): void {
-		console.log(args);
 		this.showResponsiveFilters = args;
+	}
+
+	onResetFilters(): void {
+		this.searchedValue = '';
 	}
 }

@@ -11,7 +11,10 @@
 		}"
 	>
 		<label for="">Rechercher</label>
-		<app-search-bar (emitChanges)="onSearch($event)"></app-search-bar>
+		<app-search-bar
+			[searchedValue]="searchedValue"
+			(emitChanges)="onSearch($event)"
+		></app-search-bar>
 
 		<app-divider [align]="'center'" [type]="'solid'"></app-divider>
 
@@ -40,9 +43,9 @@
 			<app-select-region></app-select-region>
 			<label for="">City</label>
 			<app-select-city></app-select-city>
-			<p-button Style="margin-top: 10px;" [raised]="true" rounded
+			<!-- <p-button Style="margin-top: 10px;" [raised]="true" rounded
 				>Réinitialiser</p-button
-			>
+			> -->
 		</div>
 	</div>
 
@@ -51,7 +54,8 @@
 			[searchedValue]="searchedValue"
 			[selectedCategoryId]="selectedCategoryId"
 			[selectedDepartments]="selectedDepartments"
-			(showFilterInMobileEmitters)="onShowFilters($event)"
+			(showFilterInMobileEmitter)="onShowFilters($event)"
+			(resetFilterEmitter)="onResetFilters()"
 		></app-activity-list-management>
 	</div>
 </div>

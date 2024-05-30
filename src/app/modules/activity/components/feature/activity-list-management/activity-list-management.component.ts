@@ -36,8 +36,13 @@ export class ActivityListManagementComponent implements OnInit, OnChanges {
 	@Input() selectedCategoryId!: Category;
 	@Input({ required: true }) selectedDepartments!: Department;
 
-	@Output() showFilterInMobileEmitters: EventEmitter<boolean> =
-		new EventEmitter(this.showFilterInMobile);
+	@Output() showFilterInMobileEmitter: EventEmitter<boolean> = new EventEmitter(
+		this.showFilterInMobile,
+	);
+
+	@Output() resetFilterEmitter: EventEmitter<boolean> = new EventEmitter(
+		this.showFilterInMobile,
+	);
 
 	rows: number = 8;
 	first: number = 0;
@@ -173,6 +178,10 @@ export class ActivityListManagementComponent implements OnInit, OnChanges {
 
 	onChangeShowFilterInMobile(): void {
 		this.showFilterInMobile = !this.showFilterInMobile;
-		this.showFilterInMobileEmitters.emit(this.showFilterInMobile);
+		this.showFilterInMobileEmitter.emit(this.showFilterInMobile);
+	}
+
+	onResetFilters(): void {
+		this.resetFilterEmitter.emit(true);
 	}
 }

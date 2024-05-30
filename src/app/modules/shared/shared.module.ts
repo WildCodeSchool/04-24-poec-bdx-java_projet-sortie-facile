@@ -28,7 +28,6 @@ import { MultiAxeComponent } from './components/dashboard/multi-axe/multi-axe.co
 import { DataMailComponent } from './components/dashboard/data-mail/data-mail.component';
 import { ModalComponent } from './components/modal/modal/modal.component';
 import { ModalConfirmDeleteActivityComponent } from './components/modal/modal-confirm-delete-activity/modal-confirm-delete-activity.component';
-import { ResponsiveMenuFiltersComponent } from './components/menu/responsive-menu-filters/responsive-menu-filters.component';
 
 @NgModule({
 	declarations: [
@@ -53,7 +52,6 @@ import { ResponsiveMenuFiltersComponent } from './components/menu/responsive-men
 		MultiAxeComponent,
 		DataMailComponent,
 		ModalComponent,
-		ResponsiveMenuFiltersComponent,
 	],
 	imports: [
 		CommonModule,
@@ -89,7 +87,6 @@ import { ResponsiveMenuFiltersComponent } from './components/menu/responsive-men
 		VerticalBoardComponent,
 		MultiAxeComponent,
 		DataMailComponent,
-		ResponsiveMenuFiltersComponent,
 	],
 })
 export class SharedModule {}
