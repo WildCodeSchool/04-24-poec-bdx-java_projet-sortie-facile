@@ -31,6 +31,7 @@ import { ModalConfirmDeleteActivityComponent } from './components/modal/modal-co
 import { LayoutSplitComponent } from './components/layout/layout-split/layout-split.component';
 import { ModalDeleteAccountComponent } from './components/modal/modal-confirm-delete-account/modal-confirm-delete-account.component';
 import { PaginationComponent } from './components/pagination/pagination.component';
+import { ButtonUltraWildeComponent } from './components/button/button-ultra-wilde/button-ultra-wilde.component';
 
 @NgModule({
 	declarations: [
@@ -58,6 +59,7 @@ import { PaginationComponent } from './components/pagination/pagination.componen
 		LayoutSplitComponent,
 		ModalDeleteAccountComponent,
 		PaginationComponent,
+		ButtonUltraWildeComponent,
 	],
 	imports: [
 		CommonModule,
@@ -96,6 +98,7 @@ import { PaginationComponent } from './components/pagination/pagination.componen
 		LayoutSplitComponent,
 		ModalDeleteAccountComponent,
 		PaginationComponent,
+		ButtonUltraWildeComponent,
 	],
 })
 export class SharedModule {}
