@@ -6,6 +6,6 @@ import { Component, Input } from '@angular/core';
 	styleUrl: './info-item.component.scss',
 })
 export class InfoItemComponent {
-	@Input() icon!: string;
-	@Input() content!: string;
+	@Input({ required: true }) icon!: string;
+	@Input({ required: true }) content!: string;
 }

@@ -2,7 +2,7 @@
 	padding: 10px;
 	padding-bottom: 40px;
 	border-radius: 0;
-	position: relative;
+	position: relative; /* Ajout du positionnement relatif */
 	z-index: 1;
 }
 
@@ -92,6 +92,7 @@ i {
 			}
 
 			.p-menuitem-text {
+				// color: var(--gray-500);
 				font-family: 'Inter var', sans-serif;
 			}
 		}

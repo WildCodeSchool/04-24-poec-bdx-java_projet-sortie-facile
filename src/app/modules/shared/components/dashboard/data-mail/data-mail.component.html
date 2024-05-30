@@ -17,7 +17,7 @@
 			<tr (click)="showMail(contact)" style="cursor: pointer">
 				<td>{{ contact.title }}</td>
 				<td>{{ contact.email }}</td>
-				<td>{{ contact.message }}</td>
+				<td>{{ contact.message | truncate: 100 }}</td>
 			</tr>
 		</ng-template>
 	</p-table>
