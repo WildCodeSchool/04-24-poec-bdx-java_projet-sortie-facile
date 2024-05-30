@@ -8,7 +8,7 @@
       "passwordConfirm": "123456789",
       "role": "admin",
       "status": "inactive",
-      "userDetailsId": ""
+      "userDetailsId": "1"
     },
     {
       "id": "2",
@@ -108,8 +108,10 @@
       "genre": "masculin",
       "categoryIds": [
         "1",
-        "5",
-        "8"
+        "10",
+        "2",
+        "3",
+        "9"
       ],
       "userId": "1",
       "email": "j.doe@test.com"
