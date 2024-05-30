@@ -25,10 +25,10 @@ export class ModalConfirmCreatActivityComponent
 	connectedUser!: AuthUserPrimaryDatas;
 
 	constructor(
-		private confirmationService: ConfirmationService,
-		private messageService: MessageService,
-		private activityService: ActivityService,
-		private router: Router,
+		private _confirmationService: ConfirmationService,
+		private _messageService: MessageService,
+		private _activityService: ActivityService,
+		private _router: Router,
 		private _authService: AuthService,
 	) {
 		super();
@@ -40,7 +40,7 @@ export class ModalConfirmCreatActivityComponent
 
 	public override onSubmit() {
 		if (this.myForm && this.myForm.valid) {
-			this.confirmationService.confirm({
+			this._confirmationService.confirm({
 				header: 'Confirmation',
 				message: 'Confirmer la création de votre activité',
 				accept: () => this.onAccept(),
@@ -54,7 +54,7 @@ export class ModalConfirmCreatActivityComponent
 	}
 
 	protected override onReject(): void {
-		this.messageService.add({
+		this._messageService.add({
 			severity: 'error',
 			summary: 'Abandonné',
 			detail: 'Création abandonnée',
@@ -63,22 +63,22 @@ export class ModalConfirmCreatActivityComponent
 	}
 
 	protected override onAccept(): void {
-		this.activityService
+		this._activityService
 			.postNewActivity$({ ...this.myForm.value, userId: this.connectedUser.id })
 			.pipe(
 				tap((activity: Activity) => {
-					this.messageService.add({
+					this._messageService.add({
 						severity: 'info',
 						summary: 'Bravo',
 						detail: 'Votre activité a bien été créée',
 						life: 3000,
 					});
 					setTimeout(() => {
-						this.router.navigate([FullActivityRouteEnum.DETAILS, activity.id]);
+						this._router.navigate([FullActivityRouteEnum.DETAILS, activity.id]);
 					}, 3000);
 				}),
 				catchError(() => {
-					this.messageService.add({
+					this._messageService.add({
 						severity: 'error',
 						summary: 'Erreur',
 						detail:
@@ -93,7 +93,7 @@ export class ModalConfirmCreatActivityComponent
 	}
 
 	protected override onError() {
-		this.messageService.add({
+		this._messageService.add({
 			severity: 'error',
 			summary: 'Formulaire invalide',
 			detail: 'Veuillez remplir les champs obligatoires',

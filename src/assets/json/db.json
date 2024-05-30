@@ -3,12 +3,12 @@
     {
       "id": "1",
       "username": "johndoe",
-      "email": "j.doe@test.com",
+      "email": "johndoe@example.com",
       "password": "123456789",
       "passwordConfirm": "123456789",
       "role": "admin",
-      "status": "active",
-      "userDetailsId": "1"
+      "status": "inactive",
+      "userDetailsId": ""
     },
     {
       "id": "2",

@@ -29,6 +29,7 @@ import { DataMailComponent } from './components/dashboard/data-mail/data-mail.co
 import { ModalComponent } from './components/modal/modal/modal.component';
 import { ModalConfirmDeleteActivityComponent } from './components/modal/modal-confirm-delete-activity/modal-confirm-delete-activity.component';
 import { LayoutSplitComponent } from './components/layout/layout-split/layout-split.component';
+import { ModalDeleteAccountComponent } from './components/modal/modal-confirm-delete-account/modal-confirm-delete-account.component';
 
 @NgModule({
 	declarations: [
@@ -54,6 +55,7 @@ import { LayoutSplitComponent } from './components/layout/layout-split/layout-sp
 		DataMailComponent,
 		ModalComponent,
 		LayoutSplitComponent,
+		ModalDeleteAccountComponent,
 	],
 	imports: [
 		CommonModule,
@@ -90,6 +92,7 @@ import { LayoutSplitComponent } from './components/layout/layout-split/layout-sp
 		MultiAxeComponent,
 		DataMailComponent,
 		LayoutSplitComponent,
+		ModalDeleteAccountComponent,
 	],
 })
 export class SharedModule {}
