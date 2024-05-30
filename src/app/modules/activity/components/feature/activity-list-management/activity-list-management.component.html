@@ -1,5 +1,13 @@
 <div class="activities-top">
 	<p-button
+		icon="pi pi-filter-fill"
+		[rounded]="true"
+		[outlined]="true"
+		(click)="onChangeShowFilterInMobile()"
+		styleClass="show-filter-btn"
+	/>
+
+	<p-button
 		[raised]="true"
 		*ngIf="connectedUser"
 		rounded

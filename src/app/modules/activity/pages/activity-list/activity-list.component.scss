@@ -59,6 +59,7 @@
 }
 
 .container {
+	position: relative;
 	display: flex;
 	gap: 1rem;
 	max-width: 1920px;
@@ -77,22 +78,53 @@
 	gap: 1rem;
 }
 
-.filters-box {
-	display: none;
-	background-color: rgba(103, 11, 255, 0.05);
-	width: 30%;
+:host ::ng-deep .filters-box {
+	position: absolute;
+	top: 5.3rem;
+	left: -100%;
+	z-index: 10000;
+	background-color: var(--white-color);
+	width: 50%;
 	border-radius: 10px;
 	padding: 1rem;
+	z-index: 10000;
+
+	&.active {
+		left: calc(0% + 1.5rem);
+	}
+
+	.others-filters-box {
+		display: flex;
+		flex-direction: column;
+		gap: 1.1rem;
+	}
+
+	app-search-bar {
+		width: 100%;
+
+		.p-inputtext {
+			width: 100%;
+		}
+	}
 
 	label {
 		color: var(--black-color);
-		font-size: 0.9rem;
+		font-size: 1rem;
 		margin-bottom: 0.5rem;
 	}
 
 	@media (min-width: 992px) {
 		display: flex;
 		flex-direction: column;
+		position: relative;
+		background-color: rgba(103, 11, 255, 0.05);
+		left: 0;
+		top: 0;
+		width: 30%;
+
+		&.active {
+			left: 0;
+		}
 	}
 }
 
@@ -133,4 +165,8 @@
 			width: calc((100% / 4) - 1rem);
 		}
 	}
+}
+
+app-activity-list-management {
+	width: 100%;
 }
