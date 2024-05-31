@@ -1,4 +1,4 @@
-.account-content {
+:host ::ng-deep .account-content {
 	display: flex;
 	flex-direction: column;
 	gap: 2rem;
@@ -33,10 +33,13 @@
 		}
 
 		.delete-box {
-			margin-left: 1.35rem;
+			.p-button {
+				font-size: 0.85rem;
+			}
 
 			a.delete-link {
 				color: var(--danger-color);
+				font-size: 0.8rem;
 			}
 		}
 	}
