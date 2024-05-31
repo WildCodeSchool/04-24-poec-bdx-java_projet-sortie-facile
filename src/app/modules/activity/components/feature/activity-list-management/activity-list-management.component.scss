@@ -1,5 +1,6 @@
 :host ::ng-deep .activities-top {
 	display: flex;
+	justify-content: space-between;
 	gap: 0.75rem;
 
 	.show-filter-btn,

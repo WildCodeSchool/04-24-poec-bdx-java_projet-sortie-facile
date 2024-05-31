@@ -21,17 +21,17 @@ export class HeaderService {
 		this._primaryItems$ = of([
 			{
 				label: 'Accueil',
-				icon: 'pi pi-home',
+
 				routerLink: '/',
 			},
 			{
 				label: 'Contact',
-				icon: 'pi pi-fw pi-pencil',
+
 				routerLink: '/contact',
 			},
 			{
 				label: 'Activités',
-				icon: 'pi pi-shopping-cart',
+
 				routerLink: FullActivityRouteEnum.HOME,
 			},
 		]);

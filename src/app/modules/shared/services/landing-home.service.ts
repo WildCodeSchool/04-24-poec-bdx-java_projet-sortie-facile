@@ -16,7 +16,7 @@ export class LandingHomeService {
 				'Découvrir les activités',
 				'Danish jelly chocolate bar lollipop cupcake chocolate cake danish oat cake cotton candy. Jujubes soufflé lollipop candy canes marzipan jelly-o fruitcake caramels.',
 				[FullActivityRouteEnum.HOME],
-				'Découvrir les activités disponibles',
+				'Découvrir les activités disponibles >',
 			),
 			new FunctionimgDatas(
 				'assets/photos/activity-create.svg',
@@ -24,7 +24,7 @@ export class LandingHomeService {
 				'Créer une activité',
 				'Danish jelly chocolate bar lollipop cupcake chocolate cake danish oat cake cotton candy. Jujubes soufflé lollipop candy canes marzipan jelly-o fruitcake caramels.',
 				[FullActivityRouteEnum.POST],
-				'Ajouter une activité',
+				'Ajouter une activité >',
 			),
 		];
 	}
