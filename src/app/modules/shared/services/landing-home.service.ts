@@ -26,6 +26,14 @@ export class LandingHomeService {
 				[FullActivityRouteEnum.POST],
 				'Ajouter une activité >',
 			),
+			new FunctionimgDatas(
+				'assets/photos/activity-participate.svg',
+				'',
+				'Sinscrire à une activité',
+				'Danish jelly chocolate bar lollipop cupcake chocolate cake danish oat cake cotton candy. Jujubes soufflé lollipop candy canes marzipan jelly-o fruitcake caramels.',
+				[FullActivityRouteEnum.POST],
+				'Créer son compte >',
+			),
 		];
 	}
 }
