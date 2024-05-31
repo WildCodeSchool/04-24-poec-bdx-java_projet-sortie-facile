@@ -22,7 +22,7 @@ export class ActivityCreateManagementComponent implements OnDestroy {
 		new City('', ''),
 		'',
 		0,
-		'',
+		'https://le-periscope.info/wp-content/uploads/2022/07/Capture-decran-2020-03-05-a-00.20.29.png',
 		'',
 		'',
 		0,

@@ -79,6 +79,36 @@
       "role": "user",
       "status": "active",
       "userDetailsId": "7137"
+    },
+    {
+      "id": "b6bc",
+      "username": "bob-l-eponge",
+      "email": "bob-leqponge@medoc.fr",
+      "password": "123456789",
+      "passwordConfirm": "123456789",
+      "role": "user",
+      "status": "active",
+      "userDetailsId": "e906"
+    },
+    {
+      "id": "fb5e",
+      "username": "bob-l-eponge",
+      "email": "bob-leqponge@medoc.fr",
+      "password": "123456789",
+      "passwordConfirm": "123456789",
+      "role": "user",
+      "status": "active",
+      "userDetailsId": "558b"
+    },
+    {
+      "id": "ebab",
+      "username": "bob-l-eponge",
+      "email": "bob-leqponge@medoc.fr",
+      "password": "123456789",
+      "passwordConfirm": "123456789",
+      "role": "user",
+      "status": "active",
+      "userDetailsId": "c492"
     }
   ],
   "user_details": [
@@ -331,6 +361,99 @@
       "genre": "masculin",
       "categoryIds": [],
       "userId": "4d3f"
+    },
+    {
+      "id": "e906",
+      "firstname": "bob",
+      "lastname": "l'éponge",
+      "streetNumber": 5,
+      "street": "2",
+      "region": "",
+      "postalCode": 33000,
+      "description": "Tart cheesecake marshmallow chupa chups muffin topping. Dessert dragée topping tootsie roll marshmallow toffee gingerbread sesame snaps. Sugar plum danish pastry bonbon donut gingerbread cake. Cookie jelly tiramisu jelly-o cake cake topping tootsie roll topping. Tiramisu cupcake danish cake soufflé sugar plum gummi bears sweet. Tiramisu fruitcake icing tart danish.",
+      "department": {
+        "id": "3",
+        "name": "Gironde"
+      },
+      "city": {
+        "id": "3",
+        "name": "Bordeaux"
+      },
+      "avatar": "",
+      "phone": "01-34-45-57-68",
+      "dateOfBirth": "26/12/1999",
+      "genre": "masculin",
+      "categoryIds": [
+        "1",
+        "2",
+        "4",
+        "3",
+        "5"
+      ],
+      "userId": "b6bc"
+    },
+    {
+      "id": "558b",
+      "firstname": "bob",
+      "lastname": "l'éponge",
+      "streetNumber": "5",
+      "street": "Rue du Quai",
+      "region": {
+        "id": "3",
+        "name": "Nouvelle-Aquitaine"
+      },
+      "postalCode": 33000,
+      "description": "Tart cheesecake marshmallow chupa chups muffin topping. Dessert dragée topping tootsie roll marshmallow toffee gingerbread sesame snaps. Sugar plum danish pastry bonbon donut gingerbread cake. Cookie jelly tiramisu jelly-o cake cake topping tootsie roll topping. Tiramisu cupcake danish cake soufflé sugar plum gummi bears sweet. Tiramisu fruitcake icing tart danish.",
+      "department": {
+        "id": "3",
+        "name": "Gironde"
+      },
+      "city": {
+        "id": "3",
+        "name": "Bordeaux"
+      },
+      "avatar": "",
+      "phone": "01-34-45-57-68",
+      "dateOfBirth": "26/12/1999",
+      "genre": "masculin",
+      "categoryIds": [
+        "1",
+        "3",
+        "5",
+        "8"
+      ],
+      "userId": "fb5e",
+      "email": "bob-leqponge@medoc.fr"
+    },
+    {
+      "id": "c492",
+      "firstname": "bob",
+      "lastname": "l'éponge",
+      "streetNumber": "5",
+      "street": "Rue du Quai",
+      "region": "",
+      "postalCode": 33000,
+      "description": "Tart cheesecake marshmallow chupa chups muffin topping. Dessert dragée topping tootsie roll marshmallow toffee gingerbread sesame snaps. Sugar plum danish pastry bonbon donut gingerbread cake. Cookie jelly tiramisu jelly-o cake cake topping tootsie roll topping. Tiramisu cupcake danish cake soufflé sugar plum gummi bears sweet. Tiramisu fruitcake icing tart danish.",
+      "department": {
+        "id": "3",
+        "name": "Gironde"
+      },
+      "city": {
+        "id": "3",
+        "name": "Bordeaux"
+      },
+      "avatar": "",
+      "phone": "01-34-45-57-68",
+      "dateOfBirth": "26/12/1999",
+      "genre": "masculin",
+      "categoryIds": [
+        "1",
+        "3",
+        "5",
+        "8"
+      ],
+      "userId": "ebab",
+      "email": "bob-leqponge@medoc.fr"
     }
   ],
   "category": [
@@ -1100,6 +1223,196 @@
       "link": "",
       "userId": "1",
       "isVisible": false
+    },
+    {
+      "id": "9091",
+      "name": "film",
+      "date": "2024-05-30T22:00:00.000Z",
+      "hour": "2024-05-31T15:20:01.702Z",
+      "departments": {
+        "id": "33",
+        "name": "Gironde"
+      },
+      "activityCity": {
+        "id": "1",
+        "name": "New York"
+      },
+      "categoryId": {
+        "id": "3",
+        "name": "Cinema"
+      },
+      "nbGuest": 10,
+      "description": "film Artus",
+      "imgUrl": "C:\\fakepath\\film-21.jpg",
+      "link": "https://www.allocine.fr/film/fichefilm_gen_cfilm=3",
+      "userId": "1",
+      "isVisible": false
+    },
+    {
+      "id": "bb57",
+      "name": "toto",
+      "date": "2024-05-30T22:00:00.000Z",
+      "hour": "2024-05-31T11:18:52.557Z",
+      "departments": {
+        "id": "2",
+        "name": "Aisne"
+      },
+      "activityCity": {
+        "id": "3",
+        "name": "London"
+      },
+      "categoryId": {
+        "id": "3",
+        "name": "Cinema"
+      },
+      "nbGuest": 2,
+      "description": "azerty",
+      "imgUrl": "https://fr.web.img5.acsta.net/c_310_420/pictures/24/03/01/11/14/2965930.jpg",
+      "link": "",
+      "userId": "1",
+      "isVisible": false
+    },
+    {
+      "id": "e201",
+      "name": "toto",
+      "date": "2024-05-30T22:00:00.000Z",
+      "hour": "2024-05-31T11:20:53.947Z",
+      "departments": {
+        "id": "1",
+        "name": "Ain"
+      },
+      "activityCity": {
+        "id": "2",
+        "name": "Rome"
+      },
+      "categoryId": {
+        "id": "3",
+        "name": "Cinema"
+      },
+      "nbGuest": 3,
+      "description": "azertk",
+      "link": "",
+      "userId": "1",
+      "isVisible": false
+    },
+    {
+      "id": "bfea",
+      "name": "toto",
+      "date": "2024-05-30T22:00:00.000Z",
+      "hour": "2024-05-31T11:22:46.738Z",
+      "departments": {
+        "id": "1",
+        "name": "Ain"
+      },
+      "activityCity": {
+        "id": "1",
+        "name": "New York"
+      },
+      "categoryId": {
+        "id": "1",
+        "name": "Sport"
+      },
+      "nbGuest": 2,
+      "description": "",
+      "link": "",
+      "userId": "1",
+      "isVisible": false
+    },
+    {
+      "id": "19ec",
+      "name": "toto",
+      "date": "2024-05-30T22:00:00.000Z",
+      "hour": "2024-05-31T11:28:02.242Z",
+      "departments": {
+        "id": "1",
+        "name": "Ain"
+      },
+      "activityCity": {
+        "id": "1",
+        "name": "New York"
+      },
+      "categoryId": {
+        "id": "3",
+        "name": "Cinema"
+      },
+      "nbGuest": 2,
+      "description": "azer",
+      "imgUrl": "https://fr.web.img5.acsta.net/c_310_420/pictures/24/03/01/11/14/2965930.jpg",
+      "link": "",
+      "userId": "1",
+      "isVisible": false
+    },
+    {
+      "id": "70e5",
+      "name": "toto",
+      "date": "2024-05-30T22:00:00.000Z",
+      "hour": "2024-05-31T16:30:06.183Z",
+      "departments": {
+        "id": "2",
+        "name": "Aisne"
+      },
+      "activityCity": {
+        "id": "2",
+        "name": "Rome"
+      },
+      "categoryId": {
+        "id": "3",
+        "name": "Cinema"
+      },
+      "nbGuest": 3,
+      "description": "film 21",
+      "imgUrl": "https://le-periscope.info/wp-content/uploads/2022/07/Capture-decran-2020-03-05-a-00.20.29.png",
+      "link": "",
+      "userId": "1",
+      "isVisible": false
+    },
+    {
+      "id": "e8f9",
+      "name": "film Artuis",
+      "date": "2024-05-30T22:00:00.000Z",
+      "hour": "2024-05-31T19:21:04.625Z",
+      "departments": {
+        "id": "33",
+        "name": "Gironde"
+      },
+      "activityCity": {
+        "id": "3",
+        "name": "London"
+      },
+      "categoryId": {
+        "id": "3",
+        "name": "Cinema"
+      },
+      "nbGuest": 2,
+      "description": "film 21",
+      "imgUrl": "https://le-periscope.info/wp-content/uploads/2022/07/Capture-decran-2020-03-05-a-00.20.29.png",
+      "link": "",
+      "userId": "1",
+      "isVisible": false
+    },
+    {
+      "id": "b72e",
+      "name": "film d'Artus",
+      "date": "2024-05-30T22:00:00.000Z",
+      "hour": "2024-05-31T19:21:32.920Z",
+      "departments": {
+        "id": "33",
+        "name": "Gironde"
+      },
+      "activityCity": {
+        "id": "2",
+        "name": "Rome"
+      },
+      "categoryId": {
+        "id": "3",
+        "name": "Cinema"
+      },
+      "nbGuest": 6,
+      "description": "film 21",
+      "imgUrl": "https://le-periscope.info/wp-content/uploads/2022/07/Capture-decran-2020-03-05-a-00.20.29.png",
+      "link": "",
+      "userId": "fb5e",
+      "isVisible": true
     }
   ],
   "department": [
@@ -1708,6 +2021,30 @@
       "Email": "ygbyh",
       "title": "gybh",
       "message": "tgèybh"
+    },
+    {
+      "id": "34",
+      "Email": "yoyo@toto.fr",
+      "title": "bien joue",
+      "message": "super Appli"
+    },
+    {
+      "id": "35",
+      "Email": "yoyo@toto.fr",
+      "title": "bien joue",
+      "message": "super Appli"
+    },
+    {
+      "id": "36",
+      "Email": "yoyo@toto.fr",
+      "title": "bien joue",
+      "message": "super Appli"
+    },
+    {
+      "id": "37",
+      "Email": "yoyo@toto.fr",
+      "title": "bien joue",
+      "message": "super Appli"
     }
   ]
 }
