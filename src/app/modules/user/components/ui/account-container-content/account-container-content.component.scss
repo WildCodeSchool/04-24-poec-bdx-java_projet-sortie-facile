@@ -2,23 +2,32 @@
 	display: flex;
 	flex-direction: column;
 	width: 100%;
-	padding: 1.5rem 1.7rem;
+	padding: 1rem 1.25rem;
 	border-radius: 15px;
 	background-color: var(--white-color);
 	border: none;
 	overflow: hidden;
+
+	@media (min-width: 768px) {
+		padding: 1.5rem 1.7rem;
+	}
 }
 
 .section-top {
 	display: flex;
 	flex-direction: row;
-	justify-content: space-between;
+	justify-content: center;
+
+	@media (min-width: 768px) {
+		justify-content: space-between;
+	}
 }
 
 .section-title {
 	font-size: 1.2rem;
 	color: var(--black-color);
 	margin: 0;
+	text-align: center;
 }
 
 :host ::ng-deep .p-button.btn-edit {

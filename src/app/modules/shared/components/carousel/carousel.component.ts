@@ -20,8 +20,14 @@ export class CarouselComponent implements OnInit {
 
 	ngOnInit() {
 		this.responsiveOptions = [
-			new CarouselResponsiveOption('1199px', 1, 1),
-			new CarouselResponsiveOption('991px', 2, 1),
+			new CarouselResponsiveOption('500px', 1, 1),
+			new CarouselResponsiveOption('768px', 2, 2),
+			new CarouselResponsiveOption('960px', 1, 1),
+			new CarouselResponsiveOption('1110px', 2, 2),
+			new CarouselResponsiveOption('1280px', 3, 3),
+			new CarouselResponsiveOption('1600px', 4, 4),
+			new CarouselResponsiveOption('1720px', 5, 5),
+			new CarouselResponsiveOption('1920px', 6, 6),
 		];
 	}
 }
