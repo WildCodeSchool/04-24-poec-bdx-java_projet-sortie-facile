@@ -55,22 +55,22 @@ export class HeaderService {
 				icon: 'pi pi-chart-bar',
 				items: [
 					{
-						label: 'graph',
+						label: 'Home',
 						icon: 'pi pi-chart-line',
 						routerLink: FullBookingRouteEnum.GRAPH,
 					},
 					{
-						label: 'data',
-						icon: 'pi pi-chart-bar',
-						routerLink: FullBookingRouteEnum.DATA,
-					},
-					{
-						label: 'mail',
-						icon: 'pi pi-chart-bar',
+						label: 'Mail ',
+						icon: 'pi pi-envelope',
 						routerLink: FullBookingRouteEnum.MAIL,
 					},
 					{
-						label: 'home',
+						label: 'Booking data',
+						icon: 'pi pi-calendar',
+						routerLink: FullBookingRouteEnum.DATA,
+					},
+					{
+						label: 'Data',
 						icon: 'pi pi-chart-bar',
 						routerLink: FullBookingRouteEnum.HOME,
 					},

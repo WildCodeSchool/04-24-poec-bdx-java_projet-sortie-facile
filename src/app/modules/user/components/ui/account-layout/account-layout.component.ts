@@ -1,4 +1,5 @@
 import { Component, Input, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { ModalDeleteAccountComponent } from '@shared/components/modal/modal-confirm-delete-account/modal-confirm-delete-account.component';
 import { AuthUserPrimaryDatas } from '@shared/models/classes/auth-user/auth-user-primary-datas.class';
 import { AccountService } from '@shared/services/account.service';
@@ -18,6 +19,8 @@ export class AccountLayoutComponent implements OnInit, OnDestroy {
 	@Input() pageTitle!: string;
 	@Input() pageDescription!: string;
 
+	showDEleteBtn!: boolean;
+
 	@ViewChild(ModalDeleteAccountComponent, { static: false })
 	modalComponent!: ModalDeleteAccountComponent;
 
@@ -26,16 +29,18 @@ export class AccountLayoutComponent implements OnInit, OnDestroy {
 	connectedUser!: AuthUserPrimaryDatas;
 	subscription: Subscription = new Subscription();
 
+	constructor(
+		private _accountService: AccountService,
+		private _authService: AuthService,
+		private _activatedRoute: ActivatedRoute,
+	) {}
+
 	ngOnInit() {
+		this.showDEleteBtn = 'home' === this._activatedRoute.snapshot.url[0].path;
 		this.connectedUser = this._authService.getConnectedUserData();
 		this.items = this._accountService.getLayoutItems();
 		this.activeItem = this.items[0];
 	}
-
-	constructor(
-		private _accountService: AccountService,
-		private _authService: AuthService,
-	) {}
 
 	onActiveItemChange(event: MenuItem) {
 		this.activeItem = event;
