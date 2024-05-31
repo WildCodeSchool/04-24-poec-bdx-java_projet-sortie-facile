@@ -1,4 +1,5 @@
-import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { ModalDeleteAccountComponent } from '@shared/components/modal/modal-confirm-delete-account/modal-confirm-delete-account.component';
 import { AuthUserPrimaryDatas } from '@shared/models/classes/auth-user/auth-user-primary-datas.class';
 import { AccountService } from '@shared/services/account.service';
 import { AuthService } from '@shared/services/auth.service';
@@ -16,6 +17,9 @@ export class AccountLayoutComponent implements OnInit, OnDestroy {
 	@Input() username!: string;
 	@Input() pageTitle!: string;
 	@Input() pageDescription!: string;
+
+	@ViewChild(ModalDeleteAccountComponent, { static: false })
+	modalComponent!: ModalDeleteAccountComponent;
 
 	items: MenuItem[] | undefined;
 	activeItem: MenuItem | undefined;
@@ -37,8 +41,8 @@ export class AccountLayoutComponent implements OnInit, OnDestroy {
 		this.activeItem = event;
 	}
 
-	onDeleteUser(): void {
-		this._authService.deleteUser(this.connectedUser.id).subscribe();
+	onModal(): void {
+		this.modalComponent.onSubmit();
 	}
 
 	ngOnDestroy(): void {

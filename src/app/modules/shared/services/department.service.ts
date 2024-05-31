@@ -8,7 +8,7 @@ import { Observable, map } from 'rxjs';
 })
 export class DepartmentService {
 	private readonly _BASE_URL = 'http://localhost:3000/department';
-	
+
 	constructor(private _httpClient: HttpClient) {}
 
 	getDepartmentsList$(): Observable<Department[]> {

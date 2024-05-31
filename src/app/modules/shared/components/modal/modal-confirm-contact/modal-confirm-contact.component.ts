@@ -15,10 +15,10 @@ export class ModalConfirmContactComponent extends AbstractModal {
 	@Input() myForm: NgForm;
 
 	constructor(
-		private confirmationService: ConfirmationService,
-		private messageService: MessageService,
-		private contactService: ContactService,
-		private router: Router,
+		private _confirmationService: ConfirmationService,
+		private _messageService: MessageService,
+		private _contactService: ContactService,
+		private _router: Router,
 	) {
 		super();
 		this.myForm = {} as NgForm;
@@ -26,7 +26,7 @@ export class ModalConfirmContactComponent extends AbstractModal {
 
 	public override onSubmit() {
 		if (this.myForm && this.myForm.valid) {
-			this.confirmationService.confirm({
+			this._confirmationService.confirm({
 				header: 'Confirmation',
 				message: "Confirmer l'envoie du message",
 				accept: () => this.onAccept(),
@@ -40,7 +40,7 @@ export class ModalConfirmContactComponent extends AbstractModal {
 	}
 
 	protected override onError(): void {
-		this.messageService.add({
+		this._messageService.add({
 			severity: 'error',
 			summary: 'Invalid Form',
 			detail: 'Please fill in all required fields',
@@ -49,7 +49,7 @@ export class ModalConfirmContactComponent extends AbstractModal {
 	}
 
 	protected override onReject(): void {
-		this.messageService.add({
+		this._messageService.add({
 			severity: 'error',
 			summary: 'Refuser',
 			detail: 'Vous avez refusé',
@@ -58,15 +58,15 @@ export class ModalConfirmContactComponent extends AbstractModal {
 	}
 
 	protected override onAccept(): void {
-		this.contactService.onSubmit(this.myForm);
-		this.messageService.add({
+		this._contactService.onSubmit(this.myForm);
+		this._messageService.add({
 			severity: 'info',
 			summary: 'Envoyé',
 			detail: 'Votre message a bien été envoyé',
 			life: 3000,
 		});
 		setTimeout(() => {
-			this.router.navigateByUrl('/');
+			this._router.navigateByUrl('/');
 		}, 3000);
 	}
 }

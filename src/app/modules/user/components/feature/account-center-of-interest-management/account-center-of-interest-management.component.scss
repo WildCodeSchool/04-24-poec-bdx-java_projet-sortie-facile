@@ -1,7 +1,7 @@
 .container {
 	max-width: 1920px;
 	width: 100%;
-	padding: 1.5rem;
+	padding: 1rem;
 	margin: 0 auto;
 	padding-top: 4rem;
 }
@@ -27,6 +27,7 @@ app-account-container-content {
 
 .categories-container {
 	display: flex;
+	justify-content: center;
 	flex-wrap: wrap;
 	gap: 1rem;
 }
@@ -37,7 +38,8 @@ app-account-container-content {
 	background-size: cover;
 	border-radius: 10px;
 	padding: 0rem;
-	width: calc(100% / 6 - (1rem));
+	width: 100%;
+	max-width: 200px;
 	display: flex;
 	justify-content: center;
 	align-items: flex-end;
@@ -59,7 +61,6 @@ app-account-container-content {
 :host ::ng-deep app-select-category {
 	position: relative;
 	z-index: 1000000;
-	background-color: red;
 
 	.p-dropdown {
 		width: 100%;

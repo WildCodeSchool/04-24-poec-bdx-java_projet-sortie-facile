@@ -82,12 +82,11 @@
 	position: absolute;
 	top: 5.3rem;
 	left: -100%;
-	z-index: 10000;
+	z-index: 100;
 	background-color: var(--white-color);
 	width: 50%;
 	border-radius: 10px;
 	padding: 1rem;
-	z-index: 10000;
 
 	&.active {
 		left: calc(0% + 1.5rem);
