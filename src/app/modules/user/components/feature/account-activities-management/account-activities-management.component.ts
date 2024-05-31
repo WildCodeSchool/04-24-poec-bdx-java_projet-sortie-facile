@@ -30,7 +30,7 @@ export class AccountActivitiesManagementComponent
 		super.ngOnInit();
 		this._activityService
 			.getActivityListByCreatedUser$(10, this.connectedUser.id)
-			
+
 			.pipe(
 				tap(activities => {
 					this.activityByCreatedUserList = activities;

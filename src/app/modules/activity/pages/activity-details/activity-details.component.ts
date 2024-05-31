@@ -10,11 +10,12 @@ import { Booking } from '@shared/models/classes/booking/booking.class';
 import { UserDetails } from '@shared/models/classes/user-details/user-details.class';
 import { ActivityListResponseApi } from '@shared/models/classes/activity';
 import { FullActivityRouteEnum } from '@shared/models/enums/routes/full-routes';
+import { CategoryService } from '@shared/services/category.service';
 
 @Component({
 	selector: 'app-activity-details',
 	templateUrl: './activity-details.component.html',
-	styleUrl: './activity-details.component.scss',
+	styleUrls: ['./activity-details.component.scss'],
 })
 export class ActivityDetailsComponent implements OnInit, OnDestroy {
 	fullActivityRoute = FullActivityRouteEnum;
@@ -22,6 +23,7 @@ export class ActivityDetailsComponent implements OnInit, OnDestroy {
 	activity$!: Observable<Activity>;
 	categoryTitle$!: Observable<string>;
 	userDetails!: UserDetails;
+	activityByCategoryList!: Activity[];
 
 	private _subscription: Subscription = new Subscription();
 
@@ -33,6 +35,7 @@ export class ActivityDetailsComponent implements OnInit, OnDestroy {
 
 	constructor(
 		private activityService: ActivityService,
+		private categoryService: CategoryService,
 		private reservationService: BookingService,
 		private route: ActivatedRoute,
 	) {
@@ -42,7 +45,13 @@ export class ActivityDetailsComponent implements OnInit, OnDestroy {
 	ngOnInit(): void {
 		const id: string = this.route.snapshot.paramMap.get('id') as string;
 		this.activity$ = this.activityService.getActivityById$(id);
+		this.categoryService
+			.getActivityListByCategoryId$(id)
+			.subscribe((data: Activity[]) => {
+				this.activityByCategoryList = data;
+			});
 	}
+
 	onSubmit(form: NgForm): void {
 		this.reservationService.postNewBooking$(form.value).subscribe();
 	}
