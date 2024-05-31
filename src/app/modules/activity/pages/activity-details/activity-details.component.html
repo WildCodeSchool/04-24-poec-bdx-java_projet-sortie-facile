@@ -5,26 +5,81 @@
 				<h3>Infos pratiques</h3>
 
 				<div class="activity-info-items-box">
-					<div class="activity-info-item">
-						<i class="pi pi-map-marker"></i>
-						<p>À Bordeaux (33), Gironde</p>
-					</div>
+					<app-info-item
+						icon="pi pi-map-marker"
+						content="À Bordeaux (33), Gironde"
+					></app-info-item>
 
-					<div class="activity-info-item">
-						<i class="pi pi-calendar"></i>
-						<p>Le 24 mai 2024 à 21h</p>
-					</div>
+					<app-info-item
+						icon="pi pi-calendar"
+						content="Le 24 mai 2024 à 21h"
+					></app-info-item>
 
-					<div class="activity-info-item">
-						<i class="pi pi-user"></i>
-						<p>De 18 à 50 ans</p>
-					</div>
+					<app-info-item
+						icon="pi pi-user"
+						content="De 18 à 50 ans"
+					></app-info-item>
+
+					<app-info-item
+						icon="pi pi-user"
+						content="5 places restantes"
+					></app-info-item>
+				</div>
+
+				<div class="btn-box">
+					<app-button-ultra-wilde label="S'incrire" (click)="onModal()">
+					</app-button-ultra-wilde>
 				</div>
 			</div>
+
 			<div class="infos-container activity-creator-informations">
-				<h2>Infos sur l’auteur</h2>
+				<h3>Infos sur l'auteur</h3>
+
+				<div class="author-info-items-box">
+					<img src="/assets/photos/avatar.jpg" alt="" class="author-avatar" />
+
+					<div class="infos-author">
+						<h4>John doe</h4>
+						<app-info-item icon="pi pi-user" content="30 ans"></app-info-item>
+
+						<app-info-item
+							icon="pi pi-map-marker"
+							content="Bordeaux (33), Gironde"
+						></app-info-item>
+					</div>
+				</div>
+
+				<p class="author-description">
+					Lemon drops oat cake gingerbread topping apple pie tart shortbread.
+					Bonbon halvah jelly-o sweet roll pudding. Muffin gummies jujubes lemon
+					drops tart tart powder oat cake powder...
+				</p>
+
+				<div
+					class="author-info-items-box column"
+					[ngStyle]="{ marginBottom: 0 }"
+				>
+					<app-info-item
+						icon="pi pi-image"
+						content="A participé à 10 activités"
+					></app-info-item>
+
+					<app-info-item
+						icon="pi pi-images"
+						content="A créé 10 activités"
+					></app-info-item>
+				</div>
+
+				<div class="btn-box">
+					<app-button-ultra-wilde label="Voir le profil de l’auteur">
+					</app-button-ultra-wilde>
+
+					<app-button-ultra-wilde label="Contacter l’auteur" [outlined]="true">
+					</app-button-ultra-wilde>
+				</div>
 			</div>
 		</div>
+
 		<div class="primary-box">
 			<p-card>
 				<ng-template pTemplate="title">
@@ -33,6 +88,7 @@
 				<ng-template pTemplate="header">
 					<div class="btn-admin">
 						<p-button
+							[raised]="true"
 							icon="pi pi-pencil"
 							[rounded]="true"
 							severity="success"
@@ -74,9 +130,12 @@
 							[outlined]="true"
 						/>
 
-						<app-modal-confirm-reservation
-							[myForm]="myForm"
-						></app-modal-confirm-reservation>
+						<p-button
+							[raised]="true"
+							rounded
+							(click)="onModal()"
+							label="S'incrire"
+						></p-button>
 
 						<p-button
 							label="Activité suivante"
@@ -89,3 +148,7 @@
 		</div>
 	</ng-container>
 </div>
+
+<app-modal-confirm-reservation
+	[myForm]="myForm"
+></app-modal-confirm-reservation>

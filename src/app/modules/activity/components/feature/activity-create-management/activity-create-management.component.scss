@@ -1,4 +1,4 @@
-app-activity-form-layout {
+app-layout-split {
 	display: flex;
 	width: 100%;
 }
@@ -8,4 +8,10 @@ form {
 	flex-direction: column;
 	gap: 1rem;
 	width: 100%;
+}
+
+.btn-container {
+	display: flex;
+	justify-content: flex-end;
+	margin-top: 2rem;
 }

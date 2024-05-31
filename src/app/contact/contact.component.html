@@ -1,21 +1,20 @@
-<div class="contact">
-	<div class="activity-form-container">
-		<div class="title-contact">
-			<h1>Laissez nous un message</h1>
-		</div>
-		<div class="card flex justify-content-center"></div>
-
+<div class="container">
+	<app-layout-split
+		pageTitle="Laissez nous un message"
+		backgroundImage="/assets/photos/contact.jpg"
+	>
 		<form
 			#contactForm="ngForm"
 			(ngSubmit)="onSubmit(contactForm)"
 			class="activity-form"
 		>
-			<div *ngIf="connectedUser">
+			<div *ngIf="connectedUser && connectedUser.username">
 				<app-avatar-pseudo></app-avatar-pseudo>
 			</div>
-			<p>Votre Email</p>
 
 			<app-text-field
+				labelFor="email"
+				labelContent="Email"
 				id="Email"
 				name="Email"
 				[required]="true"
@@ -25,25 +24,39 @@
 				class="input-activity-form"
 			></app-text-field>
 
-			<p>Votre message</p>
+			<app-text-field
+				labelFor="title"
+				labelContent="Sujet"
+				inputId="title"
+				name="title"
+				[required]="true"
+				#title="ngModel"
+				[form]="contactForm"
+				[(ngModel)]="formData.title"
+			></app-text-field>
 
 			<app-textarea
+				labelFor="message"
+				labelContent="Votre message"
 				inputId="message"
 				name="message"
+				[rows]="5"
 				[required]="true"
 				#message="ngModel"
 				[form]="contactForm"
 				[(ngModel)]="formData.message"
 			></app-textarea>
 
-			<div class="card flex justify-content-center">
+			<div class="btn-container">
+				<app-button-form
+					iconName="arrow-right"
+					(click)="onModal()"
+				></app-button-form>
+
 				<app-modal-confirm-contact
 					[myForm]="contactForm"
 				></app-modal-confirm-contact>
 			</div>
 		</form>
-	</div>
-	<div class="img-box">
-		<img src="assets/photos/signup.jpg" alt="contact" />
-	</div>
+	</app-layout-split>
 </div>

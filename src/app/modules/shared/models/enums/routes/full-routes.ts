@@ -17,13 +17,11 @@ export enum FullAuthenticationRouteEnum {
 }
 
 export enum FullBookingRouteEnum {
+	GRAPH = '/' + PrimaryRouteEnum.BOOKING + '/graph',
 	HOME = '/' + PrimaryRouteEnum.BOOKING + '/home',
 	DATA = '/' + PrimaryRouteEnum.BOOKING + '/data',
+	MAIL = '/' + PrimaryRouteEnum.BOOKING + '/mail',
 }
-// TODO /contacts, /home etc....
-// export enum LandingRouteEnum {
-// 	DEFAULT = '',
-// }
 
 export enum FullUserRouteEnum {
 	HOME = '/' + PrimaryRouteEnum.USER + '/home',

@@ -3,6 +3,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthUserPrimaryDatas } from '@shared/models/classes/auth-user/auth-user-primary-datas.class';
+import { AbstractModal } from '@shared/models/classes/components/absctract-modal.class';
 import { FullActivityRouteEnum } from '@shared/models/enums/routes/full-routes';
 import { ActivityService } from '@shared/services/activity.service';
 import { AuthService } from '@shared/services/auth.service';
@@ -15,26 +16,31 @@ import { catchError, tap } from 'rxjs';
 	styleUrl: './modal-confirm-creat-activity.component.scss',
 	providers: [ConfirmationService, MessageService],
 })
-export class ModalConfirmCreatActivityComponent implements OnInit {
+export class ModalConfirmCreatActivityComponent
+	extends AbstractModal
+	implements OnInit
+{
 	@Input() myForm!: NgForm;
 
 	connectedUser!: AuthUserPrimaryDatas;
 
 	constructor(
-		private confirmationService: ConfirmationService,
-		private messageService: MessageService,
-		private activityService: ActivityService,
-		private router: Router,
+		private _confirmationService: ConfirmationService,
+		private _messageService: MessageService,
+		private _activityService: ActivityService,
+		private _router: Router,
 		private _authService: AuthService,
-	) {}
+	) {
+		super();
+	}
 
 	ngOnInit(): void {
 		this.connectedUser = this._authService.getConnectedUserData();
 	}
 
-	onSubmit() {
+	public override onSubmit() {
 		if (this.myForm && this.myForm.valid) {
-			this.confirmationService.confirm({
+			this._confirmationService.confirm({
 				header: 'Confirmation',
 				message: 'Confirmer la création de votre activité',
 				accept: () => this.onAccept(),
@@ -47,8 +53,8 @@ export class ModalConfirmCreatActivityComponent implements OnInit {
 		}
 	}
 
-	private onReject(): void {
-		this.messageService.add({
+	protected override onReject(): void {
+		this._messageService.add({
 			severity: 'error',
 			summary: 'Abandonné',
 			detail: 'Création abandonnée',
@@ -56,23 +62,23 @@ export class ModalConfirmCreatActivityComponent implements OnInit {
 		});
 	}
 
-	private onAccept(): void {
-		this.activityService
+	protected override onAccept(): void {
+		this._activityService
 			.postNewActivity$({ ...this.myForm.value, userId: this.connectedUser.id })
 			.pipe(
 				tap((activity: Activity) => {
-					this.messageService.add({
+					this._messageService.add({
 						severity: 'info',
 						summary: 'Bravo',
 						detail: 'Votre activité a bien été créée',
 						life: 3000,
 					});
 					setTimeout(() => {
-						this.router.navigate([FullActivityRouteEnum.DETAILS, activity.id]);
+						this._router.navigate([FullActivityRouteEnum.DETAILS, activity.id]);
 					}, 3000);
 				}),
 				catchError(() => {
-					this.messageService.add({
+					this._messageService.add({
 						severity: 'error',
 						summary: 'Erreur',
 						detail:
@@ -86,8 +92,8 @@ export class ModalConfirmCreatActivityComponent implements OnInit {
 			.subscribe();
 	}
 
-	private onError() {
-		this.messageService.add({
+	protected override onError() {
+		this._messageService.add({
 			severity: 'error',
 			summary: 'Formulaire invalide',
 			detail: 'Veuillez remplir les champs obligatoires',

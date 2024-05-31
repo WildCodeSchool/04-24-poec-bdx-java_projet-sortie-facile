@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { ModalAddCategoryComponent } from '@shared/components/modal/modal-add-category/modal-add-category.component';
 import { Category } from '@shared/models/classes/category/category.class';
 import { UserDetails } from '@shared/models/classes/user-details/user-details.class';
-import { ActivityService } from '@shared/services/activity.service';
 import { AuthService } from '@shared/services/auth.service';
 import { CategoryService } from '@shared/services/category.service';
 import { UserService } from '@shared/services/user.service';
@@ -20,13 +20,14 @@ export class AccountCenterOfInterestManagementComponent
 	categoryList$!: Observable<Category[]>;
 	userCategoryList$!: Observable<Category[]>;
 
+	@ViewChild('categoryModal') categoryModal!: ModalAddCategoryComponent;
+
 	formDatas: {
 		category: string;
 	} = { category: '' };
 
 	constructor(
 		protected override _authService: AuthService,
-		private _activityService: ActivityService,
 		private categoryService: CategoryService,
 		private _userService: UserService,
 	) {
@@ -35,8 +36,10 @@ export class AccountCenterOfInterestManagementComponent
 
 	override ngOnInit(): void {
 		super.ngOnInit();
+		this.loadUserCategories();
+	}
 
-		this.categoryList$ = this.categoryService.getCategoryList$();
+	loadUserCategories() {
 		this.userCategoryList$ = this._userService
 			.getUserInfos$(this.connectedUser.userDetailsId)
 			.pipe(
@@ -53,6 +56,10 @@ export class AccountCenterOfInterestManagementComponent
 						),
 				),
 			);
+	}
+
+	onCategoryUpdated() {
+		this.loadUserCategories();
 	}
 
 	onSubmit(): void {}

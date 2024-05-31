@@ -7,6 +7,7 @@ export enum PrimaryRouteEnum {
 	AUTHENTICATION = 'auth',
 	CONTACT = 'contact',
 	NOT_FOUND = '**',
+	CGU = 'cgu',
 }
 
 export enum ActivityRouteEnum {
@@ -26,8 +27,10 @@ export enum AuthenticationRouteEnum {
 }
 
 export enum BookingRouteEnum {
+	GRAPH = 'graph',
 	HOME = 'home',
 	DATA = 'data',
+	MAIL = 'mail',
 }
 
 export enum LandingRouteEnum {

@@ -1,4 +1,4 @@
-<app-activity-form-layout
+<app-layout-split
 	pageTitle="Modifier une activité"
 	backgroundImage="/assets/photos/update-activity.jpg"
 >
@@ -101,11 +101,16 @@
 			[(ngModel)]="formData.link"
 		></app-text-field>
 
-		<div>
+		<div class="btn-container">
+			<app-button-form
+				iconName="arrow-right"
+				(click)="onModal()"
+			></app-button-form>
+
 			<app-modal-confirm-update-activity
 				[myForm]="updateActivityForm"
 				[activityId]="formData.id"
 			></app-modal-confirm-update-activity>
 		</div>
 	</form>
-</app-activity-form-layout>
+</app-layout-split>

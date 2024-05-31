@@ -16,7 +16,7 @@
 					icon="pi pi-trash"
 					[rounded]="true"
 					severity="danger"
-					(click)="confirmHideActivity(activity.id)"
+					(click)="onModal()"
 				/>
 			</div>
 
@@ -30,7 +30,7 @@
 		</ng-template>
 
 		<h3>
-			{{ activity.name }}
+			{{ activity.name | truncate: 50 }}
 		</h3>
 
 		<p-divider />
@@ -44,12 +44,12 @@
 		<div class="bottom-content">
 			<div class="bottom-item">
 				<i class="pi pi-calendar"></i>
-				<p>{{ activity.date | date: 'd MMM y' }}</p>
+				<p>{{ activity.date | date: 'longDate' }}</p>
 			</div>
 
 			<div class="bottom-item">
 				<i class="pi pi-map-marker"></i>
-				<p>{{ activity.activityCity.name }}</p>
+				<p>{{ activity.activityCity }}</p>
 			</div>
 		</div>
 
@@ -64,7 +64,8 @@
 		</ng-template>
 	</p-card>
 </div>
-<p-confirmDialog
-	header="Confirmation"
-	icon="pi pi-exclamation-triangle"
-></p-confirmDialog>
+
+<app-modal-confirm-delete-activity
+	[activityId]="activity.id"
+	(activityDeleted)="onActivityDeleted($event)"
+></app-modal-confirm-delete-activity>

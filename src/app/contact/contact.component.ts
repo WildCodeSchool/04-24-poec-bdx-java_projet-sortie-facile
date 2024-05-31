@@ -1,6 +1,7 @@
 import { Activity } from '@activity/models/classes/activity.class';
-import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { ModalConfirmContactComponent } from '@shared/components/modal/modal-confirm-contact/modal-confirm-contact.component';
 import { AuthUserPrimaryDatas } from '@shared/models/classes/auth-user/auth-user-primary-datas.class';
 import { AuthService } from '@shared/services/auth.service';
 import { ContactService } from '@shared/services/contact.service';
@@ -16,6 +17,9 @@ export class ContactComponent implements OnDestroy, OnInit {
 	@Input() connectedUser!: AuthUserPrimaryDatas;
 	private _subscription: Subscription = new Subscription();
 
+	@ViewChild(ModalConfirmContactComponent, { static: false })
+	modalComponent!: ModalConfirmContactComponent;
+
 	constructor(
 		private contactService: ContactService,
 		private authService: AuthService,
@@ -23,9 +27,11 @@ export class ContactComponent implements OnDestroy, OnInit {
 
 	formData: {
 		Email: string;
+		title: string;
 		message: string;
 	} = {
 		Email: '',
+		title: '',
 		message: '',
 	};
 
@@ -37,6 +43,10 @@ export class ContactComponent implements OnDestroy, OnInit {
 		this._subscription.add(
 			this.contactService.postNewContact$(form.value).subscribe(),
 		);
+	}
+
+	onModal(): void {
+		this.modalComponent.onSubmit();
 	}
 
 	ngOnDestroy(): void {

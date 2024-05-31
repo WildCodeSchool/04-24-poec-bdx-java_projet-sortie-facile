@@ -1,5 +1,25 @@
 <div class="activities-top">
-	<p-button *ngIf="connectedUser" rounded [routerLink]="[fullActivityRoute.POST]"
+	<p-button
+		icon="pi pi-times"
+		[rounded]="true"
+		[outlined]="true"
+		(click)="onResetFilters()"
+		styleClass="reset-filter-btn"
+	/>
+
+	<p-button
+		icon="pi pi-filter-fill"
+		[rounded]="true"
+		[outlined]="true"
+		(click)="onChangeShowFilterInMobile()"
+		styleClass="show-filter-btn"
+	/>
+
+	<p-button
+		[raised]="true"
+		*ngIf="connectedUser"
+		rounded
+		[routerLink]="[fullActivityRoute.POST]"
 		>Créer une activité</p-button
 	>
 </div>
@@ -10,35 +30,21 @@
 			*ngFor="let activity of pagedActivities"
 			[activity]="activity"
 			[connectedUser]="connectedUser"
+			(activityDeleted)="onActivityDeleted()"
 		>
 		</app-activity-card>
 	</ng-container>
 </div>
 
-<div class="paginator-container" *ngIf="pagedActivities.length">
-	<div>
-		<span>Activités par pages : </span>
-		<p-dropdown
-			[options]="rowsPerPageOptions"
-			optionLabel="label"
-			optionValue="value"
-			[(ngModel)]="rows"
-			(ngModelChange)="onRowsChange()"
-		></p-dropdown>
-	</div>
-
-	<div>
-		<p-paginator
-			[first]="first"
-			[rows]="rows"
-			[totalRecords]="totalRecords"
-			(onPageChange)="onPageChange($event)"
-			[showFirstLastIcon]="false"
-			[showCurrentPageReport]="true"
-			currentPageReportTemplate="{first} - {last} sur {totalRecords}"
-		></p-paginator>
-	</div>
-</div>
+<app-pagination
+	*ngIf="pagedActivities.length"
+	[rows]="rows"
+	[first]="first"
+	[totalRecords]="totalRecords"
+	[rowsPerPageOptions]="rowsPerPageOptions"
+	(pageChange)="onPageChange($event)"
+	(rowsChange)="onRowsChange($event)"
+></app-pagination>
 
 <p-messages severity="error" *ngIf="!pagedActivities.length">
 	<ng-template pTemplate>

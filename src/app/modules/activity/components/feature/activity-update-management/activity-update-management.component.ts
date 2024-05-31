@@ -1,5 +1,5 @@
 import { Activity } from '@activity/models/classes/activity.class';
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Category } from '@shared/models/classes/category/category.class';
@@ -7,6 +7,7 @@ import { City } from '@shared/models/classes/address/city.class';
 import { ActivityService } from '@shared/services/activity.service';
 import { Subscription, map } from 'rxjs';
 import { FullActivityRouteEnum } from '@shared/models/enums/routes/full-routes';
+import { ModalConfirmUpdateActivityComponent } from '@shared/components/modal/modal-confirm-update-activity/modal-confirm-update-activity.component';
 
 @Component({
 	selector: 'app-activity-update-management',
@@ -14,6 +15,9 @@ import { FullActivityRouteEnum } from '@shared/models/enums/routes/full-routes';
 	styleUrl: './activity-update-management.component.scss',
 })
 export class ActivityUpdateManagementComponent implements OnInit, OnDestroy {
+	@ViewChild(ModalConfirmUpdateActivityComponent, { static: false })
+	modalComponent!: ModalConfirmUpdateActivityComponent;
+
 	private _subscription: Subscription = new Subscription();
 
 	constructor(
@@ -56,6 +60,10 @@ export class ActivityUpdateManagementComponent implements OnInit, OnDestroy {
 			this._activityService.updateActivity$(id, updatedData).subscribe(),
 		);
 		this._router.navigate([FullActivityRouteEnum.HOME]);
+	}
+
+	onModal(): void {
+		this.modalComponent.onSubmit();
 	}
 
 	ngOnDestroy(): void {

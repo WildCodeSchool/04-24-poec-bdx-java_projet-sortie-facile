@@ -3,11 +3,11 @@
     {
       "id": "1",
       "username": "johndoe",
-      "email": "j.doe@test.com",
+      "email": "johndoe@example.com",
       "password": "123456789",
       "passwordConfirm": "123456789",
       "role": "admin",
-      "status": "active",
+      "status": "inactive",
       "userDetailsId": "1"
     },
     {
@@ -108,11 +108,15 @@
       "genre": "masculin",
       "categoryIds": [
         "1",
+        "10",
         "2",
-        "3"
+        "3",
+        "9",
+        "5",
+        "7"
       ],
       "userId": "1",
-      "email": "j.doe@test.com"
+      "email": "johndoe@example.com"
     },
     {
       "id": "2",
@@ -495,7 +499,7 @@
   "activity": [
     {
       "id": "1",
-      "name": "Football Match",
+      "name": "Football Match Ice cream halvah sweet roll pudding tart sesame snaps sweet. Carrot cake topping tiramisu candy canes ",
       "date": "2024-06-01T18:00:00.000Z",
       "activityCity": "Paris",
       "categoryId": "2",
@@ -504,7 +508,8 @@
       "imgUrl": "https://plus.unsplash.com/premium_photo-1664304359829-8763d9cc8046?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw1fHx8ZW58MHx8fHx8",
       "link": "https://example.com/activity1",
       "userId": "1",
-      "isVisible": true
+      "isVisible": true,
+      "department": "1"
     },
     {
       "id": "2",
@@ -704,15 +709,22 @@
     {
       "id": "17",
       "name": "Wine Tasting",
-      "date": "2024-05-25T12:00:00.000Z",
-      "activityCity": "Paris",
-      "categoryId": "7",
+      "date": "2024-05-23T22:00:00.000Z",
+      "activityCity": {
+        "id": "2",
+        "name": "Rome"
+      },
+      "categoryId": {
+        "id": "3",
+        "name": "Cinema"
+      },
       "nbGuest": "20",
       "description": "Muffin tiramisu croissant candy canes carrot cake dragée pie soufflé dessert. Marzipan apple pie toffee ice cream ice cream gingerbread macaroon croissant. Jelly-o ice cream brownie cake pudding cotton candy tart jujubes. Pastry powder cotton candy sugar plum pie oat cake candy canes carrot cake oat cake. Tart candy tootsie roll icing gingerbread cookie chocolate lemon drops topping. Cake sweet roll muffin cupcake topping chocolate cake fruitcake apple pie. Shortbread marzipan gummi bears soufflé jelly beans lollipop. Jelly beans croissant ice cream pudding fruitcake. Tootsie roll dessert cupcake cake ice cream croissant oat cake. Cake icing chupa chups fruitcake candy canes lemon drops wafer cake.  Powder wafer biscuit toffee cookie chocolate bar bear claw. Cheesecake biscuit marzipan brownie tootsie roll bear claw cake. Icing powder shortbread donut muffin dragée. Icing jelly beans sweet roll sesame snaps gingerbread. Dessert halvah gummies tootsie roll bonbon. Cotton candy dessert jelly-o apple pie bear claw cheesecake. Soufflé cupcake powder brownie cotton candy donut croissant marzipan soufflé.  Dessert jelly-o bear claw lollipop lemon drops jelly cupcake toffee. Gingerbread chupa chups chocolate cake carrot cake oat cake carrot cake ice cream cupcake. Marzipan jelly-o marshmallow chocolate cake gummies tootsie roll tootsie roll. Gummi bears sweet croissant jelly-o gummies. Chocolate ice cream marzipan cheesecake bonbon lemon drops. Tart oat cake jelly-o bonbon bear claw ice cream chocolate bar tiramisu.",
       "imgUrl": "https://images.unsplash.com/photo-1716369414933-feae0ddf91bd?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw1NHx8fGVufDB8fHx8fA%3D%3D",
-      "link": "https://example.com/activity17",
+      "link": "",
       "userId": "1",
-      "isVisible": true
+      "isVisible": true,
+      "hour": "2024-05-30T21:28:47.531Z"
     },
     {
       "id": "18",
@@ -775,7 +787,7 @@
       "imgUrl": "",
       "link": "",
       "userId": "1",
-      "isVisible": true
+      "isVisible": false
     },
     {
       "id": "2941",
@@ -916,6 +928,174 @@
       },
       "nbGuest": 3,
       "description": "rftdgfc",
+      "imgUrl": "",
+      "link": "",
+      "userId": "1",
+      "isVisible": false
+    },
+    {
+      "id": "1a3d",
+      "name": "toto",
+      "date": "2024-05-05T22:00:00.000Z",
+      "hour": "2024-05-28T20:40:56.393Z",
+      "departments": {
+        "id": "2",
+        "name": "Aisne"
+      },
+      "activityCity": {
+        "id": "2",
+        "name": "Rome"
+      },
+      "categoryId": {
+        "id": "3",
+        "name": "Cinema"
+      },
+      "nbGuest": 3,
+      "description": "tgf§yfg",
+      "imgUrl": "",
+      "link": "",
+      "userId": "1",
+      "isVisible": false
+    },
+    {
+      "id": "2632",
+      "name": "toto",
+      "date": "2024-04-30T22:00:00.000Z",
+      "hour": "2024-05-28T21:01:47.686Z",
+      "departments": {
+        "id": "3",
+        "name": "Allier"
+      },
+      "activityCity": {
+        "id": "2",
+        "name": "Rome"
+      },
+      "categoryId": {
+        "id": "3",
+        "name": "Cinema"
+      },
+      "nbGuest": 2,
+      "description": "rf(§t",
+      "imgUrl": "",
+      "link": "",
+      "userId": "1",
+      "isVisible": false
+    },
+    {
+      "id": "b4db",
+      "name": "toto",
+      "date": "2024-05-12T22:00:00.000Z",
+      "hour": "2024-05-28T21:03:31.365Z",
+      "departments": {
+        "id": "2",
+        "name": "Aisne"
+      },
+      "activityCity": {
+        "id": "3",
+        "name": "London"
+      },
+      "categoryId": {
+        "id": "4",
+        "name": "Travel"
+      },
+      "nbGuest": 2,
+      "description": "cvtg ",
+      "imgUrl": "",
+      "link": "",
+      "userId": "1",
+      "isVisible": false
+    },
+    {
+      "id": "db33",
+      "name": "toto",
+      "date": "2024-04-30T22:00:00.000Z",
+      "hour": "2024-05-29T19:33:40.078Z",
+      "departments": {
+        "id": "3",
+        "name": "Allier"
+      },
+      "activityCity": {
+        "id": "3",
+        "name": "London"
+      },
+      "categoryId": {
+        "id": "3",
+        "name": "Cinema"
+      },
+      "nbGuest": 3,
+      "description": "tgyhgby h",
+      "imgUrl": "",
+      "link": "",
+      "userId": "1",
+      "isVisible": false
+    },
+    {
+      "id": "ca4b",
+      "name": "toto",
+      "date": "2024-05-05T22:00:00.000Z",
+      "hour": "2024-05-29T20:09:57.357Z",
+      "departments": {
+        "id": "25",
+        "name": "Doubs"
+      },
+      "activityCity": {
+        "id": "2",
+        "name": "Rome"
+      },
+      "categoryId": {
+        "id": "2",
+        "name": "Music"
+      },
+      "nbGuest": 2,
+      "description": "etdtc",
+      "imgUrl": "",
+      "link": "",
+      "userId": "1",
+      "isVisible": false
+    },
+    {
+      "id": "9ffc",
+      "name": "toto",
+      "date": "2024-05-05T22:00:00.000Z",
+      "hour": "2024-05-29T20:28:30.761Z",
+      "departments": {
+        "id": "2",
+        "name": "Aisne"
+      },
+      "activityCity": {
+        "id": "2",
+        "name": "Rome"
+      },
+      "categoryId": {
+        "id": "2",
+        "name": "Music"
+      },
+      "nbGuest": 2,
+      "description": "fgvyhfgvbyh",
+      "imgUrl": "",
+      "link": "",
+      "userId": "1",
+      "isVisible": false
+    },
+    {
+      "id": "0b37",
+      "name": "toto",
+      "date": "2024-05-07T22:00:00.000Z",
+      "hour": "2024-05-30T09:43:44.066Z",
+      "departments": {
+        "id": "2",
+        "name": "Aisne"
+      },
+      "activityCity": {
+        "id": "2",
+        "name": "Rome"
+      },
+      "categoryId": {
+        "id": "3",
+        "name": "Cinema"
+      },
+      "nbGuest": 3,
+      "description": "dxrfdxr f",
       "imgUrl": "",
       "link": "",
       "userId": "1",
@@ -1334,32 +1514,200 @@
     {
       "id": "1",
       "email": "laurore@yahoo.fr",
-      "message": "bonjour, je voudrais plus de renseingnements sur votre activité."
+      "title": "Renseignements",
+      "message": "Bonjour, je voudrais plus de renseignements sur votre activité."
     },
     {
       "id": "2",
       "email": "boubou@yahoo.fr",
-      "message": "renseingnements sur votre activité."
+      "title": "Informations",
+      "message": "Renseignements sur votre activité."
     },
     {
       "id": "3",
-      "Email": "yoyo@toto.fr",
-      "message": "cool, vous embauchez?"
+      "email": "yoyo@toto.fr",
+      "title": "Embauche",
+      "message": "Cool, vous embauchez?"
     },
     {
       "id": "4",
-      "Email": "yoyo@toto.fr",
-      "message": "ajoutez du style"
+      "email": "yoyo@toto.fr",
+      "title": "Suggestion",
+      "message": "Ajoutez du style."
     },
     {
       "id": "5",
-      "Email": "gbyhgbyh",
+      "email": "gbyhgbyh",
+      "title": "Test",
       "message": "gèyghgfgvyghfgvyh"
     },
     {
       "id": "6",
-      "Email": "fv§tg",
+      "email": "fv§tg",
+      "title": "Test",
       "message": "rtgf§vyh"
+    },
+    {
+      "id": "7",
+      "email": "adzfegr",
+      "title": "Feedback",
+      "message": "safg(ht-jyèu"
+    },
+    {
+      "id": "8",
+      "email": "example8@example.com",
+      "title": "Avis",
+      "message": "J'adore votre service."
+    },
+    {
+      "id": "9",
+      "email": "example9@example.com",
+      "title": "Besoin d'infos",
+      "message": "Besoin de plus d'infos."
+    },
+    {
+      "id": "10",
+      "email": "example10@example.com",
+      "title": "Fonctionnement",
+      "message": "Comment ça marche?"
+    },
+    {
+      "id": "11",
+      "email": "example11@example.com",
+      "title": "Remerciements",
+      "message": "Merci pour votre aide."
+    },
+    {
+      "id": "12",
+      "email": "example12@example.com",
+      "title": "Contact",
+      "message": "Peut-on vous appeler?"
+    },
+    {
+      "id": "13",
+      "email": "example13@example.com",
+      "title": "Feedback",
+      "message": "Super service!"
+    },
+    {
+      "id": "14",
+      "email": "example14@example.com",
+      "title": "Demande",
+      "message": "Contactez-moi svp."
+    },
+    {
+      "id": "15",
+      "email": "example15@example.com",
+      "title": "Tarifs",
+      "message": "Questions sur les tarifs."
+    },
+    {
+      "id": "16",
+      "email": "example16@example.com",
+      "title": "Disponibilité",
+      "message": "Disponible demain?"
+    },
+    {
+      "id": "17",
+      "email": "example17@example.com",
+      "title": "Urgence",
+      "message": "Besoin d'aide urgente."
+    },
+    {
+      "id": "18",
+      "email": "example18@example.com",
+      "title": "Assistance",
+      "message": "Pouvez-vous m'aider?"
+    },
+    {
+      "id": "19",
+      "email": "example19@example.com",
+      "title": "Satisfaction",
+      "message": "C'est vraiment bien."
+    },
+    {
+      "id": "20",
+      "email": "example20@example.com",
+      "title": "Remerciements",
+      "message": "Merci beaucoup."
+    },
+    {
+      "id": "21",
+      "email": "example21@example.com",
+      "title": "Détails",
+      "message": "Des détails svp."
+    },
+    {
+      "id": "22",
+      "email": "example22@example.com",
+      "title": "Prix",
+      "message": "Quel est le prix?"
+    },
+    {
+      "id": "23",
+      "email": "example23@example.com",
+      "title": "Informations",
+      "message": "J'aimerais en savoir plus."
+    },
+    {
+      "id": "24",
+      "email": "example24@example.com",
+      "title": "Confirmation",
+      "message": "Pouvez-vous confirmer?"
+    },
+    {
+      "id": "25",
+      "email": "example25@example.com",
+      "title": "Remerciements",
+      "message": "Merci pour tout."
+    },
+    {
+      "id": "26",
+      "Email": "vyghbv ",
+      "title": "gvyhgbvt",
+      "message": "gèbyhgyh"
+    },
+    {
+      "id": "27",
+      "Email": "",
+      "title": "",
+      "message": ""
+    },
+    {
+      "id": "28",
+      "Email": "fc rfv",
+      "title": "dcrtfvd",
+      "message": "ctgfv"
+    },
+    {
+      "id": "29",
+      "Email": "fc rfv",
+      "title": "dcrtfvd",
+      "message": "ctgfv"
+    },
+    {
+      "id": "30",
+      "Email": "johndode@test.fr",
+      "title": "besoin d'aide",
+      "message": " Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed maximus, ex non pharetra pellentesque, quam elit tempor dolor, id volutpat lacus justo eu urna. Vivamus tempor laoreet nibh. Vivamus sodales justo enim, eu venenatis mi imperdiet facilisis. Curabitur enim urna, elementum sed dapibus quis, pellentesque a massa. Sed a interdum turpis, sit amet laoreet ante. Fusce ullamcorper ullamcorper massa eu elementum. In hac habitasse platea dictumst. Nam ultrices leo eget nibh lobortis, ac vestibulum diam euismod. Mauris rhoncus blandit orci in placerat. Etiam commodo vulputate dolor, id dapibus ipsum ultricies non. Sed finibus in nibh nec rutrum. Etiam libero sem, consectetur vitae tincidunt eget, aliquam venenatis lectus. Phasellus et sapien eu tellus dignissim mattis eget a tortor. Ut dignissim est sed lacus iaculis volutpat.\n\nVivamus eu ornare lorem. Cras accumsan, tellus ut dignissim dictum, odio nisi dignissim nisi, non viverra quam tortor in nunc. Morbi ultrices sagittis nisl, vitae imperdiet arcu tempus ut. Etiam diam nisi, mattis quis massa in, viverra vehicula mi. Donec aliquet diam nisi, id tempor nisi scelerisque quis. Aliquam nisi dui, pretium eget ante ac, mattis pretium lacus. Suspendisse et ex efficitur, consequat eros at, dignissim urna. Pellentesque hendrerit turpis elit, eget consectetur turpis finibus id. Vivamus et metus ut odio varius elementum. Phasellus pellentesque auctor arcu sed imperdiet. Aliquam lacinia auctor massa et porta. Interdum et malesuada fames ac ante ipsum primis in faucibus. Ut nisi velit, elementum id maximus nec, gravida a mauris. Nunc leo risus, porttitor in consequat convallis, ultrices vitae mi. Duis gravida est vitae est tristique, quis accumsan lectus pretium. Etiam ornare felis ligula, ac consectetur quam condimentum at.\n\nAliquam sit amet pulvinar metus. Duis viverra in turpis sit amet auctor. In hac habitasse platea dictumst. Suspendisse lacinia arcu lorem, sit amet blandit nisi malesuada quis. Nam fringilla leo leo, ut efficitur tellus hendrerit ut. Etiam maximus non enim id tempus. Proin nec pulvinar dolor. Cras rutrum lacus a nibh vehicula placerat. Integer cursus arcu non nulla rutrum ullamcorper. Nam auctor orci in eros ultricies convallis. "
+    },
+    {
+      "id": "31",
+      "Email": "johndode@test.fr",
+      "title": "besoin d'aide",
+      "message": " Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed maximus, ex non pharetra pellentesque, quam elit tempor dolor, id volutpat lacus justo eu urna. Vivamus tempor laoreet nibh. Vivamus sodales justo enim, eu venenatis mi imperdiet facilisis. Curabitur enim urna, elementum sed dapibus quis, pellentesque a massa. Sed a interdum turpis, sit amet laoreet ante. Fusce ullamcorper ullamcorper massa eu elementum. In hac habitasse platea dictumst. Nam ultrices leo eget nibh lobortis, ac vestibulum diam euismod. Mauris rhoncus blandit orci in placerat. Etiam commodo vulputate dolor, id dapibus ipsum ultricies non. Sed finibus in nibh nec rutrum. Etiam libero sem, consectetur vitae tincidunt eget, aliquam venenatis lectus. Phasellus et sapien eu tellus dignissim mattis eget a tortor. Ut dignissim est sed lacus iaculis volutpat.\n\nVivamus eu ornare lorem. Cras accumsan, tellus ut dignissim dictum, odio nisi dignissim nisi, non viverra quam tortor in nunc. Morbi ultrices sagittis nisl, vitae imperdiet arcu tempus ut. Etiam diam nisi, mattis quis massa in, viverra vehicula mi. Donec aliquet diam nisi, id tempor nisi scelerisque quis. Aliquam nisi dui, pretium eget ante ac, mattis pretium lacus. Suspendisse et ex efficitur, consequat eros at, dignissim urna. Pellentesque hendrerit turpis elit, eget consectetur turpis finibus id. Vivamus et metus ut odio varius elementum. Phasellus pellentesque auctor arcu sed imperdiet. Aliquam lacinia auctor massa et porta. Interdum et malesuada fames ac ante ipsum primis in faucibus. Ut nisi velit, elementum id maximus nec, gravida a mauris. Nunc leo risus, porttitor in consequat convallis, ultrices vitae mi. Duis gravida est vitae est tristique, quis accumsan lectus pretium. Etiam ornare felis ligula, ac consectetur quam condimentum at.\n\nAliquam sit amet pulvinar metus. Duis viverra in turpis sit amet auctor. In hac habitasse platea dictumst. Suspendisse lacinia arcu lorem, sit amet blandit nisi malesuada quis. Nam fringilla leo leo, ut efficitur tellus hendrerit ut. Etiam maximus non enim id tempus. Proin nec pulvinar dolor. Cras rutrum lacus a nibh vehicula placerat. Integer cursus arcu non nulla rutrum ullamcorper. Nam auctor orci in eros ultricies convallis. "
+    },
+    {
+      "id": "32",
+      "Email": "ygbyh",
+      "title": "gybh",
+      "message": "tgèybh"
+    },
+    {
+      "id": "33",
+      "Email": "ygbyh",
+      "title": "gybh",
+      "message": "tgèybh"
     }
   ]
 }

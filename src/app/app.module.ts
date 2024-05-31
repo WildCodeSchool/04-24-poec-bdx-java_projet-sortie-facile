@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { LOCALE_ID, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -9,6 +9,12 @@ import { FormsModule } from '@angular/forms';
 import { SharedModule } from '@shared/shared.module';
 import { ScrollToTopComponent } from './components/scroll-to-top/scroll-to-top.component';
 import { ContactComponent } from './contact/contact.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { MentionLegalesComponent } from './mention-legales/mention-legales.component';
+import { registerLocaleData } from '@angular/common';
+import localeFr from '@angular/common/locales/fr';
+
+registerLocaleData(localeFr, 'fr');
 
 @NgModule({
 	declarations: [
@@ -17,6 +23,8 @@ import { ContactComponent } from './contact/contact.component';
 		HeaderComponent,
 		ScrollToTopComponent,
 		ContactComponent,
+		FooterComponent,
+		MentionLegalesComponent,
 	],
 	imports: [
 		BrowserModule,
@@ -25,7 +33,7 @@ import { ContactComponent } from './contact/contact.component';
 		SharedModule,
 		FormsModule,
 	],
-	providers: [],
+	providers: [{ provide: LOCALE_ID, useValue: 'fr' }],
 	bootstrap: [AppComponent],
 })
 export class AppModule {}
