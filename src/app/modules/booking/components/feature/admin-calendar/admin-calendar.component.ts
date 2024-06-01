@@ -69,7 +69,10 @@ export class AdminCalendarComponent implements OnInit {
 		this.activityService
 			.getActivityList$()
 			.subscribe((activities: Activity[]) => {
-				this.calendarOptions.events = activities;
+				this.calendarOptions.events = activities.map(activity => ({
+					title: activity.name,
+					start: activity.date,
+				}));
 			});
 	}
 	handleDateClick(arg: DateClickArg) {
