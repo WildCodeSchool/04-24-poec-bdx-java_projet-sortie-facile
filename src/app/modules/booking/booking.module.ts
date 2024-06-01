@@ -7,9 +7,16 @@ import { SharedModule } from '@shared/shared.module';
 import { DashboardBookingComponent } from './pages/dashboard-booking/dashboard-booking.component';
 import { GraphComponent } from './pages/graph/graph.component';
 import { MaildashboardComponent } from './pages/maildashboard/maildashboard.component';
+import { AdminCalendarComponent } from './components/feature/admin-calendar/admin-calendar.component';
 
 @NgModule({
-	declarations: [BookingHomeComponent, DashboardBookingComponent, GraphComponent, MaildashboardComponent],
+	declarations: [
+		BookingHomeComponent,
+		DashboardBookingComponent,
+		GraphComponent,
+		MaildashboardComponent,
+		AdminCalendarComponent,
+	],
 	imports: [CommonModule, BookingRoutingModule, SharedModule],
 })
 export class BookingModule {}
