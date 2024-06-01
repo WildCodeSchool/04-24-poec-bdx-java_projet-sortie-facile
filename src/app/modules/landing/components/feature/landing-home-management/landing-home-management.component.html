@@ -6,20 +6,28 @@
 		<h1>Sortie Facile : Partagez vos sorties !</h1>
 	</div>
 </div>
+
+<div class="kezako">Kezako ?</div>
 <div class="schema-container">
 	<div class="schema-text">
-		<h3>C'est quoi ?</h3>
-		<img src="assets/photos/schema.png" alt="" />
-		<h2>Envie de sortir ?</h2>
-		<div>arrow</div>
-		<h2>Personne de disponible</h2>
-		<div>arrow</div>
-		<h2>Sortie Facile !</h2>
+		<h3>c'est quoi ?</h3>
+		<img class="img-grp" src="assets/photos/schema.png" alt="" />
+		<h2 class="envie">Envie de sortir ?</h2>
+		<img src="/assets/photos/arrow.png" class="arrow1" alt="arrow" />
+		<h2 class="dispo">Personne de disponible</h2>
+		<img src="/assets/photos/arrow.png" class="arrow2" alt="arrow" />
+		<img
+			src="/assets/photos/logoSortieFacile.png"
+			height="40"
+			class="logo"
+			alt="logo of sortie facile"
+		/>
+		<div class="sf">Sortie Facile !</div>
 	</div>
 </div>
 
 <div class="functioning">
-	<h3>Comment ca marche ?</h3>
+	<h3>Comment ça marche ?</h3>
 	<div class="functioning-list">
 		<ng-container *ngFor="let functionimgData of functionimgDatas">
 			<app-card-landing-small
@@ -33,19 +41,20 @@
 		</ng-container>
 	</div>
 </div>
+
 <h3>Découvrir les activités</h3>
 <div class="discover-box">
 	<app-card-landing-large
 		title="Découvrir les activités >"
 		description="Danish jelly chocolate bar lollipop cupcake chocolate cake danish oat
-        cake cotton candy. Jujubes soufflé lollipop candy canes marzipan jelly-o
-        fruitcake caramels. Lollipop chocolate bar topping apple pie dragée.
-        Tiramisu dessert jujubes powder chocolate bar cheesecake cookie
-        liquorice gummies. Candy canes lollipop liquorice gingerbread cotton
-        candy candy cotton candy tootsie roll. Pudding shortbread bear claw
-        danish sweet roll sesame snaps cupcake marshmallow tootsie roll. Cookie
-        cake lemon drops candy jelly jelly beans pastry. Sugar plum bear claw
-        cake jelly-o chocolate bar jelly-o halvah toffee chocolate bar."
+            cake cotton candy. Jujubes soufflé lollipop candy canes marzipan jelly-o
+            fruitcake caramels. Lollipop chocolate bar topping apple pie dragée.
+            Tiramisu dessert jujubes powder chocolate bar cheesecake cookie
+            liquorice gummies. Candy canes lollipop liquorice gingerbread cotton
+            candy candy cotton candy tootsie roll. Pudding shortbread bear claw
+            danish sweet roll sesame snaps cupcake marshmallow tootsie roll. Cookie
+            cake lemon drops candy jelly jelly beans pastry. Sugar plum bear claw
+            cake jelly-o chocolate bar jelly-o halvah toffee chocolate bar."
 		ctaPrimarylabel="Rejoignez nous !"
 		ctaSecondarylabel="Se connecter"
 		imgSrc="assets/photos/activity-participate.svg"
