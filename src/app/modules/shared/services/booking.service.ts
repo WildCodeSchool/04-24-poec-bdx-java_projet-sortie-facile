@@ -72,7 +72,7 @@ export class BookingService {
 
 				return this.http.post<Booking>(this._BASE_URL, newBooking).pipe(
 					tap(() => {
-						this.router.navigate([FullUserRouteEnum.HOME]);
+						this.router.navigate([FullUserRouteEnum.ACTIVITY]);
 					}),
 				);
 			}),
