@@ -1,6 +1,6 @@
 <div class="">
 	<p-stepper>
-		<p-stepperPanel header="Infos d’authentification">
+		<p-stepperPanel header="Étape 1">
 			<ng-template
 				pTemplate="content"
 				let-nextCallback="nextCallback"
@@ -11,15 +11,17 @@
 				</div>
 
 				<div class="btn-box btn-box-right">
-					<app-button-form
-						iconName="arrow-right"
+					<p-button
+						label="Continuez"
+						icon="pi pi-arrow-right"
+						iconPos="right"
 						(click)="onClick(2); nextCallback.emit()"
-					></app-button-form>
+					></p-button>
 				</div>
 			</ng-template>
 		</p-stepperPanel>
 
-		<p-stepperPanel header="Infos de profil">
+		<p-stepperPanel header="Étape 2">
 			<ng-template
 				pTemplate="content"
 				let-prevCallback="prevCallback"

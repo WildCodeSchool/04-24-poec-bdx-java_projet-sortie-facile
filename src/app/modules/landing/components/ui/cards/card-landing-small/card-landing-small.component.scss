@@ -1,6 +1,7 @@
 .functioning-card {
 	background-color: var(--gray-500);
 	display: flex;
+	flex-wrap: wrap;
 	align-items: center;
 	padding: 1rem;
 	border-radius: 10px;
@@ -21,7 +22,7 @@
 	}
 
 	.img-box {
-		width: 70%;
+		width: 100%;
 
 		img {
 			width: 100%;
@@ -42,17 +43,29 @@
 	}
 
 	@media (min-width: 768px) AND (max-width: 960px) {
+		justify-content: space-around;
+		gap: 2.5rem;
+
 		.img-box {
-			display: none;
+			width: 100%;
+
+			img {
+				width: 100%;
+				max-width: 200px;
+			}
 		}
 	}
 
 	@media (min-width: 960px) {
 		justify-content: space-around;
+		gap: 2.5rem;
 
-		.functioning-card {
-			.img-box {
-				display: none;
+		.img-box {
+			width: 100%;
+
+			img {
+				width: 100%;
+				max-width: 230px;
 			}
 		}
 	}
@@ -60,13 +73,13 @@
 	@media (min-width: 1280px) {
 		justify-content: space-around;
 		gap: 2.5rem;
-
 		.img-box {
-			width: 30%;
+			width: 100%;
 
 			img {
 				width: 100%;
-				max-width: 150px;
+				max-width: 250px;
+				max-height: 228px;
 			}
 		}
 	}

@@ -28,19 +28,10 @@
 				"
 			/>
 		</ng-template>
-
 		<h3>
-			{{ activity.name | truncate: 50 }}
+			{{ activity.name | truncate: 25 }}
 		</h3>
-
 		<p-divider />
-
-		<p class="clamp-text">
-			{{ activity.description }}
-		</p>
-
-		<p-divider />
-
 		<div class="bottom-content">
 			<div class="bottom-item">
 				<i class="pi pi-calendar"></i>
@@ -52,6 +43,10 @@
 				<p>{{ activity.activityCity }}</p>
 			</div>
 		</div>
+
+		<p class="clamp-text">
+			{{ activity.description }}
+		</p>
 
 		<ng-template pTemplate="footer">
 			<p-button

@@ -1,54 +1,162 @@
 .content-top {
-	padding: 2rem 0rem;
+	position: relative;
+	padding: 2rem 0;
 	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: flex-start;
-	gap: 0rem;
+	justify-content: flex-start; /* Align text to the left */
+	align-items: flex-end;
+	height: 50vh; /* Adjust the height as needed */
+	overflow: hidden;
+}
 
-	.content-top-text {
-		width: 100%;
-		max-width: 500px;
+.content-top-text {
+	max-width: 500px;
+	z-index: 1; /* Make sure the text is above the image */
+	padding: 0rem;
+	padding-left: 4rem;
+	background: rgba(
+		0,
+		0,
+		0,
+		0.1
+	); /* Optional: add a background for better text visibility */
+	color: aliceblue;
+}
 
-		h2 {
-			color: var(--black-color);
-			font-size: 1.35rem;
-			margin: 0;
-			margin-bottom: 1.5rem;
-		}
+.content-top-text h2 {
+	font-size: 1.35rem;
+	margin: 0;
+	margin-bottom: 1.5rem;
+}
 
-		p {
-			color: var(--black-color);
-			font-size: 0.85rem;
-			margin: 0;
-			margin-bottom: 1.25rem;
-		}
-	}
+.content-top-text p {
+	font-size: 0.85rem;
+	margin: 0;
+	margin-bottom: 1.25rem;
+}
 
-	.img-top {
-		width: 100%;
-		max-width: 500px;
-	}
+.img-banner-container {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	z-index: 0; /* Make sure the image is in the background */
+}
 
-	@media (min-width: 768px) {
+.img-banner {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	object-position: top;
+}
+
+@media (min-width: 768px) {
+	.content-top {
 		flex-direction: row;
-		justify-content: center;
-		align-items: center;
+		justify-content: flex-start;
 		gap: 1.5rem;
-
-		.img-top {
-			width: 100%;
-		}
 	}
+}
 
-	@media (min-width: 960px) {
+@media (min-width: 960px) {
+	.content-top {
 		gap: 6rem;
 	}
+}
 
-	// @media (min-width: 1280px) {
-	// 	padding: 4rem 5rem 6em 5rem;
-	// 	gap: 2rem;
-	// }
+.schema-container {
+	margin-block: 70px;
+	position: relative;
+	padding: 2rem 0;
+	height: 68vh; /* Ajustez la hauteur selon vos besoins */
+	overflow: hidden;
+	background-image: url('assets/photos/fondbleu.png'); /* Image de fond */
+	background-size: contain; /* Ajustez la taille de l'image de fond */
+	background-position: right center; /* Position de l'image de fond */
+	background-repeat: no-repeat; /* Empêche la répétition de l'image */
+
+	/* Styles pour le texte et les éléments à l'intérieur de schema-container */
+	color: black;
+}
+
+.schema-text {
+	position: absolute;
+	top: 50%; /* Ajustez cette valeur pour positionner verticalement */
+	left: 50%; /* Ajustez cette valeur pour positionner horizontalement */
+	transform: translate(-50%, -50%);
+	max-width: 500px;
+	z-index: 1; /* Assurez-vous que le texte est au-dessus de l'image */
+	padding: 0 4rem; /* Ajustez le padding selon vos besoins */
+}
+.kezako {
+	margin-block: 40px;
+	position: relative;
+	text-align: center;
+	font-size: xxx-large;
+	font-family: 'Odor Mean Chey', serif;
+}
+.schema-text h3 {
+	font-size: 1.35rem;
+	margin: 0;
+	margin-bottom: 1.5rem;
+	color: aliceblue;
+}
+
+.schema-text h2 {
+	font-size: 1.2rem;
+	margin: 0;
+	margin-bottom: 1.25rem;
+}
+
+.img-grp {
+	position: absolute;
+	top: -180px;
+	left: -377px; /* Ajustez cette valeur pour positionner horizontalement */
+	z-index: 1; /* Assurez-vous que l'image est au-dessus de l'image de fond */
+}
+
+.envie {
+	position: absolute;
+	top: 63%;
+	left: -124%; /* Ajustez cette valeur pour positionner horizontalement */
+}
+
+.arrow1 {
+	position: absolute;
+	top: 102%;
+	left: -86%;
+	transform: rotate(-11deg);
+}
+
+.dispo {
+	position: absolute;
+	top: 295%;
+	left: -40%; /* Ajustez cette valeur pour positionner horizontalement */
+}
+
+.arrow2 {
+	position: absolute;
+	top: 184%;
+	left: 69%;
+	transform: rotate(-80deg);
+}
+
+.logo {
+	position: absolute;
+	top: 17%;
+	left: 114%;
+	width: 7rem;
+	height: 7rem;
+}
+.sf {
+	position: absolute;
+	font-size: 35px;
+	font-family: 'Odor Mean Chey', serif;
+	top: -22%;
+	left: 162%;
+	width: 100%;
+	color: aliceblue; /* Ajustez cette valeur pour positionner horizontalement */
 }
 
 .functioning,
@@ -68,17 +176,26 @@
 
 .functioning .functioning-list {
 	display: flex;
-	flex-direction: column;
-	align-items: space-between;
+	flex-wrap: nowrap;
 	gap: 1.5rem;
 	margin-bottom: 1.5rem;
 	width: 100%;
-
-	@media (min-width: 768px) AND (max-width: 959px) {
+}
+.comment {
+	margin-block: 40px;
+	position: relative;
+	text-align: center;
+	font-size: xxx-large;
+	font-family: 'Odor Mean Chey', serif;
+}
+@media (min-width: 768px) and (max-width: 959px) {
+	.functioning .functioning-list {
 		flex-direction: row;
 	}
+}
 
-	@media (min-width: 960px) {
+@media (min-width: 960px) {
+	.functioning .functioning-list {
 		flex-direction: row;
 	}
 }
