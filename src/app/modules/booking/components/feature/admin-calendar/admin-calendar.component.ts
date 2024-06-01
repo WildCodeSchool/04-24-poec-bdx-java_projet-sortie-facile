@@ -1,4 +1,4 @@
-import { Component, LOCALE_ID } from '@angular/core';
+import { Component, LOCALE_ID, OnInit } from '@angular/core';
 import { CalendarOptions } from '@fullcalendar/core';
 
 import dayGridPlugin from '@fullcalendar/daygrid';
@@ -8,6 +8,8 @@ import interactionPlugin, {
 	Draggable,
 } from '@fullcalendar/interaction';
 import listPlugin from '@fullcalendar/list';
+import { ActivityService } from '@shared/services/activity.service';
+import { Activity } from '@activity/models/classes/activity.class';
 @Component({
 	selector: 'app-admin-calendar',
 	templateUrl: './admin-calendar.component.html',
@@ -18,7 +20,9 @@ import listPlugin from '@fullcalendar/list';
 		// Autres providers...
 	],
 })
-export class AdminCalendarComponent {
+export class AdminCalendarComponent implements OnInit {
+	constructor(private activityService: ActivityService) {}
+
 	calendarOptions: CalendarOptions = {
 		firstDay: 1,
 		locale: 'fr',
@@ -49,6 +53,7 @@ export class AdminCalendarComponent {
 				buttonText: 'Jour',
 			},
 		},
+
 		dateClick: (arg: DateClickArg) => this.handleDateClick(arg),
 		events: [
 			{ title: 'event 1', date: '2024-06-01' },
@@ -60,7 +65,13 @@ export class AdminCalendarComponent {
 			today: "Aujourd'hui",
 		},
 	};
-
+	ngOnInit() {
+		this.activityService
+			.getActivityList$()
+			.subscribe((activities: Activity[]) => {
+				this.calendarOptions.events = activities;
+			});
+	}
 	handleDateClick(arg: DateClickArg) {
 		const clickedDate = arg.dateStr;
 		// this.calendarOptions.initialDate = clickedDate; // Set the initial date to the clicked date
