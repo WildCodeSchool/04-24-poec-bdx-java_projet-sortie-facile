@@ -1,11 +1,11 @@
 .functioning-card {
 	background-color: var(--gray-500);
 	display: flex;
+	flex-wrap: wrap;
 	align-items: center;
 	padding: 1rem;
 	border-radius: 10px;
 	gap: 1rem;
-	margin-inline: 100px;
 
 	h4 {
 		font-size: 1.025rem;
@@ -73,13 +73,13 @@
 	@media (min-width: 1280px) {
 		justify-content: space-around;
 		gap: 2.5rem;
-		margin-inline: 100px;
 		.img-box {
 			width: 100%;
 
 			img {
 				width: 100%;
 				max-width: 250px;
+				max-height: 228px;
 			}
 		}
 	}

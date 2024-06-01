@@ -25,7 +25,7 @@
 		<div class="sf">Sortie Facile !</div>
 	</div>
 </div>
-
+<h2>Activités les plus populaires</h2>
 <div class="content-box" data>
 	<app-carousel
 		[activityList]="activityList"
@@ -35,16 +35,8 @@
 	></app-carousel>
 </div>
 
-<div class="content-box" data>
-	<app-carousel
-		[activityList]="activityList"
-		[numVisible]="6"
-		[numScroll]="1"
-		[circular]="false"
-	></app-carousel>
-</div>
 <div class="functioning">
-	<h3>Comment ça marche ?</h3>
+	<div class="comment">Comment ça marche ?</div>
 	<div class="functioning-list">
 		<ng-container *ngFor="let functionimgData of functionimgDatas">
 			<app-card-landing-small
@@ -58,7 +50,16 @@
 		</ng-container>
 	</div>
 </div>
+<h2>Dernières places à saisir !</h2>
 
+<div class="content-box" data>
+	<app-carousel
+		[activityList]="activityList"
+		[numVisible]="6"
+		[numScroll]="1"
+		[circular]="false"
+	></app-carousel>
+</div>
 <h3>Découvrir les activités</h3>
 <div class="discover-box">
 	<app-card-landing-large

@@ -176,12 +176,18 @@
 
 .functioning .functioning-list {
 	display: flex;
-	flex-wrap: wrap;
+	flex-wrap: nowrap;
 	gap: 1.5rem;
 	margin-bottom: 1.5rem;
 	width: 100%;
 }
-
+.comment {
+	margin-block: 40px;
+	position: relative;
+	text-align: center;
+	font-size: xxx-large;
+	font-family: 'Odor Mean Chey', serif;
+}
 @media (min-width: 768px) and (max-width: 959px) {
 	.functioning .functioning-list {
 		flex-direction: row;
