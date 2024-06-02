@@ -168,6 +168,25 @@ p {
 	}
 }
 
+:host ::ng-deep .popular-activity-box {
+	.section-content {
+		app-carousel {
+			width: 100%;
+
+			.p-carousel .p-carousel-content .p-carousel-prev,
+			.p-carousel .p-carousel-content .p-carousel-next {
+				background-color: var(--primary-color);
+				border-color: var(--primary-color);
+				color: var(--white-color);
+
+				&.p-disabled {
+					opacity: 0.1;
+				}
+			}
+		}
+	}
+}
+
 // .content-top {
 // 	position: relative;
 // 	padding: 2rem 0;
