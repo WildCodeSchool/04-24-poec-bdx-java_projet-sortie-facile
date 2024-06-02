@@ -124,6 +124,47 @@
 			</div>
 		</div>
 	</section>
+
+	<section class="testimonials-box">
+		<div class="section-content-box">
+			<div class="section-header">
+				<h3 class="section-subtitle">Recommandations</h3>
+				<h3 class="section-title">Ils parlent de nous</h3>
+			</div>
+
+			<div class="section-content">
+				<ng-container *ngIf="testimonialList$ | async as testimonialList">
+					<ng-container *ngFor="let testimonial of testimonialList">
+						<div class="testimonial-card">
+							<div class="icon-box">
+								<i class="pi pi-comments"></i>
+							</div>
+
+							<div class="card-body">
+								<h3>{{ testimonial.title }}</h3>
+								<p>{{ testimonial.message }}</p>
+
+								<div class="rating-box">
+									<p-rating
+										[(ngModel)]="testimonial.note"
+										[readonly]="true"
+										[cancel]="false"
+									/>
+								</div>
+							</div>
+							<div class="card-footer">
+								<img src="/assets/photos/avatar.jpg" alt="" />
+
+								<div class="card-footer-content">
+									<h4>{{ testimonial.user }}</h4>
+								</div>
+							</div>
+						</div>
+					</ng-container>
+				</ng-container>
+			</div>
+		</div>
+	</section>
 </div>
 <!-- 
 <div class="content-top">
