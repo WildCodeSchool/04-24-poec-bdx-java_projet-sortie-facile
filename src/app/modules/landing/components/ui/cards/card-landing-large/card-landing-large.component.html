@@ -1,28 +1,35 @@
 <div class="participate">
+	<div class="img-box">
+		<img [src]="imgSrc" [alt]="imgAlt" />
+	</div>
+
 	<div class="participate-card-body">
-		<h4>{{ title }}</h4>
+		<h3>{{ title }}</h3>
 		<p>
 			{{ description }}
 		</p>
 
-		<div class="btn-container">
+		<div class="btn-box">
 			<p-button
-				rounded
 				[label]="ctaPrimarylabel"
+				icon="pi pi-arrow-right"
+				iconPos="right"
+				[rounded]="true"
 				severity="primary"
+				[outlined]="false"
 				[routerLink]="[fullAuthenticationRoute.REGISTER]"
+				styleClass="btn-register"
 			></p-button>
 
 			<p-button
-				rounded
 				[label]="ctaSecondarylabel"
+				icon="pi pi-arrow-right"
+				iconPos="right"
+				[rounded]="true"
 				[outlined]="true"
 				[routerLink]="[fullAuthenticationRoute.LOGIN]"
+				styleClass="btn-login"
 			></p-button>
 		</div>
-	</div>
-
-	<div class="img-box">
-		<img [src]="imgSrc" [alt]="imgAlt" />
 	</div>
 </div>

@@ -96,12 +96,43 @@ p {
 	}
 }
 
-:host ::ng-deep .functioning-box {
+:host ::ng-deep section {
 	position: relative;
 	background-color: var(--white-color);
 	padding: 5rem 1rem;
 	display: flex;
 	justify-content: center;
+
+	&.section-dark {
+		background-color: var(--black-color);
+
+		.section-content-box .section-header {
+			.section-subtitle {
+				color: var(--white-color);
+			}
+
+			.section-title {
+				color: var(--white-color);
+			}
+		}
+
+		.section-content {
+			display: flex;
+			gap: 2rem;
+			width: 100%;
+			margin-top: 2rem;
+		}
+	}
+
+	&.discover-box {
+		.section-content-box {
+			max-width: 960px;
+
+			.section-content {
+				margin-top: 4rem;
+			}
+		}
+	}
 
 	.section-content-box {
 		display: flex;
@@ -124,6 +155,7 @@ p {
 
 			.section-title {
 				font-size: 2.5rem;
+				color: var(--black-color);
 			}
 		}
 
