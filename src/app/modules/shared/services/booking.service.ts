@@ -1,16 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
-import {
-	Observable,
-	catchError,
-	forkJoin,
-	map,
-	mergeMap,
-	switchMap,
-	tap,
-} from 'rxjs';
+import { Observable, catchError, forkJoin, map, mergeMap, tap } from 'rxjs';
 import { Booking } from '@shared/models/classes/booking/booking.class';
 import { Activity } from '@activity/models/classes/activity.class';
 import { AuthUser } from '@shared/models/classes/auth-user/auth-user.class';
@@ -31,9 +22,9 @@ export class BookingService {
 		private router: Router,
 	) {}
 
-	onSubmit(form: NgForm): void {
-		this.postNewBooking$(form.value).subscribe();
-	}
+	// onSubmit(form: NgForm): void {
+	// 	this.postNewBooking$(form.value).subscribe();
+	// }
 
 	getBookingList$(): Observable<BookingUserActivity[]> {
 		return this.http.get<Booking[]>(this._BASE_URL).pipe(
@@ -61,24 +52,29 @@ export class BookingService {
 		);
 	}
 
-	postNewBooking$(newBooking: Booking): Observable<Booking> {
-		return this.http.get<Booking[]>(this._BASE_URL).pipe(
-			switchMap((bookings: Booking[]) => {
-				const nextId =
-					bookings.length > 0
-						? Number(bookings[bookings.length - 1].id) + 1
-						: 1;
-				newBooking.id = String(nextId);
-
-				return this.http.post<Booking>(this._BASE_URL, newBooking).pipe(
-					tap(() => {
-						this.router.navigate([FullUserRouteEnum.ACTIVITY]);
-					}),
-				);
+	postNewBooking$(userId: string, activityId: string): Observable<Booking> {
+		return this.http.post<Booking>(this._BASE_URL, { userId, activityId }).pipe(
+			tap(() => {
+				this.router.navigate([FullUserRouteEnum.ACTIVITY]);
 			}),
 
 			catchError(error => {
 				throw error;
+			}),
+		);
+	}
+
+	checkIfConnectedUserHasBookingActivity$(
+		userDetailsId: string,
+		activityId: string,
+	): Observable<boolean> {
+		return this.http.get<Booking[]>(this._BASE_URL).pipe(
+			map((bookings: Booking[]) => {
+				return bookings.some(
+					(booking: Booking) =>
+						booking.userId === userDetailsId &&
+						booking.activityId === activityId,
+				);
 			}),
 		);
 	}
