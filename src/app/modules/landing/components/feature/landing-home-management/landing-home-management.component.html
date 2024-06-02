@@ -135,31 +135,12 @@
 			<div class="section-content">
 				<ng-container *ngIf="testimonialList$ | async as testimonialList">
 					<ng-container *ngFor="let testimonial of testimonialList">
-						<div class="testimonial-card">
-							<div class="icon-box">
-								<i class="pi pi-comments"></i>
-							</div>
-
-							<div class="card-body">
-								<h3>{{ testimonial.title }}</h3>
-								<p>{{ testimonial.message }}</p>
-
-								<div class="rating-box">
-									<p-rating
-										[(ngModel)]="testimonial.note"
-										[readonly]="true"
-										[cancel]="false"
-									/>
-								</div>
-							</div>
-							<div class="card-footer">
-								<img src="/assets/photos/avatar.jpg" alt="" />
-
-								<div class="card-footer-content">
-									<h4>{{ testimonial.user }}</h4>
-								</div>
-							</div>
-						</div>
+						<app-card-testimonial
+							[title]="testimonial.title"
+							[message]="testimonial.message"
+							[note]="testimonial.note"
+							[user]="testimonial.user"
+						></app-card-testimonial>
 					</ng-container>
 				</ng-container>
 			</div>
