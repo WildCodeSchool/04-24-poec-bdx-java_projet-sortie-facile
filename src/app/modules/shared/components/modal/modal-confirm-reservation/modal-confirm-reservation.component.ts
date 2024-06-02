@@ -27,7 +27,7 @@ export class ModalConfirmReservationComponent extends AbstractModal {
 			header: 'Confirmation',
 			message: this.hasBooking
 				? 'Comfirmer votre désinscription à cette activité'
-				: 'Comfirmer votre inscription',
+				: 'Confirmer votre inscription',
 			acceptLabel: 'Oui',
 			rejectLabel: 'Non',
 			accept: () => this.onAccept(),
@@ -36,16 +36,7 @@ export class ModalConfirmReservationComponent extends AbstractModal {
 	}
 
 	protected override onAccept(): void {
-		this.bookingService
-			.postNewBooking$(this.userId, this.activityId)
-			.subscribe(() => {
-				this.messageService.add({
-					severity: 'info',
-					summary: 'Inscrit',
-					detail: 'Votre inscription a bien été prise en compte',
-					life: 3000,
-				});
-			});
+		this.hasBooking ? this.deleteNewBooking() : this.postNewBooking();
 	}
 
 	protected override onReject(): void {
@@ -58,4 +49,30 @@ export class ModalConfirmReservationComponent extends AbstractModal {
 	}
 
 	protected override onError() {}
+
+	private postNewBooking(): void {
+		this.bookingService
+			.postNewBooking$(this.userId, this.activityId)
+			.subscribe(() => {
+				this.messageService.add({
+					severity: 'info',
+					summary: 'Inscrit',
+					detail: 'Votre inscription a bien été prise en compte',
+					life: 3000,
+				});
+			});
+	}
+
+	private deleteNewBooking(): void {
+		this.bookingService
+			.deleteBookingById$(this.userId, this.activityId)
+			.subscribe(() => {
+				this.messageService.add({
+					severity: 'info',
+					summary: 'Désinscrit',
+					detail: 'Votre désinscription a bien été prise en compte',
+					life: 3000,
+				});
+			});
+	}
 }

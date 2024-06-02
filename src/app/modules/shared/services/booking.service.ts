@@ -1,7 +1,15 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { Observable, catchError, forkJoin, map, mergeMap, tap } from 'rxjs';
+import {
+	Observable,
+	catchError,
+	forkJoin,
+	map,
+	mergeMap,
+	switchMap,
+	tap,
+} from 'rxjs';
 import { Booking } from '@shared/models/classes/booking/booking.class';
 import { Activity } from '@activity/models/classes/activity.class';
 import { AuthUser } from '@shared/models/classes/auth-user/auth-user.class';
@@ -52,6 +60,21 @@ export class BookingService {
 		);
 	}
 
+	getBookingByUserAndActivity$(
+		userId: string,
+		activityId: string,
+	): Observable<BookingUserActivity> {
+		return this.getBookingList$().pipe(
+			map(
+				(bookingList: BookingUserActivity[]) =>
+					bookingList.find(
+						(booking: BookingUserActivity) =>
+							booking.userId === userId && booking.activityId === activityId,
+					) as BookingUserActivity,
+			),
+		);
+	}
+
 	postNewBooking$(userId: string, activityId: string): Observable<Booking> {
 		return this.http.post<Booking>(this._BASE_URL, { userId, activityId }).pipe(
 			tap(() => {
@@ -61,6 +84,23 @@ export class BookingService {
 			catchError(error => {
 				throw error;
 			}),
+		);
+	}
+
+	deleteBookingById$(userId: string, activityId: string): Observable<Booking> {
+		return this.getBookingByUserAndActivity$(userId, activityId).pipe(
+			tap(v => console.log(v)),
+
+			switchMap((booking: BookingUserActivity) =>
+				this.http.delete<Booking>(`${this._BASE_URL}/${booking.id}`).pipe(
+					tap(() => {
+						this.router.navigate([FullUserRouteEnum.ACTIVITY]);
+					}),
+					catchError(error => {
+						throw error;
+					}),
+				),
+			),
 		);
 	}
 
