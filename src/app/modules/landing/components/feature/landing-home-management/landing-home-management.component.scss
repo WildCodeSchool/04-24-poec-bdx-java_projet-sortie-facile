@@ -22,7 +22,7 @@ p {
 		position: absolute;
 		width: 100%;
 		height: 100%;
-		background-color: rgba(0, 0, 0, 0.65);
+		background-color: rgba(0, 0, 0, 0.8);
 	}
 
 	.hero-content-box {
@@ -35,25 +35,31 @@ p {
 			position: relative;
 			display: block;
 			width: 100%;
-			max-width: 700px;
 
 			.big-letter {
 				position: absolute;
 				top: 0;
-				font-size: 17rem;
-				color: rgba(255, 255, 255, 0.25);
+				font-size: 20rem;
+				color: rgba(255, 255, 255, 0.3);
 				line-height: 0.8;
 				margin-left: 1.5rem;
 				font-family: 'Seymour One', sans-serif;
+				z-index: 1;
+				opacity: 0.35;
 			}
 
 			.hero-content-elements-box {
-				padding-top: 3rem;
+				position: relative;
+				z-index: 10;
+				padding-top: 2.5rem;
 
 				h1 {
+					display: flex;
+					flex-direction: column;
 					color: var(--white-color);
 					font-size: 4rem;
 					text-transform: uppercase;
+					line-height: 1.1;
 				}
 
 				.p-divider-horizontal {
@@ -72,6 +78,7 @@ p {
 					margin-left: 3rem;
 					font-size: 1.05rem;
 					line-height: 1.6;
+					max-width: 700px;
 				}
 
 				.btn-box {
@@ -126,8 +133,24 @@ p {
 
 	&.discover-box {
 		// max-width: 960px;
+		// background: url('assets/photos/home.jpg') no-repeat;
+		// background-size: cover;
+
+		.mask {
+			position: absolute;
+			z-index: 2;
+			top: 0;
+			left: 0;
+			background-color: var(--black-color);
+			opacity: 0.9;
+			width: 100%;
+			height: 100%;
+		}
 
 		.section-content-box {
+			position: relative;
+			z-index: 10;
+
 			.section-content {
 				margin-top: 4rem;
 			}

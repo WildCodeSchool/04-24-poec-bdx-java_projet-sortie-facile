@@ -7,7 +7,10 @@
 				<span class="big-letter">SF</span>
 
 				<div class="hero-content-elements-box">
-					<h1>Sortie facile</h1>
+					<h1>
+						<span>Sortie facile</span>
+						<span>Partagez vos sorties !</span>
+					</h1>
 
 					<p-divider></p-divider>
 					<p>
@@ -27,6 +30,7 @@
 							[rounded]="true"
 							severity="primary"
 							[outlined]="true"
+							(click)="scrollToFunctioningBox()"
 						></p-button>
 					</div>
 				</div>
@@ -34,10 +38,10 @@
 		</div>
 	</div>
 
-	<section class="functioning-box">
+	<section class="functioning-box" #functioningBox>
 		<div class="section-content-box">
 			<div class="section-header">
-				<h3 class="section-subtitle">Happy Life Website</h3>
+				<h4 class="section-subtitle">Happy Life Website</h4>
 				<h3 class="section-title">Comment ça marche ?</h3>
 			</div>
 
@@ -60,9 +64,10 @@
 	</section>
 
 	<section class="discover-box section-dark">
+		<div class="mask"></div>
 		<div class="section-content-box">
 			<div class="section-header">
-				<h3 class="section-subtitle">Happy Life Website</h3>
+				<h4 class="section-subtitle">Happy Life Website</h4>
 				<h3 class="section-title">Comment ça marche ?</h3>
 			</div>
 
@@ -90,7 +95,7 @@
 	<section class="popular-activity-box">
 		<div class="section-content-box">
 			<div class="section-header">
-				<h3 class="section-subtitle">Happy Life Website</h3>
+				<h4 class="section-subtitle">Happy Life Website</h4>
 				<h3 class="section-title">Activités les plus populaires</h3>
 			</div>
 
@@ -109,7 +114,7 @@
 	<section class="popular-categories-box section-dark">
 		<div class="section-content-box">
 			<div class="section-header">
-				<h3 class="section-subtitle">Happy Life Website</h3>
+				<h4 class="section-subtitle">Happy Life Website</h4>
 				<h3 class="section-title">Catégories les plus populaires</h3>
 			</div>
 
@@ -128,7 +133,7 @@
 	<section class="testimonials-box">
 		<div class="section-content-box">
 			<div class="section-header">
-				<h3 class="section-subtitle">Recommandations</h3>
+				<h4 class="section-subtitle">Recommandations</h4>
 				<h3 class="section-title">Ils parlent de nous</h3>
 			</div>
 
