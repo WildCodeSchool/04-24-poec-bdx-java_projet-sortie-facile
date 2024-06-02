@@ -1,6 +1,12 @@
 <app-header *ngIf="showHeader"></app-header>
-<!-- <app-scroll-to-top></app-scroll-to-top> -->
-<!-- <div class="content-container"> -->
-<router-outlet></router-outlet>
-<!-- </div> -->
+<app-scroll-to-top></app-scroll-to-top>
+
+<div
+	class="content-container"
+	[ngStyle]="{
+		'padding-top': showHeader ? '90px' : '0px'
+	}"
+>
+	<router-outlet></router-outlet>
+</div>
 <app-footer></app-footer>
