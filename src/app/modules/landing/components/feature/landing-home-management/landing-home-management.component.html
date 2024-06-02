@@ -33,9 +33,34 @@
 			</div>
 		</div>
 	</div>
+
+	<section class="functioning-box">
+		<div class="section-content-box">
+			<div class="section-header">
+				<h3 class="section-subtitle">Happy Life Website</h3>
+				<h3 class="section-title">Comment ça marche ?</h3>
+			</div>
+
+			<div class="section-content">
+				<ng-container
+					*ngFor="let functionimgData of functionimgDatas; let i = index"
+				>
+					<app-card-landing-small
+						[imgSrc]="functionimgData.imgSrc"
+						[imgAlt]="functionimgData.imgAlt"
+						[title]="functionimgData.title"
+						[description]="functionimgData.description"
+						[link]="functionimgData.link"
+						[linkLabel]="functionimgData.linkLabel"
+						[number]="i + 1"
+					></app-card-landing-small>
+				</ng-container>
+			</div>
+		</div>
+	</section>
 </div>
 
-<!-- <div class="content-top">
+<div class="content-top">
 	<div class="img-banner-container">
 		<img class="img-banner" src="assets/photos/homebanner.jpeg" alt="" />
 	</div>
@@ -116,4 +141,4 @@
 		imgSrc="assets/photos/activity-participate.svg"
 		imgLabel=""
 	></app-card-landing-large>
-</div> -->
+</div>
