@@ -33,7 +33,7 @@ import { ModalDeleteAccountComponent } from './components/modal/modal-confirm-de
 import { PaginationComponent } from './components/pagination/pagination.component';
 import { ButtonUltraWildeComponent } from './components/button/button-ultra-wilde/button-ultra-wilde.component';
 import { FullCalendarModule } from '@fullcalendar/angular';
-
+import { AlertComponent } from './components/alert/alert.component';
 @NgModule({
 	declarations: [
 		AuthTypographyWithRedirectComponent,
@@ -61,6 +61,7 @@ import { FullCalendarModule } from '@fullcalendar/angular';
 		ModalDeleteAccountComponent,
 		PaginationComponent,
 		ButtonUltraWildeComponent,
+		AlertComponent,
 	],
 	imports: [
 		CommonModule,
@@ -102,6 +103,7 @@ import { FullCalendarModule } from '@fullcalendar/angular';
 		PaginationComponent,
 		ButtonUltraWildeComponent,
 		FullCalendarModule,
+		AlertComponent,
 	],
 })
 export class SharedModule {}

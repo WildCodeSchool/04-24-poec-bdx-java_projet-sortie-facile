@@ -79,6 +79,16 @@
       "role": "user",
       "status": "active",
       "userDetailsId": "7137"
+    },
+    {
+      "id": "7d83",
+      "username": "bobby",
+      "email": "bob-leonge@medoc.fr",
+      "password": "123456789",
+      "passwordConfirm": "123456789",
+      "role": "user",
+      "status": "active",
+      "userDetailsId": "f496"
     }
   ],
   "user_details": [
@@ -331,6 +341,30 @@
       "genre": "masculin",
       "categoryIds": [],
       "userId": "4d3f"
+    },
+    {
+      "id": "f496",
+      "firstname": "bob",
+      "lastname": "l'éponge",
+      "streetNumber": "5",
+      "street": "2",
+      "region": "",
+      "postalCode": 33000,
+      "description": "Tart cheesecake marshmallow chupa chups muffin topping. Dessert dragée topping tootsie roll marshmallow toffee gingerbread sesame snaps. Sugar plum danish pastry bonbon donut gingerbread cake. Cookie jelly tiramisu jelly-o cake cake topping tootsie roll topping. Tiramisu cupcake danish cake soufflé sugar plum gummi bears sweet. Tiramisu fruitcake icing tart danish.",
+      "department": {
+        "id": "3",
+        "name": "Gironde"
+      },
+      "city": {
+        "id": "3",
+        "name": "Bordeaux"
+      },
+      "avatar": "",
+      "phone": "01-34-45-57-68",
+      "dateOfBirth": "26/12/1999",
+      "genre": "masculin",
+      "categoryIds": [],
+      "userId": "7d83"
     }
   ],
   "category": [
@@ -511,6 +545,16 @@
       "id": "9107",
       "userId": "1",
       "activityId": "10"
+    },
+    {
+      "id": "9a98",
+      "userId": "7d83",
+      "activityId": "6"
+    },
+    {
+      "id": "7b91",
+      "userId": "7d83",
+      "activityId": "2"
     }
   ],
   "activity": [

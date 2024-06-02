@@ -30,6 +30,7 @@ import { DialogModule } from 'primeng/dialog';
 import { CheckboxModule } from 'primeng/checkbox';
 import { ChartModule } from 'primeng/chart';
 import { TooltipModule } from 'primeng/tooltip';
+import { MessagesModule } from 'primeng/messages';
 
 @NgModule({
 	exports: [
@@ -65,6 +66,7 @@ import { TooltipModule } from 'primeng/tooltip';
 		CheckboxModule,
 		ChartModule,
 		TooltipModule,
+		MessagesModule,
 	],
 })
 export class PrimengModule {}
