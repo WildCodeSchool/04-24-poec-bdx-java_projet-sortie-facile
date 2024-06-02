@@ -12,7 +12,9 @@
 	padding: 20px;
 	position: relative;
 	background-color: var(--primary-color);
-
+	position: fixed;
+	width: 100%;
+	z-index: +2;
 	.p-menubar-start {
 		margin-right: 1rem;
 	}

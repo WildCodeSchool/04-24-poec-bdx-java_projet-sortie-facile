@@ -1,5 +1,6 @@
 import { Activity } from '@activity/models/classes/activity.class';
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { CarouselResponsiveOption } from '@shared/models/classes/utils/carousel-responsive-option.class';
 import { LandingFunctioningDatas } from '@shared/models/types/utils/landing-functioning-datas.type';
 import { ActivityService } from '@shared/services/activity.service';
 import { LandingHomeService } from '@shared/services/landing-home.service';
@@ -13,7 +14,7 @@ import { Subscription, tap } from 'rxjs';
 export class LandingHomeManagementComponent implements OnInit, OnDestroy {
 	functionimgDatas!: LandingFunctioningDatas[];
 	activityList: Activity[] = [];
-
+	@Input() responsiveOptions!: CarouselResponsiveOption[];
 	private _subscription: Subscription = new Subscription();
 
 	constructor(

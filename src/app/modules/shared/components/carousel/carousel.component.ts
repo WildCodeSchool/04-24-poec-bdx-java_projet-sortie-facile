@@ -16,7 +16,7 @@ export class CarouselComponent implements OnInit {
 	@Input() imgSrc!: string;
 
 	fullActivityRoute = FullActivityRouteEnum;
-	responsiveOptions!: CarouselResponsiveOption[];
+	@Input() responsiveOptions!: CarouselResponsiveOption[];
 
 	ngOnInit() {
 		this.responsiveOptions = [

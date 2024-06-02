@@ -11,16 +11,16 @@ import listPlugin from '@fullcalendar/list';
 import { ActivityService } from '@shared/services/activity.service';
 import { Activity } from '@activity/models/classes/activity.class';
 @Component({
-	selector: 'app-user-calendar',
-	templateUrl: './user-calendar.component.html',
-	styleUrl: './user-calendar.component.scss',
+	selector: 'app-admin-calendar',
+	templateUrl: './admin-calendar.component.html',
+	styleUrl: './admin-calendar.component.scss',
 	providers: [
 		{ provide: LOCALE_ID, useValue: 'fr' },
 		{ provide: 'FULLCALENDAR_LOCALE', useValue: 'fr' }, // Fournir la locale française
 		// Autres providers...
 	],
 })
-export class UserCalendarComponent implements OnInit {
+export class AdminCalendarComponent implements OnInit {
 	constructor(private activityService: ActivityService) {}
 
 	calendarOptions: CalendarOptions = {
@@ -66,11 +66,8 @@ export class UserCalendarComponent implements OnInit {
 		},
 	};
 	ngOnInit() {
-		const id = '1'; // Remplacez par l'ID de l'utilisateur connecté
-		const limit = 10; // Définissez la limite souhaitée
-
 		this.activityService
-			.getActivityListByCreatedUser$(limit, id)
+			.getActivityList$()
 			.subscribe((activities: Activity[]) => {
 				this.calendarOptions.events = activities.map(activity => ({
 					title: activity.name,

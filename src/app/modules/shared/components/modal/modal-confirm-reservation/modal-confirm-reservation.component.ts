@@ -45,7 +45,7 @@ export class ModalConfirmReservationComponent extends AbstractModal {
 			life: 3000,
 		});
 		setTimeout(() => {
-			this.router.navigateByUrl(FullUserRouteEnum.PROFILE);
+			this.router.navigateByUrl(FullUserRouteEnum.ACTIVITY);
 		}, 3000);
 	}
 
