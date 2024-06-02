@@ -60,6 +60,16 @@ export class BookingService {
 		);
 	}
 
+	getBookingListByUser$(userId: string): Observable<BookingUserActivity[]> {
+		return this.getBookingList$().pipe(
+			map((bookingList: BookingUserActivity[]) =>
+				bookingList.filter(
+					(booking: BookingUserActivity) => booking.userId === userId,
+				),
+			),
+		);
+	}
+
 	getBookingByUserAndActivity$(
 		userId: string,
 		activityId: string,

@@ -36,15 +36,16 @@ export class AccountActivitiesManagementComponent
 				}),
 			)
 			.subscribe();
+
 		this._subscription.add(
 			this._activityService
-				.getActivityListByCreatedUser$(10, this.connectedUser.id)
+				.getListOfActivitiesRegisteredByUser$(10, this.connectedUser.id)
 				.pipe(
 					tap(activities => {
-						this.activityByCreatedUserList = activities;
+						this.activityParticipateList = activities;
 					}),
 				)
-				.subscribe(),
+				.subscribe(v => console.log(v)),
 		);
 	}
 

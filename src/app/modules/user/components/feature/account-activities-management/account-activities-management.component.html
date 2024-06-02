@@ -7,7 +7,7 @@
 		[pageDescription]="pageDescription"
 	>
 		<app-account-container-content
-			sectionTitle="Mes dernières activités"
+			sectionTitle="Mes dernières activités créées"
 			[hideBtn]="true"
 		>
 			<div class="content-box" data>
@@ -21,12 +21,12 @@
 		</app-account-container-content>
 
 		<app-account-container-content
-			sectionTitle="Les dernières activités auxquelles j'ai participé"
+			sectionTitle="Mes dernières activités en tant que participant"
 			[hideBtn]="true"
 		>
 			<div class="content-box" data>
 				<app-carousel
-					[activityList]="activityByCreatedUserList"
+					[activityList]="activityParticipateList"
 					[numVisible]="6"
 					[numScroll]="1"
 					[circular]="false"
