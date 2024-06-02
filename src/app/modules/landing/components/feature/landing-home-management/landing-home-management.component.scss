@@ -1,203 +1,296 @@
-.content-top {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+	margin: 0;
+}
+
+:host ::ng-deep .hero-box {
 	position: relative;
-	padding: 2rem 0;
+	width: 100%;
+	height: 100vh;
+	background: url('assets/photos/homebanner.jpeg') no-repeat;
+	background-size: cover;
 	display: flex;
-	justify-content: flex-start; /* Align text to the left */
-	align-items: flex-end;
-	height: 50vh; /* Adjust the height as needed */
-	overflow: hidden;
-}
+	justify-content: center;
+	align-items: center;
 
-.content-top-text {
-	max-width: 500px;
-	z-index: 1; /* Make sure the text is above the image */
-	padding: 0rem;
-	padding-left: 4rem;
-	background: rgba(
-		0,
-		0,
-		0,
-		0.1
-	); /* Optional: add a background for better text visibility */
-	color: aliceblue;
-}
+	.hero-mask {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		background-color: rgba(0, 0, 0, 0.65);
+	}
 
-.content-top-text h2 {
-	font-size: 1.35rem;
-	margin: 0;
-	margin-bottom: 1.5rem;
-}
+	.hero-content-box {
+		position: relative;
+		z-index: 100;
+		width: 100%;
+		max-width: 1920px;
 
-.content-top-text p {
-	font-size: 0.85rem;
-	margin: 0;
-	margin-bottom: 1.25rem;
-}
+		.hero-content-text {
+			position: relative;
+			display: block;
+			width: 100%;
+			max-width: 700px;
 
-.img-banner-container {
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	overflow: hidden;
-	z-index: 0; /* Make sure the image is in the background */
-}
+			.big-letter {
+				position: absolute;
+				top: 0;
+				font-size: 17rem;
+				color: rgba(255, 255, 255, 0.25);
+				line-height: 0.8;
+				margin-left: 1.5rem;
+				font-family: 'Seymour One', sans-serif;
+			}
 
-.img-banner {
-	width: 100%;
-	height: 100%;
-	object-fit: cover;
-	object-position: top;
-}
+			.hero-content-elements-box {
+				padding-top: 3rem;
 
-@media (min-width: 768px) {
-	.content-top {
-		flex-direction: row;
-		justify-content: flex-start;
-		gap: 1.5rem;
+				h1 {
+					color: var(--white-color);
+					font-size: 4rem;
+					text-transform: uppercase;
+				}
+
+				.p-divider-horizontal {
+					width: 100%;
+					max-width: 200px;
+					margin: 2rem 0;
+					height: 3px;
+
+					&:before {
+						border-top: 2px solid var(--white-color);
+					}
+				}
+
+				p {
+					color: var(--gray-700);
+					margin-left: 3rem;
+					font-size: 1.05rem;
+					line-height: 1.6;
+				}
+
+				.btn-box {
+					margin-left: 3rem;
+					margin-top: 2rem;
+
+					.p-button {
+						font-size: 1rem;
+						padding: 0.75rem 2rem;
+						border: 2px solid var(--white-color);
+						color: var(--white-color);
+						font-weight: 500;
+
+						&:hover {
+							background-color: var(--white-color);
+							color: var(--black-color);
+						}
+					}
+				}
+			}
+		}
 	}
 }
 
-@media (min-width: 960px) {
-	.content-top {
-		gap: 6rem;
-	}
-}
+// .content-top {
+// 	position: relative;
+// 	padding: 2rem 0;
+// 	display: flex;
+// 	justify-content: flex-start;
+// 	align-items: flex-end;
+// 	height: 50vh;
+// 	overflow: hidden;
+// }
 
-.schema-container {
-	margin-block: 70px;
-	position: relative;
-	padding: 2rem 0;
-	height: 68vh; /* Ajustez la hauteur selon vos besoins */
-	overflow: hidden;
-	background-image: url('assets/photos/fondbleu.png'); /* Image de fond */
-	background-size: contain; /* Ajustez la taille de l'image de fond */
-	background-position: right center; /* Position de l'image de fond */
-	background-repeat: no-repeat; /* Empêche la répétition de l'image */
+// .content-top-text {
+// 	max-width: 500px;
+// 	z-index: 1;
+// 	padding: 0rem;
+// 	padding-left: 4rem;
+// 	background: rgba(0, 0, 0, 0.1);
+// 	color: aliceblue;
+// }
 
-	/* Styles pour le texte et les éléments à l'intérieur de schema-container */
-	color: black;
-}
+// .content-top-text h2 {
+// 	font-size: 1.35rem;
+// 	margin: 0;
+// 	margin-bottom: 1.5rem;
+// }
 
-.schema-text {
-	position: absolute;
-	top: 50%; /* Ajustez cette valeur pour positionner verticalement */
-	left: 50%; /* Ajustez cette valeur pour positionner horizontalement */
-	transform: translate(-50%, -50%);
-	max-width: 500px;
-	z-index: 1; /* Assurez-vous que le texte est au-dessus de l'image */
-	padding: 0 4rem; /* Ajustez le padding selon vos besoins */
-}
-.kezako {
-	margin-block: 40px;
-	position: relative;
-	text-align: center;
-	font-size: xxx-large;
-	font-family: 'Odor Mean Chey', serif;
-}
-.schema-text h3 {
-	font-size: 1.35rem;
-	margin: 0;
-	margin-bottom: 1.5rem;
-	color: aliceblue;
-}
+// .content-top-text p {
+// 	font-size: 0.85rem;
+// 	margin: 0;
+// 	margin-bottom: 1.25rem;
+// }
 
-.schema-text h2 {
-	font-size: 1.2rem;
-	margin: 0;
-	margin-bottom: 1.25rem;
-}
+// .img-banner-container {
+// 	position: absolute;
+// 	top: 0;
+// 	left: 0;
+// 	width: 100%;
+// 	height: 100%;
+// 	overflow: hidden;
+// 	z-index: 0; /* Make sure the image is in the background */
+// }
 
-.img-grp {
-	position: absolute;
-	top: -180px;
-	left: -377px; /* Ajustez cette valeur pour positionner horizontalement */
-	z-index: 1; /* Assurez-vous que l'image est au-dessus de l'image de fond */
-}
+// .img-banner {
+// 	width: 100%;
+// 	height: 100%;
+// 	object-fit: cover;
+// 	object-position: top;
+// }
 
-.envie {
-	position: absolute;
-	top: 63%;
-	left: -124%; /* Ajustez cette valeur pour positionner horizontalement */
-}
+// @media (min-width: 768px) {
+// 	.content-top {
+// 		flex-direction: row;
+// 		justify-content: flex-start;
+// 		gap: 1.5rem;
+// 	}
+// }
 
-.arrow1 {
-	position: absolute;
-	top: 102%;
-	left: -86%;
-	transform: rotate(-11deg);
-}
+// @media (min-width: 960px) {
+// 	.content-top {
+// 		gap: 6rem;
+// 	}
+// }
 
-.dispo {
-	position: absolute;
-	top: 295%;
-	left: -40%; /* Ajustez cette valeur pour positionner horizontalement */
-}
+// .schema-container {
+// 	margin-block: 70px;
+// 	position: relative;
+// 	padding: 2rem 0;
+// 	height: 68vh; /* Ajustez la hauteur selon vos besoins */
+// 	overflow: hidden;
+// 	background-image: url('assets/photos/fondbleu.png'); /* Image de fond */
+// 	background-size: contain; /* Ajustez la taille de l'image de fond */
+// 	background-position: right center; /* Position de l'image de fond */
+// 	background-repeat: no-repeat; /* Empêche la répétition de l'image */
 
-.arrow2 {
-	position: absolute;
-	top: 184%;
-	left: 69%;
-	transform: rotate(-80deg);
-}
+// 	/* Styles pour le texte et les éléments à l'intérieur de schema-container */
+// 	color: black;
+// }
 
-.logo {
-	position: absolute;
-	top: 17%;
-	left: 114%;
-	width: 7rem;
-	height: 7rem;
-}
-.sf {
-	position: absolute;
-	font-size: 35px;
-	font-family: 'Odor Mean Chey', serif;
-	top: -22%;
-	left: 162%;
-	width: 100%;
-	color: aliceblue; /* Ajustez cette valeur pour positionner horizontalement */
-}
+// .schema-text {
+// 	position: absolute;
+// 	top: 50%; /* Ajustez cette valeur pour positionner verticalement */
+// 	left: 50%; /* Ajustez cette valeur pour positionner horizontalement */
+// 	transform: translate(-50%, -50%);
+// 	max-width: 500px;
+// 	z-index: 1; /* Assurez-vous que le texte est au-dessus de l'image */
+// 	padding: 0 4rem; /* Ajustez le padding selon vos besoins */
+// }
+// .kezako {
+// 	margin-block: 40px;
+// 	position: relative;
+// 	text-align: center;
+// 	font-size: xxx-large;
+// 	font-family: 'Odor Mean Chey', serif;
+// }
+// .schema-text h3 {
+// 	font-size: 1.35rem;
+// 	margin: 0;
+// 	margin-bottom: 1.5rem;
+// 	color: aliceblue;
+// }
 
-.functioning,
-.discover-box {
-	width: 100%;
-	max-width: 1100px;
-	margin: 0 auto;
-}
+// .schema-text h2 {
+// 	font-size: 1.2rem;
+// 	margin: 0;
+// 	margin-bottom: 1.25rem;
+// }
 
-.discover-box {
-	margin-top: 2.5rem;
-}
+// .img-grp {
+// 	position: absolute;
+// 	top: -180px;
+// 	left: -377px; /* Ajustez cette valeur pour positionner horizontalement */
+// 	z-index: 1; /* Assurez-vous que l'image est au-dessus de l'image de fond */
+// }
 
-.functioning h3 {
-	font-size: 1.15rem;
-}
+// .envie {
+// 	position: absolute;
+// 	top: 63%;
+// 	left: -124%; /* Ajustez cette valeur pour positionner horizontalement */
+// }
 
-.functioning .functioning-list {
-	display: flex;
-	flex-wrap: nowrap;
-	gap: 1.5rem;
-	margin-bottom: 1.5rem;
-	width: 100%;
-}
-.comment {
-	margin-block: 40px;
-	position: relative;
-	text-align: center;
-	font-size: xxx-large;
-	font-family: 'Odor Mean Chey', serif;
-}
-//caroussel
+// .arrow1 {
+// 	position: absolute;
+// 	top: 102%;
+// 	left: -86%;
+// 	transform: rotate(-11deg);
+// }
 
-@media (min-width: 768px) and (max-width: 959px) {
-	.functioning .functioning-list {
-		flex-direction: row;
-	}
-}
+// .dispo {
+// 	position: absolute;
+// 	top: 295%;
+// 	left: -40%; /* Ajustez cette valeur pour positionner horizontalement */
+// }
 
-@media (min-width: 960px) {
-	.functioning .functioning-list {
-		flex-direction: row;
-	}
-}
+// .arrow2 {
+// 	position: absolute;
+// 	top: 184%;
+// 	left: 69%;
+// 	transform: rotate(-80deg);
+// }
+
+// .logo {
+// 	position: absolute;
+// 	top: 17%;
+// 	left: 114%;
+// 	width: 7rem;
+// 	height: 7rem;
+// }
+// .sf {
+// 	position: absolute;
+// 	font-size: 35px;
+// 	font-family: 'Odor Mean Chey', serif;
+// 	top: -22%;
+// 	left: 162%;
+// 	width: 100%;
+// 	color: aliceblue; /* Ajustez cette valeur pour positionner horizontalement */
+// }
+
+// .functioning,
+// .discover-box {
+// 	width: 100%;
+// 	max-width: 1100px;
+// 	margin: 0 auto;
+// }
+
+// .discover-box {
+// 	margin-top: 2.5rem;
+// }
+
+// .functioning h3 {
+// 	font-size: 1.15rem;
+// }
+
+// .functioning .functioning-list {
+// 	display: flex;
+// 	flex-wrap: nowrap;
+// 	gap: 1.5rem;
+// 	margin-bottom: 1.5rem;
+// 	width: 100%;
+// }
+// .comment {
+// 	margin-block: 40px;
+// 	position: relative;
+// 	text-align: center;
+// 	font-size: xxx-large;
+// 	font-family: 'Odor Mean Chey', serif;
+// }
+// //caroussel
+
+// @media (min-width: 768px) and (max-width: 959px) {
+// 	.functioning .functioning-list {
+// 		flex-direction: row;
+// 	}
+// }
+
+// @media (min-width: 960px) {
+// 	.functioning .functioning-list {
+// 		flex-direction: row;
+// 	}
+// }

@@ -12,9 +12,11 @@ import { Subscription, tap } from 'rxjs';
 	styleUrl: './landing-home-management.component.scss',
 })
 export class LandingHomeManagementComponent implements OnInit, OnDestroy {
+	@Input() responsiveOptions!: CarouselResponsiveOption[];
+
 	functionimgDatas!: LandingFunctioningDatas[];
 	activityList: Activity[] = [];
-	@Input() responsiveOptions!: CarouselResponsiveOption[];
+
 	private _subscription: Subscription = new Subscription();
 
 	constructor(
