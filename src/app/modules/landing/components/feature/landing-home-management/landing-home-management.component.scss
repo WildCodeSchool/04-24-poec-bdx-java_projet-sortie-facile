@@ -125,9 +125,9 @@ p {
 	}
 
 	&.discover-box {
-		.section-content-box {
-			max-width: 960px;
+		// max-width: 960px;
 
+		.section-content-box {
 			.section-content {
 				margin-top: 4rem;
 			}
@@ -178,6 +178,25 @@ p {
 				background-color: var(--primary-color);
 				border-color: var(--primary-color);
 				color: var(--white-color);
+
+				&.p-disabled {
+					opacity: 0.1;
+				}
+			}
+		}
+	}
+}
+
+:host ::ng-deep .popular-categories-box {
+	.section-content {
+		app-carousel {
+			width: 100%;
+
+			.p-carousel .p-carousel-content .p-carousel-prev,
+			.p-carousel .p-carousel-content .p-carousel-next {
+				background-color: var(--white-color);
+				border-color: var(--white-color);
+				color: var(--primary-color);
 
 				&.p-disabled {
 					opacity: 0.1;

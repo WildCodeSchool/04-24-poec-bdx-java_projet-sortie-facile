@@ -105,6 +105,25 @@
 			</div>
 		</div>
 	</section>
+
+	<section class="popular-categories-box section-dark">
+		<div class="section-content-box">
+			<div class="section-header">
+				<h3 class="section-subtitle">Happy Life Website</h3>
+				<h3 class="section-title">Catégories les plus populaires</h3>
+			</div>
+
+			<div class="section-content">
+				<app-carousel
+					[activityList]="activityList"
+					[numVisible]="6"
+					[numScroll]="1"
+					[circular]="false"
+					[responsiveOptions]="responsiveOptions"
+				></app-carousel>
+			</div>
+		</div>
+	</section>
 </div>
 <!-- 
 <div class="content-top">
