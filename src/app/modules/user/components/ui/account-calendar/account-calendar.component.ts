@@ -124,12 +124,8 @@ export class AccountCalendarComponent implements OnInit {
 			data: {
 				activity: activity,
 			},
-			header: 'Activity Details',
-			width: '70%',
-		});
-
-		ref.onClose.subscribe(() => {
-			// Code à exécuter après la fermeture de la modal (optionnel)
+			header: 'Details',
+			width: '30%',
 		});
 	}
 

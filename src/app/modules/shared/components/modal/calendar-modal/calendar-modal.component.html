@@ -1,4 +1,3 @@
-<p>calendar-modal works!</p>
 <div class="activity-card-container">
 	<p-card>
 		<ng-template pTemplate="header">
@@ -54,6 +53,7 @@
 				rounded
 				[routerLink]="[fullActivityRoute.DETAILS, activity.id]"
 				class="btn-register"
+				(click)="close()"
 			>
 				Voir Plus
 			</p-button>

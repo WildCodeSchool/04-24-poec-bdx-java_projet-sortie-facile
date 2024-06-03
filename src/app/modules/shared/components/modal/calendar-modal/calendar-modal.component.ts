@@ -2,7 +2,7 @@ import { Activity } from '@activity/models/classes/activity.class';
 import { Component, Input, OnInit } from '@angular/core';
 import { AuthUserPrimaryDatas } from '@shared/models/classes/auth-user/auth-user-primary-datas.class';
 import { FullActivityRouteEnum } from '@shared/models/enums/routes/full-routes';
-import { DynamicDialogConfig } from 'primeng/dynamicdialog';
+import { DynamicDialogConfig, DynamicDialogRef } from 'primeng/dynamicdialog';
 
 @Component({
 	selector: 'app-calendar-modal',
@@ -14,13 +14,16 @@ export class CalendarModalComponent implements OnInit {
 	@Input() connectedUser!: AuthUserPrimaryDatas;
 	fullActivityRoute = FullActivityRouteEnum;
 
-	constructor(public config: DynamicDialogConfig) {}
+	constructor(
+		public config: DynamicDialogConfig,
+		public ref: DynamicDialogRef,
+	) {}
 
 	ngOnInit() {
 		this.activity = this.config.data.activity;
 	}
 
 	close() {
-		// Logic to close the modal
+		this.ref.close();
 	}
 }
