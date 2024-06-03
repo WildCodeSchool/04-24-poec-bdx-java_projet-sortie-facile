@@ -109,6 +109,16 @@
       "role": "user",
       "status": "active",
       "userDetailsId": "c492"
+    },
+    {
+      "id": "baa1",
+      "username": "bob-l-eponge",
+      "email": "bob-leqponge@medoc.fr",
+      "password": "123456789",
+      "passwordConfirm": "123456789",
+      "role": "user",
+      "status": "active",
+      "userDetailsId": "4133"
     }
   ],
   "user_details": [
@@ -453,6 +463,36 @@
         "8"
       ],
       "userId": "ebab",
+      "email": "bob-leqponge@medoc.fr"
+    },
+    {
+      "id": "4133",
+      "firstname": "bob",
+      "lastname": "l'éponge",
+      "streetNumber": "5",
+      "street": "Rue du Quai",
+      "region": "",
+      "postalCode": 33000,
+      "description": "Tart cheesecake marshmallow chupa chups muffin topping. Dessert dragée topping tootsie roll marshmallow toffee gingerbread sesame snaps. Sugar plum danish pastry bonbon donut gingerbread cake. Cookie jelly tiramisu jelly-o cake cake topping tootsie roll topping. Tiramisu cupcake danish cake soufflé sugar plum gummi bears sweet. Tiramisu fruitcake icing tart danish.",
+      "department": {
+        "id": "3",
+        "name": "Gironde"
+      },
+      "city": {
+        "id": "3",
+        "name": "Bordeaux"
+      },
+      "avatar": "",
+      "phone": "01-34-45-57-68",
+      "dateOfBirth": "26/12/1999",
+      "genre": "masculin",
+      "categoryIds": [
+        "1",
+        "3",
+        "5",
+        "8"
+      ],
+      "userId": "baa1",
       "email": "bob-leqponge@medoc.fr"
     }
   ],
@@ -1413,6 +1453,30 @@
       "link": "",
       "userId": "fb5e",
       "isVisible": true
+    },
+    {
+      "id": "631e",
+      "name": "Film",
+      "date": "2024-05-30T22:00:00.000Z",
+      "hour": "2024-05-31T19:21:00.755Z",
+      "departments": {
+        "id": "33",
+        "name": "Gironde"
+      },
+      "activityCity": {
+        "id": "2",
+        "name": "Rome"
+      },
+      "categoryId": {
+        "id": "3",
+        "name": "Cinema"
+      },
+      "nbGuest": 10,
+      "description": "film",
+      "imgUrl": "https://le-periscope.info/wp-content/uploads/2022/07/Capture-decran-2020-03-05-a-00.20.29.png",
+      "link": "",
+      "userId": "baa1",
+      "isVisible": false
     }
   ],
   "department": [
@@ -2045,6 +2109,18 @@
       "Email": "yoyo@toto.fr",
       "title": "bien joue",
       "message": "super Appli"
+    },
+    {
+      "id": "38",
+      "Email": "yoyo@toto.fr",
+      "title": "bien joue",
+      "message": "super boulot"
+    },
+    {
+      "id": "39",
+      "Email": "yoyo@toto.fr",
+      "title": "bien joue",
+      "message": "super boulot"
     }
   ]
 }
