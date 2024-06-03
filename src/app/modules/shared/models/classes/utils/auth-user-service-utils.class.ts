@@ -9,6 +9,7 @@ import {
 	AccountStatus,
 	UserRoleEnum,
 } from '@shared/models/enums/user-role.enum';
+import { environment } from 'environments/environment';
 
 export class AuthUserServiceUtils {
 	protected _providerNameList: AuthProvider[] = [
@@ -17,7 +18,7 @@ export class AuthUserServiceUtils {
 		{ name: AuthProviderNameEnum.TWITTER },
 	];
 
-	protected BASE_URL: string = 'http://localhost:3000/user';
+	protected BASE_URL: string = `${environment.apiUrl}/user`;
 
 	protected _userConnected!: AuthUserPrimaryDatas;
 
