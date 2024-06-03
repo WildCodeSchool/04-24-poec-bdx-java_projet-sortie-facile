@@ -10,19 +10,20 @@ import listPlugin from '@fullcalendar/list';
 import { Activity } from '@activity/models/classes/activity.class';
 import { ActivityService } from '@shared/services/activity.service';
 import { forkJoin } from 'rxjs';
+import { CalendarModalComponent } from '@shared/components/modal/calendar-modal/calendar-modal.component';
+import { DialogService } from 'primeng/dynamicdialog';
 
 @Component({
 	selector: 'app-account-calendar',
 	templateUrl: './account-calendar.component.html',
-	styleUrl: './account-calendar.component.scss',
+	styleUrls: ['./account-calendar.component.scss'],
 	providers: [
 		{ provide: LOCALE_ID, useValue: 'fr' },
 		{ provide: 'FULLCALENDAR_LOCALE', useValue: 'fr' },
 	],
 })
 export class AccountCalendarComponent implements OnInit {
-	constructor(private _activityService: ActivityService) {}
-
+	events: any[] = [];
 	calendarOptions: CalendarOptions = {
 		firstDay: 1,
 		locale: 'fr',
@@ -66,6 +67,11 @@ export class AccountCalendarComponent implements OnInit {
 		},
 	};
 
+	constructor(
+		private _activityService: ActivityService,
+		private dialogService: DialogService,
+	) {}
+
 	ngOnInit() {
 		const id = '1'; // Remplacez par l'ID de l'utilisateur connecté
 		const limit = 10; // Définissez la limite souhaitée
@@ -83,23 +89,48 @@ export class AccountCalendarComponent implements OnInit {
 				title: activity.name,
 				start: activity.date,
 				color: 'blue', // Couleur pour les activités créées
+				extendedProps: { activity },
 			}));
 
 			const participatedEvents = participatedActivities.map(activity => ({
 				title: activity.name,
 				start: activity.date,
 				color: 'green', // Couleur pour les activités auxquelles l'utilisateur participe
+				extendedProps: { activity },
 			}));
 
-			this.calendarOptions.events = [...createdEvents, ...participatedEvents];
+			this.events = [...createdEvents, ...participatedEvents];
+
+			this.calendarOptions.events = this.events;
 		});
 	}
-
 	handleDateClick(arg: DateClickArg) {
 		const clickedDate = arg.dateStr;
-		// this.calendarOptions.initialDate = clickedDate; // Set the initial date to the clicked date
-		// this.calendarOptions.initialView = 'timeGridDay'; // Change the view to day view
-		alert('date click! ' + arg.dateStr);
+
+		// Trouver l'activité correspondant à la date cliquée
+		const event = this.events.find(event =>
+			event.start.startsWith(clickedDate),
+		);
+
+		if (event && event.extendedProps && event.extendedProps.activity) {
+			this.openModal(event.extendedProps.activity);
+		} else {
+			alert('No activity found for this date: ' + clickedDate);
+		}
+	}
+
+	openModal(activity: Activity) {
+		const ref = this.dialogService.open(CalendarModalComponent, {
+			data: {
+				activity,
+			},
+			header: 'Activity Details',
+			width: '70%',
+		});
+
+		ref.onClose.subscribe(() => {
+			// Code à exécuter après la fermeture de la modal (optionnel)
+		});
 	}
 
 	// eslint-disable-next-line @angular-eslint/use-lifecycle-interface
