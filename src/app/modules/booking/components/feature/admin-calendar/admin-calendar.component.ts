@@ -1,19 +1,19 @@
 import { Component, LOCALE_ID, OnInit } from '@angular/core';
-import { CalendarOptions } from '@fullcalendar/core';
+import { CalendarOptions, EventClickArg } from '@fullcalendar/core';
 
 import dayGridPlugin from '@fullcalendar/daygrid';
 import timeGridPlugin from '@fullcalendar/timegrid';
-import interactionPlugin, {
-	DateClickArg,
-	Draggable,
-} from '@fullcalendar/interaction';
+import interactionPlugin, { Draggable } from '@fullcalendar/interaction';
 import listPlugin from '@fullcalendar/list';
 import { ActivityService } from '@shared/services/activity.service';
 import { Activity } from '@activity/models/classes/activity.class';
+import { CalendarModalComponent } from '@shared/components/modal/calendar-modal/calendar-modal.component';
+import { DialogService } from 'primeng/dynamicdialog';
+
 @Component({
 	selector: 'app-admin-calendar',
 	templateUrl: './admin-calendar.component.html',
-	styleUrl: './admin-calendar.component.scss',
+	styleUrls: ['./admin-calendar.component.scss'],
 	providers: [
 		{ provide: LOCALE_ID, useValue: 'fr' },
 		{ provide: 'FULLCALENDAR_LOCALE', useValue: 'fr' }, // Fournir la locale française
@@ -21,7 +21,12 @@ import { Activity } from '@activity/models/classes/activity.class';
 	],
 })
 export class AdminCalendarComponent implements OnInit {
-	constructor(private activityService: ActivityService) {}
+	events: any[] = [];
+
+	constructor(
+		private activityService: ActivityService,
+		private dialogService: DialogService,
+	) {}
 
 	calendarOptions: CalendarOptions = {
 		firstDay: 1,
@@ -54,7 +59,7 @@ export class AdminCalendarComponent implements OnInit {
 			},
 		},
 
-		dateClick: (arg: DateClickArg) => this.handleDateClick(arg),
+		eventClick: (arg: EventClickArg) => this.handleEventClick(arg),
 		events: [
 			{ title: 'event 1', date: '2024-06-01' },
 			{ title: 'event 2', date: '2024-06-02' },
@@ -65,6 +70,7 @@ export class AdminCalendarComponent implements OnInit {
 			today: "Aujourd'hui",
 		},
 	};
+
 	ngOnInit() {
 		this.activityService
 			.getActivityList$()
@@ -72,15 +78,32 @@ export class AdminCalendarComponent implements OnInit {
 				this.calendarOptions.events = activities.map(activity => ({
 					title: activity.name,
 					start: activity.date,
+					extendedProps: { activity },
 				}));
+				this.events = this.calendarOptions.events;
 			});
 	}
-	handleDateClick(arg: DateClickArg) {
-		const clickedDate = arg.dateStr;
-		// this.calendarOptions.initialDate = clickedDate; // Set the initial date to the clicked date
-		// this.calendarOptions.initialView = 'timeGridDay'; // Change the view to day view
-		alert('date click! ' + arg.dateStr);
+
+	handleEventClick(arg: EventClickArg) {
+		const event = arg.event;
+
+		if (event && event.extendedProps && event.extendedProps['activity']) {
+			this.openModal(event.extendedProps['activity']);
+		} else {
+			alert('No activity found for this event.');
+		}
 	}
+
+	openModal(activity: Activity) {
+		this.dialogService.open(CalendarModalComponent, {
+			data: {
+				activity: activity,
+			},
+			header: 'Details',
+			width: '30%',
+		});
+	}
+
 	// eslint-disable-next-line @angular-eslint/use-lifecycle-interface
 	ngAfterViewInit() {
 		const draggableEl = document.getElementById('draggable-el');

@@ -35,6 +35,7 @@ import { ButtonUltraWildeComponent } from './components/button/button-ultra-wild
 import { FullCalendarModule } from '@fullcalendar/angular';
 import { AlertComponent } from './components/alert/alert.component';
 import { CardTestimonialComponent } from './components/cards/card-testimonial/card-testimonial.component';
+import { CalendarModalComponent } from './components/modal/calendar-modal/calendar-modal.component';
 @NgModule({
 	declarations: [
 		AuthTypographyWithRedirectComponent,
@@ -64,6 +65,7 @@ import { CardTestimonialComponent } from './components/cards/card-testimonial/ca
 		ButtonUltraWildeComponent,
 		AlertComponent,
 		CardTestimonialComponent,
+  CalendarModalComponent,
 	],
 	imports: [
 		CommonModule,
