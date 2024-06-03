@@ -13,7 +13,6 @@ import { AvatarPseudoComponent } from '@shared/components/avatar/avatar-pseudo/a
 import { HttpClientModule } from '@angular/common/http';
 import { CardComponent } from '@shared/components/card/card.component';
 import { SearchBarComponent } from '@shared/components/search-bar/search-bar.component';
-import { CarouselComponent } from '@shared/components/carousel/carousel.component';
 import { CardActivitySmallComponent } from '@shared/components/cards/card-activity-small/card-activity-small.component';
 import { ModalConfirmReservationComponent } from '@shared/components/modal/modal-confirm-reservation/modal-confirm-reservation.component';
 import { ModalConfirmCreatActivityComponent } from '@shared/components/modal/modal-confirm-creat-activity/modal-confirm-creat-activity.component';
@@ -35,6 +34,9 @@ import { ButtonUltraWildeComponent } from './components/button/button-ultra-wild
 import { FullCalendarModule } from '@fullcalendar/angular';
 import { AlertComponent } from './components/alert/alert.component';
 import { CardTestimonialComponent } from './components/cards/card-testimonial/card-testimonial.component';
+import { CarouselActivityComponent } from './components/carousel/carousel-activity/carousel-activity.component';
+import { CarouselTestimonialComponent } from './components/carousel/carousel-testimonial/carousel-testimonial.component';
+
 @NgModule({
 	declarations: [
 		AuthTypographyWithRedirectComponent,
@@ -45,7 +47,7 @@ import { CardTestimonialComponent } from './components/cards/card-testimonial/ca
 		DividerComponent,
 		ModalConfirmContactComponent,
 		SearchBarComponent,
-		CarouselComponent,
+		CarouselActivityComponent,
 		CardActivitySmallComponent,
 		ModalConfirmReservationComponent,
 		ModalConfirmCreatActivityComponent,
@@ -64,6 +66,7 @@ import { CardTestimonialComponent } from './components/cards/card-testimonial/ca
 		ButtonUltraWildeComponent,
 		AlertComponent,
 		CardTestimonialComponent,
+		CarouselTestimonialComponent,
 	],
 	imports: [
 		CommonModule,
@@ -88,7 +91,7 @@ import { CardTestimonialComponent } from './components/cards/card-testimonial/ca
 		AvatarPseudoComponent,
 		CardComponent,
 		SearchBarComponent,
-		CarouselComponent,
+		CarouselActivityComponent,
 		CardActivitySmallComponent,
 		ModalConfirmReservationComponent,
 		ModalConfirmUpdateActivityComponent,
@@ -107,6 +110,7 @@ import { CardTestimonialComponent } from './components/cards/card-testimonial/ca
 		FullCalendarModule,
 		AlertComponent,
 		CardTestimonialComponent,
+		CarouselTestimonialComponent,
 	],
 })
 export class SharedModule {}

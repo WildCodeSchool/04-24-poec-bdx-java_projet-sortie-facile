@@ -4,11 +4,11 @@ import { CarouselResponsiveOption } from '@shared/models/classes/utils/carousel-
 import { FullActivityRouteEnum } from '@shared/models/enums/routes/full-routes';
 
 @Component({
-	selector: 'app-carousel',
-	templateUrl: './carousel.component.html',
-	styleUrl: './carousel.component.scss',
+	selector: 'app-carousel-activity',
+	templateUrl: './carousel-activity.component.html',
+	styleUrl: './carousel-activity.component.scss',
 })
-export class CarouselComponent implements OnInit {
+export class CarouselActivityComponent implements OnInit {
 	@Input() activityList!: Activity[];
 	@Input() numVisible!: number;
 	@Input() numScroll!: number;

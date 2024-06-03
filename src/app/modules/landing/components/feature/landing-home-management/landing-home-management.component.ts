@@ -42,6 +42,7 @@ export class LandingHomeManagementComponent implements OnInit, OnDestroy {
 		private _testimonialService: TestimonialService,
 		private scrollService: ScrollService,
 	) {}
+
 	ngOnInit(): void {
 		this.functionimgDatas = this._landingHomeService.getFunctionimgDatas();
 		this.testimonialList$ = this._testimonialService.getTestimonialList$();
