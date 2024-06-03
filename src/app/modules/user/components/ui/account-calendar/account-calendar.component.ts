@@ -1,5 +1,10 @@
 import { Component, LOCALE_ID, OnInit } from '@angular/core';
-import { CalendarOptions, EventClickArg } from '@fullcalendar/core';
+import {
+	CalendarOptions,
+	EventApi,
+	EventClickArg,
+	EventDropArg,
+} from '@fullcalendar/core';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import timeGridPlugin from '@fullcalendar/timegrid';
 import interactionPlugin, { Draggable } from '@fullcalendar/interaction';
@@ -21,43 +26,40 @@ import { DialogService } from 'primeng/dynamicdialog';
 })
 export class AccountCalendarComponent implements OnInit {
 	events: any[] = [];
+	calendarEl: HTMLElement | null = null;
+
 	calendarOptions: CalendarOptions = {
 		firstDay: 1,
 		locale: 'fr',
-		initialView: 'dayGridMonth', // Initial view should be a single value
+		initialView: 'dayGridMonth',
 		plugins: [dayGridPlugin, interactionPlugin, listPlugin, timeGridPlugin],
 		headerToolbar: {
 			left: 'prev,next today',
 			center: 'title',
-			right: 'dayGridMonth,timeGridWeek,timeGridDay', // Add your desired views here
+			right: 'dayGridMonth,timeGridWeek,timeGridDay',
 		},
 		views: {
 			dayGridMonth: {
-				// Custom view for list day
 				type: 'dayGridMonth',
 				duration: { month: 1 },
 				buttonText: 'Mois',
 			},
 			timeGridWeek: {
-				// Custom view for time grid week
 				type: 'timeGridWeek',
 				duration: { weeks: 1 },
 				buttonText: 'Semaine',
 			},
 			timeGridDay: {
-				// Custom view for time grid day
 				type: 'timeGridDay',
 				duration: { days: 1 },
 				buttonText: 'Jour',
 			},
 		},
 
-		eventClick: (arg: EventClickArg) => this.handleDateClick(arg),
-		events: [
-			{ title: 'event 1', date: '2024-06-01' },
-			{ title: 'event 2', date: '2024-06-02' },
-		],
-		editable: true, // Allow events to be dragged and resized
+		eventClick: (arg: EventClickArg) => this.handleEventClick(arg),
+		eventDrop: (arg: EventDropArg) => this.handleEventDrop(arg),
+
+		editable: true,
 		navLinks: true,
 		buttonText: {
 			today: "Aujourd'hui",
@@ -70,10 +72,9 @@ export class AccountCalendarComponent implements OnInit {
 	) {}
 
 	ngOnInit() {
-		const id = '1'; // Remplacez par l'ID de l'utilisateur connecté
-		const limit = 10; // Définissez la limite souhaitée
+		const id = '1'; // Replace with the ID of the logged-in user
+		const limit = 10; // Set your desired limit
 
-		// Utilisez forkJoin pour attendre les deux observables
 		forkJoin({
 			createdActivities: this._activityService.getActivityListByCreatedUser$(
 				limit,
@@ -85,25 +86,39 @@ export class AccountCalendarComponent implements OnInit {
 			const createdEvents = createdActivities.map(activity => ({
 				title: activity.name,
 				start: activity.date,
-				color: 'blue', // Couleur pour les activités créées
-				extendedProps: { activity },
+				color: 'blue',
+				extendedProps: { activity, activityId: activity.id }, // Include activityId here
 			}));
 
 			const participatedEvents = participatedActivities.map(activity => ({
 				title: activity.name,
 				start: activity.date,
-				color: 'green', // Couleur pour les activités auxquelles l'utilisateur participe
-				extendedProps: { activity },
+				color: 'green',
+				extendedProps: { activity, activityId: activity.id }, // Include activityId here
 			}));
 
 			this.events = [...createdEvents, ...participatedEvents];
 
 			this.calendarOptions.events = this.events;
 		});
+
+		this.calendarEl = document.getElementById('calendar');
+		if (this.calendarEl) {
+			new Draggable(this.calendarEl, {
+				itemSelector: '.fc-event',
+				eventData: eventEl => {
+					const eventTitle = eventEl.innerText.trim();
+					return {
+						title: eventTitle,
+						duration: '02:00',
+					};
+				},
+			});
+		}
 	}
-	handleDateClick(arg: EventClickArg) {
+
+	handleEventClick(arg: EventClickArg) {
 		const event = arg.event;
-		// Trouver l'activité correspondant à la date cliquée
 
 		if (event && event.extendedProps && event.extendedProps['activity']) {
 			this.openModal(event.extendedProps['activity']);
@@ -122,17 +137,26 @@ export class AccountCalendarComponent implements OnInit {
 		});
 	}
 
-	// eslint-disable-next-line @angular-eslint/use-lifecycle-interface
-	ngAfterViewInit() {
-		const draggableEl = document.getElementById('draggable-el');
-
-		if (draggableEl) {
-			new Draggable(draggableEl, {
-				eventData: {
-					title: 'Draggable Event',
-					duration: '02:00',
-				},
-			});
+	handleEventDrop(arg: EventDropArg) {
+		const event: EventApi = arg.event;
+		if (!event.start) {
+			console.error('Event start date is null');
+			return;
 		}
+
+		const newDate = event.start.toISOString();
+		const activityId = event.extendedProps['activityId'];
+
+		this._activityService
+			.updateActivity$(activityId, { date: newDate })
+			.subscribe(
+				(updatedActivity: Activity) => {
+					console.log('Activity updated successfully:', updatedActivity);
+				},
+				error => {
+					console.error('Error updating activity:', error);
+					arg.revert();
+				},
+			);
 	}
 }
