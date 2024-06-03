@@ -164,12 +164,16 @@ p {
 		}
 	}
 
-	.activity-title {
-		text-align: center;
-		color: var(--black-color);
-		font-size: 2rem;
-	}
+	.p-card-title {
+		display: flex;
+		justify-content: space-between;
 
+		.activity-title {
+			text-align: center;
+			color: var(--black-color);
+			font-size: 2rem;
+		}
+	}
 	app-divider {
 		display: block;
 		width: 100%;
@@ -185,7 +189,7 @@ p {
 	.btns-box {
 		display: flex;
 		flex-direction: column;
-		justify-content: space-between;
+		justify-content: center;
 		gap: 0.5rem;
 		margin-top: 1rem;
 
