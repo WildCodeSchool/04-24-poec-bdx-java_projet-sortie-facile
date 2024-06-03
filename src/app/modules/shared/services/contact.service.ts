@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ContactListResponseApi } from '@shared/models/classes/contact';
 import { Contact } from '@shared/models/classes/contact/contact.class';
+import { environment } from 'environments/environment';
 import { Observable, catchError, switchMap, throwError } from 'rxjs';
 
 @Injectable({
@@ -11,7 +12,7 @@ import { Observable, catchError, switchMap, throwError } from 'rxjs';
 export class ContactService {
 	contacts$!: Contact[];
 	contact!: Contact;
-	private readonly _BASE_URL = 'http://localhost:3000/contact';
+	private readonly _BASE_URL = `${environment.apiUrl}/contact`;
 
 	constructor(private http: HttpClient) {}
 

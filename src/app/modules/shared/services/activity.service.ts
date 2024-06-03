@@ -9,6 +9,7 @@ import { Category } from '@shared/models/classes/category/category.class';
 import { FullActivityRouteEnum } from '@shared/models/enums/routes/full-routes';
 import { BookingService } from './booking.service';
 import { BookingUserActivity } from '@shared/models/classes/booking/booking-user-activity.class';
+import { environment } from 'environments/environment';
 
 @Injectable({
 	providedIn: 'root',
@@ -20,7 +21,7 @@ export class ActivityService {
 	categories!: Category[];
 	department!: Department;
 
-	private readonly _BASE_URL = 'http://localhost:3000/activity';
+	private readonly _BASE_URL = `${environment.apiUrl}/activity`;
 
 	constructor(
 		private _httpClient: HttpClient,
