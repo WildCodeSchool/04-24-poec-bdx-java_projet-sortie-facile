@@ -9,6 +9,7 @@ import interactionPlugin, {
 import listPlugin from '@fullcalendar/list';
 import { Activity } from '@activity/models/classes/activity.class';
 import { ActivityService } from '@shared/services/activity.service';
+import { forkJoin } from 'rxjs';
 
 @Component({
 	selector: 'app-account-calendar',
@@ -69,14 +70,22 @@ export class AccountCalendarComponent implements OnInit {
 		const id = '1'; // Remplacez par l'ID de l'utilisateur connecté
 		const limit = 10; // Définissez la limite souhaitée
 
-		this._activityService
-			.getActivityListByCreatedUser$(limit, id)
-			.subscribe((activities: Activity[]) => {
-				this.calendarOptions.events = activities.map(activity => ({
-					title: activity.name,
-					start: activity.date,
-				}));
-			});
+		// Utilisez forkJoin pour attendre les deux observables
+		forkJoin({
+			createdActivities: this._activityService.getActivityListByCreatedUser$(
+				limit,
+				id,
+			),
+			participatedActivities:
+				this._activityService.getListOfActivitiesRegisteredByUser$(limit, id),
+		}).subscribe(({ createdActivities, participatedActivities }) => {
+			const allActivities = [...createdActivities, ...participatedActivities];
+
+			this.calendarOptions.events = allActivities.map(activity => ({
+				title: activity.name,
+				start: activity.date,
+			}));
+		});
 	}
 
 	handleDateClick(arg: DateClickArg) {
