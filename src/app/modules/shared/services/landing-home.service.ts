@@ -11,7 +11,7 @@ export class LandingHomeService {
 	getFunctionimgDatas(): FunctionimgDatas[] {
 		return [
 			new FunctionimgDatas(
-				'assets/photos/activity-discover.svg',
+				'assets/photos/7732590_5217.svg',
 				'',
 				'Découvrir les activités',
 				'Danish jelly chocolate bar lollipop cupcake chocolate cake danish oat cake cotton candy. Jujubes soufflé lollipop candy canes marzipan jelly-o fruitcake caramels.',
@@ -19,7 +19,7 @@ export class LandingHomeService {
 				'Découvrir les activités disponibles >',
 			),
 			new FunctionimgDatas(
-				'assets/photos/activity-create.svg',
+				'assets/photos/7732590_5217.svg',
 				'',
 				'Créer une activité',
 				'Danish jelly chocolate bar lollipop cupcake chocolate cake danish oat cake cotton candy. Jujubes soufflé lollipop candy canes marzipan jelly-o fruitcake caramels.',
@@ -27,7 +27,7 @@ export class LandingHomeService {
 				'Ajouter une activité >',
 			),
 			new FunctionimgDatas(
-				'assets/photos/activity-participate.svg',
+				'assets/photos/7732590_5217.svg',
 				'',
 				'Sinscrire à une activité',
 				'Danish jelly chocolate bar lollipop cupcake chocolate cake danish oat cake cotton candy. Jujubes soufflé lollipop candy canes marzipan jelly-o fruitcake caramels.',

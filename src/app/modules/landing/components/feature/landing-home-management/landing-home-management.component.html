@@ -1,3 +1,158 @@
+<div class="container">
+	<div class="hero-box">
+		<div class="hero-mask"></div>
+
+		<div class="hero-content-box">
+			<div class="hero-content-text">
+				<span class="big-letter">SF</span>
+
+				<div class="hero-content-elements-box">
+					<h1>
+						<span>Sortie facile</span>
+						<span>Partagez vos sorties !</span>
+					</h1>
+
+					<p-divider></p-divider>
+					<p>
+						Sugar plum toffee wafer carrot cake brownie sweet roll sweet tootsie
+						roll. Dragée jelly sweet roll powder sugar plum cupcake oat cake.
+						Chocolate cake soufflé chocolate bar jujubes liquorice sweet oat
+						cake macaroon. Pastry toffee jujubes jelly chupa chups. Soufflé oat
+						cake chocolate cake wafer shortbread. Lemon drops cake cookie
+						macaroon icing carrot cake.
+					</p>
+
+					<div class="btn-box">
+						<p-button
+							label="Découvrir"
+							icon="pi pi-arrow-right"
+							iconPos="right"
+							[rounded]="true"
+							severity="primary"
+							[outlined]="true"
+							(click)="scrollToFunctioningBox()"
+						></p-button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<section class="functioning-box" #functioningBox>
+		<div class="section-content-box">
+			<div class="section-header">
+				<h4 class="section-subtitle">Happy Life Website</h4>
+				<h3 class="section-title">Comment ça marche ?</h3>
+			</div>
+
+			<div class="section-content">
+				<ng-container
+					*ngFor="let functionimgData of functionimgDatas; let i = index"
+				>
+					<app-card-landing-small
+						[imgSrc]="functionimgData.imgSrc"
+						[imgAlt]="functionimgData.imgAlt"
+						[title]="functionimgData.title"
+						[description]="functionimgData.description"
+						[link]="functionimgData.link"
+						[linkLabel]="functionimgData.linkLabel"
+						[number]="i + 1"
+					></app-card-landing-small>
+				</ng-container>
+			</div>
+		</div>
+	</section>
+
+	<section class="discover-box section-dark">
+		<div class="mask"></div>
+		<div class="section-content-box">
+			<div class="section-header">
+				<h4 class="section-subtitle">Happy Life Website</h4>
+				<h3 class="section-title">Comment ça marche ?</h3>
+			</div>
+
+			<div class="section-content">
+				<app-card-landing-large
+					title="Découvrir les activités"
+					description="Danish jelly chocolate bar lollipop cupcake chocolate cake danish oat
+            cake cotton candy. Jujubes soufflé lollipop candy canes marzipan jelly-o
+            fruitcake caramels. Lollipop chocolate bar topping apple pie dragée.
+            Tiramisu dessert jujubes powder chocolate bar cheesecake cookie
+            liquorice gummies. Candy canes lollipop liquorice gingerbread cotton
+            candy candy cotton candy tootsie roll. Pudding shortbread bear claw
+            danish sweet roll sesame snaps cupcake marshmallow tootsie roll. Cookie
+            cake lemon drops candy jelly jelly beans pastry. Sugar plum bear claw
+            cake jelly-o chocolate bar jelly-o halvah toffee chocolate bar."
+					ctaPrimarylabel="Rejoignez nous !"
+					ctaSecondarylabel="Se connecter"
+					imgSrc="assets/photos/activity-participate.svg"
+					imgLabel=""
+				></app-card-landing-large>
+			</div>
+		</div>
+	</section>
+
+	<section class="popular-activity-box">
+		<div class="section-content-box">
+			<div class="section-header">
+				<h4 class="section-subtitle">Happy Life Website</h4>
+				<h3 class="section-title">Activités les plus populaires</h3>
+			</div>
+
+			<div class="section-content">
+				<app-carousel
+					[activityList]="activityList"
+					[numVisible]="6"
+					[numScroll]="1"
+					[circular]="false"
+					[responsiveOptions]="responsiveOptions"
+				></app-carousel>
+			</div>
+		</div>
+	</section>
+
+	<section class="popular-categories-box section-dark">
+		<div class="section-content-box">
+			<div class="section-header">
+				<h4 class="section-subtitle">Happy Life Website</h4>
+				<h3 class="section-title">Catégories les plus populaires</h3>
+			</div>
+
+			<div class="section-content">
+				<app-carousel
+					[activityList]="activityList"
+					[numVisible]="6"
+					[numScroll]="1"
+					[circular]="false"
+					[responsiveOptions]="responsiveOptions"
+				></app-carousel>
+			</div>
+		</div>
+	</section>
+
+	<section class="testimonials-box">
+		<div class="section-content-box">
+			<div class="section-header">
+				<h4 class="section-subtitle">Recommandations</h4>
+				<h3 class="section-title">Ils parlent de nous</h3>
+			</div>
+
+			<div class="section-content">
+				<ng-container *ngIf="testimonialList$ | async as testimonialList">
+					<ng-container *ngFor="let testimonial of testimonialList">
+						<app-card-testimonial
+							[title]="testimonial.title"
+							[message]="testimonial.message"
+							[note]="testimonial.note"
+							[user]="testimonial.user"
+						></app-card-testimonial>
+					</ng-container>
+				</ng-container>
+			</div>
+		</div>
+	</section>
+</div>
+<!-- 
 <div class="content-top">
 	<div class="img-banner-container">
 		<img class="img-banner" src="assets/photos/homebanner.jpeg" alt="" />
@@ -79,4 +234,4 @@
 		imgSrc="assets/photos/activity-participate.svg"
 		imgLabel=""
 	></app-card-landing-large>
-</div>
+</div> -->

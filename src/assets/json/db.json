@@ -1482,5 +1482,28 @@
       "title": "gybh",
       "message": "tgèybh"
     }
+  ],
+  "testimonials": [
+    {
+      "id": "1",
+      "user": "John Smith",
+      "title": "Super appllication",
+      "message": " Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed maximus, ex non pharetra pellentesque, quam elit tempor dolor, id volutpat lacus justo eu urna. Vivamus tempor laoreet nibh. Vivamus sodales justo enim, eu venenatis mi imperdiet facilisis. Curabitur enim urna, elementum sed dapibus quis, pellentesque a massa. Sed a interdum turpis, sit amet laoreet ante. Fusce ullamcorper ullamcorper massa eu elementum. In hac habitasse platea dictumst.",
+      "note": 5
+    },
+    {
+      "id": "2",
+      "user": "John Doe",
+      "title": "Super appllication",
+      "message": " Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed maximus, ex non pharetra pellentesque, quam elit tempor dolor, id volutpat lacus justo eu urna. Vivamus tempor laoreet nibh. Vivamus sodales justo enim, eu venenatis mi imperdiet facilisis. Curabitur enim urna, elementum sed dapibus quis, pellentesque a massa. Sed a interdum turpis, sit amet laoreet ante. Fusce ullamcorper ullamcorper massa eu elementum. In hac habitasse platea dictumst.",
+      "note": 5
+    },
+    {
+      "id": "3",
+      "user": "Lady Gaga",
+      "title": "Super appllication",
+      "message": " Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed maximus, ex non pharetra pellentesque, quam elit tempor dolor, id volutpat lacus justo eu urna. Vivamus tempor laoreet nibh. Vivamus sodales justo enim, eu venenatis mi imperdiet facilisis. Curabitur enim urna, elementum sed dapibus quis, pellentesque a massa. Sed a interdum turpis, sit amet laoreet ante. Fusce ullamcorper ullamcorper massa eu elementum. In hac habitasse platea dictumst.",
+      "note": 5
+    }
   ]
 }

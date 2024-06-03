@@ -34,6 +34,7 @@ import { PaginationComponent } from './components/pagination/pagination.componen
 import { ButtonUltraWildeComponent } from './components/button/button-ultra-wilde/button-ultra-wilde.component';
 import { FullCalendarModule } from '@fullcalendar/angular';
 import { AlertComponent } from './components/alert/alert.component';
+import { CardTestimonialComponent } from './components/cards/card-testimonial/card-testimonial.component';
 @NgModule({
 	declarations: [
 		AuthTypographyWithRedirectComponent,
@@ -62,6 +63,7 @@ import { AlertComponent } from './components/alert/alert.component';
 		PaginationComponent,
 		ButtonUltraWildeComponent,
 		AlertComponent,
+		CardTestimonialComponent,
 	],
 	imports: [
 		CommonModule,
@@ -104,6 +106,7 @@ import { AlertComponent } from './components/alert/alert.component';
 		ButtonUltraWildeComponent,
 		FullCalendarModule,
 		AlertComponent,
+		CardTestimonialComponent,
 	],
 })
 export class SharedModule {}
