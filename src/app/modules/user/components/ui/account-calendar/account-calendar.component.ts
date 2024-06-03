@@ -79,12 +79,19 @@ export class AccountCalendarComponent implements OnInit {
 			participatedActivities:
 				this._activityService.getListOfActivitiesRegisteredByUser$(limit, id),
 		}).subscribe(({ createdActivities, participatedActivities }) => {
-			const allActivities = [...createdActivities, ...participatedActivities];
-
-			this.calendarOptions.events = allActivities.map(activity => ({
+			const createdEvents = createdActivities.map(activity => ({
 				title: activity.name,
 				start: activity.date,
+				color: 'blue', // Couleur pour les activités créées
 			}));
+
+			const participatedEvents = participatedActivities.map(activity => ({
+				title: activity.name,
+				start: activity.date,
+				color: 'green', // Couleur pour les activités auxquelles l'utilisateur participe
+			}));
+
+			this.calendarOptions.events = [...createdEvents, ...participatedEvents];
 		});
 	}
 
