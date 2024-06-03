@@ -1,9 +1,9 @@
 import { Activity } from '@activity/models/classes/activity.class';
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivityService } from '@shared/services/activity.service';
 import { AuthService } from '@shared/services/auth.service';
 import { BaseAccountManagementComponent } from '@user/directives/account-management.class';
-import { Subscription, tap } from 'rxjs';
+import { Observable } from 'rxjs';
 
 @Component({
 	selector: 'app-account-activities-management',
@@ -12,12 +12,10 @@ import { Subscription, tap } from 'rxjs';
 })
 export class AccountActivitiesManagementComponent
 	extends BaseAccountManagementComponent
-	implements OnInit, OnDestroy
+	implements OnInit
 {
-	activityByCreatedUserList!: Activity[];
-	activityParticipateList!: Activity[];
-
-	private _subscription: Subscription = new Subscription();
+	activityByCreatedUserList$!: Observable<Activity[]>;
+	activityParticipateList$!: Observable<Activity[]>;
 
 	constructor(
 		protected override _authService: AuthService,
@@ -28,28 +26,17 @@ export class AccountActivitiesManagementComponent
 
 	override ngOnInit(): void {
 		super.ngOnInit();
-		this._activityService
-			.getActivityListByCreatedUser$(10, this.connectedUser.id)
-			
-			.pipe(
-				tap(activities => {
-					this.activityByCreatedUserList = activities;
-				}),
-			)
-			.subscribe();
-		this._subscription.add(
-			this._activityService
-				.getActivityListByCreatedUser$(10, this.connectedUser.id)
-				.pipe(
-					tap(activities => {
-						this.activityByCreatedUserList = activities;
-					}),
-				)
-				.subscribe(),
-		);
-	}
 
-	ngOnDestroy(): void {
-		this._subscription.unsubscribe();
+		this.activityByCreatedUserList$ =
+			this._activityService.getActivityListByCreatedUser$(
+				10,
+				this.connectedUser.id,
+			);
+
+		this.activityParticipateList$ =
+			this._activityService.getListOfActivitiesRegisteredByUser$(
+				10,
+				this.connectedUser.id,
+			);
 	}
 }

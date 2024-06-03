@@ -12,4 +12,5 @@ export class CardLandingSmallComponent {
 	@Input() description!: string;
 	@Input() link!: string[];
 	@Input() linkLabel!: string;
+	@Input() number!: number;
 }

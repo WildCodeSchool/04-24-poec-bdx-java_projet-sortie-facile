@@ -21,17 +21,17 @@ export class HeaderService {
 		this._primaryItems$ = of([
 			{
 				label: 'Accueil',
-				icon: 'pi pi-home',
+
 				routerLink: '/',
 			},
 			{
 				label: 'Contact',
-				icon: 'pi pi-fw pi-pencil',
+
 				routerLink: '/contact',
 			},
 			{
 				label: 'Activités',
-				icon: 'pi pi-shopping-cart',
+
 				routerLink: FullActivityRouteEnum.HOME,
 			},
 		]);
@@ -55,22 +55,22 @@ export class HeaderService {
 				icon: 'pi pi-chart-bar',
 				items: [
 					{
-						label: 'graph',
+						label: 'Home',
 						icon: 'pi pi-chart-line',
 						routerLink: FullBookingRouteEnum.GRAPH,
 					},
 					{
-						label: 'data',
-						icon: 'pi pi-chart-bar',
-						routerLink: FullBookingRouteEnum.DATA,
-					},
-					{
-						label: 'mail',
-						icon: 'pi pi-chart-bar',
+						label: 'Mail ',
+						icon: 'pi pi-envelope',
 						routerLink: FullBookingRouteEnum.MAIL,
 					},
 					{
-						label: 'home',
+						label: 'Booking data',
+						icon: 'pi pi-calendar',
+						routerLink: FullBookingRouteEnum.DATA,
+					},
+					{
+						label: 'Data',
 						icon: 'pi pi-chart-bar',
 						routerLink: FullBookingRouteEnum.HOME,
 					},

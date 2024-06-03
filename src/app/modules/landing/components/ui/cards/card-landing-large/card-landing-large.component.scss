@@ -1,53 +1,108 @@
-.participate {
-	background-color: var(--gray-500);
+:host ::ng-deep .participate {
 	display: flex;
 	align-items: center;
-	justify-content: space-around;
-
-	padding: 1rem;
-	border-radius: 10px;
+	gap: 3rem;
 
 	.participate-card-body {
-		width: 100%;
-
-		h4 {
-			font-size: 1.025rem;
-			color: var(--black-color);
+		h3 {
+			font-size: 1.35rem;
+			color: var(--white-color);
 			margin: 0;
 			margin-bottom: 1.5rem;
 		}
 
 		p {
-			color: var(--black-color);
-			font-size: 0.85rem;
+			color: var(--white-color);
+			font-size: 1rem;
 			margin: 0;
-			margin-bottom: 0.85rem;
+			line-height: 1.5;
+			text-align: left;
 		}
 
-		.btn-container {
-			display: flex;
-			gap: 1rem;
-		}
-	}
-
-	.img-box {
-		display: none;
-	}
-
-	@media (min-width: 768px) {
-		.functioning-card-body {
-			width: 65%;
-		}
-
-		.img-box {
+		.btn-box {
 			display: flex;
 			justify-content: center;
-			width: 20%;
+			gap: 1.5rem;
+			margin-top: 2.5rem;
 
-			img {
-				width: 100%;
-				max-width: 175px;
+			.p-button {
+				font-size: 0.95rem;
+				border: 2px solid var(--primary-color);
+				color: var(--white-color);
+				font-weight: 500;
+
+				&:hover {
+					background-color: var(--white-color);
+					color: var(--primary-color);
+				}
+
+				&.btn-login {
+					background-color: var(--white-color);
+					border-color: var(--white-color);
+					color: var(--primary-color);
+
+					&:hover {
+						background-color: var(--primary-color);
+						color: var(--white-color);
+					}
+				}
+
+				&.btn-register {
+					background-color: var(--primary-color);
+					border-color: var(--white-color);
+					color: var(--white-color);
+
+					&:hover {
+						background-color: var(--white-color);
+						color: var(--primary-color);
+					}
+				}
 			}
 		}
 	}
 }
+
+// 	.participate-card-body {
+// 		width: 100%;
+
+// 		h4 {
+// 			font-size: 1.025rem;
+// 			color: var(--black-color);
+// 			margin: 0;
+// 			margin-bottom: 1.5rem;
+// 		}
+
+// 		p {
+// 			color: var(--black-color);
+// 			font-size: 0.85rem;
+// 			margin: 0;
+// 			margin-bottom: 0.85rem;
+// 		}
+
+// 		.btn-container {
+// 			display: flex;
+// 			gap: 1rem;
+// 		}
+// 	}
+
+// 	.img-box {
+// 		display: none;
+// 	}
+
+// 	@media (min-width: 768px) {
+// 		.functioning-card-body {
+// 			width: 65%;
+// 		}
+
+// 		.img-box {
+// 			display: flex;
+// 			justify-content: center;
+// 			width: 20%;
+
+// 			img {
+// 				width: 100%;
+// 				max-width: 175px;
+// 			}
+// 		}
+// 	}
+// }

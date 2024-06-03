@@ -1,5 +1,5 @@
 <div class="banner">
-	<img class="img-banner" src="assets/photos/banner.jpg" alt="" />
+	<img class="img-banner" src="assets/photos/activity-list.jpg" alt="" />
 	<h1>Découvrez nos activités</h1>
 </div>
 
@@ -43,9 +43,13 @@
 			<app-select-region></app-select-region>
 			<label for="">City</label>
 			<app-select-city></app-select-city>
-			<!-- <p-button Style="margin-top: 10px;" [raised]="true" rounded
+			<p-button
+				(click)="onResetFilters()"
+				Style="margin-top: 10px;"
+				[raised]="true"
+				rounded
 				>Réinitialiser</p-button
-			> -->
+			>
 		</div>
 	</div>
 

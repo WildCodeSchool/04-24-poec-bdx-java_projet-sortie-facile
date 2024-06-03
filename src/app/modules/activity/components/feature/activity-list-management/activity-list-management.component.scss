@@ -1,5 +1,6 @@
 :host ::ng-deep .activities-top {
 	display: flex;
+	justify-content: space-between;
 	gap: 0.75rem;
 
 	.show-filter-btn,
@@ -37,10 +38,4 @@
 	.p-dropdown-panel .p-dropdown-items .p-dropdown-item.p-highlight.p-focus {
 		background-color: var(--gray-200);
 	}
-}
-
-.message-content {
-	display: flex;
-	align-items: center;
-	gap: 1rem;
 }

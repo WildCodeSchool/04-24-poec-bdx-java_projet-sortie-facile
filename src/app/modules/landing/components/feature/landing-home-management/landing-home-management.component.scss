@@ -1,90 +1,435 @@
-.content-top {
-	padding: 2rem 0rem;
-	display: flex;
-	flex-direction: column;
-	gap: 0rem;
-
-	.content-top-text {
-		width: 100%;
-
-		h2 {
-			color: var(--black-color);
-			font-size: 1.35rem;
-			margin: 0;
-			margin-bottom: 1.5rem;
-		}
-
-		p {
-			color: var(--black-color);
-			font-size: 0.85rem;
-			margin: 0;
-			margin-bottom: 1.25rem;
-		}
-	}
-
-	.img-top {
-		width: 100%;
-		max-width: 500px;
-		margin: 0 auto;
-		margin-top: -20px;
-	}
-
-	@media (min-width: 768px) {
-		flex-direction: row;
-		justify-content: space-between;
-		padding: 2rem 1.5rem 2rem;
-		gap: 1.5rem;
-
-		.img-top {
-			width: 70%;
-			margin-top: -40px;
-		}
-	}
-
-	@media (min-width: 960px) {
-		flex-direction: row;
-		justify-content: space-between;
-		padding: 2rem 1.5rem 2rem;
-		gap: 2rem;
-
-		.img-top {
-			width: 60%;
-			margin-top: -40px;
-		}
-	}
-
-	@media (min-width: 1280px) {
-		padding: 4rem 5rem 6em 5rem;
-		gap: 2rem;
-
-		.content-top-text {
-			max-width: 900px;
-		}
-
-		.img-top {
-			width: 60%;
-			margin-top: -70px;
-		}
-	}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+	margin: 0;
 }
 
-.functioning h3 {
-	font-size: 1.15rem;
-}
-
-.functioning .functioning-list {
-	display: flex;
-	flex-direction: column;
-	align-items: space-between;
-	gap: 1.5rem;
-	margin-bottom: 1.5rem;
+:host ::ng-deep .hero-box {
+	position: relative;
 	width: 100%;
+	height: 100vh;
+	background: url('assets/photos/homebanner.jpeg') no-repeat;
+	background-size: cover;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 
-	@media (min-width: 768px) AND (max-width: 959px) {
-		flex-direction: row;
+	.hero-mask {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		background-color: rgba(0, 0, 0, 0.8);
 	}
 
-	@media (min-width: 960px) {
-		flex-direction: row;
+	.hero-content-box {
+		position: relative;
+		z-index: 100;
+		width: 100%;
+		max-width: 1920px;
+
+		.hero-content-text {
+			position: relative;
+			display: block;
+			width: 100%;
+
+			.big-letter {
+				position: absolute;
+				top: 0;
+				font-size: 20rem;
+				color: rgba(255, 255, 255, 0.3);
+				line-height: 0.8;
+				margin-left: 1.5rem;
+				font-family: 'Seymour One', sans-serif;
+				z-index: 1;
+				opacity: 0.35;
+			}
+
+			.hero-content-elements-box {
+				position: relative;
+				z-index: 10;
+				padding-top: 2.5rem;
+
+				h1 {
+					display: flex;
+					flex-direction: column;
+					color: var(--white-color);
+					font-size: 4rem;
+					text-transform: uppercase;
+					line-height: 1.1;
+				}
+
+				.p-divider-horizontal {
+					width: 100%;
+					max-width: 200px;
+					margin: 2rem 0;
+					height: 3px;
+
+					&:before {
+						border-top: 2px solid var(--white-color);
+					}
+				}
+
+				p {
+					color: var(--gray-700);
+					margin-left: 3rem;
+					font-size: 1.05rem;
+					line-height: 1.6;
+					max-width: 700px;
+				}
+
+				.btn-box {
+					margin-left: 3rem;
+					margin-top: 2rem;
+
+					.p-button {
+						font-size: 1rem;
+						padding: 0.75rem 2rem;
+						border: 2px solid var(--white-color);
+						color: var(--white-color);
+						font-weight: 500;
+
+						&:hover {
+							background-color: var(--white-color);
+							color: var(--black-color);
+						}
+					}
+				}
+			}
+		}
 	}
 }
+
+:host ::ng-deep section {
+	position: relative;
+	background-color: var(--white-color);
+	padding: 5rem 1rem;
+	display: flex;
+	justify-content: center;
+
+	&.section-dark {
+		background-color: var(--black-color);
+
+		.section-content-box .section-header {
+			.section-subtitle {
+				color: var(--white-color);
+			}
+
+			.section-title {
+				color: var(--white-color);
+			}
+		}
+
+		.section-content {
+			display: flex;
+			gap: 2rem;
+			width: 100%;
+			margin-top: 2rem;
+		}
+	}
+
+	&.discover-box {
+		// max-width: 960px;
+		// background: url('assets/photos/home.jpg') no-repeat;
+		// background-size: cover;
+
+		.mask {
+			position: absolute;
+			z-index: 2;
+			top: 0;
+			left: 0;
+			background-color: var(--black-color);
+			opacity: 0.9;
+			width: 100%;
+			height: 100%;
+		}
+
+		.section-content-box {
+			position: relative;
+			z-index: 10;
+
+			.section-content {
+				margin-top: 4rem;
+			}
+		}
+	}
+
+	.section-content-box {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		width: 100%;
+		max-width: 1280px;
+
+		.section-header {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+
+			.section-subtitle {
+				font-size: 1rem;
+				color: var(--gray-700);
+				text-transform: uppercase;
+				margin-bottom: 1rem;
+			}
+
+			.section-title {
+				font-size: 2.5rem;
+				color: var(--black-color);
+			}
+		}
+
+		.section-content {
+			display: flex;
+			gap: 2rem;
+			width: 100%;
+			margin-top: 2rem;
+		}
+	}
+}
+
+:host ::ng-deep .popular-activity-box {
+	.section-content {
+		app-carousel {
+			width: 100%;
+
+			.p-carousel .p-carousel-content .p-carousel-prev,
+			.p-carousel .p-carousel-content .p-carousel-next {
+				background-color: var(--primary-color);
+				border-color: var(--primary-color);
+				color: var(--white-color);
+
+				&.p-disabled {
+					opacity: 0.1;
+				}
+			}
+		}
+	}
+}
+
+:host ::ng-deep .popular-categories-box {
+	.section-content {
+		app-carousel {
+			width: 100%;
+
+			.p-carousel .p-carousel-content .p-carousel-prev,
+			.p-carousel .p-carousel-content .p-carousel-next {
+				background-color: var(--white-color);
+				border-color: var(--white-color);
+				color: var(--primary-color);
+
+				&.p-disabled {
+					opacity: 0.1;
+				}
+			}
+		}
+	}
+}
+
+:host ::ng-deep section.testimonials-box {
+	.section-content {
+		margin-top: 5rem;
+	}
+}
+
+// .content-top {
+// 	position: relative;
+// 	padding: 2rem 0;
+// 	display: flex;
+// 	justify-content: flex-start;
+// 	align-items: flex-end;
+// 	height: 50vh;
+// 	overflow: hidden;
+// }
+
+// .content-top-text {
+// 	max-width: 500px;
+// 	z-index: 1;
+// 	padding: 0rem;
+// 	padding-left: 4rem;
+// 	background: rgba(0, 0, 0, 0.1);
+// 	color: aliceblue;
+// }
+
+// .content-top-text h2 {
+// 	font-size: 1.35rem;
+// 	margin: 0;
+// 	margin-bottom: 1.5rem;
+// }
+
+// .content-top-text p {
+// 	font-size: 0.85rem;
+// 	margin: 0;
+// 	margin-bottom: 1.25rem;
+// }
+
+// .img-banner-container {
+// 	position: absolute;
+// 	top: 0;
+// 	left: 0;
+// 	width: 100%;
+// 	height: 100%;
+// 	overflow: hidden;
+// 	z-index: 0; /* Make sure the image is in the background */
+// }
+
+// .img-banner {
+// 	width: 100%;
+// 	height: 100%;
+// 	object-fit: cover;
+// 	object-position: top;
+// }
+
+// @media (min-width: 768px) {
+// 	.content-top {
+// 		flex-direction: row;
+// 		justify-content: flex-start;
+// 		gap: 1.5rem;
+// 	}
+// }
+
+// @media (min-width: 960px) {
+// 	.content-top {
+// 		gap: 6rem;
+// 	}
+// }
+
+// .schema-container {
+// 	margin-block: 70px;
+// 	position: relative;
+// 	padding: 2rem 0;
+// 	height: 68vh; /* Ajustez la hauteur selon vos besoins */
+// 	overflow: hidden;
+// 	background-image: url('assets/photos/fondbleu.png'); /* Image de fond */
+// 	background-size: contain; /* Ajustez la taille de l'image de fond */
+// 	background-position: right center; /* Position de l'image de fond */
+// 	background-repeat: no-repeat; /* Empêche la répétition de l'image */
+
+// 	/* Styles pour le texte et les éléments à l'intérieur de schema-container */
+// 	color: black;
+// }
+
+// .schema-text {
+// 	position: absolute;
+// 	top: 50%; /* Ajustez cette valeur pour positionner verticalement */
+// 	left: 50%; /* Ajustez cette valeur pour positionner horizontalement */
+// 	transform: translate(-50%, -50%);
+// 	max-width: 500px;
+// 	z-index: 1; /* Assurez-vous que le texte est au-dessus de l'image */
+// 	padding: 0 4rem; /* Ajustez le padding selon vos besoins */
+// }
+// .kezako {
+// 	margin-block: 40px;
+// 	position: relative;
+// 	text-align: center;
+// 	font-size: xxx-large;
+// 	font-family: 'Odor Mean Chey', serif;
+// }
+// .schema-text h3 {
+// 	font-size: 1.35rem;
+// 	margin: 0;
+// 	margin-bottom: 1.5rem;
+// 	color: aliceblue;
+// }
+
+// .schema-text h2 {
+// 	font-size: 1.2rem;
+// 	margin: 0;
+// 	margin-bottom: 1.25rem;
+// }
+
+// .img-grp {
+// 	position: absolute;
+// 	top: -180px;
+// 	left: -377px; /* Ajustez cette valeur pour positionner horizontalement */
+// 	z-index: 1; /* Assurez-vous que l'image est au-dessus de l'image de fond */
+// }
+
+// .envie {
+// 	position: absolute;
+// 	top: 63%;
+// 	left: -124%; /* Ajustez cette valeur pour positionner horizontalement */
+// }
+
+// .arrow1 {
+// 	position: absolute;
+// 	top: 102%;
+// 	left: -86%;
+// 	transform: rotate(-11deg);
+// }
+
+// .dispo {
+// 	position: absolute;
+// 	top: 295%;
+// 	left: -40%; /* Ajustez cette valeur pour positionner horizontalement */
+// }
+
+// .arrow2 {
+// 	position: absolute;
+// 	top: 184%;
+// 	left: 69%;
+// 	transform: rotate(-80deg);
+// }
+
+// .logo {
+// 	position: absolute;
+// 	top: 17%;
+// 	left: 114%;
+// 	width: 7rem;
+// 	height: 7rem;
+// }
+// .sf {
+// 	position: absolute;
+// 	font-size: 35px;
+// 	font-family: 'Odor Mean Chey', serif;
+// 	top: -22%;
+// 	left: 162%;
+// 	width: 100%;
+// 	color: aliceblue; /* Ajustez cette valeur pour positionner horizontalement */
+// }
+
+// .functioning,
+// .discover-box {
+// 	width: 100%;
+// 	max-width: 1100px;
+// 	margin: 0 auto;
+// }
+
+// .discover-box {
+// 	margin-top: 2.5rem;
+// }
+
+// .functioning h3 {
+// 	font-size: 1.15rem;
+// }
+
+// .functioning .functioning-list {
+// 	display: flex;
+// 	flex-wrap: nowrap;
+// 	gap: 1.5rem;
+// 	margin-bottom: 1.5rem;
+// 	width: 100%;
+// }
+// .comment {
+// 	margin-block: 40px;
+// 	position: relative;
+// 	text-align: center;
+// 	font-size: xxx-large;
+// 	font-family: 'Odor Mean Chey', serif;
+// }
+// //caroussel
+
+// @media (min-width: 768px) and (max-width: 959px) {
+// 	.functioning .functioning-list {
+// 		flex-direction: row;
+// 	}
+// }
+
+// @media (min-width: 960px) {
+// 	.functioning .functioning-list {
+// 		flex-direction: row;
+// 	}
+// }

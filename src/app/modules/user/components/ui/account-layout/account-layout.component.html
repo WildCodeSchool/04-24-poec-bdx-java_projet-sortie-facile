@@ -17,7 +17,9 @@
 
 			<div class="delete-box">
 				<p-button
+					*ngIf="showDEleteBtn"
 					severity="danger"
+					[text]="true"
 					rounded
 					(click)="onModal()"
 					class="delete-link"

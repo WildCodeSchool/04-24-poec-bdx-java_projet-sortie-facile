@@ -32,7 +32,9 @@ import { LayoutSplitComponent } from './components/layout/layout-split/layout-sp
 import { ModalDeleteAccountComponent } from './components/modal/modal-confirm-delete-account/modal-confirm-delete-account.component';
 import { PaginationComponent } from './components/pagination/pagination.component';
 import { ButtonUltraWildeComponent } from './components/button/button-ultra-wilde/button-ultra-wilde.component';
-
+import { FullCalendarModule } from '@fullcalendar/angular';
+import { AlertComponent } from './components/alert/alert.component';
+import { CardTestimonialComponent } from './components/cards/card-testimonial/card-testimonial.component';
 @NgModule({
 	declarations: [
 		AuthTypographyWithRedirectComponent,
@@ -60,6 +62,8 @@ import { ButtonUltraWildeComponent } from './components/button/button-ultra-wild
 		ModalDeleteAccountComponent,
 		PaginationComponent,
 		ButtonUltraWildeComponent,
+		AlertComponent,
+		CardTestimonialComponent,
 	],
 	imports: [
 		CommonModule,
@@ -68,6 +72,7 @@ import { ButtonUltraWildeComponent } from './components/button/button-ultra-wild
 		DirectiveModule,
 		SharedFormModule,
 		HttpClientModule,
+		FullCalendarModule,
 	],
 	providers: [ConfirmationService],
 	exports: [
@@ -99,6 +104,9 @@ import { ButtonUltraWildeComponent } from './components/button/button-ultra-wild
 		ModalDeleteAccountComponent,
 		PaginationComponent,
 		ButtonUltraWildeComponent,
+		FullCalendarModule,
+		AlertComponent,
+		CardTestimonialComponent,
 	],
 })
 export class SharedModule {}

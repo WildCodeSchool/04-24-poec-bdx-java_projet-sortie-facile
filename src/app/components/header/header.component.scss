@@ -12,7 +12,9 @@
 	padding: 20px;
 	position: relative;
 	background-color: var(--primary-color);
-
+	position: fixed;
+	width: 100%;
+	z-index: +2;
 	.p-menubar-start {
 		margin-right: 1rem;
 	}
@@ -34,6 +36,9 @@
 				background-color: transparent;
 			}
 		}
+		.p-menuitem-text {
+			color: aliceblue;
+		}
 	}
 }
 .white-block {
@@ -52,6 +57,7 @@
 .icon {
 	display: flex;
 	flex-direction: row;
+	color: aliceblue;
 }
 
 .green-dot {
@@ -92,7 +98,6 @@ i {
 			}
 
 			.p-menuitem-text {
-				// color: var(--gray-500);
 				font-family: 'Inter var', sans-serif;
 			}
 		}
