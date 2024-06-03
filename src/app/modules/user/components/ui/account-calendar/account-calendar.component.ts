@@ -1,11 +1,8 @@
 import { Component, LOCALE_ID, OnInit } from '@angular/core';
-import { CalendarOptions } from '@fullcalendar/core';
+import { CalendarOptions, EventClickArg } from '@fullcalendar/core';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import timeGridPlugin from '@fullcalendar/timegrid';
-import interactionPlugin, {
-	DateClickArg,
-	Draggable,
-} from '@fullcalendar/interaction';
+import interactionPlugin, { Draggable } from '@fullcalendar/interaction';
 import listPlugin from '@fullcalendar/list';
 import { Activity } from '@activity/models/classes/activity.class';
 import { ActivityService } from '@shared/services/activity.service';
@@ -55,7 +52,7 @@ export class AccountCalendarComponent implements OnInit {
 			},
 		},
 
-		dateClick: (arg: DateClickArg) => this.handleDateClick(arg),
+		eventClick: (arg: EventClickArg) => this.handleDateClick(arg),
 		events: [
 			{ title: 'event 1', date: '2024-06-01' },
 			{ title: 'event 2', date: '2024-06-02' },
@@ -104,18 +101,14 @@ export class AccountCalendarComponent implements OnInit {
 			this.calendarOptions.events = this.events;
 		});
 	}
-	handleDateClick(arg: DateClickArg) {
-		const clickedDate = arg.dateStr;
-
+	handleDateClick(arg: EventClickArg) {
+		const event = arg.event;
 		// Trouver l'activité correspondant à la date cliquée
-		const event = this.events.find(event =>
-			event.start.startsWith(clickedDate),
-		);
 
-		if (event && event.extendedProps && event.extendedProps.activity) {
-			this.openModal(event.extendedProps.activity);
+		if (event && event.extendedProps && event.extendedProps['activity']) {
+			this.openModal(event.extendedProps['activity']);
 		} else {
-			alert('No activity found for this date: ' + clickedDate);
+			alert('No activity found for this date: ' + event);
 		}
 	}
 
