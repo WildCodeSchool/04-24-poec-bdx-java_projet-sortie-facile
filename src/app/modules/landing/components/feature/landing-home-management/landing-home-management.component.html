@@ -100,13 +100,15 @@
 			</div>
 
 			<div class="section-content">
-				<app-carousel-activity
-					[activityList]="activityList"
-					[numVisible]="6"
-					[numScroll]="1"
-					[circular]="false"
-					[responsiveOptions]="responsiveOptions"
-				></app-carousel-activity>
+				<ng-container *ngIf="activityList$ | async as activityList">
+					<app-carousel-activity
+						[activityList]="activityList"
+						[numVisible]="6"
+						[numScroll]="1"
+						[circular]="false"
+						[responsiveOptions]="responsiveOptions"
+					></app-carousel-activity>
+				</ng-container>
 			</div>
 		</div>
 	</section>
@@ -119,13 +121,15 @@
 			</div>
 
 			<div class="section-content">
-				<app-carousel-activity
-					[activityList]="activityList"
-					[numVisible]="6"
-					[numScroll]="1"
-					[circular]="false"
-					[responsiveOptions]="responsiveOptions"
-				></app-carousel-activity>
+				<ng-container *ngIf="categoryList$ | async as categoryList">
+					<app-carousel-category
+						[categoryList]="categoryList"
+						[numVisible]="6"
+						[numScroll]="1"
+						[circular]="false"
+						[responsiveOptions]="responsiveOptions"
+					></app-carousel-category>
+				</ng-container>
 			</div>
 		</div>
 	</section>

@@ -36,6 +36,7 @@ import { AlertComponent } from './components/alert/alert.component';
 import { CardTestimonialComponent } from './components/cards/card-testimonial/card-testimonial.component';
 import { CarouselActivityComponent } from './components/carousel/carousel-activity/carousel-activity.component';
 import { CarouselTestimonialComponent } from './components/carousel/carousel-testimonial/carousel-testimonial.component';
+import { CarouselCategoryComponent } from './components/carousel/carousel-category/carousel-category.component';
 
 @NgModule({
 	declarations: [
@@ -67,6 +68,7 @@ import { CarouselTestimonialComponent } from './components/carousel/carousel-tes
 		AlertComponent,
 		CardTestimonialComponent,
 		CarouselTestimonialComponent,
+		CarouselCategoryComponent,
 	],
 	imports: [
 		CommonModule,
@@ -111,6 +113,7 @@ import { CarouselTestimonialComponent } from './components/carousel/carousel-tes
 		AlertComponent,
 		CardTestimonialComponent,
 		CarouselTestimonialComponent,
+		CarouselCategoryComponent,
 	],
 })
 export class SharedModule {}

@@ -339,43 +339,53 @@
 	"category": [
 		{
 			"id": "1",
-			"name": "Sport"
+			"name": "Sport",
+			"imgUrl": "category-sport.svg"
 		},
 		{
 			"id": "2",
-			"name": "Musique"
+			"name": "Musique",
+			"imgUrl": "category-art.svg"
 		},
 		{
 			"id": "3",
-			"name": "Cinéma"
+			"name": "Cinéma",
+			"imgUrl": "category-cinema.svg"
 		},
 		{
 			"id": "4",
-			"name": "Voyage"
+			"name": "Voyage",
+			"imgUrl": "category-travel.svg"
 		},
 		{
 			"id": "5",
-			"name": "Cuisine"
+			"name": "Cuisine",
+			"imgUrl": "category-cuisine.svg"
 		},
 		{
 			"id": "6",
-			"name": "Art"
+			"name": "Art",
+			"imgUrl": "category-art.svg"
 		},
 		{
 			"id": "7",
-			"name": "Science"
+			"name": "Science",
+			"imgUrl": "category-science.svg"
 		},
 		{
 			"id": "8",
-			"name": "Technologie"
+			"name": "Technologie",
+			"imgUrl": "category-technology.svg"
 		},
 		{
 			"id": "9",
-			"name": "Literature"
+			"name": "Literature",
+			"imgUrl": "category-litterature.svg"
 		},
 		{
 			"id": "10",
-			"name": "Histoire"
+			"name": "Histoire",
+			"imgUrl": "category-history.svg"
 		}
 	],
 	"booking": [
