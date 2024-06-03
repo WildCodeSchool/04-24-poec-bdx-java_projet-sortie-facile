@@ -8,3 +8,20 @@ main {
 .content-container {
 	overflow: hidden;
 }
+
+.content-box {
+	width: 100%;
+	min-height: 40px;
+	position: relative;
+	background-color: var(--primary-color);
+	overflow: hidden;
+}
+
+.white-block {
+	width: 100%;
+	min-height: 40px;
+	background-color: var(--white-color);
+	border-radius: 25px 25px 0px 0px;
+	z-index: 0;
+	overflow: hidden;
+}

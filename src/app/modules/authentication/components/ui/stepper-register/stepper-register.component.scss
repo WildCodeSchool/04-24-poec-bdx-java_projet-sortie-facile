@@ -2,6 +2,10 @@
 	display: flex;
 	flex-basis: 50rem;
 
+	> div {
+		width: 100%;
+	}
+
 	.p-stepper-header {
 		.p-stepper-action .p-stepper-number {
 			background-color: transparent;

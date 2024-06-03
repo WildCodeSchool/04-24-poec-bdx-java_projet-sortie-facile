@@ -3,6 +3,11 @@
 	justify-content: space-between;
 	gap: 0.75rem;
 
+	.btn-left {
+		display: flex;
+		gap: 0.75rem;
+	}
+
 	.show-filter-btn,
 	.reset-filter-btn {
 		width: 2rem;
