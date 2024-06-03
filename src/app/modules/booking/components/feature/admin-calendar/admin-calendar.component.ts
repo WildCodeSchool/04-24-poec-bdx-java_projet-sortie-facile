@@ -10,6 +10,9 @@ import interactionPlugin, {
 import listPlugin from '@fullcalendar/list';
 import { ActivityService } from '@shared/services/activity.service';
 import { Activity } from '@activity/models/classes/activity.class';
+import { CalendarModalComponent } from '@shared/components/modal/calendar-modal/calendar-modal.component';
+import { DialogService } from 'primeng/dynamicdialog';
+
 @Component({
 	selector: 'app-admin-calendar',
 	templateUrl: './admin-calendar.component.html',
@@ -21,7 +24,12 @@ import { Activity } from '@activity/models/classes/activity.class';
 	],
 })
 export class AdminCalendarComponent implements OnInit {
-	constructor(private activityService: ActivityService) {}
+	events: any[] = [];
+
+	constructor(
+		private activityService: ActivityService,
+		private dialogService: DialogService,
+	) {}
 
 	calendarOptions: CalendarOptions = {
 		firstDay: 1,
@@ -72,14 +80,34 @@ export class AdminCalendarComponent implements OnInit {
 				this.calendarOptions.events = activities.map(activity => ({
 					title: activity.name,
 					start: activity.date,
+					extendedProps: { activity },
 				}));
+				this.events = this.calendarOptions.events;
 			});
 	}
 	handleDateClick(arg: DateClickArg) {
 		const clickedDate = arg.dateStr;
-		// this.calendarOptions.initialDate = clickedDate; // Set the initial date to the clicked date
-		// this.calendarOptions.initialView = 'timeGridDay'; // Change the view to day view
-		alert('date click! ' + arg.dateStr);
+
+		// Trouver l'activité correspondant à la date cliquée
+		const event = this.events.find(event =>
+			event.start.startsWith(clickedDate),
+		);
+
+		if (event && event.extendedProps && event.extendedProps.activity) {
+			this.openModal(event.extendedProps.activity);
+		} else {
+			alert('No activity found for this date: ' + clickedDate);
+		}
+	}
+
+	openModal(activity: Activity) {
+		this.dialogService.open(CalendarModalComponent, {
+			data: {
+				activity: activity,
+			},
+			header: 'Details',
+			width: '30%',
+		});
 	}
 	// eslint-disable-next-line @angular-eslint/use-lifecycle-interface
 	ngAfterViewInit() {
