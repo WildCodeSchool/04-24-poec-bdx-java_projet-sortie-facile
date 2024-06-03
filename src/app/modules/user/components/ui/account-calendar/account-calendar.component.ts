@@ -122,7 +122,7 @@ export class AccountCalendarComponent implements OnInit {
 	openModal(activity: Activity) {
 		const ref = this.dialogService.open(CalendarModalComponent, {
 			data: {
-				activity,
+				activity: activity,
 			},
 			header: 'Activity Details',
 			width: '70%',

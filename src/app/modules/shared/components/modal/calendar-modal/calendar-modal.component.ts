@@ -1,10 +1,26 @@
-import { Component } from '@angular/core';
+import { Activity } from '@activity/models/classes/activity.class';
+import { Component, Input, OnInit } from '@angular/core';
+import { AuthUserPrimaryDatas } from '@shared/models/classes/auth-user/auth-user-primary-datas.class';
+import { FullActivityRouteEnum } from '@shared/models/enums/routes/full-routes';
+import { DynamicDialogConfig } from 'primeng/dynamicdialog';
 
 @Component({
-  selector: 'app-calendar-modal',
-  templateUrl: './calendar-modal.component.html',
-  styleUrl: './calendar-modal.component.scss'
+	selector: 'app-calendar-modal',
+	templateUrl: './calendar-modal.component.html',
+	styleUrl: './calendar-modal.component.scss',
 })
-export class CalendarModalComponent {
+export class CalendarModalComponent implements OnInit {
+	@Input() activity!: Activity;
+	@Input() connectedUser!: AuthUserPrimaryDatas;
+	fullActivityRoute = FullActivityRouteEnum;
 
+	constructor(public config: DynamicDialogConfig) {}
+
+	ngOnInit() {
+		this.activity = this.config.data.activity;
+	}
+
+	close() {
+		// Logic to close the modal
+	}
 }

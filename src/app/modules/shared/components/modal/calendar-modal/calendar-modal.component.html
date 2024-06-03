@@ -1,11 +1,67 @@
 <p>calendar-modal works!</p>
-<div>
-	<p-toast></p-toast>
-	<p-confirmDialog>
-		<ng-template pTemplate="message" let-message>
-			<div>
-				<p>chouhcou</p>
+<div class="activity-card-container">
+	<p-card>
+		<ng-template pTemplate="header">
+			<div
+				class="btn-admin"
+				*ngIf="connectedUser && connectedUser.id === activity.userId"
+			>
+				<!-- <p-button
+					icon="pi pi-pencil"
+					[rounded]="true"
+					severity="success"
+					[routerLink]="[fullActivityRoute.UPDATE, activity.id]"
+				/> -->
+
+				<!-- <p-button
+					icon="pi pi-trash"
+					[rounded]="true"
+					severity="danger"
+					(click)="onModal()"
+				/> -->
 			</div>
+
+			<img
+				class="card-img"
+				alt="{{ activity.name }}"
+				[src]="
+					activity.imgUrl ? activity.imgUrl : '/assets/photos/no-image.jpg'
+				"
+			/>
 		</ng-template>
-	</p-confirmDialog>
+		<h3>
+			{{ activity.name | truncate: 25 }}
+		</h3>
+		<p-divider />
+		<div class="bottom-content">
+			<div class="bottom-item">
+				<i class="pi pi-calendar"></i>
+				<p>{{ activity.date | date: 'longDate' }}</p>
+			</div>
+
+			<div class="bottom-item">
+				<i class="pi pi-map-marker"></i>
+				<p>{{ activity.activityCity }}</p>
+			</div>
+		</div>
+
+		<p class="clamp-text">
+			{{ activity.description }}
+		</p>
+
+		<ng-template pTemplate="footer">
+			<p-button
+				rounded
+				[routerLink]="[fullActivityRoute.DETAILS, activity.id]"
+				class="btn-register"
+			>
+				Voir Plus
+			</p-button>
+		</ng-template>
+	</p-card>
 </div>
+
+<!-- <app-modal-confirm-delete-activity
+	[activityId]="activity.id"
+	(activityDeleted)="onActivityDeleted($event)"
+></app-modal-confirm-delete-activity> -->
