@@ -4,13 +4,14 @@ import { NewUserUserDetailsFormDatas } from '@shared/models/classes/user-details
 import { UserDetailsPatch } from '@shared/models/classes/user-details/user-details-patch.class';
 import { UserDetailsPersonalInfosForm } from '@shared/models/classes/user-details/user-details-personal-info-form.class';
 import { UserDetails } from '@shared/models/classes/user-details/user-details.class';
+import { environment } from 'environments/environment';
 import { Observable } from 'rxjs';
 
 @Injectable({
 	providedIn: 'root',
 })
 export class UserService {
-	private readonly _BASE_URL = 'http://localhost:3000/user_details';
+	private readonly _BASE_URL = `${environment.apiUrl}/user_details`;
 
 	constructor(private _httpClient: HttpClient) {}
 

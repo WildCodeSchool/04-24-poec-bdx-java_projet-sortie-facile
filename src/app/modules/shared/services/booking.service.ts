@@ -16,14 +16,15 @@ import { AuthUser } from '@shared/models/classes/auth-user/auth-user.class';
 import { BookingListResponseApi } from '@shared/models/classes/booking';
 import { BookingUserActivity } from '@shared/models/classes/booking/booking-user-activity.class';
 import { FullUserRouteEnum } from '@shared/models/enums/routes/full-routes';
+import { environment } from 'environments/environment';
 
 @Injectable({
 	providedIn: 'root',
 })
 export class BookingService {
-	private readonly _BASE_URL = 'http://localhost:3000/booking';
-	private readonly _USER_URL = 'http://localhost:3000/user';
-	private readonly _ACTIVITY_URL = 'http://localhost:3000/activity';
+	private readonly _BASE_URL = `${environment.apiUrl}/booking`;
+	private readonly _USER_URL = `${environment.apiUrl}/user`;
+	private readonly _ACTIVITY_URL = `${environment.apiUrl}/activity`;
 
 	constructor(
 		private http: HttpClient,

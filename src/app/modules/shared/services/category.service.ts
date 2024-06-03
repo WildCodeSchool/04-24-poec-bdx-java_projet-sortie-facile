@@ -2,6 +2,7 @@ import { Activity } from '@activity/models/classes/activity.class';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Category } from '@shared/models/classes/category/category.class';
+import { environment } from 'environments/environment';
 import { Observable, map } from 'rxjs';
 
 @Injectable({
@@ -13,8 +14,8 @@ export class CategoryService {
 	category!: Category;
 	categories!: Category[];
 
-	private readonly _BASE_URL = 'http://localhost:3000/category';
-	private readonly _ACTIVITY_URL = 'http://localhost:3000/activity';
+	private readonly _BASE_URL = `${environment.apiUrl}/category`;
+	private readonly _ACTIVITY_URL = `${environment.apiUrl}/activity`;
 
 	constructor(private _httpClient: HttpClient) {}
 
