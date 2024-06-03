@@ -11,7 +11,7 @@
 
 			<div class="btn-box btn-box-right">
 				<p-button
-					label="Continuez"
+					label="Continuer"
 					icon="pi pi-arrow-right"
 					iconPos="right"
 					(click)="onClick(2); nextCallback.emit()"
@@ -32,15 +32,19 @@
 			</div>
 
 			<div class="btn-box btn-box-between">
-				<app-button-form
-					iconName="arrow-left"
+				<p-button
+					label="Revenir"
+					icon="pi pi-arrow-left"
+					iconPos="left"
 					(click)="onClick(1); prevCallback.emit()"
-				></app-button-form>
+				></p-button>
 
-				<app-button-form
-					iconName="arrow-right"
+				<p-button
+					label="Finir l'inscription"
+					icon="pi pi-arrow-right"
+					iconPos="right"
 					(click)="onRegister()"
-				></app-button-form>
+				></p-button>
 			</div>
 		</ng-template>
 	</p-stepperPanel>
