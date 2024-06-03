@@ -1,5 +1,6 @@
 import { Activity } from '@activity/models/classes/activity.class';
 import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
+import { NavigationEnd, Router } from '@angular/router';
 import { Category } from '@shared/models/classes/category/category.class';
 import { Testimonial } from '@shared/models/classes/testimonial/testimonial.class';
 import { CarouselResponsiveOption } from '@shared/models/classes/utils/carousel-responsive-option.class';
@@ -36,6 +37,7 @@ export class LandingHomeManagementComponent implements OnInit {
 		private _testimonialService: TestimonialService,
 		private scrollService: ScrollService,
 		private _categoryService: CategoryService,
+		private _router: Router,
 	) {}
 
 	ngOnInit(): void {
@@ -43,5 +45,15 @@ export class LandingHomeManagementComponent implements OnInit {
 		this.testimonialList$ = this._testimonialService.getTestimonialList$();
 		this.activityList$ = this._activityService.getActivityList$();
 		this.categoryList$ = this._categoryService.getCategoryList$();
+
+		this._router.events.subscribe(e => {
+			if (e instanceof NavigationEnd) {
+				this.scrollToTop();
+			}
+		});
+	}
+
+	scrollToTop(): void {
+		this.scrollService.scrollToElement(document.body, 500);
 	}
 }
