@@ -158,10 +158,10 @@
 	></app-modal-confirm-reservation>
 </ng-container>
 <ng-container *ngIf="suggestList$ | async as activityList">
-	<app-carousel
+	<app-carousel-activity
 		[activityList]="activityList"
 		[numVisible]="6"
 		[numScroll]="1"
 		[circular]="false"
-	></app-carousel>
+	></app-carousel-activity>
 </ng-container>
