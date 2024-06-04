@@ -1,0 +1,103 @@
+.activity-card-container {
+	padding: 0.7rem;
+	border-radius: 10px;
+	background-color: rgba(103, 11, 255, 0.05);
+	border: none;
+	box-shadow: none;
+	width: 100%;
+	height: 100%;
+}
+
+h3 {
+	color: var(--black-color);
+	margin: 0;
+	margin-top: 1rem;
+}
+
+p {
+	color: var(--black-color);
+	font-size: 1rem;
+	margin: 0;
+	margin-bottom: 1rem;
+	height: 80px;
+	overflow: hidden;
+}
+
+.clamp-text {
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 4;
+	text-overflow: ellipsis;
+}
+
+:host ::ng-deep p-card {
+	.p-card {
+		background-color: transparent;
+		box-shadow: none;
+	}
+
+	.p-card-header {
+		position: relative;
+		display: flex;
+	}
+
+	.p-card-body {
+		padding: 0;
+	}
+
+	.p-card-footer {
+		display: flex;
+	}
+}
+
+:host ::ng-deep .btn-admin {
+	position: absolute;
+	top: 0.35rem;
+	right: 0.35rem;
+	display: flex;
+	gap: 0.5rem;
+
+	.p-button.p-button-icon-only {
+		width: 2rem;
+		height: 2rem;
+	}
+
+	.pi {
+		font-size: 0.85rem;
+	}
+}
+
+.card-img {
+	border-radius: 10px;
+	height: 200px;
+	object-fit: cover;
+}
+
+.bottom-content {
+	display: flex;
+	justify-content: space-between;
+
+	.bottom-item {
+		display: flex;
+		gap: 0.4rem;
+
+		p {
+			height: auto;
+		}
+	}
+
+	p {
+		font-size: 0.85rem;
+	}
+}
+
+:host ::ng-deep .btn-register {
+	width: 100%;
+
+	.p-button.p-button-rounded {
+		display: flex;
+		justify-content: center;
+		width: 100%;
+		text-align: center;
+	}
+}

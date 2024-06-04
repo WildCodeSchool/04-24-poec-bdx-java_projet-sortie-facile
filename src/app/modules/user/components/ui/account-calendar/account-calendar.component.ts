@@ -1,76 +1,80 @@
 import { Component, LOCALE_ID, OnInit } from '@angular/core';
-import { CalendarOptions } from '@fullcalendar/core';
+import {
+	CalendarOptions,
+	EventApi,
+	EventClickArg,
+	EventDropArg,
+} from '@fullcalendar/core';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import timeGridPlugin from '@fullcalendar/timegrid';
-import interactionPlugin, {
-	DateClickArg,
-	Draggable,
-} from '@fullcalendar/interaction';
+import interactionPlugin, { Draggable } from '@fullcalendar/interaction';
 import listPlugin from '@fullcalendar/list';
 import { Activity } from '@activity/models/classes/activity.class';
 import { ActivityService } from '@shared/services/activity.service';
 import { forkJoin } from 'rxjs';
+import { CalendarModalComponent } from '@shared/components/modal/calendar-modal/calendar-modal.component';
+import { DialogService } from 'primeng/dynamicdialog';
 
 @Component({
 	selector: 'app-account-calendar',
 	templateUrl: './account-calendar.component.html',
-	styleUrl: './account-calendar.component.scss',
+	styleUrls: ['./account-calendar.component.scss'],
 	providers: [
 		{ provide: LOCALE_ID, useValue: 'fr' },
 		{ provide: 'FULLCALENDAR_LOCALE', useValue: 'fr' },
 	],
 })
 export class AccountCalendarComponent implements OnInit {
-	constructor(private _activityService: ActivityService) {}
+	events: any[] = [];
+	calendarEl: HTMLElement | null = null;
 
 	calendarOptions: CalendarOptions = {
 		firstDay: 1,
 		locale: 'fr',
-		initialView: 'dayGridMonth', // Initial view should be a single value
+		initialView: 'dayGridMonth',
 		plugins: [dayGridPlugin, interactionPlugin, listPlugin, timeGridPlugin],
 		headerToolbar: {
 			left: 'prev,next today',
 			center: 'title',
-			right: 'dayGridMonth,timeGridWeek,timeGridDay', // Add your desired views here
+			right: 'dayGridMonth,timeGridWeek,timeGridDay',
 		},
 		views: {
 			dayGridMonth: {
-				// Custom view for list day
 				type: 'dayGridMonth',
 				duration: { month: 1 },
 				buttonText: 'Mois',
 			},
 			timeGridWeek: {
-				// Custom view for time grid week
 				type: 'timeGridWeek',
 				duration: { weeks: 1 },
 				buttonText: 'Semaine',
 			},
 			timeGridDay: {
-				// Custom view for time grid day
 				type: 'timeGridDay',
 				duration: { days: 1 },
 				buttonText: 'Jour',
 			},
 		},
 
-		dateClick: (arg: DateClickArg) => this.handleDateClick(arg),
-		events: [
-			{ title: 'event 1', date: '2024-06-01' },
-			{ title: 'event 2', date: '2024-06-02' },
-		],
-		editable: true, // Allow events to be dragged and resized
+		eventClick: (arg: EventClickArg) => this.handleEventClick(arg),
+		eventDrop: (arg: EventDropArg) => this.handleEventDrop(arg),
+
+		editable: true,
 		navLinks: true,
 		buttonText: {
 			today: "Aujourd'hui",
 		},
 	};
 
-	ngOnInit() {
-		const id = '1'; // Remplacez par l'ID de l'utilisateur connecté
-		const limit = 10; // Définissez la limite souhaitée
+	constructor(
+		private _activityService: ActivityService,
+		private dialogService: DialogService,
+	) {}
 
-		// Utilisez forkJoin pour attendre les deux observables
+	ngOnInit() {
+		const id = '1'; // Replace with the ID of the logged-in user
+		const limit = 10; // Set your desired limit
+
 		forkJoin({
 			createdActivities: this._activityService.getActivityListByCreatedUser$(
 				limit,
@@ -82,37 +86,77 @@ export class AccountCalendarComponent implements OnInit {
 			const createdEvents = createdActivities.map(activity => ({
 				title: activity.name,
 				start: activity.date,
-				color: 'blue', // Couleur pour les activités créées
+				color: 'blue',
+				extendedProps: { activity, activityId: activity.id }, // Include activityId here
 			}));
 
 			const participatedEvents = participatedActivities.map(activity => ({
 				title: activity.name,
 				start: activity.date,
-				color: 'green', // Couleur pour les activités auxquelles l'utilisateur participe
+				color: 'green',
+				extendedProps: { activity, activityId: activity.id }, // Include activityId here
 			}));
 
-			this.calendarOptions.events = [...createdEvents, ...participatedEvents];
+			this.events = [...createdEvents, ...participatedEvents];
+
+			this.calendarOptions.events = this.events;
 		});
-	}
 
-	handleDateClick(arg: DateClickArg) {
-		const clickedDate = arg.dateStr;
-		// this.calendarOptions.initialDate = clickedDate; // Set the initial date to the clicked date
-		// this.calendarOptions.initialView = 'timeGridDay'; // Change the view to day view
-		alert('date click! ' + arg.dateStr);
-	}
-
-	// eslint-disable-next-line @angular-eslint/use-lifecycle-interface
-	ngAfterViewInit() {
-		const draggableEl = document.getElementById('draggable-el');
-
-		if (draggableEl) {
-			new Draggable(draggableEl, {
-				eventData: {
-					title: 'Draggable Event',
-					duration: '02:00',
+		this.calendarEl = document.getElementById('calendar');
+		if (this.calendarEl) {
+			new Draggable(this.calendarEl, {
+				itemSelector: '.fc-event',
+				eventData: eventEl => {
+					const eventTitle = eventEl.innerText.trim();
+					return {
+						title: eventTitle,
+						duration: '02:00',
+					};
 				},
 			});
 		}
+	}
+
+	handleEventClick(arg: EventClickArg) {
+		const event = arg.event;
+
+		if (event && event.extendedProps && event.extendedProps['activity']) {
+			this.openModal(event.extendedProps['activity']);
+		} else {
+			alert('No activity found for this date: ' + event);
+		}
+	}
+
+	openModal(activity: Activity) {
+		const ref = this.dialogService.open(CalendarModalComponent, {
+			data: {
+				activity: activity,
+			},
+			header: 'Details',
+			width: '30%',
+		});
+	}
+
+	handleEventDrop(arg: EventDropArg) {
+		const event: EventApi = arg.event;
+		if (!event.start) {
+			console.error('Event start date is null');
+			return;
+		}
+
+		const newDate = event.start.toISOString();
+		const activityId = event.extendedProps['activityId'];
+
+		this._activityService
+			.updateActivity$(activityId, { date: newDate })
+			.subscribe(
+				(updatedActivity: Activity) => {
+					console.log('Activity updated successfully:', updatedActivity);
+				},
+				error => {
+					console.error('Error updating activity:', error);
+					arg.revert();
+				},
+			);
 	}
 }
