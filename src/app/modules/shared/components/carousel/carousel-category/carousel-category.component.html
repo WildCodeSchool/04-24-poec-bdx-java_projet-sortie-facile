@@ -1,0 +1,18 @@
+<p-carousel
+	[value]="categoryList"
+	[numVisible]="numVisible"
+	[numScroll]="numScroll"
+	[circular]="circular"
+	[responsiveOptions]="responsiveOptions"
+>
+	<ng-template let-category pTemplate="item">
+		<app-card-activity-small
+			[imgSrc]="
+				'http://localhost:4200/assets/photos/category/' + category.imgUrl
+			"
+			imgAlt=""
+			[name]="category.name"
+		></app-card-activity-small>
+		<h4 class="card-title">{{ category.name }}</h4>
+	</ng-template>
+</p-carousel>

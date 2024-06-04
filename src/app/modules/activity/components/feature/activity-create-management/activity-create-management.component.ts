@@ -26,7 +26,7 @@ export class ActivityCreateManagementComponent implements OnDestroy {
 		'',
 		'',
 		0,
-		new Category('1', ''),
+		new Category('', '', ''),
 		'',
 		'',
 		true,

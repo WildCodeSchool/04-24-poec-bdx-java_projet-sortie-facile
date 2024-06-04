@@ -1,0 +1,16 @@
+<p-carousel
+	[value]="activityList"
+	[numVisible]="numVisible"
+	[numScroll]="numScroll"
+	[circular]="circular"
+	[responsiveOptions]="responsiveOptions"
+>
+	<ng-template let-activity pTemplate="item">
+		<app-card-activity-small
+			[imgSrc]="activity.imgUrl"
+			imgAlt=""
+			[name]="activity.name"
+			[routerLink]="[fullActivityRoute.DETAILS, activity.id]"
+		></app-card-activity-small>
+	</ng-template>
+</p-carousel>

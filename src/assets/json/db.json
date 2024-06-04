@@ -89,6 +89,16 @@
       "role": "user",
       "status": "active",
       "userDetailsId": "f496"
+    },
+    {
+      "id": "243f",
+      "username": "bob-l-eponge",
+      "email": "bob-leqponge@medoc.fr",
+      "password": "123456789",
+      "passwordConfirm": "123456789",
+      "role": "user",
+      "status": "active",
+      "userDetailsId": "d0a9"
     }
   ],
   "user_details": [
@@ -365,48 +375,82 @@
       "genre": "masculin",
       "categoryIds": [],
       "userId": "7d83"
+    },
+    {
+      "id": "d0a9",
+      "firstname": "bob",
+      "lastname": "l'éponge",
+      "streetNumber": "5",
+      "street": "2",
+      "region": "",
+      "postalCode": 33000,
+      "description": "Tart cheesecake marshmallow chupa chups muffin topping. Dessert dragée topping tootsie roll marshmallow toffee gingerbread sesame snaps. Sugar plum danish pastry bonbon donut gingerbread cake. Cookie jelly tiramisu jelly-o cake cake topping tootsie roll topping. Tiramisu cupcake danish cake soufflé sugar plum gummi bears sweet. Tiramisu fruitcake icing tart danish.",
+      "department": {
+        "id": "3",
+        "name": "Gironde"
+      },
+      "city": {
+        "id": "3",
+        "name": "Bordeaux"
+      },
+      "avatar": "",
+      "phone": "01-34-45-57-68",
+      "dateOfBirth": "26/12/1999",
+      "genre": "masculin",
+      "categoryIds": [],
+      "userId": "243f"
     }
   ],
   "category": [
     {
       "id": "1",
-      "name": "Sport"
+      "name": "Sport",
+      "imgUrl": "category-sport.svg"
     },
     {
       "id": "2",
-      "name": "Musique"
+      "name": "Musique",
+      "imgUrl": "category-art.svg"
     },
     {
       "id": "3",
-      "name": "Cinéma"
+      "name": "Cinéma",
+      "imgUrl": "category-cinema.svg"
     },
     {
       "id": "4",
-      "name": "Voyage"
+      "name": "Voyage",
+      "imgUrl": "category-travel.svg"
     },
     {
       "id": "5",
-      "name": "Cuisine"
+      "name": "Cuisine",
+      "imgUrl": "category-cuisine.svg"
     },
     {
       "id": "6",
-      "name": "Art"
+      "name": "Art",
+      "imgUrl": "category-art.svg"
     },
     {
       "id": "7",
-      "name": "Science"
+      "name": "Science",
+      "imgUrl": "category-science.svg"
     },
     {
       "id": "8",
-      "name": "Technologie"
+      "name": "Technologie",
+      "imgUrl": "category-technology.svg"
     },
     {
       "id": "9",
-      "name": "Literature"
+      "name": "Literature",
+      "imgUrl": "category-litterature.svg"
     },
     {
       "id": "10",
-      "name": "Histoire"
+      "name": "Histoire",
+      "imgUrl": "category-history.svg"
     }
   ],
   "booking": [
@@ -1517,21 +1561,42 @@
       "id": "1",
       "user": "John Smith",
       "title": "Super appllication",
-      "message": " Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed maximus, ex non pharetra pellentesque, quam elit tempor dolor, id volutpat lacus justo eu urna. Vivamus tempor laoreet nibh. Vivamus sodales justo enim, eu venenatis mi imperdiet facilisis. Curabitur enim urna, elementum sed dapibus quis, pellentesque a massa. Sed a interdum turpis, sit amet laoreet ante. Fusce ullamcorper ullamcorper massa eu elementum. In hac habitasse platea dictumst.",
+      "message": " Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed maximus, ex non pharetra pellentesque, quam elit tempor dolor, id volutpat lacus justo eu urna. Vivamus tempor laoreet nibh. Vivamus sodales justo enim, eu venenatis mi imperdiet facilisis. Curabitur enim urna, elementum sed dapibus quis, pellentesque a massa.",
       "note": 5
     },
     {
       "id": "2",
       "user": "John Doe",
       "title": "Super appllication",
-      "message": " Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed maximus, ex non pharetra pellentesque, quam elit tempor dolor, id volutpat lacus justo eu urna. Vivamus tempor laoreet nibh. Vivamus sodales justo enim, eu venenatis mi imperdiet facilisis. Curabitur enim urna, elementum sed dapibus quis, pellentesque a massa. Sed a interdum turpis, sit amet laoreet ante. Fusce ullamcorper ullamcorper massa eu elementum. In hac habitasse platea dictumst.",
+      "message": " Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed maximus, ex non pharetra pellentesque, quam elit tempor dolor, id volutpat lacus justo eu urna. Vivamus tempor laoreet nibh. Vivamus sodales justo enim, eu venenatis mi imperdiet facilisis. Curabitur enim urna, elementum sed dapibus quis, pellentesque a massa.",
       "note": 5
     },
     {
       "id": "3",
       "user": "Lady Gaga",
       "title": "Super appllication",
-      "message": " Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed maximus, ex non pharetra pellentesque, quam elit tempor dolor, id volutpat lacus justo eu urna. Vivamus tempor laoreet nibh. Vivamus sodales justo enim, eu venenatis mi imperdiet facilisis. Curabitur enim urna, elementum sed dapibus quis, pellentesque a massa. Sed a interdum turpis, sit amet laoreet ante. Fusce ullamcorper ullamcorper massa eu elementum. In hac habitasse platea dictumst.",
+      "message": " Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed maximus, ex non pharetra pellentesque, quam elit tempor dolor, id volutpat lacus justo eu urna. Vivamus tempor laoreet nibh. Vivamus sodales justo enim, eu venenatis mi imperdiet facilisis. Curabitur enim urna, elementum sed dapibus quis, pellentesque a massa.",
+      "note": 5
+    },
+    {
+      "id": "4",
+      "user": "Donald",
+      "title": "Super appllication",
+      "message": " Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed maximus, ex non pharetra pellentesque, quam elit tempor dolor, id volutpat lacus justo eu urna. Vivamus tempor laoreet nibh. Vivamus sodales justo enim, eu venenatis mi imperdiet facilisis. Curabitur enim urna, elementum sed dapibus quis, pellentesque a massa.",
+      "note": 5
+    },
+    {
+      "id": "5",
+      "user": "Ben & nuts",
+      "title": "Super appllication",
+      "message": " Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed maximus, ex non pharetra pellentesque, quam elit tempor dolor, id volutpat lacus justo eu urna. Vivamus tempor laoreet nibh. Vivamus sodales justo enim, eu venenatis mi imperdiet facilisis. Curabitur enim urna, elementum sed dapibus quis, pellentesque a massa.",
+      "note": 5
+    },
+    {
+      "id": "6",
+      "user": "Haggen Daz",
+      "title": "Super appllication",
+      "message": " Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed maximus, ex non pharetra pellentesque, quam elit tempor dolor, id volutpat lacus justo eu urna. Vivamus tempor laoreet nibh. Vivamus sodales justo enim, eu venenatis mi imperdiet facilisis. Curabitur enim urna, elementum sed dapibus quis, pellentesque a massa.",
       "note": 5
     }
   ]

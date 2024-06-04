@@ -37,7 +37,7 @@ export class ActivityUpdateManagementComponent implements OnInit, OnDestroy {
 		'',
 		'',
 		0,
-		new Category('0', ''),
+		new Category('0', '', ''),
 		'',
 		'',
 		true,
