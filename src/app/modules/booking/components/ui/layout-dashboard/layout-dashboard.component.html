@@ -1,10 +1,14 @@
 <div class="layout-dashboard">
 	<div class="container-layout-dashboard">
 		<h1>DASHBOARD</h1>
-		<p-button rounded>Graph</p-button>
-		<p-button rounded>Calendrier</p-button>
-		<p-button rounded>Mail</p-button>
-		<p-button rounded>Data</p-button>
+		<p-button [routerLink]="[fullBookingRouteEnum.GRAPH]" rounded
+			>Graph</p-button
+		>
+		<p-button [routerLink]="[fullBookingRouteEnum.DATA]" rounded
+			>Calendrier</p-button
+		>
+		<p-button [routerLink]="[fullBookingRouteEnum.MAIL]" rounded>Mail</p-button>
+		<p-button [routerLink]="[fullBookingRouteEnum.HOME]" rounded>Data</p-button>
 	</div>
 	<div class="account-primary-content">
 		<ng-content></ng-content>
