@@ -86,7 +86,19 @@
 		<div class="primary-box">
 			<p-card>
 				<ng-template pTemplate="title">
+					<p-button
+						label="Activité précédente"
+						[rounded]="true"
+						[outlined]="true"
+					/>
+
 					<h1 class="activity-title">{{ activity.name }}</h1>
+
+					<p-button
+						label="Activité suivante"
+						[rounded]="true"
+						[outlined]="true"
+					/>
 				</ng-template>
 				<ng-template pTemplate="header">
 					<div class="btn-admin">
@@ -128,23 +140,11 @@
 				<ng-template pTemplate="footer">
 					<div class="btns-box">
 						<p-button
-							label="Activité précédente"
-							[rounded]="true"
-							[outlined]="true"
-						/>
-
-						<p-button
 							[raised]="true"
 							rounded
 							(click)="onModal()"
 							[label]="!hasBooking ? 'S\'inscrire' : 'Se désinscrire'"
 						></p-button>
-
-						<p-button
-							label="Activité suivante"
-							[rounded]="true"
-							[outlined]="true"
-						/>
 					</div>
 				</ng-template>
 			</p-card>
@@ -156,4 +156,12 @@
 		[activityId]="activity.id"
 		[hasBooking]="hasBooking"
 	></app-modal-confirm-reservation>
+</ng-container>
+<ng-container *ngIf="suggestList$ | async as activityList">
+	<app-carousel
+		[activityList]="activityList"
+		[numVisible]="6"
+		[numScroll]="1"
+		[circular]="false"
+	></app-carousel>
 </ng-container>

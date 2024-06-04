@@ -1,49 +1,51 @@
-<div class="">
-	<p-stepper>
-		<p-stepperPanel header="Étape 1">
-			<ng-template
-				pTemplate="content"
-				let-nextCallback="nextCallback"
-				let-index="index"
-			>
-				<div>
-					<ng-content select="[firstStep]"></ng-content>
-				</div>
+<p-stepper>
+	<p-stepperPanel header="Étape 1">
+		<ng-template
+			pTemplate="content"
+			let-nextCallback="nextCallback"
+			let-index="index"
+		>
+			<div>
+				<ng-content select="[firstStep]"></ng-content>
+			</div>
 
-				<div class="btn-box btn-box-right">
-					<p-button
-						label="Continuez"
-						icon="pi pi-arrow-right"
-						iconPos="right"
-						(click)="onClick(2); nextCallback.emit()"
-					></p-button>
-				</div>
-			</ng-template>
-		</p-stepperPanel>
+			<div class="btn-box btn-box-right">
+				<p-button
+					label="Continuer"
+					icon="pi pi-arrow-right"
+					iconPos="right"
+					(click)="onClick(2); nextCallback.emit()"
+				></p-button>
+			</div>
+		</ng-template>
+	</p-stepperPanel>
 
-		<p-stepperPanel header="Étape 2">
-			<ng-template
-				pTemplate="content"
-				let-prevCallback="prevCallback"
-				let-nextCallback="nextCallback"
-				let-index="index"
-			>
-				<div>
-					<ng-content select="[secondStep]"></ng-content>
-				</div>
+	<p-stepperPanel header="Étape 2">
+		<ng-template
+			pTemplate="content"
+			let-prevCallback="prevCallback"
+			let-nextCallback="nextCallback"
+			let-index="index"
+		>
+			<div>
+				<ng-content select="[secondStep]"></ng-content>
+			</div>
 
-				<div class="btn-box btn-box-between">
-					<app-button-form
-						iconName="arrow-left"
-						(click)="onClick(1); prevCallback.emit()"
-					></app-button-form>
+			<div class="btn-box btn-box-between">
+				<p-button
+					label="Revenir"
+					icon="pi pi-arrow-left"
+					iconPos="left"
+					(click)="onClick(1); prevCallback.emit()"
+				></p-button>
 
-					<app-button-form
-						iconName="arrow-right"
-						(click)="onRegister()"
-					></app-button-form>
-				</div>
-			</ng-template>
-		</p-stepperPanel>
-	</p-stepper>
-</div>
+				<p-button
+					label="Finir l'inscription"
+					icon="pi pi-arrow-right"
+					iconPos="right"
+					(click)="onRegister()"
+				></p-button>
+			</div>
+		</ng-template>
+	</p-stepperPanel>
+</p-stepper>

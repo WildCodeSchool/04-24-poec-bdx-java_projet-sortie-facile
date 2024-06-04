@@ -1,0 +1,18 @@
+<p-carousel
+	[value]="testimonialList"
+	[numVisible]="numVisible"
+	[numScroll]="numScroll"
+	[circular]="circular"
+	[responsiveOptions]="responsiveOptions"
+>
+	<ng-template let-testimonial pTemplate="item">
+		<div class="item-box">
+			<app-card-testimonial
+				[title]="testimonial.title"
+				[message]="testimonial.message"
+				[note]="testimonial.note"
+				[user]="testimonial.user"
+			></app-card-testimonial>
+		</div>
+	</ng-template>
+</p-carousel>

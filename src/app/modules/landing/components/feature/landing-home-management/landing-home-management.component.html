@@ -94,7 +94,7 @@
             cake jelly-o chocolate bar jelly-o halvah toffee chocolate bar."
 					ctaPrimarylabel="Rejoignez nous !"
 					ctaSecondarylabel="Se connecter"
-					imgSrc="assets/photos/activity-participate.svg"
+					imgSrc="assets/photos/home-2.jpg"
 					imgLabel=""
 				></app-card-landing-large>
 			</div>
@@ -109,13 +109,15 @@
 			</div>
 
 			<div class="section-content">
-				<app-carousel
-					[activityList]="activityList"
-					[numVisible]="6"
-					[numScroll]="1"
-					[circular]="false"
-					[responsiveOptions]="responsiveOptions"
-				></app-carousel>
+				<ng-container *ngIf="activityList$ | async as activityList">
+					<app-carousel-activity
+						[activityList]="activityList"
+						[numVisible]="6"
+						[numScroll]="1"
+						[circular]="false"
+						[responsiveOptions]="responsiveOptions"
+					></app-carousel-activity>
+				</ng-container>
 			</div>
 		</div>
 	</section>
@@ -128,13 +130,15 @@
 			</div>
 
 			<div class="section-content">
-				<app-carousel
-					[activityList]="activityList"
-					[numVisible]="6"
-					[numScroll]="1"
-					[circular]="false"
-					[responsiveOptions]="responsiveOptions"
-				></app-carousel>
+				<ng-container *ngIf="categoryList$ | async as categoryList">
+					<app-carousel-category
+						[categoryList]="categoryList"
+						[numVisible]="6"
+						[numScroll]="1"
+						[circular]="false"
+						[responsiveOptions]="responsiveOptions"
+					></app-carousel-category>
+				</ng-container>
 			</div>
 		</div>
 	</section>
@@ -148,14 +152,14 @@
 
 			<div class="section-content">
 				<ng-container *ngIf="testimonialList$ | async as testimonialList">
-					<ng-container *ngFor="let testimonial of testimonialList">
-						<app-card-testimonial
-							[title]="testimonial.title"
-							[message]="testimonial.message"
-							[note]="testimonial.note"
-							[user]="testimonial.user"
-						></app-card-testimonial>
-					</ng-container>
+					<app-carousel-testimonial
+						[testimonialList]="testimonialList"
+						[numVisible]="3"
+						[numScroll]="1"
+						[circular]="false"
+						[responsiveOptions]="responsiveOptions"
+					>
+					</app-carousel-testimonial>
 				</ng-container>
 			</div>
 		</div>
@@ -191,13 +195,13 @@
 </div>
 <h2>Activités les plus populaires</h2>
 <div class="content-box" data>
-	<app-carousel
+	<app-carousel-activity
 		[activityList]="activityList"
 		[numVisible]="6"
 		[numScroll]="1"
 		[circular]="false"
 		[responsiveOptions]="responsiveOptions"
-	></app-carousel>
+	></app-carousel-activity>
 </div>
 
 <div class="functioning">
@@ -218,12 +222,12 @@
 <h2>Dernières places à saisir !</h2>
 
 <div class="content-box" data>
-	<app-carousel
+	<app-carousel-activity
 		[activityList]="activityList"
 		[numVisible]="6"
 		[numScroll]="1"
 		[circular]="false"
-	></app-carousel>
+	></app-carousel-activity>
 </div>
 <h3>Découvrir les activités</h3>
 <div class="discover-box">
