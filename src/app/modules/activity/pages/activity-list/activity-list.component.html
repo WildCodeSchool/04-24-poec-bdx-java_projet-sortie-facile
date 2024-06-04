@@ -43,9 +43,13 @@
 			<app-select-region></app-select-region>
 			<label for="">City</label>
 			<app-select-city></app-select-city>
-			<!-- <p-button Style="margin-top: 10px;" [raised]="true" rounded
+			<p-button
+				(click)="onResetFilters()"
+				Style="margin-top: 10px;"
+				[raised]="true"
+				rounded
 				>Réinitialiser</p-button
-			> -->
+			>
 		</div>
 	</div>
 

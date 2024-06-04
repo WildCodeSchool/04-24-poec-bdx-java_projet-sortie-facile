@@ -1,4 +1,19 @@
-<app-header></app-header>
+<app-header *ngIf="showHeader"></app-header>
 <app-scroll-to-top></app-scroll-to-top>
-<router-outlet></router-outlet>
+
+<div
+	*ngIf="showHeader"
+	class="content-container"
+	[ngStyle]="{
+		'padding-top': showHeader ? '85px' : '0px'
+	}"
+>
+	<div class="content-box">
+		<div class="white-block">
+			<router-outlet></router-outlet>
+		</div>
+	</div>
+</div>
+
+<router-outlet *ngIf="!showHeader"></router-outlet>
 <app-footer></app-footer>

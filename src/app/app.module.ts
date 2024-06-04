@@ -1,4 +1,4 @@
-import { LOCALE_ID, NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, LOCALE_ID, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -13,6 +13,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { MentionLegalesComponent } from './mention-legales/mention-legales.component';
 import { registerLocaleData } from '@angular/common';
 import localeFr from '@angular/common/locales/fr';
+import { DialogService } from 'primeng/dynamicdialog';
 
 registerLocaleData(localeFr, 'fr');
 
@@ -33,7 +34,8 @@ registerLocaleData(localeFr, 'fr');
 		SharedModule,
 		FormsModule,
 	],
-	providers: [{ provide: LOCALE_ID, useValue: 'fr' }],
+	providers: [{ provide: LOCALE_ID, useValue: 'fr' }, DialogService],
 	bootstrap: [AppComponent],
+	schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class AppModule {}

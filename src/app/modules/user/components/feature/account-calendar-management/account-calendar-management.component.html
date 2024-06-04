@@ -1,0 +1,16 @@
+<div class="container">
+	<app-account-layout
+		[avatarSrc]="avatarSrc"
+		[avatarAlt]="avatarAlt"
+		[username]="connectedUser.username"
+		[pageTitle]="pageTitle"
+		[pageDescription]="pageDescription"
+	>
+		<app-account-container-content
+			sectionTitle="Mon calendrier"
+			[hideBtn]="true"
+		>
+			<app-account-calendar data></app-account-calendar>
+		</app-account-container-content>
+	</app-account-layout>
+</div>

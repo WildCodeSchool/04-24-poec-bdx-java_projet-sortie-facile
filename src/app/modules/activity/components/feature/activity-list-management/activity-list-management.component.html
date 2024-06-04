@@ -1,19 +1,21 @@
 <div class="activities-top">
-	<p-button
-		icon="pi pi-times"
-		[rounded]="true"
-		[outlined]="true"
-		(click)="onResetFilters()"
-		styleClass="reset-filter-btn"
-	/>
+	<div class="btn-left">
+		<p-button
+			icon="pi pi-times"
+			[rounded]="true"
+			[outlined]="true"
+			(click)="onResetFilters()"
+			styleClass="reset-filter-btn"
+		/>
 
-	<p-button
-		icon="pi pi-filter-fill"
-		[rounded]="true"
-		[outlined]="true"
-		(click)="onChangeShowFilterInMobile()"
-		styleClass="show-filter-btn"
-	/>
+		<p-button
+			icon="pi pi-filter-fill"
+			[rounded]="true"
+			[outlined]="true"
+			(click)="onChangeShowFilterInMobile()"
+			styleClass="show-filter-btn"
+		/>
+	</div>
 
 	<p-button
 		[raised]="true"
@@ -46,14 +48,8 @@
 	(rowsChange)="onRowsChange($event)"
 ></app-pagination>
 
-<p-messages severity="error" *ngIf="!pagedActivities.length">
-	<ng-template pTemplate>
-		<div class="message-content">
-			<i class="pi pi-times"></i>
-			<p>
-				Votre recherche n'a retourné aucun résultat. Veuillez essayer avec
-				d'autres filtres ou critères.
-			</p>
-		</div>
-	</ng-template>
-</p-messages>
+<app-alert
+	message="Votre recherche n'a retourné aucun résultat. Veuillez essayer avec d'autres filtres ou critères."
+	icon="pi pi-times"
+	[error]="!pagedActivities.length"
+></app-alert>

@@ -7,6 +7,9 @@ import { Activity } from '@activity/models/classes/activity.class';
 import { ActivityListResponseApi } from '@shared/models/classes/activity';
 import { Category } from '@shared/models/classes/category/category.class';
 import { FullActivityRouteEnum } from '@shared/models/enums/routes/full-routes';
+import { BookingService } from './booking.service';
+import { BookingUserActivity } from '@shared/models/classes/booking/booking-user-activity.class';
+import { environment } from 'environments/environment';
 
 @Injectable({
 	providedIn: 'root',
@@ -18,11 +21,12 @@ export class ActivityService {
 	categories!: Category[];
 	department!: Department;
 
-	private readonly _BASE_URL = 'http://localhost:3000/activity';
+	private readonly _BASE_URL = `${environment.apiUrl}/activity`;
 
 	constructor(
 		private _httpClient: HttpClient,
 		private _router: Router,
+		private _bookingService: BookingService,
 	) {}
 
 	getActivityList$(): Observable<ActivityListResponseApi> {
@@ -44,18 +48,29 @@ export class ActivityService {
 
 	getActivityListByCreatedUser$(
 		limit: number = -1,
-		id: string,
+		userId: string,
 	): Observable<ActivityListResponseApi> {
 		return this._httpClient.get<ActivityListResponseApi>(this._BASE_URL).pipe(
-			map((activities: ActivityListResponseApi) => {
-				const filteredActivities: ActivityListResponseApi = activities.filter(
-					activity => activity.userId === id,
-				);
+			map((activities: ActivityListResponseApi) =>
+				activities.filter(activity => activity.userId === userId).reverse(),
+			),
+			map((activities: ActivityListResponseApi) =>
+				limit > 0 ? activities.slice(0, limit) : activities,
+			),
+		);
+	}
 
-				return limit > 0
-					? filteredActivities.slice(0, limit)
-					: filteredActivities;
-			}),
+	getListOfActivitiesRegisteredByUser$(
+		limit: number = -1,
+		userId: string,
+	): Observable<Activity[]> {
+		return this._bookingService.getBookingListByUser$(userId).pipe(
+			map((bookingList: BookingUserActivity[]) =>
+				bookingList.map(booking => booking.activity as Activity).reverse(),
+			),
+			map((activityList: Activity[]) =>
+				limit > 0 ? activityList.slice(0, limit) : activityList,
+			),
 		);
 	}
 

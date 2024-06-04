@@ -1,5 +1,5 @@
-<div class="activity-card-container">
-	<ng-container *ngIf="activity$ | async as activity">
+<ng-container *ngIf="activity$ | async as activity">
+	<div class="activity-card-container">
 		<div class="secondary-box">
 			<div class="infos-container activity-informations">
 				<h3>Infos pratiques</h3>
@@ -27,7 +27,10 @@
 				</div>
 
 				<div class="btn-box">
-					<app-button-ultra-wilde label="S'incrire" (click)="onModal()">
+					<app-button-ultra-wilde
+						[label]="!hasBooking ? 'S\'inscrire' : 'Se désinscrire'"
+						(click)="onModal()"
+					>
 					</app-button-ultra-wilde>
 				</div>
 			</div>
@@ -83,7 +86,19 @@
 		<div class="primary-box">
 			<p-card>
 				<ng-template pTemplate="title">
+					<p-button
+						label="Activité précédente"
+						[rounded]="true"
+						[outlined]="true"
+					/>
+
 					<h1 class="activity-title">{{ activity.name }}</h1>
+
+					<p-button
+						label="Activité suivante"
+						[rounded]="true"
+						[outlined]="true"
+					/>
 				</ng-template>
 				<ng-template pTemplate="header">
 					<div class="btn-admin">
@@ -125,30 +140,28 @@
 				<ng-template pTemplate="footer">
 					<div class="btns-box">
 						<p-button
-							label="Activité précédente"
-							[rounded]="true"
-							[outlined]="true"
-						/>
-
-						<p-button
 							[raised]="true"
 							rounded
 							(click)="onModal()"
-							label="S'incrire"
+							[label]="!hasBooking ? 'S\'inscrire' : 'Se désinscrire'"
 						></p-button>
-
-						<p-button
-							label="Activité suivante"
-							[rounded]="true"
-							[outlined]="true"
-						/>
 					</div>
 				</ng-template>
 			</p-card>
 		</div>
-	</ng-container>
-</div>
+	</div>
 
-<app-modal-confirm-reservation
-	[myForm]="myForm"
-></app-modal-confirm-reservation>
+	<app-modal-confirm-reservation
+		[userId]="connectedUser.id"
+		[activityId]="activity.id"
+		[hasBooking]="hasBooking"
+	></app-modal-confirm-reservation>
+</ng-container>
+<ng-container *ngIf="suggestList$ | async as activityList">
+	<app-carousel-activity
+		[activityList]="activityList"
+		[numVisible]="6"
+		[numScroll]="1"
+		[circular]="false"
+	></app-carousel-activity>
+</ng-container>

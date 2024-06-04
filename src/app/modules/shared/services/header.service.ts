@@ -1,42 +1,42 @@
 import { Injectable } from '@angular/core';
 import { MenuItem } from 'primeng/api';
 import { AuthService } from './auth.service';
-import { Observable, combineLatest, map, of, switchMap } from 'rxjs';
+import { Observable, combineLatest, of, switchMap } from 'rxjs';
 import {
 	FullActivityRouteEnum,
 	FullAuthenticationRouteEnum,
 	FullBookingRouteEnum,
 	FullUserRouteEnum,
 } from '@shared/models/enums/routes/full-routes';
+import { AuthUserPrimaryDatas } from '@shared/models/classes/auth-user/auth-user-primary-datas.class';
+import { UserRoleEnum } from '@shared/models/enums/user-role.enum';
 
 @Injectable({
 	providedIn: 'root',
 })
 export class HeaderService {
 	private _primaryItems$!: Observable<MenuItem[]>;
-	private _connectedItems$!: Observable<MenuItem[]>;
+	private _adminItems$!: Observable<MenuItem[]>;
+	private _userItems$!: Observable<MenuItem[]>;
 	private _notConnectedItems$!: Observable<MenuItem[]>;
 
 	constructor(private _authService: AuthService) {
 		this._primaryItems$ = of([
 			{
 				label: 'Accueil',
-				icon: 'pi pi-home',
 				routerLink: '/',
 			},
 			{
 				label: 'Contact',
-				icon: 'pi pi-fw pi-pencil',
 				routerLink: '/contact',
 			},
 			{
 				label: 'Activités',
-				icon: 'pi pi-shopping-cart',
 				routerLink: FullActivityRouteEnum.HOME,
 			},
 		]);
 
-		this._connectedItems$ = of([
+		this._adminItems$ = of([
 			{
 				label: 'Mon Compte',
 				icon: 'pi pi-fw pi-user',
@@ -60,7 +60,7 @@ export class HeaderService {
 						routerLink: FullBookingRouteEnum.GRAPH,
 					},
 					{
-						label: 'Mail ',
+						label: 'Mail',
 						icon: 'pi pi-envelope',
 						routerLink: FullBookingRouteEnum.MAIL,
 					},
@@ -75,6 +75,19 @@ export class HeaderService {
 						routerLink: FullBookingRouteEnum.HOME,
 					},
 				],
+			},
+		]);
+
+		this._userItems$ = of([
+			{
+				label: 'Mon Compte',
+				icon: 'pi pi-fw pi-user',
+				routerLink: FullUserRouteEnum.HOME,
+			},
+			{
+				label: 'Déconnexion',
+				icon: 'pi pi-power-off',
+				command: () => this._authService.logout(),
 			},
 		]);
 
@@ -93,10 +106,17 @@ export class HeaderService {
 	}
 
 	public getIsLoggedInItems$(): Observable<MenuItem[]> {
-		return this._authService.isLoggedIn.pipe(
-			switchMap((loggedIn: boolean) => {
+		return combineLatest([
+			this._authService.isLoggedIn,
+			this._authService.getConnectedUserObservable(),
+		]).pipe(
+			switchMap(([loggedIn, user]: [boolean, AuthUserPrimaryDatas]) => {
 				if (loggedIn) {
-					return this._connectedItems$;
+					if (user.role === UserRoleEnum.ADMIN) {
+						return this._combineHeaderItems$(this._adminItems$);
+					} else {
+						return this._combineHeaderItems$(this._userItems$);
+					}
 				} else {
 					return this._notConnectedItems$;
 				}
@@ -109,11 +129,8 @@ export class HeaderService {
 	}
 
 	private _combineHeaderItems$(
-		primaryItems: Observable<MenuItem[]>,
 		secondaryItems: Observable<MenuItem[]>,
 	): Observable<MenuItem[]> {
-		return combineLatest([primaryItems, secondaryItems]).pipe(
-			map(([a, b]) => [...a, ...b]),
-		);
+		return secondaryItems;
 	}
 }

@@ -1,10 +1,8 @@
-import { Component, Input } from '@angular/core';
-import { NgForm } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Component, Input, OnDestroy } from '@angular/core';
 import { AbstractModal } from '@shared/models/classes/components/absctract-modal.class';
-import { FullUserRouteEnum } from '@shared/models/enums/routes/full-routes';
 import { BookingService } from '@shared/services/booking.service';
 import { ConfirmationService, MessageService } from 'primeng/api';
+import { Subscription } from 'rxjs';
 
 @Component({
 	selector: 'app-modal-confirm-reservation',
@@ -12,23 +10,31 @@ import { ConfirmationService, MessageService } from 'primeng/api';
 	styleUrl: './modal-confirm-reservation.component.scss',
 	providers: [ConfirmationService, MessageService],
 })
-export class ModalConfirmReservationComponent extends AbstractModal {
-	@Input() myForm: NgForm;
+export class ModalConfirmReservationComponent
+	extends AbstractModal
+	implements OnDestroy
+{
+	@Input() userId!: string;
+	@Input() activityId!: string;
+	@Input() hasBooking!: boolean;
+
+	private _addBookingSubscription: Subscription = new Subscription();
+	private _deleteBookingSubscription: Subscription = new Subscription();
 
 	constructor(
 		private confirmationService: ConfirmationService,
 		private messageService: MessageService,
 		private bookingService: BookingService,
-		private router: Router,
 	) {
 		super();
-		this.myForm = {} as NgForm;
 	}
 
 	public override onSubmit() {
 		this.confirmationService.confirm({
 			header: 'Confirmation',
-			message: 'Comfirmer votre inscription',
+			message: this.hasBooking
+				? 'Comfirmer votre désinscription à cette activité'
+				: 'Confirmer votre inscription',
 			acceptLabel: 'Oui',
 			rejectLabel: 'Non',
 			accept: () => this.onAccept(),
@@ -37,16 +43,7 @@ export class ModalConfirmReservationComponent extends AbstractModal {
 	}
 
 	protected override onAccept(): void {
-		this.bookingService.onSubmit(this.myForm);
-		this.messageService.add({
-			severity: 'info',
-			summary: 'Inscrit',
-			detail: 'Votre inscription a bien été prise en compte',
-			life: 3000,
-		});
-		setTimeout(() => {
-			this.router.navigateByUrl(FullUserRouteEnum.PROFILE);
-		}, 3000);
+		this.hasBooking ? this.deleteNewBooking() : this.postNewBooking();
 	}
 
 	protected override onReject(): void {
@@ -59,4 +56,39 @@ export class ModalConfirmReservationComponent extends AbstractModal {
 	}
 
 	protected override onError() {}
+
+	private postNewBooking(): void {
+		this._addBookingSubscription.add(
+			this.bookingService
+				.postNewBooking$(this.userId, this.activityId)
+				.subscribe(() => {
+					this.messageService.add({
+						severity: 'info',
+						summary: 'Inscrit',
+						detail: 'Votre inscription a bien été prise en compte',
+						life: 3000,
+					});
+				}),
+		);
+	}
+
+	private deleteNewBooking(): void {
+		this._deleteBookingSubscription.add(
+			this.bookingService
+				.deleteBookingById$(this.userId, this.activityId)
+				.subscribe(() => {
+					this.messageService.add({
+						severity: 'info',
+						summary: 'Désinscrit',
+						detail: 'Votre désinscription a bien été prise en compte',
+						life: 3000,
+					});
+				}),
+		);
+	}
+
+	ngOnDestroy(): void {
+		this._addBookingSubscription.unsubscribe();
+		this._deleteBookingSubscription.unsubscribe();
+	}
 }

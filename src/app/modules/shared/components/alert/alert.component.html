@@ -1,0 +1,10 @@
+<p-messages severity="error" *ngIf="error">
+	<ng-template pTemplate>
+		<div class="message-content">
+			<i [class]="icon"></i>
+			<p>
+				{{ message }}
+			</p>
+		</div>
+	</ng-template>
+</p-messages>

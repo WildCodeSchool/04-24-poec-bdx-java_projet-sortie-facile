@@ -81,23 +81,37 @@
       "userDetailsId": "7137"
     },
     {
+<<<<<<< HEAD
       "id": "b6bc",
       "username": "bob-l-eponge",
       "email": "bob-leqponge@medoc.fr",
+=======
+      "id": "7d83",
+      "username": "bobby",
+      "email": "bob-leonge@medoc.fr",
+>>>>>>> 7172cba4d653610f9cfd0cb0499ea05a4f7b31a5
       "password": "123456789",
       "passwordConfirm": "123456789",
       "role": "user",
       "status": "active",
+<<<<<<< HEAD
       "userDetailsId": "e906"
     },
     {
       "id": "fb5e",
+=======
+      "userDetailsId": "f496"
+    },
+    {
+      "id": "243f",
+>>>>>>> 7172cba4d653610f9cfd0cb0499ea05a4f7b31a5
       "username": "bob-l-eponge",
       "email": "bob-leqponge@medoc.fr",
       "password": "123456789",
       "passwordConfirm": "123456789",
       "role": "user",
       "status": "active",
+<<<<<<< HEAD
       "userDetailsId": "558b"
     },
     {
@@ -119,6 +133,9 @@
       "role": "user",
       "status": "active",
       "userDetailsId": "4133"
+=======
+      "userDetailsId": "d0a9"
+>>>>>>> 7172cba4d653610f9cfd0cb0499ea05a4f7b31a5
     }
   ],
   "user_details": [
@@ -373,10 +390,17 @@
       "userId": "4d3f"
     },
     {
+<<<<<<< HEAD
       "id": "e906",
       "firstname": "bob",
       "lastname": "l'éponge",
       "streetNumber": 5,
+=======
+      "id": "f496",
+      "firstname": "bob",
+      "lastname": "l'éponge",
+      "streetNumber": "5",
+>>>>>>> 7172cba4d653610f9cfd0cb0499ea05a4f7b31a5
       "street": "2",
       "region": "",
       "postalCode": 33000,
@@ -393,6 +417,7 @@
       "phone": "01-34-45-57-68",
       "dateOfBirth": "26/12/1999",
       "genre": "masculin",
+<<<<<<< HEAD
       "categoryIds": [
         "1",
         "2",
@@ -441,6 +466,17 @@
       "lastname": "l'éponge",
       "streetNumber": "5",
       "street": "Rue du Quai",
+=======
+      "categoryIds": [],
+      "userId": "7d83"
+    },
+    {
+      "id": "d0a9",
+      "firstname": "bob",
+      "lastname": "l'éponge",
+      "streetNumber": "5",
+      "street": "2",
+>>>>>>> 7172cba4d653610f9cfd0cb0499ea05a4f7b31a5
       "region": "",
       "postalCode": 33000,
       "description": "Tart cheesecake marshmallow chupa chups muffin topping. Dessert dragée topping tootsie roll marshmallow toffee gingerbread sesame snaps. Sugar plum danish pastry bonbon donut gingerbread cake. Cookie jelly tiramisu jelly-o cake cake topping tootsie roll topping. Tiramisu cupcake danish cake soufflé sugar plum gummi bears sweet. Tiramisu fruitcake icing tart danish.",
@@ -456,6 +492,7 @@
       "phone": "01-34-45-57-68",
       "dateOfBirth": "26/12/1999",
       "genre": "masculin",
+<<<<<<< HEAD
       "categoryIds": [
         "1",
         "3",
@@ -494,11 +531,16 @@
       ],
       "userId": "baa1",
       "email": "bob-leqponge@medoc.fr"
+=======
+      "categoryIds": [],
+      "userId": "243f"
+>>>>>>> 7172cba4d653610f9cfd0cb0499ea05a4f7b31a5
     }
   ],
   "category": [
     {
       "id": "1",
+<<<<<<< HEAD
       "name": "Sport"
     },
     {
@@ -536,6 +578,55 @@
     {
       "id": "10",
       "name": "History"
+=======
+      "name": "Sport",
+      "imgUrl": "category-sport.svg"
+    },
+    {
+      "id": "2",
+      "name": "Musique",
+      "imgUrl": "category-art.svg"
+    },
+    {
+      "id": "3",
+      "name": "Cinéma",
+      "imgUrl": "category-cinema.svg"
+    },
+    {
+      "id": "4",
+      "name": "Voyage",
+      "imgUrl": "category-travel.svg"
+    },
+    {
+      "id": "5",
+      "name": "Cuisine",
+      "imgUrl": "category-cuisine.svg"
+    },
+    {
+      "id": "6",
+      "name": "Art",
+      "imgUrl": "category-art.svg"
+    },
+    {
+      "id": "7",
+      "name": "Science",
+      "imgUrl": "category-science.svg"
+    },
+    {
+      "id": "8",
+      "name": "Technologie",
+      "imgUrl": "category-technology.svg"
+    },
+    {
+      "id": "9",
+      "name": "Literature",
+      "imgUrl": "category-litterature.svg"
+    },
+    {
+      "id": "10",
+      "name": "Histoire",
+      "imgUrl": "category-history.svg"
+>>>>>>> 7172cba4d653610f9cfd0cb0499ea05a4f7b31a5
     }
   ],
   "booking": [
@@ -657,13 +748,52 @@
       "activityId": "17",
       "date": "2024-05-17T10:00:00.000Z",
       "nbPlaces": 4
+<<<<<<< HEAD
+=======
+    },
+    {
+      "id": "18",
+      "userId": "1",
+      "activityId": "2",
+      "date": "2024-02-06T10:00:00.000Z",
+      "nbPlaces": 4
+    },
+    {
+      "id": "449b",
+      "userId": "1",
+      "activityId": "6"
+    },
+    {
+      "id": "9107",
+      "userId": "1",
+      "activityId": "10"
+    },
+    {
+      "id": "9a98",
+      "userId": "7d83",
+      "activityId": "6"
+    },
+    {
+      "id": "7b91",
+      "userId": "7d83",
+      "activityId": "2"
+    },
+    {
+      "id": "b49e",
+      "userId": "1",
+      "activityId": "3"
+>>>>>>> 7172cba4d653610f9cfd0cb0499ea05a4f7b31a5
     }
   ],
   "activity": [
     {
       "id": "1",
       "name": "Football Match Ice cream halvah sweet roll pudding tart sesame snaps sweet. Carrot cake topping tiramisu candy canes ",
+<<<<<<< HEAD
       "date": "2024-06-01T18:00:00.000Z",
+=======
+      "date": "2024-06-08T18:00:00.000Z",
+>>>>>>> 7172cba4d653610f9cfd0cb0499ea05a4f7b31a5
       "activityCity": "Paris",
       "categoryId": "2",
       "nbGuest": "50",
@@ -723,7 +853,11 @@
       "description": "Muffin tiramisu croissant candy canes carrot cake dragée pie soufflé dessert. Marzipan apple pie toffee ice cream ice cream gingerbread macaroon croissant. Jelly-o ice cream brownie cake pudding cotton candy tart jujubes. Pastry powder cotton candy sugar plum pie oat cake candy canes carrot cake oat cake. Tart candy tootsie roll icing gingerbread cookie chocolate lemon drops topping. Cake sweet roll muffin cupcake topping chocolate cake fruitcake apple pie. Shortbread marzipan gummi bears soufflé jelly beans lollipop. Jelly beans croissant ice cream pudding fruitcake. Tootsie roll dessert cupcake cake ice cream croissant oat cake. Cake icing chupa chups fruitcake candy canes lemon drops wafer cake.  Powder wafer biscuit toffee cookie chocolate bar bear claw. Cheesecake biscuit marzipan brownie tootsie roll bear claw cake. Icing powder shortbread donut muffin dragée. Icing jelly beans sweet roll sesame snaps gingerbread. Dessert halvah gummies tootsie roll bonbon. Cotton candy dessert jelly-o apple pie bear claw cheesecake. Soufflé cupcake powder brownie cotton candy donut croissant marzipan soufflé.  Dessert jelly-o bear claw lollipop lemon drops jelly cupcake toffee. Gingerbread chupa chups chocolate cake carrot cake oat cake carrot cake ice cream cupcake. Marzipan jelly-o marshmallow chocolate cake gummies tootsie roll tootsie roll. Gummi bears sweet croissant jelly-o gummies. Chocolate ice cream marzipan cheesecake bonbon lemon drops. Tart oat cake jelly-o bonbon bear claw ice cream chocolate bar tiramisu.",
       "imgUrl": "https://images.unsplash.com/photo-1715671525805-ed50afea6d13?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxOHx8fGVufDB8fHx8fA%3D%3D",
       "link": "www.google.fr",
+<<<<<<< HEAD
       "userId": "1",
+=======
+      "userId": "3",
+>>>>>>> 7172cba4d653610f9cfd0cb0499ea05a4f7b31a5
       "isVisible": false
     },
     {
@@ -781,7 +915,11 @@
     {
       "id": "10",
       "name": "Hiking Adventure",
+<<<<<<< HEAD
       "date": "2024-06-15T06:00:00.000Z",
+=======
+      "date": "2024-06-01T06:00:00.000Z",
+>>>>>>> 7172cba4d653610f9cfd0cb0499ea05a4f7b31a5
       "activityCity": "Marseille",
       "categoryId": "10",
       "nbGuest": "40",
@@ -827,13 +965,21 @@
       "description": "Ice cream halvah sweet roll pudding tart sesame snaps sweet. Carrot cake topping tiramisu candy canes sugar plum lemon drops dragée tootsie roll. Marshmallow jelly-o shortbread dragée chocolate bar gummi bears. Chupa chups sesame snaps cake shortbread chupa chups cake cake. Dragée cake donut caramels tart sweet roll apple pie biscuit. Pie jujubes pastry tootsie roll sugar plum danish. Cheesecake sweet roll gummi bears wafer marzipan cake. Cheesecake candy danish macaroon dragée muffin bonbon jelly-o.  Cake carrot cake danish bonbon gummi bears jelly marshmallow halvah ice cream. Candy canes jelly-o sweet sweet ice cream lemon drops. Wafer marshmallow cake chocolate bar halvah dragée gummi bears ice cream donut. Apple pie halvah halvah jelly beans cake chupa chups. Cake brownie bonbon wafer bonbon. Sweet roll marzipan sweet roll dessert chocolate lollipop soufflé biscuit lemon drops. Sesame snaps fruitcake liquorice sugar plum topping jelly-o chocolate bar lemon drops.  Donut tootsie roll jelly beans dragée gingerbread. Soufflé sugar plum cookie lemon drops tiramisu gummies. Jelly-o cupcake apple pie marshmallow sweet roll macaroon. Halvah chocolate powder toffee pie pie marzipan tart. Soufflé fruitcake icing fruitcake cake chocolate marzipan donut. Macaroon donut powder icing dessert bonbon cookie marzipan marzipan. Jelly-o candy canes croissant sugar plum candy canes. Apple pie cotton candy cake halvah tiramisu. Pastry sweet roll candy canes caramels lemon drops shortbread apple pie muffin chupa chups. Wafer bonbon halvah pastry chupa chups caramels dragée danish.",
       "imgUrl": "",
       "link": "https://example.com/activity13",
+<<<<<<< HEAD
       "userId": "1",
+=======
+      "userId": "2",
+>>>>>>> 7172cba4d653610f9cfd0cb0499ea05a4f7b31a5
       "isVisible": true
     },
     {
       "id": "14",
       "name": "Tech Conference",
+<<<<<<< HEAD
       "date": "2024-10-20T08:00:00.000Z",
+=======
+      "date": "2024-06-20T08:00:00.000Z",
+>>>>>>> 7172cba4d653610f9cfd0cb0499ea05a4f7b31a5
       "activityCity": "Marseille",
       "categoryId": "4",
       "nbGuest": "400",
@@ -846,7 +992,11 @@
     {
       "id": "15",
       "name": "Film Festival",
+<<<<<<< HEAD
       "date": "2024-11-15T19:00:00.000Z",
+=======
+      "date": "2024-06-01T19:00:00.000Z",
+>>>>>>> 7172cba4d653610f9cfd0cb0499ea05a4f7b31a5
       "activityCity": "Bordeaux",
       "categoryId": "5",
       "nbGuest": "250",
@@ -859,7 +1009,11 @@
     {
       "id": "16",
       "name": "Dance Workshop",
+<<<<<<< HEAD
       "date": "2024-12-10T17:00:00.000Z",
+=======
+      "date": "2024-07-10T17:00:00.000Z",
+>>>>>>> 7172cba4d653610f9cfd0cb0499ea05a4f7b31a5
       "activityCity": "Lyon",
       "categoryId": "6",
       "nbGuest": "30",
@@ -872,7 +1026,11 @@
     {
       "id": "17",
       "name": "Wine Tasting",
+<<<<<<< HEAD
       "date": "2024-05-23T22:00:00.000Z",
+=======
+      "date": "2024-06-23T22:00:00.000Z",
+>>>>>>> 7172cba4d653610f9cfd0cb0499ea05a4f7b31a5
       "activityCity": {
         "id": "2",
         "name": "Rome"
@@ -887,7 +1045,11 @@
       "link": "",
       "userId": "1",
       "isVisible": true,
+<<<<<<< HEAD
       "hour": "2024-05-30T21:28:47.531Z"
+=======
+      "hour": "2024-06-30T21:28:47.531Z"
+>>>>>>> 7172cba4d653610f9cfd0cb0499ea05a4f7b31a5
     },
     {
       "id": "18",
@@ -929,15 +1091,23 @@
       "isVisible": true
     },
     {
+<<<<<<< HEAD
       "id": "97a2",
       "name": "totofv§tg",
       "date": "2024-05-30T22:00:00.000Z",
       "hour": "2024-05-24T11:25:26.518Z",
+=======
+      "id": "be7d",
+      "name": "toto",
+      "date": "2024-06-02T22:00:00.000Z",
+      "hour": "2024-06-02T07:50:55.112Z",
+>>>>>>> 7172cba4d653610f9cfd0cb0499ea05a4f7b31a5
       "departments": {
         "id": "2",
         "name": "Aisne"
       },
       "activityCity": {
+<<<<<<< HEAD
         "id": 2,
         "name": "Rome"
       },
@@ -1317,6 +1487,27 @@
       "name": "toto",
       "date": "2024-05-30T22:00:00.000Z",
       "hour": "2024-05-31T11:20:53.947Z",
+=======
+        "id": "2",
+        "name": "Rome"
+      },
+      "categoryId": {
+        "id": "3",
+        "name": "Cinéma"
+      },
+      "nbGuest": 3,
+      "description": "drcf v",
+      "imgUrl": "",
+      "link": "",
+      "userId": "1",
+      "isVisible": true
+    },
+    {
+      "id": "4c44",
+      "name": "booobooooo",
+      "date": "2024-06-03T22:00:00.000Z",
+      "hour": "2024-06-02T09:21:21.233Z",
+>>>>>>> 7172cba4d653610f9cfd0cb0499ea05a4f7b31a5
       "departments": {
         "id": "1",
         "name": "Ain"
@@ -1327,6 +1518,7 @@
       },
       "categoryId": {
         "id": "3",
+<<<<<<< HEAD
         "name": "Cinema"
       },
       "nbGuest": 3,
@@ -1387,6 +1579,22 @@
       "name": "toto",
       "date": "2024-05-30T22:00:00.000Z",
       "hour": "2024-05-31T16:30:06.183Z",
+=======
+        "name": "Cinéma"
+      },
+      "nbGuest": 3,
+      "description": "gbyhvnb ",
+      "imgUrl": "",
+      "link": "",
+      "userId": "1",
+      "isVisible": true
+    },
+    {
+      "id": "cf65",
+      "name": "toto",
+      "date": "2024-06-04T22:00:00.000Z",
+      "hour": "2024-06-03T11:15:00.521Z",
+>>>>>>> 7172cba4d653610f9cfd0cb0499ea05a4f7b31a5
       "departments": {
         "id": "2",
         "name": "Aisne"
@@ -1396,6 +1604,7 @@
         "name": "Rome"
       },
       "categoryId": {
+<<<<<<< HEAD
         "id": "3",
         "name": "Cinema"
       },
@@ -1477,6 +1686,17 @@
       "link": "",
       "userId": "baa1",
       "isVisible": false
+=======
+        "id": "2",
+        "name": "Musique"
+      },
+      "nbGuest": 3,
+      "description": "ds'redr",
+      "imgUrl": "",
+      "link": "ed('r",
+      "userId": "1",
+      "isVisible": true
+>>>>>>> 7172cba4d653610f9cfd0cb0499ea05a4f7b31a5
     }
   ],
   "department": [
@@ -2085,6 +2305,7 @@
       "Email": "ygbyh",
       "title": "gybh",
       "message": "tgèybh"
+<<<<<<< HEAD
     },
     {
       "id": "34",
@@ -2121,6 +2342,52 @@
       "Email": "yoyo@toto.fr",
       "title": "bien joue",
       "message": "super boulot"
+=======
+    }
+  ],
+  "testimonials": [
+    {
+      "id": "1",
+      "user": "John Smith",
+      "title": "Super appllication",
+      "message": " Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed maximus, ex non pharetra pellentesque, quam elit tempor dolor, id volutpat lacus justo eu urna. Vivamus tempor laoreet nibh. Vivamus sodales justo enim, eu venenatis mi imperdiet facilisis. Curabitur enim urna, elementum sed dapibus quis, pellentesque a massa.",
+      "note": 5
+    },
+    {
+      "id": "2",
+      "user": "John Doe",
+      "title": "Super appllication",
+      "message": " Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed maximus, ex non pharetra pellentesque, quam elit tempor dolor, id volutpat lacus justo eu urna. Vivamus tempor laoreet nibh. Vivamus sodales justo enim, eu venenatis mi imperdiet facilisis. Curabitur enim urna, elementum sed dapibus quis, pellentesque a massa.",
+      "note": 5
+    },
+    {
+      "id": "3",
+      "user": "Lady Gaga",
+      "title": "Super appllication",
+      "message": " Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed maximus, ex non pharetra pellentesque, quam elit tempor dolor, id volutpat lacus justo eu urna. Vivamus tempor laoreet nibh. Vivamus sodales justo enim, eu venenatis mi imperdiet facilisis. Curabitur enim urna, elementum sed dapibus quis, pellentesque a massa.",
+      "note": 5
+    },
+    {
+      "id": "4",
+      "user": "Donald",
+      "title": "Super appllication",
+      "message": " Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed maximus, ex non pharetra pellentesque, quam elit tempor dolor, id volutpat lacus justo eu urna. Vivamus tempor laoreet nibh. Vivamus sodales justo enim, eu venenatis mi imperdiet facilisis. Curabitur enim urna, elementum sed dapibus quis, pellentesque a massa.",
+      "note": 5
+    },
+    {
+      "id": "5",
+      "user": "Ben & nuts",
+      "title": "Super appllication",
+      "message": " Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed maximus, ex non pharetra pellentesque, quam elit tempor dolor, id volutpat lacus justo eu urna. Vivamus tempor laoreet nibh. Vivamus sodales justo enim, eu venenatis mi imperdiet facilisis. Curabitur enim urna, elementum sed dapibus quis, pellentesque a massa.",
+      "note": 5
+    },
+    {
+      "id": "6",
+      "user": "Haggen Daz",
+      "title": "Super appllication",
+      "message": " Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed maximus, ex non pharetra pellentesque, quam elit tempor dolor, id volutpat lacus justo eu urna. Vivamus tempor laoreet nibh. Vivamus sodales justo enim, eu venenatis mi imperdiet facilisis. Curabitur enim urna, elementum sed dapibus quis, pellentesque a massa.",
+      "note": 5
+>>>>>>> 7172cba4d653610f9cfd0cb0499ea05a4f7b31a5
     }
   ]
 }
