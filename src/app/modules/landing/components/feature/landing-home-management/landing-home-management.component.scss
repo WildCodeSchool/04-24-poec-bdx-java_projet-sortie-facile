@@ -15,14 +15,53 @@ p {
 	background: url('assets/photos/homebanner.jpeg') no-repeat;
 	background-size: cover;
 	display: flex;
-	justify-content: center;
+	flex-direction: column;
+	justify-content: flex-start;
 	align-items: center;
 
 	.hero-mask {
 		position: absolute;
+		z-index: 1;
 		width: 100%;
 		height: 100%;
-		background-color: rgba(0, 0, 0, 0.8);
+		background-color: rgba(0, 0, 0, 0.6);
+	}
+
+	header {
+		z-index: 10;
+		position: relative;
+		width: 100%;
+		display:flex;
+		justify-content: space-between;
+		padding: 2rem 0;
+
+		.hero-img-box>img {
+			height: 60px;
+			margin: 0 3rem;
+			align-items: center	;
+		}
+
+		ul {
+			margin-left: 0;
+			margin-right: 3rem;
+			display: flex;
+			gap: 1.5rem;
+			align-items: center;
+		}
+
+		li {
+			list-style-type: none;
+		}
+
+		a {
+			color: var(--white-color);
+			text-decoration: none;
+			padding-bottom: 1rem;;
+
+			&:hover {
+				border-bottom: 1px solid var(--white-color);
+			}
+		}
 	}
 
 	.hero-content-box {
@@ -51,21 +90,22 @@ p {
 			.hero-content-elements-box {
 				position: relative;
 				z-index: 10;
-				padding-top: 2.5rem;
+				padding: 2.5rem 0;
 
 				h1 {
 					display: flex;
 					flex-direction: column;
 					color: var(--white-color);
-					font-size: 4rem;
+					font-size: clamp(2rem, 3vw + 1rem, 4rem);
 					text-transform: uppercase;
 					line-height: 1.1;
+					margin: 3rem;
 				}
 
 				.p-divider-horizontal {
 					width: 100%;
 					max-width: 200px;
-					margin: 2rem 0;
+					margin: 2rem 3rem;
 					height: 3px;
 
 					&:before {
@@ -75,10 +115,11 @@ p {
 
 				p {
 					color: var(--gray-700);
-					margin-left: 3rem;
+					margin: 3rem;
 					font-size: 1.05rem;
 					line-height: 1.6;
 					max-width: 700px;
+
 				}
 
 				.btn-box {
