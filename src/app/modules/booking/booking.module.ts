@@ -8,6 +8,7 @@ import { DashboardBookingComponent } from './pages/dashboard-booking/dashboard-b
 import { GraphComponent } from './pages/graph/graph.component';
 import { MaildashboardComponent } from './pages/maildashboard/maildashboard.component';
 import { AdminCalendarComponent } from './components/feature/admin-calendar/admin-calendar.component';
+import { LayoutDashboardComponent } from './components/ui/layout-dashboard/layout-dashboard.component';
 
 @NgModule({
 	declarations: [
@@ -16,6 +17,7 @@ import { AdminCalendarComponent } from './components/feature/admin-calendar/admi
 		GraphComponent,
 		MaildashboardComponent,
 		AdminCalendarComponent,
+  LayoutDashboardComponent,
 	],
 	imports: [CommonModule, BookingRoutingModule, SharedModule],
 })

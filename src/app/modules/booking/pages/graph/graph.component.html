@@ -1,24 +1,26 @@
-<div class="container">
-	<h1>Chiffres clés</h1>
-	<div class="chiffre-clés">
-		<div class="chiffre">
-			<div class="nbr">
-				<div>Nombre d'utilisateurs</div>
-				<div>xxxx</div>
+<app-layout-dashboard>
+	<div class="container">
+		<h1>Chiffres clés</h1>
+		<div class="chiffre-clés">
+			<div class="chiffre">
+				<div class="nbr">
+					<div>Nombre d'utilisateurs</div>
+					<div>xxxx</div>
+				</div>
+				<div class="nbr">
+					<div>Nombre d'activités</div>
+					<div>xxxx</div>
+				</div>
+				<div class="nbr">
+					<div>Nombre de réservations</div>
+					<div>xxxx</div>
+				</div>
 			</div>
-			<div class="nbr">
-				<div>Nombre d'activités</div>
-				<div>xxxx</div>
-			</div>
-			<div class="nbr">
-				<div>Nombre de réservations</div>
-				<div>xxxx</div>
+			<div class="graph-container">
+				<app-pie-board></app-pie-board>
+				<app-vertical-board></app-vertical-board>
 			</div>
 		</div>
-		<div class="graph-container">
-			<app-pie-board></app-pie-board>
-			<app-vertical-board></app-vertical-board>
-		</div>
+		<app-multi-axe></app-multi-axe>
 	</div>
-	<app-multi-axe></app-multi-axe>
-</div>
+</app-layout-dashboard>
