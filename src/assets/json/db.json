@@ -555,13 +555,18 @@
       "id": "7b91",
       "userId": "7d83",
       "activityId": "2"
+    },
+    {
+      "id": "b49e",
+      "userId": "1",
+      "activityId": "3"
     }
   ],
   "activity": [
     {
       "id": "1",
       "name": "Football Match Ice cream halvah sweet roll pudding tart sesame snaps sweet. Carrot cake topping tiramisu candy canes ",
-      "date": "2024-06-01T18:00:00.000Z",
+      "date": "2024-06-08T18:00:00.000Z",
       "activityCity": "Paris",
       "categoryId": "2",
       "nbGuest": "50",
@@ -679,7 +684,7 @@
     {
       "id": "10",
       "name": "Hiking Adventure",
-      "date": "2024-06-15T06:00:00.000Z",
+      "date": "2024-06-01T06:00:00.000Z",
       "activityCity": "Marseille",
       "categoryId": "10",
       "nbGuest": "40",
@@ -744,7 +749,7 @@
     {
       "id": "15",
       "name": "Film Festival",
-      "date": "2024-06-15T19:00:00.000Z",
+      "date": "2024-06-01T19:00:00.000Z",
       "activityCity": "Bordeaux",
       "categoryId": "5",
       "nbGuest": "250",
@@ -875,6 +880,7 @@
       "isVisible": true
     },
     {
+<<<<<<< HEAD
       "id": "a101",
       "name": "Donjons et Dragons",
       "date": "2024-06-25T22:00:00.000Z",
@@ -895,6 +901,28 @@
       "description": "Venez affronter gobelins et dragons dans une partie endiablée...\nPS: n'oubliez pas vos dés.",
       "imgUrl": "",
       "link": "https://www.lebigdata.fr/wp-content/uploads/2017/10/donjons-et-dragons-big-data-660x330.jpg",
+=======
+      "id": "cf65",
+      "name": "toto",
+      "date": "2024-06-04T22:00:00.000Z",
+      "hour": "2024-06-03T11:15:00.521Z",
+      "departments": {
+        "id": "2",
+        "name": "Aisne"
+      },
+      "activityCity": {
+        "id": "2",
+        "name": "Rome"
+      },
+      "categoryId": {
+        "id": "2",
+        "name": "Musique"
+      },
+      "nbGuest": 3,
+      "description": "ds'redr",
+      "imgUrl": "",
+      "link": "ed('r",
+>>>>>>> 8f17b7448ec7f9c353969eba8a5a8b3438eebe6f
       "userId": "1",
       "isVisible": true
     }
