@@ -51,7 +51,6 @@ export class AuthService extends AuthUserServiceUtils {
 				if (!user) {
 					throw new Error(this._formErrorMessage.loginErrorMessage);
 				}
-
 				return {
 					id: user.id,
 					username: user.username,
@@ -69,7 +68,10 @@ export class AuthService extends AuthUserServiceUtils {
 			}),
 			catchError(() => {
 				return throwError(
-					() => new Error(this._formErrorMessage.loginErrorMessage),
+					() =>
+						new Error(
+							"Votre nom d'utilisateur ou votre mot de passe incorrect",
+						),
 				);
 			}),
 		);

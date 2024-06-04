@@ -1,25 +1,34 @@
 <div class="container">
 	<div class="hero-box">
 		<div class="hero-mask"></div>
-
+		<header>
+			<div class="hero-img-box">
+				<img src="assets/photos/logoSortieFacile.png" alt="logo">
+			</div>
+			<nav>
+				<ul>
+					<li><a [routerLink]="['/auth/login']">Connexion</a></li>
+					<li><a [routerLink]="['/auth/register']">Inscription</a></li>
+				</ul>
+			</nav>
+		</header>
 		<div class="hero-content-box">
 			<div class="hero-content-text">
-				<span class="big-letter">SF</span>
 
 				<div class="hero-content-elements-box">
-					<h1>
-						<span>Sortie facile</span>
-						<span>Partagez vos sorties !</span>
-					</h1>
-
+					<div class="title-content">
+						<h1>
+							<span>Sortie facile</span>
+							<span>Ensemble, c'est mieux!</span>
+						</h1>
+						<!-- <img src="/assets/photos/logoSortieFacile.png" alt="logo"> -->
+					</div>
+					
 					<p-divider></p-divider>
 					<p>
-						Sugar plum toffee wafer carrot cake brownie sweet roll sweet tootsie
-						roll. Dragée jelly sweet roll powder sugar plum cupcake oat cake.
-						Chocolate cake soufflé chocolate bar jujubes liquorice sweet oat
-						cake macaroon. Pastry toffee jujubes jelly chupa chups. Soufflé oat
-						cake chocolate cake wafer shortbread. Lemon drops cake cookie
-						macaroon icing carrot cake.
+						Ne cherchez plus, trouvez des amis pour chacune de vos activités!
+						<br />
+						Rencontrez, partagez, et surtout amusez-vous!
 					</p>
 
 					<div class="btn-box">
