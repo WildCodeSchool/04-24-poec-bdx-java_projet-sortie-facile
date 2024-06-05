@@ -18,7 +18,7 @@ export class AuthUserServiceUtils {
 		{ name: AuthProviderNameEnum.TWITTER },
 	];
 
-	protected BASE_URL: string = `${environment.apiUrl}/user`;
+	protected BASE_URL: string = `${environment.apiUrlJsonServer}/user`;
 
 	protected _userConnected!: AuthUserPrimaryDatas;
 

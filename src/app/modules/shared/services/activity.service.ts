@@ -21,7 +21,7 @@ export class ActivityService {
 	categories!: Category[];
 	department!: Department;
 
-	private readonly _BASE_URL = `${environment.apiUrl}/activity`;
+	private readonly _BASE_URL = `${environment.apiUrlJsonServer}/activity`;
 
 	constructor(
 		private _httpClient: HttpClient,

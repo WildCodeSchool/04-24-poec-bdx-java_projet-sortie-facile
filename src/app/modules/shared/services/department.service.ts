@@ -8,7 +8,7 @@ import { Observable, map } from 'rxjs';
 	providedIn: 'root',
 })
 export class DepartmentService {
-	private readonly _BASE_URL = `${environment.apiUrl}/department`;
+	private readonly _BASE_URL = `${environment.apiUrlJsonServer}/department`;
 
 	constructor(private _httpClient: HttpClient) {}
 

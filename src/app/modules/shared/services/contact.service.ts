@@ -12,7 +12,7 @@ import { Observable, catchError, switchMap, throwError } from 'rxjs';
 export class ContactService {
 	contacts$!: Contact[];
 	contact!: Contact;
-	private readonly _BASE_URL = `${environment.apiUrl}/contact`;
+	private readonly _BASE_URL = `${environment.apiUrlJsonServer}/contact`;
 
 	constructor(private http: HttpClient) {}
 

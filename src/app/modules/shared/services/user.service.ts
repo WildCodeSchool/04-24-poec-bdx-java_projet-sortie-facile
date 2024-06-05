@@ -11,7 +11,7 @@ import { Observable } from 'rxjs';
 	providedIn: 'root',
 })
 export class UserService {
-	private readonly _BASE_URL = `${environment.apiUrl}/user_details`;
+	private readonly _BASE_URL = `${environment.apiUrlJsonServer}/user_details`;
 
 	constructor(private _httpClient: HttpClient) {}
 
