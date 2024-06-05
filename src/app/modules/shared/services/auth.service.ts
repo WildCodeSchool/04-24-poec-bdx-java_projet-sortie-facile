@@ -1,15 +1,17 @@
-import { HttpClient } from '@angular/common/http';
+import {
+	HttpClient,
+	HttpErrorResponse,
+	HttpResponse,
+} from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, catchError, map, switchMap, tap, throwError } from 'rxjs';
+import { BehaviorSubject, Observable, map, switchMap, tap } from 'rxjs';
 import { Router } from '@angular/router';
-import { AuthUserListResponseApi } from '@shared/models/classes/auth-user';
 import { NewAuthUser } from '@shared/models/classes/auth-user/new-auth-user.class';
 import { UserService } from './user.service';
 import {
 	AccountStatus,
 	UserRoleEnum,
 } from '@shared/models/enums/user-role.enum';
-import { FormErrorMessageService } from './form-errors.service';
 import { NewAuthUserFormDatas } from '@shared/models/classes/auth-user/new-auth-user-form-datas.class';
 import { UserDetails } from '@shared/models/classes/user-details/user-details.class';
 import { NewUserUserDetailsFormDatas } from '@shared/models/classes/user-details/new-user-details-form-datas.class';
@@ -20,61 +22,76 @@ import {
 	FullAuthenticationRouteEnum,
 	FullUserRouteEnum,
 } from '@shared/models/enums/routes/full-routes';
+import { TokenService } from './token.service';
+import { TokenResponse } from '@shared/models/classes/token/token.class';
+import { UserCredentials } from '@shared/models/classes/auth-user/user-auth.class';
 
 @Injectable({
 	providedIn: 'root',
 })
 export class AuthService extends AuthUserServiceUtils {
+	private readonly _BASE_URL = 'http://localhost:8080/api/v1/auth';
+
+	private _httpErrorSubject$: BehaviorSubject<HttpErrorResponse> =
+		new BehaviorSubject(new HttpErrorResponse({}));
+
+	private _httpSuccessSubject$: BehaviorSubject<HttpResponse<any>> =
+		new BehaviorSubject(new HttpResponse({}));
+
 	constructor(
 		private _httpClient: HttpClient,
+		private _tokenService: TokenService,
 		private _router: Router,
 		private _userService: UserService,
-		private _formErrorMessage: FormErrorMessageService,
+		// private _formErrorMessage: FormErrorMessageService,
 	) {
 		super();
 	}
 
-	loginWithEmailAndPassword(
-		username: string,
-		password: string,
-	): Observable<AuthUserPrimaryDatas> {
-		return this._httpClient.get<AuthUserListResponseApi>(this.BASE_URL).pipe(
-			map(
-				(users: AuthUserListResponseApi) =>
-					this.findUserByUsernameAndPassword(
-						users,
-						username,
-						password,
-					) as AuthUser,
-			),
-			map((user: AuthUser) => {
-				if (!user) {
-					throw new Error(this._formErrorMessage.loginErrorMessage);
-				}
-				return {
-					id: user.id,
-					username: user.username,
-					email: user.email,
-					role: user.role,
-					status: user.status,
-					userDetailsId: user.userDetailsId,
-				} as AuthUserPrimaryDatas;
-			}),
-			tap((user: AuthUserPrimaryDatas) => {
-				localStorage.setItem('user', JSON.stringify(user));
-				this.setConnectedUserData(user);
-				this.notifyLoggedInStatus(true);
-				this._router.navigateByUrl(FullUserRouteEnum.HOME);
-			}),
-			catchError(() => {
-				return throwError(
-					() =>
-						new Error(
-							"Votre nom d'utilisateur ou votre mot de passe incorrect",
-						),
-				);
-			}),
-		);
+	loginWithEmailAndPassword(userCredentials: UserCredentials): void {
+		this._tokenService.resetToken();
+		this._httpClient
+			.post<TokenResponse>(`${this._BASE_URL}/authenticate`, userCredentials)
+			.subscribe((token: TokenResponse) => {
+				this._tokenService.updateToken(token);
+			});
+		// return this._httpClient.get<AuthUserListResponseApi>(this.BASE_URL).pipe(
+		// 	map(
+		// 		(users: AuthUserListResponseApi) =>
+		// 			this.findUserByUsernameAndPassword(
+		// 				users,
+		// 				username,
+		// 				password,
+		// 			) as AuthUser,
+		// 	),
+		// 	map((user: AuthUser) => {
+		// 		if (!user) {
+		// 			throw new Error(this._formErrorMessage.loginErrorMessage);
+		// 		}
+		// 		return {
+		// 			id: user.id,
+		// 			username: user.username,
+		// 			email: user.email,
+		// 			role: user.role,
+		// 			status: user.status,
+		// 			userDetailsId: user.userDetailsId,
+		// 		} as AuthUserPrimaryDatas;
+		// 	}),
+		// 	tap((user: AuthUserPrimaryDatas) => {
+		// 		localStorage.setItem('user', JSON.stringify(user));
+		// 		this.setConnectedUserData(user);
+		// 		this.notifyLoggedInStatus(true);
+		// 		this._router.navigateByUrl(FullUserRouteEnum.HOME);
+		// 	}),
+		// 	catchError(() => {
+		// 		return throwError(
+		// 			() =>
+		// 				new Error(
+		// 					"Votre nom d'utilisateur ou votre mot de passe incorrect",
+		// 				),
+		// 		);
+		// 	}),
+		// );
 	}
 
 	createUserWithEmailAndPassword(
@@ -157,5 +174,23 @@ export class AuthService extends AuthUserServiceUtils {
 				userDetailsId: '',
 			})
 			.pipe(tap(() => this.logout()));
+	}
+
+	getHttpErrorSubject$(): Observable<HttpErrorResponse> {
+		return this._httpErrorSubject$.asObservable();
+	}
+
+	setHttpErrorSubject$(error: HttpErrorResponse): void {
+		this._httpSuccessSubject$.next(new HttpResponse({}));
+		this._httpErrorSubject$.next(error);
+	}
+
+	getHttpSuccessSubject$(): Observable<HttpResponse<any>> {
+		return this._httpSuccessSubject$.asObservable();
+	}
+
+	setHttpSuccessSubject$(success: HttpResponse<any>): void {
+		this._httpErrorSubject$.next(new HttpErrorResponse({}));
+		this._httpSuccessSubject$.next(success);
 	}
 }

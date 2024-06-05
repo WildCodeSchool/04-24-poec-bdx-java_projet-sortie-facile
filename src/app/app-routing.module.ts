@@ -13,26 +13,26 @@ const routes: Routes = [
 		loadChildren: () =>
 			import('./modules/landing/landing.module').then(m => m.LandingModule),
 	},
-	{
-		path: PrimaryRouteEnum.ACTIVITY,
-		loadChildren: () =>
-			import('./modules/activity/activity.module').then(m => m.ActivityModule),
-	},
-	{
-		path: PrimaryRouteEnum.ADMIN,
-		loadChildren: () =>
-			import('./modules/admin/admin.module').then(m => m.AdminModule),
-	},
-	{
-		path: PrimaryRouteEnum.BOOKING,
-		loadChildren: () =>
-			import('./modules/booking/booking.module').then(m => m.BookingModule),
-	},
-	{
-		path: PrimaryRouteEnum.USER,
-		loadChildren: () =>
-			import('./modules/user/user.module').then(m => m.UserModule),
-	},
+	// {
+	// 	path: PrimaryRouteEnum.ACTIVITY,
+	// 	loadChildren: () =>
+	// 		import('./modules/activity/activity.module').then(m => m.ActivityModule),
+	// },
+	// {
+	// 	path: PrimaryRouteEnum.ADMIN,
+	// 	loadChildren: () =>
+	// 		import('./modules/admin/admin.module').then(m => m.AdminModule),
+	// },
+	// {
+	// 	path: PrimaryRouteEnum.BOOKING,
+	// 	loadChildren: () =>
+	// 		import('./modules/booking/booking.module').then(m => m.BookingModule),
+	// },
+	// {
+	// 	path: PrimaryRouteEnum.USER,
+	// 	loadChildren: () =>
+	// 		import('./modules/user/user.module').then(m => m.UserModule),
+	// },
 
 	{
 		path: PrimaryRouteEnum.AUTHENTICATION,
@@ -41,16 +41,16 @@ const routes: Routes = [
 				m => m.AuthenticationModule,
 			),
 	},
-	{ path: PrimaryRouteEnum.CONTACT, component: ContactComponent },
-	{
-		path: PrimaryRouteEnum.CGU,
-		component: MentionLegalesComponent,
-	},
-	{
-		path: PrimaryRouteEnum.NOT_FOUND,
-		pathMatch: 'full',
-		component: PagenotfoundComponent,
-	},
+	// { path: PrimaryRouteEnum.CONTACT, component: ContactComponent },
+	// {
+	// 	path: PrimaryRouteEnum.CGU,
+	// 	component: MentionLegalesComponent,
+	// },
+	// {
+	// 	path: PrimaryRouteEnum.NOT_FOUND,
+	// 	pathMatch: 'full',
+	// 	component: PagenotfoundComponent,
+	// },
 ];
 
 @NgModule({

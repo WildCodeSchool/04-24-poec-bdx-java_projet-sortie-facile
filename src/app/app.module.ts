@@ -14,6 +14,8 @@ import { MentionLegalesComponent } from './mention-legales/mention-legales.compo
 import { registerLocaleData } from '@angular/common';
 import localeFr from '@angular/common/locales/fr';
 import { DialogService } from 'primeng/dynamicdialog';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { TokenInterceptor } from '@shared/interceptor/token.interceptor';
 
 registerLocaleData(localeFr, 'fr');
 
@@ -34,7 +36,15 @@ registerLocaleData(localeFr, 'fr');
 		SharedModule,
 		FormsModule,
 	],
-	providers: [{ provide: LOCALE_ID, useValue: 'fr' }, DialogService],
+	providers: [
+		{ provide: LOCALE_ID, useValue: 'fr' },
+		DialogService,
+		{
+			provide: HTTP_INTERCEPTORS,
+			useClass: TokenInterceptor,
+			multi: true,
+		},
+	],
 	bootstrap: [AppComponent],
 	schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

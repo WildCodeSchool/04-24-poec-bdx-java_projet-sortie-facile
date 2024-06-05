@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { AuthUserPrimaryDatas } from '@shared/models/classes/auth-user/auth-user-primary-datas.class';
-import { AuthService } from '@shared/services/auth.service';
 import { AuthProvider } from '@shared/models/types/auth/provider.type';
 import { AuthRedirect } from '@shared/models/types/auth/auth-redirect.type';
-import { UserConnectedDatas } from '@shared/models/classes/utils/user-connected-datas.class';
 import { FullAuthenticationRouteEnum } from '@shared/models/enums/routes/full-routes';
+import { LocalStorageService } from '@shared/services/local-storage.service';
+import { UserCredentials } from '@shared/models/classes/auth-user/user-auth.class';
+import { AuthService } from '@shared/services/auth.service';
 
 @Component({
 	selector: 'app-auth-login-management',
@@ -22,33 +22,37 @@ export class AuthLoginManagementComponent implements OnInit {
 		linkLabel: 'S’inscrire',
 	};
 
-	connectedUser: UserConnectedDatas = new UserConnectedDatas(
-		'johndoe',
-		'123456789',
-		'j.doe@test.com',
+	userCredentials: UserCredentials = new UserCredentials(
+		'user1@user1.com',
+		'user1',
 	);
 
-	constructor(private authService: AuthService) {}
+	constructor(
+		private _authService: AuthService,
+		private _localStorageService: LocalStorageService,
+	) {}
 
 	ngOnInit(): void {
-		this.providerNameList = this.authService.getProviderNameList();
+		this.providerNameList = this._authService.getProviderNameList();
 	}
 
 	onSubmit(form: NgForm): void {
 		if (form.status === 'VALID') {
-			this.authService
-				.loginWithEmailAndPassword(
-					this.connectedUser.username,
-					this.connectedUser.password,
-				)
-				.subscribe({
-					next: (user: AuthUserPrimaryDatas) => {
-						localStorage.setItem('user', JSON.stringify(user));
-					},
-					error: (error: Error) => {
-						this.errorLoginQueryMessage = error.message;
-					},
-				});
+			this._localStorageService.clearToken();
+			this._authService.loginWithEmailAndPassword(this.userCredentials);
+			// 	this.authService
+			// 		.loginWithEmailAndPassword(
+			// 			this.connectedUser.username,
+			// 			this.connectedUser.password,
+			// 		)
+			// 		.subscribe({
+			// 			next: (user: AuthUserPrimaryDatas) => {
+			// 				localStorage.setItem('user', JSON.stringify(user));
+			// 			},
+			// 			error: (error: Error) => {
+			// 				this.errorLoginQueryMessage = error.message;
+			// 			},
+			// 		});
 		}
 	}
 }
