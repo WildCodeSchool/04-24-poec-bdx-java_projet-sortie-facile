@@ -53,28 +53,8 @@ export class HeaderService {
 			{
 				label: 'Dashboard',
 				icon: 'pi pi-chart-bar',
-				items: [
-					{
-						label: 'Home',
-						icon: 'pi pi-chart-line',
-						routerLink: FullBookingRouteEnum.GRAPH,
-					},
-					{
-						label: 'Mail',
-						icon: 'pi pi-envelope',
-						routerLink: FullBookingRouteEnum.MAIL,
-					},
-					{
-						label: 'Booking data',
-						icon: 'pi pi-calendar',
-						routerLink: FullBookingRouteEnum.DATA,
-					},
-					{
-						label: 'Data',
-						icon: 'pi pi-chart-bar',
-						routerLink: FullBookingRouteEnum.HOME,
-					},
-				],
+
+				routerLink: FullBookingRouteEnum.GRAPH,
 			},
 		]);
 
