@@ -4,8 +4,8 @@ import { AuthProvider } from '@shared/models/types/auth/provider.type';
 import { AuthRedirect } from '@shared/models/types/auth/auth-redirect.type';
 import { FullAuthenticationRouteEnum } from '@shared/models/enums/routes/full-routes';
 import { LocalStorageService } from '@shared/services/local-storage.service';
-import { UserCredentials } from '@shared/models/classes/auth-user/user-auth.class';
 import { AuthService } from '@shared/services/auth.service';
+import { UserCredentials } from '@shared/models/classes/auth-user/user-credentials.class';
 
 @Component({
 	selector: 'app-auth-login-management',

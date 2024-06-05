@@ -24,7 +24,7 @@ import {
 } from '@shared/models/enums/routes/full-routes';
 import { TokenService } from './token.service';
 import { TokenResponse } from '@shared/models/classes/token/token.class';
-import { UserCredentials } from '@shared/models/classes/auth-user/user-auth.class';
+import { UserCredentials } from '@shared/models/classes/auth-user/user-credentials.class';
 
 @Injectable({
 	providedIn: 'root',
@@ -35,7 +35,7 @@ export class AuthService extends AuthUserServiceUtils {
 	private _httpErrorSubject$: BehaviorSubject<HttpErrorResponse> =
 		new BehaviorSubject(new HttpErrorResponse({}));
 
-	private _httpSuccessSubject$: BehaviorSubject<HttpResponse<any>> =
+	private _httpSuccessSubject$: BehaviorSubject<HttpResponse<unknown>> =
 		new BehaviorSubject(new HttpResponse({}));
 
 	constructor(
@@ -185,11 +185,11 @@ export class AuthService extends AuthUserServiceUtils {
 		this._httpErrorSubject$.next(error);
 	}
 
-	getHttpSuccessSubject$(): Observable<HttpResponse<any>> {
+	getHttpSuccessSubject$(): Observable<HttpResponse<unknown>> {
 		return this._httpSuccessSubject$.asObservable();
 	}
 
-	setHttpSuccessSubject$(success: HttpResponse<any>): void {
+	setHttpSuccessSubject$(success: HttpResponse<unknown>): void {
 		this._httpErrorSubject$.next(new HttpErrorResponse({}));
 		this._httpSuccessSubject$.next(success);
 	}

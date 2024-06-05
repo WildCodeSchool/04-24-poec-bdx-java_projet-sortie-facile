@@ -22,11 +22,11 @@ export class TokenInterceptor implements HttpInterceptor {
 		request: HttpRequest<unknown>,
 		next: HttpHandler,
 	): Observable<HttpEvent<unknown>> {
-		const idToken: string | null = this._localStorageService.getToken();
+		const token: string | null = this._localStorageService.getToken();
 
-		if (idToken) {
+		if (token) {
 			const cloned: HttpRequest<unknown> = request.clone({
-				headers: request.headers.set('Authorization', 'Bearer ' + idToken),
+				headers: request.headers.set('Authorization', 'Bearer ' + token),
 			});
 
 			return this.mapStream(cloned, next);
@@ -40,7 +40,7 @@ export class TokenInterceptor implements HttpInterceptor {
 		next: HttpHandler,
 	): Observable<HttpEvent<unknown>> {
 		return next.handle(request).pipe(
-			tap((incomingRequest: HttpEvent<any>) => {
+			tap((incomingRequest: HttpEvent<unknown>) => {
 				if (incomingRequest instanceof HttpResponse) {
 					this._authService.setHttpSuccessSubject$(incomingRequest);
 				}
