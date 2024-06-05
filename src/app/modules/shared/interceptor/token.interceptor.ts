@@ -46,15 +46,18 @@ export class TokenInterceptor implements HttpInterceptor {
 				}
 			}),
 
-			catchError((err: HttpErrorResponse) => {
-				if (err.status === 404) {
-					this._authResponseService.setHttpErrorSubject$(err);
-					return throwError(() => new Error(err.error.Error));
-				} else {
-					this._authResponseService.setHttpErrorSubject$(err);
-					return throwError(() => new Error('Une erreur est survenue'));
-				}
+			catchError((error: HttpErrorResponse) => {
+				this._authResponseService.setHttpErrorSubject$(error);
+				return this.handleError(error);
 			}),
 		);
+	}
+
+	private handleError(error: HttpErrorResponse): Observable<never> {
+		if (error.status === 404) {
+			return throwError(() => new Error(error.error.Error));
+		} else {
+			return throwError(() => new Error("L'url de l'API n'est pas valide."));
+		}
 	}
 }
