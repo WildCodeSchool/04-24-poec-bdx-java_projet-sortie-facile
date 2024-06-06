@@ -15,6 +15,7 @@ import { registerLocaleData } from '@angular/common';
 import localeFr from '@angular/common/locales/fr';
 import { DialogService } from 'primeng/dynamicdialog';
 import { FIREBASE_OPTIONS } from '@angular/fire/compat';
+import { environment } from 'environments/environment';
 
 registerLocaleData(localeFr, 'fr');
 
@@ -40,27 +41,8 @@ registerLocaleData(localeFr, 'fr');
 		DialogService,
 		{
 			provide: FIREBASE_OPTIONS,
-			useValue: {
-				apiKey: 'AIzaSyCKmSJmVXf8Itot82knVN9qfAM8C1kkY7Q',
-				authDomain: 'sortie-facile.firebaseapp.com',
-				projectId: 'sortie-facile',
-				storageBucket: 'sortie-facile.appspot.com',
-				messagingSenderId: '299152551438',
-				appId: '1:299152551438:web:e59d93c6eae2156083d65f',
-			},
+			useValue: environment.firebase,
 		},
-		// provideFirebaseApp(() =>
-		// 	initializeApp({
-		// 		apiKey: 'AIzaSyCKmSJmVXf8Itot82knVN9qfAM8C1kkY7Q',
-		// 		authDomain: 'sortie-facile.firebaseapp.com',
-		// 		projectId: 'sortie-facile',
-		// 		storageBucket: 'sortie-facile.appspot.com',
-		// 		messagingSenderId: '299152551438',
-		// 		appId: '1:299152551438:web:e59d93c6eae2156083d65f',
-		// 	}),
-		// ),
-		// AngularFireStorageModule,
-		// provideStorage(() => getStorage()),
 	],
 	bootstrap: [AppComponent],
 	schemas: [CUSTOM_ELEMENTS_SCHEMA],

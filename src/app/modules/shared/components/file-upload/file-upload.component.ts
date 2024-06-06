@@ -28,6 +28,8 @@ import { UploadFileService } from '@shared/services/upload-file.service';
 export class FileUploadComponent implements ControlValueAccessor {
 	@Input() id!: string;
 	@Input() name!: string;
+	@Input() labelFor!: string;
+	@Input() labelContent!: string;
 	@Input() form!: NgForm;
 
 	imgUrl: string | null = null;

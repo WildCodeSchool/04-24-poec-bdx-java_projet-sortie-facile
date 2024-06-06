@@ -1,3 +1,12 @@
-<div>
-	<input type="file" (change)="onFileSelected($event)" />
+<div class="form-control">
+	<label *ngIf="labelFor && labelContent" [for]="labelFor">{{
+		labelContent
+	}}</label>
+
+	<div class="file-upload">
+		<label for="file-upload" class="upload-label">
+			<i class="pi pi-upload"></i> Télécharger une image
+		</label>
+		<input id="file-upload" type="file" (change)="onFileSelected($event)" />
+	</div>
 </div>

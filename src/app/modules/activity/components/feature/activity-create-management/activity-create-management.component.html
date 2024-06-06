@@ -35,8 +35,9 @@
 			[(ngModel)]="newActivity.hour"
 		></app-input-hour>
 
-		<label for="">Département</label>
 		<app-select-department
+			labelFor="Departments"
+			labelContent="Département :"
 			id="departments"
 			inputId="departments"
 			name="departments"
@@ -87,6 +88,8 @@
 		></app-textarea>
 
 		<app-file-upload
+			labelFor="imgUrl"
+			labelContent="Choisir une image :"
 			name="imgUrl"
 			id="imgUrl"
 			#imgUrlControl="ngModel"

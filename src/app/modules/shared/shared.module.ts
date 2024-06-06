@@ -39,6 +39,7 @@ import { CarouselTestimonialComponent } from './components/carousel/carousel-tes
 import { CarouselCategoryComponent } from './components/carousel/carousel-category/carousel-category.component';
 import { CalendarModalComponent } from './components/modal/calendar-modal/calendar-modal.component';
 import { FileUploadComponent } from './components/file-upload/file-upload.component';
+import { FileUploadModule } from 'primeng/fileupload';
 
 @NgModule({
 	declarations: [
@@ -82,6 +83,7 @@ import { FileUploadComponent } from './components/file-upload/file-upload.compon
 		SharedFormModule,
 		HttpClientModule,
 		FullCalendarModule,
+		FileUploadModule,
 	],
 	providers: [ConfirmationService],
 	exports: [
