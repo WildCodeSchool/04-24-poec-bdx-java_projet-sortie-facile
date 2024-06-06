@@ -5,9 +5,7 @@ import {
 	Output,
 	forwardRef,
 } from '@angular/core';
-import { Observable, delay, finalize, tap } from 'rxjs';
-import { AngularFireStorage } from '@angular/fire/compat/storage';
-import { FormInputControlValueAccessor } from '@shared/models/classes/utils/form-input-control-value-accessor.class';
+import { Observable } from 'rxjs';
 import {
 	ControlValueAccessor,
 	NG_VALUE_ACCESSOR,
@@ -33,69 +31,31 @@ export class FileUploadComponent implements ControlValueAccessor {
 	@Input() form!: NgForm;
 
 	imgUrl: string | null = null;
-	onChange: any = () => {};
-	onTouched: any = () => {};
+	onChanged!: (value: string) => void;
+	onTouched!: () => void;
 
-	// selectedFile: File | null = null;
 	@Output() selectedFile = new EventEmitter<File>();
 	downloadURL: Observable<string> | null = null;
 
-	constructor(
-		private storage: AngularFireStorage,
-		private _ploadFileService: UploadFileService,
-	) {}
+	constructor(private _uploadFileService: UploadFileService) {}
 
-	writeValue(value: any): void {
+	writeValue(value: string): void {
 		this.imgUrl = value;
 	}
 
-	registerOnChange(fn: any): void {
-		this.onChange = fn;
+	registerOnChange(fn: (value: string) => void): void {
+		this.onChanged = fn;
 	}
 
-	registerOnTouched(fn: any): void {
+	registerOnTouched(fn: () => void): void {
 		this.onTouched = fn;
-	}
-
-	setDisabledState?(isDisabled: boolean): void {
-		// Implement if needed
 	}
 
 	onFileSelected(event: any): void {
 		const file = event.target.files[0];
 
 		if (file) {
-			console.log(file);
-
-			this._ploadFileService.setSelectedFile(file);
-		}
-	}
-
-	// onFileSelected(event: any): void {
-	// 	const file = event.target.files[0];
-	// 	if (file) {
-	// 		this.selectedFile = file;
-	// 		console.log(this.selectedFile);
-	// 	}
-	// }
-
-	onUpload(): void {
-		if (this.selectedFile) {
-			const filePath = `images/${this.selectedFile.name}`;
-			const fileRef = this.storage.ref(filePath);
-			const task = this.storage.upload(filePath, this.selectedFile);
-
-			task
-				.snapshotChanges()
-				.pipe(
-					finalize(() => {
-						this.downloadURL = fileRef.getDownloadURL();
-					}),
-					tap(fileRef => {
-						console.log(fileRef);
-					}),
-				)
-				.subscribe();
+			this._uploadFileService.setSelectedFile(file);
 		}
 	}
 }

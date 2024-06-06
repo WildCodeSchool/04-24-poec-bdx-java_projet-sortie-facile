@@ -7,7 +7,7 @@ export class NewActivity {
 	activityCity: City;
 	date: string;
 	age: number;
-	imgUrl: any;
+	imgUrl: string;
 	link: string;
 	description: string;
 	nbGuest: number;
@@ -22,7 +22,7 @@ export class NewActivity {
 		activityCity: City,
 		date: string,
 		age: number,
-		imgUrl: any,
+		imgUrl: string,
 		link: string,
 		description: string,
 		nbGuest: number,

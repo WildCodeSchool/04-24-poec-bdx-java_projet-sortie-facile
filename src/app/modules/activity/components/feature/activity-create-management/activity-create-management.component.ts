@@ -18,7 +18,6 @@ export class ActivityCreateManagementComponent implements OnDestroy {
 	modalComponent!: ModalConfirmCreatActivityComponent;
 
 	selectedFile: File | null = null;
-	private subscription: Subscription;
 
 	newActivity: NewActivity = new NewActivity(
 		'toto',
@@ -37,10 +36,8 @@ export class ActivityCreateManagementComponent implements OnDestroy {
 	);
 
 	constructor(private _uploadFileService: UploadFileService) {
-		this.subscription = this._uploadFileService.selectedFile$.subscribe(
+		this._subscription = this._uploadFileService.selectedFile$.subscribe(
 			file => {
-				console.log('create', file);
-
 				this.selectedFile = file;
 			},
 		);
@@ -48,7 +45,6 @@ export class ActivityCreateManagementComponent implements OnDestroy {
 
 	onFileSelected(file: File): void {
 		this.selectedFile = file;
-		console.log('Selected File:', this.selectedFile);
 	}
 
 	onSubmit(): void {
@@ -56,8 +52,6 @@ export class ActivityCreateManagementComponent implements OnDestroy {
 	}
 
 	onModal(): void {
-		console.log(this.selectedFile);
-
 		this.modalComponent.onSubmit(this.selectedFile);
 	}
 

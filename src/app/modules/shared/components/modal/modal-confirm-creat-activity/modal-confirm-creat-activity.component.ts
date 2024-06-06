@@ -9,7 +9,7 @@ import { FullActivityRouteEnum } from '@shared/models/enums/routes/full-routes';
 import { ActivityService } from '@shared/services/activity.service';
 import { AuthService } from '@shared/services/auth.service';
 import { ConfirmationService, MessageService } from 'primeng/api';
-import { catchError, finalize, switchMap, tap } from 'rxjs/operators';
+import { catchError, finalize, tap } from 'rxjs/operators';
 import { of } from 'rxjs';
 
 @Component({
@@ -42,13 +42,11 @@ export class ModalConfirmCreatActivityComponent
 		this.connectedUser = this._authService.getConnectedUserData();
 	}
 
-	public override onSubmit(img?: any) {
-		console.log('ok', img);
-
+	public override onSubmit(selectedFile?: File | null) {
 		this._confirmationService.confirm({
 			header: 'Confirmation',
 			message: 'Confirmer la création de votre activité',
-			accept: () => this.onAccept(img),
+			accept: () => this.onAccept(selectedFile),
 			reject: () => this.onReject(),
 			acceptLabel: 'Oui',
 			rejectLabel: 'Non',
@@ -64,8 +62,8 @@ export class ModalConfirmCreatActivityComponent
 		});
 	}
 
-	protected override onAccept(selectedFile?: any): void {
-		this.onUpload(selectedFile);
+	protected override onAccept(selectedFile?: File | null): void {
+		this.onUpload(selectedFile as File);
 	}
 
 	protected override onError() {
@@ -77,7 +75,7 @@ export class ModalConfirmCreatActivityComponent
 		});
 	}
 
-	onUpload(selectedFile: any): void {
+	onUpload(selectedFile: File | null): void {
 		if (selectedFile) {
 			const filePath = `images/${selectedFile.name}`;
 			const fileRef = this.storage.ref(filePath);
@@ -91,49 +89,13 @@ export class ModalConfirmCreatActivityComponent
 							.getDownloadURL()
 							.pipe(
 								tap(url => {
-									console.log('URL de téléchargement récupérée: ', url);
 									this.uploadFirebaseImage = url;
 
 									this.myForm.form.patchValue({
 										imgUrl: this.uploadFirebaseImage,
 									});
 
-									console.log(this.myForm);
-
-									// Continue with the activity creation process
-									this._activityService
-										.postNewActivity$({
-											...this.myForm.value,
-											userId: this.connectedUser.id,
-											imageUrl: this.uploadFirebaseImage,
-										})
-										.pipe(
-											tap((activity: Activity) => {
-												this._messageService.add({
-													severity: 'info',
-													summary: 'Bravo',
-													detail: 'Votre activité a bien été créée',
-													life: 3000,
-												});
-												setTimeout(() => {
-													this._router.navigate([
-														FullActivityRouteEnum.DETAILS,
-														activity.id,
-													]);
-												}, 3000);
-											}),
-											catchError(() => {
-												this._messageService.add({
-													severity: 'error',
-													summary: 'Erreur',
-													detail:
-														"Une erreur s'est produite lors de la création de l'activité",
-													life: 3000,
-												});
-												return of([]);
-											}),
-										)
-										.subscribe();
+									this.onCreate();
 								}),
 							)
 							.subscribe();
@@ -141,5 +103,38 @@ export class ModalConfirmCreatActivityComponent
 				)
 				.subscribe();
 		}
+	}
+
+	onCreate() {
+		this._activityService
+			.postNewActivity$({
+				...this.myForm.value,
+				userId: this.connectedUser.id,
+				imageUrl: this.uploadFirebaseImage,
+			})
+			.pipe(
+				tap((activity: Activity) => {
+					this._messageService.add({
+						severity: 'info',
+						summary: 'Bravo',
+						detail: 'Votre activité a bien été créée',
+						life: 3000,
+					});
+					setTimeout(() => {
+						this._router.navigate([FullActivityRouteEnum.DETAILS, activity.id]);
+					}, 3000);
+				}),
+				catchError(() => {
+					this._messageService.add({
+						severity: 'error',
+						summary: 'Erreur',
+						detail:
+							"Une erreur s'est produite lors de la création de l'activité",
+						life: 3000,
+					});
+					return of([]);
+				}),
+			)
+			.subscribe();
 	}
 }
