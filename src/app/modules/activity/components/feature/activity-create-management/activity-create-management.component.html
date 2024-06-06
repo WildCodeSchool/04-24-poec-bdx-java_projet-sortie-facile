@@ -89,14 +89,30 @@
 		<p>img</p>
 		<i class="pi pi-download" style="font-size: 1.5rem"></i>
 
-		<input
+		<!-- <input
 			inputId="imgUrl"
 			name="imgUrl"
 			#imgUrl="ngModel"
 			[(ngModel)]="newActivity.imgUrl"
 			type="file"
 			class="file-upload"
-		/>
+		/> -->
+
+		<!-- <app-file-upload
+			name="imgUrl"
+			id="imgUrl"
+			#imgUrl="ngModel"
+			[(ngModel)]="newActivity.imgUrl"
+			[form]="addActivityForm"
+		></app-file-upload> -->
+
+		<app-file-upload
+			name="imgUrl"
+			id="imgUrl"
+			#imgUrlControl="ngModel"
+			[(ngModel)]="newActivity.imgUrl"
+			[form]="addActivityForm"
+		></app-file-upload>
 
 		<app-text-field
 			labelFor="link"

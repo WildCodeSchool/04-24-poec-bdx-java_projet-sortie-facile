@@ -38,6 +38,7 @@ import { CarouselActivityComponent } from './components/carousel/carousel-activi
 import { CarouselTestimonialComponent } from './components/carousel/carousel-testimonial/carousel-testimonial.component';
 import { CarouselCategoryComponent } from './components/carousel/carousel-category/carousel-category.component';
 import { CalendarModalComponent } from './components/modal/calendar-modal/calendar-modal.component';
+import { FileUploadComponent } from './components/file-upload/file-upload.component';
 
 @NgModule({
 	declarations: [
@@ -71,6 +72,7 @@ import { CalendarModalComponent } from './components/modal/calendar-modal/calend
 		CarouselTestimonialComponent,
 		CarouselCategoryComponent,
 		CalendarModalComponent,
+		FileUploadComponent,
 	],
 	imports: [
 		CommonModule,
@@ -116,6 +118,7 @@ import { CalendarModalComponent } from './components/modal/calendar-modal/calend
 		CardTestimonialComponent,
 		CarouselTestimonialComponent,
 		CarouselCategoryComponent,
+		FileUploadComponent,
 	],
 })
 export class SharedModule {}

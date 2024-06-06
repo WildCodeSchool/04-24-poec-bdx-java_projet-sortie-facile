@@ -14,6 +14,7 @@ import { MentionLegalesComponent } from './mention-legales/mention-legales.compo
 import { registerLocaleData } from '@angular/common';
 import localeFr from '@angular/common/locales/fr';
 import { DialogService } from 'primeng/dynamicdialog';
+import { FIREBASE_OPTIONS } from '@angular/fire/compat';
 
 registerLocaleData(localeFr, 'fr');
 
@@ -34,7 +35,33 @@ registerLocaleData(localeFr, 'fr');
 		SharedModule,
 		FormsModule,
 	],
-	providers: [{ provide: LOCALE_ID, useValue: 'fr' }, DialogService],
+	providers: [
+		{ provide: LOCALE_ID, useValue: 'fr' },
+		DialogService,
+		{
+			provide: FIREBASE_OPTIONS,
+			useValue: {
+				apiKey: 'AIzaSyCKmSJmVXf8Itot82knVN9qfAM8C1kkY7Q',
+				authDomain: 'sortie-facile.firebaseapp.com',
+				projectId: 'sortie-facile',
+				storageBucket: 'sortie-facile.appspot.com',
+				messagingSenderId: '299152551438',
+				appId: '1:299152551438:web:e59d93c6eae2156083d65f',
+			},
+		},
+		// provideFirebaseApp(() =>
+		// 	initializeApp({
+		// 		apiKey: 'AIzaSyCKmSJmVXf8Itot82knVN9qfAM8C1kkY7Q',
+		// 		authDomain: 'sortie-facile.firebaseapp.com',
+		// 		projectId: 'sortie-facile',
+		// 		storageBucket: 'sortie-facile.appspot.com',
+		// 		messagingSenderId: '299152551438',
+		// 		appId: '1:299152551438:web:e59d93c6eae2156083d65f',
+		// 	}),
+		// ),
+		// AngularFireStorageModule,
+		// provideStorage(() => getStorage()),
+	],
 	bootstrap: [AppComponent],
 	schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
