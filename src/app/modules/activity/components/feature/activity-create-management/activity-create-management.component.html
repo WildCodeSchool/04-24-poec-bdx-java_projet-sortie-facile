@@ -35,8 +35,9 @@
 			[(ngModel)]="newActivity.hour"
 		></app-input-hour>
 
-		<label for="">Département</label>
 		<app-select-department
+			labelFor="Departments"
+			labelContent="Département :"
 			id="departments"
 			inputId="departments"
 			name="departments"
@@ -86,17 +87,15 @@
 			[(ngModel)]="newActivity.description"
 		></app-textarea>
 
-		<p>img</p>
-		<i class="pi pi-download" style="font-size: 1.5rem"></i>
-
-		<input
-			inputId="imgUrl"
+		<app-file-upload
+			labelFor="imgUrl"
+			labelContent="Choisir une image :"
 			name="imgUrl"
-			#imgUrl="ngModel"
+			id="imgUrl"
+			#imgUrlControl="ngModel"
 			[(ngModel)]="newActivity.imgUrl"
-			type="file"
-			class="file-upload"
-		/>
+			[form]="addActivityForm"
+		></app-file-upload>
 
 		<app-text-field
 			labelFor="link"

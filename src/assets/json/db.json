@@ -604,6 +604,11 @@
       "id": "b49e",
       "userId": "1",
       "activityId": "3"
+    },
+    {
+      "id": "9370",
+      "userId": "1",
+      "activityId": "89df"
     }
   ],
   "activity": [
@@ -873,78 +878,6 @@
       "imgUrl": "https://plus.unsplash.com/premium_photo-1716309256554-b55aa49d5fbe?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw2OXx8fGVufDB8fHx8fA%3D%3D",
       "link": "https://example.com/activity20",
       "userId": "4",
-      "isVisible": true
-    },
-    {
-      "id": "be7d",
-      "name": "toto",
-      "date": "2024-06-02T22:00:00.000Z",
-      "hour": "2024-06-02T07:50:55.112Z",
-      "departments": {
-        "id": "2",
-        "name": "Aisne"
-      },
-      "activityCity": {
-        "id": "2",
-        "name": "Rome"
-      },
-      "categoryId": {
-        "id": "3",
-        "name": "Cinéma"
-      },
-      "nbGuest": 3,
-      "description": "drcf v",
-      "imgUrl": "",
-      "link": "",
-      "userId": "1",
-      "isVisible": true
-    },
-    {
-      "id": "4c44",
-      "name": "booobooooo",
-      "date": "2024-06-03T22:00:00.000Z",
-      "hour": "2024-06-02T09:21:21.233Z",
-      "departments": {
-        "id": "1",
-        "name": "Ain"
-      },
-      "activityCity": {
-        "id": "2",
-        "name": "Rome"
-      },
-      "categoryId": {
-        "id": "3",
-        "name": "Cinéma"
-      },
-      "nbGuest": 3,
-      "description": "gbyhvnb ",
-      "imgUrl": "",
-      "link": "",
-      "userId": "1",
-      "isVisible": true
-    },
-    {
-      "id": "cf65",
-      "name": "toto",
-      "date": "2024-06-04T22:00:00.000Z",
-      "hour": "2024-06-03T11:15:00.521Z",
-      "departments": {
-        "id": "2",
-        "name": "Aisne"
-      },
-      "activityCity": {
-        "id": "2",
-        "name": "Rome"
-      },
-      "categoryId": {
-        "id": "2",
-        "name": "Musique"
-      },
-      "nbGuest": 3,
-      "description": "ds'redr",
-      "imgUrl": "",
-      "link": "ed('r",
-      "userId": "1",
       "isVisible": true
     }
   ],
