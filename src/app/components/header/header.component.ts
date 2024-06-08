@@ -3,6 +3,7 @@ import { AuthUserPrimaryDatas } from '@shared/models/classes/auth-user/auth-user
 import { FullBookingRouteEnum } from '@shared/models/enums/routes/full-routes';
 import { UserRoleEnum } from '@shared/models/enums/user-role.enum';
 import { AuthService } from '@shared/services/auth.service';
+import { ContactService } from '@shared/services/contact.service';
 import { HeaderService } from '@shared/services/header.service';
 import { MenuItem } from 'primeng/api';
 import { Observable, map } from 'rxjs';
@@ -18,9 +19,12 @@ export class HeaderComponent implements OnInit {
 	items$!: Observable<MenuItem[]>;
 	isUserLoggedIn: boolean = false;
 	isAdmin: boolean = false;
+	newMail: boolean = false;
+
 	constructor(
 		private _authService: AuthService,
 		private _headerService: HeaderService,
+		private contactService: ContactService,
 	) {}
 
 	ngOnInit() {
@@ -35,5 +39,9 @@ export class HeaderComponent implements OnInit {
 			.subscribe((isAdmin: boolean) => {
 				this.isAdmin = isAdmin;
 			});
+
+		this.contactService.newMail$.subscribe((newMail: boolean) => {
+			this.newMail = newMail;
+		});
 	}
 }

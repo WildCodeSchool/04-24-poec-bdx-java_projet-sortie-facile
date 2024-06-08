@@ -1,5 +1,13 @@
 import { Activity } from '@activity/models/classes/activity.class';
-import { Component, Input, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import {
+	Component,
+	EventEmitter,
+	Input,
+	OnDestroy,
+	OnInit,
+	Output,
+	ViewChild,
+} from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ModalConfirmContactComponent } from '@shared/components/modal/modal-confirm-contact/modal-confirm-contact.component';
 import { AuthUserPrimaryDatas } from '@shared/models/classes/auth-user/auth-user-primary-datas.class';
@@ -15,6 +23,8 @@ import { Subscription } from 'rxjs';
 export class ContactComponent implements OnDestroy, OnInit {
 	@Input() activity!: Activity;
 	@Input() connectedUser!: AuthUserPrimaryDatas;
+	@Output() messageSent = new EventEmitter<void>();
+
 	private _subscription: Subscription = new Subscription();
 
 	@ViewChild(ModalConfirmContactComponent, { static: false })
@@ -41,7 +51,9 @@ export class ContactComponent implements OnDestroy, OnInit {
 
 	onSubmit(form: NgForm): void {
 		this._subscription.add(
-			this.contactService.postNewContact$(form.value).subscribe(),
+			this.contactService.postNewContact$(form.value).subscribe(() => {
+				this.messageSent.emit(); // Emit event when message is sent
+			}),
 		);
 	}
 
