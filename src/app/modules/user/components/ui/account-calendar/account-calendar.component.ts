@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {
+	Calendar,
 	CalendarOptions,
 	EventApi,
 	EventClickArg,
@@ -26,7 +27,7 @@ export class AccountCalendarComponent implements OnInit {
 	events: any[] = [];
 	calendarEl: HTMLElement | null = null;
 	dialogRef: DynamicDialogRef | null = null;
-
+	calendarApi!: Calendar;
 	calendarOptions: CalendarOptions = {
 		firstDay: 1,
 		locale: frLocale,
@@ -34,8 +35,16 @@ export class AccountCalendarComponent implements OnInit {
 		plugins: [dayGridPlugin, interactionPlugin, listPlugin, timeGridPlugin],
 		headerToolbar: {
 			left: 'prev,next today',
-			center: 'title',
+			center: 'title addEventButton',
 			right: 'dayGridMonth,timeGridWeek,timeGridDay',
+		},
+		customButtons: {
+			addEventButton: {
+				text: 'Ajouter Événement',
+				click: () => {
+					this.addEvent();
+				},
+			},
 		},
 		views: {
 			dayGridMonth: {
@@ -101,6 +110,9 @@ export class AccountCalendarComponent implements OnInit {
 
 		this.calendarEl = document.getElementById('calendar');
 		if (this.calendarEl) {
+			const calendar = new Calendar(this.calendarEl, this.calendarOptions);
+			this.calendarApi = calendar;
+			calendar.render();
 			new Draggable(this.calendarEl, {
 				itemSelector: '.fc-event',
 				eventData: eventEl => {
@@ -111,6 +123,25 @@ export class AccountCalendarComponent implements OnInit {
 					};
 				},
 			});
+		}
+	}
+	addEvent() {
+		const dateStr = prompt('Enter a date in YYYY-MM-DD format');
+		const date = new Date(dateStr + 'T00:00:00');
+
+		if (!isNaN(date.valueOf())) {
+			if (this.calendarApi) {
+				this.calendarApi.addEvent({
+					title: 'Dynamic Event',
+					start: date,
+					allDay: true,
+				});
+				alert('Great. Now, update your database...');
+			} else {
+				alert('Calendar API not available.');
+			}
+		} else {
+			alert('Invalid date.');
 		}
 	}
 
