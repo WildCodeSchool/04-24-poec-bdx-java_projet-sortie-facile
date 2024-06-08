@@ -1,0 +1,30 @@
+.calendar-legend {
+	display: flex;
+	justify-content: center;
+	margin-bottom: 1rem;
+	flex-direction: column;
+}
+
+.legend-item {
+	display: flex;
+	align-items: center;
+	margin-right: 1rem;
+	font-size: 14px;
+}
+
+.legend-item::before {
+	content: '';
+	display: inline-block;
+	width: 12px;
+	height: 12px;
+	border-radius: 50%;
+	margin-right: 5px;
+}
+
+.legend-item.blue::before {
+	background-color: blue;
+}
+
+.legend-item.green::before {
+	background-color: green;
+}
