@@ -10,5 +10,13 @@
 		</ng-template>
 
 		<app-auth-menu></app-auth-menu>
+		<ng-container>
+			<li class="p-menuitem p-menuitem-custom" *ngIf="isAdmin">
+				<a [routerLink]="[fullBookingRouteEnum.MAIL]">
+					<i class="pi pi-envelope"></i>
+					<!-- Icône d'enveloppe -->
+				</a>
+			</li>
+		</ng-container>
 	</p-menubar>
 </ng-container>
