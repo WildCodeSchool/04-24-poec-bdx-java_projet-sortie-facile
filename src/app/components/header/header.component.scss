@@ -55,7 +55,7 @@
 .user {
 	display: flex;
 	align-items: center;
-	width: 90px;
+	width: 125px;
 	justify-content: space-between;
 }
 .red-dot {
@@ -64,8 +64,7 @@
 	border-radius: 50%;
 	background-color: rgb(238, 35, 21);
 }
-.mail {
+.mail,
+.notif {
 	display: flex;
-	width: 40px;
-	justify-content: space-between;
 }
