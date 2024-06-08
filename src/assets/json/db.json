@@ -602,6 +602,11 @@
       "id": "4998",
       "userId": "2",
       "activityId": "9"
+    },
+    {
+      "id": "c98b",
+      "userId": "1",
+      "activityId": "b1b9"
     }
   ],
   "activity": [
@@ -923,6 +928,32 @@
       "link": "",
       "userId": "1",
       "imageUrl": "https://firebasestorage.googleapis.com/v0/b/sortie-facile.appspot.com/o/images%2Fmagdalena-raczka-b1eZWNyoBn4-unsplash.jpg?alt=media&token=6a51de3b-cdb6-4787-9a61-a754572bc2a6",
+      "isVisible": true
+    },
+    {
+      "id": "b1b9",
+      "name": "totocr fvc fv",
+      "date": "2024-06-03T22:00:00.000Z",
+      "hour": "2024-06-08T08:44:25.530Z",
+      "departments": {
+        "id": "3",
+        "name": "Allier"
+      },
+      "activityCity": {
+        "id": "3",
+        "name": "London"
+      },
+      "categoryId": {
+        "id": "3",
+        "name": "Cinéma",
+        "imgUrl": "category-cinema.svg"
+      },
+      "nbGuest": 4,
+      "description": "fctgdcv gf",
+      "imgUrl": "https://firebasestorage.googleapis.com/v0/b/sortie-facile.appspot.com/o/images%2Fmagdalena-raczka-b1eZWNyoBn4-unsplash.jpg?alt=media&token=632e1643-8106-4db2-b12a-3a76ce9152f5",
+      "link": "",
+      "userId": "2",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/sortie-facile.appspot.com/o/images%2Fmagdalena-raczka-b1eZWNyoBn4-unsplash.jpg?alt=media&token=632e1643-8106-4db2-b12a-3a76ce9152f5",
       "isVisible": true
     }
   ],

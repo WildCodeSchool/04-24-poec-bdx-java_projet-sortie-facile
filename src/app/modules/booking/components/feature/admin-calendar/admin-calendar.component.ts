@@ -13,8 +13,9 @@ import listPlugin from '@fullcalendar/list';
 import { ActivityService } from '@shared/services/activity.service';
 import { Activity } from '@activity/models/classes/activity.class';
 import { CalendarModalComponent } from '@shared/components/modal/calendar-modal/calendar-modal.component';
-import { DialogService } from 'primeng/dynamicdialog';
+import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
 import frLocale from '@fullcalendar/core/locales/fr';
+import { EventImpl } from '@fullcalendar/core/internal';
 
 @Component({
 	selector: 'app-admin-calendar',
@@ -22,8 +23,9 @@ import frLocale from '@fullcalendar/core/locales/fr';
 	styleUrls: ['./admin-calendar.component.scss'],
 })
 export class AdminCalendarComponent implements OnInit {
-	events: unknown[] = [];
+	events: any[] = [];
 	calendarEl: HTMLElement | null = null;
+	dialogRef: DynamicDialogRef | null = null;
 
 	constructor(
 		private activityService: ActivityService,
@@ -57,12 +59,12 @@ export class AdminCalendarComponent implements OnInit {
 				buttonText: 'Jour',
 			},
 		},
-		eventClick: (arg: EventClickArg) => this.handleEventClick(arg),
 		editable: true,
-		eventDrop: (arg: EventDropArg) => this.handleEventDrop(arg),
 		buttonText: {
 			today: "Aujourd'hui",
 		},
+		eventClick: (arg: EventClickArg) => this.handleEventClick(arg),
+		eventDrop: (arg: EventDropArg) => this.handleEventDrop(arg),
 	};
 
 	ngOnInit() {
@@ -96,19 +98,29 @@ export class AdminCalendarComponent implements OnInit {
 		const event = arg.event;
 
 		if (event && event.extendedProps && event.extendedProps['activity']) {
-			this.openModal(event.extendedProps['activity']);
+			this.openModal(event, event.extendedProps['activity']);
 		} else {
-			alert('No activity found for this event.');
+			alert('No activity found for this date: ' + event);
 		}
 	}
 
-	openModal(activity: Activity) {
-		this.dialogService.open(CalendarModalComponent, {
+	openModal(event: EventImpl, activity: Activity) {
+		this.dialogRef = this.dialogService.open(CalendarModalComponent, {
 			data: {
-				activity: activity,
+				activity: event.extendedProps['activity'],
+				eventId: event.id,
 			},
 			header: 'Details',
 			width: '30%',
+		});
+
+		this.dialogRef.onClose.subscribe(result => {
+			if (result && result.deleted) {
+				this.events = this.events.filter(
+					e => e.extendedProps.activityId !== result.eventId,
+				);
+				this.calendarOptions.events = this.events;
+			}
 		});
 	}
 

@@ -1,10 +1,7 @@
 <div class="activity-card-container">
 	<p-card>
 		<ng-template pTemplate="header">
-			<div
-				class="btn-admin"
-				*ngIf="connectedUser && connectedUser.id === activity.userId"
-			>
+			<div class="btn-admin">
 				<!-- <p-button
 					icon="pi pi-pencil"
 					[rounded]="true"
@@ -12,12 +9,12 @@
 					[routerLink]="[fullActivityRoute.UPDATE, activity.id]"
 				/> -->
 
-				<!-- <p-button
+				<p-button
 					icon="pi pi-trash"
 					[rounded]="true"
 					severity="danger"
-					(click)="onModal()"
-				/> -->
+					(click)="deleteEvent()"
+				/>
 			</div>
 
 			<img
@@ -28,9 +25,7 @@
 				"
 			/>
 		</ng-template>
-		<h3>
-			{{ activity.name | truncate: 25 }}
-		</h3>
+		<h3>{{ activity.name | truncate: 25 }}</h3>
 		<p-divider />
 		<div class="bottom-content">
 			<div class="bottom-item">

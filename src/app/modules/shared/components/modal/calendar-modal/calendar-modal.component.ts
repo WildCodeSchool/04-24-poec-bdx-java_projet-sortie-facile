@@ -23,7 +23,11 @@ export class CalendarModalComponent implements OnInit {
 		this.activity = this.config.data.activity;
 	}
 
-	close() {
+	deleteEvent() {
+		this.ref.close({ deleted: true, eventId: this.activity.id });
+	}
+
+	close(): void {
 		this.ref.close();
 	}
 }
