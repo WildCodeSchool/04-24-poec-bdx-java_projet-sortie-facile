@@ -18,6 +18,7 @@
 				<td>{{ contact.title }}</td>
 				<td>{{ contact.email }}</td>
 				<td>{{ contact.message | truncate: 100 }}</td>
+				<span *ngIf="!contact.read" class="badge badge-danger">New</span>
 			</tr>
 		</ng-template>
 	</p-table>
