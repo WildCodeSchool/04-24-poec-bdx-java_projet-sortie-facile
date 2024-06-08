@@ -63,4 +63,12 @@ export class ContactService {
 			}),
 		);
 	}
+	updateContact(contact: Contact): Observable<Contact> {
+		const url = `${this._BASE_URL}/${contact.id}`;
+		return this.http.put<Contact>(url, contact).pipe(
+			catchError(error => {
+				return throwError(error);
+			}),
+		);
+	}
 }

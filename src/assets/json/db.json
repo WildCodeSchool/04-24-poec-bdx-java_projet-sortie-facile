@@ -1613,13 +1613,15 @@
       "id": "41",
       "Email": "new mail",
       "title": "new mail",
-      "message": "new mail"
+      "message": "new mail",
+      "read": true
     },
     {
       "id": "42",
       "Email": "new mail",
       "title": "new mail",
-      "message": "new mail"
+      "message": "new mail",
+      "read": true
     }
   ],
   "testimonials": [
