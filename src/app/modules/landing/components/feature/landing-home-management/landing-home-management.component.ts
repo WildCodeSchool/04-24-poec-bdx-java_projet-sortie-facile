@@ -41,7 +41,9 @@ export class LandingHomeManagementComponent implements OnInit {
 
 	ngOnInit(): void {
 		this.connectedUser = this._authService.getConnectedUserData();
-		this.functionimgDatas = this._landingHomeService.getFunctionimgDatas();
+		this.functionimgDatas = this._landingHomeService.getFunctionimgDatas(
+			this.connectedUser.username ? true : false,
+		);
 		this.testimonialList$ = this._testimonialService.getTestimonialList$();
 		this.activityList$ = this._activityService.getActivityList$();
 		this.categoryList$ = this._categoryService.getCategoryList$();

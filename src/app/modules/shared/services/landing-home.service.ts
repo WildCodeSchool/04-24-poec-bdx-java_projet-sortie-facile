@@ -1,6 +1,9 @@
 import { Injectable } from '@angular/core';
 import { FunctionimgDatas } from '@shared/models/classes/utils/function-img-datas.class';
-import { FullActivityRouteEnum } from '@shared/models/enums/routes/full-routes';
+import {
+	FullActivityRouteEnum,
+	FullAuthenticationRouteEnum,
+} from '@shared/models/enums/routes/full-routes';
 
 @Injectable({
 	providedIn: 'root',
@@ -8,7 +11,7 @@ import { FullActivityRouteEnum } from '@shared/models/enums/routes/full-routes';
 export class LandingHomeService {
 	constructor() {}
 
-	getFunctionimgDatas(): FunctionimgDatas[] {
+	getFunctionimgDatas(connectedUser: boolean): FunctionimgDatas[] {
 		return [
 			new FunctionimgDatas(
 				'assets/photos/7732590_5217.svg',
@@ -23,16 +26,24 @@ export class LandingHomeService {
 				'',
 				'Créer une activité',
 				'Danish jelly chocolate bar lollipop cupcake chocolate cake danish oat cake cotton candy. Jujubes soufflé lollipop candy canes marzipan jelly-o fruitcake caramels.',
-				[FullActivityRouteEnum.POST],
-				'Ajouter une activité',
+				[
+					connectedUser
+						? FullActivityRouteEnum.POST
+						: FullAuthenticationRouteEnum.LOGIN,
+				],
+				connectedUser ? 'Créer une activité' : 'Se connecter',
 			),
 			new FunctionimgDatas(
 				'assets/photos/7732590_5217.svg',
 				'',
 				"S'inscrire à une activité",
 				'Danish jelly chocolate bar lollipop cupcake chocolate cake danish oat cake cotton candy. Jujubes soufflé lollipop candy canes marzipan jelly-o fruitcake caramels.',
-				[FullActivityRouteEnum.POST],
-				"S'inscrire à une activité",
+				[
+					connectedUser
+						? FullActivityRouteEnum.POST
+						: FullAuthenticationRouteEnum.LOGIN,
+				],
+				connectedUser ? "S'inscrire à une activité" : 'Se connecter',
 			),
 		];
 	}
