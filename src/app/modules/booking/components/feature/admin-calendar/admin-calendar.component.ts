@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {
+	Calendar,
 	CalendarOptions,
 	EventApi,
 	EventClickArg,
@@ -16,6 +17,8 @@ import { CalendarModalComponent } from '@shared/components/modal/calendar-modal/
 import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
 import frLocale from '@fullcalendar/core/locales/fr';
 import { EventImpl } from '@fullcalendar/core/internal';
+import { FullActivityRouteEnum } from '@shared/models/enums/routes/full-routes';
+import { Router } from '@angular/router';
 
 @Component({
 	selector: 'app-admin-calendar',
@@ -26,10 +29,12 @@ export class AdminCalendarComponent implements OnInit {
 	events: any[] = [];
 	calendarEl: HTMLElement | null = null;
 	dialogRef: DynamicDialogRef | null = null;
+	calendarApi!: Calendar;
 
 	constructor(
 		private activityService: ActivityService,
 		private dialogService: DialogService,
+		private _router: Router,
 	) {}
 
 	calendarOptions: CalendarOptions = {
@@ -39,8 +44,16 @@ export class AdminCalendarComponent implements OnInit {
 		plugins: [dayGridPlugin, interactionPlugin, listPlugin, timeGridPlugin],
 		headerToolbar: {
 			left: 'prev,next today',
-			center: 'title',
+			center: 'title addEventButton',
 			right: 'dayGridMonth,timeGridWeek,timeGridDay',
+		},
+		customButtons: {
+			addEventButton: {
+				text: 'Ajouter Événement',
+				click: () => {
+					this.addEvent();
+				},
+			},
 		},
 		views: {
 			dayGridMonth: {
@@ -81,6 +94,10 @@ export class AdminCalendarComponent implements OnInit {
 
 		this.calendarEl = document.getElementById('calendar');
 		if (this.calendarEl) {
+			const calendar = new Calendar(this.calendarEl, this.calendarOptions);
+			this.calendarApi = calendar;
+			calendar.render();
+
 			new Draggable(this.calendarEl, {
 				itemSelector: '.fc-event',
 				eventData: eventEl => {
@@ -94,6 +111,26 @@ export class AdminCalendarComponent implements OnInit {
 		}
 	}
 
+	addEvent() {
+		this._router.navigate([FullActivityRouteEnum.POST]);
+		// const dateStr = prompt('Enter a date in YYYY-MM-DD format');
+		// const date = new Date(dateStr + 'T00:00:00');
+
+		// if (!isNaN(date.valueOf())) {
+		// 	if (this.calendarApi) {
+		// 		this.calendarApi.addEvent({
+		// 			title: 'Dynamic Event',
+		// 			start: date,
+		// 			allDay: true,
+		// 		});
+		// 		alert('Great. Now, update your database...');
+		// 	} else {
+		// 		alert('Calendar API not available.');
+		// 	}
+		// } else {
+		// 	alert('Invalid date.');
+		// }
+	}
 	handleEventClick(arg: EventClickArg) {
 		const event = arg.event;
 

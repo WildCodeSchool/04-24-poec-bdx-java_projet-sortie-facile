@@ -1,5 +1,10 @@
 <div class="activity-card-container">
 	<p-card>
+		<p-badge
+			value="? / {{ activity.nbGuest }} places restantes"
+			badgeSize="large"
+			severity="warning"
+		/>
 		<ng-template pTemplate="header">
 			<div class="btn-admin">
 				<!-- <p-button
@@ -42,7 +47,6 @@
 		<p class="clamp-text">
 			{{ activity.description }}
 		</p>
-
 		<ng-template pTemplate="footer">
 			<p-button
 				rounded
