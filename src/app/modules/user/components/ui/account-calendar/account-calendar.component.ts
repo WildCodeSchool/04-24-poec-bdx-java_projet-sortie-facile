@@ -17,6 +17,8 @@ import { CalendarModalComponent } from '@shared/components/modal/calendar-modal/
 import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
 import frLocale from '@fullcalendar/core/locales/fr';
 import { EventImpl } from '@fullcalendar/core/internal';
+import { FullActivityRouteEnum } from '@shared/models/enums/routes/full-routes';
+import { Router } from '@angular/router';
 
 @Component({
 	selector: 'app-account-calendar',
@@ -75,6 +77,7 @@ export class AccountCalendarComponent implements OnInit {
 	constructor(
 		private _activityService: ActivityService,
 		private dialogService: DialogService,
+		private _router: Router,
 	) {}
 
 	ngOnInit() {
@@ -126,23 +129,24 @@ export class AccountCalendarComponent implements OnInit {
 		}
 	}
 	addEvent() {
-		const dateStr = prompt('Enter a date in YYYY-MM-DD format');
-		const date = new Date(dateStr + 'T00:00:00');
+		this._router.navigate([FullActivityRouteEnum.POST]);
+		// const dateStr = prompt('Enter a date in YYYY-MM-DD format');
+		// const date = new Date(dateStr + 'T00:00:00');
 
-		if (!isNaN(date.valueOf())) {
-			if (this.calendarApi) {
-				this.calendarApi.addEvent({
-					title: 'Dynamic Event',
-					start: date,
-					allDay: true,
-				});
-				alert('Great. Now, update your database...');
-			} else {
-				alert('Calendar API not available.');
-			}
-		} else {
-			alert('Invalid date.');
-		}
+		// if (!isNaN(date.valueOf())) {
+		// 	if (this.calendarApi) {
+		// 		this.calendarApi.addEvent({
+		// 			title: 'Dynamic Event',
+		// 			start: date,
+		// 			allDay: true,
+		// 		});
+		// 		alert('Great. Now, update your database...');
+		// 	} else {
+		// 		alert('Calendar API not available.');
+		// 	}
+		// } else {
+		// 	alert('Invalid date.');
+		// }
 	}
 
 	handleEventClick(arg: EventClickArg) {
