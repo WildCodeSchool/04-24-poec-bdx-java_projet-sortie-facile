@@ -40,6 +40,7 @@ export class DataMailComponent implements OnInit {
 	}
 
 	showMail(contact: Contact) {
+		contact.read = true;
 		this.selectedContact = contact;
 	}
 
