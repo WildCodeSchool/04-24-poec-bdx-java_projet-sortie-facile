@@ -37,23 +37,6 @@
 	}
 }
 
-.p-menuitem-icon {
-	color: var(--white-color);
-}
-
-.icon {
-	display: flex;
-	flex-direction: row;
-	color: aliceblue;
-}
-
-.green-dot {
-	width: 10px;
-	height: 10px;
-	border-radius: 50%;
-	background-color: rgb(48, 209, 48);
-}
-
 .p-menuitem-text {
 	color: var(--white-color);
 }
@@ -68,26 +51,4 @@
 	border-top-left-radius: 80px 80px;
 	border-top-right-radius: 80px 80px;
 	background-color: var(--white-color);
-}
-
-i {
-	cursor: pointer;
-}
-
-:host ::ng-deep p-tieredmenu {
-	.p-tieredmenu.p-tieredmenu-overlay {
-		padding: 0rem;
-
-		.p-menuitem-link {
-			padding: 1rem 0.75rem;
-
-			&:first-child {
-				border-bottom: 1px solid var(--gray-500);
-			}
-
-			.p-menuitem-text {
-				font-family: 'Inter var', sans-serif;
-			}
-		}
-	}
 }

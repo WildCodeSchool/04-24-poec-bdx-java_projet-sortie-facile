@@ -40,6 +40,7 @@ import { CarouselCategoryComponent } from './components/carousel/carousel-catego
 import { CalendarModalComponent } from './components/modal/calendar-modal/calendar-modal.component';
 import { FileUploadComponent } from './components/file-upload/file-upload.component';
 import { FileUploadModule } from 'primeng/fileupload';
+import { AuthMenuComponent } from './components/auth-menu/auth-menu.component';
 
 @NgModule({
 	declarations: [
@@ -74,6 +75,7 @@ import { FileUploadModule } from 'primeng/fileupload';
 		CarouselCategoryComponent,
 		CalendarModalComponent,
 		FileUploadComponent,
+		AuthMenuComponent,
 	],
 	imports: [
 		CommonModule,
@@ -121,6 +123,7 @@ import { FileUploadModule } from 'primeng/fileupload';
 		CarouselTestimonialComponent,
 		CarouselCategoryComponent,
 		FileUploadComponent,
+		AuthMenuComponent,
 	],
 })
 export class SharedModule {}
