@@ -2,11 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { AuthUserPrimaryDatas } from '@shared/models/classes/auth-user/auth-user-primary-datas.class';
 import { FullBookingRouteEnum } from '@shared/models/enums/routes/full-routes';
 import { UserRoleEnum } from '@shared/models/enums/user-role.enum';
+import { ActivityService } from '@shared/services/activity.service';
 import { AuthService } from '@shared/services/auth.service';
 import { ContactService } from '@shared/services/contact.service';
 import { HeaderService } from '@shared/services/header.service';
 import { MenuItem } from 'primeng/api';
-import { Observable, map } from 'rxjs';
+import { Observable, Subscription, map } from 'rxjs';
 
 @Component({
 	selector: 'app-header',
@@ -20,11 +21,14 @@ export class HeaderComponent implements OnInit {
 	isUserLoggedIn: boolean = false;
 	isAdmin: boolean = false;
 	newMail: boolean = false;
+	newActivity: boolean = false;
 
+	private subscriptions = new Subscription();
 	constructor(
 		private _authService: AuthService,
 		private _headerService: HeaderService,
 		private contactService: ContactService,
+		private activityService: ActivityService,
 	) {}
 
 	ngOnInit() {
@@ -43,5 +47,10 @@ export class HeaderComponent implements OnInit {
 		this.contactService.newMail$.subscribe((newMail: boolean) => {
 			this.newMail = newMail;
 		});
+		this.subscriptions.add(
+			this.activityService.newActivity$.subscribe((newActivity: boolean) => {
+				this.newActivity = newActivity;
+			}),
+		);
 	}
 }

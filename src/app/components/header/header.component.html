@@ -11,7 +11,7 @@
 		<div class="user">
 			<div class="notif">
 				<i class="pi pi-bell mr-4 p-text-secondary" style="font-size: 2rem"></i>
-				<div class="red-dot"></div>
+				<div *ngIf="newActivity" class="red-dot"></div>
 			</div>
 			<div class="mail" *ngIf="isAdmin">
 				<i
