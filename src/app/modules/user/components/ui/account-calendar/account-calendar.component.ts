@@ -1,4 +1,4 @@
-import { Component, LOCALE_ID, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {
 	CalendarOptions,
 	EventApi,
@@ -14,15 +14,12 @@ import { ActivityService } from '@shared/services/activity.service';
 import { forkJoin } from 'rxjs';
 import { CalendarModalComponent } from '@shared/components/modal/calendar-modal/calendar-modal.component';
 import { DialogService } from 'primeng/dynamicdialog';
+import frLocale from '@fullcalendar/core/locales/fr';
 
 @Component({
 	selector: 'app-account-calendar',
 	templateUrl: './account-calendar.component.html',
 	styleUrls: ['./account-calendar.component.scss'],
-	providers: [
-		{ provide: LOCALE_ID, useValue: 'fr' },
-		{ provide: 'FULLCALENDAR_LOCALE', useValue: 'fr' },
-	],
 })
 export class AccountCalendarComponent implements OnInit {
 	events: any[] = [];
@@ -30,7 +27,7 @@ export class AccountCalendarComponent implements OnInit {
 
 	calendarOptions: CalendarOptions = {
 		firstDay: 1,
-		locale: 'fr',
+		locale: frLocale,
 		initialView: 'dayGridMonth',
 		plugins: [dayGridPlugin, interactionPlugin, listPlugin, timeGridPlugin],
 		headerToolbar: {
