@@ -65,7 +65,7 @@ export class AuthService extends AuthUserServiceUtils {
 				localStorage.setItem('user', JSON.stringify(user));
 				this.setConnectedUserData(user);
 				this.notifyLoggedInStatus(true);
-				this._router.navigateByUrl(FullUserRouteEnum.HOME);
+				this._router.navigateByUrl(FullUserRouteEnum.ACTIVITY);
 			}),
 			catchError(() => {
 				return throwError(

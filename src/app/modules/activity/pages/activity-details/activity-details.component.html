@@ -26,7 +26,7 @@
 					></app-info-item>
 				</div>
 
-				<div class="btn-box">
+				<div class="btn-box" *ngIf="activity.userId !== connectedUser.id">
 					<app-button-ultra-wilde
 						[label]="!hasBooking ? 'S\'inscrire' : 'Se désinscrire'"
 						(click)="onModal()"
@@ -137,7 +137,10 @@
 					>Voir Plus</a
 				>
 
-				<ng-template pTemplate="footer">
+				<ng-template
+					pTemplate="footer"
+					*ngIf="activity.userId !== connectedUser.id"
+				>
 					<div class="btns-box">
 						<p-button
 							[raised]="true"

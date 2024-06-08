@@ -47,7 +47,7 @@ export class ActivityDetailsComponent implements OnInit, OnDestroy {
 			this.activity$
 				.pipe(
 					switchMap(activity => {
-						this.categoryTitle$ = of(activity.categoryId.name); // Correctly get the category name
+						this.categoryTitle$ = of(activity.categoryId.name);
 						return this.activityService.filteredActivityListByCategory$(
 							activity.categoryId,
 						);
