@@ -1,22 +1,20 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { AbstractModal } from '@shared/models/classes/components/absctract-modal.class';
-import { ContactService } from '@shared/services/contact.service';
 import { ConfirmationService, MessageService } from 'primeng/api';
 
 @Component({
 	selector: 'app-modal-confirm-contact',
 	templateUrl: './modal-confirm-contact.component.html',
-	styleUrl: './modal-confirm-contact.component.scss',
+	styleUrls: ['./modal-confirm-contact.component.scss'],
 	providers: [ConfirmationService, MessageService],
 })
 export class ModalConfirmContactComponent extends AbstractModal {
 	@Input() myForm: NgForm;
-
+	@Output() submitConfirmed = new EventEmitter<any>();
 	constructor(
 		private _confirmationService: ConfirmationService,
 		private _messageService: MessageService,
-		private _contactService: ContactService,
 	) {
 		super();
 		this.myForm = {} as NgForm;
@@ -56,13 +54,8 @@ export class ModalConfirmContactComponent extends AbstractModal {
 	}
 
 	protected override onAccept(): void {
-		this._contactService.onSubmit(this.myForm);
-		this._messageService.add({
-			severity: 'info',
-			summary: 'Envoyé',
-			detail: 'Votre message a bien été envoyé',
-			life: 3000,
-		});
-		this.myForm.reset();
+		// Ne pas appeler directement _contactService.onSubmit(this.myForm);
+		// Émettre un événement pour que ContactComponent puisse gérer la soumission
+		this.submitConfirmed.emit(this.myForm.value);
 	}
 }
