@@ -8,15 +8,18 @@
 				alt="logo of sortie facile"
 			/>
 		</ng-template>
-
-		<app-auth-menu></app-auth-menu>
-		<ng-container>
-			<li class="p-menuitem p-menuitem-custom" *ngIf="isAdmin">
-				<a [routerLink]="[fullBookingRouteEnum.MAIL]">
-					<i class="pi pi-envelope"></i>
-					<!-- Icône d'enveloppe -->
-				</a>
-			</li>
-		</ng-container>
+		<div class="user">
+			<div class="mail">
+				<i
+					*ngIf="isAdmin"
+					class="pi pi-envelope p-text-secondary"
+					style="font-size: 1.5rem"
+					severity="danger"
+					[routerLink]="[fullBookingRouteEnum.MAIL]"
+				></i>
+				<div class="red-dot"></div>
+			</div>
+			<app-auth-menu></app-auth-menu>
+		</div>
 	</p-menubar>
 </ng-container>

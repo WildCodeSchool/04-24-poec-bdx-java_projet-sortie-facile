@@ -52,3 +52,20 @@
 	border-top-right-radius: 80px 80px;
 	background-color: var(--white-color);
 }
+.user {
+	display: flex;
+	align-items: center;
+	width: 90px;
+	justify-content: space-between;
+}
+.red-dot {
+	width: 10px;
+	height: 10px;
+	border-radius: 50%;
+	background-color: rgb(238, 35, 21);
+}
+.mail {
+	display: flex;
+	width: 40px;
+	justify-content: space-between;
+}
