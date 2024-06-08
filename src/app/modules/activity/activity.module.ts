@@ -12,6 +12,7 @@ import { ActivityCreateManagementComponent } from '@activity/components/feature/
 import { ActivityCreateComponent } from '@activity/pages/activity-create/activity-create.component';
 import { ActivityUpdateManagementComponent } from '@activity/components/feature/activity-update-management/activity-update-management.component';
 import { InfoItemComponent } from './components/ui/info-item/info-item.component';
+import { ActivityDetailsManagementComponent } from './components/feature/activity-details-management/activity-details-management.component';
 
 @NgModule({
 	declarations: [
@@ -24,6 +25,7 @@ import { InfoItemComponent } from './components/ui/info-item/info-item.component
 		ActivityCreateComponent,
 		ActivityUpdateManagementComponent,
 		InfoItemComponent,
+  ActivityDetailsManagementComponent,
 	],
 	imports: [CommonModule, ActivityRoutingModule, SharedModule],
 })

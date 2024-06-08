@@ -31,14 +31,14 @@ p {
 		z-index: 10;
 		position: relative;
 		width: 100%;
-		display:flex;
+		display: flex;
 		justify-content: space-between;
 		padding: 2rem 0;
 
-		.hero-img-box>img {
+		.hero-img-box > img {
 			height: 60px;
 			margin: 0 3rem;
-			align-items: center	;
+			align-items: center;
 		}
 
 		ul {
@@ -53,12 +53,14 @@ p {
 			list-style-type: none;
 		}
 
-		a {
+		button {
 			color: var(--white-color);
 			text-decoration: none;
-			padding-bottom: 1rem;;
+			padding-bottom: 1rem;
+			border-radius: 0;
 
 			&:hover {
+				background-color: transparent;
 				border-bottom: 1px solid var(--white-color);
 			}
 		}
@@ -119,7 +121,6 @@ p {
 					font-size: 1.05rem;
 					line-height: 1.6;
 					max-width: 700px;
-
 				}
 
 				.btn-box {

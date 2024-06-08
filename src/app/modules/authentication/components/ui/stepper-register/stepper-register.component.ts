@@ -8,7 +8,6 @@ import {
 import { NewAuthUserFormDatas } from '@shared/models/classes/auth-user/new-auth-user-form-datas.class';
 import { NewUserUserDetailsFormDatas } from '@shared/models/classes/user-details/new-user-details-form-datas.class';
 import { AuthService } from '@shared/services/auth.service';
-import { UserService } from '@shared/services/user.service';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -25,10 +24,7 @@ export class StepperRegisterComponent implements OnDestroy {
 
 	private _subscription: Subscription = new Subscription();
 
-	constructor(
-		private _authService: AuthService,
-		private _userService: UserService,
-	) {}
+	constructor(private _authService: AuthService) {}
 
 	onClick(value: number): void {
 		this.sendStepValueToParent.emit(value);

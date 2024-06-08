@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, catchError, map, switchMap, tap, throwError } from 'rxjs';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AuthUserListResponseApi } from '@shared/models/classes/auth-user';
 import { NewAuthUser } from '@shared/models/classes/auth-user/new-auth-user.class';
 import { UserService } from './user.service';
@@ -28,6 +28,7 @@ export class AuthService extends AuthUserServiceUtils {
 	constructor(
 		private _httpClient: HttpClient,
 		private _router: Router,
+		private _activatedRoute: ActivatedRoute,
 		private _userService: UserService,
 		private _formErrorMessage: FormErrorMessageService,
 	) {
@@ -64,7 +65,7 @@ export class AuthService extends AuthUserServiceUtils {
 				localStorage.setItem('user', JSON.stringify(user));
 				this.setConnectedUserData(user);
 				this.notifyLoggedInStatus(true);
-				this._router.navigateByUrl(FullUserRouteEnum.HOME);
+				this._router.navigateByUrl(FullUserRouteEnum.ACTIVITY);
 			}),
 			catchError(() => {
 				return throwError(
@@ -130,6 +131,7 @@ export class AuthService extends AuthUserServiceUtils {
 			userDetailsId: '',
 		});
 		this.notifyLoggedInStatus(false);
+
 		this._router.navigateByUrl(FullAuthenticationRouteEnum.LOGIN);
 	}
 

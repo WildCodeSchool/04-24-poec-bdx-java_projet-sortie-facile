@@ -1,6 +1,5 @@
 import { Component, Input } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { Router } from '@angular/router';
 import { AbstractModal } from '@shared/models/classes/components/absctract-modal.class';
 import { ContactService } from '@shared/services/contact.service';
 import { ConfirmationService, MessageService } from 'primeng/api';
@@ -18,7 +17,6 @@ export class ModalConfirmContactComponent extends AbstractModal {
 		private _confirmationService: ConfirmationService,
 		private _messageService: MessageService,
 		private _contactService: ContactService,
-		private _router: Router,
 	) {
 		super();
 		this.myForm = {} as NgForm;
@@ -65,8 +63,6 @@ export class ModalConfirmContactComponent extends AbstractModal {
 			detail: 'Votre message a bien été envoyé',
 			life: 3000,
 		});
-		setTimeout(() => {
-			this._router.navigateByUrl('/');
-		}, 3000);
+		this.myForm.reset();
 	}
 }

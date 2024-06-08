@@ -27,12 +27,12 @@ export class HeaderService {
 				routerLink: '/',
 			},
 			{
-				label: 'Contact',
-				routerLink: '/contact',
-			},
-			{
 				label: 'Activités',
 				routerLink: FullActivityRouteEnum.HOME,
+			},
+			{
+				label: 'Contact',
+				routerLink: '/contact',
 			},
 		]);
 

@@ -1,4 +1,4 @@
-import { Component, LOCALE_ID, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {
 	CalendarOptions,
 	EventApi,
@@ -13,24 +13,23 @@ import { Activity } from '@activity/models/classes/activity.class';
 import { ActivityService } from '@shared/services/activity.service';
 import { forkJoin } from 'rxjs';
 import { CalendarModalComponent } from '@shared/components/modal/calendar-modal/calendar-modal.component';
-import { DialogService } from 'primeng/dynamicdialog';
+import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
+import frLocale from '@fullcalendar/core/locales/fr';
+import { EventImpl } from '@fullcalendar/core/internal';
 
 @Component({
 	selector: 'app-account-calendar',
 	templateUrl: './account-calendar.component.html',
 	styleUrls: ['./account-calendar.component.scss'],
-	providers: [
-		{ provide: LOCALE_ID, useValue: 'fr' },
-		{ provide: 'FULLCALENDAR_LOCALE', useValue: 'fr' },
-	],
 })
 export class AccountCalendarComponent implements OnInit {
 	events: any[] = [];
 	calendarEl: HTMLElement | null = null;
+	dialogRef: DynamicDialogRef | null = null;
 
 	calendarOptions: CalendarOptions = {
 		firstDay: 1,
-		locale: 'fr',
+		locale: frLocale,
 		initialView: 'dayGridMonth',
 		plugins: [dayGridPlugin, interactionPlugin, listPlugin, timeGridPlugin],
 		headerToolbar: {
@@ -55,15 +54,13 @@ export class AccountCalendarComponent implements OnInit {
 				buttonText: 'Jour',
 			},
 		},
-
-		eventClick: (arg: EventClickArg) => this.handleEventClick(arg),
-		eventDrop: (arg: EventDropArg) => this.handleEventDrop(arg),
-
 		editable: true,
 		navLinks: true,
 		buttonText: {
 			today: "Aujourd'hui",
 		},
+		eventClick: (arg: EventClickArg) => this.handleEventClick(arg),
+		eventDrop: (arg: EventDropArg) => this.handleEventDrop(arg),
 	};
 
 	constructor(
@@ -121,19 +118,29 @@ export class AccountCalendarComponent implements OnInit {
 		const event = arg.event;
 
 		if (event && event.extendedProps && event.extendedProps['activity']) {
-			this.openModal(event.extendedProps['activity']);
+			this.openModal(event, event.extendedProps['activity']);
 		} else {
 			alert('No activity found for this date: ' + event);
 		}
 	}
 
-	openModal(activity: Activity) {
-		const ref = this.dialogService.open(CalendarModalComponent, {
+	openModal(event: EventImpl, activity: Activity) {
+		this.dialogRef = this.dialogService.open(CalendarModalComponent, {
 			data: {
-				activity: activity,
+				activity: event.extendedProps['activity'],
+				eventId: event.id,
 			},
 			header: 'Details',
 			width: '30%',
+		});
+
+		this.dialogRef.onClose.subscribe(result => {
+			if (result && result.deleted) {
+				this.events = this.events.filter(
+					e => e.extendedProps.activityId !== result.eventId,
+				);
+				this.calendarOptions.events = this.events;
+			}
 		});
 	}
 

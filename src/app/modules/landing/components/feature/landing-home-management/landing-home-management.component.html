@@ -3,18 +3,32 @@
 		<div class="hero-mask"></div>
 		<header>
 			<div class="hero-img-box">
-				<img src="assets/photos/logoSortieFacile.png" alt="logo">
+				<img src="assets/photos/logoSortieFacile.png" alt="logo" />
 			</div>
+
 			<nav>
 				<ul>
-					<li><a [routerLink]="['/auth/login']">Connexion</a></li>
-					<li><a [routerLink]="['/auth/register']">Inscription</a></li>
+					<li *ngIf="!connectedUser.username">
+						<p-button [routerLink]="['/auth/login']" [text]="true"
+							>Connexion</p-button
+						>
+					</li>
+
+					<li *ngIf="!connectedUser.username">
+						<p-button [routerLink]="['/auth/register']" [text]="true"
+							>Inscription</p-button
+						>
+					</li>
+
+					<li *ngIf="connectedUser.username">
+						<p-button (click)="logout()" [text]="true">Déconnexion</p-button>
+					</li>
 				</ul>
 			</nav>
 		</header>
+
 		<div class="hero-content-box">
 			<div class="hero-content-text">
-
 				<div class="hero-content-elements-box">
 					<div class="title-content">
 						<h1>
@@ -23,7 +37,7 @@
 						</h1>
 						<!-- <img src="/assets/photos/logoSortieFacile.png" alt="logo"> -->
 					</div>
-					
+
 					<p-divider></p-divider>
 					<p>
 						Ne cherchez plus, trouvez des amis pour chacune de vos activités!
