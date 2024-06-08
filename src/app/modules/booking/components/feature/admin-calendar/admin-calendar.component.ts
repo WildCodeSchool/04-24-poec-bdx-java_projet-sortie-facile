@@ -74,6 +74,7 @@ export class AdminCalendarComponent implements OnInit {
 				this.calendarOptions.events = activities.map(activity => ({
 					title: activity.name,
 					start: activity.date,
+					nbGuest: activity.nbGuest,
 					extendedProps: { activity, activityId: activity.id },
 				}));
 				this.events = this.calendarOptions.events;
