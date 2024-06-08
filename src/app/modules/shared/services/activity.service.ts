@@ -110,7 +110,6 @@ export class ActivityService {
 			),
 		);
 	}
-
 	postNewActivity$(newActivity: Activity): Observable<Activity> {
 		const activityToPost = {
 			...newActivity,
@@ -120,13 +119,28 @@ export class ActivityService {
 		return this._httpClient.post<Activity>(this._BASE_URL, activityToPost).pipe(
 			tap((activity: Activity) => {
 				this._router.navigate([FullActivityRouteEnum.DETAILS, activity.id]);
-				this.notifyNewActivity();
 			}),
 			catchError(error => {
 				throw error;
 			}),
 		);
 	}
+	// postNewActivity$(newActivity: Activity): Observable<Activity> {
+	// 	const activityToPost = {
+	// 		...newActivity,
+	// 		isVisible: true,
+	// 	};
+
+	// 	return this._httpClient.post<Activity>(this._BASE_URL, activityToPost).pipe(
+	// 		tap((activity: Activity) => {
+	// 			this._router.navigate([FullActivityRouteEnum.DETAILS, activity.id]);
+	// 			this.notifyNewActivity();
+	// 		}),
+	// 		catchError(error => {
+	// 			throw error;
+	// 		}),
+	// 	);
+	// }
 
 	deleteActivity$(id: string): Observable<unknown> {
 		return this._httpClient.delete(`${this._BASE_URL}/${id}`).pipe(
