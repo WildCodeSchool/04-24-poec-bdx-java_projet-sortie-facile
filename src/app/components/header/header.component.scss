@@ -52,19 +52,34 @@
 	border-top-right-radius: 80px 80px;
 	background-color: var(--white-color);
 }
+
 .user {
 	display: flex;
 	align-items: center;
 	width: 125px;
 	justify-content: space-between;
 }
+
 .red-dot {
 	width: 10px;
 	height: 10px;
 	border-radius: 50%;
 	background-color: rgb(238, 35, 21);
 }
-.mail,
-.notif {
+
+:host ::ng-deep .mail,
+:host ::ng-deep .notif {
 	display: flex;
+
+	.p-button {
+		color: var(--white-color);
+
+		.pi {
+			font-size: 1.35rem;
+		}
+	}
+}
+
+:host ::ng-deep .mail {
+	margin-right: 0.5rem;
 }

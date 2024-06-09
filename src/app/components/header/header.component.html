@@ -8,20 +8,23 @@
 				alt="logo of sortie facile"
 			/>
 		</ng-template>
+
 		<div class="user">
 			<div class="notif">
-				<i class="pi pi-bell mr-4 p-text-secondary" style="font-size: 2rem"></i>
+				<p-button icon="pi pi-bell" [rounded]="true" [text]="true" />
 				<div *ngIf="newActivity" class="red-dot"></div>
 			</div>
+
 			<div class="mail" *ngIf="isAdmin">
-				<i
-					class="pi pi-envelope p-text-secondary"
-					style="font-size: 1.5rem"
-					severity="danger"
+				<p-button
+					icon="pi pi-envelope"
+					[rounded]="true"
+					[text]="true"
 					[routerLink]="[fullBookingRouteEnum.MAIL]"
-				></i>
+				/>
 				<div *ngIf="newMail" class="red-dot"></div>
 			</div>
+
 			<app-auth-menu></app-auth-menu>
 		</div>
 	</p-menubar>

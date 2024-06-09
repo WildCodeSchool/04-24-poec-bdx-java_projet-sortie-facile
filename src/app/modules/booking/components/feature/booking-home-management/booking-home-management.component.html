@@ -6,6 +6,8 @@
 		[pageTitle]="pageTitle"
 		[pageDescription]="pageDescription"
 	>
+		<h2>Réservation</h2>
+
 		<ng-container *ngIf="reservations$ | async as reservations">
 			<div *ngFor="let reservation of reservations">
 				{{ reservation | json }}

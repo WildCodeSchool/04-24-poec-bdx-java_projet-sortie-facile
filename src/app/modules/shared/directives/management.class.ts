@@ -3,7 +3,7 @@ import { AuthUserPrimaryDatas } from '@shared/models/classes/auth-user/auth-user
 import { AuthService } from '@shared/services/auth.service';
 
 @Directive()
-export abstract class BaseAccountManagementComponent implements OnInit {
+export abstract class BaseManagementComponent implements OnInit {
 	@Input() avatarSrc!: string;
 	@Input() avatarAlt!: string;
 	@Input() pageTitle!: string;

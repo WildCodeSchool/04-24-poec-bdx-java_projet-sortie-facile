@@ -21,6 +21,12 @@
 					</li>
 
 					<li *ngIf="connectedUser.username">
+						<p-button [routerLink]="[fullUserRouteEnum.ACTIVITY]" [text]="true"
+							>Mon compte</p-button
+						>
+					</li>
+
+					<li *ngIf="connectedUser.username">
 						<p-button (click)="logout()" [text]="true">Déconnexion</p-button>
 					</li>
 				</ul>
@@ -107,9 +113,12 @@
             cake lemon drops candy jelly jelly beans pastry. Sugar plum bear claw
             cake jelly-o chocolate bar jelly-o halvah toffee chocolate bar."
 					ctaPrimarylabel="Rejoignez nous !"
-					ctaSecondarylabel="Se connecter"
+					[ctaSecondarylabel]="
+						connectedUser.username ? 'Mon compte' : 'Se connecter'
+					"
 					imgSrc="assets/photos/home-2.jpg"
 					imgLabel=""
+					[connectedUser]="connectedUser.username ? true : false"
 				></app-card-landing-large>
 			</div>
 		</div>

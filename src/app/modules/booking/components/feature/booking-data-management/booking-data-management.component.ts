@@ -1,5 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { AuthUserPrimaryDatas } from '@shared/models/classes/auth-user/auth-user-primary-datas.class';
+import { Component } from '@angular/core';
+import { BaseManagementComponent } from '@shared/directives/management.class';
 import { AuthService } from '@shared/services/auth.service';
 
 @Component({
@@ -7,17 +7,8 @@ import { AuthService } from '@shared/services/auth.service';
 	templateUrl: './booking-data-management.component.html',
 	styleUrl: './booking-data-management.component.scss',
 })
-export class BookingDataManagementComponent implements OnInit {
-	@Input() avatarSrc!: string;
-	@Input() avatarAlt!: string;
-	@Input() pageTitle!: string;
-	@Input() pageDescription!: string;
-
-	connectedUser!: AuthUserPrimaryDatas;
-
-	constructor(protected _authService: AuthService) {}
-
-	ngOnInit(): void {
-		this.connectedUser = this._authService.getConnectedUserData();
+export class BookingDataManagementComponent extends BaseManagementComponent {
+	constructor(protected override _authService: AuthService) {
+		super(_authService);
 	}
 }

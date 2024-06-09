@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { BaseManagementComponent } from '@shared/directives/management.class';
 import { AuthService } from '@shared/services/auth.service';
-import { BaseAccountManagementComponent } from '@user/directives/account-management.class';
 
 @Component({
 	selector: 'app-account-general-management',
@@ -8,7 +8,7 @@ import { BaseAccountManagementComponent } from '@user/directives/account-managem
 	styleUrl: './account-general-management.component.scss',
 })
 export class AccountGeneralManagementComponent
-	extends BaseAccountManagementComponent
+	extends BaseManagementComponent
 	implements OnInit
 {
 	constructor(protected override _authService: AuthService) {

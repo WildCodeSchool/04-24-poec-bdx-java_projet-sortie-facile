@@ -1,13 +1,13 @@
 import { Component } from '@angular/core';
+import { BaseManagementComponent } from '@shared/directives/management.class';
 import { AuthService } from '@shared/services/auth.service';
-import { BaseAccountManagementComponent } from '@user/directives/account-management.class';
 
 @Component({
 	selector: 'app-account-profile-management',
 	templateUrl: './account-profile-management.component.html',
 	styleUrl: './account-profile-management.component.scss',
 })
-export class AccountProfileManagementComponent extends BaseAccountManagementComponent {
+export class AccountProfileManagementComponent extends BaseManagementComponent {
 	constructor(protected override _authService: AuthService) {
 		super(_authService);
 	}
