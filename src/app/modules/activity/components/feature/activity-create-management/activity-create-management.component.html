@@ -108,10 +108,13 @@
 		></app-text-field>
 
 		<div class="btn-container">
-			<app-button-form
-				iconName="arrow-right"
+			<p-button
+				type="submit"
+				label="Créer"
+				icon="pi pi-arrow-right"
+				iconPos="right"
 				(click)="onModal()"
-			></app-button-form>
+			></p-button>
 
 			<app-modal-confirm-creat-activity
 				[myForm]="addActivityForm"
