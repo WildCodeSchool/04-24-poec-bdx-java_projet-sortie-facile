@@ -4,7 +4,14 @@ import { NgForm } from '@angular/forms';
 import { ContactListResponseApi } from '@shared/models/classes/contact';
 import { Contact } from '@shared/models/classes/contact/contact.class';
 import { environment } from 'environments/environment';
-import { Observable, catchError, switchMap, throwError } from 'rxjs';
+import {
+	BehaviorSubject,
+	Observable,
+	catchError,
+	map,
+	switchMap,
+	throwError,
+} from 'rxjs';
 
 @Injectable({
 	providedIn: 'root',
@@ -13,7 +20,8 @@ export class ContactService {
 	contacts$!: Contact[];
 	contact!: Contact;
 	private readonly _BASE_URL = `${environment.apiUrl}/contact`;
-
+	private newMailSubject = new BehaviorSubject<boolean>(false);
+	newMail$ = this.newMailSubject.asObservable();
 	constructor(private http: HttpClient) {}
 
 	onSubmit(form: NgForm): void {
@@ -21,6 +29,10 @@ export class ContactService {
 	}
 	getContactList$(): Observable<Contact[]> {
 		return this.http.get<Contact[]>(this._BASE_URL).pipe(
+			map(contacts => {
+				// Trier les contacts par id (ordre décroissant)
+				return contacts.sort((a, b) => +b.id - +a.id);
+			}),
 			catchError(error => {
 				return throwError(error);
 			}),
@@ -36,10 +48,26 @@ export class ContactService {
 						: 1;
 				newContact.id = String(nextId);
 
-				return this.http.post<Contact>(this._BASE_URL, newContact);
+				return this.http.post<Contact>(this._BASE_URL, newContact).pipe(
+					switchMap(contact => {
+						this.newMailSubject.next(true); // Notify that a new mail has been posted
+						return [contact];
+					}),
+					catchError(error => {
+						throw error;
+					}),
+				);
 			}),
 			catchError(error => {
 				throw error;
+			}),
+		);
+	}
+	updateContact(contact: Contact): Observable<Contact> {
+		const url = `${this._BASE_URL}/${contact.id}`;
+		return this.http.put<Contact>(url, contact).pipe(
+			catchError(error => {
+				return throwError(error);
 			}),
 		);
 	}
