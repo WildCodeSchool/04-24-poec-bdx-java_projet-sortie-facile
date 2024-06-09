@@ -13,6 +13,9 @@ import { DashboardLayoutComponent } from './components/ui/dashboard-layout/dashb
 import { LayoutHeaderComponent } from './components/ui/layout/layout-header/layout-header.component';
 import { LayoutNavComponent } from './components/ui/layout/layout-nav/layout-nav.component';
 import { LayoutNavResponsiveComponent } from './components/ui/layout/layout-nav-responsive/layout-nav-responsive.component';
+import { BookingGraphManagementComponent } from './components/feature/booking-graph-management/booking-graph-management.component';
+import { BookingDataManagementComponent } from './components/feature/booking-data-management/booking-data-management.component';
+import { BookingHomeManagementComponent } from './components/feature/booking-home-management/booking-home-management.component';
 
 @NgModule({
 	declarations: [
@@ -26,6 +29,9 @@ import { LayoutNavResponsiveComponent } from './components/ui/layout/layout-nav-
 		LayoutHeaderComponent,
 		LayoutNavComponent,
 		LayoutNavResponsiveComponent,
+  BookingGraphManagementComponent,
+  BookingDataManagementComponent,
+  BookingHomeManagementComponent,
 	],
 	imports: [CommonModule, BookingRoutingModule, SharedModule],
 })
