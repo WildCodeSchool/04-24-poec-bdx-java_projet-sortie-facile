@@ -1,0 +1,17 @@
+<div class="container">
+	<app-dashboard-layout
+		[avatarSrc]="avatarSrc"
+		[avatarAlt]="avatarAlt"
+		[username]="connectedUser.username"
+		[pageTitle]="pageTitle"
+		[pageDescription]="pageDescription"
+	>
+		<ng-container *ngIf="reservations$ | async as reservations">
+			<div *ngFor="let reservation of reservations">
+				{{ reservation | json }}
+
+				<p>{{ reservation.id }}</p>
+			</div>
+		</ng-container>
+	</app-dashboard-layout>
+</div>

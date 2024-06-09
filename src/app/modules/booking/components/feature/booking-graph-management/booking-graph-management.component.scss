@@ -1,0 +1,29 @@
+.container {
+	max-width: 1920px;
+	width: 100%;
+	padding: 1.5rem;
+	margin: 0 auto;
+	padding-top: 4rem;
+}
+
+.graph-container {
+	display: flex;
+	align-items: flex-start;
+}
+.chiffre-clés {
+	display: flex;
+	justify-content: space-around;
+}
+.nbr {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	background-color: rgb(242, 203, 233);
+	padding: 14px;
+	border-radius: 20px;
+}
+.chiffre {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+}
