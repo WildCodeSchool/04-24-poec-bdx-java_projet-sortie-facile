@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { NewUserUserDetailsFormDatas } from '@shared/models/classes/user-details/new-user-details-form-datas.class';
+import { UserGeneralForm } from '@shared/models/classes/user-details/user-details-general-form.class';
 import { UserDetailsPatch } from '@shared/models/classes/user-details/user-details-patch.class';
 import { UserDetailsPersonalInfosForm } from '@shared/models/classes/user-details/user-details-personal-info-form.class';
 import { UserDetails } from '@shared/models/classes/user-details/user-details.class';
@@ -27,7 +28,7 @@ export class UserService {
 
 	putUserInfo$(
 		UserId: string,
-		userInfos: UserDetailsPersonalInfosForm,
+		userInfos: UserDetailsPersonalInfosForm | UserGeneralForm,
 	): Observable<UserDetails> {
 		return this._httpClient.put<UserDetails>(
 			`${this._BASE_URL}/${UserId}`,

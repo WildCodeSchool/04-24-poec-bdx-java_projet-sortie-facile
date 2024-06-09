@@ -1,4 +1,16 @@
 <form #registerPersonalInfosForm="ngForm">
+	<app-select-category
+		labelFor="categoryIds"
+		labelContent="Centres d'interêts :"
+		id="categoryIds"
+		inputId="categoryIds"
+		name="categoryIds"
+		[required]="true"
+		#category="ngModel"
+		[(ngModel)]="newUserPersonalInfos.categoryIds"
+		[isMultiple]="true"
+	></app-select-category>
+
 	<app-text-field
 		labelFor="lastname"
 		labelContent="Nom :"
@@ -130,16 +142,4 @@
 		[minlength]="20"
 		[maxlength]="500"
 	></app-textarea>
-
-	<app-select-category
-		labelFor="categoryIds"
-		labelContent="Centres d'interêts :"
-		id="categoryIds"
-		inputId="categoryIds"
-		name="categoryIds"
-		[required]="true"
-		#category="ngModel"
-		[(ngModel)]="newUserPersonalInfos.categoryIds"
-		[isMultiple]="true"
-	></app-select-category>
 </form>
