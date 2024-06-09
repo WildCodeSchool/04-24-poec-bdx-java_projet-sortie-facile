@@ -4,6 +4,7 @@
 	gap: 3rem;
 
 	.img-box {
+		display: none;
 		position: relative;
 		width: 50%;
 
@@ -17,15 +18,26 @@
 			height: 100%;
 			opacity: 0.3;
 		}
+
+		@media (min-width: 768px) {
+			display: block;
+		}
 	}
 
 	.participate-card-body {
-		width: 50%;
+		width: 100%;
+		max-width: 500px;
+
+		@media (min-width: 768px) {
+			width: 50%;
+		}
+
 		h3 {
 			font-size: 1.35rem;
 			color: var(--white-color);
 			margin: 0;
 			margin-bottom: 1.5rem;
+			text-align: center;
 		}
 
 		p {
@@ -34,11 +46,21 @@
 			margin: 0;
 			line-height: 1.5;
 			text-align: left;
+			text-align: center;
+		}
+
+		@media (min-width: 768px) {
+			h3,
+			p {
+				text-align: left;
+			}
 		}
 
 		.btn-box {
 			display: flex;
+			flex-direction: column;
 			justify-content: center;
+			align-items: center;
 			gap: 1.5rem;
 			margin-top: 2.5rem;
 
@@ -75,51 +97,10 @@
 					}
 				}
 			}
+
+			@media (min-width: 830px) {
+				flex-direction: row;
+			}
 		}
 	}
 }
-
-// 	.participate-card-body {
-// 		width: 100%;
-
-// 		h4 {
-// 			font-size: 1.025rem;
-// 			color: var(--black-color);
-// 			margin: 0;
-// 			margin-bottom: 1.5rem;
-// 		}
-
-// 		p {
-// 			color: var(--black-color);
-// 			font-size: 0.85rem;
-// 			margin: 0;
-// 			margin-bottom: 0.85rem;
-// 		}
-
-// 		.btn-container {
-// 			display: flex;
-// 			gap: 1rem;
-// 		}
-// 	}
-
-// 	.img-box {
-// 		display: none;
-// 	}
-
-// 	@media (min-width: 768px) {
-// 		.functioning-card-body {
-// 			width: 65%;
-// 		}
-
-// 		.img-box {
-// 			display: flex;
-// 			justify-content: center;
-// 			width: 20%;
-
-// 			img {
-// 				width: 100%;
-// 				max-width: 175px;
-// 			}
-// 		}
-// 	}
-// }
