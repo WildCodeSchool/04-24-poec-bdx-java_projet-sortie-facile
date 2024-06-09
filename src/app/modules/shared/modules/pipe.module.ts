@@ -4,12 +4,14 @@ import { LinkPipe } from '@shared/pipes/link.pipe';
 import { ParagraphSplitPipe } from '@shared/pipes/paragraph-split.pipe';
 import { AccountNavActiveLinkPipe } from '@shared/pipes/account-nav-active-link.pipe';
 import { TruncatePipe } from '@shared/pipes/truncate.pipe';
+import { AdminNavActiveLinkPipe } from '@shared/pipes/admin-nav-active-link.pipe';
 
 @NgModule({
 	declarations: [
 		LinkPipe,
 		ParagraphSplitPipe,
 		AccountNavActiveLinkPipe,
+		AdminNavActiveLinkPipe,
 		TruncatePipe,
 	],
 	imports: [CommonModule],
@@ -17,6 +19,7 @@ import { TruncatePipe } from '@shared/pipes/truncate.pipe';
 		LinkPipe,
 		ParagraphSplitPipe,
 		AccountNavActiveLinkPipe,
+		AdminNavActiveLinkPipe,
 		TruncatePipe,
 	],
 })

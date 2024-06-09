@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FullUserRouteEnum } from '@shared/models/enums/routes/full-routes';
-import { UserLayoutLink } from '@shared/models/types/utils/user-layout-link.type';
+import { LayoutLink } from '@shared/models/types/utils/layout-link.type';
 
 @Component({
 	selector: 'app-layout-nav',
@@ -8,7 +8,7 @@ import { UserLayoutLink } from '@shared/models/types/utils/user-layout-link.type
 	styleUrl: './layout-nav.component.scss',
 })
 export class LayoutNavComponent implements OnInit {
-	items!: UserLayoutLink[];
+	items!: LayoutLink[];
 
 	ngOnInit(): void {
 		this.items = [
