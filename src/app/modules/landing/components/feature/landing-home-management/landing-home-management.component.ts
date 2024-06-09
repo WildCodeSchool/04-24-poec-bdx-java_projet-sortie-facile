@@ -5,6 +5,7 @@ import { AuthUserPrimaryDatas } from '@shared/models/classes/auth-user/auth-user
 import { Category } from '@shared/models/classes/category/category.class';
 import { Testimonial } from '@shared/models/classes/testimonial/testimonial.class';
 import { CarouselResponsiveOption } from '@shared/models/classes/utils/carousel-responsive-option.class';
+import { FullUserRouteEnum } from '@shared/models/enums/routes/full-routes';
 import { LandingFunctioningDatas } from '@shared/models/types/utils/landing-functioning-datas.type';
 import { ActivityService } from '@shared/services/activity.service';
 import { AuthService } from '@shared/services/auth.service';
@@ -28,6 +29,7 @@ export class LandingHomeManagementComponent implements OnInit {
 	activityList$!: Observable<Activity[]>;
 	categoryList$!: Observable<Category[]>;
 	testimonialList$!: Observable<Testimonial[]>;
+	fullUserRouteEnum = FullUserRouteEnum;
 
 	constructor(
 		private _authService: AuthService,

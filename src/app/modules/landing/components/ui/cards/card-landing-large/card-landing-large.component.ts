@@ -1,5 +1,8 @@
 import { Component, Input } from '@angular/core';
-import { FullAuthenticationRouteEnum } from '@shared/models/enums/routes/full-routes';
+import {
+	FullAuthenticationRouteEnum,
+	FullUserRouteEnum,
+} from '@shared/models/enums/routes/full-routes';
 
 @Component({
 	selector: 'app-card-landing-large',
@@ -13,6 +16,8 @@ export class CardLandingLargeComponent {
 	@Input() description!: string;
 	@Input() ctaPrimarylabel!: string;
 	@Input() ctaSecondarylabel!: string;
+	@Input() connectedUser: boolean = false;
 
 	fullAuthenticationRoute = FullAuthenticationRouteEnum;
+	fullUserRouteEnum = FullUserRouteEnum;
 }
