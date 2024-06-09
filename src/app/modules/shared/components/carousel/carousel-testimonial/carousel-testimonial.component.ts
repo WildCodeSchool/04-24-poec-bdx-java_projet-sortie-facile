@@ -17,9 +17,8 @@ export class CarouselTestimonialComponent implements OnInit {
 
 	ngOnInit() {
 		this.responsiveOptions = [
-			new CarouselResponsiveOption('500px', 1, 1),
-			new CarouselResponsiveOption('768px', 2, 2),
-			new CarouselResponsiveOption('960px', 1, 1),
+			new CarouselResponsiveOption('768px', 1, 1),
+			new CarouselResponsiveOption('960px', 2, 2),
 			new CarouselResponsiveOption('1110px', 2, 2),
 			new CarouselResponsiveOption('1920px', 3, 3),
 		];
