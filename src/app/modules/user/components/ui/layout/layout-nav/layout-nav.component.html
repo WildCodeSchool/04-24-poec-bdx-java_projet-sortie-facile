@@ -1,5 +1,5 @@
 <nav class="layout-nav-container">
-	<ul *ngFor="let item of items | accountNavActiveLink">
+	<ul *ngFor="let item of items | connectedNavActiveLink: 'user'">
 		<li [ngClass]="{ active: item.active }">
 			<span *ngIf="item.active">{{ item.label }}</span>
 			<a *ngIf="!item.active" [routerLink]="[item.path]">{{ item.label }}</a>
