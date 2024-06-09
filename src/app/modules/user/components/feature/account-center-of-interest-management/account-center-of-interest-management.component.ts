@@ -1,11 +1,11 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ModalAddCategoryComponent } from '@shared/components/modal/modal-add-category/modal-add-category.component';
+import { BaseManagementComponent } from '@shared/directives/management.class';
 import { Category } from '@shared/models/classes/category/category.class';
 import { UserDetails } from '@shared/models/classes/user-details/user-details.class';
 import { AuthService } from '@shared/services/auth.service';
 import { CategoryService } from '@shared/services/category.service';
 import { UserService } from '@shared/services/user.service';
-import { BaseAccountManagementComponent } from '@user/directives/account-management.class';
 import { Observable, map, switchMap } from 'rxjs';
 
 @Component({
@@ -14,7 +14,7 @@ import { Observable, map, switchMap } from 'rxjs';
 	styleUrl: './account-center-of-interest-management.component.scss',
 })
 export class AccountCenterOfInterestManagementComponent
-	extends BaseAccountManagementComponent
+	extends BaseManagementComponent
 	implements OnInit
 {
 	categoryList$!: Observable<Category[]>;

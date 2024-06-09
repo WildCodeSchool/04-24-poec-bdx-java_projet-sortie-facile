@@ -1,8 +1,8 @@
 import { Activity } from '@activity/models/classes/activity.class';
 import { Component, OnInit } from '@angular/core';
+import { BaseManagementComponent } from '@shared/directives/management.class';
 import { ActivityService } from '@shared/services/activity.service';
 import { AuthService } from '@shared/services/auth.service';
-import { BaseAccountManagementComponent } from '@user/directives/account-management.class';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -11,7 +11,7 @@ import { Observable } from 'rxjs';
 	styleUrl: './account-activities-management.component.scss',
 })
 export class AccountActivitiesManagementComponent
-	extends BaseAccountManagementComponent
+	extends BaseManagementComponent
 	implements OnInit
 {
 	activityByCreatedUserList$!: Observable<Activity[]>;

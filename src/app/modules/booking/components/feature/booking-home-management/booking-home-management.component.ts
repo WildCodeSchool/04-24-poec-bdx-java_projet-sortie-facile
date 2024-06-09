@@ -1,5 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { AuthUserPrimaryDatas } from '@shared/models/classes/auth-user/auth-user-primary-datas.class';
+import { Component, OnInit } from '@angular/core';
+import { BaseManagementComponent } from '@shared/directives/management.class';
 import { BookingUserActivity } from '@shared/models/classes/booking/booking-user-activity.class';
 import { AuthService } from '@shared/services/auth.service';
 import { BookingService } from '@shared/services/booking.service';
@@ -10,23 +10,23 @@ import { Observable } from 'rxjs';
 	templateUrl: './booking-home-management.component.html',
 	styleUrl: './booking-home-management.component.scss',
 })
-export class BookingHomeManagementComponent implements OnInit {
-	@Input() avatarSrc!: string;
-	@Input() avatarAlt!: string;
-	@Input() pageTitle!: string;
-	@Input() pageDescription!: string;
-
-	connectedUser!: AuthUserPrimaryDatas;
+export class BookingHomeManagementComponent
+	extends BaseManagementComponent
+	implements OnInit
+{
 	reservations$!: Observable<BookingUserActivity[]>;
 	reservation$!: Observable<BookingUserActivity>;
 
 	constructor(
-		protected _authService: AuthService,
+		protected override _authService: AuthService,
 		private bookingService: BookingService,
-	) {}
+	) {
+		super(_authService);
+	}
 
-	ngOnInit(): void {
-		this.connectedUser = this._authService.getConnectedUserData();
+	override ngOnInit(): void {
+		super.ngOnInit();
+
 		this.reservations$ = this.bookingService.getBookingList$();
 	}
 }
