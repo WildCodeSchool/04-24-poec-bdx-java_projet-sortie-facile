@@ -27,6 +27,7 @@ import { AccountPasswordManagementComponent } from './components/feature/account
 import { AccountPasswordFormComponent } from './components/ui/account-form/account-password-form/account-password-form.component';
 import { AccountCalendarManagementComponent } from './components/feature/account-calendar-management/account-calendar-management.component';
 import { AccountCalendarComponent } from './components/ui/account-calendar/account-calendar.component';
+import { AccountGeneralFormComponent } from './components/ui/account-form/account-general-form/account-general-form.component';
 
 @NgModule({
 	declarations: [
@@ -51,8 +52,9 @@ import { AccountCalendarComponent } from './components/ui/account-calendar/accou
 		AccountAddressFormComponent,
 		AccountPasswordManagementComponent,
 		AccountPasswordFormComponent,
-  AccountCalendarManagementComponent,
-  AccountCalendarComponent,
+		AccountCalendarManagementComponent,
+		AccountCalendarComponent,
+		AccountGeneralFormComponent,
 	],
 	imports: [CommonModule, UserRoutingModule, SharedModule, FormsModule],
 })
