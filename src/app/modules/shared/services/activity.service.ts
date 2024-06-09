@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, catchError, map, tap } from 'rxjs';
+import { BehaviorSubject, Observable, catchError, map, tap } from 'rxjs';
 import { Router } from '@angular/router';
 import { Department } from '@shared/models/classes/address/department.class';
 import { Activity } from '@activity/models/classes/activity.class';
@@ -20,7 +20,8 @@ export class ActivityService {
 	category!: Category;
 	categories!: Category[];
 	department!: Department;
-
+	private newActivitySubject = new BehaviorSubject<boolean>(false);
+	newActivity$ = this.newActivitySubject.asObservable();
 	private readonly _BASE_URL = `${environment.apiUrl}/activity`;
 
 	constructor(
@@ -28,7 +29,9 @@ export class ActivityService {
 		private _router: Router,
 		private _bookingService: BookingService,
 	) {}
-
+	notifyNewActivity() {
+		this.newActivitySubject.next(true);
+	}
 	getActivityList$(): Observable<ActivityListResponseApi> {
 		return this._httpClient.get<ActivityListResponseApi>(this._BASE_URL).pipe(
 			map((activities: ActivityListResponseApi) =>
@@ -107,7 +110,21 @@ export class ActivityService {
 			),
 		);
 	}
+	// postNewActivity$(newActivity: Activity): Observable<Activity> {
+	// 	const activityToPost = {
+	// 		...newActivity,
+	// 		isVisible: true,
+	// 	};
 
+	// 	return this._httpClient.post<Activity>(this._BASE_URL, activityToPost).pipe(
+	// 		tap((activity: Activity) => {
+	// 			this._router.navigate([FullActivityRouteEnum.DETAILS, activity.id]);
+	// 		}),
+	// 		catchError(error => {
+	// 			throw error;
+	// 		}),
+	// 	);
+	// }
 	postNewActivity$(newActivity: Activity): Observable<Activity> {
 		const activityToPost = {
 			...newActivity,
@@ -117,6 +134,7 @@ export class ActivityService {
 		return this._httpClient.post<Activity>(this._BASE_URL, activityToPost).pipe(
 			tap((activity: Activity) => {
 				this._router.navigate([FullActivityRouteEnum.DETAILS, activity.id]);
+				this.notifyNewActivity();
 			}),
 			catchError(error => {
 				throw error;
