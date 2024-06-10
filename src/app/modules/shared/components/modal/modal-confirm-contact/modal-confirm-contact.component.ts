@@ -1,6 +1,8 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AbstractModal } from '@shared/models/classes/components/absctract-modal.class';
+import { FullActivityRouteEnum } from '@shared/models/enums/routes/full-routes';
 import { ConfirmationService, MessageService } from 'primeng/api';
 
 @Component({
@@ -15,6 +17,7 @@ export class ModalConfirmContactComponent extends AbstractModal {
 	constructor(
 		private _confirmationService: ConfirmationService,
 		private _messageService: MessageService,
+		private _router: Router,
 	) {
 		super();
 		this.myForm = {} as NgForm;
@@ -52,10 +55,16 @@ export class ModalConfirmContactComponent extends AbstractModal {
 			life: 3000,
 		});
 	}
-
 	protected override onAccept(): void {
-		// Ne pas appeler directement _contactService.onSubmit(this.myForm);
-		// Émettre un événement pour que ContactComponent puisse gérer la soumission
 		this.submitConfirmed.emit(this.myForm.value);
+		this._messageService.add({
+			severity: 'success',
+			summary: 'Accepted',
+			detail: 'Votre message a été envoyé',
+			life: 3000,
+		});
+		setTimeout(() => {
+			this._router.navigate([FullActivityRouteEnum.HOME]);
+		}, 3000);
 	}
 }
