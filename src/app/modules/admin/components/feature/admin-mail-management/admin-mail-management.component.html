@@ -1,11 +1,12 @@
 <div class="container">
-	<app-admin-layout
+	<app-dashboard-layout
 		[avatarSrc]="avatarSrc"
 		[avatarAlt]="avatarAlt"
 		[username]="connectedUser.username"
 		[pageTitle]="pageTitle"
 		[pageDescription]="pageDescription"
+		[items]="navItems"
 	>
 		<app-data-mail></app-data-mail>
-	</app-admin-layout>
+	</app-dashboard-layout>
 </div>

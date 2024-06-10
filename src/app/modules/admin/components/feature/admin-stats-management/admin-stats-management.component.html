@@ -1,10 +1,11 @@
 <div class="container">
-	<app-admin-layout
+	<app-dashboard-layout
 		[avatarSrc]="avatarSrc"
 		[avatarAlt]="avatarAlt"
 		[username]="connectedUser.username"
 		[pageTitle]="pageTitle"
 		[pageDescription]="pageDescription"
+		[items]="navItems"
 	>
 		<h2>Chiffres clés</h2>
 
@@ -29,5 +30,5 @@
 			</div>
 		</div>
 		<app-multi-axe></app-multi-axe>
-	</app-admin-layout>
+	</app-dashboard-layout>
 </div>

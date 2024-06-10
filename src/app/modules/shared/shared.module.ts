@@ -41,6 +41,10 @@ import { CalendarModalComponent } from './components/modal/calendar-modal/calend
 import { FileUploadComponent } from './components/file-upload/file-upload.component';
 import { FileUploadModule } from 'primeng/fileupload';
 import { AuthMenuComponent } from './components/auth-menu/auth-menu.component';
+import { DashboardLayoutComponent } from './components/layout/layout-connected/dashboard-layout/dashboard-layout.component';
+import { LayoutHeaderComponent } from './components/layout/layout-connected/layout-header/layout-header.component';
+import { LayoutNavComponent } from './components/layout/layout-connected/layout-nav/layout-nav.component';
+import { LayoutNavResponsiveComponent } from './components/layout/layout-connected/layout-nav-responsive/layout-nav-responsive.component';
 
 @NgModule({
 	declarations: [
@@ -76,6 +80,10 @@ import { AuthMenuComponent } from './components/auth-menu/auth-menu.component';
 		CalendarModalComponent,
 		FileUploadComponent,
 		AuthMenuComponent,
+		DashboardLayoutComponent,
+		LayoutHeaderComponent,
+		LayoutNavComponent,
+		LayoutNavResponsiveComponent,
 	],
 	imports: [
 		CommonModule,
@@ -124,6 +132,10 @@ import { AuthMenuComponent } from './components/auth-menu/auth-menu.component';
 		CarouselCategoryComponent,
 		FileUploadComponent,
 		AuthMenuComponent,
+		DashboardLayoutComponent,
+		LayoutHeaderComponent,
+		LayoutNavComponent,
+		LayoutNavResponsiveComponent,
 	],
 })
 export class SharedModule {}

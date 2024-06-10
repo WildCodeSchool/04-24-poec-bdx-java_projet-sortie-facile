@@ -6,10 +6,6 @@ import { BookingHomeComponent } from '@booking/pages/booking-home/booking-home.c
 import { SharedModule } from '@shared/shared.module';
 import { DashboardBookingComponent } from './pages/dashboard-booking/dashboard-booking.component';
 import { AdminCalendarComponent } from './components/feature/admin-calendar/admin-calendar.component';
-import { DashboardLayoutComponent } from './components/ui/dashboard-layout/dashboard-layout.component';
-import { LayoutHeaderComponent } from './components/ui/layout/layout-header/layout-header.component';
-import { LayoutNavComponent } from './components/ui/layout/layout-nav/layout-nav.component';
-import { LayoutNavResponsiveComponent } from './components/ui/layout/layout-nav-responsive/layout-nav-responsive.component';
 import { BookingDataManagementComponent } from './components/feature/booking-data-management/booking-data-management.component';
 import { BookingHomeManagementComponent } from './components/feature/booking-home-management/booking-home-management.component';
 
@@ -18,10 +14,6 @@ import { BookingHomeManagementComponent } from './components/feature/booking-hom
 		BookingHomeComponent,
 		DashboardBookingComponent,
 		AdminCalendarComponent,
-		DashboardLayoutComponent,
-		LayoutHeaderComponent,
-		LayoutNavComponent,
-		LayoutNavResponsiveComponent,
 		BookingDataManagementComponent,
 		BookingHomeManagementComponent,
 	],
