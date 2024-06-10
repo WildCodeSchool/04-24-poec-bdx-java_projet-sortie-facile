@@ -19,6 +19,7 @@ export enum ActivityRouteEnum {
 
 export enum AdminRouteEnum {
 	HOME = 'home',
+	MAIL = 'mail',
 }
 
 export enum AuthenticationRouteEnum {
@@ -30,7 +31,6 @@ export enum BookingRouteEnum {
 	GRAPH = 'graph',
 	HOME = 'home',
 	DATA = 'data',
-	MAIL = 'mail',
 }
 
 export enum LandingRouteEnum {
