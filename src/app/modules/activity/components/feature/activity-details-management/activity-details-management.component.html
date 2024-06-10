@@ -125,13 +125,12 @@
 					class="activity-description"
 				></div>
 
-				<p>Catégorie : {{ activity.categoryId.name }}</p>
-				<p>City : {{ activity.activityCity.name }}</p>
+				<p>Catégorie : {{ activity.categoryId }}</p>
+				<p>City : {{ activity.activityCity }}</p>
 				<i class="pi pi-calendar"></i>
 				<p>Date : {{ activity.date | date }}</p>
 				<i class="pi pi-clock"></i>
-				<p>Hour : {{ activity.hour }}</p>
-				<p>Link : {{ activity.link }}</p>
+				<p>Hour : {{ activity.hour | date: 'HH:mm' }}</p>
 
 				<a
 					*ngIf="activity.link"
