@@ -34,9 +34,11 @@ export class ActivityService {
 	}
 	getActivityList$(): Observable<ActivityListResponseApi> {
 		return this._httpClient.get<ActivityListResponseApi>(this._BASE_URL).pipe(
-			map((activities: ActivityListResponseApi) =>
-				activities.filter(activity => activity.isVisible === true),
-			),
+			map((activities: ActivityListResponseApi) => {
+				return activities
+					.filter(activity => activity.isVisible === true)
+					.sort((a, b) => +b.id - +a.id); // Tri par ID décroissant
+			}),
 			catchError(error => {
 				throw error;
 			}),
