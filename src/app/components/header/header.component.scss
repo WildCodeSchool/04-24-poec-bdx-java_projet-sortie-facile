@@ -32,13 +32,9 @@
 			}
 		}
 		.p-menuitem-text {
-			color: aliceblue;
+			color: black;
 		}
 	}
-}
-
-.p-menuitem-text {
-	color: var(--white-color);
 }
 
 .bottom-navbar {
@@ -82,4 +78,9 @@
 
 :host ::ng-deep .mail {
 	margin-right: 0.5rem;
+}
+@media (min-width: 960px) {
+	:host ::ng-deep .p-menubar .p-menubar-root-list .p-menuitem-text {
+		color: white;
+	}
 }
