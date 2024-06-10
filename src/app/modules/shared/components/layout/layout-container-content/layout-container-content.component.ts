@@ -1,11 +1,11 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
-	selector: 'app-account-container-content',
-	templateUrl: './account-container-content.component.html',
-	styleUrl: './account-container-content.component.scss',
+	selector: 'app-layout-container-content',
+	templateUrl: './layout-container-content.component.html',
+	styleUrl: './layout-container-content.component.scss',
 })
-export class AccountContainerContentComponent {
+export class LayoutContainerContentComponent {
 	@Input() sectionTitle!: string;
 	@Input() isViewDatas!: boolean;
 	@Input() hideBtn!: boolean;

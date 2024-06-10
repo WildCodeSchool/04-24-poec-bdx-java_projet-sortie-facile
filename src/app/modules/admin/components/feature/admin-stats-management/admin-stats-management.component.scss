@@ -6,6 +6,12 @@
 	padding-top: 4rem;
 }
 
+:host ::ng-deep app-layout-container-content {
+	.section-title {
+		margin-bottom: 2rem;
+	}
+}
+
 .graph-container {
 	display: flex;
 	align-items: flex-start;
