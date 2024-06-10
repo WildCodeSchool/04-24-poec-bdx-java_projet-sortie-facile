@@ -10,12 +10,16 @@ import { AdminLayoutComponent } from './components/ui/admin-layout/admin-layout.
 import { LayoutHeaderComponent } from './components/ui/layout/layout-header/layout-header.component';
 import { LayoutNavComponent } from './components/ui/layout/layout-nav/layout-nav.component';
 import { LayoutNavResponsiveComponent } from './components/ui/layout/layout-nav-responsive/layout-nav-responsive.component';
+import { AdminStatsComponent } from './pages/admin-stats/admin-stats.component';
+import { AdminStatsManagementComponent } from './components/feature/admin-stats-management/admin-stats-management.component';
 
 @NgModule({
 	declarations: [
 		AdminHomeComponent,
 		AdminMailComponent,
+		AdminStatsComponent,
 		AdminMailManagementComponent,
+		AdminStatsManagementComponent,
 		AdminLayoutComponent,
 		LayoutHeaderComponent,
 		LayoutNavComponent,
