@@ -59,6 +59,14 @@ export class AccountService {
 		},
 		{
 			id: '7',
+			label: 'Mes activités',
+			command: () => {
+				this._router.navigateByUrl(FullUserRouteEnum.BOOKING);
+			},
+			state: { path: FullUserRouteEnum.BOOKING },
+		},
+		{
+			id: '8',
 			label: 'Mon calendrier',
 			command: () => {
 				this._router.navigateByUrl(FullUserRouteEnum.CALENDAR);
@@ -66,7 +74,7 @@ export class AccountService {
 			state: { path: FullUserRouteEnum.CALENDAR },
 		},
 		{
-			id: '8',
+			id: '9',
 			label: 'Supprimer mon compte',
 			styleClass: 'delete-item',
 			state: { path: '' },
@@ -89,11 +97,15 @@ export class AccountService {
 		},
 		{ label: 'Mes activités', path: FullUserRouteEnum.ACTIVITY, active: false },
 		{
+			label: 'Mes réservations',
+			path: FullUserRouteEnum.BOOKING,
+			active: false,
+		},
+		{
 			label: 'Mon calendrier',
 			path: FullUserRouteEnum.CALENDAR,
 			active: false,
 		},
-		{ label: 'Supprimer mon compte', styleClass: 'delete-item' },
 	];
 
 	constructor(private _router: Router) {}

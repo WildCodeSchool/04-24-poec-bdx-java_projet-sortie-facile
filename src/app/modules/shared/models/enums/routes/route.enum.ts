@@ -45,4 +45,5 @@ export enum UserRouteEnum {
 	NOTIFICATION = 'notification',
 	ACTIVITY = 'activity',
 	CALENDAR = 'calendar',
+	BOOKING = 'booking',
 }
