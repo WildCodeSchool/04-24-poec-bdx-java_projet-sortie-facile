@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthUserPrimaryDatas } from '@shared/models/classes/auth-user/auth-user-primary-datas.class';
-import { FullBookingRouteEnum } from '@shared/models/enums/routes/full-routes';
+import { FullAdminRouteEnum } from '@shared/models/enums/routes/full-routes';
 import { UserRoleEnum } from '@shared/models/enums/user-role.enum';
 import { ActivityService } from '@shared/services/activity.service';
 import { AuthService } from '@shared/services/auth.service';
@@ -15,7 +15,7 @@ import { Observable, Subscription, map } from 'rxjs';
 	styleUrl: './header.component.scss',
 })
 export class HeaderComponent implements OnInit {
-	fullBookingRouteEnum = FullBookingRouteEnum;
+	fullAdminRouteEnum = FullAdminRouteEnum;
 	profileItems$!: Observable<MenuItem[]>;
 	items$!: Observable<MenuItem[]>;
 	isUserLoggedIn: boolean = false;

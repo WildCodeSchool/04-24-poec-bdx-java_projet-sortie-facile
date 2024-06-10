@@ -1,6 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { FullBookingRouteEnum } from '@shared/models/enums/routes/full-routes';
+import {
+	FullAdminRouteEnum,
+	FullBookingRouteEnum,
+} from '@shared/models/enums/routes/full-routes';
 import { LayoutLink } from '@shared/models/types/utils/layout-link.type';
 import { MenuItem } from 'primeng/api';
 
@@ -11,27 +14,19 @@ export class AdminService {
 	private navItems: MenuItem[] = [
 		{
 			id: '1',
-			label: 'Graphiques',
+			label: 'Statistiques',
 			command: () => {
-				this._router.navigateByUrl(FullBookingRouteEnum.GRAPH);
+				this._router.navigateByUrl(FullAdminRouteEnum.GRAPH);
 			},
-			state: { path: FullBookingRouteEnum.GRAPH },
+			state: { path: FullAdminRouteEnum.GRAPH },
 		},
 		{
 			id: '2',
-			label: 'Calendrier',
-			command: () => {
-				this._router.navigateByUrl(FullBookingRouteEnum.DATA);
-			},
-			state: { path: FullBookingRouteEnum.DATA },
-		},
-		{
-			id: '3',
 			label: 'Emails',
 			command: () => {
-				this._router.navigateByUrl(FullBookingRouteEnum.MAIL);
+				this._router.navigateByUrl(FullAdminRouteEnum.EMAIL);
 			},
-			state: { path: FullBookingRouteEnum.MAIL },
+			state: { path: FullAdminRouteEnum.EMAIL },
 		},
 		{
 			id: '4',
@@ -44,20 +39,10 @@ export class AdminService {
 	];
 
 	private layoutItems: LayoutLink[] = [
-		{ label: 'Graphiques', path: FullBookingRouteEnum.GRAPH, active: true },
-		{
-			label: 'Calendrier',
-			path: FullBookingRouteEnum.DATA,
-			active: false,
-		},
+		{ label: 'Graphiques', path: FullAdminRouteEnum.GRAPH, active: true },
 		{
 			label: 'Emails',
-			path: FullBookingRouteEnum.MAIL,
-			active: false,
-		},
-		{
-			label: 'Data',
-			path: FullBookingRouteEnum.HOME,
+			path: FullAdminRouteEnum.EMAIL,
 			active: false,
 		},
 	];

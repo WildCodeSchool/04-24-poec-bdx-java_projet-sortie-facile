@@ -7,7 +7,7 @@ import { AdminStatsComponent } from './pages/admin-stats/admin-stats.component';
 
 const routes: Routes = [
 	{ path: AdminRouteEnum.HOME, component: AdminHomeComponent },
-	{ path: AdminRouteEnum.MAIL, component: AdminMailComponent },
+	{ path: AdminRouteEnum.EMAIL, component: AdminMailComponent },
 	{ path: AdminRouteEnum.GRAPH, component: AdminStatsComponent },
 ];
 

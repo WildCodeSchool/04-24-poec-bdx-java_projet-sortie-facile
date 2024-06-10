@@ -3,8 +3,8 @@ import { ActivatedRoute } from '@angular/router';
 import { AuthUserPrimaryDatas } from '@shared/models/classes/auth-user/auth-user-primary-datas.class';
 import { FullBookingRouteEnum } from '@shared/models/enums/routes/full-routes';
 import { LayoutLink } from '@shared/models/types/utils/layout-link.type';
-import { AdminService } from '@shared/services/admin.service';
 import { AuthService } from '@shared/services/auth.service';
+import { BookingService } from '@shared/services/booking.service';
 import { MenuItem } from 'primeng/api';
 import { Subscription } from 'rxjs';
 
@@ -29,7 +29,7 @@ export class DashboardLayoutComponent implements OnInit, OnDestroy {
 	subscription: Subscription = new Subscription();
 
 	constructor(
-		private _adminService: AdminService,
+		private _bookingService: BookingService,
 		private _authService: AuthService,
 		private _activatedRoute: ActivatedRoute,
 	) {}
@@ -37,7 +37,7 @@ export class DashboardLayoutComponent implements OnInit, OnDestroy {
 	ngOnInit() {
 		this.showDEleteBtn = 'home' === this._activatedRoute.snapshot.url[0].path;
 		this.connectedUser = this._authService.getConnectedUserData();
-		this.items = this._adminService.getLayoutItems();
+		this.items = this._bookingService.getLayoutItems();
 		this.activeItem = this.items[0];
 	}
 
