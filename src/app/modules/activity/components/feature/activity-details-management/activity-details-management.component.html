@@ -127,6 +127,11 @@
 
 				<p>Catégorie : {{ activity.categoryId.name }}</p>
 				<p>City : {{ activity.activityCity.name }}</p>
+				<i class="pi pi-calendar"></i>
+				<p>Date : {{ activity.date | date }}</p>
+				<i class="pi pi-clock"></i>
+				<p>Hour : {{ activity.hour }}</p>
+				<p>Link : {{ activity.link }}</p>
 
 				<a
 					*ngIf="activity.link"
