@@ -64,6 +64,12 @@ export class ModalConfirmCreatActivityComponent
 
 	protected override onAccept(selectedFile?: File | null): void {
 		this.onUpload(selectedFile as File);
+		this._messageService.add({
+			severity: 'info',
+			summary: 'Bravo',
+			detail: 'Votre activité a bien été créée',
+			life: 3000,
+		});
 	}
 
 	protected override onError() {
@@ -122,7 +128,7 @@ export class ModalConfirmCreatActivityComponent
 					});
 					setTimeout(() => {
 						this._router.navigate([FullActivityRouteEnum.DETAILS, activity.id]);
-					}, 3000);
+					}, 4000);
 				}),
 				catchError(() => {
 					this._messageService.add({
