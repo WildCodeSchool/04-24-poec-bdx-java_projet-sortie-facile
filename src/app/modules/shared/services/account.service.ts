@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { FullUserRouteEnum } from '@shared/models/enums/routes/full-routes';
+import { LayoutLink } from '@shared/models/types/utils/layout-link.type';
 import { MenuItem } from 'primeng/api';
 
 @Injectable({
@@ -72,14 +73,26 @@ export class AccountService {
 		},
 	];
 
-	private layoutItems: { label: string; styleClass?: string }[] = [
-		{ label: 'General' },
-		{ label: 'Edit profil' },
-		{ label: 'Password' },
-		{ label: "Centres d'intérêts" },
-		{ label: 'Notifications' },
-		{ label: 'Mes activités' },
-		{ label: 'Mon calendrier' },
+	private layoutItems: LayoutLink[] = [
+		{ label: 'General', path: FullUserRouteEnum.HOME, active: true },
+		{ label: 'Edit profil', path: FullUserRouteEnum.PROFILE, active: false },
+		{ label: 'Password', path: FullUserRouteEnum.PASSWORD, active: false },
+		{
+			label: "Centres d'intérêts",
+			path: FullUserRouteEnum.CENTER_OF_INTERESTS,
+			active: false,
+		},
+		{
+			label: 'Notifications',
+			path: FullUserRouteEnum.NOTIFICATION,
+			active: false,
+		},
+		{ label: 'Mes activités', path: FullUserRouteEnum.ACTIVITY, active: false },
+		{
+			label: 'Mon calendrier',
+			path: FullUserRouteEnum.CALENDAR,
+			active: false,
+		},
 		{ label: 'Supprimer mon compte', styleClass: 'delete-item' },
 	];
 

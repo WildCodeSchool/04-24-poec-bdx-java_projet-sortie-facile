@@ -14,6 +14,18 @@
 
 		<div class="dashboard-nav-box">
 			<app-layout-nav [items]="items"></app-layout-nav>
+
+			<div class="delete-box">
+				<p-button
+					*ngIf="showDEleteBtn"
+					severity="danger"
+					[text]="true"
+					rounded
+					(click)="onModal()"
+					class="delete-link"
+					>Supprimer mon compte
+				</p-button>
+			</div>
 		</div>
 
 		<div class="dashboard-primary-content">
@@ -21,3 +33,7 @@
 		</div>
 	</div>
 </div>
+
+<app-modal-confirm-delete-account
+	[connectedUser]="connectedUser"
+></app-modal-confirm-delete-account>

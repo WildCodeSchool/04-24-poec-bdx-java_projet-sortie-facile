@@ -1,14 +1,15 @@
 <div class="container">
-	<app-account-layout
+	<app-dashboard-layout
 		[avatarSrc]="avatarSrc"
 		[avatarAlt]="avatarAlt"
 		[username]="connectedUser.username"
 		[pageTitle]="pageTitle"
 		[pageDescription]="pageDescription"
+		[items]="navItems"
 	>
 		<app-account-general-form></app-account-general-form>
 
 		<p-button rounded>Nouvelle activité créée</p-button>
 		<p-button rounded>Activité annulée</p-button>
-	</app-account-layout>
+	</app-dashboard-layout>
 </div>

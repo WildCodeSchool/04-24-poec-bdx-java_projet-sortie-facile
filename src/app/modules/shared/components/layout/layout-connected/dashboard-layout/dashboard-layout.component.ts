@@ -1,5 +1,6 @@
-import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { ModalDeleteAccountComponent } from '@shared/components/modal/modal-confirm-delete-account/modal-confirm-delete-account.component';
 import { AuthUserPrimaryDatas } from '@shared/models/classes/auth-user/auth-user-primary-datas.class';
 import { FullBookingRouteEnum } from '@shared/models/enums/routes/full-routes';
 import { LayoutLink } from '@shared/models/types/utils/layout-link.type';
@@ -19,6 +20,9 @@ export class DashboardLayoutComponent implements OnInit, OnDestroy {
 	@Input() pageTitle!: string;
 	@Input() pageDescription!: string;
 	@Input() items: LayoutLink[] = [];
+
+	@ViewChild(ModalDeleteAccountComponent, { static: false })
+	modalComponent!: ModalDeleteAccountComponent;
 
 	fullBookingRouteEnum = FullBookingRouteEnum;
 	showDEleteBtn!: boolean;
@@ -40,6 +44,10 @@ export class DashboardLayoutComponent implements OnInit, OnDestroy {
 
 	onActiveItemChange(event: MenuItem) {
 		this.activeItem = event;
+	}
+
+	onModal(): void {
+		this.modalComponent.onSubmit();
 	}
 
 	ngOnDestroy(): void {
