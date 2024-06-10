@@ -9,6 +9,8 @@ export enum FullActivityRouteEnum {
 
 export enum FullAdminRouteEnum {
 	HOME = '/' + PrimaryRouteEnum.ADMIN + '/home',
+	GRAPH = '/' + PrimaryRouteEnum.ADMIN + '/stats',
+	EMAIL = '/' + PrimaryRouteEnum.ADMIN + '/email',
 }
 
 export enum FullAuthenticationRouteEnum {
@@ -17,10 +19,8 @@ export enum FullAuthenticationRouteEnum {
 }
 
 export enum FullBookingRouteEnum {
-	GRAPH = '/' + PrimaryRouteEnum.BOOKING + '/graph',
 	HOME = '/' + PrimaryRouteEnum.BOOKING + '/home',
 	DATA = '/' + PrimaryRouteEnum.BOOKING + '/data',
-	MAIL = '/' + PrimaryRouteEnum.BOOKING + '/mail',
 }
 
 export enum FullUserRouteEnum {

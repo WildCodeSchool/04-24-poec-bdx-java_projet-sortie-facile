@@ -1,15 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { BaseManagementComponent } from '@shared/directives/management.class';
 import { LayoutLink } from '@shared/models/types/utils/layout-link.type';
-import { AccountService } from '@shared/services/account.service';
+import { AdminService } from '@shared/services/admin.service';
 import { AuthService } from '@shared/services/auth.service';
 
 @Component({
-	selector: 'app-account-general-management',
-	templateUrl: './account-general-management.component.html',
-	styleUrl: './account-general-management.component.scss',
+	selector: 'app-admin-stats-management',
+	templateUrl: './admin-stats-management.component.html',
+	styleUrl: './admin-stats-management.component.scss',
 })
-export class AccountGeneralManagementComponent
+export class AdminStatsManagementComponent
 	extends BaseManagementComponent
 	implements OnInit
 {
@@ -17,7 +17,7 @@ export class AccountGeneralManagementComponent
 
 	constructor(
 		protected override _authService: AuthService,
-		private _accountService: AccountService,
+		private _adminService: AdminService,
 	) {
 		super(_authService);
 	}
@@ -25,6 +25,6 @@ export class AccountGeneralManagementComponent
 	override ngOnInit(): void {
 		super.ngOnInit();
 
-		this.navItems = this._accountService.getLayoutItems();
+		this.navItems = this._adminService.getLayoutItems();
 	}
 }

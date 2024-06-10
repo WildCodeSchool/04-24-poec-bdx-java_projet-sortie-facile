@@ -1,10 +1,11 @@
 <div class="container">
-	<app-account-layout
+	<app-dashboard-layout
 		[avatarSrc]="avatarSrc"
 		[avatarAlt]="avatarAlt"
 		[username]="connectedUser.username"
 		[pageTitle]="pageTitle"
 		[pageDescription]="pageDescription"
+		[items]="navItems"
 	>
 		<app-account-container-content
 			sectionTitle="Mes dernières activités créées"
@@ -55,5 +56,5 @@
 				</ng-container>
 			</div>
 		</app-account-container-content>
-	</app-account-layout>
+	</app-dashboard-layout>
 </div>

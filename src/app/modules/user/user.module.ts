@@ -5,9 +5,6 @@ import { UserRoutingModule } from '@user/user-routing.module';
 import { UserHomeComponent } from '@user/pages/user-home/user-home.component';
 import { AccountLayoutComponent } from '@user/components/ui/account-layout/account-layout.component';
 import { AccountGeneralManagementComponent } from '@user/components/feature/account-general-management/account-general-management.component';
-import { LayoutHeaderComponent } from '@user/components/ui/layout/layout-header/layout-header.component';
-import { LayoutNavComponent } from '@user/components/ui/layout/layout-nav/layout-nav.component';
-import { LayoutNavResponsiveComponent } from '@user/components/ui/layout/layout-nav-responsive/layout-nav-responsive.component';
 import { UserProfileComponent } from '@user/pages/user-profile/user-profile.component';
 import { UserPasswordComponent } from '@user/pages/user-password/user-password.component';
 import { UserActivitiesComponent } from '@user/pages/user-activities/user-activities.component';
@@ -34,9 +31,6 @@ import { AccountGeneralFormComponent } from './components/ui/account-form/accoun
 		UserHomeComponent,
 		AccountLayoutComponent,
 		AccountGeneralManagementComponent,
-		LayoutHeaderComponent,
-		LayoutNavComponent,
-		LayoutNavResponsiveComponent,
 		UserProfileComponent,
 		UserPasswordComponent,
 		UserActivitiesComponent,

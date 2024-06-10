@@ -4,8 +4,8 @@ import { AuthService } from './auth.service';
 import { Observable, combineLatest, of, switchMap } from 'rxjs';
 import {
 	FullActivityRouteEnum,
+	FullAdminRouteEnum,
 	FullAuthenticationRouteEnum,
-	FullBookingRouteEnum,
 	FullUserRouteEnum,
 } from '@shared/models/enums/routes/full-routes';
 import { AuthUserPrimaryDatas } from '@shared/models/classes/auth-user/auth-user-primary-datas.class';
@@ -54,7 +54,7 @@ export class HeaderService {
 				label: 'Dashboard',
 				icon: 'pi pi-chart-bar',
 
-				routerLink: FullBookingRouteEnum.GRAPH,
+				routerLink: FullAdminRouteEnum.GRAPH,
 			},
 		]);
 
