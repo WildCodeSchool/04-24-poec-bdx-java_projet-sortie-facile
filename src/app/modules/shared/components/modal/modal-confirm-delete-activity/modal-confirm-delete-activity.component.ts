@@ -12,8 +12,8 @@ import { ConfirmationService, MessageService } from 'primeng/api';
 	providers: [ConfirmationService, MessageService],
 })
 export class ModalConfirmDeleteActivityComponent extends AbstractModal {
-	@Input() activityId!: string;
-	@Output() activityDeleted = new EventEmitter<string>();
+	@Input() activityId!: number;
+	@Output() activityDeleted = new EventEmitter<number>();
 
 	constructor(
 		private _confirmationService: ConfirmationService,

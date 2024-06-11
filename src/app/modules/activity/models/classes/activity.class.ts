@@ -1,5 +1,5 @@
 export class Activity {
-	id: string;
+	id: number;
 	name: string;
 	date: string;
 	age: number;
@@ -17,7 +17,7 @@ export class Activity {
 	isVisible: boolean;
 
 	constructor(
-		id: string,
+		id: number,
 		name: string,
 		date: string,
 		age: number,

@@ -20,7 +20,7 @@ import { Subscription } from 'rxjs';
 export class ActivityCardComponent implements OnDestroy {
 	@Input() activity!: Activity;
 	@Input() connectedUser!: AuthUserPrimaryDatas;
-	@Output() activityDeleted = new EventEmitter<string>();
+	@Output() activityDeleted = new EventEmitter<number>();
 
 	@ViewChild(ModalConfirmDeleteActivityComponent, { static: false })
 	modalComponent!: ModalConfirmDeleteActivityComponent;
@@ -29,7 +29,7 @@ export class ActivityCardComponent implements OnDestroy {
 
 	private _subscription: Subscription = new Subscription();
 
-	hideActivity(activityId: string): void {
+	hideActivity(activityId: number): void {
 		this.activityDeleted.emit(activityId);
 	}
 
@@ -37,7 +37,7 @@ export class ActivityCardComponent implements OnDestroy {
 		this.modalComponent.onSubmit();
 	}
 
-	onActivityDeleted(activityId: string): void {
+	onActivityDeleted(activityId: number): void {
 		this.hideActivity(activityId);
 	}
 

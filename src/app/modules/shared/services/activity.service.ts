@@ -156,7 +156,7 @@ export class ActivityService {
 		);
 	}
 	updateActivityVisibility(
-		activityId: string,
+		activityId: number,
 		isVisible: boolean,
 	): Observable<Activity> {
 		return this._httpClient.patch<Activity>(`${this._BASE_URL}/${activityId}`, {
@@ -175,7 +175,7 @@ export class ActivityService {
 	}
 
 	updateActivity$(
-		id: string,
+		id: number,
 		updatedData: Partial<Activity>,
 	): Observable<Activity> {
 		return this._httpClient
