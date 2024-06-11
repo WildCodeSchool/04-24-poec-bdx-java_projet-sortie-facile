@@ -1,8 +1,6 @@
 import { NewActivity } from '@activity/models/classes/new-activity.class';
 import { Component, OnDestroy, ViewChild } from '@angular/core';
 import { ModalConfirmCreatActivityComponent } from '@shared/components/modal/modal-confirm-creat-activity/modal-confirm-creat-activity.component';
-import { City } from '@shared/models/classes/address/city.class';
-import { Category } from '@shared/models/classes/category/category.class';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -17,18 +15,18 @@ export class ActivityCreateManagementComponent implements OnDestroy {
 	modalComponent!: ModalConfirmCreatActivityComponent;
 
 	newActivity: NewActivity = new NewActivity(
-		'toto',
-		'',
-		new City('', ''),
-		'',
-		0,
-		'',
 		'',
 		'',
 		0,
-		new Category('', '', ''),
 		'',
 		'',
+		'',
+		0,
+		'',
+		0,
+		0,
+		0,
+		0,
 		true,
 	);
 

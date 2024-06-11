@@ -37,7 +37,7 @@ import { CardTestimonialComponent } from './components/cards/card-testimonial/ca
 import { CarouselActivityComponent } from './components/carousel/carousel-activity/carousel-activity.component';
 import { CarouselTestimonialComponent } from './components/carousel/carousel-testimonial/carousel-testimonial.component';
 import { CarouselCategoryComponent } from './components/carousel/carousel-category/carousel-category.component';
-import { CalendarModalComponent } from './components/modal/calendar-modal/calendar-modal.component';
+// import { CalendarModalComponent } from './components/modal/calendar-modal/calendar-modal.component';
 
 @NgModule({
 	declarations: [
@@ -70,7 +70,7 @@ import { CalendarModalComponent } from './components/modal/calendar-modal/calend
 		CardTestimonialComponent,
 		CarouselTestimonialComponent,
 		CarouselCategoryComponent,
-		CalendarModalComponent,
+		// CalendarModalComponent,
 	],
 	imports: [
 		CommonModule,

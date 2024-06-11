@@ -26,10 +26,7 @@
 						/>
 					</i>
 				</div>
-				<div
-					*ngIf="connectedUser && connectedUser.username"
-					class="green-dot"
-				></div>
+				<div *ngIf="connectedUser" class="green-dot"></div>
 			</ng-container>
 		</div>
 	</p-menubar>

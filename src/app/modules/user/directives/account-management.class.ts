@@ -21,6 +21,8 @@ export abstract class BaseAccountManagementComponent implements OnInit {
 		this._tokenService
 			._getTokenDetailsSubject$()
 			.subscribe((connectedUser: any) => {
+				console.log(connectedUser);
+
 				this.connectedUser = connectedUser;
 			});
 	}

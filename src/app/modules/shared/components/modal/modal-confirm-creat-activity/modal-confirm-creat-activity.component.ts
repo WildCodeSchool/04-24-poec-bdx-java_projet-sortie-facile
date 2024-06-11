@@ -73,9 +73,9 @@ export class ModalConfirmCreatActivityComponent
 						detail: 'Votre activité a bien été créée',
 						life: 3000,
 					});
-					setTimeout(() => {
-						this._router.navigate([FullActivityRouteEnum.DETAILS, activity.id]);
-					}, 3000);
+					// setTimeout(() => {
+					// 	this._router.navigate([FullActivityRouteEnum.DETAILS, activity.id]);
+					// }, 3000);
 				}),
 				catchError(() => {
 					this._messageService.add({

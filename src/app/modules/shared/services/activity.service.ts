@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, catchError, map, tap } from 'rxjs';
+import { Observable, catchError, map, of, tap } from 'rxjs';
 import { Router } from '@angular/router';
 import { Department } from '@shared/models/classes/address/department.class';
 import { Activity } from '@activity/models/classes/activity.class';
@@ -10,6 +10,7 @@ import { FullActivityRouteEnum } from '@shared/models/enums/routes/full-routes';
 import { BookingService } from './booking.service';
 import { BookingUserActivity } from '@shared/models/classes/booking/booking-user-activity.class';
 import { environment } from 'environments/environment';
+import { NewActivity } from '@activity/models/classes/new-activity.class';
 
 @Injectable({
 	providedIn: 'root',
@@ -21,7 +22,7 @@ export class ActivityService {
 	categories!: Category[];
 	department!: Department;
 
-	private readonly _BASE_URL = `${environment.apiUrlJsonServer}/activity`;
+	private readonly _BASE_URL = `${environment.apiUrl}/activity`;
 
 	constructor(
 		private _httpClient: HttpClient,
@@ -30,14 +31,16 @@ export class ActivityService {
 	) {}
 
 	getActivityList$(): Observable<ActivityListResponseApi> {
-		return this._httpClient.get<ActivityListResponseApi>(this._BASE_URL).pipe(
-			map((activities: ActivityListResponseApi) =>
-				activities.filter(activity => activity.isVisible === true),
-			),
-			catchError(error => {
-				throw error;
-			}),
-		);
+		return this._httpClient
+			.get<ActivityListResponseApi>(`${this._BASE_URL}/all`)
+			.pipe(
+				map((activities: ActivityListResponseApi) =>
+					activities.filter(activity => activity.isVisible !== true),
+				),
+				catchError(error => {
+					throw error;
+				}),
+			);
 	}
 
 	getActivityById$(id: string): Observable<Activity> {
@@ -46,19 +49,19 @@ export class ActivityService {
 			.pipe(map((activity: Activity) => activity));
 	}
 
-	getActivityListByCreatedUser$(
-		limit: number = -1,
-		userId: string,
-	): Observable<ActivityListResponseApi> {
-		return this._httpClient.get<ActivityListResponseApi>(this._BASE_URL).pipe(
-			map((activities: ActivityListResponseApi) =>
-				activities.filter(activity => activity.userId === userId).reverse(),
-			),
-			map((activities: ActivityListResponseApi) =>
-				limit > 0 ? activities.slice(0, limit) : activities,
-			),
-		);
-	}
+	// getActivityListByCreatedUser$(
+	// 	limit: number = -1,
+	// 	userId: string,
+	// ): Observable<ActivityListResponseApi> {
+	// 	return this._httpClient.get<ActivityListResponseApi>(this._BASE_URL).pipe(
+	// 		map((activities: ActivityListResponseApi) =>
+	// 			activities.filter(activity => activity.userId === userId).reverse(),
+	// 		),
+	// 		map((activities: ActivityListResponseApi) =>
+	// 			limit > 0 ? activities.slice(0, limit) : activities,
+	// 		),
+	// 	);
+	// }
 
 	getListOfActivitiesRegisteredByUser$(
 		limit: number = -1,
@@ -90,7 +93,7 @@ export class ActivityService {
 		return this.getActivityList$().pipe(
 			map((activityList: ActivityListResponseApi) =>
 				activityList.filter((activity: Activity) => {
-					return activity.categoryId.id === categoryId.id;
+					return activity.categoryId === Number(categoryId.id);
 				}),
 			),
 		);
@@ -102,26 +105,47 @@ export class ActivityService {
 		return this.getActivityList$().pipe(
 			map((activityList: ActivityListResponseApi) =>
 				activityList.filter((activity: Activity) => {
-					return activity.department === department.id;
+					return activity.department === Number(department.id);
 				}),
 			),
 		);
 	}
 
-	postNewActivity$(newActivity: Activity): Observable<Activity> {
-		const activityToPost = {
+	postNewActivity$(newActivity: NewActivity): Observable<Activity> {
+		const activityToPost: NewActivity = {
 			...newActivity,
 			isVisible: true,
 		};
 
-		return this._httpClient.post<Activity>(this._BASE_URL, activityToPost).pipe(
-			tap((activity: Activity) => {
-				this._router.navigate([FullActivityRouteEnum.DETAILS, activity.id]);
-			}),
-			catchError(error => {
-				throw error;
-			}),
-		);
+		const cloneActivityToPost: any = { ...activityToPost };
+		delete cloneActivityToPost.departmentId;
+		delete cloneActivityToPost.activityCity;
+		delete cloneActivityToPost.departmentId;
+
+		return this._httpClient
+			.post<Activity>(
+				`${this._BASE_URL}/add/region/1/department/1/city/1`,
+				// {
+				// 	name: 'totoss',
+				// 	date: 'today',
+				// 	age: 22,
+				// 	imgUrl: 'string',
+				// 	link: 'string',
+				// 	description: 'string',
+				// 	nbGuest: 5,
+				// 	hour: 'now',
+				// 	isVisible: true,
+				// },
+				cloneActivityToPost,
+			)
+			.pipe(
+				tap((activity: Activity) => {
+					this._router.navigate([FullActivityRouteEnum.DETAILS, activity.id]);
+				}),
+				catchError(error => {
+					throw error;
+				}),
+			);
 	}
 
 	deleteActivity$(id: string): Observable<unknown> {

@@ -26,11 +26,11 @@ const routes: Routes = [
 	// 	loadChildren: () =>
 	// 		import('./modules/booking/booking.module').then(m => m.BookingModule),
 	// },
-	{
-		path: PrimaryRouteEnum.USER,
-		loadChildren: () =>
-			import('./modules/user/user.module').then(m => m.UserModule),
-	},
+	// {
+	// 	path: PrimaryRouteEnum.USER,
+	// 	loadChildren: () =>
+	// 		import('./modules/user/user.module').then(m => m.UserModule),
+	// },
 
 	{
 		path: PrimaryRouteEnum.AUTHENTICATION,
