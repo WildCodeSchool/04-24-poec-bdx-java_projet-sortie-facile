@@ -11,6 +11,7 @@ export enum FullAdminRouteEnum {
 	HOME = '/' + PrimaryRouteEnum.ADMIN + '/home',
 	GRAPH = '/' + PrimaryRouteEnum.ADMIN + '/stats',
 	EMAIL = '/' + PrimaryRouteEnum.ADMIN + '/email',
+	CALENDAR = '/' + PrimaryRouteEnum.ADMIN + '/calendar',
 }
 
 export enum FullAuthenticationRouteEnum {

@@ -8,6 +8,8 @@ import { AdminMailManagementComponent } from './components/feature/admin-mail-ma
 import { SharedModule } from '@shared/shared.module';
 import { AdminStatsComponent } from './pages/admin-stats/admin-stats.component';
 import { AdminStatsManagementComponent } from './components/feature/admin-stats-management/admin-stats-management.component';
+import { AdminCalendarManagementComponent } from './components/feature/admin-calendar-management/admin-calendar-management.component';
+import { AdminCalendarComponent } from './pages/admin-calendar/admin-calendar.component';
 
 @NgModule({
 	declarations: [
@@ -16,6 +18,8 @@ import { AdminStatsManagementComponent } from './components/feature/admin-stats-
 		AdminStatsComponent,
 		AdminMailManagementComponent,
 		AdminStatsManagementComponent,
+  AdminCalendarManagementComponent,
+  AdminCalendarComponent,
 	],
 	imports: [CommonModule, AdminRoutingModule, SharedModule],
 })
