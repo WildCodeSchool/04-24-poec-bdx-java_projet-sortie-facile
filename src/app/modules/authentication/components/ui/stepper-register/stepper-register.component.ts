@@ -39,7 +39,7 @@ export class StepperRegisterComponent implements OnDestroy {
 			this._authService
 				.createUserWithEmailAndPassword(
 					this.newUserAuth,
-					this.newUserPersonalInfos,
+					// this.newUserPersonalInfos,
 				)
 				.subscribe(),
 		);
