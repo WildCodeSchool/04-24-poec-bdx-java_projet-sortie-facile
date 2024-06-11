@@ -31,21 +31,27 @@ export class AuthService extends AuthUserServiceUtils {
 
 	constructor(
 		private _httpClient: HttpClient,
-		private _tokenService: TokenService,
+		protected override _tokenService: TokenService,
 		private _router: Router,
 		private _userService: UserService,
 		// private _formErrorMessage: FormErrorMessageService,
 	) {
-		super();
+		super(_tokenService);
 	}
 
 	loginWithEmailAndPassword(userCredentials: UserCredentials): void {
 		this._tokenService.resetToken();
 		this._httpClient
 			.post<TokenResponse>(`${this._BASE_URL}/authenticate`, userCredentials)
-			.subscribe((token: TokenResponse) => {
-				this._tokenService.updateToken(token);
-			});
+			.pipe(
+				map((token: TokenResponse) => {
+					this._tokenService.updateToken(token);
+				}),
+				tap(() => {
+					this._router.navigateByUrl(FullUserRouteEnum.HOME);
+				}),
+			)
+			.subscribe();
 		// return this._httpClient.get<AuthUserListResponseApi>(this.BASE_URL).pipe(
 		// 	map(
 		// 		(users: AuthUserListResponseApi) =>

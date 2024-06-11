@@ -11,11 +11,11 @@ const routes: Routes = [
 		loadChildren: () =>
 			import('./modules/landing/landing.module').then(m => m.LandingModule),
 	},
-	// {
-	// 	path: PrimaryRouteEnum.ACTIVITY,
-	// 	loadChildren: () =>
-	// 		import('./modules/activity/activity.module').then(m => m.ActivityModule),
-	// },
+	{
+		path: PrimaryRouteEnum.ACTIVITY,
+		loadChildren: () =>
+			import('./modules/activity/activity.module').then(m => m.ActivityModule),
+	},
 	// {
 	// 	path: PrimaryRouteEnum.ADMIN,
 	// 	loadChildren: () =>
@@ -26,11 +26,11 @@ const routes: Routes = [
 	// 	loadChildren: () =>
 	// 		import('./modules/booking/booking.module').then(m => m.BookingModule),
 	// },
-	// {
-	// 	path: PrimaryRouteEnum.USER,
-	// 	loadChildren: () =>
-	// 		import('./modules/user/user.module').then(m => m.UserModule),
-	// },
+	{
+		path: PrimaryRouteEnum.USER,
+		loadChildren: () =>
+			import('./modules/user/user.module').then(m => m.UserModule),
+	},
 
 	{
 		path: PrimaryRouteEnum.AUTHENTICATION,

@@ -18,6 +18,7 @@ import { Observable, map } from 'rxjs';
 import { LazyLoadEvent } from 'primeng/api';
 import { FullActivityRouteEnum } from '@shared/models/enums/routes/full-routes';
 import { PaginationOption } from '@shared/models/types/utils/pagination.type';
+import { TokenService } from '@shared/services/token.service';
 
 @Component({
 	selector: 'app-activity-list-management',
@@ -54,6 +55,7 @@ export class ActivityListManagementComponent implements OnInit, OnChanges {
 		private activityService: ActivityService,
 		private categoryService: CategoryService,
 		private _authService: AuthService,
+		private _tokenService: TokenService,
 	) {}
 
 	ngOnInit(): void {
@@ -63,13 +65,19 @@ export class ActivityListManagementComponent implements OnInit, OnChanges {
 			{ label: '20', value: 20 },
 		];
 
-		if (!this.connectedUser) {
-			this._authService.setConnectedUserData(
-				JSON.parse(localStorage.getItem('user') as string),
-			);
+		this._tokenService
+			._getTokenDetailsSubject$()
+			.subscribe((connectedUser: any) => {
+				this.connectedUser = connectedUser;
+			});
 
-			this.connectedUser = this._authService.getConnectedUserData();
-		}
+		// if (!this.connectedUser) {
+		// 	this._authService.setConnectedUserData(
+		// 		JSON.parse(localStorage.getItem('user') as string),
+		// 	);
+
+		// 	this.connectedUser = this._authService.getConnectedUserData();
+		// }
 
 		this.filterActivities();
 	}

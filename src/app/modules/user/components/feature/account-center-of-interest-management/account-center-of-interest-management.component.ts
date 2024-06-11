@@ -4,6 +4,7 @@ import { Category } from '@shared/models/classes/category/category.class';
 import { UserDetails } from '@shared/models/classes/user-details/user-details.class';
 import { AuthService } from '@shared/services/auth.service';
 import { CategoryService } from '@shared/services/category.service';
+import { TokenService } from '@shared/services/token.service';
 import { UserService } from '@shared/services/user.service';
 import { BaseAccountManagementComponent } from '@user/directives/account-management.class';
 import { Observable, map, switchMap } from 'rxjs';
@@ -30,8 +31,9 @@ export class AccountCenterOfInterestManagementComponent
 		protected override _authService: AuthService,
 		private categoryService: CategoryService,
 		private _userService: UserService,
+		protected override _tokenService: TokenService,
 	) {
-		super(_authService);
+		super(_authService, _tokenService);
 	}
 
 	override ngOnInit(): void {

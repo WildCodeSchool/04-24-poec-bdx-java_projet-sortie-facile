@@ -1,6 +1,7 @@
 import { Directive, Input, OnInit } from '@angular/core';
 import { AuthUserPrimaryDatas } from '@shared/models/classes/auth-user/auth-user-primary-datas.class';
 import { AuthService } from '@shared/services/auth.service';
+import { TokenService } from '@shared/services/token.service';
 
 @Directive()
 export abstract class BaseAccountManagementComponent implements OnInit {
@@ -11,9 +12,16 @@ export abstract class BaseAccountManagementComponent implements OnInit {
 
 	connectedUser!: AuthUserPrimaryDatas;
 
-	constructor(protected _authService: AuthService) {}
+	constructor(
+		protected _authService: AuthService,
+		protected _tokenService: TokenService,
+	) {}
 
 	ngOnInit(): void {
-		this.connectedUser = this._authService.getConnectedUserData();
+		this._tokenService
+			._getTokenDetailsSubject$()
+			.subscribe((connectedUser: any) => {
+				this.connectedUser = connectedUser;
+			});
 	}
 }

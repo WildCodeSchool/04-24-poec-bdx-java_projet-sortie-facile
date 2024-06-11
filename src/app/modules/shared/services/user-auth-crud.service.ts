@@ -14,13 +14,17 @@ import { AuthUserPrimaryDatas } from '@shared/models/classes/auth-user/auth-user
 import { AuthUserPatch } from '@shared/models/classes/auth-user/auth-user-patch.class';
 import { AuthUserListResponseApi } from '@shared/models/classes/auth-user';
 import { AuthUserServiceUtils } from '@shared/models/classes/utils/auth-user-service-utils.class';
+import { TokenService } from './token.service';
 
 @Injectable({
 	providedIn: 'root',
 })
 export class UserAuthCrudService extends AuthUserServiceUtils {
-	constructor(private _httpClient: HttpClient) {
-		super();
+	constructor(
+		private _httpClient: HttpClient,
+		protected override _tokenService: TokenService,
+	) {
+		super(_tokenService);
 	}
 
 	public updatePassword(

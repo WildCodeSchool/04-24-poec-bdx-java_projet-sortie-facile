@@ -10,6 +10,7 @@ import {
 	UserRoleEnum,
 } from '@shared/models/enums/user-role.enum';
 import { environment } from 'environments/environment';
+import { TokenService } from '@shared/services/token.service';
 
 export class AuthUserServiceUtils {
 	protected _providerNameList: AuthProvider[] = [
@@ -34,6 +35,8 @@ export class AuthUserServiceUtils {
 
 	protected _isLoggedInSubject: BehaviorSubject<boolean> =
 		new BehaviorSubject<boolean>(false);
+
+	constructor(protected _tokenService: TokenService) {}
 
 	public getAuthUserFormatted(
 		user: AuthUserPrimaryDatas | NewAuthUser,

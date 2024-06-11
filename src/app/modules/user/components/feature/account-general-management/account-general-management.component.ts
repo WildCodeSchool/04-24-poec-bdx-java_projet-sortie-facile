@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '@shared/services/auth.service';
+import { TokenService } from '@shared/services/token.service';
 import { BaseAccountManagementComponent } from '@user/directives/account-management.class';
 
 @Component({
@@ -11,7 +12,10 @@ export class AccountGeneralManagementComponent
 	extends BaseAccountManagementComponent
 	implements OnInit
 {
-	constructor(protected override _authService: AuthService) {
-		super(_authService);
+	constructor(
+		protected override _authService: AuthService,
+		protected override _tokenService: TokenService,
+	) {
+		super(_authService, _tokenService);
 	}
 }

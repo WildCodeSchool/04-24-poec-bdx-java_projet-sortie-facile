@@ -2,6 +2,7 @@ import { Activity } from '@activity/models/classes/activity.class';
 import { Component, OnInit } from '@angular/core';
 import { ActivityService } from '@shared/services/activity.service';
 import { AuthService } from '@shared/services/auth.service';
+import { TokenService } from '@shared/services/token.service';
 import { BaseAccountManagementComponent } from '@user/directives/account-management.class';
 import { Observable } from 'rxjs';
 
@@ -19,9 +20,10 @@ export class AccountActivitiesManagementComponent
 
 	constructor(
 		protected override _authService: AuthService,
+		protected override _tokenService: TokenService,
 		private _activityService: ActivityService,
 	) {
-		super(_authService);
+		super(_authService, _tokenService);
 	}
 
 	override ngOnInit(): void {
