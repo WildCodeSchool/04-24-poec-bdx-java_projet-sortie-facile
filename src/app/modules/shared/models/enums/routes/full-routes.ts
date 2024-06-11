@@ -31,4 +31,5 @@ export enum FullUserRouteEnum {
 	NOTIFICATION = '/' + PrimaryRouteEnum.USER + '/notification',
 	ACTIVITY = '/' + PrimaryRouteEnum.USER + '/activity',
 	CALENDAR = '/' + PrimaryRouteEnum.USER + '/calendar',
+	BOOKING = '/' + PrimaryRouteEnum.USER + '/booking',
 }

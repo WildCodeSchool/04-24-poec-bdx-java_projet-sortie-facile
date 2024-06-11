@@ -8,13 +8,6 @@
 		[items]="navItems"
 	>
 		<app-layout-container-content sectionTitle="Réservations" [hideBtn]="true">
-			<ng-container *ngIf="reservations$ | async as reservations" data>
-				<div *ngFor="let reservation of reservations">
-					{{ reservation | json }}
-
-					<p>{{ reservation.id }}</p>
-				</div>
-			</ng-container>
 		</app-layout-container-content>
 	</app-dashboard-layout>
 </div>
