@@ -7,6 +7,12 @@
 		[pageDescription]="pageDescription"
 		[items]="navItems"
 	>
-		<app-account-general-form></app-account-general-form>
+		<app-account-container-content
+			sectionTitle="Mes Notifications"
+			[hideBtn]="true"
+		>
+		</app-account-container-content>
+		<p-button rounded>Nouvelle activité créée</p-button>
+		<p-button rounded>Activité annulée</p-button>
 	</app-dashboard-layout>
 </div>

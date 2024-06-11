@@ -157,11 +157,11 @@
 			</p-card>
 		</div>
 	</div>
-
 	<div
 		class="suggested-activities"
 		*ngIf="suggestList$ | async as activityList"
 	>
+		<h1>Suggestions dans la même catégorie</h1>
 		<app-carousel-activity
 			[activityList]="activityList"
 			[numVisible]="6"
