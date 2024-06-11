@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, map, switchMap, tap } from 'rxjs';
+import { Observable, map, of, switchMap, tap } from 'rxjs';
 import { Router } from '@angular/router';
 import { NewAuthUser } from '@shared/models/classes/auth-user/new-auth-user.class';
 import { UserService } from './user.service';
@@ -88,11 +88,28 @@ export class AuthService extends AuthUserServiceUtils {
 	createUserWithEmailAndPassword(
 		newUserAuthInfos: NewAuthUserFormDatas,
 		newUserPersonalInfos: NewUserUserDetailsFormDatas,
-	): Observable<NewAuthUser> {
-		return this._httpClient.post<NewAuthUser>(
-			`${this._BASE_URL}/register`,
-			newUserAuthInfos,
-		);
+	): Observable<any> {
+		return this._httpClient
+			.post<any>(`${this._BASE_URL}/register`, newUserAuthInfos)
+			.pipe(
+				switchMap(() => {
+					return this._httpClient.post<TokenResponse>(
+						`${this._BASE_URL}/authenticate`,
+						{
+							email: newUserAuthInfos.email,
+							password: newUserAuthInfos.password,
+						},
+					);
+				}),
+				map(token => {
+					this._tokenService.resetToken();
+					this._tokenService.updateToken(token);
+				}),
+				switchMap(() => {
+					return this._userService.postUserInfos$(newUserPersonalInfos);
+				}),
+			);
+
 		// .pipe(
 		// 	switchMap((createdUser: NewAuthUser) => {
 		// 		return this._userService

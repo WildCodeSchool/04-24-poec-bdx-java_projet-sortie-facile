@@ -11,7 +11,7 @@ import { Observable } from 'rxjs';
 	providedIn: 'root',
 })
 export class UserService {
-	private readonly _BASE_URL = `${environment.apiUrlJsonServer}/user_details`;
+	private readonly _BASE_URL = `${environment.apiUrl}/profile`;
 
 	constructor(private _httpClient: HttpClient) {}
 
@@ -19,10 +19,16 @@ export class UserService {
 		return this._httpClient.get<UserDetails>(`${this._BASE_URL}/${userId}`);
 	}
 
-	postUserInfos$(
-		userInfos: NewUserUserDetailsFormDatas,
-	): Observable<UserDetails> {
-		return this._httpClient.post<UserDetails>(this._BASE_URL, userInfos);
+	postUserInfos$(userInfos: any): Observable<UserDetails> {
+		const cloneUserInfos = { ...userInfos };
+		delete cloneUserInfos.region;
+		delete cloneUserInfos.city;
+		delete cloneUserInfos.department;
+
+		return this._httpClient.post<UserDetails>(
+			`${this._BASE_URL}/add/region/${userInfos.region}/department/${userInfos.department}/city/${userInfos.city}`,
+			{ ...cloneUserInfos, categoryIds: [1, 2], bookingIds: [1], userId: 1 },
+		);
 	}
 
 	putUserInfo$(

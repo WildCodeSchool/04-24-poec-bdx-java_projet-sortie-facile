@@ -8,7 +8,7 @@ export class NewUserUserDetailsFormDatas {
 	streetNumber: string;
 	street: string;
 	region: string;
-	postalCode: 33000;
+	postalCode: number;
 	description: string;
 	department: Department;
 	city: City;
@@ -25,7 +25,7 @@ export class NewUserUserDetailsFormDatas {
 		streetNumber: string,
 		street: string,
 		region: string,
-		postalCode: 33000,
+		postalCode: number,
 		description: string,
 		department: Department,
 		city: City,

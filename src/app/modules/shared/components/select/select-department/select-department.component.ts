@@ -45,7 +45,7 @@ export class SelectDepartmentComponent implements OnInit, ControlValueAccessor {
 		);
 	}
 
-	onChanged!: (value: string) => void;
+	onChanged!: (value: number) => void;
 	onTouched!: () => void;
 
 	onInputChange(value: string): void {
@@ -57,7 +57,7 @@ export class SelectDepartmentComponent implements OnInit, ControlValueAccessor {
 		this.selectedDepartmentId = value;
 		this.selectedDepartment = this.departments.find(dept => dept.id === value);
 
-		this.onChanged(value);
+		this.onChanged(Number(value));
 		this.markAsTouched();
 	}
 
@@ -71,7 +71,7 @@ export class SelectDepartmentComponent implements OnInit, ControlValueAccessor {
 		}
 	}
 
-	registerOnChange(fn: (value: string) => void): void {
+	registerOnChange(fn: (value: number) => void): void {
 		this.onChanged = fn;
 	}
 

@@ -36,7 +36,7 @@ export class SelectCityComponent implements OnInit, ControlValueAccessor {
 		];
 	}
 
-	onChanged!: (value: string) => void;
+	onChanged!: (value: number) => void;
 	onTouched!: () => void;
 
 	onInputChange(value: string): void {
@@ -44,14 +44,14 @@ export class SelectCityComponent implements OnInit, ControlValueAccessor {
 			return;
 		}
 
-		this.onChanged(value);
+		this.onChanged(Number(value));
 	}
 
 	writeValue(value: string): void {
 		this.value = value;
 	}
 
-	registerOnChange(fn: (value: string) => void): void {
+	registerOnChange(fn: (value: number) => void): void {
 		this.onChanged = fn;
 	}
 

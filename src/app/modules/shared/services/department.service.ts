@@ -8,13 +8,13 @@ import { Observable, map } from 'rxjs';
 	providedIn: 'root',
 })
 export class DepartmentService {
-	private readonly _BASE_URL = `${environment.apiUrlJsonServer}/department`;
+	private readonly _BASE_URL = `${environment.apiUrl}/department`;
 
 	constructor(private _httpClient: HttpClient) {}
 
 	getDepartmentsList$(): Observable<Department[]> {
 		return this._httpClient
-			.get<Department[]>(this._BASE_URL)
+			.get<Department[]>(`${this._BASE_URL}/all`)
 			.pipe(map((response: Department[]) => response));
 	}
 }
