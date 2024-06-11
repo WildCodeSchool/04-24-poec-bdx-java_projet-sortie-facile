@@ -12,8 +12,8 @@ import listPlugin from '@fullcalendar/list';
 import { Activity } from '@activity/models/classes/activity.class';
 import { ActivityService } from '@shared/services/activity.service';
 import { forkJoin } from 'rxjs';
-import { CalendarModalComponent } from '@shared/components/modal/calendar-modal/calendar-modal.component';
 import { DialogService } from 'primeng/dynamicdialog';
+import { CalendarModalComponent } from '@shared/components/modal/calendar-modal/calendar-modal.component';
 
 @Component({
 	selector: 'app-account-calendar',
@@ -78,7 +78,7 @@ export class AccountCalendarComponent implements OnInit {
 		forkJoin({
 			createdActivities: this._activityService.getActivityListByCreatedUser$(
 				limit,
-				id,
+				Number(id),
 			),
 			participatedActivities:
 				this._activityService.getListOfActivitiesRegisteredByUser$(limit, id),

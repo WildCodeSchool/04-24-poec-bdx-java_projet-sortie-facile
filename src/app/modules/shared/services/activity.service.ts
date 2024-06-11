@@ -49,19 +49,19 @@ export class ActivityService {
 			.pipe(map((activity: Activity) => activity));
 	}
 
-	// getActivityListByCreatedUser$(
-	// 	limit: number = -1,
-	// 	userId: string,
-	// ): Observable<ActivityListResponseApi> {
-	// 	return this._httpClient.get<ActivityListResponseApi>(this._BASE_URL).pipe(
-	// 		map((activities: ActivityListResponseApi) =>
-	// 			activities.filter(activity => activity.userId === userId).reverse(),
-	// 		),
-	// 		map((activities: ActivityListResponseApi) =>
-	// 			limit > 0 ? activities.slice(0, limit) : activities,
-	// 		),
-	// 	);
-	// }
+	getActivityListByCreatedUser$(
+		limit: number = -1,
+		userId: number,
+	): Observable<ActivityListResponseApi> {
+		return this._httpClient.get<ActivityListResponseApi>(this._BASE_URL).pipe(
+			// map((activities: ActivityListResponseApi) =>
+			// 	activities.filter(activity => activity.userId === userId).reverse(),
+			// ),
+			map((activities: ActivityListResponseApi) =>
+				limit > 0 ? activities.slice(0, limit) : activities,
+			),
+		);
+	}
 
 	getListOfActivitiesRegisteredByUser$(
 		limit: number = -1,

@@ -73,20 +73,21 @@ export class BookingService {
 
 	getBookingByUserAndActivity$(
 		userId: string,
-		activityId: string,
+		activityId: number,
 	): Observable<BookingUserActivity> {
 		return this.getBookingList$().pipe(
 			map(
 				(bookingList: BookingUserActivity[]) =>
 					bookingList.find(
 						(booking: BookingUserActivity) =>
-							booking.userId === userId && booking.activityId === activityId,
+							booking.userId === userId &&
+							Number(booking.activityId) === activityId,
 					) as BookingUserActivity,
 			),
 		);
 	}
 
-	postNewBooking$(userId: string, activityId: string): Observable<Booking> {
+	postNewBooking$(userId: string, activityId: number): Observable<Booking> {
 		return this.http.post<Booking>(this._BASE_URL, { userId, activityId }).pipe(
 			tap(() => {
 				this.router.navigate([FullUserRouteEnum.ACTIVITY]);
@@ -98,7 +99,7 @@ export class BookingService {
 		);
 	}
 
-	deleteBookingById$(userId: string, activityId: string): Observable<Booking> {
+	deleteBookingById$(userId: string, activityId: number): Observable<Booking> {
 		return this.getBookingByUserAndActivity$(userId, activityId).pipe(
 			tap(v => console.log(v)),
 

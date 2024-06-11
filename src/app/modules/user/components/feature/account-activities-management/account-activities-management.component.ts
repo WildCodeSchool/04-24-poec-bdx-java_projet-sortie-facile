@@ -32,7 +32,7 @@ export class AccountActivitiesManagementComponent
 		this.activityByCreatedUserList$ =
 			this._activityService.getActivityListByCreatedUser$(
 				10,
-				this.connectedUser.id,
+				Number(this.connectedUser.id),
 			);
 
 		this.activityParticipateList$ =

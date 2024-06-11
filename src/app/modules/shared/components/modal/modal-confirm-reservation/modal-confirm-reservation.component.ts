@@ -15,7 +15,7 @@ export class ModalConfirmReservationComponent
 	implements OnDestroy
 {
 	@Input() userId!: string;
-	@Input() activityId!: string;
+	@Input() activityId!: number;
 	@Input() hasBooking!: boolean;
 
 	private _addBookingSubscription: Subscription = new Subscription();

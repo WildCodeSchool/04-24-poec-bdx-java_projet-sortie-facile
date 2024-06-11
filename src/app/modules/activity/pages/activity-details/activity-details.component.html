@@ -1,4 +1,4 @@
-<!-- <ng-container *ngIf="activity$ | async as activity">
+<ng-container *ngIf="activity$ | async as activity">
 	<div class="activity-card-container">
 		<div class="secondary-box">
 			<div class="infos-container activity-informations">
@@ -125,8 +125,8 @@
 					class="activity-description"
 				></div>
 
-				<p>Catégorie : {{ activity.categoryId.name }}</p>
-				<p>City : {{ activity.activityCity.name }}</p>
+				<!-- <p>Catégorie : {{ activity.categoryId.name }}</p>
+				<p>City : {{ activity.activityCity.name }}</p> -->
 
 				<a
 					*ngIf="activity.link"
@@ -164,4 +164,4 @@
 		[numScroll]="1"
 		[circular]="false"
 	></app-carousel-activity>
-</ng-container> -->
+</ng-container>
