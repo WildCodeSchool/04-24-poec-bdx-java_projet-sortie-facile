@@ -89,42 +89,44 @@ export class AuthService extends AuthUserServiceUtils {
 		newUserAuthInfos: NewAuthUserFormDatas,
 		newUserPersonalInfos: NewUserUserDetailsFormDatas,
 	): Observable<NewAuthUser> {
-		return this._httpClient
-			.post<NewAuthUser>(`${this.BASE_URL}`, newUserAuthInfos)
-			.pipe(
-				switchMap((createdUser: NewAuthUser) => {
-					return this._userService
-						.postUserInfos$({
-							...newUserPersonalInfos,
-							userId: createdUser.id,
-						})
-						.pipe(
-							map((createdUserInfo: UserDetails) => {
-								return {
-									...createdUser,
-									userDetailsId: createdUserInfo.id,
-								};
-							}),
-						);
-				}),
-				switchMap((updatedUser: NewAuthUser) =>
-					this._httpClient.put<NewAuthUser>(
-						`${this.BASE_URL}/${updatedUser.id}`,
-						updatedUser,
-					),
-				),
-				map((finalUser: NewAuthUser) => {
-					const userToStore = this.getAuthUserFormatted(finalUser);
+		return this._httpClient.post<NewAuthUser>(
+			`${this._BASE_URL}/register`,
+			newUserAuthInfos,
+		);
+		// .pipe(
+		// 	switchMap((createdUser: NewAuthUser) => {
+		// 		return this._userService
+		// 			.postUserInfos$({
+		// 				...newUserPersonalInfos,
+		// 				userId: createdUser.id,
+		// 			})
+		// 			.pipe(
+		// 				map((createdUserInfo: UserDetails) => {
+		// 					return {
+		// 						...createdUser,
+		// 						userDetailsId: createdUserInfo.id,
+		// 					};
+		// 				}),
+		// 			);
+		// 	}),
+		// 	switchMap((updatedUser: NewAuthUser) =>
+		// 		this._httpClient.put<NewAuthUser>(
+		// 			`${this.BASE_URL}/${updatedUser.id}`,
+		// 			updatedUser,
+		// 		),
+		// 	),
+		// 	map((finalUser: NewAuthUser) => {
+		// 		const userToStore = this.getAuthUserFormatted(finalUser);
 
-					localStorage.setItem('user', JSON.stringify(userToStore));
-					this.setConnectedUserData(userToStore);
-					this.notifyLoggedInStatus(true);
-					return finalUser;
-				}),
-				tap(() => {
-					this._router.navigateByUrl(FullUserRouteEnum.HOME);
-				}),
-			);
+		// 		localStorage.setItem('user', JSON.stringify(userToStore));
+		// 		this.setConnectedUserData(userToStore);
+		// 		this.notifyLoggedInStatus(true);
+		// 		return finalUser;
+		// 	}),
+		// 	tap(() => {
+		// 		this._router.navigateByUrl(FullUserRouteEnum.HOME);
+		// 	}),
+		// );
 	}
 
 	public logout(): void {
