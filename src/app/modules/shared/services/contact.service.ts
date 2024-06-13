@@ -30,7 +30,6 @@ export class ContactService {
 	getContactList$(): Observable<Contact[]> {
 		return this.http.get<Contact[]>(this._BASE_URL).pipe(
 			map(contacts => {
-				// Trier les contacts par id (ordre décroissant)
 				return contacts.sort((a, b) => +b.id - +a.id);
 			}),
 			catchError(error => {
@@ -50,7 +49,7 @@ export class ContactService {
 
 				return this.http.post<Contact>(this._BASE_URL, newContact).pipe(
 					switchMap(contact => {
-						this.newMailSubject.next(true); // Notify that a new mail has been posted
+						this.newMailSubject.next(true);
 						return [contact];
 					}),
 					catchError(error => {

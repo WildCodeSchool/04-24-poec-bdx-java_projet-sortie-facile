@@ -37,7 +37,7 @@ export class ActivityService {
 			map((activities: ActivityListResponseApi) => {
 				return activities
 					.filter(activity => activity.isVisible === true)
-					.sort((a, b) => +b.id - +a.id); // Tri par ID décroissant
+					.sort((a, b) => +b.id - +a.id);
 			}),
 			catchError(error => {
 				throw error;
@@ -127,6 +127,7 @@ export class ActivityService {
 	// 		}),
 	// 	);
 	// }
+
 	postNewActivity$(newActivity: Activity): Observable<Activity> {
 		const activityToPost = {
 			...newActivity,
