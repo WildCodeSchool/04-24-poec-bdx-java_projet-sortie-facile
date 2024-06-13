@@ -7,17 +7,12 @@
 		[pageDescription]="pageDescription"
 		[items]="navItems"
 	>
-		<app-layout-container-content
-			sectionTitle="Mes Notifications"
-			[hideBtn]="true"
+		<p-button
+			*ngIf="newActivityCreated"
+			rounded
+			[routerLink]="fullActivityRouteEnum.HOME"
+			>Nouvelle activité créée</p-button
 		>
-			<p-button
-				*ngIf="newActivityCreated"
-				rounded
-				[routerLink]="fullActivityRouteEnum.HOME"
-				>Nouvelle activité créée</p-button
-			>
-			<p-button rounded>Activité annulée</p-button>
-		</app-layout-container-content>
+		<p-button rounded>Activité annulée</p-button>
 	</app-dashboard-layout>
 </div>

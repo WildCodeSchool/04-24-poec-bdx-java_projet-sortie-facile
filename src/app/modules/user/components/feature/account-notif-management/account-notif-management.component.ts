@@ -29,9 +29,9 @@ export class AccountNotifManagementComponent
 	override ngOnInit(): void {
 		super.ngOnInit();
 		this.navItems = this._accountService.getLayoutItems();
-		this._activityService.newActivity$.subscribe(isNewActivity => {
-			if (isNewActivity) {
-				this.newActivityCreated = true;
+		this._activityService.newActivity$.subscribe((NewActivity: boolean) => {
+			if (NewActivity) {
+				this.newActivityCreated = NewActivity;
 			}
 		});
 	}
