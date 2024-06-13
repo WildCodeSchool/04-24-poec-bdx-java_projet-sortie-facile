@@ -97,22 +97,13 @@
 		<div class="section-content-box">
 			<div class="section-header">
 				<h4 class="section-subtitle">Happy Life Website</h4>
-				<h3 class="section-title">Comment ça marche ?</h3>
+				<h3 class="section-title">Pourquoi nous rejoindre ?</h3>
 			</div>
 
 			<div class="section-content">
 				<app-card-landing-large
-					title="Découvrir les activités"
-					description="Danish jelly chocolate bar lollipop cupcake chocolate cake danish oat
-            cake cotton candy. Jujubes soufflé lollipop candy canes marzipan jelly-o
-            fruitcake caramels. Lollipop chocolate bar topping apple pie dragée.
-            Tiramisu dessert jujubes powder chocolate bar cheesecake cookie
-            liquorice gummies. Candy canes lollipop liquorice gingerbread cotton
-            candy candy cotton candy tootsie roll. Pudding shortbread bear claw
-            danish sweet roll sesame snaps cupcake marshmallow tootsie roll. Cookie
-            cake lemon drops candy jelly jelly beans pastry. Sugar plum bear claw
-            cake jelly-o chocolate bar jelly-o halvah toffee chocolate bar."
-					ctaPrimarylabel="Rejoignez nous !"
+					title="Notre concept ?"
+					description="Découvrez et réservez une variété d'activités passionnantes près de chez vous grâce à notre plateforme. Que ce soit lorsque vous venez d'emménager dans la région et que vous ne connaissez personne ou que tous vos amis sont occupés, notre site vous propose une sélection d'expériences uniques adaptées à vos intérêts. Explorez de nouvelles activités, rencontrez des passionnés comme vous et partagez des moments mémorables."
 					[ctaSecondarylabel]="
 						connectedUser.username ? 'Mon compte' : 'Se connecter'
 					"
@@ -166,6 +157,26 @@
 		</div>
 	</section>
 
+	<section class="popular-activity-box">
+		<div class="section-content-box">
+			<div class="section-header">
+				<h4 class="section-subtitle">Happy Life Website</h4>
+				<h3 class="section-title">Dernières places à prendre !</h3>
+			</div>
+
+			<div class="section-content">
+				<ng-container *ngIf="activityList$ | async as activityList">
+					<app-carousel-activity
+						[activityList]="activityList"
+						[numVisible]="6"
+						[numScroll]="1"
+						[circular]="false"
+						[responsiveOptions]="responsiveOptions"
+					></app-carousel-activity>
+				</ng-container>
+			</div>
+		</div>
+	</section>
 	<section class="testimonials-box">
 		<div class="section-content-box">
 			<div class="section-header">

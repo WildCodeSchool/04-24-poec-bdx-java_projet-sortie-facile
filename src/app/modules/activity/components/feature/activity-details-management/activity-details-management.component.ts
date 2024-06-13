@@ -1,14 +1,18 @@
 import { Activity } from '@activity/models/classes/activity.class';
 import { Component, Input, OnDestroy, OnInit, ViewChild } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ModalConfirmReservationComponent } from '@shared/components/modal/modal-confirm-reservation/modal-confirm-reservation.component';
 import { AuthUserPrimaryDatas } from '@shared/models/classes/auth-user/auth-user-primary-datas.class';
 import { UserDetails } from '@shared/models/classes/user-details/user-details.class';
-import { FullActivityRouteEnum } from '@shared/models/enums/routes/full-routes';
+import {
+	FullActivityRouteEnum,
+	FullUserRouteEnum,
+} from '@shared/models/enums/routes/full-routes';
 import { ActivityService } from '@shared/services/activity.service';
 import { AuthService } from '@shared/services/auth.service';
 import { BookingService } from '@shared/services/booking.service';
-import { Observable, Subscription, of, switchMap } from 'rxjs';
+import { Observable, Subscription, of } from 'rxjs';
+import { switchMap } from 'rxjs/operators';
 
 @Component({
 	selector: 'app-activity-details-management',
@@ -23,6 +27,7 @@ export class ActivityDetailsManagementComponent implements OnInit, OnDestroy {
 	hasBooking!: boolean;
 	connectedUser!: AuthUserPrimaryDatas;
 	suggestList$!: Observable<Activity[]>;
+	fullUserRouteEnum = FullUserRouteEnum;
 	private _subscription: Subscription = new Subscription();
 
 	@Input() imgSrc!: string;
@@ -35,32 +40,34 @@ export class ActivityDetailsManagementComponent implements OnInit, OnDestroy {
 		private bookingService: BookingService,
 		private route: ActivatedRoute,
 		private authService: AuthService,
+		private _router: Router,
 	) {}
 
 	ngOnInit(): void {
 		this.connectedUser = this.authService.getConnectedUserData();
 
-		const activityId: string = this.route.snapshot.paramMap.get('id') as string;
-		this.activity$ = this.activityService.getActivityById$(activityId);
-
 		this._subscription.add(
-			this.activity$
+			this.route.paramMap
 				.pipe(
-					switchMap(activity => {
-						this.categoryTitle$ = of(activity.categoryId.name);
-						return this.activityService.filteredActivityListByCategory$(
-							activity.categoryId,
+					switchMap(paramMap => {
+						const activityId: string = paramMap.get('id') as string;
+						this.activity$ = this.activityService.getActivityById$(activityId);
+
+						return this.activity$.pipe(
+							switchMap(activity => {
+								this.categoryTitle$ = of(activity.categoryId.name);
+								this.suggestList$ =
+									this.activityService.filteredActivityListByCategory$(
+										activity.categoryId,
+									);
+
+								return this.bookingService.checkIfConnectedUserHasBookingActivity$(
+									this.connectedUser.userDetailsId,
+									activityId,
+								);
+							}),
 						);
 					}),
-				)
-				.subscribe(activities => (this.suggestList$ = of(activities))),
-		);
-
-		this._subscription.add(
-			this.bookingService
-				.checkIfConnectedUserHasBookingActivity$(
-					this.connectedUser.userDetailsId,
-					activityId,
 				)
 				.subscribe(hasBooking => (this.hasBooking = hasBooking)),
 		);

@@ -9,8 +9,8 @@
 		<app-card-activity-small
 			[imgSrc]="activity.imgUrl"
 			imgAlt=""
-			[name]="activity.name"
 			[routerLink]="[fullActivityRoute.DETAILS, activity.id]"
 		></app-card-activity-small>
+		<h4 class="card-title">{{ activity.name }}</h4>
 	</ng-template>
 </p-carousel>

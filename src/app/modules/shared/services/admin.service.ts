@@ -36,6 +36,14 @@ export class AdminService {
 			},
 			state: { path: FullBookingRouteEnum.HOME },
 		},
+		{
+			id: '5',
+			label: 'Calendar',
+			command: () => {
+				this._router.navigateByUrl(FullAdminRouteEnum.CALENDAR);
+			},
+			state: { path: FullAdminRouteEnum.CALENDAR },
+		},
 	];
 
 	private layoutItems: LayoutLink[] = [
@@ -43,6 +51,11 @@ export class AdminService {
 		{
 			label: 'Emails',
 			path: FullAdminRouteEnum.EMAIL,
+			active: false,
+		},
+		{
+			label: 'Calendar',
+			path: FullAdminRouteEnum.CALENDAR,
 			active: false,
 		},
 	];
