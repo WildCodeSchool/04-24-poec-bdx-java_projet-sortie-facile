@@ -6,6 +6,7 @@ import { AuthService } from '@shared/services/auth.service';
 import { UserAuthCrudService } from '@shared/services/user-auth-crud.service';
 import { UserService } from '@shared/services/user.service';
 import { Observable, map, switchMap, tap } from 'rxjs';
+import { TokenService } from '@shared/services/token.service';
 
 @Component({
 	selector: 'app-account-personal-infos-form',
@@ -22,10 +23,17 @@ export class AccountPersonalInfosFormComponent implements OnInit {
 		private _authService: AuthService,
 		private _userService: UserService,
 		private _userAuthCrudService: UserAuthCrudService,
+		protected _tokenService: TokenService,
 	) {}
 
 	ngOnInit(): void {
-		this.connectedUser = this._authService.getConnectedUserData();
+		this._tokenService
+			._getTokenDetailsSubject$()
+			.subscribe((connectedUser: any) => {
+				console.log(connectedUser);
+
+				this.connectedUser = connectedUser;
+			});
 
 		this.userDetails$ = this._userService.getUserInfos$(
 			this.connectedUser.userDetailsId,
