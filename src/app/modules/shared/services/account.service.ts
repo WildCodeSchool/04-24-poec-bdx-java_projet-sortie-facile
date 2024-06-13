@@ -83,8 +83,8 @@ export class AccountService {
 
 	private layoutItems: LayoutLink[] = [
 		{ label: 'General', path: FullUserRouteEnum.HOME, active: true },
-		{ label: 'Edit profil', path: FullUserRouteEnum.PROFILE, active: false },
-		{ label: 'Password', path: FullUserRouteEnum.PASSWORD, active: false },
+		{ label: 'Mon profil', path: FullUserRouteEnum.PROFILE, active: false },
+		{ label: 'Mot de passe', path: FullUserRouteEnum.PASSWORD, active: false },
 		{
 			label: "Centres d'intérêts",
 			path: FullUserRouteEnum.CENTER_OF_INTERESTS,
