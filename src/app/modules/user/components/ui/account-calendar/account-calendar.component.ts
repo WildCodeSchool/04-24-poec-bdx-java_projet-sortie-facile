@@ -18,6 +18,7 @@ import frLocale from '@fullcalendar/core/locales/fr';
 import { EventImpl } from '@fullcalendar/core/internal';
 import { FullActivityRouteEnum } from '@shared/models/enums/routes/full-routes';
 import { Router } from '@angular/router';
+import { CalendarEvent } from '@shared/models/types/calendar/calendar-event.type';
 
 @Component({
 	selector: 'app-account-calendar',
@@ -25,7 +26,7 @@ import { Router } from '@angular/router';
 	styleUrls: ['./account-calendar.component.scss'],
 })
 export class AccountCalendarComponent implements OnInit {
-	events: any[] = [];
+	events: CalendarEvent[] = [];
 	calendarEl: HTMLElement | null = null;
 	dialogRef: DynamicDialogRef | null = null;
 	calendarApi!: Calendar;
