@@ -12,7 +12,10 @@
 			[hideBtn]="true"
 		>
 		</app-account-container-content>
-		<p-button *ngIf="newActivityCreated" rounded routerLink=""
+		<p-button
+			*ngIf="newActivityCreated"
+			rounded
+			[routerLink]="fullActivityRouteEnum.HOME"
 			>Nouvelle activité créée</p-button
 		>
 		<p-button rounded>Activité annulée</p-button>

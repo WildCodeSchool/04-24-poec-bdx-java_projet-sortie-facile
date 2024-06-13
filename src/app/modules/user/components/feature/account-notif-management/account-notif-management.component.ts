@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BaseManagementComponent } from '@shared/directives/management.class';
+import { FullActivityRouteEnum } from '@shared/models/enums/routes/full-routes';
 import { LayoutLink } from '@shared/models/types/utils/layout-link.type';
 import { AccountService } from '@shared/services/account.service';
 import { ActivityService } from '@shared/services/activity.service';
@@ -16,6 +17,7 @@ export class AccountNotifManagementComponent
 {
 	navItems: LayoutLink[] = [];
 	newActivityCreated: boolean = false;
+	fullActivityRouteEnum = FullActivityRouteEnum;
 	constructor(
 		protected override _authService: AuthService,
 		private _accountService: AccountService,
