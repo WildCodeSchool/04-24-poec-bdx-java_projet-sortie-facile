@@ -40,7 +40,7 @@ export class LandingHomeService {
 				'Inscrivez-vous dès maintenant à une activité pour y participer et partager des moments enrichissants avec dautres passionnés !',
 				[
 					connectedUser
-						? FullActivityRouteEnum.POST
+						? FullActivityRouteEnum.HOME
 						: FullAuthenticationRouteEnum.LOGIN,
 				],
 				connectedUser ? "S'inscrire à une activité" : 'Se connecter',
