@@ -45,7 +45,7 @@ import { DashboardLayoutComponent } from './components/layout/layout-connected/d
 import { LayoutHeaderComponent } from './components/layout/layout-connected/layout-header/layout-header.component';
 import { LayoutNavComponent } from './components/layout/layout-connected/layout-nav/layout-nav.component';
 import { LayoutNavResponsiveComponent } from './components/layout/layout-connected/layout-nav-responsive/layout-nav-responsive.component';
-
+import { LayoutContainerContentComponent } from './components/layout/layout-container-content/layout-container-content.component';
 @NgModule({
 	declarations: [
 		AuthTypographyWithRedirectComponent,
@@ -84,6 +84,7 @@ import { LayoutNavResponsiveComponent } from './components/layout/layout-connect
 		LayoutHeaderComponent,
 		LayoutNavComponent,
 		LayoutNavResponsiveComponent,
+		LayoutContainerContentComponent,
 	],
 	imports: [
 		CommonModule,
@@ -136,6 +137,7 @@ import { LayoutNavResponsiveComponent } from './components/layout/layout-connect
 		LayoutHeaderComponent,
 		LayoutNavComponent,
 		LayoutNavResponsiveComponent,
+		LayoutContainerContentComponent,
 	],
 })
 export class SharedModule {}
