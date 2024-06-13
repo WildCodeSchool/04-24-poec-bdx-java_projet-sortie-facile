@@ -9,6 +9,7 @@ import { UserNotificationComponent } from '@user/pages/user-notification/user-no
 import { UserActivitiesComponent } from '@user/pages/user-activities/user-activities.component';
 import { UserCalendarComponent } from '@user/pages/user-calendar/user-calendar.component';
 import { UserRouteEnum } from '@shared/models/enums/routes/route.enum';
+import { UserBookingComponent } from './pages/user-booking/user-booking.component';
 
 const routes: Routes = [
 	{
@@ -44,6 +45,11 @@ const routes: Routes = [
 	{
 		path: UserRouteEnum.CALENDAR,
 		component: UserCalendarComponent,
+		canActivate: [isConnectedGuard],
+	},
+	{
+		path: UserRouteEnum.BOOKING,
+		component: UserBookingComponent,
 		canActivate: [isConnectedGuard],
 	},
 ];

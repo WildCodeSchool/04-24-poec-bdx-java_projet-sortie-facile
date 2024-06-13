@@ -14,7 +14,6 @@ import { UserNotificationComponent } from '@user/pages/user-notification/user-no
 import { SharedModule } from '@shared/shared.module';
 import { AccountProfileManagementComponent } from '@user/components/feature/account-profile-management/account-profile-management.component';
 import { AccountCardInfoComponent } from '@user/components/ui/account-card-info/account-card-info.component';
-import { AccountContainerContentComponent } from '@user/components/ui/account-container-content/account-container-content.component';
 import { AccountActivitiesManagementComponent } from './components/feature/account-activities-management/account-activities-management.component';
 import { AccountCenterOfInterestManagementComponent } from './components/feature/account-center-of-interest-management/account-center-of-interest-management.component';
 import { FormsModule } from '@angular/forms';
@@ -26,6 +25,8 @@ import { AccountCalendarManagementComponent } from './components/feature/account
 import { AccountCalendarComponent } from './components/ui/account-calendar/account-calendar.component';
 import { AccountGeneralFormComponent } from './components/ui/account-form/account-general-form/account-general-form.component';
 import { AccountNotifManagementComponent } from './components/feature/account-notif-management/account-notif-management.component';
+import { UserBookingComponent } from './pages/user-booking/user-booking.component';
+import { AccountBookingManagementComponent } from './components/feature/account-booking-management/account-booking-management.component';
 
 @NgModule({
 	declarations: [
@@ -39,7 +40,6 @@ import { AccountNotifManagementComponent } from './components/feature/account-no
 		UserCenterOfInterestComponent,
 		UserNotificationComponent,
 		AccountProfileManagementComponent,
-		AccountContainerContentComponent,
 		AccountCardInfoComponent,
 		AccountActivitiesManagementComponent,
 		AccountCenterOfInterestManagementComponent,
@@ -50,7 +50,9 @@ import { AccountNotifManagementComponent } from './components/feature/account-no
 		AccountCalendarManagementComponent,
 		AccountCalendarComponent,
 		AccountGeneralFormComponent,
-  AccountNotifManagementComponent,
+		AccountNotifManagementComponent,
+		UserBookingComponent,
+		AccountBookingManagementComponent,
 	],
 	imports: [CommonModule, UserRoutingModule, SharedModule, FormsModule],
 })

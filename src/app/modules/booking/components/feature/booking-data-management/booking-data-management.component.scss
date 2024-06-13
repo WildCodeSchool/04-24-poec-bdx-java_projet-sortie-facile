@@ -5,3 +5,9 @@
 	margin: 0 auto;
 	padding-top: 4rem;
 }
+
+:host ::ng-deep app-layout-container-content {
+	.section-title {
+		margin-bottom: 2rem;
+	}
+}

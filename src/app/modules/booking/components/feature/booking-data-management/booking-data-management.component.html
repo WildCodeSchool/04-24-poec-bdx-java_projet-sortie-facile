@@ -7,7 +7,11 @@
 		[pageDescription]="pageDescription"
 		[items]="navItems"
 	>
-		<app-admin-calendar></app-admin-calendar>
-		<app-data-booking></app-data-booking>
+		<app-layout-container-content sectionTitle="Calendrier" [hideBtn]="true">
+			<ng-container data>
+				<app-admin-calendar></app-admin-calendar>
+				<app-data-booking></app-data-booking>
+			</ng-container>
+		</app-layout-container-content>
 	</app-dashboard-layout>
 </div>
