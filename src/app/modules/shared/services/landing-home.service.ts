@@ -17,7 +17,7 @@ export class LandingHomeService {
 				'assets/photos/7732590_5217.svg',
 				'',
 				'Découvrir les activités',
-				'Danish jelly chocolate bar lollipop cupcake chocolate cake danish oat cake cotton candy. Jujubes soufflé lollipop candy canes marzipan jelly-o fruitcake caramels.',
+				'Découvrez dès maintenant notre sélection dactivités et trouvez linspiration pour vivre des expériences uniques près de chez vous !',
 				[FullActivityRouteEnum.HOME],
 				'Découvrir les activités disponibles',
 			),
@@ -25,7 +25,7 @@ export class LandingHomeService {
 				'assets/photos/7732590_5217.svg',
 				'',
 				'Créer une activité',
-				'Danish jelly chocolate bar lollipop cupcake chocolate cake danish oat cake cotton candy. Jujubes soufflé lollipop candy canes marzipan jelly-o fruitcake caramels.',
+				'Créez une activité dès aujourdhui et invitez dautres à se joindre à vous pour partager des moments inoubliables ensemble !',
 				[
 					connectedUser
 						? FullActivityRouteEnum.POST
@@ -37,10 +37,10 @@ export class LandingHomeService {
 				'assets/photos/7732590_5217.svg',
 				'',
 				"S'inscrire à une activité",
-				'Danish jelly chocolate bar lollipop cupcake chocolate cake danish oat cake cotton candy. Jujubes soufflé lollipop candy canes marzipan jelly-o fruitcake caramels.',
+				'Inscrivez-vous dès maintenant à une activité pour y participer et partager des moments enrichissants avec dautres passionnés !',
 				[
 					connectedUser
-						? FullActivityRouteEnum.POST
+						? FullActivityRouteEnum.HOME
 						: FullAuthenticationRouteEnum.LOGIN,
 				],
 				connectedUser ? "S'inscrire à une activité" : 'Se connecter',

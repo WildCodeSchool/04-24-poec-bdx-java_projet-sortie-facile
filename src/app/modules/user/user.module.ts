@@ -24,6 +24,7 @@ import { AccountPasswordFormComponent } from './components/ui/account-form/accou
 import { AccountCalendarManagementComponent } from './components/feature/account-calendar-management/account-calendar-management.component';
 import { AccountCalendarComponent } from './components/ui/account-calendar/account-calendar.component';
 import { AccountGeneralFormComponent } from './components/ui/account-form/account-general-form/account-general-form.component';
+import { AccountNotifManagementComponent } from './components/feature/account-notif-management/account-notif-management.component';
 import { UserBookingComponent } from './pages/user-booking/user-booking.component';
 import { AccountBookingManagementComponent } from './components/feature/account-booking-management/account-booking-management.component';
 
@@ -49,6 +50,7 @@ import { AccountBookingManagementComponent } from './components/feature/account-
 		AccountCalendarManagementComponent,
 		AccountCalendarComponent,
 		AccountGeneralFormComponent,
+		AccountNotifManagementComponent,
 		UserBookingComponent,
 		AccountBookingManagementComponent,
 	],

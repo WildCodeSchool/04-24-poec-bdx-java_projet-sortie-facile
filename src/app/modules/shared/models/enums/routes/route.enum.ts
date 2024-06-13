@@ -21,6 +21,7 @@ export enum AdminRouteEnum {
 	HOME = 'home',
 	EMAIL = 'email',
 	GRAPH = 'stats',
+	CALENDAR = 'calendar',
 }
 
 export enum AuthenticationRouteEnum {

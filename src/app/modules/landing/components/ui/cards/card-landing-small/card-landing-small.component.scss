@@ -97,5 +97,14 @@
 		h3 {
 			height: auto;
 		}
+		p {
+			height: 186px;
+		}
+	}
+
+	@media (min-width: 1280px) {
+		p {
+			height: 100px;
+		}
 	}
 }

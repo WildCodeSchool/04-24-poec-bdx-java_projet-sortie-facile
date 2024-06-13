@@ -36,11 +36,11 @@ export class ContactComponent implements OnDestroy, OnInit {
 	) {}
 
 	formData: {
-		Email: string;
+		email: string;
 		title: string;
 		message: string;
 	} = {
-		Email: '',
+		email: '',
 		title: '',
 		message: '',
 	};
