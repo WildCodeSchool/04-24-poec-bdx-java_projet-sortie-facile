@@ -1,7 +1,10 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { AbstractModal } from '@shared/models/classes/components/absctract-modal.class';
-import { FullActivityRouteEnum } from '@shared/models/enums/routes/full-routes';
+import {
+	FullActivityRouteEnum,
+	FullUserRouteEnum,
+} from '@shared/models/enums/routes/full-routes';
 import { ActivityService } from '@shared/services/activity.service';
 import { ConfirmationService, MessageService } from 'primeng/api';
 
@@ -60,7 +63,7 @@ export class ModalConfirmDeleteActivityComponent extends AbstractModal {
 			.subscribe(() => {
 				this.activityDeleted.emit(this.activityId);
 				this._confirmationService.close();
-				this._router.navigate([FullActivityRouteEnum.HOME]);
+				this._router.navigate([FullUserRouteEnum.ACTIVITY]);
 			});
 	}
 }
