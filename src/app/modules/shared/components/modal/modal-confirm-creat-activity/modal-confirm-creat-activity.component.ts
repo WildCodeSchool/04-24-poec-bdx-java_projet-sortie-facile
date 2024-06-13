@@ -65,7 +65,7 @@ export class ModalConfirmCreatActivityComponent
 	protected override onAccept(selectedFile?: File | null): void {
 		this.onUpload(selectedFile as File);
 		this._messageService.add({
-			severity: 'info',
+			severity: 'success',
 			summary: 'Bravo',
 			detail: 'Votre activité a bien été créée',
 			life: 3000,
@@ -121,7 +121,7 @@ export class ModalConfirmCreatActivityComponent
 			.pipe(
 				tap((activity: Activity) => {
 					this._messageService.add({
-						severity: 'info',
+						severity: 'success',
 						summary: 'Bravo',
 						detail: 'Votre activité a bien été créée',
 						life: 3000,
