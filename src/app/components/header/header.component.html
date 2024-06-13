@@ -11,7 +11,12 @@
 
 		<div class="user">
 			<div class="notif">
-				<p-button icon="pi pi-bell" [rounded]="true" [text]="true" />
+				<p-button
+					icon="pi pi-bell"
+					[rounded]="true"
+					[text]="true"
+					[routerLink]="[fullUserRouteEnum.NOTIFICATION]"
+				/>
 				<div *ngIf="newActivity" class="red-dot"></div>
 			</div>
 
