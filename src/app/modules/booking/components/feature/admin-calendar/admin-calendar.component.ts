@@ -113,23 +113,6 @@ export class AdminCalendarComponent implements OnInit {
 
 	addEvent() {
 		this._router.navigate([FullActivityRouteEnum.POST]);
-		// const dateStr = prompt('Enter a date in YYYY-MM-DD format');
-		// const date = new Date(dateStr + 'T00:00:00');
-
-		// if (!isNaN(date.valueOf())) {
-		// 	if (this.calendarApi) {
-		// 		this.calendarApi.addEvent({
-		// 			title: 'Dynamic Event',
-		// 			start: date,
-		// 			allDay: true,
-		// 		});
-		// 		alert('Great. Now, update your database...');
-		// 	} else {
-		// 		alert('Calendar API not available.');
-		// 	}
-		// } else {
-		// 	alert('Invalid date.');
-		// }
 	}
 	handleEventClick(arg: EventClickArg) {
 		const event = arg.event;
@@ -164,7 +147,6 @@ export class AdminCalendarComponent implements OnInit {
 	handleEventDrop(arg: EventDropArg) {
 		const event: EventApi = arg.event;
 		if (!event.start) {
-			console.error('Event start date is null');
 			return;
 		}
 
@@ -173,14 +155,11 @@ export class AdminCalendarComponent implements OnInit {
 
 		this.activityService
 			.updateActivity$(activityId, { date: newDate })
-			.subscribe(
-				(updatedActivity: Activity) => {
-					console.log('Activité mise à jour avec succès :', updatedActivity);
-				},
-				error => {
-					console.error("Erreur lors de la mise à jour de l'activité :", error);
+			.subscribe({
+				next: () => {},
+				error: () => {
 					arg.revert();
 				},
-			);
+			});
 	}
 }

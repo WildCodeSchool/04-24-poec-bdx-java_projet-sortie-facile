@@ -52,7 +52,7 @@ export class ContactComponent implements OnDestroy, OnInit {
 	onSubmit(form: NgForm): void {
 		this._subscription.add(
 			this.contactService.postNewContact$(form.value).subscribe(() => {
-				this.messageSent.emit(); // Emit event when message is sent
+				this.messageSent.emit();
 			}),
 		);
 	}

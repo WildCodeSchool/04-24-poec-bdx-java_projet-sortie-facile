@@ -68,10 +68,6 @@ export class BookingService {
 		private _router: Router,
 	) {}
 
-	// onSubmit(form: NgForm): void {
-	// 	this.postNewBooking$(form.value).subscribe();
-	// }
-
 	getBookingList$(): Observable<BookingUserActivity[]> {
 		return this.http.get<Booking[]>(this._BASE_URL).pipe(
 			mergeMap((bookings: BookingListResponseApi) => {
@@ -128,7 +124,6 @@ export class BookingService {
 			tap(() => {
 				this._router.navigate([FullUserRouteEnum.ACTIVITY]);
 			}),
-
 			catchError(error => {
 				throw error;
 			}),
@@ -137,8 +132,6 @@ export class BookingService {
 
 	deleteBookingById$(userId: string, activityId: string): Observable<Booking> {
 		return this.getBookingByUserAndActivity$(userId, activityId).pipe(
-			tap(v => console.log(v)),
-
 			switchMap((booking: BookingUserActivity) =>
 				this.http.delete<Booking>(`${this._BASE_URL}/${booking.id}`).pipe(
 					tap(() => {

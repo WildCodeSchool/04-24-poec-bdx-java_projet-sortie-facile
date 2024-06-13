@@ -40,19 +40,8 @@ export class DataMailComponent implements OnInit {
 	}
 
 	showMail(contact: Contact) {
-		// Marquer le mail comme lu
 		contact.read = true;
-		// Mettre à jour le contact dans la liste des contacts
-		this.contactService.updateContact(contact).subscribe(
-			updatedContact => {
-				// Mise à jour réussie
-				console.log('Mail marked as read:', updatedContact);
-			},
-			error => {
-				console.error('Error marking mail as read:', error);
-			},
-		);
-		// Afficher la modal avec les détails du contact
+		this.contactService.updateContact(contact).subscribe();
 		this.selectedContact = contact;
 	}
 

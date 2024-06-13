@@ -14,6 +14,7 @@ import { ConfirmationService, MessageService } from 'primeng/api';
 export class ModalConfirmContactComponent extends AbstractModal {
 	@Input() myForm: NgForm;
 	@Output() submitConfirmed = new EventEmitter<any>();
+	
 	constructor(
 		private _confirmationService: ConfirmationService,
 		private _messageService: MessageService,

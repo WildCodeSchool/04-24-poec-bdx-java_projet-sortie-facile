@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ChartData, ChartOptions } from 'chart.js';
 
 @Component({
 	selector: 'app-multi-axe',
@@ -6,9 +7,8 @@ import { Component, OnInit } from '@angular/core';
 	styleUrl: './multi-axe.component.scss',
 })
 export class MultiAxeComponent implements OnInit {
-	data: any;
-
-	options: any;
+	data!: any;
+	options!: any;
 
 	ngOnInit() {
 		const documentStyle = getComputedStyle(document.documentElement);
