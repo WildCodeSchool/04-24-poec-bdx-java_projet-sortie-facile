@@ -58,12 +58,16 @@ export class ModalConfirmDeleteActivityComponent extends AbstractModal {
 	}
 
 	public override onAccept(): void {
-		this._activityService
-			.updateActivityVisibility(this.activityId, false)
-			.subscribe(() => {
-				this.activityDeleted.emit(this.activityId);
-				this._confirmationService.close();
-				this._router.navigate([FullUserRouteEnum.ACTIVITY]);
-			});
+		this._activityService.updateActivityVisibility(this.activityId, false);
+
+		this._messageService.add({
+			severity: 'success',
+			summary: 'Bravo',
+			detail: 'Votre activité a bien été annulé',
+			life: 3000,
+		});
+		setTimeout(() => {
+			this._router.navigate([FullUserRouteEnum.ACTIVITY]);
+		}, 4000);
 	}
 }
