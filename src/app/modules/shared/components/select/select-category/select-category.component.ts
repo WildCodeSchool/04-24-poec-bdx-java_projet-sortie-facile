@@ -23,24 +23,24 @@ export class SelectCategoryComponent implements OnInit, ControlValueAccessor {
 	@Input() labelContent!: string;
 	@Input() isMultiple!: boolean;
 
-	categories!: Category[];
 	category$!: Observable<Category>;
-	activityCategoryList$!: Observable<Category[]>;
-	selectedCategory!: Category;
+
+	selectedCategoryId: number = 1;
+	categoryList$!: Observable<Category[]>;
+
+	disabled!: boolean;
+	value!: number;
 
 	constructor(private categoryService: CategoryService) {}
 
 	ngOnInit(): void {
-		this.activityCategoryList$ = this.categoryService.getCategoryList$();
+		this.categoryList$ = this.categoryService.getCategoryList$();
 	}
 
-	disabled!: boolean;
-	value!: string;
-
-	onChanged!: (value: string) => void;
+	onChanged!: (value: number) => void;
 	onTouched!: () => void;
 
-	onInputChange(value: string): void {
+	onInputChange(value: number): void {
 		if (this.disabled) {
 			return;
 		}
@@ -48,11 +48,11 @@ export class SelectCategoryComponent implements OnInit, ControlValueAccessor {
 		this.onChanged(value);
 	}
 
-	writeValue(value: string): void {
+	writeValue(value: number): void {
 		this.value = value;
 	}
 
-	registerOnChange(fn: (value: string) => void): void {
+	registerOnChange(fn: (value: number) => void): void {
 		this.onChanged = fn;
 	}
 

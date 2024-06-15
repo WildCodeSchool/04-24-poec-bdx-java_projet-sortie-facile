@@ -99,6 +99,8 @@ export class AuthService extends AuthUserServiceUtils {
 			newUserAuthInfos.role,
 		);
 
+		console.log(newUserPersonalInfos);
+
 		return this._httpClient
 			.post<NewAuthUser>(`${this._BASE_URL}/register`, userAuthRequestBody)
 			.pipe(

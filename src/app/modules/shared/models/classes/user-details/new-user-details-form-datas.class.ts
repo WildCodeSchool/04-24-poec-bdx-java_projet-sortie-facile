@@ -14,7 +14,7 @@ export class NewUserUserDetailsFormDatas {
 	phone: string;
 	dateOfBirth: string;
 	genre: UserGenderEnum;
-	categoryIds: string[];
+	categoryIds: number[];
 	userId: string;
 
 	constructor(
@@ -31,7 +31,7 @@ export class NewUserUserDetailsFormDatas {
 		phone: string,
 		dateOfBirth: string,
 		genre: UserGenderEnum,
-		categoryIds: string[],
+		categoryIds: number[],
 		userId: string,
 	) {
 		this.firstname = firstname;
