@@ -25,12 +25,13 @@ import {
 import { TokenService } from './token.service';
 import { AuthUserCredentials } from '@shared/models/classes/auth-user/auth-user-credentials.class';
 import { TokenResponse } from '@shared/models/classes/token/token-response.class';
+import { environment } from 'environments/environment';
 
 @Injectable({
 	providedIn: 'root',
 })
 export class AuthService extends AuthUserServiceUtils {
-	private readonly _BASE_URL = 'http://localhost:8080/api/v1/auth';
+	private readonly _BASE_URL = `${environment.apiUrl}/auth`;
 
 	private _httpErrorSubject$: BehaviorSubject<HttpErrorResponse> =
 		new BehaviorSubject(new HttpErrorResponse({}));

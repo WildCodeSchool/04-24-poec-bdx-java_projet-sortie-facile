@@ -19,9 +19,12 @@ import {
 export class ContactService {
 	contacts$!: Contact[];
 	contact!: Contact;
-	private readonly _BASE_URL = `${environment.apiUrl}/contact`;
+
 	private newMailSubject = new BehaviorSubject<boolean>(false);
 	newMail$ = this.newMailSubject.asObservable();
+
+	private readonly _BASE_URL = `${environment.apiUrlJsonServer}/contact`;
+
 	constructor(private http: HttpClient) {}
 
 	onSubmit(form: NgForm): void {

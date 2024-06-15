@@ -20,8 +20,10 @@ export class ActivityService {
 	category!: Category;
 	categories!: Category[];
 	department!: Department;
+
 	private newActivitySubject = new BehaviorSubject<boolean>(false);
 	newActivity$ = this.newActivitySubject.asObservable();
+
 	private readonly _BASE_URL = `${environment.apiUrl}/activity`;
 
 	constructor(
@@ -29,9 +31,11 @@ export class ActivityService {
 		private _router: Router,
 		private _bookingService: BookingService,
 	) {}
+
 	notifyNewActivity() {
 		this.newActivitySubject.next(true);
 	}
+
 	getActivityList$(): Observable<ActivityListResponseApi> {
 		return this._httpClient.get<ActivityListResponseApi>(this._BASE_URL).pipe(
 			map((activities: ActivityListResponseApi) => {
@@ -112,6 +116,7 @@ export class ActivityService {
 			),
 		);
 	}
+
 	// postNewActivity$(newActivity: Activity): Observable<Activity> {
 	// 	const activityToPost = {
 	// 		...newActivity,

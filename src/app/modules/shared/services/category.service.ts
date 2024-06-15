@@ -14,8 +14,8 @@ export class CategoryService {
 	category!: Category;
 	categories!: Category[];
 
-	private readonly _BASE_URL = `${environment.apiUrl}/category`;
-	private readonly _ACTIVITY_URL = `${environment.apiUrl}/activity`;
+	private readonly _BASE_URL = `${environment.apiUrlJsonServer}/category`;
+	private readonly _ACTIVITY_URL = `${environment.apiUrlJsonServer}/activity`;
 
 	constructor(private _httpClient: HttpClient) {}
 
