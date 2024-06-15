@@ -104,7 +104,6 @@ export class AuthService extends AuthUserServiceUtils {
 				map(() => {
 					return this._tokenService.getTokenFromLocalStorageAndDecode();
 				}),
-
 				switchMap(() => {
 					const newProfileRequestBody: NewProfileInput = new NewProfileInput(
 						newUserPersonalInfos.firstname,

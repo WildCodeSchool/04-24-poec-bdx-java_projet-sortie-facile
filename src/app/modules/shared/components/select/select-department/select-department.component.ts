@@ -1,8 +1,8 @@
 import { Component, Input, OnInit, forwardRef } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { Department } from '@shared/models/classes/address/department.class';
-import { DepartmentService } from '@shared/services/department.service';
-import { Observable, Subscription } from 'rxjs';
+import { DepartmentService } from '@shared/services/address/department.service';
+import { Observable } from 'rxjs';
 
 @Component({
 	selector: 'app-select-department',
@@ -17,12 +17,8 @@ import { Observable, Subscription } from 'rxjs';
 	],
 })
 export class SelectDepartmentComponent implements OnInit, ControlValueAccessor {
-	departments: Department[] = [];
 	selectedDepartmentId: number = 1;
-	selectedDepartment: Department | undefined;
-
-	activityDepartmentsList$!: Observable<Department[]>;
-	private _subscription: Subscription = new Subscription();
+	departmentList$!: Observable<Department[]>;
 
 	@Input() id!: string;
 	@Input() name!: string;
@@ -36,14 +32,7 @@ export class SelectDepartmentComponent implements OnInit, ControlValueAccessor {
 	constructor(private _departmentService: DepartmentService) {}
 
 	ngOnInit(): void {
-		this.activityDepartmentsList$ =
-			this._departmentService.getDepartmentsList$();
-
-		this._subscription.add(
-			this.activityDepartmentsList$.subscribe(departments => {
-				this.departments = departments;
-			}),
-		);
+		this.departmentList$ = this._departmentService.getDepartmentList$();
 	}
 
 	onChanged!: (value: number) => void;
@@ -59,12 +48,6 @@ export class SelectDepartmentComponent implements OnInit, ControlValueAccessor {
 
 	writeValue(value: number): void {
 		this.selectedDepartmentId = value;
-
-		if (this.departments && this.departments.length > 0) {
-			this.selectedDepartment = this.departments.find(
-				dept => dept.id === value,
-			);
-		}
 	}
 
 	registerOnChange(fn: (value: number) => void): void {

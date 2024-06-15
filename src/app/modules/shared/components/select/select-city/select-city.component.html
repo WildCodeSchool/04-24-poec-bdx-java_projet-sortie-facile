@@ -1,16 +1,18 @@
-<div class="form-control">
-	<label *ngIf="labelFor && labelContent" [for]="labelFor">{{
-		labelContent
-	}}</label>
+<ng-container *ngIf="cityList$ | async as cityList">
+	<div class="form-control">
+		<label *ngIf="labelFor && labelContent" [for]="labelFor">{{
+			labelContent
+		}}</label>
 
-	<p-dropdown
-		[options]="cities"
-		[(ngModel)]="value"
-		optionLabel="name"
-		optionValue="id"
-		placeholder="Select a City"
-		(ngModelChange)="onInputChange($event)"
-		(focus)="markAsTouched()"
-		#ref="ngModel"
-	/>
-</div>
+		<p-dropdown
+			[options]="cityList"
+			[(ngModel)]="value"
+			optionLabel="name"
+			optionValue="id"
+			placeholder="Select a City"
+			(ngModelChange)="onInputChange($event)"
+			(focus)="markAsTouched()"
+			#ref="ngModel"
+		/>
+	</div>
+</ng-container>

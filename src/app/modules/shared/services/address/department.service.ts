@@ -12,9 +12,15 @@ export class DepartmentService {
 
 	constructor(private _httpClient: HttpClient) {}
 
-	getDepartmentsList$(): Observable<Department[]> {
+	getDepartmentList$(): Observable<Department[]> {
 		return this._httpClient
 			.get<Department[]>(`${this._BASE_URL}/all`)
 			.pipe(map((response: Department[]) => response));
+	}
+
+	getDepartmentById$(departmentId: number): Observable<Department> {
+		return this._httpClient
+			.get<Department>(`${this._BASE_URL}/${departmentId}`)
+			.pipe(map((response: Department) => response));
 	}
 }
