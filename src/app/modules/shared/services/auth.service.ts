@@ -24,6 +24,7 @@ import { TokenResponse } from '@shared/models/classes/token/token-response.class
 import { environment } from 'environments/environment';
 import { NewAuthUserInput } from '@shared/models/classes/auth-user/new-auth-user-input.class';
 import { NewProfileInput } from '@shared/models/classes/user-details/new-profil-input.class';
+import { AuthUserResponse } from '@shared/models/classes/auth-user/auth-user-response.class';
 
 @Injectable({
 	providedIn: 'root',
@@ -104,7 +105,7 @@ export class AuthService extends AuthUserServiceUtils {
 				map(() => {
 					return this._tokenService.getTokenFromLocalStorageAndDecode();
 				}),
-				switchMap(() => {
+				switchMap((registerUser: AuthUserResponse | null) => {
 					const newProfileRequestBody: NewProfileInput = new NewProfileInput(
 						newUserPersonalInfos.firstname,
 						newUserPersonalInfos.lastname,
@@ -122,7 +123,7 @@ export class AuthService extends AuthUserServiceUtils {
 						newUserPersonalInfos.city,
 						newUserPersonalInfos.department,
 						newUserPersonalInfos.city,
-						Number(newUserPersonalInfos.userId),
+						Number(registerUser?.id),
 					);
 				}),
 			);
