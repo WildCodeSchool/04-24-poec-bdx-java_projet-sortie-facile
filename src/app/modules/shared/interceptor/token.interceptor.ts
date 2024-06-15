@@ -40,7 +40,7 @@ export class TokenInterceptor implements HttpInterceptor {
 		next: HttpHandler,
 	): Observable<HttpEvent<unknown>> {
 		return next.handle(request).pipe(
-			tap((incomingRequest: HttpEvent<any>) => {
+			tap((incomingRequest: HttpEvent<unknown>) => {
 				if (incomingRequest instanceof HttpResponse) {
 					this._authService.setHttpSuccessSubject$(incomingRequest);
 				}
