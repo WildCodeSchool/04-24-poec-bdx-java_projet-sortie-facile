@@ -1,10 +1,11 @@
 export class Contact {
-	id: string;
+	id: number;
 	email: string;
 	title: string;
 	message: string;
 	read: boolean;
-	constructor(id: string, email: string, title: string, message: string) {
+
+	constructor(id: number, email: string, title: string, message: string) {
 		this.id = id;
 		this.email = email;
 		this.title = title;

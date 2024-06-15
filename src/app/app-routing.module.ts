@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AdminModule } from '@admin/admin.module';
 // import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
-// import { ContactComponent } from './contact/contact.component';
+import { ContactComponent } from './contact/contact.component';
 import { ActivityModule } from '@activity/activity.module';
 import { PrimaryRouteEnum } from '@shared/models/enums/routes/route.enum';
 // import { MentionLegalesComponent } from './mention-legales/mention-legales.component';
@@ -40,7 +40,7 @@ const routes: Routes = [
 				m => m.AuthenticationModule,
 			),
 	},
-	// { path: PrimaryRouteEnum.CONTACT, component: ContactComponent },
+	{ path: PrimaryRouteEnum.CONTACT, component: ContactComponent },
 	// {
 	// 	path: PrimaryRouteEnum.CGU,
 	// 	component: MentionLegalesComponent,
