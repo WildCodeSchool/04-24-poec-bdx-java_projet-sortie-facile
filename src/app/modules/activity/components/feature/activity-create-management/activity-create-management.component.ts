@@ -22,7 +22,7 @@ export class ActivityCreateManagementComponent implements OnDestroy {
 	newActivity: NewActivity = new NewActivity(
 		'toto',
 		'',
-		new City('', ''),
+		new City(0, ''),
 		'',
 		0,
 		'',

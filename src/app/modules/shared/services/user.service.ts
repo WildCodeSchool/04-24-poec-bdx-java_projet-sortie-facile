@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { NewUserUserDetailsFormDatas } from '@shared/models/classes/user-details/new-user-details-form-datas.class';
+import { NewProfileInput } from '@shared/models/classes/user-details/new-profil-input.class';
 import { UserGeneralForm } from '@shared/models/classes/user-details/user-details-general-form.class';
 import { UserDetailsPatch } from '@shared/models/classes/user-details/user-details-patch.class';
 import { UserDetailsPersonalInfosForm } from '@shared/models/classes/user-details/user-details-personal-info-form.class';
@@ -12,7 +12,7 @@ import { Observable } from 'rxjs';
 	providedIn: 'root',
 })
 export class UserService {
-	private readonly _BASE_URL = `${environment.apiUrlJsonServer}/user_details`;
+	private readonly _BASE_URL = `${environment.apiUrl}/profile`;
 
 	constructor(private _httpClient: HttpClient) {}
 
@@ -21,9 +21,16 @@ export class UserService {
 	}
 
 	postUserInfos$(
-		userInfos: NewUserUserDetailsFormDatas,
+		userInfos: NewProfileInput,
+		regionId: number,
+		departmentId: number,
+		cityId: number,
+		userId: number,
 	): Observable<UserDetails> {
-		return this._httpClient.post<UserDetails>(this._BASE_URL, userInfos);
+		return this._httpClient.post<UserDetails>(
+			`${this._BASE_URL}/add/region/${regionId}/department/${departmentId}/city/${cityId}/user/${userId}`,
+			userInfos,
+		);
 	}
 
 	putUserInfo$(

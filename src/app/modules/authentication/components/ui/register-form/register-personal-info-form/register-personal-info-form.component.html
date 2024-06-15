@@ -1,5 +1,5 @@
 <form #registerPersonalInfosForm="ngForm">
-	<app-select-category
+	<!-- <app-select-category
 		labelFor="categoryIds"
 		labelContent="Centres d'interêts :"
 		id="categoryIds"
@@ -9,7 +9,7 @@
 		#category="ngModel"
 		[(ngModel)]="newUserPersonalInfos.categoryIds"
 		[isMultiple]="true"
-	></app-select-category>
+	></app-select-category> -->
 
 	<app-text-field
 		labelFor="lastname"
@@ -37,7 +37,7 @@
 		[maxlength]="50"
 	></app-text-field>
 
-	<app-mask-field
+	<!-- <app-mask-field
 		labelFor="phone"
 		labelContent="Téléphone :"
 		id="phone"
@@ -47,9 +47,9 @@
 		[(ngModel)]="newUserPersonalInfos.phone"
 		[form]="registerPersonalInfosForm"
 		[required]="true"
-	></app-mask-field>
+	></app-mask-field> -->
 
-	<app-mask-field
+	<!-- <app-mask-field
 		labelFor="dateOfBirth"
 		labelContent="Date de naissance :"
 		id="dateOfBirth"
@@ -60,7 +60,7 @@
 		[(ngModel)]="newUserPersonalInfos.dateOfBirth"
 		[form]="registerPersonalInfosForm"
 		[required]="true"
-	></app-mask-field>
+	></app-mask-field> -->
 
 	<app-select-region
 		labelFor="region"
@@ -84,7 +84,7 @@
 		[(ngModel)]="newUserPersonalInfos.department"
 	></app-select-department>
 
-	<app-number-field
+	<!-- <app-number-field
 		labelFor="streetNumber"
 		labelContent="N° de rue :"
 		id="streetNumber"
@@ -95,9 +95,9 @@
 		[(ngModel)]="newUserPersonalInfos.streetNumber"
 		[form]="registerPersonalInfosForm"
 		[required]="true"
-	></app-number-field>
+	></app-number-field> -->
 
-	<app-text-field
+	<!-- <app-text-field
 		labelFor="street"
 		labelContent="Rue :"
 		type="text"
@@ -106,9 +106,9 @@
 		[(ngModel)]="newUserPersonalInfos.street"
 		[form]="registerPersonalInfosForm"
 		[required]="true"
-	></app-text-field>
+	></app-text-field> -->
 
-	<app-mask-field
+	<!-- <app-mask-field
 		labelFor="postalCode"
 		labelContent="Code postal :"
 		id="postalCode"
@@ -118,7 +118,7 @@
 		[(ngModel)]="newUserPersonalInfos.postalCode"
 		[form]="registerPersonalInfosForm"
 		[required]="true"
-	></app-mask-field>
+	></app-mask-field> -->
 
 	<app-select-city
 		labelFor="city"
@@ -131,7 +131,7 @@
 	>
 	</app-select-city>
 
-	<app-textarea
+	<!-- <app-textarea
 		labelFor="description"
 		labelContent="Description :"
 		id="description"
@@ -141,5 +141,5 @@
 		[form]="registerPersonalInfosForm"
 		[minlength]="20"
 		[maxlength]="500"
-	></app-textarea>
+	></app-textarea> -->
 </form>

@@ -8,6 +8,7 @@
 		[options]="departments"
 		[(ngModel)]="selectedDepartmentId"
 		optionLabel="name"
+		optionValue="id"
 		placeholder="Choisir un département"
 		(ngModelChange)="onInputChange($event)"
 		(focus)="markAsTouched()"

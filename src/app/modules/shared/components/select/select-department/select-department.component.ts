@@ -18,7 +18,7 @@ import { Observable, Subscription } from 'rxjs';
 })
 export class SelectDepartmentComponent implements OnInit, ControlValueAccessor {
 	departments: Department[] = [];
-	selectedDepartmentId: string = '';
+	selectedDepartmentId: number = 1;
 	selectedDepartment: Department | undefined;
 
 	activityDepartmentsList$!: Observable<Department[]>;
@@ -29,8 +29,9 @@ export class SelectDepartmentComponent implements OnInit, ControlValueAccessor {
 	@Input() labelFor!: string;
 	@Input() labelContent!: string;
 	@Input() isMultiple!: boolean;
+
 	disabled!: boolean;
-	value!: string;
+	value!: number;
 
 	constructor(private _departmentService: DepartmentService) {}
 
@@ -45,23 +46,18 @@ export class SelectDepartmentComponent implements OnInit, ControlValueAccessor {
 		);
 	}
 
-	onChanged!: (value: string) => void;
+	onChanged!: (value: number) => void;
 	onTouched!: () => void;
 
-	onInputChange(value: string): void {
+	onInputChange(value: number): void {
 		if (this.disabled) {
 			return;
 		}
 
-		this.value = value;
-		this.selectedDepartmentId = value;
-		this.selectedDepartment = this.departments.find(dept => dept.id === value);
-
 		this.onChanged(value);
-		this.markAsTouched();
 	}
 
-	writeValue(value: string): void {
+	writeValue(value: number): void {
 		this.selectedDepartmentId = value;
 
 		if (this.departments && this.departments.length > 0) {
@@ -71,7 +67,7 @@ export class SelectDepartmentComponent implements OnInit, ControlValueAccessor {
 		}
 	}
 
-	registerOnChange(fn: (value: string) => void): void {
+	registerOnChange(fn: (value: number) => void): void {
 		this.onChanged = fn;
 	}
 

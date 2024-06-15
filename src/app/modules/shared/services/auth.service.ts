@@ -22,6 +22,8 @@ import { TokenService } from './token.service';
 import { AuthUserCredentials } from '@shared/models/classes/auth-user/auth-user-credentials.class';
 import { TokenResponse } from '@shared/models/classes/token/token-response.class';
 import { environment } from 'environments/environment';
+import { NewAuthUserInput } from '@shared/models/classes/auth-user/new-auth-user-input.class';
+import { NewProfileInput } from '@shared/models/classes/user-details/new-profil-input.class';
 
 @Injectable({
 	providedIn: 'root',
@@ -88,43 +90,80 @@ export class AuthService extends AuthUserServiceUtils {
 	createUserWithEmailAndPassword(
 		newUserAuthInfos: NewAuthUserFormDatas,
 		newUserPersonalInfos: NewUserUserDetailsFormDatas,
-	): Observable<NewAuthUser> {
-		return this._httpClient
-			.post<NewAuthUser>(`${this.BASE_URL}`, newUserAuthInfos)
-			.pipe(
-				switchMap((createdUser: NewAuthUser) => {
-					return this._userService
-						.postUserInfos$({
-							...newUserPersonalInfos,
-							userId: createdUser.id,
-						})
-						.pipe(
-							map((createdUserInfo: UserDetails) => {
-								return {
-									...createdUser,
-									userDetailsId: createdUserInfo.id,
-								};
-							}),
-						);
-				}),
-				switchMap((updatedUser: NewAuthUser) =>
-					this._httpClient.put<NewAuthUser>(
-						`${this.BASE_URL}/${updatedUser.id}`,
-						updatedUser,
-					),
-				),
-				map((finalUser: NewAuthUser) => {
-					const userToStore = this.getAuthUserFormatted(finalUser);
+	) {
+		const userAuthRequestBody: NewAuthUserInput = new NewAuthUserInput(
+			newUserAuthInfos.username,
+			newUserAuthInfos.email,
+			newUserAuthInfos.password,
+			newUserAuthInfos.role,
+		);
 
-					localStorage.setItem('user', JSON.stringify(userToStore));
-					this.setConnectedUserData(userToStore);
-					this.notifyLoggedInStatus(true);
-					return finalUser;
+		return this._httpClient
+			.post<NewAuthUser>(`${this._BASE_URL}/register`, userAuthRequestBody)
+			.pipe(
+				map(() => {
+					return this._tokenService.getTokenFromLocalStorageAndDecode();
 				}),
-				tap(() => {
-					this._router.navigateByUrl(FullUserRouteEnum.HOME);
+
+				switchMap(() => {
+					const newProfileRequestBody: NewProfileInput = new NewProfileInput(
+						newUserPersonalInfos.firstname,
+						newUserPersonalInfos.lastname,
+						newUserPersonalInfos.streetNumber,
+						newUserPersonalInfos.street,
+						newUserPersonalInfos.postalCode,
+						newUserPersonalInfos.description,
+						newUserPersonalInfos.avatar,
+						newUserPersonalInfos.phone,
+						newUserPersonalInfos.dateOfBirth,
+					);
+
+					return this._userService.postUserInfos$(
+						newProfileRequestBody,
+						newUserPersonalInfos.city,
+						newUserPersonalInfos.department,
+						newUserPersonalInfos.city,
+						Number(newUserPersonalInfos.userId),
+					);
 				}),
 			);
+
+		// return this._httpClient
+		// 	.post<NewAuthUser>(`${this.BASE_URL}`, newUserAuthInfos)
+		// 	.pipe(
+		// 		switchMap((createdUser: NewAuthUser) => {
+		// 			return this._userService
+		// 				.postUserInfos$({
+		// 					...newUserPersonalInfos,
+		// 					userId: createdUser.id,
+		// 				})
+		// 				.pipe(
+		// 					map((createdUserInfo: UserDetails) => {
+		// 						return {
+		// 							...createdUser,
+		// 							userDetailsId: createdUserInfo.id,
+		// 						};
+		// 					}),
+		// 				);
+		// 		}),
+		// 		switchMap((updatedUser: NewAuthUser) =>
+		// 			this._httpClient.put<NewAuthUser>(
+		// 				`${this.BASE_URL}/${updatedUser.id}`,
+		// 				updatedUser,
+		// 			),
+		// 		),
+		// 		map((finalUser: NewAuthUser) => {
+		// 			const userToStore = this.getAuthUserFormatted(finalUser);
+
+		// 			localStorage.setItem('user', JSON.stringify(userToStore));
+		// 			this.setConnectedUserData(userToStore);
+		// 			this.notifyLoggedInStatus(true);
+		// 			return finalUser;
+		// 		}),
+		// 		tap(() => {
+		// 			this._router.navigateByUrl(FullUserRouteEnum.HOME);
+		// 		}),
+		// 	);
 	}
 
 	public logout(): void {

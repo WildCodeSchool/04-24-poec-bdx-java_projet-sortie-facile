@@ -24,22 +24,22 @@ export class SelectCityComponent implements OnInit, ControlValueAccessor {
 	@Input() labelContent!: string;
 
 	disabled!: boolean;
-	value!: string;
+	value!: number;
 
 	ngOnInit() {
 		this.cities = [
-			{ id: '1', name: 'New York' },
-			{ id: '2', name: 'Rome' },
-			{ id: '3', name: 'London' },
-			{ id: '4', name: 'Istanbul' },
-			{ id: '5', name: 'Paris' },
+			{ id: 1, name: 'New York' },
+			{ id: 2, name: 'Rome' },
+			{ id: 3, name: 'London' },
+			{ id: 4, name: 'Istanbul' },
+			{ id: 5, name: 'Paris' },
 		];
 	}
 
-	onChanged!: (value: string) => void;
+	onChanged!: (value: number) => void;
 	onTouched!: () => void;
 
-	onInputChange(value: string): void {
+	onInputChange(value: number): void {
 		if (this.disabled) {
 			return;
 		}
@@ -47,11 +47,11 @@ export class SelectCityComponent implements OnInit, ControlValueAccessor {
 		this.onChanged(value);
 	}
 
-	writeValue(value: string): void {
+	writeValue(value: number): void {
 		this.value = value;
 	}
 
-	registerOnChange(fn: (value: string) => void): void {
+	registerOnChange(fn: (value: number) => void): void {
 		this.onChanged = fn;
 	}
 

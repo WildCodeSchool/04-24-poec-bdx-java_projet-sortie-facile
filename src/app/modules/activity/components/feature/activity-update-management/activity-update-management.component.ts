@@ -30,7 +30,7 @@ export class ActivityUpdateManagementComponent implements OnInit, OnDestroy {
 		'',
 		'',
 		'',
-		new City('', ''),
+		new City(0, ''),
 		'',
 		0,
 		'',

@@ -111,7 +111,7 @@ export class ActivityService {
 		return this.getActivityList$().pipe(
 			map((activityList: ActivityListResponseApi) =>
 				activityList.filter((activity: Activity) => {
-					return activity.department === department.id;
+					return Number(activity.department) === department.id;
 				}),
 			),
 		);

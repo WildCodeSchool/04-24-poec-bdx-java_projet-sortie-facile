@@ -29,7 +29,7 @@ export class SelectRegionComponent
 	@Input() labelContent!: string;
 
 	disabled!: boolean;
-	value!: string;
+	value!: number;
 
 	constructor(private _regionService: RegionService) {}
 
@@ -42,10 +42,10 @@ export class SelectRegionComponent
 		);
 	}
 
-	onChanged!: (value: string) => void;
+	onChanged!: (value: number) => void;
 	onTouched!: () => void;
 
-	onInputChange(value: string): void {
+	onInputChange(value: number): void {
 		if (this.disabled) {
 			return;
 		}
@@ -53,11 +53,11 @@ export class SelectRegionComponent
 		this.onChanged(value);
 	}
 
-	writeValue(value: string): void {
+	writeValue(value: number): void {
 		this.value = value;
 	}
 
-	registerOnChange(fn: (value: string) => void): void {
+	registerOnChange(fn: (value: number) => void): void {
 		this.onChanged = fn;
 	}
 
