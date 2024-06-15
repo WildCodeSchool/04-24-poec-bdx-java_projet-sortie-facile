@@ -1,10 +1,6 @@
-import {
-	HttpClient,
-	HttpErrorResponse,
-	HttpResponse,
-} from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, map, switchMap, tap } from 'rxjs';
+import { Observable, map, switchMap, tap } from 'rxjs';
 import { Router } from '@angular/router';
 import { NewAuthUser } from '@shared/models/classes/auth-user/new-auth-user.class';
 import { UserService } from './user.service';
@@ -32,12 +28,6 @@ import { environment } from 'environments/environment';
 })
 export class AuthService extends AuthUserServiceUtils {
 	private readonly _BASE_URL = `${environment.apiUrl}/auth`;
-
-	private _httpErrorSubject$: BehaviorSubject<HttpErrorResponse> =
-		new BehaviorSubject(new HttpErrorResponse({}));
-
-	private _httpSuccessSubject$: BehaviorSubject<HttpResponse<unknown>> =
-		new BehaviorSubject(new HttpResponse({}));
 
 	constructor(
 		private _httpClient: HttpClient,
@@ -175,23 +165,5 @@ export class AuthService extends AuthUserServiceUtils {
 				userDetailsId: '',
 			})
 			.pipe(tap(() => this.logout()));
-	}
-
-	getHttpErrorSubject$(): Observable<HttpErrorResponse> {
-		return this._httpErrorSubject$.asObservable();
-	}
-
-	setHttpErrorSubject$(error: HttpErrorResponse): void {
-		this._httpSuccessSubject$.next(new HttpResponse({}));
-		this._httpErrorSubject$.next(error);
-	}
-
-	getHttpSuccessSubject$(): Observable<HttpResponse<unknown>> {
-		return this._httpSuccessSubject$.asObservable();
-	}
-
-	setHttpSuccessSubject$(success: HttpResponse<unknown>): void {
-		this._httpErrorSubject$.next(new HttpErrorResponse({}));
-		this._httpSuccessSubject$.next(success);
 	}
 }

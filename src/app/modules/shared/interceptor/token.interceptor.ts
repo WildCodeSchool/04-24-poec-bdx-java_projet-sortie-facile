@@ -7,14 +7,14 @@ import {
 	HttpResponse,
 } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { AuthService } from '@shared/services/auth.service';
+import { AuthUserResponseService } from '@shared/services/auth-response.service';
 import { LocalStorageService } from '@shared/services/local-storage.service';
 import { Observable, catchError, tap, throwError } from 'rxjs';
 
 @Injectable()
 export class TokenInterceptor implements HttpInterceptor {
 	constructor(
-		private _authService: AuthService,
+		private _authUserResponseService: AuthUserResponseService,
 		private _localStorageService: LocalStorageService,
 	) {}
 
@@ -42,16 +42,15 @@ export class TokenInterceptor implements HttpInterceptor {
 		return next.handle(request).pipe(
 			tap((incomingRequest: HttpEvent<unknown>) => {
 				if (incomingRequest instanceof HttpResponse) {
-					this._authService.setHttpSuccessSubject$(incomingRequest);
+					this._authUserResponseService.setHttpSuccessSubject$(incomingRequest);
 				}
 			}),
-
 			catchError((err: HttpErrorResponse) => {
 				if (err.status === 404) {
-					this._authService.setHttpErrorSubject$(err);
+					this._authUserResponseService.setHttpErrorSubject$(err);
 					return throwError(() => new Error(err.error.Error));
 				} else {
-					this._authService.setHttpErrorSubject$(err);
+					this._authUserResponseService.setHttpErrorSubject$(err);
 					return throwError(() => new Error('Une erreur est survenue'));
 				}
 			}),
