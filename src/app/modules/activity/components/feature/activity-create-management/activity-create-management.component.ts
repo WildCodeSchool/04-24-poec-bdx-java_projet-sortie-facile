@@ -1,8 +1,6 @@
-import { NewActivity } from '@activity/models/classes/new-activity.class';
 import { Component, OnDestroy, ViewChild } from '@angular/core';
 import { ModalConfirmCreatActivityComponent } from '@shared/components/modal/modal-confirm-creat-activity/modal-confirm-creat-activity.component';
-import { City } from '@shared/models/classes/address/city.class';
-import { Category } from '@shared/models/classes/category/category.class';
+import { NewActivityFormDatas } from '@shared/models/classes/activity/new-activity-form-datas.class';
 import { UploadFileService } from '@shared/services/upload-file.service';
 import { Subscription } from 'rxjs';
 
@@ -19,20 +17,19 @@ export class ActivityCreateManagementComponent implements OnDestroy {
 
 	selectedFile: File | null = null;
 
-	newActivity: NewActivity = new NewActivity(
-		'toto',
-		'',
-		new City(0, ''),
-		'',
-		0,
-		'',
+	newActivity: NewActivityFormDatas = new NewActivityFormDatas(
 		'',
 		'',
 		0,
-		new Category('', '', ''),
 		'',
 		'',
-		true,
+		'',
+		0,
+		'',
+		1,
+		1,
+		1,
+		1,
 	);
 
 	constructor(private _uploadFileService: UploadFileService) {

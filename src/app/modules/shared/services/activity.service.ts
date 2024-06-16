@@ -10,6 +10,9 @@ import { FullActivityRouteEnum } from '@shared/models/enums/routes/full-routes';
 import { BookingService } from './booking.service';
 import { BookingUserActivity } from '@shared/models/classes/booking/booking-user-activity.class';
 import { environment } from 'environments/environment';
+import { NewActivityFormDatas } from '@shared/models/classes/activity/new-activity-form-datas.class';
+import { NewActivityInput } from '@shared/models/classes/activity/new-activity-input.class';
+import { TokenService } from './token.service';
 
 @Injectable({
 	providedIn: 'root',
@@ -30,6 +33,7 @@ export class ActivityService {
 		private _httpClient: HttpClient,
 		private _router: Router,
 		private _bookingService: BookingService,
+		private _tokenService: TokenService,
 	) {}
 
 	notifyNewActivity() {
@@ -135,21 +139,36 @@ export class ActivityService {
 	// 	);
 	// }
 
-	postNewActivity$(newActivity: Activity): Observable<Activity> {
-		const activityToPost = {
-			...newActivity,
-			isVisible: true,
-		};
+	postNewActivity$(newActivity: NewActivityFormDatas): Observable<Activity> {
+		const connectedUserId =
+			this._tokenService.getTokenFromLocalStorageAndDecode()?.id;
 
-		return this._httpClient.post<Activity>(this._BASE_URL, activityToPost).pipe(
-			tap((activity: Activity) => {
-				this._router.navigate([FullActivityRouteEnum.DETAILS, activity.id]);
-				this.notifyNewActivity();
-			}),
-			catchError(error => {
-				throw error;
-			}),
+		const activityRequestBody: NewActivityInput = new NewActivityInput(
+			newActivity.name,
+			newActivity.date,
+			newActivity.age,
+			newActivity.imgUrl,
+			newActivity.link,
+			newActivity.description,
+			newActivity.nbGuest,
+			newActivity.hour,
+			true,
 		);
+
+		return this._httpClient
+			.post<Activity>(
+				`${this._BASE_URL}/add/region/${newActivity.region}/department/${newActivity.department}/city/${newActivity.city}/profile/${connectedUserId}`,
+				activityRequestBody,
+			)
+			.pipe(
+				tap((activity: Activity) => {
+					this._router.navigate([FullActivityRouteEnum.DETAILS, activity.id]);
+					this.notifyNewActivity();
+				}),
+				catchError(error => {
+					throw error;
+				}),
+			);
 	}
 
 	deleteActivity$(id: string): Observable<unknown> {

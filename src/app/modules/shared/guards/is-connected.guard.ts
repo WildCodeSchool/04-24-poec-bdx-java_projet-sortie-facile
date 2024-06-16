@@ -22,12 +22,7 @@ export class IsConnectedGuard implements CanActivate {
 	) {
 		this.tokenS
 			._getTokenDetailsSubject$()
-			.pipe(
-				map((decodedToken: any) => {
-					console.log(decodedToken);
-					return decodedToken.role;
-				}),
-			)
+			.pipe(map((decodedToken: any) => decodedToken.role))
 			.subscribe((role: 'ROLE_USER' | 'ROLE_ADMIN') => {
 				this.role = role;
 			});

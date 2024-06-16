@@ -1,51 +1,36 @@
-import { Category } from '@shared/models/classes/category/category.class';
-import { City } from '@shared/models/classes/address/city.class';
-
-export class Activity {
-	id: number;
+export class NewActivityInput {
 	name: string;
-	department: string;
-	city: City;
 	date: string;
 	age: number;
 	imgUrl: string;
 	link: string;
 	description: string;
 	nbGuest: number;
-	categoryId: Category;
 	hour: string;
-	userId: string;
 	isVisible: boolean;
+	// category: number;
 
 	constructor(
-		id: number,
 		name: string,
-		department: string,
-		city: City,
 		date: string,
 		age: number,
 		imgUrl: string,
 		link: string,
 		description: string,
 		nbGuest: number,
-		categoryId: Category,
 		hour: string,
-		userId: string,
 		isVisible: boolean,
+		// category: number,
 	) {
-		this.id = id;
 		this.name = name;
-		this.department = department;
-		this.city = city;
 		this.date = date;
 		this.age = age;
 		this.imgUrl = imgUrl;
 		this.link = link;
 		this.description = description;
 		this.nbGuest = nbGuest;
-		this.categoryId = categoryId;
 		this.hour = hour;
-		this.userId = userId;
 		this.isVisible = isVisible;
+		// this.category = category;
 	}
 }

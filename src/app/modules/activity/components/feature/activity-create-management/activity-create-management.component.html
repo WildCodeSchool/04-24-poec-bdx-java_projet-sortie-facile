@@ -35,14 +35,25 @@
 			[(ngModel)]="newActivity.hour"
 		></app-input-hour>
 
+		<app-select-region
+			labelFor="region"
+			labelContent="Region :"
+			id="region"
+			inputId="region"
+			name="region"
+			[required]="true"
+			#region="ngModel"
+			[(ngModel)]="newActivity.region"
+		></app-select-region>
+
 		<app-select-department
-			labelFor="Departments"
+			labelFor="Department"
 			labelContent="Département :"
-			id="departments"
-			inputId="departments"
-			name="departments"
-			#departments="ngModel"
-			[(ngModel)]="departments"
+			id="department"
+			inputId="department"
+			name="department"
+			#department="ngModel"
+			[(ngModel)]="newActivity.department"
 		></app-select-department>
 
 		<app-select-city
@@ -50,20 +61,20 @@
 			labelContent="Ville :"
 			id="city"
 			inputId="city"
-			name="activityCity"
-			#activityCity="ngModel"
-			[(ngModel)]="newActivity.activityCity"
+			name="city"
+			#city="ngModel"
+			[(ngModel)]="newActivity.city"
 		>
 		</app-select-city>
 
 		<app-select-category
-			labelFor="categoryId"
+			labelFor="category"
 			labelContent="Catégorie :"
-			id="categoryId"
-			inputId="categoryId"
-			name="categoryId"
+			id="category"
+			inputId="category"
+			name="category"
 			#category="ngModel"
-			[(ngModel)]="newActivity.categoryId"
+			[(ngModel)]="newActivity.category"
 		></app-select-category>
 
 		<app-select-number
