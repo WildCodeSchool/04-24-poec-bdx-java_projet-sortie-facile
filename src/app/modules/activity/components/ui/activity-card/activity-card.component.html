@@ -3,7 +3,7 @@
 		<ng-template pTemplate="header">
 			<div
 				class="btn-admin"
-				*ngIf="connectedUser && connectedUser.id === activity.userId"
+				*ngIf="connectedUser && connectedUser.id === activity.profileId"
 			>
 				<p-button
 					icon="pi pi-pencil"

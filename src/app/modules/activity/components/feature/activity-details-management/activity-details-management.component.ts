@@ -5,7 +5,7 @@ import { ModalConfirmReservationComponent } from '@shared/components/modal/modal
 import { City } from '@shared/models/classes/address/city.class';
 import { Department } from '@shared/models/classes/address/department.class';
 import { Region } from '@shared/models/classes/address/region.class';
-import { AuthUserPrimaryDatas } from '@shared/models/classes/auth-user/auth-user-primary-datas.class';
+import { AuthUserResponse } from '@shared/models/classes/auth-user/auth-user-response.class';
 import { UserDetails } from '@shared/models/classes/user-details/user-details.class';
 import {
 	FullActivityRouteEnum,
@@ -17,6 +17,7 @@ import { DepartmentService } from '@shared/services/address/department.service';
 import { RegionService } from '@shared/services/address/region.service';
 import { AuthService } from '@shared/services/auth.service';
 import { BookingService } from '@shared/services/booking.service';
+import { TokenService } from '@shared/services/token.service';
 import { Observable, Subscription, combineLatest, of } from 'rxjs';
 import { map, switchMap } from 'rxjs/operators';
 
@@ -37,7 +38,7 @@ export class ActivityDetailsManagementComponent implements OnInit, OnDestroy {
 	hasBooking!: boolean;
 	suggestList$!: Observable<Activity[]>;
 
-	connectedUser!: AuthUserPrimaryDatas;
+	connectedUser!: AuthUserResponse;
 
 	city$!: Observable<City>;
 	region$!: Observable<Region>;
@@ -58,10 +59,15 @@ export class ActivityDetailsManagementComponent implements OnInit, OnDestroy {
 		private _regionService: RegionService,
 		private _departmentService: DepartmentService,
 		private _cityService: CityService,
+		private _tokenService: TokenService,
 	) {}
 
 	ngOnInit(): void {
-		this.connectedUser = this.authService.getConnectedUserData();
+		this._tokenService
+			._getTokenDetailsSubject$()
+			.subscribe((connectedUser: any) => {
+				this.connectedUser = connectedUser;
+			});
 
 		this._subscription.add(
 			this.route.paramMap
@@ -94,24 +100,23 @@ export class ActivityDetailsManagementComponent implements OnInit, OnDestroy {
 
 								return of(activity);
 							}),
-							// switchMap(activity => {
-							// 	this.categoryTitle$ = of(activity.categoryId.name);
+							switchMap(activity => {
+								// 	this.categoryTitle$ = of(activity.categoryId.name);
 
-							// 	this.suggestList$ =
-							// 		this.activityService.filteredActivityListByCategory$(
-							// 			activity.categoryId,
-							// 		);
+								// 	this.suggestList$ =
+								// 		this.activityService.filteredActivityListByCategory$(
+								// 			activity.categoryId,
+								// 		);
 
-							// 	return this.bookingService.checkIfConnectedUserHasBookingActivity$(
-							// 		this.connectedUser.userDetailsId,
-							// 		activityId,
-							// 	);
-							// }),
+								return this.bookingService.checkIfConnectedUserHasBookingActivity$(
+									this.connectedUser.id,
+									Number(activityId),
+								);
+							}),
 						);
 					}),
 				)
-				.subscribe(),
-			// .subscribe(hasBooking => (this.hasBooking = hasBooking)),
+				.subscribe(hasBooking => (this.hasBooking = hasBooking)),
 		);
 	}
 

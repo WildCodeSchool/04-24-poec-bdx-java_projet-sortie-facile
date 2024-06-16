@@ -12,7 +12,7 @@ export class Activity {
 	nbGuest: number;
 	category: number;
 	hour: string;
-	userId: string;
+	profileId: number;
 	isVisible: boolean;
 
 	constructor(
@@ -29,7 +29,7 @@ export class Activity {
 		nbGuest: number,
 		category: number,
 		hour: string,
-		userId: string,
+		profileId: number,
 		isVisible: boolean,
 	) {
 		this.id = id;
@@ -45,7 +45,7 @@ export class Activity {
 		this.nbGuest = nbGuest;
 		this.category = category;
 		this.hour = hour;
-		this.userId = userId;
+		this.profileId = profileId;
 		this.isVisible = isVisible;
 	}
 }

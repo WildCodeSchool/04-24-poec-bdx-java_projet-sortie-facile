@@ -27,8 +27,8 @@ import { Router } from '@angular/router';
 	providedIn: 'root',
 })
 export class BookingService {
-	private readonly _BASE_URL = `${environment.apiUrlJsonServer}/booking`;
-	private readonly _USER_URL = `${environment.apiUrlJsonServer}/user`;
+	private readonly _BASE_URL = `${environment.apiUrl}/booking`;
+	private readonly _USER_URL = `${environment.apiUrl}/auth`;
 	private readonly _ACTIVITY_URL = `${environment.apiUrlJsonServer}/activity`;
 
 	private navItems: MenuItem[] = [
@@ -69,11 +69,11 @@ export class BookingService {
 	) {}
 
 	getBookingList$(): Observable<BookingUserActivity[]> {
-		return this.http.get<Booking[]>(this._BASE_URL).pipe(
+		return this.http.get<Booking[]>(`${this._BASE_URL}/all`).pipe(
 			mergeMap((bookings: BookingListResponseApi) => {
 				const detailedReservations$ = bookings.map((booking: Booking) => {
 					const user$: Observable<AuthUser> = this.http.get<AuthUser>(
-						`${this._USER_URL}/${booking.userId}`,
+						`${this._USER_URL}/${booking.profileId}`,
 					);
 
 					const activity$: Observable<Activity> = this.http.get<Activity>(
@@ -94,44 +94,59 @@ export class BookingService {
 		);
 	}
 
-	getBookingListByUser$(userId: string): Observable<BookingUserActivity[]> {
+	getBookingListByUser$(profileId: number): Observable<BookingUserActivity[]> {
 		return this.getBookingList$().pipe(
 			map((bookingList: BookingUserActivity[]) =>
 				bookingList.filter(
-					(booking: BookingUserActivity) => booking.userId === userId,
+					(booking: BookingUserActivity) => booking.profileId === profileId,
 				),
 			),
 		);
 	}
 
 	getBookingByUserAndActivity$(
-		userId: string,
-		activityId: string,
+		profileId: number,
+		activityId: number,
 	): Observable<BookingUserActivity> {
 		return this.getBookingList$().pipe(
 			map(
 				(bookingList: BookingUserActivity[]) =>
 					bookingList.find(
 						(booking: BookingUserActivity) =>
-							booking.userId === userId && booking.activityId === activityId,
+							booking.profileId === profileId &&
+							booking.activityId === activityId,
 					) as BookingUserActivity,
 			),
 		);
 	}
 
-	postNewBooking$(userId: string, activityId: string): Observable<Booking> {
-		return this.http.post<Booking>(this._BASE_URL, { userId, activityId }).pipe(
-			tap(() => {
-				this._router.navigate([FullUserRouteEnum.ACTIVITY]);
-			}),
-			catchError(error => {
-				throw error;
-			}),
-		);
+	postNewBooking$(profileId: number, activityId: number): Observable<Booking> {
+		return this.http
+			.post<Booking>(
+				`${this._BASE_URL}/add/activity/${activityId}/profile/${profileId}`,
+				{
+					createdAt: '2024/02/02',
+				},
+			)
+			.pipe(
+				tap(() => {
+					this._router.navigate([FullUserRouteEnum.ACTIVITY]);
+				}),
+				catchError(error => {
+					throw error;
+				}),
+			);
 	}
 
-	deleteBookingById$(userId: string, activityId: string): Observable<Booking> {
-		return this.getBookingByUserAndActivity$(userId, activityId).pipe(
+	// todo back :
+	// GET Booking By profileId And activityId
+	// DELETE by bookingId
+
+	deleteBookingById$(
+		profileId: number,
+		activityId: number,
+	): Observable<Booking> {
+		return this.getBookingByUserAndActivity$(profileId, activityId).pipe(
 			switchMap((booking: BookingUserActivity) =>
 				this.http.delete<Booking>(`${this._BASE_URL}/${booking.id}`).pipe(
 					tap(() => {
@@ -146,14 +161,14 @@ export class BookingService {
 	}
 
 	checkIfConnectedUserHasBookingActivity$(
-		userDetailsId: string,
-		activityId: string,
+		profileId: number,
+		activityId: number,
 	): Observable<boolean> {
-		return this.http.get<Booking[]>(this._BASE_URL).pipe(
+		return this.http.get<Booking[]>(`${this._BASE_URL}/all`).pipe(
 			map((bookings: Booking[]) => {
 				return bookings.some(
 					(booking: Booking) =>
-						booking.userId === userDetailsId &&
+						booking.profileId === profileId &&
 						booking.activityId === activityId,
 				);
 			}),

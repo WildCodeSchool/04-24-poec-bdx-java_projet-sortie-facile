@@ -27,7 +27,7 @@
 					></app-info-item>
 				</div>
 
-				<div class="btn-box" *ngIf="activity.userId !== connectedUser.id">
+				<div class="btn-box" *ngIf="activity.profileId !== connectedUser.id">
 					<app-button-ultra-wilde
 						[label]="!hasBooking ? 'S\'inscrire' : 'Se désinscrire'"
 						(click)="onModal()"
@@ -143,7 +143,7 @@
 
 				<ng-template
 					pTemplate="footer"
-					*ngIf="activity.userId !== connectedUser.id"
+					*ngIf="activity.profileId !== connectedUser.id"
 				>
 					<div class="btns-box">
 						<p-button
@@ -170,9 +170,9 @@
 		></app-carousel-activity>
 	</div>
 
-	<!-- <app-modal-confirm-reservation
-		[userId]="connectedUser.id"
+	<app-modal-confirm-reservation
+		[profileId]="connectedUser.id"
 		[activityId]="activity.id"
 		[hasBooking]="hasBooking"
-	></app-modal-confirm-reservation> -->
+	></app-modal-confirm-reservation>
 </ng-container>

@@ -63,11 +63,11 @@ export class ActivityService {
 
 	getActivityListByCreatedUser$(
 		limit: number = -1,
-		userId: string,
+		userId: number,
 	): Observable<ActivityListResponse> {
 		return this._httpClient.get<ActivityListResponse>(this._BASE_URL).pipe(
 			map((activities: ActivityListResponse) =>
-				activities.filter(activity => activity.userId === userId).reverse(),
+				activities.filter(activity => activity.profileId === userId).reverse(),
 			),
 			map((activities: ActivityListResponse) =>
 				limit > 0 ? activities.slice(0, limit) : activities,
@@ -77,9 +77,9 @@ export class ActivityService {
 
 	getListOfActivitiesRegisteredByUser$(
 		limit: number = -1,
-		userId: string,
+		profileId: number,
 	): Observable<Activity[]> {
-		return this._bookingService.getBookingListByUser$(userId).pipe(
+		return this._bookingService.getBookingListByUser$(profileId).pipe(
 			map((bookingList: BookingUserActivity[]) =>
 				bookingList.map(booking => booking.activity as Activity).reverse(),
 			),

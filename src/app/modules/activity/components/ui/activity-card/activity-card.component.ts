@@ -10,7 +10,7 @@ import {
 } from '@angular/core';
 import { ModalConfirmDeleteActivityComponent } from '@shared/components/modal/modal-confirm-delete-activity/modal-confirm-delete-activity.component';
 import { City } from '@shared/models/classes/address/city.class';
-import { AuthUserPrimaryDatas } from '@shared/models/classes/auth-user/auth-user-primary-datas.class';
+import { AuthUserResponse } from '@shared/models/classes/auth-user/auth-user-response.class';
 import { FullActivityRouteEnum } from '@shared/models/enums/routes/full-routes';
 import { CityService } from '@shared/services/address/city.service';
 import { Observable, Subscription } from 'rxjs';
@@ -22,7 +22,7 @@ import { Observable, Subscription } from 'rxjs';
 })
 export class ActivityCardComponent implements OnInit, OnDestroy {
 	@Input() activity!: Activity;
-	@Input() connectedUser!: AuthUserPrimaryDatas;
+	@Input() connectedUser!: AuthUserResponse;
 	@Output() activityDeleted = new EventEmitter<string>();
 
 	city$!: Observable<City>;
