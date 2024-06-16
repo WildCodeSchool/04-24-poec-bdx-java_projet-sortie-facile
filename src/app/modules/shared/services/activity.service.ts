@@ -4,7 +4,7 @@ import { BehaviorSubject, Observable, catchError, map, tap } from 'rxjs';
 import { Router } from '@angular/router';
 import { Department } from '@shared/models/classes/address/department.class';
 import { Activity } from '@activity/models/classes/activity.class';
-import { ActivityListResponseApi } from '@shared/models/classes/activity';
+import { ActivityListResponse } from '@shared/models/classes/activity';
 import { Category } from '@shared/models/classes/category/category.class';
 import { FullActivityRouteEnum } from '@shared/models/enums/routes/full-routes';
 import { BookingService } from './booking.service';
@@ -16,7 +16,7 @@ import { environment } from 'environments/environment';
 })
 export class ActivityService {
 	activity!: Activity;
-	activities!: ActivityListResponseApi;
+	activities!: ActivityListResponse;
 	category!: Category;
 	categories!: Category[];
 	department!: Department;
@@ -36,11 +36,11 @@ export class ActivityService {
 		this.newActivitySubject.next(true);
 	}
 
-	getActivityList$(): Observable<ActivityListResponseApi> {
+	getActivityList$(): Observable<ActivityListResponse> {
 		return this._httpClient
-			.get<ActivityListResponseApi>(`${this._BASE_URL}/all`)
+			.get<ActivityListResponse>(`${this._BASE_URL}/all`)
 			.pipe(
-				map((activities: ActivityListResponseApi) => {
+				map((activities: ActivityListResponse) => {
 					return activities
 						.filter(activity => activity.isVisible === true)
 						.sort((a, b) => +b.id - +a.id);
@@ -60,12 +60,12 @@ export class ActivityService {
 	getActivityListByCreatedUser$(
 		limit: number = -1,
 		userId: string,
-	): Observable<ActivityListResponseApi> {
-		return this._httpClient.get<ActivityListResponseApi>(this._BASE_URL).pipe(
-			map((activities: ActivityListResponseApi) =>
+	): Observable<ActivityListResponse> {
+		return this._httpClient.get<ActivityListResponse>(this._BASE_URL).pipe(
+			map((activities: ActivityListResponse) =>
 				activities.filter(activity => activity.userId === userId).reverse(),
 			),
-			map((activities: ActivityListResponseApi) =>
+			map((activities: ActivityListResponse) =>
 				limit > 0 ? activities.slice(0, limit) : activities,
 			),
 		);
@@ -85,9 +85,9 @@ export class ActivityService {
 		);
 	}
 
-	filteredActivityList$(name: string): Observable<ActivityListResponseApi> {
+	filteredActivityList$(name: string): Observable<ActivityListResponse> {
 		return this.getActivityList$().pipe(
-			map((activityList: ActivityListResponseApi) =>
+			map((activityList: ActivityListResponse) =>
 				activityList.filter((activity: Activity) =>
 					activity.name.toLowerCase().includes(name.toLowerCase()),
 				),
@@ -97,9 +97,9 @@ export class ActivityService {
 
 	filteredActivityListByCategory$(
 		categoryId: Category,
-	): Observable<ActivityListResponseApi> {
+	): Observable<ActivityListResponse> {
 		return this.getActivityList$().pipe(
-			map((activityList: ActivityListResponseApi) =>
+			map((activityList: ActivityListResponse) =>
 				activityList.filter((activity: Activity) => {
 					return activity.categoryId.id === categoryId.id;
 				}),
@@ -109,9 +109,9 @@ export class ActivityService {
 
 	filteredActivityListByDepartment$(
 		department: Department,
-	): Observable<ActivityListResponseApi> {
+	): Observable<ActivityListResponse> {
 		return this.getActivityList$().pipe(
-			map((activityList: ActivityListResponseApi) =>
+			map((activityList: ActivityListResponse) =>
 				activityList.filter((activity: Activity) => {
 					return Number(activity.department) === department.id;
 				}),
@@ -168,11 +168,11 @@ export class ActivityService {
 		});
 	}
 
-	getVisibleActivities(): Observable<ActivityListResponseApi> {
+	getVisibleActivities(): Observable<ActivityListResponse> {
 		return this._httpClient
-			.get<ActivityListResponseApi>(this._BASE_URL)
+			.get<ActivityListResponse>(this._BASE_URL)
 			.pipe(
-				map((activities: ActivityListResponseApi) =>
+				map((activities: ActivityListResponse) =>
 					activities.filter(activity => activity.isVisible),
 				),
 			);
