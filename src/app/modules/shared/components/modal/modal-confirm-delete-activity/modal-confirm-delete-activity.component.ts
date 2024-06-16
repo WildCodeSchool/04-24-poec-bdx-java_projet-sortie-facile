@@ -15,7 +15,7 @@ import { ConfirmationService, MessageService } from 'primeng/api';
 	providers: [ConfirmationService, MessageService],
 })
 export class ModalConfirmDeleteActivityComponent extends AbstractModal {
-	@Input() activityId!: string;
+	@Input() activityId!: number;
 	@Output() activityDeleted = new EventEmitter<string>();
 
 	constructor(
@@ -67,7 +67,7 @@ export class ModalConfirmDeleteActivityComponent extends AbstractModal {
 			life: 3000,
 		});
 		setTimeout(() => {
-			this._router.navigate([FullUserRouteEnum.ACTIVITY]);
+			this._router.navigate([FullActivityRouteEnum.HOME]);
 		}, 4000);
 	}
 }
