@@ -105,7 +105,7 @@ export class ActivityService {
 		return this.getActivityList$().pipe(
 			map((activityList: ActivityListResponse) =>
 				activityList.filter((activity: Activity) => {
-					return activity.categoryId.id === categoryId.id;
+					return activity.category === Number(categoryId.id);
 				}),
 			),
 		);
@@ -117,7 +117,7 @@ export class ActivityService {
 		return this.getActivityList$().pipe(
 			map((activityList: ActivityListResponse) =>
 				activityList.filter((activity: Activity) => {
-					return Number(activity.department) === department.id;
+					return Number(activity.departmentId) === department.id;
 				}),
 			),
 		);

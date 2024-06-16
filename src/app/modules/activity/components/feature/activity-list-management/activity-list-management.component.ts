@@ -118,7 +118,7 @@ export class ActivityListManagementComponent implements OnInit, OnChanges {
 					map(activities => {
 						const filteredActivities = activities.filter(
 							activity =>
-								Number(activity.department) === this.selectedDepartments.id,
+								Number(activity.departmentId) === this.selectedDepartments.id,
 						);
 
 						return filteredActivities;
