@@ -44,7 +44,9 @@
 
 			<div class="bottom-item">
 				<i class="pi pi-map-marker"></i>
-				<p>{{ activity.activityCity }}</p>
+				<ng-container *ngIf="city$ | async as city">
+					<p>{{ city.name | titlecase }}</p>
+				</ng-container>
 			</div>
 		</div>
 
@@ -64,7 +66,7 @@
 	</p-card>
 </div>
 
-<app-modal-confirm-delete-activity
+<!-- <app-modal-confirm-delete-activity
 	[activityId]="activity.id"
 	(activityDeleted)="onActivityDeleted($event)"
-></app-modal-confirm-delete-activity>
+></app-modal-confirm-delete-activity> -->

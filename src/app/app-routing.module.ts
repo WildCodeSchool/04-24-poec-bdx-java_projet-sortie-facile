@@ -13,11 +13,11 @@ const routes: Routes = [
 		loadChildren: () =>
 			import('./modules/landing/landing.module').then(m => m.LandingModule),
 	},
-	// {
-	// 	path: PrimaryRouteEnum.ACTIVITY,
-	// 	loadChildren: () =>
-	// 		import('./modules/activity/activity.module').then(m => m.ActivityModule),
-	// },
+	{
+		path: PrimaryRouteEnum.ACTIVITY,
+		loadChildren: () =>
+			import('./modules/activity/activity.module').then(m => m.ActivityModule),
+	},
 	// {
 	// 	path: PrimaryRouteEnum.ADMIN,
 	// 	loadChildren: () =>

@@ -37,16 +37,18 @@ export class ActivityService {
 	}
 
 	getActivityList$(): Observable<ActivityListResponseApi> {
-		return this._httpClient.get<ActivityListResponseApi>(this._BASE_URL).pipe(
-			map((activities: ActivityListResponseApi) => {
-				return activities
-					.filter(activity => activity.isVisible === true)
-					.sort((a, b) => +b.id - +a.id);
-			}),
-			catchError(error => {
-				throw error;
-			}),
-		);
+		return this._httpClient
+			.get<ActivityListResponseApi>(`${this._BASE_URL}/all`)
+			.pipe(
+				map((activities: ActivityListResponseApi) => {
+					return activities
+						.filter(activity => activity.isVisible === true)
+						.sort((a, b) => +b.id - +a.id);
+				}),
+				catchError(error => {
+					throw error;
+				}),
+			);
 	}
 
 	getActivityById$(id: string): Observable<Activity> {

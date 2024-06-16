@@ -19,65 +19,56 @@ import { switchMap } from 'rxjs/operators';
 	templateUrl: './activity-details-management.component.html',
 	styleUrl: './activity-details-management.component.scss',
 })
-export class ActivityDetailsManagementComponent implements OnInit, OnDestroy {
-	fullActivityRoute = FullActivityRouteEnum;
-	activity$!: Observable<Activity>;
-	categoryTitle$!: Observable<string>;
-	userDetails!: UserDetails;
-	hasBooking!: boolean;
-	connectedUser!: AuthUserPrimaryDatas;
-	suggestList$!: Observable<Activity[]>;
-	fullUserRouteEnum = FullUserRouteEnum;
-	private _subscription: Subscription = new Subscription();
-
-	@Input() imgSrc!: string;
-
-	@ViewChild(ModalConfirmReservationComponent, { static: false })
-	modalComponent!: ModalConfirmReservationComponent;
-
-	constructor(
-		private activityService: ActivityService,
-		private bookingService: BookingService,
-		private route: ActivatedRoute,
-		private authService: AuthService,
-		private _router: Router,
-	) {}
-
-	ngOnInit(): void {
-		this.connectedUser = this.authService.getConnectedUserData();
-
-		this._subscription.add(
-			this.route.paramMap
-				.pipe(
-					switchMap(paramMap => {
-						const activityId: string = paramMap.get('id') as string;
-						this.activity$ = this.activityService.getActivityById$(activityId);
-
-						return this.activity$.pipe(
-							switchMap(activity => {
-								this.categoryTitle$ = of(activity.categoryId.name);
-								this.suggestList$ =
-									this.activityService.filteredActivityListByCategory$(
-										activity.categoryId,
-									);
-
-								return this.bookingService.checkIfConnectedUserHasBookingActivity$(
-									this.connectedUser.userDetailsId,
-									activityId,
-								);
-							}),
-						);
-					}),
-				)
-				.subscribe(hasBooking => (this.hasBooking = hasBooking)),
-		);
-	}
-
-	onModal(): void {
-		this.modalComponent.onSubmit();
-	}
-
-	ngOnDestroy(): void {
-		this._subscription.unsubscribe();
-	}
+export class ActivityDetailsManagementComponent {
+	// fullActivityRoute = FullActivityRouteEnum;
+	// activity$!: Observable<Activity>;
+	// categoryTitle$!: Observable<string>;
+	// userDetails!: UserDetails;
+	// hasBooking!: boolean;
+	// connectedUser!: AuthUserPrimaryDatas;
+	// suggestList$!: Observable<Activity[]>;
+	// fullUserRouteEnum = FullUserRouteEnum;
+	// private _subscription: Subscription = new Subscription();
+	// @Input() imgSrc!: string;
+	// @ViewChild(ModalConfirmReservationComponent, { static: false })
+	// modalComponent!: ModalConfirmReservationComponent;
+	// constructor(
+	// 	private activityService: ActivityService,
+	// 	private bookingService: BookingService,
+	// 	private route: ActivatedRoute,
+	// 	private authService: AuthService,
+	// 	private _router: Router,
+	// ) {}
+	// ngOnInit(): void {
+	// 	this.connectedUser = this.authService.getConnectedUserData();
+	// 	this._subscription.add(
+	// 		this.route.paramMap
+	// 			.pipe(
+	// 				switchMap(paramMap => {
+	// 					const activityId: string = paramMap.get('id') as string;
+	// 					this.activity$ = this.activityService.getActivityById$(activityId);
+	// 					return this.activity$.pipe(
+	// 						switchMap(activity => {
+	// 							this.categoryTitle$ = of(activity.categoryId.name);
+	// 							this.suggestList$ =
+	// 								this.activityService.filteredActivityListByCategory$(
+	// 									activity.categoryId,
+	// 								);
+	// 							return this.bookingService.checkIfConnectedUserHasBookingActivity$(
+	// 								this.connectedUser.userDetailsId,
+	// 								activityId,
+	// 							);
+	// 						}),
+	// 					);
+	// 				}),
+	// 			)
+	// 			.subscribe(hasBooking => (this.hasBooking = hasBooking)),
+	// 	);
+	// }
+	// onModal(): void {
+	// 	this.modalComponent.onSubmit();
+	// }
+	// ngOnDestroy(): void {
+	// 	this._subscription.unsubscribe();
+	// }
 }

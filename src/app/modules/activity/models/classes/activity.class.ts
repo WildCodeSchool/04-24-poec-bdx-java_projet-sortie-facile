@@ -2,7 +2,7 @@ import { Category } from '@shared/models/classes/category/category.class';
 import { City } from '@shared/models/classes/address/city.class';
 
 export class Activity {
-	id: string;
+	id: number;
 	name: string;
 	department: string;
 	activityCity: City;
@@ -18,7 +18,7 @@ export class Activity {
 	isVisible: boolean;
 
 	constructor(
-		id: string,
+		id: number,
 		name: string,
 		department: string,
 		activityCity: City,
