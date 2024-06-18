@@ -39,7 +39,7 @@ export class CategoryService {
 			.get<Category>(`${this._BASE_URL}/${categoryId}`)
 			.pipe(
 				map((category: Category) => {
-					return category.name;
+					return category.title;
 				}),
 			);
 	}
