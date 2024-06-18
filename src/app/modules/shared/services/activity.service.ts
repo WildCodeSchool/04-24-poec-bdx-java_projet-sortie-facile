@@ -28,9 +28,7 @@ export class ActivityService {
 		private _httpClient: HttpClient,
 		private _router: Router,
 		private _bookingService: BookingService,
-	) {
-		this.initializeCurrentId();
-	}
+	) {}
 	notifyNewActivity() {
 		this.newActivitySubject.next(true);
 	}
