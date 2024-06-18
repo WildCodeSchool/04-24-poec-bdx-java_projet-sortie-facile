@@ -15,7 +15,7 @@ import { ConfirmationService, MessageService } from 'primeng/api';
 })
 export class ModalConfirmUpdateActivityComponent extends AbstractModal {
 	@Input() myForm!: NgForm;
-	@Input() activityId!: string;
+	@Input() activityId!: number;
 
 	constructor(
 		private confirmationService: ConfirmationService,

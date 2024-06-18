@@ -198,11 +198,11 @@ export class ActivityService {
 	}
 
 	updateActivity$(
-		id: string,
+		id: number,
 		updatedData: Partial<Activity>,
 	): Observable<Activity> {
 		return this._httpClient
-			.patch<Activity>(`${this._BASE_URL}/${id}`, updatedData)
+			.patch<Activity>(`${this._BASE_URL}/update/${id}`, updatedData)
 			.pipe(
 				catchError(error => {
 					throw error;
