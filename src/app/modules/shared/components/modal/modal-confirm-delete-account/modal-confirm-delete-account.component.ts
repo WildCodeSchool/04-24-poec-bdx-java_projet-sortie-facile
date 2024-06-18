@@ -58,6 +58,12 @@ export class ModalDeleteAccountComponent extends AbstractModal {
 	}
 
 	public override onAccept(): void {
+		this._messageService.add({
+			severity: 'success',
+			summary: 'Succès',
+			detail: 'Votre compte a été supprimer avec succés',
+			life: 3000,
+		});
 		this._authService
 			.deleteUser(this.connectedUser.id)
 			.pipe(
