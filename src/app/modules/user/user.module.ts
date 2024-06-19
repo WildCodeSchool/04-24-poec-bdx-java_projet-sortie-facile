@@ -8,13 +8,13 @@ import { UserProfileComponent } from '@user/pages/user-profile/user-profile.comp
 // import { UserPasswordComponent } from '@user/pages/user-password/user-password.component';
 // import { UserActivitiesComponent } from '@user/pages/user-activities/user-activities.component';
 // import { UserCalendarComponent } from '@user/pages/user-calendar/user-calendar.component';
-// import { UserCenterOfInterestComponent } from '@user/pages/user-center-of-interest/user-center-of-interest.component';
+import { UserCenterOfInterestComponent } from '@user/pages/user-center-of-interest/user-center-of-interest.component';
 // import { UserNotificationComponent } from '@user/pages/user-notification/user-notification.component';
 import { SharedModule } from '@shared/shared.module';
 import { AccountProfileManagementComponent } from '@user/components/feature/account-profile-management/account-profile-management.component';
 import { AccountCardInfoComponent } from '@user/components/ui/account-card-info/account-card-info.component';
 // import { AccountActivitiesManagementComponent } from './components/feature/account-activities-management/account-activities-management.component';
-// import { AccountCenterOfInterestManagementComponent } from './components/feature/account-center-of-interest-management/account-center-of-interest-management.component';
+import { AccountCenterOfInterestManagementComponent } from './components/feature/account-center-of-interest-management/account-center-of-interest-management.component';
 import { FormsModule } from '@angular/forms';
 import { AccountPersonalInfosFormComponent } from './components/ui/account-form/account-personal-infos-form/account-personal-infos-form.component';
 import { AccountAddressFormComponent } from './components/ui/account-form/account-address-form/account-address-form.component';
@@ -37,12 +37,12 @@ import { AccountGeneralManagementComponent } from './components/feature/account-
 		// UserPasswordComponent,
 		// UserActivitiesComponent,
 		// UserCalendarComponent,
-		// UserCenterOfInterestComponent,
+		UserCenterOfInterestComponent,
 		// UserNotificationComponent,
 		AccountProfileManagementComponent,
 		AccountCardInfoComponent,
 		// AccountActivitiesManagementComponent,
-		// AccountCenterOfInterestManagementComponent,
+		AccountCenterOfInterestManagementComponent,
 		AccountPersonalInfosFormComponent,
 		AccountAddressFormComponent,
 		// AccountPasswordManagementComponent,
