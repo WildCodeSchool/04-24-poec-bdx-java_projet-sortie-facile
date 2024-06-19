@@ -1,4 +1,4 @@
-<!-- <app-layout-container-content
+<app-layout-container-content
 	sectionTitle="Adresse"
 	[isViewDatas]="isViewDatas"
 	(sendIsViewDatas)="showIsViewDatas($event)"
@@ -6,7 +6,7 @@
 	<div
 		class="content-box"
 		data
-		*ngIf="UserProfile$ | async as userAddressDetails"
+		*ngIf="userProfile$ | async as userAddressDetails"
 	>
 		<app-account-card-info
 			title="N° de rue"
@@ -107,4 +107,4 @@
 			<p-button label="Sauvegarder" [rounded]="true" (click)="onSave()" />
 		</div>
 	</div>
-</app-layout-container-content> -->
+</app-layout-container-content>
