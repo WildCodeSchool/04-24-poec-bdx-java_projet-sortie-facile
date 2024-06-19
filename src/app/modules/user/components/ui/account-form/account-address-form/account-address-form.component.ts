@@ -6,6 +6,8 @@ import { Observable, map } from 'rxjs';
 import { AuthUserResponse } from '@shared/models/classes/auth-user/auth-user-response.class';
 import { TokenService } from '@shared/services/token.service';
 import { UserProfile } from '@shared/models/classes/user-details/user-profile.class';
+import { Region } from '@shared/models/classes/address/region.class';
+import { RegionService } from '@shared/services/address/region.service';
 
 @Component({
 	selector: 'app-account-address-form',
@@ -15,6 +17,7 @@ import { UserProfile } from '@shared/models/classes/user-details/user-profile.cl
 export class AccountAddressFormComponent implements OnInit {
 	connectedUser!: AuthUserResponse;
 	userProfile$!: Observable<UserProfile>;
+	userAddressRegion!: Region;
 	isViewDatas: boolean = true;
 	userAddressDatasForm!: UserProfileAddressForm;
 
@@ -23,6 +26,7 @@ export class AccountAddressFormComponent implements OnInit {
 	constructor(
 		private _userService: UserService,
 		private _tokenService: TokenService,
+		private _regionService: RegionService,
 	) {}
 
 	ngOnInit(): void {
@@ -43,6 +47,10 @@ export class AccountAddressFormComponent implements OnInit {
 				}),
 			)
 			.subscribe();
+	}
+
+	getRegion(regionId: number): Observable<Region> {
+		return this._regionService.getRegionById$(regionId);
 	}
 
 	showIsViewDatas(isViewDatas: boolean) {

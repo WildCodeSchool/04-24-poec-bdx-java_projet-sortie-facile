@@ -18,7 +18,7 @@ export class UserProfilePatch {
 	phone?: string;
 	dateOfBirth?: string;
 	genre?: UserGenderEnum;
-	categoryIds?: string[];
+	categoryIds?: number[];
 	userId?: string;
 
 	constructor(
@@ -36,7 +36,7 @@ export class UserProfilePatch {
 		phone: string,
 		dateOfBirth: string,
 		genre: UserGenderEnum,
-		categoryIds: string[],
+		categoryIds: number[],
 		userId: string,
 	) {
 		this.id = id;

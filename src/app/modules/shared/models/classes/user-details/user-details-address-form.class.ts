@@ -1,31 +1,27 @@
-import { City } from '@shared/models/classes/address/city.class';
-import { Department } from '@shared/models/classes/address/department.class';
-import { Region } from '@shared/models/classes/address/region.class';
-
 export class UserProfileAddressForm {
-	region: Region;
-	department: Department;
+	regionId: number;
+	departmentId: number;
 	streetNumber: string;
 	street: string;
 	postalCode: number;
-	city: City;
+	cityId: number;
 	email: string;
 
 	constructor(
-		region: Region,
-		department: Department,
+		regionId: number,
+		departmentId: number,
 		streetNumber: string,
 		street: string,
 		postalCode: number,
-		city: City,
+		cityId: number,
 		email: string,
 	) {
-		this.region = region;
-		this.department = department;
+		this.regionId = regionId;
+		this.departmentId = departmentId;
 		this.streetNumber = streetNumber;
 		this.street = street;
 		this.postalCode = postalCode;
-		this.city = city;
+		this.cityId = cityId;
 		this.email = email;
 	}
 }

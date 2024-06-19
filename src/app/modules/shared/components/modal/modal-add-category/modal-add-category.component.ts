@@ -18,7 +18,7 @@ import { Observable, tap } from 'rxjs';
 export class ModalAddCategoryComponent implements OnInit {
 	visible: boolean = false;
 	categoriesList$!: Observable<Category[]>;
-	selectedCategoryIds: string[] = [];
+	selectedCategoryIds: number[] = [];
 
 	connectedUser!: AuthUserResponse;
 
@@ -44,8 +44,8 @@ export class ModalAddCategoryComponent implements OnInit {
 			.getUserInfos$(this.connectedUser.id)
 			.pipe(
 				tap(
-					(UserProfile: UserProfile) =>
-						(this.selectedCategoryIds = UserProfile.categoryIds),
+					(userProfile: UserProfile) =>
+						(this.selectedCategoryIds = userProfile.categoryIds),
 				),
 			)
 			.subscribe();
