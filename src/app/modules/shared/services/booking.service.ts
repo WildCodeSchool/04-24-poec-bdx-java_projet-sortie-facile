@@ -28,8 +28,8 @@ import { Router } from '@angular/router';
 })
 export class BookingService {
 	private readonly _BASE_URL = `${environment.apiUrl}/booking`;
-	private readonly _USER_URL = `${environment.apiUrl}/auth`;
-	private readonly _ACTIVITY_URL = `${environment.apiUrlJsonServer}/activity`;
+	private readonly _USER_URL = `${environment.apiUrl}/profile`;
+	private readonly _ACTIVITY_URL = `${environment.apiUrl}/activity`;
 
 	private navItems: MenuItem[] = [
 		{

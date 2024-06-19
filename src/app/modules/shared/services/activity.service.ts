@@ -65,14 +65,18 @@ export class ActivityService {
 		limit: number = -1,
 		userId: number,
 	): Observable<ActivityListResponse> {
-		return this._httpClient.get<ActivityListResponse>(this._BASE_URL).pipe(
-			map((activities: ActivityListResponse) =>
-				activities.filter(activity => activity.profileId === userId).reverse(),
-			),
-			map((activities: ActivityListResponse) =>
-				limit > 0 ? activities.slice(0, limit) : activities,
-			),
-		);
+		return this._httpClient
+			.get<ActivityListResponse>(`${this._BASE_URL}/all`)
+			.pipe(
+				map((activities: ActivityListResponse) =>
+					activities
+						.filter(activity => activity.profileId === userId)
+						.reverse(),
+				),
+				map((activities: ActivityListResponse) =>
+					limit > 0 ? activities.slice(0, limit) : activities,
+				),
+			);
 	}
 
 	getListOfActivitiesRegisteredByUser$(
