@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { IsConnectedGuard } from '@shared/guards/is-connected.guard';
 import { UserHomeComponent } from '@user/pages/user-home/user-home.component';
 import { UserProfileComponent } from '@user/pages/user-profile/user-profile.component';
-// import { UserPasswordComponent } from '@user/pages/user-password/user-password.component';
+import { UserPasswordComponent } from '@user/pages/user-password/user-password.component';
 import { UserCenterOfInterestComponent } from '@user/pages/user-center-of-interest/user-center-of-interest.component';
 // import { UserNotificationComponent } from '@user/pages/user-notification/user-notification.component';
 import { UserActivitiesComponent } from '@user/pages/user-activities/user-activities.component';
@@ -22,11 +22,11 @@ const routes: Routes = [
 		component: UserProfileComponent,
 		canActivate: [IsConnectedGuard],
 	},
-	// {
-	// 	path: UserRouteEnum.PASSWORD,
-	// 	component: UserPasswordComponent,
-	// 	canActivate: [IsConnectedGuard],
-	// },
+	{
+		path: UserRouteEnum.PASSWORD,
+		component: UserPasswordComponent,
+		canActivate: [IsConnectedGuard],
+	},
 	{
 		path: UserRouteEnum.CENTER_OF_INTERESTS,
 		component: UserCenterOfInterestComponent,

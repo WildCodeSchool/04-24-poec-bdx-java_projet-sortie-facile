@@ -5,7 +5,7 @@ import { UserRoutingModule } from '@user/user-routing.module';
 import { UserHomeComponent } from '@user/pages/user-home/user-home.component';
 // import { AccountLayoutComponent } from '@user/components/ui/account-layout/account-layout.component';
 import { UserProfileComponent } from '@user/pages/user-profile/user-profile.component';
-// import { UserPasswordComponent } from '@user/pages/user-password/user-password.component';
+import { UserPasswordComponent } from '@user/pages/user-password/user-password.component';
 import { UserActivitiesComponent } from '@user/pages/user-activities/user-activities.component';
 // import { UserCalendarComponent } from '@user/pages/user-calendar/user-calendar.component';
 import { UserCenterOfInterestComponent } from '@user/pages/user-center-of-interest/user-center-of-interest.component';
@@ -18,8 +18,8 @@ import { AccountCenterOfInterestManagementComponent } from './components/feature
 import { FormsModule } from '@angular/forms';
 import { AccountPersonalInfosFormComponent } from './components/ui/account-form/account-personal-infos-form/account-personal-infos-form.component';
 import { AccountAddressFormComponent } from './components/ui/account-form/account-address-form/account-address-form.component';
-// import { AccountPasswordManagementComponent } from './components/feature/account-password-management/account-password-management.component';
-// import { AccountPasswordFormComponent } from './components/ui/account-form/account-password-form/account-password-form.component';
+import { AccountPasswordManagementComponent } from './components/feature/account-password-management/account-password-management.component';
+import { AccountPasswordFormComponent } from './components/ui/account-form/account-password-form/account-password-form.component';
 // import { AccountCalendarManagementComponent } from './components/feature/account-calendar-management/account-calendar-management.component';
 // import { AccountCalendarComponent } from './components/ui/account-calendar/account-calendar.component';
 import { AccountGeneralFormComponent } from './components/ui/account-form/account-general-form/account-general-form.component';
@@ -34,7 +34,7 @@ import { AccountGeneralManagementComponent } from './components/feature/account-
 		// AccountLayoutComponent,
 		AccountGeneralManagementComponent,
 		UserProfileComponent,
-		// UserPasswordComponent,
+		UserPasswordComponent,
 		UserActivitiesComponent,
 		// UserCalendarComponent,
 		UserCenterOfInterestComponent,
@@ -45,8 +45,8 @@ import { AccountGeneralManagementComponent } from './components/feature/account-
 		AccountCenterOfInterestManagementComponent,
 		AccountPersonalInfosFormComponent,
 		AccountAddressFormComponent,
-		// AccountPasswordManagementComponent,
-		// AccountPasswordFormComponent,
+		AccountPasswordManagementComponent,
+		AccountPasswordFormComponent,
 		// AccountCalendarManagementComponent,
 		// AccountCalendarComponent,
 		AccountGeneralFormComponent,

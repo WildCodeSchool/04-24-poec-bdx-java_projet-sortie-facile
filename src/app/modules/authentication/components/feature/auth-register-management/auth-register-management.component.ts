@@ -12,7 +12,6 @@ import {
 import { AuthRedirect } from '@shared/models/types/auth/auth-redirect.type';
 import { AuthProvider } from '@shared/models/types/auth/provider.type';
 import { AuthService } from '@shared/services/auth.service';
-import { Subscription } from 'rxjs';
 
 @Component({
 	selector: 'app-auth-register-management',
@@ -23,7 +22,6 @@ export class AuthRegisterManagementComponent implements OnInit {
 	providerNameList!: AuthProvider[];
 	lastUserId!: string;
 	step!: number;
-	private _subscription: Subscription = new Subscription();
 
 	formStep: number = 1;
 
