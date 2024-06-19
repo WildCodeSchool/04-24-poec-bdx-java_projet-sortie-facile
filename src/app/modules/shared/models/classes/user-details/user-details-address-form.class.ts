@@ -2,7 +2,7 @@ import { City } from '@shared/models/classes/address/city.class';
 import { Department } from '@shared/models/classes/address/department.class';
 import { Region } from '@shared/models/classes/address/region.class';
 
-export class UserDetailsAddressForm {
+export class UserProfileAddressForm {
 	region: Region;
 	department: Department;
 	streetNumber: string;

@@ -10,7 +10,7 @@ export class AuthUserPatch {
 	password?: string;
 	role?: UserRoleEnum;
 	status?: AccountStatus;
-	userDetailsId?: string;
+	UserProfileId?: string;
 
 	constructor(
 		id: string,
@@ -19,7 +19,7 @@ export class AuthUserPatch {
 		password: string,
 		role: UserRoleEnum,
 		status: AccountStatus,
-		userDetailsId: string,
+		UserProfileId: string,
 	) {
 		this.id = id;
 		this.username = username;
@@ -27,6 +27,6 @@ export class AuthUserPatch {
 		this.password = password;
 		this.role = role;
 		this.status = status;
-		this.userDetailsId = userDetailsId;
+		this.UserProfileId = UserProfileId;
 	}
 }

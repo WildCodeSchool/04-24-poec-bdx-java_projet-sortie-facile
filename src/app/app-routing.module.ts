@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AdminModule } from '@admin/admin.module';
-// import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
+import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { ContactComponent } from './contact/contact.component';
 import { ActivityModule } from '@activity/activity.module';
 import { PrimaryRouteEnum } from '@shared/models/enums/routes/route.enum';
-// import { MentionLegalesComponent } from './mention-legales/mention-legales.component';
+import { MentionLegalesComponent } from './mention-legales/mention-legales.component';
 
 const routes: Routes = [
 	{
@@ -18,21 +18,21 @@ const routes: Routes = [
 		loadChildren: () =>
 			import('./modules/activity/activity.module').then(m => m.ActivityModule),
 	},
-	// {
-	// 	path: PrimaryRouteEnum.ADMIN,
-	// 	loadChildren: () =>
-	// 		import('./modules/admin/admin.module').then(m => m.AdminModule),
-	// },
+	{
+		path: PrimaryRouteEnum.ADMIN,
+		loadChildren: () =>
+			import('./modules/admin/admin.module').then(m => m.AdminModule),
+	},
 	{
 		path: PrimaryRouteEnum.BOOKING,
 		loadChildren: () =>
 			import('./modules/booking/booking.module').then(m => m.BookingModule),
 	},
-	// {
-	// 	path: PrimaryRouteEnum.USER,
-	// 	loadChildren: () =>
-	// 		import('./modules/user/user.module').then(m => m.UserModule),
-	// },
+	{
+		path: PrimaryRouteEnum.USER,
+		loadChildren: () =>
+			import('./modules/user/user.module').then(m => m.UserModule),
+	},
 	{
 		path: PrimaryRouteEnum.AUTHENTICATION,
 		loadChildren: () =>
@@ -41,15 +41,15 @@ const routes: Routes = [
 			),
 	},
 	{ path: PrimaryRouteEnum.CONTACT, component: ContactComponent },
-	// {
-	// 	path: PrimaryRouteEnum.CGU,
-	// 	component: MentionLegalesComponent,
-	// },
-	// {
-	// 	path: PrimaryRouteEnum.NOT_FOUND,
-	// 	pathMatch: 'full',
-	// 	component: PagenotfoundComponent,
-	// },
+	{
+		path: PrimaryRouteEnum.CGU,
+		component: MentionLegalesComponent,
+	},
+	{
+		path: PrimaryRouteEnum.NOT_FOUND,
+		pathMatch: 'full',
+		component: PagenotfoundComponent,
+	},
 ];
 
 @NgModule({

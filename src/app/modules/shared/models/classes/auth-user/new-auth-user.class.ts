@@ -11,7 +11,7 @@ export class NewAuthUser {
 	passwordConfirm: string;
 	role: UserRoleEnum;
 	status: AccountStatus;
-	userDetailsId: string;
+	UserProfileId: string;
 
 	constructor(
 		id: string,
@@ -21,7 +21,7 @@ export class NewAuthUser {
 		passwordConfirm: string,
 		role: UserRoleEnum,
 		status: AccountStatus,
-		userDetailsId: string,
+		UserProfileId: string,
 	) {
 		this.id = id;
 		this.username = username;
@@ -30,6 +30,6 @@ export class NewAuthUser {
 		this.passwordConfirm = passwordConfirm;
 		this.role = role;
 		this.status = status;
-		this.userDetailsId = userDetailsId;
+		this.UserProfileId = UserProfileId;
 	}
 }

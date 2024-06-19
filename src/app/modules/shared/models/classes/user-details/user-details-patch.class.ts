@@ -3,7 +3,7 @@ import { City } from '@shared/models/classes/address/city.class';
 import { Department } from '@shared/models/classes/address/department.class';
 import { Region } from '@shared/models/classes/address/region.class';
 
-export class UserDetailsPatch {
+export class UserProfilePatch {
 	id?: string;
 	firstname?: string;
 	lastname?: string;

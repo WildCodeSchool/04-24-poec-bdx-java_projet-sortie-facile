@@ -1,6 +1,6 @@
 import { UserGenderEnum } from '@shared/models/enums/user-genre.enum';
 
-export class NewUserUserDetailsFormDatas {
+export class NewUserUserProfileFormDatas {
 	firstname: string;
 	lastname: string;
 	streetNumber: string;

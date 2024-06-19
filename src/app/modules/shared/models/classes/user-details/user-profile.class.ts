@@ -3,8 +3,8 @@ import { City } from '@shared/models/classes/address/city.class';
 import { Department } from '@shared/models/classes/address/department.class';
 import { Region } from '@shared/models/classes/address/region.class';
 
-export class UserDetails {
-	id: string;
+export class UserProfile {
+	id: number;
 	firstname: string;
 	lastname: string;
 	region: Region;
@@ -22,7 +22,7 @@ export class UserDetails {
 	userId: string;
 
 	constructor(
-		id: string,
+		id: number,
 		firstname: string,
 		lastname: string,
 		region: Region,

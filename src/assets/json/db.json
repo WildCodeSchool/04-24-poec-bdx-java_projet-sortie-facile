@@ -8,7 +8,7 @@
 			"passwordConfirm": "123456789",
 			"role": "admin",
 			"status": "inactive",
-			"userDetailsId": "1"
+			"UserProfileId": "1"
 		},
 		{
 			"id": "2",
@@ -18,7 +18,7 @@
 			"passwordConfirm": "987654321",
 			"role": "user",
 			"status": "active",
-			"userDetailsId": "2"
+			"UserProfileId": "2"
 		},
 		{
 			"id": "3",
@@ -28,7 +28,7 @@
 			"passwordConfirm": "password123",
 			"role": "user",
 			"status": "active",
-			"userDetailsId": "3"
+			"UserProfileId": "3"
 		},
 		{
 			"id": "4",
@@ -38,7 +38,7 @@
 			"passwordConfirm": "securepass",
 			"role": "user",
 			"status": "active",
-			"userDetailsId": "4"
+			"UserProfileId": "4"
 		},
 		{
 			"id": "08ec",
@@ -48,7 +48,7 @@
 			"passwordConfirm": "123456789",
 			"role": "user",
 			"status": "active",
-			"userDetailsId": "3acf"
+			"UserProfileId": "3acf"
 		},
 		{
 			"id": "5096",
@@ -58,7 +58,7 @@
 			"passwordConfirm": "123456789",
 			"role": "user",
 			"status": "active",
-			"userDetailsId": "d65f"
+			"UserProfileId": "d65f"
 		},
 		{
 			"id": "b3e7",
@@ -68,7 +68,7 @@
 			"passwordConfirm": "123456789",
 			"role": "user",
 			"status": "active",
-			"userDetailsId": "772f"
+			"UserProfileId": "772f"
 		},
 		{
 			"id": "4d3f",
@@ -78,7 +78,7 @@
 			"passwordConfirm": "123456789",
 			"role": "user",
 			"status": "active",
-			"userDetailsId": "7137"
+			"UserProfileId": "7137"
 		},
 		{
 			"id": "7d83",
@@ -88,7 +88,7 @@
 			"passwordConfirm": "123456789",
 			"role": "user",
 			"status": "active",
-			"userDetailsId": "f496"
+			"UserProfileId": "f496"
 		},
 		{
 			"id": "243f",
@@ -98,7 +98,7 @@
 			"passwordConfirm": "123456789",
 			"role": "user",
 			"status": "active",
-			"userDetailsId": "d0a9"
+			"UserProfileId": "d0a9"
 		},
 		{
 			"id": "8392",
@@ -108,7 +108,7 @@
 			"passwordConfirm": "123456789",
 			"role": "user",
 			"status": "active",
-			"userDetailsId": "4b3f"
+			"UserProfileId": "4b3f"
 		},
 		{
 			"id": "8a38",
@@ -118,7 +118,7 @@
 			"passwordConfirm": "123456789",
 			"role": "user",
 			"status": "active",
-			"userDetailsId": "1b59"
+			"UserProfileId": "1b59"
 		}
 	],
 	"user_details": [

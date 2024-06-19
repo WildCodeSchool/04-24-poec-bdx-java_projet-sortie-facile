@@ -9,8 +9,8 @@ import {
 	UserRoleEnum,
 } from '@shared/models/enums/user-role.enum';
 import { NewAuthUserFormDatas } from '@shared/models/classes/auth-user/new-auth-user-form-datas.class';
-import { UserDetails } from '@shared/models/classes/user-details/user-details.class';
-import { NewUserUserDetailsFormDatas } from '@shared/models/classes/user-details/new-user-details-form-datas.class';
+import { UserProfile } from '@shared/models/classes/user-details/user-profile.class';
+import { NewUserUserProfileFormDatas } from '@shared/models/classes/user-details/new-user-details-form-datas.class';
 import { AuthUser } from '@shared/models/classes/auth-user/auth-user.class';
 import { AuthUserPrimaryDatas } from '@shared/models/classes/auth-user/auth-user-primary-datas.class';
 import { AuthUserServiceUtils } from '@shared/models/classes/utils/auth-user-service-utils.class';
@@ -48,6 +48,7 @@ export class AuthService extends AuthUserServiceUtils {
 			.post<TokenResponse>(`${this._BASE_URL}/authenticate`, userCredentials)
 			.subscribe((token: TokenResponse) => {
 				this._tokenService.updateToken(token);
+				this._router.navigateByUrl(FullUserRouteEnum.HOME);
 			});
 		// return this._httpClient.get<AuthUserListResponseApi>(this.BASE_URL).pipe(
 		// 	map(
@@ -68,7 +69,7 @@ export class AuthService extends AuthUserServiceUtils {
 		// 			email: user.email,
 		// 			role: user.role,
 		// 			status: user.status,
-		// 			userDetailsId: user.userDetailsId,
+		// 			UserProfileId: user.UserProfileId,
 		// 		} as AuthUserPrimaryDatas;
 		// 	}),
 		// 	tap((user: AuthUserPrimaryDatas) => {
@@ -90,7 +91,7 @@ export class AuthService extends AuthUserServiceUtils {
 
 	createUserWithEmailAndPassword(
 		newUserAuthInfos: NewAuthUserFormDatas,
-		newUserPersonalInfos: NewUserUserDetailsFormDatas,
+		newUserPersonalInfos: NewUserUserProfileFormDatas,
 	) {
 		const userAuthRequestBody: NewAuthUserInput = new NewAuthUserInput(
 			newUserAuthInfos.username,
@@ -138,10 +139,10 @@ export class AuthService extends AuthUserServiceUtils {
 		// 					userId: createdUser.id,
 		// 				})
 		// 				.pipe(
-		// 					map((createdUserInfo: UserDetails) => {
+		// 					map((createdUserInfo: UserProfile) => {
 		// 						return {
 		// 							...createdUser,
-		// 							userDetailsId: createdUserInfo.id,
+		// 							UserProfileId: createdUserInfo.id,
 		// 						};
 		// 					}),
 		// 				);
@@ -174,7 +175,7 @@ export class AuthService extends AuthUserServiceUtils {
 			email: '',
 			role: UserRoleEnum.USER,
 			status: AccountStatus.ACTIVE,
-			userDetailsId: '',
+			UserProfileId: '',
 		});
 		this.notifyLoggedInStatus(false);
 		this._router.navigateByUrl(FullAuthenticationRouteEnum.LOGIN);
@@ -201,7 +202,7 @@ export class AuthService extends AuthUserServiceUtils {
 				password: '',
 				username: '',
 				status: AccountStatus.INACTIVE,
-				userDetailsId: '',
+				UserProfileId: '',
 			})
 			.pipe(tap(() => this.logout()));
 	}

@@ -1,4 +1,4 @@
-<app-layout-container-content
+<!-- <app-layout-container-content
 	sectionTitle="Infos personnelles"
 	[isViewDatas]="isViewDatas"
 	(sendIsViewDatas)="showIsViewDatas($event)"
@@ -6,7 +6,7 @@
 	<div
 		class="content-box"
 		data
-		*ngIf="userDetails$ | async as userPersonalInfosDetails"
+		*ngIf="UserProfile$ | async as userPersonalInfosDetails"
 	>
 		<app-account-card-info
 			title="Prénom"
@@ -103,4 +103,4 @@
 			<p-button label="Sauvegarder" [rounded]="true" (click)="onSave()" />
 		</div>
 	</div>
-</app-layout-container-content>
+</app-layout-container-content> -->

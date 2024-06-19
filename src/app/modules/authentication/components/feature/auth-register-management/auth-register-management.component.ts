@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { City } from '@shared/models/classes/address/city.class';
 import { Department } from '@shared/models/classes/address/department.class';
 import { NewAuthUserFormDatas } from '@shared/models/classes/auth-user/new-auth-user-form-datas.class';
-import { NewUserUserDetailsFormDatas } from '@shared/models/classes/user-details/new-user-details-form-datas.class';
+import { NewUserUserProfileFormDatas } from '@shared/models/classes/user-details/new-user-details-form-datas.class';
 import { FullAuthenticationRouteEnum } from '@shared/models/enums/routes/full-routes';
 import { UserGenderEnum } from '@shared/models/enums/user-genre.enum';
 import {
@@ -43,8 +43,8 @@ export class AuthRegisterManagementComponent implements OnInit {
 		'',
 	);
 
-	newUserPersonalInfos: NewUserUserDetailsFormDatas =
-		new NewUserUserDetailsFormDatas(
+	newUserPersonalInfos: NewUserUserProfileFormDatas =
+		new NewUserUserProfileFormDatas(
 			'bob',
 			"l'éponge",
 			'5',

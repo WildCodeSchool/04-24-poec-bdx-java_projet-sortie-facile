@@ -6,7 +6,7 @@ import {
 	Output,
 } from '@angular/core';
 import { NewAuthUserFormDatas } from '@shared/models/classes/auth-user/new-auth-user-form-datas.class';
-import { NewUserUserDetailsFormDatas } from '@shared/models/classes/user-details/new-user-details-form-datas.class';
+import { NewUserUserProfileFormDatas } from '@shared/models/classes/user-details/new-user-details-form-datas.class';
 import { AuthService } from '@shared/services/auth.service';
 import { Subscription } from 'rxjs';
 
@@ -16,7 +16,7 @@ import { Subscription } from 'rxjs';
 	styleUrl: './stepper-register.component.scss',
 })
 export class StepperRegisterComponent implements OnDestroy {
-	@Input() newUserPersonalInfos!: NewUserUserDetailsFormDatas;
+	@Input() newUserPersonalInfos!: NewUserUserProfileFormDatas;
 	@Input() newUserAuth!: NewAuthUserFormDatas;
 
 	@Output()

@@ -1,9 +1,10 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { AuthUserPrimaryDatas } from '@shared/models/classes/auth-user/auth-user-primary-datas.class';
+import { AuthUserResponse } from '@shared/models/classes/auth-user/auth-user-response.class';
 import { Category } from '@shared/models/classes/category/category.class';
-import { UserDetails } from '@shared/models/classes/user-details/user-details.class';
+import { UserProfile } from '@shared/models/classes/user-details/user-profile.class';
 import { AuthService } from '@shared/services/auth.service';
 import { CategoryService } from '@shared/services/category.service';
+import { TokenService } from '@shared/services/token.service';
 import { UserService } from '@shared/services/user.service';
 import { DialogService } from 'primeng/dynamicdialog';
 import { Observable, tap } from 'rxjs';
@@ -19,7 +20,7 @@ export class ModalAddCategoryComponent implements OnInit {
 	categoriesList$!: Observable<Category[]>;
 	selectedCategoryIds: string[] = [];
 
-	connectedUser!: AuthUserPrimaryDatas;
+	connectedUser!: AuthUserResponse;
 
 	@Output() categoriesUpdated = new EventEmitter<void>();
 
@@ -27,18 +28,24 @@ export class ModalAddCategoryComponent implements OnInit {
 		private _categoryService: CategoryService,
 		private _authService: AuthService,
 		private _userService: UserService,
+		private _tokenService: TokenService,
 	) {}
 
 	ngOnInit(): void {
+		this._tokenService
+			._getTokenDetailsSubject$()
+			.subscribe((connectedUser: AuthUserResponse) => {
+				this.connectedUser = connectedUser;
+			});
+
 		this.categoriesList$ = this._categoryService.getCategoryList$();
-		this.connectedUser = this._authService.getConnectedUserData();
 
 		this._userService
-			.getUserInfos$(this.connectedUser.userDetailsId)
+			.getUserInfos$(this.connectedUser.id)
 			.pipe(
 				tap(
-					(userDetails: UserDetails) =>
-						(this.selectedCategoryIds = userDetails.categoryIds),
+					(UserProfile: UserProfile) =>
+						(this.selectedCategoryIds = UserProfile.categoryIds),
 				),
 			)
 			.subscribe();
@@ -54,7 +61,7 @@ export class ModalAddCategoryComponent implements OnInit {
 
 	onSave(): void {
 		this._userService
-			.patchUserInfo$(this.connectedUser.userDetailsId, {
+			.patchUserInfo$(this.connectedUser.id, {
 				categoryIds: this.selectedCategoryIds,
 			})
 			.subscribe(() => {

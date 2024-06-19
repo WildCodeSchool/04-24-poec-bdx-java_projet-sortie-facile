@@ -2,9 +2,9 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { NewProfileInput } from '@shared/models/classes/user-details/new-profil-input.class';
 import { UserGeneralForm } from '@shared/models/classes/user-details/user-details-general-form.class';
-import { UserDetailsPatch } from '@shared/models/classes/user-details/user-details-patch.class';
-import { UserDetailsPersonalInfosForm } from '@shared/models/classes/user-details/user-details-personal-info-form.class';
-import { UserDetails } from '@shared/models/classes/user-details/user-details.class';
+import { UserProfilePatch } from '@shared/models/classes/user-details/user-details-patch.class';
+import { UserProfilePersonalInfosForm } from '@shared/models/classes/user-details/user-details-personal-info-form.class';
+import { UserProfile } from '@shared/models/classes/user-details/user-profile.class';
 import { environment } from 'environments/environment';
 import { Observable } from 'rxjs';
 
@@ -16,8 +16,8 @@ export class UserService {
 
 	constructor(private _httpClient: HttpClient) {}
 
-	getUserInfos$(userId: string): Observable<UserDetails> {
-		return this._httpClient.get<UserDetails>(`${this._BASE_URL}/${userId}`);
+	getUserInfos$(userId: number): Observable<UserProfile> {
+		return this._httpClient.get<UserProfile>(`${this._BASE_URL}/${userId}`);
 	}
 
 	postUserInfos$(
@@ -26,28 +26,28 @@ export class UserService {
 		departmentId: number,
 		cityId: number,
 		userId: number,
-	): Observable<UserDetails> {
-		return this._httpClient.post<UserDetails>(
+	): Observable<UserProfile> {
+		return this._httpClient.post<UserProfile>(
 			`${this._BASE_URL}/add/region/${regionId}/department/${departmentId}/city/${cityId}/user/${userId}`,
 			userInfos,
 		);
 	}
 
 	putUserInfo$(
-		UserId: string,
-		userInfos: UserDetailsPersonalInfosForm | UserGeneralForm,
-	): Observable<UserDetails> {
-		return this._httpClient.put<UserDetails>(
-			`${this._BASE_URL}/${UserId}`,
+		userId: number,
+		userInfos: UserProfilePersonalInfosForm | UserGeneralForm,
+	): Observable<UserProfile> {
+		return this._httpClient.put<UserProfile>(
+			`${this._BASE_URL}/${userId}`,
 			userInfos,
 		);
 	}
 
 	patchUserInfo$(
-		authUserConnectedId: string,
-		newUsersDatas: UserDetailsPatch,
-	): Observable<UserDetails> {
-		return this._httpClient.patch<UserDetails>(
+		authUserConnectedId: number,
+		newUsersDatas: UserProfilePatch,
+	): Observable<UserProfile> {
+		return this._httpClient.patch<UserProfile>(
 			`${this._BASE_URL}/${authUserConnectedId}`,
 			newUsersDatas,
 		);

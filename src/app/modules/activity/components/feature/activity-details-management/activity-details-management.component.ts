@@ -6,7 +6,7 @@ import { City } from '@shared/models/classes/address/city.class';
 import { Department } from '@shared/models/classes/address/department.class';
 import { Region } from '@shared/models/classes/address/region.class';
 import { AuthUserResponse } from '@shared/models/classes/auth-user/auth-user-response.class';
-import { UserDetails } from '@shared/models/classes/user-details/user-details.class';
+import { UserProfile } from '@shared/models/classes/user-details/user-profile.class';
 import {
 	FullActivityRouteEnum,
 	FullUserRouteEnum,
@@ -34,7 +34,7 @@ export class ActivityDetailsManagementComponent implements OnInit, OnDestroy {
 
 	activity$!: Observable<Activity>;
 	categoryTitle$!: Observable<string>;
-	userDetails!: UserDetails;
+	UserProfile!: UserProfile;
 	hasBooking!: boolean;
 	suggestList$!: Observable<Activity[]>;
 
