@@ -7,7 +7,7 @@ import { UserPasswordComponent } from '@user/pages/user-password/user-password.c
 import { UserCenterOfInterestComponent } from '@user/pages/user-center-of-interest/user-center-of-interest.component';
 // import { UserNotificationComponent } from '@user/pages/user-notification/user-notification.component';
 import { UserActivitiesComponent } from '@user/pages/user-activities/user-activities.component';
-// import { UserCalendarComponent } from '@user/pages/user-calendar/user-calendar.component';
+import { UserCalendarComponent } from '@user/pages/user-calendar/user-calendar.component';
 import { UserRouteEnum } from '@shared/models/enums/routes/route.enum';
 // import { UserBookingComponent } from './pages/user-booking/user-booking.component';
 
@@ -42,11 +42,11 @@ const routes: Routes = [
 		component: UserActivitiesComponent,
 		canActivate: [IsConnectedGuard],
 	},
-	// {
-	// 	path: UserRouteEnum.CALENDAR,
-	// 	component: UserCalendarComponent,
-	// 	canActivate: [IsConnectedGuard],
-	// },
+	{
+		path: UserRouteEnum.CALENDAR,
+		component: UserCalendarComponent,
+		canActivate: [IsConnectedGuard],
+	},
 	// {
 	// 	path: UserRouteEnum.BOOKING,
 	// 	component: UserBookingComponent,

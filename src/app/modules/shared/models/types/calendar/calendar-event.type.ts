@@ -6,6 +6,6 @@ export type CalendarEvent = {
 	color: string;
 	extendedProps: {
 		activity: Activity;
-		activityId: string;
+		activityId: number;
 	};
 };
