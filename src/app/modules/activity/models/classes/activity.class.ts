@@ -11,7 +11,6 @@ export class Activity {
 	description: string;
 	nbGuest: number;
 	category: number;
-	hour: string;
 	profileId: number;
 	isVisible: boolean;
 
@@ -28,7 +27,6 @@ export class Activity {
 		description: string,
 		nbGuest: number,
 		category: number,
-		hour: string,
 		profileId: number,
 		isVisible: boolean,
 	) {
@@ -44,7 +42,6 @@ export class Activity {
 		this.description = description;
 		this.nbGuest = nbGuest;
 		this.category = category;
-		this.hour = hour;
 		this.profileId = profileId;
 		this.isVisible = isVisible;
 	}
