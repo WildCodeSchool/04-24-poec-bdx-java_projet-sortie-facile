@@ -62,7 +62,7 @@ export class ModalDeleteAccountComponent extends AbstractModal {
 			severity: 'success',
 			summary: 'Succès',
 			detail: 'Votre compte a été supprimer avec succés',
-			life: 5000,
+			life: 1000,
 		});
 		this._authService
 			.deleteUser(this.connectedUser.id)
@@ -71,7 +71,7 @@ export class ModalDeleteAccountComponent extends AbstractModal {
 					// this._confirmationService.close();
 					setTimeout(() => {
 						this._router.navigate([FullAuthenticationRouteEnum.LOGIN]);
-					}, 10000);
+					}, 1000);
 				}),
 			)
 			.subscribe();
