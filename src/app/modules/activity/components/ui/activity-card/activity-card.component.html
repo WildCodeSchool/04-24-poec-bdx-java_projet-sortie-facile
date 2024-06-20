@@ -3,7 +3,7 @@
 		<ng-template pTemplate="header">
 			<div
 				class="btn-admin"
-				*ngIf="connectedUser && connectedUser.id === activity.userId"
+				*ngIf="connectedUser && connectedUser.id === activity.profileId"
 			>
 				<p-button
 					icon="pi pi-pencil"
@@ -39,12 +39,15 @@
 			</div>
 			<div class="bottom-item">
 				<i class="pi pi-clock"></i>
-				<p>{{ activity.hour | date: 'HH:mm' }}</p>
+				<!-- {{ activity.date }} -->
+				<p>{{ activity.date | date: 'HH:mm' }}</p>
 			</div>
 
 			<div class="bottom-item">
 				<i class="pi pi-map-marker"></i>
-				<p>{{ activity.activityCity }}</p>
+				<ng-container *ngIf="city$ | async as city">
+					<p>{{ city.name | titlecase }}</p>
+				</ng-container>
 			</div>
 		</div>
 

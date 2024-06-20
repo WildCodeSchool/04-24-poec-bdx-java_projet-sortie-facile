@@ -2,7 +2,7 @@
 	<app-dashboard-layout
 		[avatarSrc]="avatarSrc"
 		[avatarAlt]="avatarAlt"
-		[username]="connectedUser.username"
+		[username]="connectedUser.nickname"
 		[pageTitle]="pageTitle"
 		[pageDescription]="pageDescription"
 		[items]="navItems"
@@ -17,7 +17,7 @@
 						class="category-card"
 						*ngFor="let category of userCategoryList$ | async"
 					>
-						<p>{{ category.name }}</p>
+						<p>{{ category.title }}</p>
 					</div>
 				</div>
 

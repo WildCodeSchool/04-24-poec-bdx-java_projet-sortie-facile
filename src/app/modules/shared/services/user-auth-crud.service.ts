@@ -14,6 +14,7 @@ import { AuthUserPrimaryDatas } from '@shared/models/classes/auth-user/auth-user
 import { AuthUserPatch } from '@shared/models/classes/auth-user/auth-user-patch.class';
 import { AuthUserListResponseApi } from '@shared/models/classes/auth-user';
 import { AuthUserServiceUtils } from '@shared/models/classes/utils/auth-user-service-utils.class';
+import { AuthUserResponse } from '@shared/models/classes/auth-user/auth-user-response.class';
 
 @Injectable({
 	providedIn: 'root',
@@ -24,7 +25,7 @@ export class UserAuthCrudService extends AuthUserServiceUtils {
 	}
 
 	public updatePassword(
-		connectedUser: AuthUserPrimaryDatas,
+		connectedUser: AuthUserResponse,
 		oldPassword: string,
 		newPassword: string,
 	): Observable<AuthUserPrimaryDatas> {
@@ -33,7 +34,7 @@ export class UserAuthCrudService extends AuthUserServiceUtils {
 				return (
 					users.find((user: AuthUser) => {
 						return (
-							user.username === connectedUser.username &&
+							user.username === connectedUser.nickname &&
 							user.password === oldPassword
 						);
 					}) || null
@@ -56,7 +57,7 @@ export class UserAuthCrudService extends AuthUserServiceUtils {
 
 	public patchConnectedUser(
 		userAuthInfoPatch: AuthUserPatch,
-		connectedUser: AuthUserPrimaryDatas,
+		connectedUser: AuthUserResponse,
 	): Observable<AuthUser> {
 		return this._httpClient
 			.patch<AuthUser>(
@@ -72,12 +73,12 @@ export class UserAuthCrudService extends AuthUserServiceUtils {
 						'user',
 						JSON.stringify({
 							...user,
-							userDetailsId: currentUser.userDetailsId,
+							UserProfileId: currentUser.UserProfileId,
 						}),
 					);
 					this.setConnectedUserData({
 						...user,
-						userDetailsId: currentUser.userDetailsId,
+						UserProfileId: currentUser.UserProfileId,
 					});
 				}),
 			);

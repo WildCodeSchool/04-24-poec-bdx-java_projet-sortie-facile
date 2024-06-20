@@ -1,11 +1,11 @@
 export class Booking {
-	id: string;
-	activityId: string;
-	userId: string;
+	id: number;
+	activityId: number;
+	profileId: number;
 
-	constructor(id: string, userId: string, activityId: string) {
+	constructor(id: number, profileId: number, activityId: number) {
 		this.id = id;
-		this.userId = userId;
+		this.profileId = profileId;
 		this.activityId = activityId;
 	}
 }

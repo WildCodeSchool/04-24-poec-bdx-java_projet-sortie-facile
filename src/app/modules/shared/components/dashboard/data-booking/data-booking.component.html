@@ -18,7 +18,7 @@
 			<tr *ngFor="let reservation of reservations">
 				<td>{{ reservation.id }}</td>
 				<td>{{ reservation.activityId }}</td>
-				<td>{{ reservation.userId }}</td>
+				<td>{{ reservation.profileId }}</td>
 				<td>
 					{{ reservation?.user?.username | json }}
 				</td>

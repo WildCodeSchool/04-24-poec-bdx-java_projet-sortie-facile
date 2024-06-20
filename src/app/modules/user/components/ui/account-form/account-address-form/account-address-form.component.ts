@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { UserDetailsAddressForm } from '@shared/models/classes/user-details/user-details-address-form.class';
-import { UserDetails } from '@shared/models/classes/user-details/user-details.class';
+import { UserProfileAddressForm } from '@shared/models/classes/user-details/user-details-address-form.class';
 import { InputNumberModeEnum } from '@shared/models/enums/InputNumberMode.enum';
-import { AuthUserPrimaryDatas } from '@shared/models/classes/auth-user/auth-user-primary-datas.class';
-import { AuthService } from '@shared/services/auth.service';
 import { UserService } from '@shared/services/user.service';
 import { Observable, map } from 'rxjs';
+import { AuthUserResponse } from '@shared/models/classes/auth-user/auth-user-response.class';
+import { TokenService } from '@shared/services/token.service';
+import { UserProfile } from '@shared/models/classes/user-details/user-profile.class';
+import { Region } from '@shared/models/classes/address/region.class';
+import { RegionService } from '@shared/services/address/region.service';
 
 @Component({
 	selector: 'app-account-address-form',
@@ -13,33 +15,42 @@ import { Observable, map } from 'rxjs';
 	styleUrl: './account-address-form.component.scss',
 })
 export class AccountAddressFormComponent implements OnInit {
-	connectedUser!: AuthUserPrimaryDatas;
-	userDetails$!: Observable<UserDetails>;
+	connectedUser!: AuthUserResponse;
+	userProfile$!: Observable<UserProfile>;
+	userAddressRegion!: Region;
 	isViewDatas: boolean = true;
-	userAddressDatasForm!: UserDetailsAddressForm;
+	userAddressDatasForm!: UserProfileAddressForm;
 
 	readonly inputNumberModeEnum = InputNumberModeEnum;
 
 	constructor(
-		private _authService: AuthService,
 		private _userService: UserService,
+		private _tokenService: TokenService,
+		private _regionService: RegionService,
 	) {}
 
 	ngOnInit(): void {
-		this.connectedUser = this._authService.getConnectedUserData();
-		this.userDetails$ = this._userService.getUserInfos$(
-			this.connectedUser.userDetailsId,
-		);
-		this.userDetails$
+		this._tokenService
+			._getTokenDetailsSubject$()
+			.subscribe((connectedUser: AuthUserResponse) => {
+				this.connectedUser = connectedUser;
+			});
+
+		this.userProfile$ = this._userService.getUserInfos$(this.connectedUser.id);
+		this.userProfile$
 			.pipe(
-				map((userDetails: UserDetails) => {
+				map((userProfile: UserProfile) => {
 					this.userAddressDatasForm = {
-						...userDetails,
-						email: this.connectedUser.email,
+						...userProfile,
+						email: this.connectedUser.sub,
 					};
 				}),
 			)
 			.subscribe();
+	}
+
+	getRegion(regionId: number): Observable<Region> {
+		return this._regionService.getRegionById$(regionId);
 	}
 
 	showIsViewDatas(isViewDatas: boolean) {
@@ -47,10 +58,13 @@ export class AccountAddressFormComponent implements OnInit {
 	}
 
 	onSave(): void {
-		this.userDetails$ = this._userService.patchUserInfo$(
-			this.connectedUser.userDetailsId,
-			this.userAddressDatasForm,
-		);
+		// TODO
+		// CONNECT FRONT-BACK update address
+
+		// this.UserProfile$ = this._userService.patchUserInfo$(
+		// 	this.connectedUser.id,
+		// 	this.userAddressDatasForm,
+		// );
 
 		this.isViewDatas = !this.isViewDatas;
 	}

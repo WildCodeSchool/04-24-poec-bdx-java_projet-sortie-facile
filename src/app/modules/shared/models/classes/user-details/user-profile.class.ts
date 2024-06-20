@@ -1,53 +1,50 @@
 import { UserGenderEnum } from '@shared/models/enums/user-genre.enum';
-import { City } from '@shared/models/classes/address/city.class';
-import { Department } from '@shared/models/classes/address/department.class';
-import { Region } from '@shared/models/classes/address/region.class';
 
-export class UserDetails {
-	id: string;
+export class UserProfile {
+	id: number;
 	firstname: string;
 	lastname: string;
-	region: Region;
-	department: Department;
+	regionId: number;
+	departmentId: number;
 	streetNumber: string;
 	street: string;
 	postalCode: number;
-	city: City;
+	cityId: number;
 	description: string;
 	avatar: string;
 	phone: string;
 	dateOfBirth: string;
 	genre: UserGenderEnum;
-	categoryIds: string[];
-	userId: string;
+	categoryIds: number[];
+	userId: number;
 
 	constructor(
-		id: string,
+		id: number,
 		firstname: string,
 		lastname: string,
-		region: Region,
-		department: Department,
+		regionId: number,
+		departmentId: number,
 		streetNumber: string,
 		street: string,
 		postalCode: number,
-		city: City,
+		cityId: number,
 		description: string,
 		avatar: string,
 		phone: string,
 		dateOfBirth: string,
 		genre: UserGenderEnum,
-		categoryIds: string[],
-		userId: string,
+		categoryIds: number[],
+		userId: number,
 	) {
 		this.id = id;
 		this.firstname = firstname;
 		this.lastname = lastname;
-		this.department = department;
-		this.region = region;
+		this.departmentId = departmentId;
+		this.regionId = regionId;
 		this.streetNumber = streetNumber;
 		this.street = street;
 		this.postalCode = postalCode;
-		this.city = city;
+		this.cityId = cityId;
 		this.description = description;
 		this.avatar = avatar;
 		this.phone = phone;

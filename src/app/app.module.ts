@@ -16,6 +16,8 @@ import localeFr from '@angular/common/locales/fr';
 import { DialogService } from 'primeng/dynamicdialog';
 import { FIREBASE_OPTIONS } from '@angular/fire/compat';
 import { environment } from 'environments/environment';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { TokenInterceptor } from '@shared/interceptor/token.interceptor';
 
 registerLocaleData(localeFr, 'fr');
 
@@ -42,6 +44,11 @@ registerLocaleData(localeFr, 'fr');
 		{
 			provide: FIREBASE_OPTIONS,
 			useValue: environment.firebase,
+		},
+		{
+			provide: HTTP_INTERCEPTORS,
+			useClass: TokenInterceptor,
+			multi: true,
 		},
 	],
 	bootstrap: [AppComponent],

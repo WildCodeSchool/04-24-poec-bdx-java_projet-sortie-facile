@@ -15,13 +15,13 @@ export class CategoryService {
 	categories!: Category[];
 
 	private readonly _BASE_URL = `${environment.apiUrl}/category`;
-	private readonly _ACTIVITY_URL = `${environment.apiUrl}/activity`;
+	private readonly _ACTIVITY_URL = `${environment.apiUrlJsonServer}/activity`;
 
 	constructor(private _httpClient: HttpClient) {}
 
 	getCategoryList$(): Observable<Category[]> {
 		return this._httpClient
-			.get<Category[]>(this._BASE_URL)
+			.get<Category[]>(`${this._BASE_URL}/all`)
 			.pipe(map((response: Category[]) => response));
 	}
 
@@ -39,7 +39,7 @@ export class CategoryService {
 			.get<Category>(`${this._BASE_URL}/${categoryId}`)
 			.pipe(
 				map((category: Category) => {
-					return category.name;
+					return category.title;
 				}),
 			);
 	}

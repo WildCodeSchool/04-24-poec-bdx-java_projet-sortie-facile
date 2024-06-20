@@ -6,21 +6,21 @@ import { ActivityListComponent } from '@activity/pages/activity-list/activity-li
 import { ActivityCreateComponent } from '@activity/pages/activity-create/activity-create.component';
 import { ActivityRouteEnum } from '@shared/models/enums/routes/route.enum';
 import { updateActivityResolver } from '@shared/resolvers/activity/update-activity.resolver';
-import { isConnectedGuard } from '@shared/guards/is-connected.guard';
+import { IsConnectedGuard } from '@shared/guards/is-connected.guard';
 
 const routes: Routes = [
 	{ path: ActivityRouteEnum.HOME, component: ActivityListComponent },
 	{
 		path: ActivityRouteEnum.POST,
 		component: ActivityCreateComponent,
-		canActivate: [isConnectedGuard],
+		canActivate: [IsConnectedGuard],
 	},
 	{ path: ActivityRouteEnum.DETAILS, component: ActivityDetailsComponent },
 	{
 		path: ActivityRouteEnum.UPDATE,
 		component: UpdateActivityComponent,
 		resolve: { activityUpdated: updateActivityResolver },
-		canActivate: [isConnectedGuard],
+		canActivate: [IsConnectedGuard],
 	},
 ];
 

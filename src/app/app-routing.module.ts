@@ -33,7 +33,6 @@ const routes: Routes = [
 		loadChildren: () =>
 			import('./modules/user/user.module').then(m => m.UserModule),
 	},
-
 	{
 		path: PrimaryRouteEnum.AUTHENTICATION,
 		loadChildren: () =>

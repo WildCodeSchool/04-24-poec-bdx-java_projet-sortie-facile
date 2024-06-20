@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 	providedIn: 'root',
 })
 export class TestimonialService {
-	private readonly _BASE_URL = `${environment.apiUrl}/testimonials`;
+	private readonly _BASE_URL = `${environment.apiUrl}/testimonial/all`;
 
 	constructor(private _httpClient: HttpClient) {}
 

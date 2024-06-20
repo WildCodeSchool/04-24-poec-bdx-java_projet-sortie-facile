@@ -1,22 +1,20 @@
 import { UserGenderEnum } from '@shared/models/enums/user-genre.enum';
-import { City } from '@shared/models/classes/address/city.class';
-import { Department } from '@shared/models/classes//address/department.class';
 
-export class NewUserUserDetailsFormDatas {
+export class NewUserUserProfileFormDatas {
 	firstname: string;
 	lastname: string;
 	streetNumber: string;
 	street: string;
-	region: string;
-	postalCode: 33000;
+	region: number;
+	postalCode: number;
 	description: string;
-	department: Department;
-	city: City;
+	department: number;
+	city: number;
 	avatar: string;
 	phone: string;
 	dateOfBirth: string;
 	genre: UserGenderEnum;
-	categoryIds: string[];
+	categoryIds: number[];
 	userId: string;
 
 	constructor(
@@ -24,16 +22,16 @@ export class NewUserUserDetailsFormDatas {
 		lastname: string,
 		streetNumber: string,
 		street: string,
-		region: string,
-		postalCode: 33000,
+		region: number,
+		postalCode: number,
 		description: string,
-		department: Department,
-		city: City,
+		department: number,
+		city: number,
 		avatar: string,
 		phone: string,
 		dateOfBirth: string,
 		genre: UserGenderEnum,
-		categoryIds: string[],
+		categoryIds: number[],
 		userId: string,
 	) {
 		this.firstname = firstname;

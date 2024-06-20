@@ -1,28 +1,46 @@
-import { inject } from '@angular/core';
-import { CanActivateFn, Router } from '@angular/router';
-import { UserRoleEnum } from '@shared/models/enums/user-role.enum';
-import { AuthUserPrimaryDatas } from '@shared/models/classes/auth-user/auth-user-primary-datas.class';
-import { AuthService } from '@shared/services/auth.service';
+import { Injectable } from '@angular/core';
+import {
+	ActivatedRouteSnapshot,
+	CanActivate,
+	Router,
+	RouterStateSnapshot,
+	UrlTree,
+} from '@angular/router';
 import { FullAuthenticationRouteEnum } from '@shared/models/enums/routes/full-routes';
+import { TokenService } from '@shared/services/token.service';
+import { Observable, map } from 'rxjs';
 
-export const isConnectedGuard: CanActivateFn = () => {
-	const router = inject(Router);
-	const authService = inject(AuthService);
+@Injectable({
+	providedIn: 'root',
+})
+export class IsConnectedGuard implements CanActivate {
+	role!: 'ROLE_USER' | 'ROLE_ADMIN';
 
-	const userData: AuthUserPrimaryDatas = JSON.parse(
-		localStorage.getItem('user') as string,
-	);
-
-	if (
-		userData &&
-		(userData.role === UserRoleEnum.ADMIN ||
-			userData.role === UserRoleEnum.USER)
+	constructor(
+		private router: Router,
+		private tokenS: TokenService,
 	) {
-		authService.setConnectedUserData(userData);
-
-		return true;
+		this.tokenS
+			._getTokenDetailsSubject$()
+			.pipe(map((decodedToken: any) => decodedToken.role))
+			.subscribe((role: 'ROLE_USER' | 'ROLE_ADMIN') => {
+				this.role = role;
+			});
 	}
 
-	router.navigate([FullAuthenticationRouteEnum.LOGIN]);
-	return false;
-};
+	canActivate(
+		route: ActivatedRouteSnapshot,
+		state: RouterStateSnapshot,
+	):
+		| Observable<boolean | UrlTree>
+		| Promise<boolean | UrlTree>
+		| boolean
+		| UrlTree {
+		if (this.role === 'ROLE_USER') {
+			return true;
+		} else {
+			this.router.navigate([FullAuthenticationRouteEnum.LOGIN]);
+			return false;
+		}
+	}
+}

@@ -1,11 +1,11 @@
 export class Category {
-	id: string;
-	name: string;
+	id: number;
+	title: string;
 	imgUrl: string;
 
-	constructor(id: string, name: string, imgUrl: string) {
+	constructor(id: number, title: string, imgUrl: string) {
 		this.id = id;
-		this.name = name;
+		this.title = title;
 		this.imgUrl = imgUrl;
 	}
 }

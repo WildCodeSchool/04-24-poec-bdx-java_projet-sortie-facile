@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '@shared/services/auth.service';
 import { BaseManagementComponent } from '@shared/directives/management.class';
 import { LayoutLink } from '@shared/models/types/utils/layout-link.type';
 import { AccountService } from '@shared/services/account.service';
+import { TokenService } from '@shared/services/token.service';
 
 @Component({
 	selector: 'app-account-password-management',
@@ -16,10 +16,10 @@ export class AccountPasswordManagementComponent
 	navItems: LayoutLink[] = [];
 
 	constructor(
-		protected override _authService: AuthService,
+		protected override _tokenService: TokenService,
 		private _accountService: AccountService,
 	) {
-		super(_authService);
+		super(_tokenService);
 	}
 
 	override ngOnInit(): void {

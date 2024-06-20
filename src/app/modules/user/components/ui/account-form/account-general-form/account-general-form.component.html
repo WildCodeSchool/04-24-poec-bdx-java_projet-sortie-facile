@@ -6,7 +6,7 @@
 	<div
 		class="content-box"
 		data
-		*ngIf="userDetails$ | async as userPersonalInfosDetails"
+		*ngIf="userProfile$ | async as userPersonalInfosDetails"
 	>
 		<!-- <app-account-card-info
 			title="Prénom"
@@ -40,7 +40,7 @@
 
 		<app-account-card-info
 			title="Nom d'utilisateur"
-			[content]="connectedUser.username"
+			[content]="connectedUser.nickname"
 			[isViewDatas]="isViewDatas"
 			><app-text-field
 				*ngIf="!isViewDatas"

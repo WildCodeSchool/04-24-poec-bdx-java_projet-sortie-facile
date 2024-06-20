@@ -1,6 +1,6 @@
 import { Directive, Input, OnInit } from '@angular/core';
-import { AuthUserPrimaryDatas } from '@shared/models/classes/auth-user/auth-user-primary-datas.class';
-import { AuthService } from '@shared/services/auth.service';
+import { AuthUserResponse } from '@shared/models/classes/auth-user/auth-user-response.class';
+import { TokenService } from '@shared/services/token.service';
 
 @Directive()
 export abstract class BaseManagementComponent implements OnInit {
@@ -9,11 +9,15 @@ export abstract class BaseManagementComponent implements OnInit {
 	@Input() pageTitle!: string;
 	@Input() pageDescription!: string;
 
-	connectedUser!: AuthUserPrimaryDatas;
+	connectedUser!: AuthUserResponse;
 
-	constructor(protected _authService: AuthService) {}
+	constructor(protected _tokenService: TokenService) {}
 
 	ngOnInit(): void {
-		this.connectedUser = this._authService.getConnectedUserData();
+		this._tokenService
+			._getTokenDetailsSubject$()
+			.subscribe((connectedUser: AuthUserResponse) => {
+				this.connectedUser = connectedUser;
+			});
 	}
 }

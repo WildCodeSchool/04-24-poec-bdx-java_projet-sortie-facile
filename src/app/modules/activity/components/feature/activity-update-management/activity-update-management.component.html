@@ -42,9 +42,9 @@
 			labelContent="Lieu :"
 			id="city"
 			inputId="city"
-			name="activityCity"
-			#activityCity="ngModel"
-			[(ngModel)]="formData.activityCity"
+			name="city"
+			#city="ngModel"
+			[(ngModel)]="formData.cityId"
 		>
 		</app-select-city>
 
@@ -55,7 +55,7 @@
 			inputId="categoryId"
 			name="categoryId"
 			#category="ngModel"
-			[(ngModel)]="formData.categoryId"
+			[(ngModel)]="formData.category"
 		></app-select-category>
 
 		<app-select-number

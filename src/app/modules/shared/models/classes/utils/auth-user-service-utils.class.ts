@@ -29,7 +29,7 @@ export class AuthUserServiceUtils {
 			email: '',
 			role: UserRoleEnum.USER,
 			status: AccountStatus.ACTIVE,
-			userDetailsId: '',
+			UserProfileId: '',
 		});
 
 	protected _isLoggedInSubject: BehaviorSubject<boolean> =
@@ -44,7 +44,7 @@ export class AuthUserServiceUtils {
 			email: user.email,
 			role: user.role,
 			status: user.status,
-			userDetailsId: user.userDetailsId,
+			UserProfileId: user.UserProfileId,
 		};
 	}
 

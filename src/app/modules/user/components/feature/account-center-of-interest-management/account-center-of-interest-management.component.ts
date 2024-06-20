@@ -2,11 +2,11 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { ModalAddCategoryComponent } from '@shared/components/modal/modal-add-category/modal-add-category.component';
 import { BaseManagementComponent } from '@shared/directives/management.class';
 import { Category } from '@shared/models/classes/category/category.class';
-import { UserDetails } from '@shared/models/classes/user-details/user-details.class';
+import { UserProfile } from '@shared/models/classes/user-details/user-profile.class';
 import { LayoutLink } from '@shared/models/types/utils/layout-link.type';
 import { AccountService } from '@shared/services/account.service';
-import { AuthService } from '@shared/services/auth.service';
 import { CategoryService } from '@shared/services/category.service';
+import { TokenService } from '@shared/services/token.service';
 import { UserService } from '@shared/services/user.service';
 import { Observable, map, switchMap } from 'rxjs';
 
@@ -30,12 +30,12 @@ export class AccountCenterOfInterestManagementComponent
 	} = { category: '' };
 
 	constructor(
-		protected override _authService: AuthService,
+		protected override _tokenService: TokenService,
 		private categoryService: CategoryService,
 		private _userService: UserService,
 		private _accountService: AccountService,
 	) {
-		super(_authService);
+		super(_tokenService);
 	}
 
 	override ngOnInit(): void {
@@ -47,10 +47,12 @@ export class AccountCenterOfInterestManagementComponent
 
 	loadUserCategories() {
 		this.userCategoryList$ = this._userService
-			.getUserInfos$(this.connectedUser.userDetailsId)
+			.getUserInfos$(this.connectedUser.id)
 			.pipe(
-				map((userInfos: UserDetails) => userInfos.categoryIds),
-				switchMap((categoryIds: string[]) =>
+				map((userInfos: UserProfile) => {
+					return userInfos.categoryIds;
+				}),
+				switchMap((categoryIds: number[]) =>
 					this.categoryService
 						.getCategoryList$()
 						.pipe(

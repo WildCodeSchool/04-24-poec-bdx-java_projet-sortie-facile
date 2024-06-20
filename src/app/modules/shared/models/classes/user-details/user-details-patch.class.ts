@@ -3,7 +3,7 @@ import { City } from '@shared/models/classes/address/city.class';
 import { Department } from '@shared/models/classes/address/department.class';
 import { Region } from '@shared/models/classes/address/region.class';
 
-export class UserDetailsPatch {
+export class UserProfilePatch {
 	id?: string;
 	firstname?: string;
 	lastname?: string;
@@ -18,7 +18,7 @@ export class UserDetailsPatch {
 	phone?: string;
 	dateOfBirth?: string;
 	genre?: UserGenderEnum;
-	categoryIds?: string[];
+	categoryIds?: number[];
 	userId?: string;
 
 	constructor(
@@ -36,7 +36,7 @@ export class UserDetailsPatch {
 		phone: string,
 		dateOfBirth: string,
 		genre: UserGenderEnum,
-		categoryIds: string[],
+		categoryIds: number[],
 		userId: string,
 	) {
 		this.id = id;

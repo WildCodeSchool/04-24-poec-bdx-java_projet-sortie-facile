@@ -10,13 +10,13 @@
 		></app-global-form-error>
 
 		<app-text-field
-			labelFor="username"
-			labelContent="Nom d'utilisateur :"
+			labelFor="email"
+			labelContent="Email :"
 			type="text"
-			id="username"
-			name="username"
-			fieldName="nom d'utilisateur"
-			[(ngModel)]="connectedUser.username"
+			id="email"
+			name="email"
+			fieldName="email"
+			[(ngModel)]="userCredentials.email"
 			[form]="loginForm"
 			[required]="true"
 			[minlength]="3"
@@ -29,7 +29,7 @@
 			id="password"
 			name="password"
 			fieldName="password"
-			[(ngModel)]="connectedUser.password"
+			[(ngModel)]="userCredentials.password"
 			[form]="loginForm"
 			[required]="true"
 			[minlength]="3"

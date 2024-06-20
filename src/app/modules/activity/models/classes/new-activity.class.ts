@@ -1,39 +1,39 @@
-import { Category } from '@shared/models/classes/category/category.class';
-import { City } from '@shared/models/classes/address/city.class';
-
 export class NewActivity {
 	name: string;
-	department: string;
-	activityCity: City;
+	department: number;
+	region: number;
+	city: number;
 	date: string;
 	age: number;
 	imgUrl: string;
 	link: string;
 	description: string;
 	nbGuest: number;
-	categoryId: Category;
+	categoryId: number;
 	hour: string;
 	userId: string;
 	isVisible: boolean;
 
 	constructor(
 		name: string,
-		department: string,
-		activityCity: City,
+		department: number,
+		region: number,
+		city: number,
 		date: string,
 		age: number,
 		imgUrl: string,
 		link: string,
 		description: string,
 		nbGuest: number,
-		categoryId: Category,
+		categoryId: number,
 		hour: string,
 		userId: string,
 		isVisible: boolean,
 	) {
 		this.name = name;
 		this.department = department;
-		this.activityCity = activityCity;
+		this.region = region;
+		this.city = city;
 		this.date = date;
 		this.age = age;
 		this.imgUrl = imgUrl;

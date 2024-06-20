@@ -4,7 +4,7 @@ import { BaseManagementComponent } from '@shared/directives/management.class';
 import { LayoutLink } from '@shared/models/types/utils/layout-link.type';
 import { AccountService } from '@shared/services/account.service';
 import { ActivityService } from '@shared/services/activity.service';
-import { AuthService } from '@shared/services/auth.service';
+import { TokenService } from '@shared/services/token.service';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -21,11 +21,11 @@ export class AccountActivitiesManagementComponent
 	activityParticipateList$!: Observable<Activity[]>;
 
 	constructor(
-		protected override _authService: AuthService,
+		protected override _tokenService: TokenService,
 		private _activityService: ActivityService,
 		private _accountService: AccountService,
 	) {
-		super(_authService);
+		super(_tokenService);
 	}
 
 	override ngOnInit(): void {

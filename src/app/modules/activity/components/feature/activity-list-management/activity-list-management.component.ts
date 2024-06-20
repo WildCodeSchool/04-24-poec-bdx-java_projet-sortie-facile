@@ -10,14 +10,14 @@ import {
 } from '@angular/core';
 import { Department } from '@shared/models/classes/address/department.class';
 import { Category } from '@shared/models/classes/category/category.class';
-import { AuthUserPrimaryDatas } from '@shared/models/classes/auth-user/auth-user-primary-datas.class';
 import { ActivityService } from '@shared/services/activity.service';
-import { AuthService } from '@shared/services/auth.service';
 import { CategoryService } from '@shared/services/category.service';
 import { Observable, map } from 'rxjs';
 import { LazyLoadEvent } from 'primeng/api';
 import { FullActivityRouteEnum } from '@shared/models/enums/routes/full-routes';
 import { PaginationOption } from '@shared/models/types/utils/pagination.type';
+import { TokenService } from '@shared/services/token.service';
+import { AuthUserResponse } from '@shared/models/classes/auth-user/auth-user-response.class';
 
 @Component({
 	selector: 'app-activity-list-management',
@@ -30,7 +30,7 @@ export class ActivityListManagementComponent implements OnInit, OnChanges {
 	activityList$!: Observable<Activity[]>;
 	activity$!: Observable<Activity>;
 	pagedActivities: Activity[] = [];
-	connectedUser!: AuthUserPrimaryDatas;
+	connectedUser!: AuthUserResponse;
 	showFilterInMobile: boolean = false;
 	rowsPerPageOptions!: PaginationOption[];
 
@@ -53,7 +53,7 @@ export class ActivityListManagementComponent implements OnInit, OnChanges {
 	constructor(
 		private activityService: ActivityService,
 		private categoryService: CategoryService,
-		private _authService: AuthService,
+		private _tokenService: TokenService,
 	) {}
 
 	ngOnInit(): void {
@@ -63,13 +63,19 @@ export class ActivityListManagementComponent implements OnInit, OnChanges {
 			{ label: '20', value: 20 },
 		];
 
-		if (!this.connectedUser) {
-			this._authService.setConnectedUserData(
-				JSON.parse(localStorage.getItem('user') as string),
-			);
+		this._tokenService
+			._getTokenDetailsSubject$()
+			.subscribe((connectedUser: any) => {
+				this.connectedUser = connectedUser;
+			});
 
-			this.connectedUser = this._authService.getConnectedUserData();
-		}
+		// if (!this.connectedUser) {
+		// 	this._authService.setConnectedUserData(
+		// 		JSON.parse(localStorage.getItem('user') as string),
+		// 	);
+
+		// 	this.connectedUser = this._authService.getConnectedUserData();
+		// }
 
 		this.filterActivities();
 	}
@@ -110,7 +116,8 @@ export class ActivityListManagementComponent implements OnInit, OnChanges {
 					}),
 					map(activities => {
 						const filteredActivities = activities.filter(
-							activity => activity.department === this.selectedDepartments.id,
+							activity =>
+								Number(activity.departmentId) === this.selectedDepartments.id,
 						);
 
 						return filteredActivities;

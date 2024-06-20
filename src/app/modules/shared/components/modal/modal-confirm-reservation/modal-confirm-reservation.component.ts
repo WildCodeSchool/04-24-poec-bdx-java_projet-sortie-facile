@@ -14,8 +14,8 @@ export class ModalConfirmReservationComponent
 	extends AbstractModal
 	implements OnDestroy
 {
-	@Input() userId!: string;
-	@Input() activityId!: string;
+	@Input() profileId!: number;
+	@Input() activityId!: number;
 	@Input() hasBooking!: boolean;
 
 	private _addBookingSubscription: Subscription = new Subscription();
@@ -60,7 +60,7 @@ export class ModalConfirmReservationComponent
 	private postNewBooking(): void {
 		this._addBookingSubscription.add(
 			this.bookingService
-				.postNewBooking$(this.userId, this.activityId)
+				.postNewBooking$(this.profileId, this.activityId)
 				.subscribe(() => {
 					this.messageService.add({
 						severity: 'info',
@@ -75,7 +75,7 @@ export class ModalConfirmReservationComponent
 	private deleteNewBooking(): void {
 		this._deleteBookingSubscription.add(
 			this.bookingService
-				.deleteBookingById$(this.userId, this.activityId)
+				.deleteBookingById$(this.profileId, this.activityId)
 				.subscribe(() => {
 					this.messageService.add({
 						severity: 'info',

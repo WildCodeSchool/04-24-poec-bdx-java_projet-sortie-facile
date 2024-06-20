@@ -1,15 +1,18 @@
-<div class="form-control">
-	<label *ngIf="labelFor && labelContent" [for]="labelFor">{{
-		labelContent
-	}}</label>
+<ng-container *ngIf="regionList$ | async as regionList">
+	<div class="form-control">
+		<label *ngIf="labelFor && labelContent" [for]="labelFor">{{
+			labelContent
+		}}</label>
 
-	<p-dropdown
-		[options]="regions"
-		[(ngModel)]="value"
-		optionLabel="name"
-		placeholder="Choisir une région"
-		(ngModelChange)="onInputChange($event)"
-		(focus)="markAsTouched()"
-		#ref="ngModel"
-	/>
-</div>
+		<p-dropdown
+			[options]="regionList"
+			[(ngModel)]="value"
+			optionLabel="name"
+			optionValue="id"
+			placeholder="Choisir une région"
+			(ngModelChange)="onInputChange($event)"
+			(focus)="markAsTouched()"
+			#ref="ngModel"
+		/>
+	</div>
+</ng-container>

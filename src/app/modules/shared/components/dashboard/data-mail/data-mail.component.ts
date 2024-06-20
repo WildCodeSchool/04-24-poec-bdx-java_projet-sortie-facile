@@ -32,7 +32,7 @@ export class DataMailComponent implements OnInit {
 		];
 
 		this.contacts$ = this.contactsSubject.asObservable();
-		this.contactService.getContactList$().subscribe(contacts => {
+		this.contactService.getContactList$().subscribe((contacts: Contact[]) => {
 			this.contactsSubject.next(contacts);
 			this.totalRecords = contacts.length;
 			this.updatePageContacts(contacts);

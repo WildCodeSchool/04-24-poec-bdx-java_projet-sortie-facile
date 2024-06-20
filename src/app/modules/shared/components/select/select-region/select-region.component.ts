@@ -1,8 +1,8 @@
-import { Component, Input, OnDestroy, OnInit, forwardRef } from '@angular/core';
+import { Component, Input, OnInit, forwardRef } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { Region } from '@shared/models/classes/address/region.class';
-import { RegionService } from '@shared/services/region.service';
-import { Subscription, map } from 'rxjs';
+import { RegionService } from '@shared/services/address/region.service';
+import { Observable } from 'rxjs';
 
 @Component({
 	selector: 'app-select-region',
@@ -16,12 +16,9 @@ import { Subscription, map } from 'rxjs';
 		},
 	],
 })
-export class SelectRegionComponent
-	implements OnInit, OnDestroy, ControlValueAccessor
-{
-	regions!: Region[];
-	selectedRegions!: Region;
-	private _subscription: Subscription = new Subscription();
+export class SelectRegionComponent implements OnInit, ControlValueAccessor {
+	selectedRegionId: number = 1;
+	regionList$!: Observable<Region[]>;
 
 	@Input() id!: string;
 	@Input() name!: string;
@@ -29,23 +26,18 @@ export class SelectRegionComponent
 	@Input() labelContent!: string;
 
 	disabled!: boolean;
-	value!: string;
+	value!: number;
 
 	constructor(private _regionService: RegionService) {}
 
 	ngOnInit() {
-		this._subscription.add(
-			this._regionService
-				.getRegionList$()
-				.pipe(map((regions: Region[]) => (this.regions = regions)))
-				.subscribe(),
-		);
+		this.regionList$ = this._regionService.getRegionList$();
 	}
 
-	onChanged!: (value: string) => void;
+	onChanged!: (value: number) => void;
 	onTouched!: () => void;
 
-	onInputChange(value: string): void {
+	onInputChange(value: number): void {
 		if (this.disabled) {
 			return;
 		}
@@ -53,11 +45,11 @@ export class SelectRegionComponent
 		this.onChanged(value);
 	}
 
-	writeValue(value: string): void {
+	writeValue(value: number): void {
 		this.value = value;
 	}
 
-	registerOnChange(fn: (value: string) => void): void {
+	registerOnChange(fn: (value: number) => void): void {
 		this.onChanged = fn;
 	}
 
@@ -71,9 +63,5 @@ export class SelectRegionComponent
 
 	markAsTouched(): void {
 		this.onTouched();
-	}
-
-	ngOnDestroy(): void {
-		this._subscription.unsubscribe();
 	}
 }
