@@ -9,7 +9,7 @@ import { UserCenterOfInterestComponent } from '@user/pages/user-center-of-intere
 import { UserActivitiesComponent } from '@user/pages/user-activities/user-activities.component';
 import { UserCalendarComponent } from '@user/pages/user-calendar/user-calendar.component';
 import { UserRouteEnum } from '@shared/models/enums/routes/route.enum';
-// import { UserBookingComponent } from './pages/user-booking/user-booking.component';
+import { UserBookingComponent } from './pages/user-booking/user-booking.component';
 
 const routes: Routes = [
 	{
@@ -47,11 +47,11 @@ const routes: Routes = [
 		component: UserCalendarComponent,
 		canActivate: [IsConnectedGuard],
 	},
-	// {
-	// 	path: UserRouteEnum.BOOKING,
-	// 	component: UserBookingComponent,
-	// 	canActivate: [IsConnectedGuard],
-	// },
+	{
+		path: UserRouteEnum.BOOKING,
+		component: UserBookingComponent,
+		canActivate: [IsConnectedGuard],
+	},
 ];
 
 @NgModule({
