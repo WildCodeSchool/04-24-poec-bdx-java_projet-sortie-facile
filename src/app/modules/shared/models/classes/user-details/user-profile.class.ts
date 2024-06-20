@@ -4,12 +4,12 @@ export class UserProfile {
 	id: number;
 	firstname: string;
 	lastname: string;
-	regionId: number;
-	departmentId: number;
+	regionName: string;
+	departmentName: string;
 	streetNumber: string;
 	street: string;
 	postalCode: number;
-	cityId: number;
+	cityName: string;
 	description: string;
 	avatar: string;
 	phone: string;
@@ -22,12 +22,12 @@ export class UserProfile {
 		id: number,
 		firstname: string,
 		lastname: string,
-		regionId: number,
-		departmentId: number,
+		regionName: string,
+		departmentName: string,
 		streetNumber: string,
 		street: string,
 		postalCode: number,
-		cityId: number,
+		cityName: string,
 		description: string,
 		avatar: string,
 		phone: string,
@@ -39,12 +39,12 @@ export class UserProfile {
 		this.id = id;
 		this.firstname = firstname;
 		this.lastname = lastname;
-		this.departmentId = departmentId;
-		this.regionId = regionId;
+		this.departmentName = departmentName;
+		this.regionName = regionName;
 		this.streetNumber = streetNumber;
 		this.street = street;
 		this.postalCode = postalCode;
-		this.cityId = cityId;
+		this.cityName = cityName;
 		this.description = description;
 		this.avatar = avatar;
 		this.phone = phone;

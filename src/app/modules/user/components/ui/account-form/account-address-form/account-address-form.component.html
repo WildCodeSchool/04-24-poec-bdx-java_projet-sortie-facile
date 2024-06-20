@@ -40,7 +40,7 @@
 
 		<app-account-card-info
 			title="Région"
-			[content]="userAddressDetails.regionId"
+			[content]="userAddressDetails.regionName"
 			[isViewDatas]="isViewDatas"
 		>
 			<app-select-region
@@ -50,13 +50,13 @@
 				inputId="region"
 				name="region"
 				#region="ngModel"
-				[(ngModel)]="userAddressDatasForm.regionId"
+				[(ngModel)]="userAddressDatasForm.regionName"
 			></app-select-region>
 		</app-account-card-info>
 
 		<app-account-card-info
 			title="Département"
-			[content]="userAddressDetails.departmentId"
+			[content]="userAddressDetails.departmentName"
 			[isViewDatas]="isViewDatas"
 		>
 			<app-select-department
@@ -67,7 +67,7 @@
 				name="department"
 				[required]="true"
 				#department="ngModel"
-				[(ngModel)]="userAddressDatasForm.departmentId"
+				[(ngModel)]="userAddressDatasForm.departmentName"
 			></app-select-department>
 		</app-account-card-info>
 
@@ -89,7 +89,7 @@
 
 		<app-account-card-info
 			title="Ville"
-			[content]="userAddressDetails.cityId"
+			[content]="userAddressDetails.cityName"
 			[isViewDatas]="isViewDatas"
 		>
 			<app-select-city
@@ -98,7 +98,7 @@
 				id="city"
 				inputId="city"
 				name="city"
-				[(ngModel)]="userAddressDatasForm.cityId"
+				[(ngModel)]="userAddressDatasForm.cityName"
 			>
 			</app-select-city>
 		</app-account-card-info>
