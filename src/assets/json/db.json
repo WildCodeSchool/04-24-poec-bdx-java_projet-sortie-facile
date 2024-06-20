@@ -2,13 +2,13 @@
   "user": [
     {
       "id": "1",
-      "username": "johndoe",
-      "email": "johndoe@example.com",
-      "password": "123456789",
+      "username": "",
+      "email": "",
+      "password": "",
       "passwordConfirm": "123456789",
       "role": "admin",
       "status": "inactive",
-      "userDetailsId": "1"
+      "userDetailsId": ""
     },
     {
       "id": "2",
