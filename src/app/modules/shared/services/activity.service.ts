@@ -23,7 +23,7 @@ export class ActivityService {
 	private newActivitySubject = new BehaviorSubject<boolean>(false);
 	newActivity$ = this.newActivitySubject.asObservable();
 	private readonly _BASE_URL = `${environment.apiUrl}/activity`;
-
+	private currentId = 0;
 	constructor(
 		private _httpClient: HttpClient,
 		private _router: Router,
@@ -128,9 +128,11 @@ export class ActivityService {
 	// 	);
 	// }
 
+	// Méthode pour poster une nouvelle activité avec un ID auto-incrémenté
 	postNewActivity$(newActivity: Activity): Observable<Activity> {
 		const activityToPost = {
 			...newActivity,
+			id: ++this.currentId, // Auto-incrémente l'ID
 			isVisible: true,
 		};
 
@@ -140,6 +142,7 @@ export class ActivityService {
 				this.notifyNewActivity();
 			}),
 			catchError(error => {
+				console.error("Erreur lors de la création de l'activité", error);
 				throw error;
 			}),
 		);

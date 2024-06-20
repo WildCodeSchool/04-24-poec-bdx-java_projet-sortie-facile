@@ -19,11 +19,13 @@ import { EventImpl } from '@fullcalendar/core/internal';
 import { FullActivityRouteEnum } from '@shared/models/enums/routes/full-routes';
 import { Router } from '@angular/router';
 import { CalendarEvent } from '@shared/models/types/calendar/calendar-event.type';
+import { MessageService } from 'primeng/api';
 
 @Component({
 	selector: 'app-account-calendar',
 	templateUrl: './account-calendar.component.html',
 	styleUrls: ['./account-calendar.component.scss'],
+	providers: [MessageService],
 })
 export class AccountCalendarComponent implements OnInit {
 	events: CalendarEvent[] = [];
@@ -78,6 +80,7 @@ export class AccountCalendarComponent implements OnInit {
 		private _activityService: ActivityService,
 		private dialogService: DialogService,
 		private _router: Router,
+		private messageService: MessageService,
 	) {}
 
 	ngOnInit() {
@@ -174,9 +177,20 @@ export class AccountCalendarComponent implements OnInit {
 		this._activityService
 			.updateActivity$(activityId, { date: newDate })
 			.subscribe({
-				next: () => {},
+				next: () => {
+					this.messageService.add({
+						severity: 'success',
+						summary: 'Succès',
+						detail: "L'activité a été mise à jour avec succès",
+					});
+				},
 				error: () => {
 					arg.revert();
+					this.messageService.add({
+						severity: 'error',
+						summary: 'Erreur',
+						detail: "Erreur lors de la mise à jour de l'activité",
+					});
 				},
 			});
 	}

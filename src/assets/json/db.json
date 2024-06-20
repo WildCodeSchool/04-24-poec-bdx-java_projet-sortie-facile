@@ -2,13 +2,13 @@
   "user": [
     {
       "id": "1",
-      "username": "johndoe",
-      "email": "johndoe@example.com",
-      "password": "123456789",
+      "username": "",
+      "email": "",
+      "password": "",
       "passwordConfirm": "123456789",
       "role": "admin",
       "status": "inactive",
-      "userDetailsId": "1"
+      "userDetailsId": ""
     },
     {
       "id": "2",
@@ -810,7 +810,7 @@
       "imgUrl": "",
       "link": "https://example.com/activity9",
       "userId": "1",
-      "isVisible": true
+      "isVisible": false
     },
     {
       "id": "10",
@@ -920,7 +920,7 @@
       "imgUrl": "https://images.unsplash.com/photo-1716369414933-feae0ddf91bd?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw1NHx8fGVufDB8fHx8fA%3D%3D",
       "link": "",
       "userId": "1",
-      "isVisible": true,
+      "isVisible": false,
       "hour": "2024-06-30T21:28:47.531Z"
     },
     {
@@ -1017,7 +1017,7 @@
     {
       "id": "b1b9",
       "name": "totocr fvc fv",
-      "date": "2024-06-05T22:00:00.000Z",
+      "date": "2024-05-28T22:00:00.000Z",
       "hour": "2024-06-08T08:44:25.530Z",
       "departments": {
         "id": "3",
@@ -1090,12 +1090,12 @@
       "link": "",
       "userId": "1",
       "imageUrl": "https://firebasestorage.googleapis.com/v0/b/sortie-facile.appspot.com/o/images%2Fneo.png?alt=media&token=adb29ff4-cde4-4c24-89f2-592440463523",
-      "isVisible": true
+      "isVisible": false
     },
     {
       "id": "09f3",
       "name": "toto",
-      "date": "2024-06-07T22:00:00.000Z",
+      "date": "2024-06-06T22:00:00.000Z",
       "hour": "2024-06-13T10:02:55.137Z",
       "departments": {
         "id": "1",
@@ -1116,12 +1116,12 @@
       "link": "",
       "userId": "1",
       "imageUrl": "https://firebasestorage.googleapis.com/v0/b/sortie-facile.appspot.com/o/images%2Fschema.png?alt=media&token=9c2986a5-8c70-4bc8-927a-ee49e1a619a7",
-      "isVisible": true
+      "isVisible": false
     },
     {
       "id": "209e",
       "name": "totoSDCc",
-      "date": "2024-06-14T22:00:00.000Z",
+      "date": "2024-06-12T22:00:00.000Z",
       "hour": "2024-06-13T09:09:46.153Z",
       "departments": {
         "id": "2",
@@ -1168,7 +1168,7 @@
       "link": "",
       "userId": "1",
       "imageUrl": "https://firebasestorage.googleapis.com/v0/b/sortie-facile.appspot.com/o/images%2FCapture%20d'%C3%A9cran%202024-04-24%20214242.png?alt=media&token=18161f60-e1b8-40a0-87fd-23f763f373f5",
-      "isVisible": true
+      "isVisible": false
     },
     {
       "id": "6389",
@@ -1225,7 +1225,7 @@
     {
       "id": "77fa",
       "name": "toto",
-      "date": "2024-06-13T22:00:00.000Z",
+      "date": "2024-06-12T22:00:00.000Z",
       "hour": "2024-06-13T12:58:06.370Z",
       "departments": {
         "id": "5",
@@ -1246,7 +1246,7 @@
       "link": "",
       "userId": "1",
       "imageUrl": "https://firebasestorage.googleapis.com/v0/b/sortie-facile.appspot.com/o/images%2Ffondbleu.png?alt=media&token=14b2a78d-bc26-4b25-952d-7cfb7d656cbb",
-      "isVisible": true
+      "isVisible": false
     },
     {
       "id": "41ff",
@@ -1272,6 +1272,110 @@
       "link": "",
       "userId": "1",
       "imageUrl": "https://firebasestorage.googleapis.com/v0/b/sortie-facile.appspot.com/o/images%2FCapture%20d'%C3%A9cran%202024-02-24%20173217.png?alt=media&token=4d516bd5-588c-4e99-a92b-5927f9c23c5b",
+      "isVisible": true
+    },
+    {
+      "id": "d6a9",
+      "name": "top 14",
+      "date": "2024-06-15T22:00:00.000Z",
+      "hour": "2024-06-14T19:00:26.336Z",
+      "departments": {
+        "id": "33",
+        "name": "Gironde"
+      },
+      "activityCity": {
+        "id": "1",
+        "name": "New York"
+      },
+      "categoryId": {
+        "id": "1",
+        "name": "Sport",
+        "imgUrl": "category-sport.svg"
+      },
+      "nbGuest": 5,
+      "description": "venez assister à ce moment ",
+      "imgUrl": "https://firebasestorage.googleapis.com/v0/b/sortie-facile.appspot.com/o/images%2Fubbgene4%20(1).jpg?alt=media&token=2e69a6e1-93d2-45cd-be4a-750527c682bf",
+      "link": "",
+      "userId": "1",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/sortie-facile.appspot.com/o/images%2Fubbgene4%20(1).jpg?alt=media&token=2e69a6e1-93d2-45cd-be4a-750527c682bf",
+      "isVisible": true
+    },
+    {
+      "id": "8303",
+      "name": "toto",
+      "date": "2024-06-14T22:00:00.000Z",
+      "hour": "2024-06-14T09:00:31.936Z",
+      "departments": {
+        "id": "5",
+        "name": "Hautes-Alpes"
+      },
+      "activityCity": {
+        "id": "1",
+        "name": "New York"
+      },
+      "categoryId": {
+        "id": "1",
+        "name": "Sport",
+        "imgUrl": "category-sport.svg"
+      },
+      "nbGuest": 1,
+      "description": "Q",
+      "imgUrl": "https://firebasestorage.googleapis.com/v0/b/sortie-facile.appspot.com/o/images%2Fsignin.jpg?alt=media&token=b35700d1-0bfa-4063-9796-b90291bab9bd",
+      "link": "",
+      "userId": "1",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/sortie-facile.appspot.com/o/images%2Fsignin.jpg?alt=media&token=b35700d1-0bfa-4063-9796-b90291bab9bd",
+      "isVisible": true
+    },
+    {
+      "id": "4648",
+      "name": "toto",
+      "date": "2024-06-14T22:00:00.000Z",
+      "hour": "2024-06-14T08:04:44.917Z",
+      "departments": {
+        "id": "5",
+        "name": "Hautes-Alpes"
+      },
+      "activityCity": {
+        "id": "5",
+        "name": "Paris"
+      },
+      "categoryId": {
+        "id": "1",
+        "name": "Sport",
+        "imgUrl": "category-sport.svg"
+      },
+      "nbGuest": 3,
+      "description": "c",
+      "imgUrl": "https://firebasestorage.googleapis.com/v0/b/sortie-facile.appspot.com/o/images%2Fsignup.jpg?alt=media&token=200abf22-53d5-45b8-93af-ae9ce87f47aa",
+      "link": "",
+      "userId": "1",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/sortie-facile.appspot.com/o/images%2Fsignup.jpg?alt=media&token=200abf22-53d5-45b8-93af-ae9ce87f47aa",
+      "isVisible": true
+    },
+    {
+      "id": "5df6",
+      "name": "toto",
+      "date": "2024-06-08T22:00:00.000Z",
+      "hour": "2024-06-14T08:09:36.760Z",
+      "departments": {
+        "id": "5",
+        "name": "Hautes-Alpes"
+      },
+      "activityCity": {
+        "id": "5",
+        "name": "Paris"
+      },
+      "categoryId": {
+        "id": "1",
+        "name": "Sport",
+        "imgUrl": "category-sport.svg"
+      },
+      "nbGuest": 4,
+      "description": "wcx",
+      "imgUrl": "https://firebasestorage.googleapis.com/v0/b/sortie-facile.appspot.com/o/images%2Fsignin.jpg?alt=media&token=dd7ff4dc-8866-4172-a181-aeeb415c328d",
+      "link": "",
+      "userId": "1",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/sortie-facile.appspot.com/o/images%2Fsignin.jpg?alt=media&token=dd7ff4dc-8866-4172-a181-aeeb415c328d",
       "isVisible": true
     }
   ],
@@ -2131,7 +2235,15 @@
       "id": "64",
       "email": "qsc",
       "title": "sqc",
-      "message": "qscQAZSC"
+      "message": "qscQAZSC",
+      "read": true
+    },
+    {
+      "id": "65",
+      "email": ">",
+      "title": "X",
+      "message": "X",
+      "read": true
     }
   ],
   "testimonials": [
