@@ -1,3 +1,27 @@
+.navbar {
+	display: flex;
+	margin-right: 25px;
+}
+/* Default styles for desktop */
+.desktop-menu {
+	display: block;
+}
+
+.mobile-menu {
+	display: none;
+}
+
+/* Styles for mobile devices */
+@media (max-width: 768px) {
+	.desktop-menu {
+		display: none;
+	}
+
+	.mobile-menu {
+		display: block;
+	}
+}
+
 h1,
 h2,
 h3,
@@ -34,10 +58,10 @@ p {
 		display: flex;
 		justify-content: space-between;
 		padding: 2rem 0 0;
-
+		align-items: center;
 		.hero-img-box > img {
 			height: 60px;
-			margin: 0 3rem;
+			margin: 0 2rem;
 			align-items: center;
 		}
 
