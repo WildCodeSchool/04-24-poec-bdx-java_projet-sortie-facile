@@ -79,3 +79,15 @@
 		}
 	}
 }
+
+@media (max-width: 1100px) {
+	.testimonial-card .card-body {
+		height: 290px;
+	}
+}
+
+@media (min-width: 1100px) {
+	.testimonial-card .card-body {
+		height: 300px;
+	}
+}
