@@ -1,11 +1,13 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ModalAddCategoryComponent } from '@shared/components/modal/modal-add-category/modal-add-category.component';
+import { BaseManagementComponent } from '@shared/directives/management.class';
 import { Category } from '@shared/models/classes/category/category.class';
 import { UserDetails } from '@shared/models/classes/user-details/user-details.class';
+import { LayoutLink } from '@shared/models/types/utils/layout-link.type';
+import { AccountService } from '@shared/services/account.service';
 import { AuthService } from '@shared/services/auth.service';
 import { CategoryService } from '@shared/services/category.service';
 import { UserService } from '@shared/services/user.service';
-import { BaseAccountManagementComponent } from '@user/directives/account-management.class';
 import { Observable, map, switchMap } from 'rxjs';
 
 @Component({
@@ -14,9 +16,10 @@ import { Observable, map, switchMap } from 'rxjs';
 	styleUrl: './account-center-of-interest-management.component.scss',
 })
 export class AccountCenterOfInterestManagementComponent
-	extends BaseAccountManagementComponent
+	extends BaseManagementComponent
 	implements OnInit
 {
+	navItems: LayoutLink[] = [];
 	categoryList$!: Observable<Category[]>;
 	userCategoryList$!: Observable<Category[]>;
 
@@ -30,12 +33,15 @@ export class AccountCenterOfInterestManagementComponent
 		protected override _authService: AuthService,
 		private categoryService: CategoryService,
 		private _userService: UserService,
+		private _accountService: AccountService,
 	) {
 		super(_authService);
 	}
 
 	override ngOnInit(): void {
 		super.ngOnInit();
+
+		this.navItems = this._accountService.getLayoutItems();
 		this.loadUserCategories();
 	}
 

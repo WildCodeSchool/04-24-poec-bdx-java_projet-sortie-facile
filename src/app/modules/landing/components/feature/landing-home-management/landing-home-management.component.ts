@@ -1,11 +1,14 @@
 import { Activity } from '@activity/models/classes/activity.class';
 import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
+import { AuthUserPrimaryDatas } from '@shared/models/classes/auth-user/auth-user-primary-datas.class';
 import { Category } from '@shared/models/classes/category/category.class';
 import { Testimonial } from '@shared/models/classes/testimonial/testimonial.class';
 import { CarouselResponsiveOption } from '@shared/models/classes/utils/carousel-responsive-option.class';
+import { FullUserRouteEnum } from '@shared/models/enums/routes/full-routes';
 import { LandingFunctioningDatas } from '@shared/models/types/utils/landing-functioning-datas.type';
 import { ActivityService } from '@shared/services/activity.service';
+import { AuthService } from '@shared/services/auth.service';
 import { CategoryService } from '@shared/services/category.service';
 import { LandingHomeService } from '@shared/services/landing-home.service';
 import { ScrollService } from '@shared/services/scroll.service';
@@ -19,19 +22,17 @@ import { Observable } from 'rxjs';
 })
 export class LandingHomeManagementComponent implements OnInit {
 	@Input() responsiveOptions!: CarouselResponsiveOption[];
-
 	@ViewChild('functioningBox') functioningBox!: ElementRef;
 
-	scrollToFunctioningBox(): void {
-		this.scrollService.scrollToElement(this.functioningBox.nativeElement, 500);
-	}
-
+	connectedUser!: AuthUserPrimaryDatas;
 	functionimgDatas!: LandingFunctioningDatas[];
 	activityList$!: Observable<Activity[]>;
 	categoryList$!: Observable<Category[]>;
 	testimonialList$!: Observable<Testimonial[]>;
+	fullUserRouteEnum = FullUserRouteEnum;
 
 	constructor(
+		private _authService: AuthService,
 		private _landingHomeService: LandingHomeService,
 		private _activityService: ActivityService,
 		private _testimonialService: TestimonialService,
@@ -41,7 +42,10 @@ export class LandingHomeManagementComponent implements OnInit {
 	) {}
 
 	ngOnInit(): void {
-		this.functionimgDatas = this._landingHomeService.getFunctionimgDatas();
+		this.connectedUser = this._authService.getConnectedUserData();
+		this.functionimgDatas = this._landingHomeService.getFunctionimgDatas(
+			this.connectedUser.username ? true : false,
+		);
 		this.testimonialList$ = this._testimonialService.getTestimonialList$();
 		this.activityList$ = this._activityService.getActivityList$();
 		this.categoryList$ = this._categoryService.getCategoryList$();
@@ -55,5 +59,13 @@ export class LandingHomeManagementComponent implements OnInit {
 
 	scrollToTop(): void {
 		this.scrollService.scrollToElement(document.body, 500);
+	}
+
+	scrollToFunctioningBox(): void {
+		this.scrollService.scrollToElement(this.functioningBox.nativeElement, 500);
+	}
+
+	logout(): void {
+		this._authService.logout();
 	}
 }

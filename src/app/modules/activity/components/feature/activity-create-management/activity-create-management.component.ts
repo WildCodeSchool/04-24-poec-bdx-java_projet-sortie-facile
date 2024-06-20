@@ -3,6 +3,7 @@ import { Component, OnDestroy, ViewChild } from '@angular/core';
 import { ModalConfirmCreatActivityComponent } from '@shared/components/modal/modal-confirm-creat-activity/modal-confirm-creat-activity.component';
 import { City } from '@shared/models/classes/address/city.class';
 import { Category } from '@shared/models/classes/category/category.class';
+import { UploadFileService } from '@shared/services/upload-file.service';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -15,6 +16,8 @@ export class ActivityCreateManagementComponent implements OnDestroy {
 
 	@ViewChild(ModalConfirmCreatActivityComponent, { static: false })
 	modalComponent!: ModalConfirmCreatActivityComponent;
+
+	selectedFile: File | null = null;
 
 	newActivity: NewActivity = new NewActivity(
 		'toto',
@@ -32,12 +35,24 @@ export class ActivityCreateManagementComponent implements OnDestroy {
 		true,
 	);
 
+	constructor(private _uploadFileService: UploadFileService) {
+		this._subscription = this._uploadFileService.selectedFile$.subscribe(
+			file => {
+				this.selectedFile = file;
+			},
+		);
+	}
+
+	onFileSelected(file: File): void {
+		this.selectedFile = file;
+	}
+
 	onSubmit(): void {
 		// console.log(this.newActivity);
 	}
 
 	onModal(): void {
-		this.modalComponent.onSubmit();
+		this.modalComponent.onSubmit(this.selectedFile);
 	}
 
 	ngOnDestroy(): void {

@@ -1,14 +1,16 @@
-import { Activity } from '@activity/models/classes/activity.class';
 import { Component, Input, OnInit } from '@angular/core';
+import { AngularFireStorage } from '@angular/fire/compat/storage';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Activity } from '@activity/models/classes/activity.class';
 import { AuthUserPrimaryDatas } from '@shared/models/classes/auth-user/auth-user-primary-datas.class';
 import { AbstractModal } from '@shared/models/classes/components/absctract-modal.class';
 import { FullActivityRouteEnum } from '@shared/models/enums/routes/full-routes';
 import { ActivityService } from '@shared/services/activity.service';
 import { AuthService } from '@shared/services/auth.service';
 import { ConfirmationService, MessageService } from 'primeng/api';
-import { catchError, tap } from 'rxjs';
+import { catchError, finalize, tap } from 'rxjs/operators';
+import { of } from 'rxjs';
 
 @Component({
 	selector: 'app-modal-confirm-creat-activity',
@@ -23,6 +25,7 @@ export class ModalConfirmCreatActivityComponent
 	@Input() myForm!: NgForm;
 
 	connectedUser!: AuthUserPrimaryDatas;
+	uploadFirebaseImage!: string;
 
 	constructor(
 		private _confirmationService: ConfirmationService,
@@ -30,6 +33,7 @@ export class ModalConfirmCreatActivityComponent
 		private _activityService: ActivityService,
 		private _router: Router,
 		private _authService: AuthService,
+		private storage: AngularFireStorage,
 	) {
 		super();
 	}
@@ -38,19 +42,15 @@ export class ModalConfirmCreatActivityComponent
 		this.connectedUser = this._authService.getConnectedUserData();
 	}
 
-	public override onSubmit() {
-		if (this.myForm && this.myForm.valid) {
-			this._confirmationService.confirm({
-				header: 'Confirmation',
-				message: 'Confirmer la création de votre activité',
-				accept: () => this.onAccept(),
-				reject: () => this.onReject(),
-				acceptLabel: 'Oui',
-				rejectLabel: 'Non',
-			});
-		} else {
-			this.onError();
-		}
+	public override onSubmit(selectedFile?: File | null) {
+		this._confirmationService.confirm({
+			header: 'Confirmation',
+			message: 'Confirmer la création de votre activité',
+			accept: () => this.onAccept(selectedFile),
+			reject: () => this.onReject(),
+			acceptLabel: 'Oui',
+			rejectLabel: 'Non',
+		});
 	}
 
 	protected override onReject(): void {
@@ -62,34 +62,14 @@ export class ModalConfirmCreatActivityComponent
 		});
 	}
 
-	protected override onAccept(): void {
-		this._activityService
-			.postNewActivity$({ ...this.myForm.value, userId: this.connectedUser.id })
-			.pipe(
-				tap((activity: Activity) => {
-					this._messageService.add({
-						severity: 'info',
-						summary: 'Bravo',
-						detail: 'Votre activité a bien été créée',
-						life: 3000,
-					});
-					setTimeout(() => {
-						this._router.navigate([FullActivityRouteEnum.DETAILS, activity.id]);
-					}, 3000);
-				}),
-				catchError(() => {
-					this._messageService.add({
-						severity: 'error',
-						summary: 'Erreur',
-						detail:
-							"Une erreur s'est produite lors de la création de l'activité",
-						life: 3000,
-					});
-
-					return [];
-				}),
-			)
-			.subscribe();
+	protected override onAccept(selectedFile?: File | null): void {
+		this.onUpload(selectedFile as File);
+		this._messageService.add({
+			severity: 'success',
+			summary: 'Bravo',
+			detail: 'Votre activité a bien été créée',
+			life: 3000,
+		});
 	}
 
 	protected override onError() {
@@ -99,5 +79,68 @@ export class ModalConfirmCreatActivityComponent
 			detail: 'Veuillez remplir les champs obligatoires',
 			life: 3000,
 		});
+	}
+
+	onUpload(selectedFile: File | null): void {
+		if (selectedFile) {
+			const filePath = `images/${selectedFile.name}`;
+			const fileRef = this.storage.ref(filePath);
+			const task = this.storage.upload(filePath, selectedFile);
+
+			task
+				.snapshotChanges()
+				.pipe(
+					finalize(() => {
+						fileRef
+							.getDownloadURL()
+							.pipe(
+								tap(url => {
+									this.uploadFirebaseImage = url;
+
+									this.myForm.form.patchValue({
+										imgUrl: this.uploadFirebaseImage,
+									});
+
+									this.onCreate();
+								}),
+							)
+							.subscribe();
+					}),
+				)
+				.subscribe();
+		}
+	}
+
+	onCreate() {
+		this._activityService
+			.postNewActivity$({
+				...this.myForm.value,
+				userId: this.connectedUser.id,
+				imageUrl: this.uploadFirebaseImage,
+			})
+			.pipe(
+				tap((activity: Activity) => {
+					this._messageService.add({
+						severity: 'success',
+						summary: 'Bravo',
+						detail: 'Votre activité a bien été créée',
+						life: 3000,
+					});
+					setTimeout(() => {
+						this._router.navigate([FullActivityRouteEnum.DETAILS, activity.id]);
+					}, 4000);
+				}),
+				catchError(() => {
+					this._messageService.add({
+						severity: 'error',
+						summary: 'Erreur',
+						detail:
+							"Une erreur s'est produite lors de la création de l'activité",
+						life: 3000,
+					});
+					return of([]);
+				}),
+			)
+			.subscribe();
 	}
 }

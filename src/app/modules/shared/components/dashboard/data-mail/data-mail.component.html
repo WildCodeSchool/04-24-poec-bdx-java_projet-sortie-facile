@@ -1,5 +1,3 @@
-<h1>Boite Mail</h1>
-
 <div class="card">
 	<p-table
 		*ngIf="pagedContacts.length"
@@ -18,6 +16,8 @@
 				<td>{{ contact.title }}</td>
 				<td>{{ contact.email }}</td>
 				<td>{{ contact.message | truncate: 100 }}</td>
+				<span *ngIf="!contact.read" class="badge badge-danger">New</span>
+				<span *ngIf="contact.read" class="badge badge-succes">Lu</span>
 			</tr>
 		</ng-template>
 	</p-table>

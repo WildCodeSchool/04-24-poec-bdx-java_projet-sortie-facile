@@ -1,0 +1,14 @@
+<div class="container">
+	<app-dashboard-layout
+		[avatarSrc]="avatarSrc"
+		[avatarAlt]="avatarAlt"
+		[username]="connectedUser.username"
+		[pageTitle]="pageTitle"
+		[pageDescription]="pageDescription"
+		[items]="navItems"
+	>
+		<app-layout-container-content sectionTitle="Boite mail" [hideBtn]="true">
+			<app-data-mail data></app-data-mail>
+		</app-layout-container-content>
+	</app-dashboard-layout>
+</div>

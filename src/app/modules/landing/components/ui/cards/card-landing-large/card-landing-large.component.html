@@ -11,7 +11,8 @@
 		</p>
 
 		<div class="btn-box">
-			<p-button
+			<!-- <p-button
+				*ngIf="!connectedUser"
 				[label]="ctaPrimarylabel"
 				icon="pi pi-arrow-right"
 				iconPos="right"
@@ -20,7 +21,7 @@
 				[outlined]="false"
 				[routerLink]="[fullAuthenticationRoute.REGISTER]"
 				styleClass="btn-register"
-			></p-button>
+			></p-button> -->
 
 			<p-button
 				[label]="ctaSecondarylabel"
@@ -28,7 +29,11 @@
 				iconPos="right"
 				[rounded]="true"
 				[outlined]="true"
-				[routerLink]="[fullAuthenticationRoute.LOGIN]"
+				[routerLink]="[
+					connectedUser
+						? fullUserRouteEnum.ACTIVITY
+						: fullAuthenticationRoute.LOGIN
+				]"
 				styleClass="btn-login"
 			></p-button>
 		</div>

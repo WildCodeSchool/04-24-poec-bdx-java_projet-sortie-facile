@@ -16,6 +16,8 @@
 		(ngModelChange)="onInputChange($event)"
 		(focus)="markAsTouched()"
 		#ref="ngModel"
+		dateFormat="dd/mm/yy"
+		[firstDayOfWeek]="1"
 	>
 		<ng-template pTemplate="inputicon" let-clickCallBack="clickCallBack">
 			<i

@@ -58,8 +58,8 @@ export class AuthRegisterManagementComponent implements OnInit {
 			'01-34-45-57-68',
 			'26/12/1999',
 			UserGenderEnum.MALE,
-			[],
-			'',
+			['1'],
+			'papaye',
 		);
 
 	constructor(private _authService: AuthService) {}

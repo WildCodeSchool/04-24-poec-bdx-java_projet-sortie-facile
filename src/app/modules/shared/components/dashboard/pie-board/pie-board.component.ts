@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ChartData, ChartOptions } from 'chart.js';
 
 @Component({
 	selector: 'app-pie-board',
@@ -6,9 +7,8 @@ import { Component, OnInit } from '@angular/core';
 	styleUrl: './pie-board.component.scss',
 })
 export class PieBoardComponent implements OnInit {
-	data: any;
-
-	options: any;
+	data!: ChartData<'bar'>;
+	options!: ChartOptions<'bar'>;
 
 	ngOnInit() {
 		const documentStyle = getComputedStyle(document.documentElement);

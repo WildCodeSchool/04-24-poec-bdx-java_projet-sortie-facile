@@ -1,5 +1,17 @@
 <div class="footer-container">
-	<a [routerLink]="[PrimaryRoute.CONTACT]">Contact</a>
-	<a [routerLink]="[PrimaryRoute.CGU]">Mentions légales</a>
-	<div>&#64;Copyright sortie facile 2024</div>
+	<div class="btns-box">
+		<p-button
+			label="Contact"
+			[text]="true"
+			[routerLink]="[PrimaryRoute.CONTACT]"
+		/>
+
+		<p-button
+			label="Mentions légales"
+			[text]="true"
+			[routerLink]="[PrimaryRoute.CGU]"
+		/>
+	</div>
+
+	<p>&#64;Copyright sortie facile 2024</p>
 </div>

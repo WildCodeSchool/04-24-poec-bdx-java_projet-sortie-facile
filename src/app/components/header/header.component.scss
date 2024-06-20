@@ -32,30 +32,9 @@
 			}
 		}
 		.p-menuitem-text {
-			color: aliceblue;
+			color: black;
 		}
 	}
-}
-
-.p-menuitem-icon {
-	color: var(--white-color);
-}
-
-.icon {
-	display: flex;
-	flex-direction: row;
-	color: aliceblue;
-}
-
-.green-dot {
-	width: 10px;
-	height: 10px;
-	border-radius: 50%;
-	background-color: rgb(48, 209, 48);
-}
-
-.p-menuitem-text {
-	color: var(--white-color);
 }
 
 .bottom-navbar {
@@ -70,24 +49,38 @@
 	background-color: var(--white-color);
 }
 
-i {
-	cursor: pointer;
+.user {
+	display: flex;
+	align-items: center;
+	width: 125px;
+	justify-content: space-between;
 }
 
-:host ::ng-deep p-tieredmenu {
-	.p-tieredmenu.p-tieredmenu-overlay {
-		padding: 0rem;
+.red-dot {
+	width: 10px;
+	height: 10px;
+	border-radius: 50%;
+	background-color: rgb(238, 35, 21);
+}
 
-		.p-menuitem-link {
-			padding: 1rem 0.75rem;
+:host ::ng-deep .mail,
+:host ::ng-deep .notif {
+	display: flex;
 
-			&:first-child {
-				border-bottom: 1px solid var(--gray-500);
-			}
+	.p-button {
+		color: var(--white-color);
 
-			.p-menuitem-text {
-				font-family: 'Inter var', sans-serif;
-			}
+		.pi {
+			font-size: 1.35rem;
 		}
+	}
+}
+
+:host ::ng-deep .mail {
+	margin-right: 0.5rem;
+}
+@media (min-width: 960px) {
+	:host ::ng-deep .p-menubar .p-menubar-root-list .p-menuitem-text {
+		color: white;
 	}
 }

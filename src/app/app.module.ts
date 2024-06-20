@@ -14,6 +14,8 @@ import { MentionLegalesComponent } from './mention-legales/mention-legales.compo
 import { registerLocaleData } from '@angular/common';
 import localeFr from '@angular/common/locales/fr';
 import { DialogService } from 'primeng/dynamicdialog';
+import { FIREBASE_OPTIONS } from '@angular/fire/compat';
+import { environment } from 'environments/environment';
 
 registerLocaleData(localeFr, 'fr');
 
@@ -34,7 +36,14 @@ registerLocaleData(localeFr, 'fr');
 		SharedModule,
 		FormsModule,
 	],
-	providers: [{ provide: LOCALE_ID, useValue: 'fr' }, DialogService],
+	providers: [
+		{ provide: LOCALE_ID, useValue: 'fr' },
+		DialogService,
+		{
+			provide: FIREBASE_OPTIONS,
+			useValue: environment.firebase,
+		},
+	],
 	bootstrap: [AppComponent],
 	schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

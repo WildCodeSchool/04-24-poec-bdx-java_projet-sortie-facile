@@ -4,8 +4,8 @@ import { AuthService } from './auth.service';
 import { Observable, combineLatest, of, switchMap } from 'rxjs';
 import {
 	FullActivityRouteEnum,
+	FullAdminRouteEnum,
 	FullAuthenticationRouteEnum,
-	FullBookingRouteEnum,
 	FullUserRouteEnum,
 } from '@shared/models/enums/routes/full-routes';
 import { AuthUserPrimaryDatas } from '@shared/models/classes/auth-user/auth-user-primary-datas.class';
@@ -27,12 +27,12 @@ export class HeaderService {
 				routerLink: '/',
 			},
 			{
-				label: 'Contact',
-				routerLink: '/contact',
-			},
-			{
 				label: 'Activités',
 				routerLink: FullActivityRouteEnum.HOME,
+			},
+			{
+				label: 'Contact',
+				routerLink: '/contact',
 			},
 		]);
 
@@ -53,28 +53,8 @@ export class HeaderService {
 			{
 				label: 'Dashboard',
 				icon: 'pi pi-chart-bar',
-				items: [
-					{
-						label: 'Home',
-						icon: 'pi pi-chart-line',
-						routerLink: FullBookingRouteEnum.GRAPH,
-					},
-					{
-						label: 'Mail',
-						icon: 'pi pi-envelope',
-						routerLink: FullBookingRouteEnum.MAIL,
-					},
-					{
-						label: 'Booking data',
-						icon: 'pi pi-calendar',
-						routerLink: FullBookingRouteEnum.DATA,
-					},
-					{
-						label: 'Data',
-						icon: 'pi pi-chart-bar',
-						routerLink: FullBookingRouteEnum.HOME,
-					},
-				],
+
+				routerLink: FullAdminRouteEnum.GRAPH,
 			},
 		]);
 

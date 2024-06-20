@@ -1,0 +1,44 @@
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	margin: 0;
+}
+
+:host ::ng-deep app-layout-container-content {
+	width: 100%;
+
+	.content-box {
+		display: flex;
+		flex-direction: column;
+		flex-wrap: wrap;
+		gap: 1.6rem;
+		margin-top: 1.25rem;
+
+		app-account-card-info {
+			width: 100%;
+
+			&:last-child {
+				width: 60%;
+			}
+		}
+
+		@media (min-width: 475px) {
+			flex-direction: column;
+
+			app-account-card-info {
+				width: calc(50% - (2 * 1rem));
+			}
+		}
+	}
+}
+
+.btn-form-box {
+	display: flex;
+	justify-content: flex-end;
+	width: 100%;
+	margin-top: 2rem;
+}

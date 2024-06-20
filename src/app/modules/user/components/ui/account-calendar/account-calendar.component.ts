@@ -1,5 +1,6 @@
-import { Component, LOCALE_ID, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {
+	Calendar,
 	CalendarOptions,
 	EventApi,
 	EventClickArg,
@@ -9,34 +10,45 @@ import dayGridPlugin from '@fullcalendar/daygrid';
 import timeGridPlugin from '@fullcalendar/timegrid';
 import interactionPlugin, { Draggable } from '@fullcalendar/interaction';
 import listPlugin from '@fullcalendar/list';
-import { Activity } from '@activity/models/classes/activity.class';
 import { ActivityService } from '@shared/services/activity.service';
 import { forkJoin } from 'rxjs';
 import { CalendarModalComponent } from '@shared/components/modal/calendar-modal/calendar-modal.component';
-import { DialogService } from 'primeng/dynamicdialog';
+import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
+import frLocale from '@fullcalendar/core/locales/fr';
+import { EventImpl } from '@fullcalendar/core/internal';
+import { FullActivityRouteEnum } from '@shared/models/enums/routes/full-routes';
+import { Router } from '@angular/router';
+import { CalendarEvent } from '@shared/models/types/calendar/calendar-event.type';
+import { MessageService } from 'primeng/api';
 
 @Component({
 	selector: 'app-account-calendar',
 	templateUrl: './account-calendar.component.html',
 	styleUrls: ['./account-calendar.component.scss'],
-	providers: [
-		{ provide: LOCALE_ID, useValue: 'fr' },
-		{ provide: 'FULLCALENDAR_LOCALE', useValue: 'fr' },
-	],
+	providers: [MessageService],
 })
 export class AccountCalendarComponent implements OnInit {
-	events: any[] = [];
+	events: CalendarEvent[] = [];
 	calendarEl: HTMLElement | null = null;
-
+	dialogRef: DynamicDialogRef | null = null;
+	calendarApi!: Calendar;
 	calendarOptions: CalendarOptions = {
 		firstDay: 1,
-		locale: 'fr',
+		locale: frLocale,
 		initialView: 'dayGridMonth',
 		plugins: [dayGridPlugin, interactionPlugin, listPlugin, timeGridPlugin],
 		headerToolbar: {
 			left: 'prev,next today',
-			center: 'title',
+			center: 'title addEventButton',
 			right: 'dayGridMonth,timeGridWeek,timeGridDay',
+		},
+		customButtons: {
+			addEventButton: {
+				text: 'Ajouter Événement',
+				click: () => {
+					this.addEvent();
+				},
+			},
 		},
 		views: {
 			dayGridMonth: {
@@ -55,25 +67,25 @@ export class AccountCalendarComponent implements OnInit {
 				buttonText: 'Jour',
 			},
 		},
-
-		eventClick: (arg: EventClickArg) => this.handleEventClick(arg),
-		eventDrop: (arg: EventDropArg) => this.handleEventDrop(arg),
-
 		editable: true,
 		navLinks: true,
 		buttonText: {
 			today: "Aujourd'hui",
 		},
+		eventClick: (arg: EventClickArg) => this.handleEventClick(arg),
+		eventDrop: (arg: EventDropArg) => this.handleEventDrop(arg),
 	};
 
 	constructor(
 		private _activityService: ActivityService,
 		private dialogService: DialogService,
+		private _router: Router,
+		private messageService: MessageService,
 	) {}
 
 	ngOnInit() {
-		const id = '1'; // Replace with the ID of the logged-in user
-		const limit = 10; // Set your desired limit
+		const id = '1';
+		const limit = 10;
 
 		forkJoin({
 			createdActivities: this._activityService.getActivityListByCreatedUser$(
@@ -87,14 +99,14 @@ export class AccountCalendarComponent implements OnInit {
 				title: activity.name,
 				start: activity.date,
 				color: 'blue',
-				extendedProps: { activity, activityId: activity.id }, // Include activityId here
+				extendedProps: { activity, activityId: activity.id },
 			}));
 
 			const participatedEvents = participatedActivities.map(activity => ({
 				title: activity.name,
 				start: activity.date,
 				color: 'green',
-				extendedProps: { activity, activityId: activity.id }, // Include activityId here
+				extendedProps: { activity, activityId: activity.id },
 			}));
 
 			this.events = [...createdEvents, ...participatedEvents];
@@ -104,6 +116,9 @@ export class AccountCalendarComponent implements OnInit {
 
 		this.calendarEl = document.getElementById('calendar');
 		if (this.calendarEl) {
+			const calendar = new Calendar(this.calendarEl, this.calendarOptions);
+			this.calendarApi = calendar;
+			calendar.render();
 			new Draggable(this.calendarEl, {
 				itemSelector: '.fc-event',
 				eventData: eventEl => {
@@ -116,31 +131,43 @@ export class AccountCalendarComponent implements OnInit {
 			});
 		}
 	}
+	addEvent() {
+		this._router.navigate([FullActivityRouteEnum.POST]);
+	}
 
 	handleEventClick(arg: EventClickArg) {
 		const event = arg.event;
 
 		if (event && event.extendedProps && event.extendedProps['activity']) {
-			this.openModal(event.extendedProps['activity']);
+			this.openModal(event);
 		} else {
 			alert('No activity found for this date: ' + event);
 		}
 	}
 
-	openModal(activity: Activity) {
-		const ref = this.dialogService.open(CalendarModalComponent, {
+	openModal(event: EventImpl) {
+		this.dialogRef = this.dialogService.open(CalendarModalComponent, {
 			data: {
-				activity: activity,
+				activity: event.extendedProps['activity'],
+				eventId: event.id,
 			},
 			header: 'Details',
 			width: '30%',
+		});
+
+		this.dialogRef.onClose.subscribe(result => {
+			if (result && result.deleted) {
+				this.events = this.events.filter(
+					e => e.extendedProps.activityId !== result.eventId,
+				);
+				this.calendarOptions.events = this.events;
+			}
 		});
 	}
 
 	handleEventDrop(arg: EventDropArg) {
 		const event: EventApi = arg.event;
 		if (!event.start) {
-			console.error('Event start date is null');
 			return;
 		}
 
@@ -149,14 +176,22 @@ export class AccountCalendarComponent implements OnInit {
 
 		this._activityService
 			.updateActivity$(activityId, { date: newDate })
-			.subscribe(
-				(updatedActivity: Activity) => {
-					console.log('Activity updated successfully:', updatedActivity);
+			.subscribe({
+				next: () => {
+					this.messageService.add({
+						severity: 'success',
+						summary: 'Succès',
+						detail: "L'activité a été mise à jour avec succès",
+					});
 				},
-				error => {
-					console.error('Error updating activity:', error);
+				error: () => {
 					arg.revert();
+					this.messageService.add({
+						severity: 'error',
+						summary: 'Erreur',
+						detail: "Erreur lors de la mise à jour de l'activité",
+					});
 				},
-			);
+			});
 	}
 }

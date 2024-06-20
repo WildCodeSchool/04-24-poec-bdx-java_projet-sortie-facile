@@ -1,0 +1,17 @@
+<div class="container">
+	<app-dashboard-layout
+		[avatarSrc]="avatarSrc"
+		[avatarAlt]="avatarAlt"
+		[username]="connectedUser.username"
+		[pageTitle]="pageTitle"
+		[pageDescription]="pageDescription"
+		[items]="navItems"
+	>
+		<app-layout-container-content sectionTitle="Calendrier" [hideBtn]="true">
+			<ng-container data>
+				<app-admin-calendar></app-admin-calendar>
+				<app-data-booking></app-data-booking>
+			</ng-container>
+		</app-layout-container-content>
+	</app-dashboard-layout>
+</div>

@@ -1,8 +1,10 @@
 import { Activity } from '@activity/models/classes/activity.class';
 import { Component, OnInit } from '@angular/core';
+import { BaseManagementComponent } from '@shared/directives/management.class';
+import { LayoutLink } from '@shared/models/types/utils/layout-link.type';
+import { AccountService } from '@shared/services/account.service';
 import { ActivityService } from '@shared/services/activity.service';
 import { AuthService } from '@shared/services/auth.service';
-import { BaseAccountManagementComponent } from '@user/directives/account-management.class';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -11,21 +13,25 @@ import { Observable } from 'rxjs';
 	styleUrl: './account-activities-management.component.scss',
 })
 export class AccountActivitiesManagementComponent
-	extends BaseAccountManagementComponent
+	extends BaseManagementComponent
 	implements OnInit
 {
+	navItems: LayoutLink[] = [];
 	activityByCreatedUserList$!: Observable<Activity[]>;
 	activityParticipateList$!: Observable<Activity[]>;
 
 	constructor(
 		protected override _authService: AuthService,
 		private _activityService: ActivityService,
+		private _accountService: AccountService,
 	) {
 		super(_authService);
 	}
 
 	override ngOnInit(): void {
 		super.ngOnInit();
+
+		this.navItems = this._accountService.getLayoutItems();
 
 		this.activityByCreatedUserList$ =
 			this._activityService.getActivityListByCreatedUser$(

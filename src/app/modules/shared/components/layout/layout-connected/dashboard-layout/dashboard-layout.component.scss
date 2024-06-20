@@ -1,0 +1,68 @@
+:host ::ng-deep .dashboard-content {
+	display: flex;
+	flex-direction: column;
+	gap: 2rem;
+	padding: 0.5rem 1rem;
+	border-radius: 15px;
+	background-color: var(--gray-500);
+	border: 1px solid var(--gray-200);
+	min-height: calc(100vh - 250px);
+
+	@media (min-width: 768px) {
+		flex-direction: row;
+		padding: 1rem 1.5rem;
+	}
+
+	.dashboard-nav-box {
+		display: none;
+
+		@media (min-width: 768px) {
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+			min-width: fit-content;
+		}
+
+		a {
+			text-decoration: none;
+			font-size: 0.95rem;
+
+			&:hover {
+				text-decoration: underline;
+			}
+		}
+
+		.delete-box {
+			.p-button {
+				font-size: 0.85rem;
+			}
+
+			a.delete-link {
+				color: var(--danger-color);
+				font-size: 0.8rem;
+			}
+		}
+	}
+
+	.dashboard-nav-mobile-box {
+		width: 100%;
+
+		@media (min-width: 768px) {
+			display: none;
+		}
+	}
+}
+
+.dashboard-primary-content {
+	display: flex;
+	flex-direction: column;
+	gap: 2rem;
+	width: 100%;
+	padding: 1rem 1.5rem;
+	border-radius: 15px;
+	background-color: var(--white-color);
+	border: none;
+	height: initial;
+	width: 100%;
+	overflow: hidden;
+}

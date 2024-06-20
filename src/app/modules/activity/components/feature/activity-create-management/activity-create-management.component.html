@@ -35,8 +35,9 @@
 			[(ngModel)]="newActivity.hour"
 		></app-input-hour>
 
-		<label for="">Département</label>
 		<app-select-department
+			labelFor="Departments"
+			labelContent="Département :"
 			id="departments"
 			inputId="departments"
 			name="departments"
@@ -46,7 +47,7 @@
 
 		<app-select-city
 			labelFor="city"
-			labelContent="Lieu :"
+			labelContent="Ville :"
 			id="city"
 			inputId="city"
 			name="activityCity"
@@ -67,7 +68,7 @@
 
 		<app-select-number
 			labelFor="nbGuest"
-			labelContent="Nbre de participants :"
+			labelContent="Nombre de participants :"
 			inputId="nbGuest"
 			name="nbGuest"
 			#nbGuest="ngModel"
@@ -86,17 +87,15 @@
 			[(ngModel)]="newActivity.description"
 		></app-textarea>
 
-		<p>img</p>
-		<i class="pi pi-download" style="font-size: 1.5rem"></i>
-
-		<input
-			inputId="imgUrl"
+		<app-file-upload
+			labelFor="imgUrl"
+			labelContent="Choisir une image :"
 			name="imgUrl"
-			#imgUrl="ngModel"
+			id="imgUrl"
+			#imgUrlControl="ngModel"
 			[(ngModel)]="newActivity.imgUrl"
-			type="file"
-			class="file-upload"
-		/>
+			[form]="addActivityForm"
+		></app-file-upload>
 
 		<app-text-field
 			labelFor="link"
@@ -109,10 +108,13 @@
 		></app-text-field>
 
 		<div class="btn-container">
-			<app-button-form
-				iconName="arrow-right"
+			<p-button
+				type="submit"
+				label="Créer"
+				icon="pi pi-arrow-right"
+				iconPos="right"
 				(click)="onModal()"
-			></app-button-form>
+			></p-button>
 
 			<app-modal-confirm-creat-activity
 				[myForm]="addActivityForm"

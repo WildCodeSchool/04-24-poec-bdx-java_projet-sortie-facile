@@ -1,25 +1,54 @@
 <div class="container">
 	<div class="hero-box">
 		<div class="hero-mask"></div>
+		<header>
+			<div class="hero-img-box">
+				<img src="assets/photos/logoSortieFacile.png" alt="logo" />
+			</div>
+
+			<nav>
+				<ul>
+					<li *ngIf="!connectedUser.username">
+						<p-button [routerLink]="['/auth/login']" [text]="true"
+							>Connexion</p-button
+						>
+					</li>
+
+					<li *ngIf="!connectedUser.username">
+						<p-button [routerLink]="['/auth/register']" [text]="true"
+							>Inscription</p-button
+						>
+					</li>
+
+					<li *ngIf="connectedUser.username">
+						<p-button [routerLink]="[fullUserRouteEnum.ACTIVITY]" [text]="true"
+							>Mon compte</p-button
+						>
+					</li>
+
+					<li *ngIf="connectedUser.username">
+						<p-button (click)="logout()" [text]="true">Déconnexion</p-button>
+					</li>
+				</ul>
+			</nav>
+		</header>
 
 		<div class="hero-content-box">
 			<div class="hero-content-text">
-				<span class="big-letter">SF</span>
-
 				<div class="hero-content-elements-box">
-					<h1>
-						<span>Sortie facile</span>
-						<span>Partagez vos sorties !</span>
-					</h1>
+					<div class="title-content">
+						<h1>
+							<span>Sortie facile</span>
+							<span>Ensemble, c'est mieux!</span>
+						</h1>
+						<!-- <img src="/assets/photos/logoSortieFacile.png" alt="logo"> -->
+					</div>
 
 					<p-divider></p-divider>
 					<p>
-						Sugar plum toffee wafer carrot cake brownie sweet roll sweet tootsie
-						roll. Dragée jelly sweet roll powder sugar plum cupcake oat cake.
-						Chocolate cake soufflé chocolate bar jujubes liquorice sweet oat
-						cake macaroon. Pastry toffee jujubes jelly chupa chups. Soufflé oat
-						cake chocolate cake wafer shortbread. Lemon drops cake cookie
-						macaroon icing carrot cake.
+						Ne cherchez plus, trouvez des amis pour chacune de vos activités!
+						<br />
+						Rencontrez, partagez, et surtout amusez-vous!
 					</p>
 
 					<div class="btn-box">
@@ -68,25 +97,19 @@
 		<div class="section-content-box">
 			<div class="section-header">
 				<h4 class="section-subtitle">Happy Life Website</h4>
-				<h3 class="section-title">Comment ça marche ?</h3>
+				<h3 class="section-title">Pourquoi nous rejoindre ?</h3>
 			</div>
 
 			<div class="section-content">
 				<app-card-landing-large
-					title="Découvrir les activités"
-					description="Danish jelly chocolate bar lollipop cupcake chocolate cake danish oat
-            cake cotton candy. Jujubes soufflé lollipop candy canes marzipan jelly-o
-            fruitcake caramels. Lollipop chocolate bar topping apple pie dragée.
-            Tiramisu dessert jujubes powder chocolate bar cheesecake cookie
-            liquorice gummies. Candy canes lollipop liquorice gingerbread cotton
-            candy candy cotton candy tootsie roll. Pudding shortbread bear claw
-            danish sweet roll sesame snaps cupcake marshmallow tootsie roll. Cookie
-            cake lemon drops candy jelly jelly beans pastry. Sugar plum bear claw
-            cake jelly-o chocolate bar jelly-o halvah toffee chocolate bar."
-					ctaPrimarylabel="Rejoignez nous !"
-					ctaSecondarylabel="Se connecter"
+					title="Notre concept ?"
+					description="Découvrez et réservez une variété d'activités passionnantes près de chez vous grâce à notre plateforme. Que ce soit lorsque vous venez d'emménager dans la région et que vous ne connaissez personne ou que tous vos amis sont occupés, notre site vous propose une sélection d'expériences uniques adaptées à vos intérêts. Explorez de nouvelles activités, rencontrez des passionnés comme vous et partagez des moments mémorables."
+					[ctaSecondarylabel]="
+						connectedUser.username ? 'Mon compte' : 'Se connecter'
+					"
 					imgSrc="assets/photos/home-2.jpg"
 					imgLabel=""
+					[connectedUser]="connectedUser.username ? true : false"
 				></app-card-landing-large>
 			</div>
 		</div>
@@ -134,6 +157,26 @@
 		</div>
 	</section>
 
+	<section class="popular-activity-box">
+		<div class="section-content-box">
+			<div class="section-header">
+				<h4 class="section-subtitle">Happy Life Website</h4>
+				<h3 class="section-title">Dernières places à prendre !</h3>
+			</div>
+
+			<div class="section-content">
+				<ng-container *ngIf="activityList$ | async as activityList">
+					<app-carousel-activity
+						[activityList]="activityList"
+						[numVisible]="6"
+						[numScroll]="1"
+						[circular]="false"
+						[responsiveOptions]="responsiveOptions"
+					></app-carousel-activity>
+				</ng-container>
+			</div>
+		</div>
+	</section>
 	<section class="testimonials-box">
 		<div class="section-content-box">
 			<div class="section-header">
@@ -156,86 +199,3 @@
 		</div>
 	</section>
 </div>
-<!-- 
-<div class="content-top">
-	<div class="img-banner-container">
-		<img class="img-banner" src="assets/photos/homebanner.jpeg" alt="" />
-	</div>
-	<div class="content-top-text">
-		<h1>Sortie Facile : Partagez vos sorties !</h1>
-	</div>
-</div>
-
-<div class="kezako">Kezako ?</div>
-<div class="schema-container">
-	<div class="schema-text">
-		<h3>c'est quoi ?</h3>
-		<img class="img-grp" src="assets/photos/schema.png" alt="" />
-		<h2 class="envie">Envie de sortir ?</h2>
-		<img src="/assets/photos/arrow.png" class="arrow1" alt="arrow" />
-		<h2 class="dispo">Personne de disponible</h2>
-		<img src="/assets/photos/arrow.png" class="arrow2" alt="arrow" />
-		<img
-			src="/assets/photos/logoSortieFacile.png"
-			height="40"
-			class="logo"
-			alt="logo of sortie facile"
-		/>
-		<div class="sf">Sortie Facile !</div>
-	</div>
-</div>
-<h2>Activités les plus populaires</h2>
-<div class="content-box" data>
-	<app-carousel-activity
-		[activityList]="activityList"
-		[numVisible]="6"
-		[numScroll]="1"
-		[circular]="false"
-		[responsiveOptions]="responsiveOptions"
-	></app-carousel-activity>
-</div>
-
-<div class="functioning">
-	<div class="comment">Comment ça marche ?</div>
-	<div class="functioning-list">
-		<ng-container *ngFor="let functionimgData of functionimgDatas">
-			<app-card-landing-small
-				[imgSrc]="functionimgData.imgSrc"
-				[imgAlt]="functionimgData.imgAlt"
-				[title]="functionimgData.title"
-				[description]="functionimgData.description"
-				[link]="functionimgData.link"
-				[linkLabel]="functionimgData.linkLabel"
-			></app-card-landing-small>
-		</ng-container>
-	</div>
-</div>
-<h2>Dernières places à saisir !</h2>
-
-<div class="content-box" data>
-	<app-carousel-activity
-		[activityList]="activityList"
-		[numVisible]="6"
-		[numScroll]="1"
-		[circular]="false"
-	></app-carousel-activity>
-</div>
-<h3>Découvrir les activités</h3>
-<div class="discover-box">
-	<app-card-landing-large
-		title="Découvrir les activités >"
-		description="Danish jelly chocolate bar lollipop cupcake chocolate cake danish oat
-            cake cotton candy. Jujubes soufflé lollipop candy canes marzipan jelly-o
-            fruitcake caramels. Lollipop chocolate bar topping apple pie dragée.
-            Tiramisu dessert jujubes powder chocolate bar cheesecake cookie
-            liquorice gummies. Candy canes lollipop liquorice gingerbread cotton
-            candy candy cotton candy tootsie roll. Pudding shortbread bear claw
-            danish sweet roll sesame snaps cupcake marshmallow tootsie roll. Cookie
-            cake lemon drops candy jelly jelly beans pastry. Sugar plum bear claw
-            cake jelly-o chocolate bar jelly-o halvah toffee chocolate bar."
-		ctaPrimarylabel="Rejoignez nous !"
-		ctaSecondarylabel="Se connecter"
-		imgSrc="assets/photos/activity-participate.svg"
-		imgLabel=""
-	></app-card-landing-large>
-</div> -->

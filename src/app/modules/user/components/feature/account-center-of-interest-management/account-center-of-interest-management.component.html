@@ -1,12 +1,13 @@
 <div class="container">
-	<app-account-layout
+	<app-dashboard-layout
 		[avatarSrc]="avatarSrc"
 		[avatarAlt]="avatarAlt"
 		[username]="connectedUser.username"
 		[pageTitle]="pageTitle"
 		[pageDescription]="pageDescription"
+		[items]="navItems"
 	>
-		<app-account-container-content
+		<app-layout-container-content
 			sectionTitle="Mes centres d’intérêts"
 			[hideBtn]="true"
 		>
@@ -32,6 +33,6 @@
 					></app-modal-add-category>
 				</div>
 			</div>
-		</app-account-container-content>
-	</app-account-layout>
+		</app-layout-container-content>
+	</app-dashboard-layout>
 </div>

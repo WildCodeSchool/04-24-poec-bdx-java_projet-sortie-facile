@@ -7,7 +7,6 @@ import { Component, OnInit } from '@angular/core';
 })
 export class VerticalBoardComponent implements OnInit {
 	data: any;
-
 	options: any;
 
 	ngOnInit() {

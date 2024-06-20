@@ -1,12 +1,13 @@
 <div class="container">
-	<app-account-layout
+	<app-dashboard-layout
 		[avatarSrc]="avatarSrc"
 		[avatarAlt]="avatarAlt"
 		[username]="connectedUser.username"
 		[pageTitle]="pageTitle"
 		[pageDescription]="pageDescription"
+		[items]="navItems"
 	>
-		<app-account-container-content
+		<app-layout-container-content
 			sectionTitle="Mes dernières activités créées"
 			[hideBtn]="true"
 		>
@@ -30,9 +31,9 @@
 					></app-alert>
 				</ng-container>
 			</div>
-		</app-account-container-content>
+		</app-layout-container-content>
 
-		<app-account-container-content
+		<app-layout-container-content
 			sectionTitle="Mes dernières activités en tant que participant"
 			[hideBtn]="true"
 		>
@@ -54,6 +55,6 @@
 					></app-alert>
 				</ng-container>
 			</div>
-		</app-account-container-content>
-	</app-account-layout>
+		</app-layout-container-content>
+	</app-dashboard-layout>
 </div>

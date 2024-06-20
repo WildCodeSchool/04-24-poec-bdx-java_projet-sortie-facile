@@ -15,14 +15,55 @@ p {
 	background: url('assets/photos/homebanner.jpeg') no-repeat;
 	background-size: cover;
 	display: flex;
-	justify-content: center;
+	flex-direction: column;
+	justify-content: space-between;
 	align-items: center;
 
 	.hero-mask {
 		position: absolute;
+		z-index: 1;
 		width: 100%;
 		height: 100%;
-		background-color: rgba(0, 0, 0, 0.8);
+		background-color: rgba(0, 0, 0, 0.6);
+	}
+
+	header {
+		z-index: 10;
+		position: relative;
+		width: 100%;
+		display: flex;
+		justify-content: space-between;
+		padding: 2rem 0 0;
+
+		.hero-img-box > img {
+			height: 60px;
+			margin: 0 3rem;
+			align-items: center;
+		}
+
+		ul {
+			margin-left: 0;
+			margin-right: 3rem;
+			display: flex;
+			gap: 1.5rem;
+			align-items: center;
+		}
+
+		li {
+			list-style-type: none;
+		}
+
+		button {
+			color: var(--white-color);
+			text-decoration: none;
+			padding-bottom: 1rem;
+			border-radius: 0;
+
+			&:hover {
+				background-color: transparent;
+				border-bottom: 1px solid var(--white-color);
+			}
+		}
 	}
 
 	.hero-content-box {
@@ -30,6 +71,9 @@ p {
 		z-index: 100;
 		width: 100%;
 		max-width: 1920px;
+		height: 100%;
+		display: flex;
+		align-items: center;
 
 		.hero-content-text {
 			position: relative;
@@ -51,21 +95,22 @@ p {
 			.hero-content-elements-box {
 				position: relative;
 				z-index: 10;
-				padding-top: 2.5rem;
+				padding: 2.5rem 0;
 
 				h1 {
 					display: flex;
 					flex-direction: column;
 					color: var(--white-color);
-					font-size: 4rem;
+					font-size: clamp(2rem, 3vw + 1rem, 4rem);
 					text-transform: uppercase;
 					line-height: 1.1;
+					margin: 0rem 1.5rem 1.5rem;
 				}
 
 				.p-divider-horizontal {
 					width: 100%;
 					max-width: 200px;
-					margin: 2rem 0;
+					margin: 2rem 1.5rem;
 					height: 3px;
 
 					&:before {
@@ -75,19 +120,18 @@ p {
 
 				p {
 					color: var(--gray-700);
-					margin-left: 3rem;
+					margin: 1.5rem;
 					font-size: 1.05rem;
 					line-height: 1.6;
 					max-width: 700px;
 				}
 
 				.btn-box {
-					margin-left: 3rem;
-					margin-top: 2rem;
+					margin: 1.5rem 1.5rem 0 1.5rem;
 
 					.p-button {
 						font-size: 1rem;
-						padding: 0.75rem 2rem;
+						padding: 0.6rem 1.5rem;
 						border: 2px solid var(--white-color);
 						color: var(--white-color);
 						font-weight: 500;
@@ -95,6 +139,70 @@ p {
 						&:hover {
 							background-color: var(--white-color);
 							color: var(--black-color);
+						}
+					}
+				}
+
+				@media (min-width: 768px) {
+					h1 {
+						margin: 0rem 2rem 2rem;
+					}
+
+					.p-divider-horizontal {
+						margin: 2.25rem 2rem;
+					}
+
+					p {
+						margin: 2rem;
+					}
+
+					.btn-box {
+						margin-left: 2rem;
+						margin-top: 2rem;
+
+						.p-button {
+							padding: 0.75rem 2rem;
+						}
+					}
+				}
+
+				@media (min-width: 960px) {
+					h1 {
+						margin: 0rem 2.75rem 2.75rem;
+					}
+
+					.p-divider-horizontal {
+						margin: 2rem 2.75rem;
+					}
+
+					p {
+						margin: 2.75rem;
+					}
+
+					.btn-box {
+						margin-left: 2.75rem;
+					}
+				}
+
+				@media (min-width: 1280px) {
+					h1 {
+						margin: 0rem 3rem 2.2rem 3rem;
+					}
+
+					.p-divider-horizontal {
+						margin: 2.2rem 3rem;
+					}
+
+					p {
+						margin: 2.2rem 3rem;
+					}
+
+					.btn-box {
+						margin-left: 3rem;
+						margin-top: 2.2rem;
+
+						.p-button {
+							padding: 0.75rem 2rem;
 						}
 					}
 				}
@@ -132,10 +240,6 @@ p {
 	}
 
 	&.discover-box {
-		// max-width: 960px;
-		// background: url('assets/photos/home.jpg') no-repeat;
-		// background-size: cover;
-
 		.mask {
 			position: absolute;
 			z-index: 2;
@@ -170,30 +274,77 @@ p {
 			align-items: center;
 
 			.section-subtitle {
-				font-size: 1rem;
+				font-size: 0.9rem;
 				color: var(--gray-700);
 				text-transform: uppercase;
 				margin-bottom: 1rem;
 			}
 
 			.section-title {
-				font-size: 2.5rem;
+				font-size: 2rem;
 				color: var(--black-color);
+				text-align: center;
 			}
 		}
 
 		.section-content {
 			display: flex;
-			gap: 2rem;
+			flex-direction: column;
+			align-items: center;
+			gap: 1rem;
 			width: 100%;
-			margin-top: 2rem;
+			margin-top: 0rem;
+
+			app-card-landing-small {
+				width: 100%;
+				max-width: 500px;
+			}
+		}
+
+		@media (min-width: 768px) {
+			.section-header {
+				.section-subtitle {
+					font-size: 1rem;
+				}
+
+				.section-title {
+					font-size: 2.25rem;
+				}
+			}
+
+			.section-content {
+				flex-direction: row;
+				justify-content: center;
+				gap: 0rem 2rem;
+				flex-wrap: wrap;
+
+				app-card-landing-small {
+					width: calc(50% - 2rem);
+				}
+			}
+		}
+
+		@media (min-width: 960px) {
+			.section-header {
+				.section-title {
+					font-size: 2.5rem;
+				}
+			}
+
+			.section-content {
+				app-card-landing-small {
+					width: calc(33.333333333% - 2rem);
+				}
+			}
 		}
 	}
 }
 
 :host ::ng-deep .popular-activity-box,
 :host ::ng-deep .testimonials-box {
-	.section-content {
+	.section-content-box .section-content {
+		margin-top: 2rem;
+
 		app-carousel-activity,
 		app-carousel-testimonial {
 			width: 100%;
@@ -213,7 +364,9 @@ p {
 }
 
 :host ::ng-deep .popular-categories-box {
-	.section-content {
+	.section-content-box .section-content {
+		margin-top: 2rem;
+
 		app-carousel-category {
 			width: 100%;
 
@@ -233,209 +386,8 @@ p {
 
 :host ::ng-deep section.testimonials-box {
 	.section-content {
-		margin-top: 5rem;
-
 		app-carousel-testimonial {
 			width: 100%;
 		}
 	}
 }
-
-// .content-top {
-// 	position: relative;
-// 	padding: 2rem 0;
-// 	display: flex;
-// 	justify-content: flex-start;
-// 	align-items: flex-end;
-// 	height: 50vh;
-// 	overflow: hidden;
-// }
-
-// .content-top-text {
-// 	max-width: 500px;
-// 	z-index: 1;
-// 	padding: 0rem;
-// 	padding-left: 4rem;
-// 	background: rgba(0, 0, 0, 0.1);
-// 	color: aliceblue;
-// }
-
-// .content-top-text h2 {
-// 	font-size: 1.35rem;
-// 	margin: 0;
-// 	margin-bottom: 1.5rem;
-// }
-
-// .content-top-text p {
-// 	font-size: 0.85rem;
-// 	margin: 0;
-// 	margin-bottom: 1.25rem;
-// }
-
-// .img-banner-container {
-// 	position: absolute;
-// 	top: 0;
-// 	left: 0;
-// 	width: 100%;
-// 	height: 100%;
-// 	overflow: hidden;
-// 	z-index: 0; /* Make sure the image is in the background */
-// }
-
-// .img-banner {
-// 	width: 100%;
-// 	height: 100%;
-// 	object-fit: cover;
-// 	object-position: top;
-// }
-
-// @media (min-width: 768px) {
-// 	.content-top {
-// 		flex-direction: row;
-// 		justify-content: flex-start;
-// 		gap: 1.5rem;
-// 	}
-// }
-
-// @media (min-width: 960px) {
-// 	.content-top {
-// 		gap: 6rem;
-// 	}
-// }
-
-// .schema-container {
-// 	margin-block: 70px;
-// 	position: relative;
-// 	padding: 2rem 0;
-// 	height: 68vh; /* Ajustez la hauteur selon vos besoins */
-// 	overflow: hidden;
-// 	background-image: url('assets/photos/fondbleu.png'); /* Image de fond */
-// 	background-size: contain; /* Ajustez la taille de l'image de fond */
-// 	background-position: right center; /* Position de l'image de fond */
-// 	background-repeat: no-repeat; /* Empêche la répétition de l'image */
-
-// 	/* Styles pour le texte et les éléments à l'intérieur de schema-container */
-// 	color: black;
-// }
-
-// .schema-text {
-// 	position: absolute;
-// 	top: 50%; /* Ajustez cette valeur pour positionner verticalement */
-// 	left: 50%; /* Ajustez cette valeur pour positionner horizontalement */
-// 	transform: translate(-50%, -50%);
-// 	max-width: 500px;
-// 	z-index: 1; /* Assurez-vous que le texte est au-dessus de l'image */
-// 	padding: 0 4rem; /* Ajustez le padding selon vos besoins */
-// }
-// .kezako {
-// 	margin-block: 40px;
-// 	position: relative;
-// 	text-align: center;
-// 	font-size: xxx-large;
-// 	font-family: 'Odor Mean Chey', serif;
-// }
-// .schema-text h3 {
-// 	font-size: 1.35rem;
-// 	margin: 0;
-// 	margin-bottom: 1.5rem;
-// 	color: aliceblue;
-// }
-
-// .schema-text h2 {
-// 	font-size: 1.2rem;
-// 	margin: 0;
-// 	margin-bottom: 1.25rem;
-// }
-
-// .img-grp {
-// 	position: absolute;
-// 	top: -180px;
-// 	left: -377px; /* Ajustez cette valeur pour positionner horizontalement */
-// 	z-index: 1; /* Assurez-vous que l'image est au-dessus de l'image de fond */
-// }
-
-// .envie {
-// 	position: absolute;
-// 	top: 63%;
-// 	left: -124%; /* Ajustez cette valeur pour positionner horizontalement */
-// }
-
-// .arrow1 {
-// 	position: absolute;
-// 	top: 102%;
-// 	left: -86%;
-// 	transform: rotate(-11deg);
-// }
-
-// .dispo {
-// 	position: absolute;
-// 	top: 295%;
-// 	left: -40%; /* Ajustez cette valeur pour positionner horizontalement */
-// }
-
-// .arrow2 {
-// 	position: absolute;
-// 	top: 184%;
-// 	left: 69%;
-// 	transform: rotate(-80deg);
-// }
-
-// .logo {
-// 	position: absolute;
-// 	top: 17%;
-// 	left: 114%;
-// 	width: 7rem;
-// 	height: 7rem;
-// }
-// .sf {
-// 	position: absolute;
-// 	font-size: 35px;
-// 	font-family: 'Odor Mean Chey', serif;
-// 	top: -22%;
-// 	left: 162%;
-// 	width: 100%;
-// 	color: aliceblue; /* Ajustez cette valeur pour positionner horizontalement */
-// }
-
-// .functioning,
-// .discover-box {
-// 	width: 100%;
-// 	max-width: 1100px;
-// 	margin: 0 auto;
-// }
-
-// .discover-box {
-// 	margin-top: 2.5rem;
-// }
-
-// .functioning h3 {
-// 	font-size: 1.15rem;
-// }
-
-// .functioning .functioning-list {
-// 	display: flex;
-// 	flex-wrap: nowrap;
-// 	gap: 1.5rem;
-// 	margin-bottom: 1.5rem;
-// 	width: 100%;
-// }
-// .comment {
-// 	margin-block: 40px;
-// 	position: relative;
-// 	text-align: center;
-// 	font-size: xxx-large;
-// 	font-family: 'Odor Mean Chey', serif;
-// }
-// //caroussel
-
-// @media (min-width: 768px) and (max-width: 959px) {
-// 	.functioning .functioning-list {
-// 		flex-direction: row;
-// 	}
-// }
-
-// @media (min-width: 960px) {
-// 	.functioning .functioning-list {
-// 		flex-direction: row;
-// 	}
-// }

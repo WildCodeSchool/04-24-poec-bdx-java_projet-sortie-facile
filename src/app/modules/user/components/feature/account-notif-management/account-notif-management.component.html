@@ -1,0 +1,18 @@
+<div class="container">
+	<app-dashboard-layout
+		[avatarSrc]="avatarSrc"
+		[avatarAlt]="avatarAlt"
+		[username]="connectedUser.username"
+		[pageTitle]="pageTitle"
+		[pageDescription]="pageDescription"
+		[items]="navItems"
+	>
+		<p-button
+			*ngIf="newActivityCreated"
+			rounded
+			[routerLink]="fullActivityRouteEnum.HOME"
+			>Nouvelle activité créée</p-button
+		>
+		<!-- <p-button rounded>Activité annulée</p-button> -->
+	</app-dashboard-layout>
+</div>

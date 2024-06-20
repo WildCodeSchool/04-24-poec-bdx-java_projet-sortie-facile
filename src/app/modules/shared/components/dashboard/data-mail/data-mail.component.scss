@@ -40,3 +40,17 @@
 	margin-top: 10px;
 	line-height: 1.5;
 }
+
+.badge {
+	padding: 3px 8px;
+	font-size: 0.75rem;
+	font-weight: bold;
+	color: #fff;
+	border-radius: 4px;
+	&.badge-danger {
+		background-color: red;
+	}
+	&.badge-succes {
+		background-color: rgb(14, 157, 31);
+	}
+}

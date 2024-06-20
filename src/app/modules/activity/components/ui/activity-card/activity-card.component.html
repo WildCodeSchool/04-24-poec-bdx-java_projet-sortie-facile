@@ -37,6 +37,10 @@
 				<i class="pi pi-calendar"></i>
 				<p>{{ activity.date | date: 'longDate' }}</p>
 			</div>
+			<div class="bottom-item">
+				<i class="pi pi-clock"></i>
+				<p>{{ activity.hour | date: 'HH:mm' }}</p>
+			</div>
 
 			<div class="bottom-item">
 				<i class="pi pi-map-marker"></i>
@@ -54,7 +58,7 @@
 				[routerLink]="[fullActivityRoute.DETAILS, activity.id]"
 				class="btn-register"
 			>
-				Voir Plus
+				En savoir plus
 			</p-button>
 		</ng-template>
 	</p-card>

@@ -5,9 +5,6 @@ import { UserRoutingModule } from '@user/user-routing.module';
 import { UserHomeComponent } from '@user/pages/user-home/user-home.component';
 import { AccountLayoutComponent } from '@user/components/ui/account-layout/account-layout.component';
 import { AccountGeneralManagementComponent } from '@user/components/feature/account-general-management/account-general-management.component';
-import { LayoutHeaderComponent } from '@user/components/ui/layout/layout-header/layout-header.component';
-import { LayoutNavComponent } from '@user/components/ui/layout/layout-nav/layout-nav.component';
-import { LayoutNavResponsiveComponent } from '@user/components/ui/layout/layout-nav-responsive/layout-nav-responsive.component';
 import { UserProfileComponent } from '@user/pages/user-profile/user-profile.component';
 import { UserPasswordComponent } from '@user/pages/user-password/user-password.component';
 import { UserActivitiesComponent } from '@user/pages/user-activities/user-activities.component';
@@ -17,7 +14,6 @@ import { UserNotificationComponent } from '@user/pages/user-notification/user-no
 import { SharedModule } from '@shared/shared.module';
 import { AccountProfileManagementComponent } from '@user/components/feature/account-profile-management/account-profile-management.component';
 import { AccountCardInfoComponent } from '@user/components/ui/account-card-info/account-card-info.component';
-import { AccountContainerContentComponent } from '@user/components/ui/account-container-content/account-container-content.component';
 import { AccountActivitiesManagementComponent } from './components/feature/account-activities-management/account-activities-management.component';
 import { AccountCenterOfInterestManagementComponent } from './components/feature/account-center-of-interest-management/account-center-of-interest-management.component';
 import { FormsModule } from '@angular/forms';
@@ -27,15 +23,16 @@ import { AccountPasswordManagementComponent } from './components/feature/account
 import { AccountPasswordFormComponent } from './components/ui/account-form/account-password-form/account-password-form.component';
 import { AccountCalendarManagementComponent } from './components/feature/account-calendar-management/account-calendar-management.component';
 import { AccountCalendarComponent } from './components/ui/account-calendar/account-calendar.component';
+import { AccountGeneralFormComponent } from './components/ui/account-form/account-general-form/account-general-form.component';
+import { AccountNotifManagementComponent } from './components/feature/account-notif-management/account-notif-management.component';
+import { UserBookingComponent } from './pages/user-booking/user-booking.component';
+import { AccountBookingManagementComponent } from './components/feature/account-booking-management/account-booking-management.component';
 
 @NgModule({
 	declarations: [
 		UserHomeComponent,
 		AccountLayoutComponent,
 		AccountGeneralManagementComponent,
-		LayoutHeaderComponent,
-		LayoutNavComponent,
-		LayoutNavResponsiveComponent,
 		UserProfileComponent,
 		UserPasswordComponent,
 		UserActivitiesComponent,
@@ -43,7 +40,6 @@ import { AccountCalendarComponent } from './components/ui/account-calendar/accou
 		UserCenterOfInterestComponent,
 		UserNotificationComponent,
 		AccountProfileManagementComponent,
-		AccountContainerContentComponent,
 		AccountCardInfoComponent,
 		AccountActivitiesManagementComponent,
 		AccountCenterOfInterestManagementComponent,
@@ -51,8 +47,12 @@ import { AccountCalendarComponent } from './components/ui/account-calendar/accou
 		AccountAddressFormComponent,
 		AccountPasswordManagementComponent,
 		AccountPasswordFormComponent,
-  AccountCalendarManagementComponent,
-  AccountCalendarComponent,
+		AccountCalendarManagementComponent,
+		AccountCalendarComponent,
+		AccountGeneralFormComponent,
+		AccountNotifManagementComponent,
+		UserBookingComponent,
+		AccountBookingManagementComponent,
 	],
 	imports: [CommonModule, UserRoutingModule, SharedModule, FormsModule],
 })

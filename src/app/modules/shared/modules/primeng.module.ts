@@ -32,7 +32,7 @@ import { ChartModule } from 'primeng/chart';
 import { TooltipModule } from 'primeng/tooltip';
 import { MessagesModule } from 'primeng/messages';
 import { RatingModule } from 'primeng/rating';
-
+import { BadgeModule } from 'primeng/badge';
 @NgModule({
 	exports: [
 		ButtonModule,
@@ -69,6 +69,7 @@ import { RatingModule } from 'primeng/rating';
 		TooltipModule,
 		MessagesModule,
 		RatingModule,
+		BadgeModule,
 	],
 })
 export class PrimengModule {}

@@ -1,10 +1,12 @@
 <div class="activity-card-container">
 	<p-card>
+		<p-badge
+			value="? / {{ activity.nbGuest }} places restantes"
+			badgeSize="large"
+			severity="warning"
+		/>
 		<ng-template pTemplate="header">
-			<div
-				class="btn-admin"
-				*ngIf="connectedUser && connectedUser.id === activity.userId"
-			>
+			<div class="btn-admin">
 				<!-- <p-button
 					icon="pi pi-pencil"
 					[rounded]="true"
@@ -12,12 +14,12 @@
 					[routerLink]="[fullActivityRoute.UPDATE, activity.id]"
 				/> -->
 
-				<!-- <p-button
+				<p-button
 					icon="pi pi-trash"
 					[rounded]="true"
 					severity="danger"
-					(click)="onModal()"
-				/> -->
+					(click)="deleteEvent()"
+				/>
 			</div>
 
 			<img
@@ -28,9 +30,7 @@
 				"
 			/>
 		</ng-template>
-		<h3>
-			{{ activity.name | truncate: 25 }}
-		</h3>
+		<h3>{{ activity.name | truncate: 25 }}</h3>
 		<p-divider />
 		<div class="bottom-content">
 			<div class="bottom-item">
@@ -47,7 +47,6 @@
 		<p class="clamp-text">
 			{{ activity.description }}
 		</p>
-
 		<ng-template pTemplate="footer">
 			<p-button
 				rounded
@@ -55,7 +54,7 @@
 				class="btn-register"
 				(click)="close()"
 			>
-				Voir Plus
+				En savoir plus
 			</p-button>
 		</ng-template>
 	</p-card>

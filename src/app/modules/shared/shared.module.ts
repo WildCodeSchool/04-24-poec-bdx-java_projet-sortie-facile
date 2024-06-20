@@ -38,7 +38,14 @@ import { CarouselActivityComponent } from './components/carousel/carousel-activi
 import { CarouselTestimonialComponent } from './components/carousel/carousel-testimonial/carousel-testimonial.component';
 import { CarouselCategoryComponent } from './components/carousel/carousel-category/carousel-category.component';
 import { CalendarModalComponent } from './components/modal/calendar-modal/calendar-modal.component';
-
+import { FileUploadComponent } from './components/file-upload/file-upload.component';
+import { FileUploadModule } from 'primeng/fileupload';
+import { AuthMenuComponent } from './components/auth-menu/auth-menu.component';
+import { DashboardLayoutComponent } from './components/layout/layout-connected/dashboard-layout/dashboard-layout.component';
+import { LayoutHeaderComponent } from './components/layout/layout-connected/layout-header/layout-header.component';
+import { LayoutNavComponent } from './components/layout/layout-connected/layout-nav/layout-nav.component';
+import { LayoutNavResponsiveComponent } from './components/layout/layout-connected/layout-nav-responsive/layout-nav-responsive.component';
+import { LayoutContainerContentComponent } from './components/layout/layout-container-content/layout-container-content.component';
 @NgModule({
 	declarations: [
 		AuthTypographyWithRedirectComponent,
@@ -71,6 +78,13 @@ import { CalendarModalComponent } from './components/modal/calendar-modal/calend
 		CarouselTestimonialComponent,
 		CarouselCategoryComponent,
 		CalendarModalComponent,
+		FileUploadComponent,
+		AuthMenuComponent,
+		DashboardLayoutComponent,
+		LayoutHeaderComponent,
+		LayoutNavComponent,
+		LayoutNavResponsiveComponent,
+		LayoutContainerContentComponent,
 	],
 	imports: [
 		CommonModule,
@@ -80,6 +94,7 @@ import { CalendarModalComponent } from './components/modal/calendar-modal/calend
 		SharedFormModule,
 		HttpClientModule,
 		FullCalendarModule,
+		FileUploadModule,
 	],
 	providers: [ConfirmationService],
 	exports: [
@@ -116,6 +131,13 @@ import { CalendarModalComponent } from './components/modal/calendar-modal/calend
 		CardTestimonialComponent,
 		CarouselTestimonialComponent,
 		CarouselCategoryComponent,
+		FileUploadComponent,
+		AuthMenuComponent,
+		DashboardLayoutComponent,
+		LayoutHeaderComponent,
+		LayoutNavComponent,
+		LayoutNavResponsiveComponent,
+		LayoutContainerContentComponent,
 	],
 })
 export class SharedModule {}

@@ -17,7 +17,7 @@ export class DataMailComponent implements OnInit {
 	pagedContacts: Contact[] = [];
 	selectedContact: Contact | undefined;
 	totalRecords: number = 0;
-	rows: number = 5;
+	rows: number = 10;
 	first: number = 0;
 	rowsPerPageOptions!: PaginationOption[];
 
@@ -40,6 +40,8 @@ export class DataMailComponent implements OnInit {
 	}
 
 	showMail(contact: Contact) {
+		contact.read = true;
+		this.contactService.updateContact(contact).subscribe();
 		this.selectedContact = contact;
 	}
 
