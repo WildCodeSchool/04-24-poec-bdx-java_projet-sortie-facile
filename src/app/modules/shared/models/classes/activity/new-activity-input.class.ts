@@ -6,7 +6,6 @@ export class NewActivityInput {
 	link: string;
 	description: string;
 	nbGuest: number;
-	hour: string;
 	isVisible: boolean;
 	// category: number;
 
@@ -18,7 +17,6 @@ export class NewActivityInput {
 		link: string,
 		description: string,
 		nbGuest: number,
-		hour: string,
 		isVisible: boolean,
 		// category: number,
 	) {
@@ -29,7 +27,6 @@ export class NewActivityInput {
 		this.link = link;
 		this.description = description;
 		this.nbGuest = nbGuest;
-		this.hour = hour;
 		this.isVisible = isVisible;
 		// this.category = category;
 	}

@@ -155,13 +155,12 @@ export class ActivityService {
 			newActivity.link,
 			newActivity.description,
 			newActivity.nbGuest,
-			newActivity.hour,
 			true,
 		);
 
 		return this._httpClient
 			.post<Activity>(
-				`${this._BASE_URL}/add/region/${newActivity.region}/department/${newActivity.department}/city/${newActivity.city}/profile/${connectedUserId}`,
+				`${this._BASE_URL}/add/region/${newActivity.region}/department/${newActivity.department}/city/${newActivity.city}/profile/${connectedUserId}/category/${newActivity.category}`,
 				activityRequestBody,
 			)
 			.pipe(
