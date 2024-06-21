@@ -409,9 +409,7 @@ p {
 }
 
 :host ::ng-deep section.testimonials-box {
-	position: relative;
 	background-color: var(--black-color);
-
 	.section-content {
 		app-carousel-testimonial {
 			width: 100%;
