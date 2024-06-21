@@ -13,7 +13,11 @@
 	border: none;
 	border-radius: 23px;
 }
-
+:host ::ng-deep.fc .fc-daygrid-event-harness {
+	position: relative;
+	background-color: #0014ff38;
+	border-radius: 5px;
+}
 @media (max-width: 805px) {
 	:host ::ng-deep .fc .fc-toolbar {
 		display: flex;
