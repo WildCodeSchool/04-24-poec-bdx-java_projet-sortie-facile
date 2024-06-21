@@ -7,7 +7,7 @@
 
 		<app-text-field
 			labelFor="name"
-			labelContent="Titre de l'activité :"
+			labelContent="Titre :"
 			type="text"
 			id="name"
 			name="name"
@@ -18,7 +18,7 @@
 
 		<app-input-date
 			labelFor="date"
-			labelContent="Date de l'activité :"
+			labelContent="Date :"
 			inputId="date"
 			id="date"
 			name="date"
@@ -29,7 +29,7 @@
 
 		<app-input-hour
 			labelFor="date"
-			labelContent="Heure de l'activité :"
+			labelContent="Heure :"
 			inputId="hour"
 			id="hour"
 			name="hour"
@@ -60,7 +60,7 @@
 
 		<app-select-number
 			labelFor="nbGuest"
-			labelContent="Nbre de participants :"
+			labelContent="Nombre de participants :"
 			inputId="nbGuest"
 			name="nbGuest"
 			#nbGuest="ngModel"
@@ -78,7 +78,7 @@
 
 		<app-textarea
 			labelFor="description"
-			labelContent="Description de l'évènement :"
+			labelContent="Description :"
 			id="description"
 			name="description"
 			[cols]="5"
@@ -88,7 +88,7 @@
 			[(ngModel)]="formData.description"
 		></app-textarea>
 
-		<p>img</p>
+		<p>Image :</p>
 		<i class="pi pi-download" style="font-size: 1.5rem"></i>
 
 		<input
