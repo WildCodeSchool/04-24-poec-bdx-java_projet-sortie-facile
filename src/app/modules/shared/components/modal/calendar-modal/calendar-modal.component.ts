@@ -28,9 +28,10 @@ export class CalendarModalComponent implements OnInit {
 
 	ngOnInit() {
 		this.activity = this.config.data.activity;
+		this.activityId = this.activity.id; // Assurez-vous que activityId est initialisé correctement
 
 		this.activityService
-			.getActivityById$(this.activityId.toString()) // Convertissez en chaîne si nécessaire
+			.getActivityById$(this.activityId.toString())
 			.subscribe(activity => {
 				this.activity = activity;
 
@@ -42,11 +43,13 @@ export class CalendarModalComponent implements OnInit {
 				}
 			});
 	}
+
 	countBookings(): void {
 		this.activityService.countBookings(this.activityId).subscribe(count => {
 			this.bookingCount = count;
 		});
 	}
+
 	deleteEvent() {
 		this.ref.close({ deleted: true, eventId: this.activity.id });
 	}

@@ -1,13 +1,11 @@
 <div class="activity-card-container">
 	<p-card>
-		<p-badge
-			value="{{ activity.nbGuest }} places restantes"
-			badgeSize="large"
-			severity="warning"
-		/>
 		<div *ngIf="bookingCount !== undefined">
-			<h1>Nombre de Réservations pour l'Activité</h1>
-			<p>Nombre de réservations : {{ bookingCount }}</p>
+			<p-badge
+				value="{{ bookingCount }} / {{ activity.nbGuest }} places réservés"
+				badgeSize="large"
+				severity="warning"
+			/>
 		</div>
 		<div *ngIf="bookingCount === undefined">
 			<p>Chargement...</p>
