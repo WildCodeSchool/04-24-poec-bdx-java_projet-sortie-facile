@@ -37,7 +37,31 @@
 			[(ngModel)]="formData.date"
 		></app-input-hour>
 
+		<app-select-region
+			[disabled]="true"
+			labelFor="region"
+			labelContent="Region :"
+			id="region"
+			inputId="region"
+			name="region"
+			[required]="true"
+			#region="ngModel"
+			[(ngModel)]="formData.regionId"
+		></app-select-region>
+
+		<app-select-department
+			[disabled]="true"
+			labelFor="Department"
+			labelContent="Département :"
+			id="department"
+			inputId="department"
+			name="department"
+			#department="ngModel"
+			[(ngModel)]="formData.departmentId"
+		></app-select-department>
+
 		<app-select-city
+			[disabled]="true"
 			labelFor="city"
 			labelContent="Lieu :"
 			id="city"
