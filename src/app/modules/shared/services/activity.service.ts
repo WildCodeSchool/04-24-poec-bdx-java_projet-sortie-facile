@@ -221,4 +221,10 @@ export class ActivityService {
 				}),
 			);
 	}
+
+	countBookings(activityId: number): Observable<number> {
+		return this._httpClient.get<number>(
+			`${this._BASE_URL}/${activityId}/countBookings`,
+		);
+	}
 }

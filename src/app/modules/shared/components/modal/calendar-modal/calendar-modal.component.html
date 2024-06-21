@@ -5,6 +5,13 @@
 			badgeSize="large"
 			severity="warning"
 		/>
+		<div *ngIf="bookingCount !== undefined">
+			<h1>Nombre de Réservations pour l'Activité</h1>
+			<p>Nombre de réservations : {{ bookingCount }}</p>
+		</div>
+		<div *ngIf="bookingCount === undefined">
+			<p>Chargement...</p>
+		</div>
 		<ng-template pTemplate="header">
 			<div class="btn-admin">
 				<!-- <p-button
