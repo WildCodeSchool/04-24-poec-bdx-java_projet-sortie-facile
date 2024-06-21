@@ -13,6 +13,7 @@ import { environment } from 'environments/environment';
 import { NewActivityFormDatas } from '@shared/models/classes/activity/new-activity-form-datas.class';
 import { NewActivityInput } from '@shared/models/classes/activity/new-activity-input.class';
 import { TokenService } from './token.service';
+import { UpdateActivityInput } from '@shared/models/classes/activity/update-activity-input.class';
 
 @Injectable({
 	providedIn: 'root',
@@ -200,12 +201,20 @@ export class ActivityService {
 			);
 	}
 
-	updateActivity$(
-		id: number,
-		updatedData: Partial<Activity>,
-	): Observable<Activity> {
+	updateActivity$(id: number, updatedData: any): Observable<Activity> {
+		const activityRequestBody: UpdateActivityInput = new UpdateActivityInput(
+			updatedData.name,
+			updatedData.date,
+			updatedData.age,
+			updatedData.imgUrl,
+			updatedData.link,
+			updatedData.description,
+			updatedData.nbGuest,
+			true,
+		);
+
 		return this._httpClient
-			.patch<Activity>(`${this._BASE_URL}/update/${id}`, updatedData)
+			.put<Activity>(`${this._BASE_URL}/update/${id}`, activityRequestBody)
 			.pipe(
 				catchError(error => {
 					throw error;
