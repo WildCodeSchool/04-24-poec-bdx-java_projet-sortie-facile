@@ -6,6 +6,14 @@
 	padding-top: 4rem;
 }
 
+:host ::ng-deep.fc .fc-button {
+	background-color: var(--primary-color);
+	// border-color: var(--fc-button-border-color);
+	color: var(--fc-button-text-color);
+	border: none;
+	border-radius: 23px;
+}
+
 @media (max-width: 805px) {
 	:host ::ng-deep .fc .fc-toolbar {
 		display: flex;
