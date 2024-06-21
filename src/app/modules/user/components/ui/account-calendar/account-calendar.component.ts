@@ -174,8 +174,13 @@ export class AccountCalendarComponent implements OnInit {
 		const newDate = event.start.toISOString();
 		const activityId = event.extendedProps['activityId'];
 
+		const updatedActivity = {
+			...event.extendedProps['activity'],
+			date: newDate,
+		};
+
 		this._activityService
-			.updateActivity$(activityId, { date: newDate })
+			.updateActivity$(activityId, updatedActivity)
 			.subscribe({
 				next: () => {
 					this.messageService.add({
@@ -184,12 +189,14 @@ export class AccountCalendarComponent implements OnInit {
 						detail: "L'activité a été mise à jour avec succès",
 					});
 				},
-				error: () => {
+				error: error => {
+					console.error('Error updating activity:', error);
 					arg.revert();
 					this.messageService.add({
 						severity: 'error',
 						summary: 'Erreur',
-						detail: "Erreur lors de la mise à jour de l'activité",
+						detail:
+							"Erreur lors de la mise à jour de l'activité. Veuillez réessayer plus tard.",
 					});
 				},
 			});
