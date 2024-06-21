@@ -5,3 +5,25 @@
 	margin: 0 auto;
 	padding-top: 4rem;
 }
+
+@media (max-width: 805px) {
+	:host ::ng-deep .fc .fc-toolbar {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+}
+
+@media (min-width: 805px) {
+	:host ::ng-deep .fc .fc-toolbar {
+		align-items: center;
+		display: flex;
+		justify-content: space-between;
+		flex-wrap: wrap;
+	}
+}
+@media (min-width: 1030px) {
+	:host ::ng-deep .fc .fc-toolbar {
+		align-items: flex-end;
+	}
+}
