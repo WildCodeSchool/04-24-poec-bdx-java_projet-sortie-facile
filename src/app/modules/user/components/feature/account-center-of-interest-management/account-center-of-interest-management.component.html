@@ -16,6 +16,7 @@
 					<div
 						class="category-card"
 						*ngFor="let category of userCategoryList$ | async"
+						[ngStyle]="{ 'background-image': 'url(' + category.imgUrl }"
 					>
 						<p>{{ category.title }}</p>
 					</div>
