@@ -419,12 +419,11 @@ p {
 		}
 	}
 
-	.section-content-box .section-header .section-title {
-		font-size: 2.25rem;
-		color: white;
-		h4,
-		h3 {
+	.section-content-box {
+		.section-header {
 			color: aliceblue;
+		}
+		.section-title-testimoni {
 			font-size: 2.25rem;
 		}
 	}
