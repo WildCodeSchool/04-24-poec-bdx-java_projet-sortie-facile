@@ -1,27 +1,27 @@
 export class UserProfileAddressForm {
-	regionId: number;
-	departmentId: number;
+	regionName: string;
+	departmentName: string;
 	streetNumber: string;
 	street: string;
 	postalCode: number;
-	cityId: number;
+	cityName: string;
 	email: string;
 
 	constructor(
-		regionId: number,
-		departmentId: number,
+		regionName: string,
+		departmentName: string,
 		streetNumber: string,
 		street: string,
 		postalCode: number,
-		cityId: number,
+		cityName: string,
 		email: string,
 	) {
-		this.regionId = regionId;
-		this.departmentId = departmentId;
+		this.regionName = regionName;
+		this.departmentName = departmentName;
 		this.streetNumber = streetNumber;
 		this.street = street;
 		this.postalCode = postalCode;
-		this.cityId = cityId;
+		this.cityName = cityName;
 		this.email = email;
 	}
 }

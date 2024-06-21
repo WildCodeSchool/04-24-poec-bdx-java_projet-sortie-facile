@@ -13,12 +13,17 @@
 
 					<app-info-item
 						icon="pi pi-calendar"
-						content="Le 24 mai 2024 à 21h"
+						[content]="
+							'Le ' +
+							(activity.date | date) +
+							' à ' +
+							(activity.date | date: 'HH:mm')
+						"
 					></app-info-item>
 
 					<app-info-item
 						icon="pi pi-user"
-						content="De 18 à 50 ans"
+						[content]="'Jusqu\'à ' + activity.age + ' ans'"
 					></app-info-item>
 
 					<app-info-item
@@ -127,10 +132,6 @@
 				></div>
 
 				<p>Catégorie : {{ activity.category }}</p>
-				<i class="pi pi-calendar"></i>
-				<p>Date : {{ activity.date | date }}</p>
-				<i class="pi pi-clock"></i>
-				<p>Hour : {{ activity.hour | date: 'HH:mm' }}</p>
 
 				<a
 					*ngIf="activity.link"

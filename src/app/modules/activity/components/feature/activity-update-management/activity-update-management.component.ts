@@ -31,7 +31,6 @@ export class ActivityUpdateManagementComponent implements OnInit, OnDestroy {
 		'',
 		0,
 		0,
-		'',
 		0,
 		true,
 	);

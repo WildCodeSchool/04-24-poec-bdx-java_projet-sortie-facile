@@ -148,14 +148,16 @@ export class BookingService {
 	): Observable<Booking> {
 		return this.getBookingByUserAndActivity$(profileId, activityId).pipe(
 			switchMap((booking: BookingUserActivity) =>
-				this.http.delete<Booking>(`${this._BASE_URL}/${booking.id}`).pipe(
-					tap(() => {
-						this._router.navigate([FullUserRouteEnum.ACTIVITY]);
-					}),
-					catchError(error => {
-						throw error;
-					}),
-				),
+				this.http
+					.delete<Booking>(`${this._BASE_URL}/delete/${booking.id}`)
+					.pipe(
+						tap(() => {
+							this._router.navigate([FullUserRouteEnum.ACTIVITY]);
+						}),
+						catchError(error => {
+							throw error;
+						}),
+					),
 			),
 		);
 	}
