@@ -1,4 +1,4 @@
-export class NewActivityInput {
+export class UpdateActivityInput {
 	name: string;
 	date: string;
 	age: number;
@@ -6,7 +6,7 @@ export class NewActivityInput {
 	link: string;
 	description: string;
 	nbGuest: number;
-	isVisible: boolean;
+	visible: boolean;
 	// category: number;
 
 	constructor(
@@ -17,7 +17,7 @@ export class NewActivityInput {
 		link: string,
 		description: string,
 		nbGuest: number,
-		isVisible: boolean,
+		visible: boolean,
 		// category: number,
 	) {
 		this.name = name;
@@ -27,7 +27,7 @@ export class NewActivityInput {
 		this.link = link;
 		this.description = description;
 		this.nbGuest = nbGuest;
-		this.isVisible = isVisible;
+		this.visible = visible;
 		// this.category = category;
 	}
 }
