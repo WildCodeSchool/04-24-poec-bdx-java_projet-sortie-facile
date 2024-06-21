@@ -61,6 +61,11 @@ export class AccountAddressFormComponent implements OnInit {
 		// TODO
 		// CONNECT FRONT-BACK update address
 
+		this.userProfile$ = this._userService.putUserInfo$(
+			this.connectedUser.id,
+			this.userAddressDatasForm,
+		);
+
 		// this.UserProfile$ = this._userService.patchUserInfo$(
 		// 	this.connectedUser.id,
 		// 	this.userAddressDatasForm,
