@@ -24,8 +24,8 @@ export class SelectRegionComponent implements OnInit, ControlValueAccessor {
 	@Input() name!: string;
 	@Input() labelFor!: string;
 	@Input() labelContent!: string;
+	@Input() disabled: boolean = false;
 
-	disabled!: boolean;
 	value!: number;
 
 	constructor(private _regionService: RegionService) {}

@@ -86,6 +86,15 @@
 			[(ngModel)]="newActivity.nbGuest"
 		></app-select-number>
 
+		<app-select-number
+			labelFor="age"
+			labelContent="Age des participants :"
+			inputId="age"
+			name="age"
+			#age="ngModel"
+			[(ngModel)]="newActivity.age"
+		></app-select-number>
+
 		<app-textarea
 			labelFor="description"
 			labelContent="Description de l'évènement :"

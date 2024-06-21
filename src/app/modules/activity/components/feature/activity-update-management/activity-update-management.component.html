@@ -7,7 +7,7 @@
 
 		<app-text-field
 			labelFor="name"
-			labelContent="Titre de l'activité :"
+			labelContent="Titre :"
 			type="text"
 			id="name"
 			name="name"
@@ -18,7 +18,7 @@
 
 		<app-input-date
 			labelFor="date"
-			labelContent="Date de l'activité :"
+			labelContent="Date :"
 			inputId="date"
 			id="date"
 			name="date"
@@ -29,7 +29,7 @@
 
 		<app-input-hour
 			labelFor="date"
-			labelContent="Heure de l'activité :"
+			labelContent="Heure :"
 			inputId="hour"
 			id="hour"
 			name="hour"
@@ -37,7 +37,31 @@
 			[(ngModel)]="formData.date"
 		></app-input-hour>
 
+		<app-select-region
+			[disabled]="true"
+			labelFor="region"
+			labelContent="Region :"
+			id="region"
+			inputId="region"
+			name="region"
+			[required]="true"
+			#region="ngModel"
+			[(ngModel)]="formData.regionId"
+		></app-select-region>
+
+		<app-select-department
+			[disabled]="true"
+			labelFor="Department"
+			labelContent="Département :"
+			id="department"
+			inputId="department"
+			name="department"
+			#department="ngModel"
+			[(ngModel)]="formData.departmentId"
+		></app-select-department>
+
 		<app-select-city
+			[disabled]="true"
 			labelFor="city"
 			labelContent="Lieu :"
 			id="city"
@@ -60,16 +84,25 @@
 
 		<app-select-number
 			labelFor="nbGuest"
-			labelContent="Nbre de participants :"
+			labelContent="Nombre de participants :"
 			inputId="nbGuest"
 			name="nbGuest"
 			#nbGuest="ngModel"
 			[(ngModel)]="formData.nbGuest"
 		></app-select-number>
 
+		<app-select-number
+			labelFor="age"
+			labelContent="Age des participants :"
+			inputId="age"
+			name="age"
+			#age="ngModel"
+			[(ngModel)]="formData.age"
+		></app-select-number>
+
 		<app-textarea
 			labelFor="description"
-			labelContent="Description de l'évènement :"
+			labelContent="Description :"
 			id="description"
 			name="description"
 			[cols]="5"
@@ -79,7 +112,7 @@
 			[(ngModel)]="formData.description"
 		></app-textarea>
 
-		<p>img</p>
+		<p>Image :</p>
 		<i class="pi pi-download" style="font-size: 1.5rem"></i>
 
 		<input

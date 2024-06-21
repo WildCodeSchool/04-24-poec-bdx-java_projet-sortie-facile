@@ -23,13 +23,10 @@
 
 					<app-info-item
 						icon="pi pi-user"
-						[content]="'Jusqu\'à ' + activity.age + ' ans'"
+						[content]="'A partir de ' + activity.age + ' ans'"
 					></app-info-item>
 
-					<app-info-item
-						icon="pi pi-user"
-						content="5 places restantes"
-					></app-info-item>
+					<app-info-item icon="pi pi-users" content="5 places"></app-info-item>
 				</div>
 
 				<div class="btn-box" *ngIf="activity.profileId !== connectedUser.id">

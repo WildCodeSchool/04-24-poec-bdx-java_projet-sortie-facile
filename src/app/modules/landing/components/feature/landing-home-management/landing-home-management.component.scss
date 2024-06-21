@@ -418,9 +418,14 @@ p {
 			}
 		}
 	}
-	h4,
-	h3 {
-		color: aliceblue;
+
+	.section-content-box .section-header .section-title {
 		font-size: 2.25rem;
+		color: white;
+		h4,
+		h3 {
+			color: aliceblue;
+			font-size: 2.25rem;
+		}
 	}
 }
