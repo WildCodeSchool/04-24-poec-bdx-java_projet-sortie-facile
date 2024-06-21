@@ -409,7 +409,9 @@ p {
 }
 
 :host ::ng-deep section.testimonials-box {
+	position: relative;
 	background-color: var(--black-color);
+
 	.section-content {
 		app-carousel-testimonial {
 			width: 100%;
@@ -417,5 +419,10 @@ p {
 				background-color: aliceblue;
 			}
 		}
+	}
+	h4,
+	h3 {
+		color: aliceblue;
+		font-size: 2.25rem;
 	}
 }
