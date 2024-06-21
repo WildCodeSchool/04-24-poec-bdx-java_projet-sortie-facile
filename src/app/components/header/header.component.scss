@@ -9,7 +9,13 @@
 	z-index: +2;
 	border-radius: 0;
 	border: none;
+	.p-icon {
+		color: white;
 
+		// &:hover {
+		// 	color: black;
+		// }
+	}
 	.p-menubar-start {
 		margin-right: 1rem;
 	}
@@ -31,6 +37,7 @@
 				background-color: transparent;
 			}
 		}
+
 		.p-menuitem-text {
 			color: black;
 		}

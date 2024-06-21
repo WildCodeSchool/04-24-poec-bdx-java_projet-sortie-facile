@@ -1,12 +1,13 @@
 <div class="container">
 	<div class="hero-box">
 		<div class="hero-mask"></div>
-		<header>
+		<header class="navbar">
 			<div class="hero-img-box">
 				<img src="assets/photos/logoSortieFacile.png" alt="logo" />
 			</div>
+			<app-auth-menu class="mobile-menu"></app-auth-menu>
 
-			<nav>
+			<nav class="desktop-menu">
 				<ul>
 					<li *ngIf="!connectedUser.username">
 						<p-button [routerLink]="['/auth/login']" [text]="true"
