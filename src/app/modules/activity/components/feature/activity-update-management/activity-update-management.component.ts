@@ -45,7 +45,10 @@ export class ActivityUpdateManagementComponent implements OnInit, OnDestroy {
 		this._activatedRoute.data
 			.pipe(
 				map(data => data['activityUpdated']),
-				map((activity: Activity) => (this.formData = activity)),
+				map((activity: Activity) => {
+					console.log(activity);
+					this.formData = activity;
+				}),
 			)
 			.subscribe();
 	}
@@ -53,8 +56,11 @@ export class ActivityUpdateManagementComponent implements OnInit, OnDestroy {
 	onSubmit(form: NgForm): void {
 		const id: number = this.formData.id;
 		const updatedData = form.value;
+
 		this._subscription.add(
-			this._activityService.updateActivity$(id, updatedData).subscribe(),
+			this._activityService
+				.updateActivity$(id, { ...updatedData, visible: true })
+				.subscribe(),
 		);
 		this._router.navigate([FullActivityRouteEnum.HOME]);
 	}
