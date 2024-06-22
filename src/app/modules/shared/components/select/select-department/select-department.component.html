@@ -7,7 +7,7 @@
 		<p-dropdown
 			[options]="departmentList"
 			[(ngModel)]="selectedDepartmentId"
-			[disabled]="disabled"
+			[disabled]="isDisabled"
 			optionLabel="name"
 			optionValue="id"
 			placeholder="Choisir un département"

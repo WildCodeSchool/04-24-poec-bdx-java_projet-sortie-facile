@@ -11,6 +11,7 @@
 			optionLabel="name"
 			optionValue="id"
 			placeholder="Select a City"
+			[disabled]="isDisabled"
 			(ngModelChange)="onInputChange($event)"
 			(focus)="markAsTouched()"
 			#ref="ngModel"

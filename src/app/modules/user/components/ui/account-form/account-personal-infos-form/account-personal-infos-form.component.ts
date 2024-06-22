@@ -54,6 +54,11 @@ export class AccountPersonalInfosFormComponent implements OnInit {
 		// TODO
 		// CONNECT FRONT-BACK update personnal infos
 
+		this.userProfile$ = this._userService.putUserInfo$(
+			this.connectedUser.id,
+			this.userPersonalInfosDatasForm,
+		);
+
 		// this.UserProfile$ = this._userAuthCrudService
 		// 	.patchConnectedUser(
 		// 		{

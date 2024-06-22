@@ -27,4 +27,5 @@ export class TextFieldComponent extends FormInputControlValueAccessor {
 	@Input() required!: boolean;
 	@Input() minlength!: number;
 	@Input() maxlength!: number;
+	@Input() isDisabled!: boolean;
 }
