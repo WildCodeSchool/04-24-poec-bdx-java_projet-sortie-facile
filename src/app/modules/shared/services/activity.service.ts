@@ -105,12 +105,12 @@ export class ActivityService {
 	}
 
 	filteredActivityListByCategory$(
-		categoryId: Category,
+		categoryId: number,
 	): Observable<ActivityListResponse> {
 		return this.getActivityList$().pipe(
 			map((activityList: ActivityListResponse) =>
 				activityList.filter((activity: Activity) => {
-					return activity.category === Number(categoryId.id);
+					return activity.category === categoryId;
 				}),
 			),
 		);

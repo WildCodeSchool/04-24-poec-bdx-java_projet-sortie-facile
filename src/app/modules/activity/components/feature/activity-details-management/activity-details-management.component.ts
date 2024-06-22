@@ -101,12 +101,12 @@ export class ActivityDetailsManagementComponent implements OnInit, OnDestroy {
 								return of(activity);
 							}),
 							switchMap(activity => {
-								// 	this.categoryTitle$ = of(activity.categoryId.name);
+								// this.categoryTitle$ = of(activity.categoryId.name);
 
-								// 	this.suggestList$ =
-								// 		this.activityService.filteredActivityListByCategory$(
-								// 			activity.categoryId,
-								// 		);
+								this.suggestList$ =
+									this.activityService.filteredActivityListByCategory$(
+										activity.category,
+									);
 
 								return this.bookingService.checkIfConnectedUserHasBookingActivity$(
 									this.connectedUser.id,

@@ -12,7 +12,7 @@ export class ActivityListComponent {
 	showResponsiveFilters: boolean = false;
 	resetFilter: boolean = false;
 
-	selectedCategoryId!: Category;
+	selectedCategory!: Category;
 	selectedDepartments!: Department;
 
 	onSearch(value: string): void {
