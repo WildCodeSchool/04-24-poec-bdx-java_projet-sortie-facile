@@ -1,24 +1,21 @@
-<!-- eslint-disable @angular-eslint/template/interactive-supports-focus -->
-<!-- eslint-disable @angular-eslint/template/click-events-have-key-events -->
 <div class="icon">
 	<ng-container *ngIf="profileItems$ | async as profileItems">
 		<div>
-			<i
-				class="pi pi-user"
-				style="font-size: 1.5rem"
+			<p-button
+				icon="pi pi-user"
+				[rounded]="true"
+				[text]="true"
+				severity="secondary "
 				(click)="menu.toggle($event)"
-			>
-				<p-tieredMenu
-					#menu
-					[model]="profileItems"
-					[popup]="true"
-					appendTo="body"
-				/>
-			</i>
+			/>
+
+			<p-tieredMenu
+				#menu
+				[model]="profileItems"
+				[popup]="true"
+				appendTo="body"
+			/>
 		</div>
-		<div
-			*ngIf="connectedUser && connectedUser.username"
-			class="green-dot"
-		></div>
+		<div *ngIf="connectedUser" class="green-dot"></div>
 	</ng-container>
 </div>

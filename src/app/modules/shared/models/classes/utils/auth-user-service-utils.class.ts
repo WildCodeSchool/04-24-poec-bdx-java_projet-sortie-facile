@@ -35,6 +35,8 @@ export class AuthUserServiceUtils {
 	protected _isLoggedInSubject: BehaviorSubject<boolean> =
 		new BehaviorSubject<boolean>(false);
 
+	protected _authStatus = new BehaviorSubject<boolean>(false);
+
 	public getAuthUserFormatted(
 		user: AuthUserPrimaryDatas | NewAuthUser,
 	): AuthUserPrimaryDatas | NewAuthUser {

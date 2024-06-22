@@ -25,6 +25,7 @@ import { environment } from 'environments/environment';
 import { NewAuthUserInput } from '@shared/models/classes/auth-user/new-auth-user-input.class';
 import { NewProfileInput } from '@shared/models/classes/user-details/new-profil-input.class';
 import { AuthUserResponse } from '@shared/models/classes/auth-user/auth-user-response.class';
+import { LocalStorageService } from './local-storage.service';
 
 @Injectable({
 	providedIn: 'root',
@@ -37,6 +38,7 @@ export class AuthService extends AuthUserServiceUtils {
 		private _tokenService: TokenService,
 		private _router: Router,
 		private _userService: UserService,
+		private _localStorageService: LocalStorageService,
 		// private _formErrorMessage: FormErrorMessageService,
 	) {
 		super();
@@ -48,6 +50,7 @@ export class AuthService extends AuthUserServiceUtils {
 			.post<TokenResponse>(`${this._BASE_URL}/authenticate`, userCredentials)
 			.subscribe((token: TokenResponse) => {
 				this._tokenService.updateToken(token);
+				this._authStatus.next(true);
 				this._router.navigateByUrl(FullUserRouteEnum.HOME);
 			});
 		// return this._httpClient.get<AuthUserListResponseApi>(this.BASE_URL).pipe(
@@ -168,16 +171,9 @@ export class AuthService extends AuthUserServiceUtils {
 	}
 
 	public logout(): void {
-		localStorage.removeItem('user');
-		this.setConnectedUserData({
-			id: '',
-			username: '',
-			email: '',
-			role: UserRoleEnum.USER,
-			status: AccountStatus.ACTIVE,
-			UserProfileId: '',
-		});
-		this.notifyLoggedInStatus(false);
+		this._localStorageService.clearToken();
+		this._tokenService.resetToken();
+		this._authStatus.next(false);
 		this._router.navigateByUrl(FullAuthenticationRouteEnum.LOGIN);
 	}
 
@@ -205,5 +201,9 @@ export class AuthService extends AuthUserServiceUtils {
 				UserProfileId: '',
 			})
 			.pipe(tap(() => this.logout()));
+	}
+
+	getAuthStatus(): Observable<boolean> {
+		return this._authStatus.asObservable();
 	}
 }

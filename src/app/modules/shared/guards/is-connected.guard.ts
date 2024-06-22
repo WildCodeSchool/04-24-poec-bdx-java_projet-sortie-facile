@@ -14,7 +14,7 @@ import { Observable, map } from 'rxjs';
 	providedIn: 'root',
 })
 export class IsConnectedGuard implements CanActivate {
-	role!: 'ROLE_USER' | 'ROLE_ADMIN';
+	role!: 'ROLE_USER' | 'ROLE_ADMIN' | null;
 
 	constructor(
 		private _router: Router,
@@ -22,8 +22,8 @@ export class IsConnectedGuard implements CanActivate {
 	) {
 		this._tokenService
 			._getTokenDetailsSubject$()
-			.pipe(map((decodedToken: any) => decodedToken.role))
-			.subscribe((role: 'ROLE_USER' | 'ROLE_ADMIN') => {
+			.pipe(map((decodedToken: any) => decodedToken?.role))
+			.subscribe((role: 'ROLE_USER' | 'ROLE_ADMIN' | null) => {
 				this.role = role;
 			});
 	}

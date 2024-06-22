@@ -14,6 +14,9 @@ export class TokenService {
 			this.getTokenFromLocalStorageAndDecode(),
 		);
 
+	protected _isLoggedInSubject: BehaviorSubject<boolean> =
+		new BehaviorSubject<boolean>(false);
+
 	constructor(private _localStorageService: LocalStorageService) {}
 
 	updateToken(token: TokenResponse) {
@@ -56,5 +59,13 @@ export class TokenService {
 
 	_getTokenDetailsSubject$(): Observable<AuthUserResponse> {
 		return this._tokenDetailsSubject$.asObservable() as Observable<AuthUserResponse>;
+	}
+
+	public isLoggedIn(): Observable<boolean> {
+		return this._isLoggedInSubject.asObservable();
+	}
+
+	public notifyLoggedInStatus(status: boolean): void {
+		this._isLoggedInSubject.next(status);
 	}
 }

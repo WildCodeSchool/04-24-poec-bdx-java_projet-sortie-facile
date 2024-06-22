@@ -39,6 +39,7 @@ export class HeaderComponent implements OnInit {
 		this._authService.checkIfUserIsConnectedAndNotifyLoggedInStatus();
 		this.items$ = this._headerService.getPrimaryItems$();
 		this.profileItems$ = this._headerService.getIsLoggedInItems$();
+
 		this._authService
 			.getConnectedUserObservable()
 			.pipe(
