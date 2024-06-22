@@ -6,15 +6,16 @@ import {
 	RouterStateSnapshot,
 	UrlTree,
 } from '@angular/router';
-import { FullAuthenticationRouteEnum } from '@shared/models/enums/routes/full-routes';
+import { AuthUserResponse } from '@shared/models/classes/auth-user/auth-user-response.class';
+import { FullUserRouteEnum } from '@shared/models/enums/routes/full-routes';
 import { TokenService } from '@shared/services/token.service';
-import { Observable, map } from 'rxjs';
+import { Observable } from 'rxjs';
 
 @Injectable({
 	providedIn: 'root',
 })
-export class IsConnectedGuard implements CanActivate {
-	role!: 'ROLE_USER' | 'ROLE_ADMIN';
+export class AuthPublicGuard implements CanActivate {
+	connectedUser!: AuthUserResponse;
 
 	constructor(
 		private _router: Router,
@@ -22,9 +23,8 @@ export class IsConnectedGuard implements CanActivate {
 	) {
 		this._tokenService
 			._getTokenDetailsSubject$()
-			.pipe(map((decodedToken: any) => decodedToken.role))
-			.subscribe((role: 'ROLE_USER' | 'ROLE_ADMIN') => {
-				this.role = role;
+			.subscribe((connectedUser: AuthUserResponse) => {
+				this.connectedUser = connectedUser;
 			});
 	}
 
@@ -36,10 +36,10 @@ export class IsConnectedGuard implements CanActivate {
 		| Promise<boolean | UrlTree>
 		| boolean
 		| UrlTree {
-		if (this.role === 'ROLE_USER') {
+		if (!this.connectedUser) {
 			return true;
 		} else {
-			this._router.navigate([FullAuthenticationRouteEnum.LOGIN]);
+			this._router.navigate([FullUserRouteEnum.HOME]);
 			return false;
 		}
 	}
