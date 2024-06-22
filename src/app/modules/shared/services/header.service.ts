@@ -8,8 +8,8 @@ import {
 	FullAuthenticationRouteEnum,
 	FullUserRouteEnum,
 } from '@shared/models/enums/routes/full-routes';
-import { AuthUserPrimaryDatas } from '@shared/models/classes/auth-user/auth-user-primary-datas.class';
 import { UserRoleEnum } from '@shared/models/enums/user-role.enum';
+import { AuthUserResponse } from '@shared/models/classes/auth-user/auth-user-response.class';
 
 @Injectable({
 	providedIn: 'root',
@@ -85,23 +85,18 @@ export class HeaderService {
 		]);
 	}
 
-	public getIsLoggedInItems$(): Observable<MenuItem[]> {
-		return combineLatest([
-			this._authService.isLoggedIn,
-			this._authService.getConnectedUserObservable(),
-		]).pipe(
-			switchMap(([loggedIn, user]: [boolean, AuthUserPrimaryDatas]) => {
-				if (loggedIn) {
-					if (user.role === UserRoleEnum.ADMIN) {
-						return this._combineHeaderItems$(this._adminItems$);
-					} else {
-						return this._combineHeaderItems$(this._userItems$);
-					}
-				} else {
-					return this._notConnectedItems$;
-				}
-			}),
-		);
+	public getIsLoggedInItems$(
+		connectedUser?: AuthUserResponse,
+	): Observable<MenuItem[]> {
+		if (connectedUser) {
+			if (connectedUser.role === UserRoleEnum.ADMIN) {
+				return this._combineHeaderItems$(this._adminItems$);
+			} else {
+				return this._combineHeaderItems$(this._userItems$);
+			}
+		} else {
+			return this._notConnectedItems$;
+		}
 	}
 
 	public getPrimaryItems$(): Observable<MenuItem[]> {

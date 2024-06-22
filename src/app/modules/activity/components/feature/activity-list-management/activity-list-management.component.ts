@@ -35,7 +35,7 @@ export class ActivityListManagementComponent implements OnInit, OnChanges {
 	rowsPerPageOptions!: PaginationOption[];
 
 	@Input() searchedValue: string = '';
-	@Input() selectedCategoryId!: Category;
+	@Input() selectedCategory!: Category;
 	@Input({ required: true }) selectedDepartments!: Department;
 
 	@Output() showFilterInMobileEmitter: EventEmitter<boolean> = new EventEmitter(
@@ -91,9 +91,9 @@ export class ActivityListManagementComponent implements OnInit, OnChanges {
 	}
 
 	filterActivities(): void {
-		if (this.selectedCategoryId) {
+		if (this.selectedCategory) {
 			this.activityList$ = this.activityService
-				.filteredActivityListByCategory$(this.selectedCategoryId)
+				.filteredActivityListByCategory$(this.selectedCategory.id)
 				.pipe(
 					map(activities =>
 						activities.filter(activity =>

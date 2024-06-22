@@ -59,7 +59,8 @@
 .user {
 	display: flex;
 	align-items: center;
-	width: 125px;
+	width: auto;
+	gap: 0.5rem;
 	justify-content: space-between;
 }
 
