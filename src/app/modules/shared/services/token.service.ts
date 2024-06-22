@@ -27,6 +27,7 @@ export class TokenService {
 
 	getTokenFromLocalStorageAndDecode(): AuthUserResponse | null {
 		const token: string | null = this._localStorageService.getToken();
+
 		if (token) {
 			return this._decodeToken({ token: token });
 		} else {
