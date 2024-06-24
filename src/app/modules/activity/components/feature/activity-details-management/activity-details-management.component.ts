@@ -65,6 +65,7 @@ export class ActivityDetailsManagementComponent implements OnInit, OnDestroy {
 	) {}
 
 	ngOnInit(): void {
+		this.loadActivities();
 		this._tokenService
 			._getTokenDetailsSubject$()
 			.subscribe((connectedUser: any) => {
