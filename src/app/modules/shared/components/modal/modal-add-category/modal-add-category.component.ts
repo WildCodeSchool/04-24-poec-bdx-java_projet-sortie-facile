@@ -2,7 +2,6 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { AuthUserResponse } from '@shared/models/classes/auth-user/auth-user-response.class';
 import { Category } from '@shared/models/classes/category/category.class';
 import { UserProfile } from '@shared/models/classes/user-details/user-profile.class';
-import { AuthService } from '@shared/services/auth.service';
 import { CategoryService } from '@shared/services/category.service';
 import { TokenService } from '@shared/services/token.service';
 import { UserService } from '@shared/services/user.service';
@@ -26,7 +25,6 @@ export class ModalAddCategoryComponent implements OnInit {
 
 	constructor(
 		private _categoryService: CategoryService,
-		private _authService: AuthService,
 		private _userService: UserService,
 		private _tokenService: TokenService,
 	) {}
@@ -61,9 +59,7 @@ export class ModalAddCategoryComponent implements OnInit {
 
 	onSave(): void {
 		this._userService
-			.patchUserInfo$(this.connectedUser.id, {
-				categoryIds: this.selectedCategoryIds,
-			})
+			.putUserCategories$(this.connectedUser.id, this.selectedCategoryIds)
 			.subscribe(() => {
 				this.categoriesUpdated.emit();
 				this.closeModal();

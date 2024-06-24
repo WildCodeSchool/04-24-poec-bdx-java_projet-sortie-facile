@@ -11,16 +11,26 @@ label {
 	color: var(--black-color);
 }
 
-:host ::ng-deep .p-dropdown {
-	width: 100%;
-	background-color: var(--gray-500);
-	border: 1px solid var(--gray-200);
+:host ::ng-deep p-dropdown {
+	.p-dropdown {
+		width: 100%;
+		background-color: var(--gray-500);
+		border: 1px solid var(--gray-200);
 
-	.p-inputtext {
-		display: flex;
-		align-items: center;
-		border-radius: 0.35rem;
-		background-color: transparent;
-		height: 45px;
+		.p-inputtext {
+			display: flex;
+			align-items: center;
+			border-radius: 0.35rem;
+			background-color: transparent;
+			height: 45px;
+		}
+	}
+
+	&[ng-reflect-disabled='true'] .p-dropdown {
+		background-color: rgb(225, 219, 219);
+
+		.p-inputtext {
+			color: rgb(225, 219, 219);
+		}
 	}
 }
