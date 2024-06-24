@@ -72,11 +72,53 @@ export class ActivityDetailsManagementComponent implements OnInit, OnDestroy {
 			});
 
 		this._subscription.add(
-			this.route.paramMap.subscribe(paramMap => {
-				const activityId: string = paramMap.get('id') as string;
-				this.loadActivity(activityId);
-				this.loadActivities();
-			}),
+			this.route.paramMap
+				.pipe(
+					switchMap(paramMap => {
+						const activityId: string = paramMap.get('id') as string;
+						this.activity$ = this.activityService.getActivityById$(activityId);
+
+						return this.activity$.pipe(
+							switchMap((activity: Activity) => {
+								this.region$ = this._regionService.getRegionById$(
+									activity.regionId,
+								);
+
+								this.department$ = this._departmentService.getDepartmentById$(
+									activity.departmentId,
+								);
+
+								this.city$ = this._cityService.getCityById$(activity.cityId);
+
+								this.address$ = combineLatest([
+									this.region$,
+									this.department$,
+									this.city$,
+								]).pipe(
+									map(([region, department, city]) => {
+										return `${city.name} (${department.name}, ${region.name})`;
+									}),
+								);
+
+								return of(activity);
+							}),
+							switchMap(activity => {
+								// this.categoryTitle$ = of(activity.categoryId.name);
+
+								this.suggestList$ =
+									this.activityService.filteredActivityListByCategory$(
+										activity.category,
+									);
+
+								return this.bookingService.checkIfConnectedUserHasBookingActivity$(
+									this.connectedUser.id,
+									Number(activityId),
+								);
+							}),
+						);
+					}),
+				)
+				.subscribe(hasBooking => (this.hasBooking = hasBooking)),
 		);
 	}
 

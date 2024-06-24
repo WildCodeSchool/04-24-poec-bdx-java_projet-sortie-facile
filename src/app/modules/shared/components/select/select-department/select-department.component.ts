@@ -26,6 +26,8 @@ export class SelectDepartmentComponent implements OnInit, ControlValueAccessor {
 	@Input() labelContent!: string;
 	@Input() isMultiple!: boolean;
 	@Input() disabled: boolean = false;
+	@Input() isDisabled!: boolean;
+
 	value!: number;
 
 	constructor(private _departmentService: DepartmentService) {}

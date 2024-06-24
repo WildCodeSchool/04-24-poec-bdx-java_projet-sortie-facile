@@ -26,7 +26,7 @@
 				inputId="categoryId"
 				name="categoryId"
 				#categoryId="ngModel"
-				[(ngModel)]="selectedCategoryId"
+				[(ngModel)]="selectedCategory"
 			></app-select-category>
 
 			<app-select-department
@@ -56,7 +56,7 @@
 	<div class="activities-box">
 		<app-activity-list-management
 			[searchedValue]="searchedValue"
-			[selectedCategoryId]="selectedCategoryId"
+			[selectedCategory]="selectedCategory"
 			[selectedDepartments]="selectedDepartments"
 			(showFilterInMobileEmitter)="onShowFilters($event)"
 			(resetFilterEmitter)="onResetFilters()"

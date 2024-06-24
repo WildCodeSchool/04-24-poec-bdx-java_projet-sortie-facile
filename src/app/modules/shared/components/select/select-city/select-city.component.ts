@@ -25,6 +25,8 @@ export class SelectCityComponent implements OnInit, ControlValueAccessor {
 	@Input() labelFor!: string;
 	@Input() labelContent!: string;
 	@Input() disabled: boolean = false;
+	@Input() isDisabled!: boolean;
+
 	value!: number;
 
 	constructor(private _cityService: CityService) {}

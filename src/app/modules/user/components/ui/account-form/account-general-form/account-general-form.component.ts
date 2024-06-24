@@ -57,6 +57,11 @@ export class AccountGeneralFormComponent implements OnInit {
 		// TODO
 		// CONNECT FRONT-BACK update nickname and description
 
+		this.userProfile$ = this._userService.putUserInfo$(
+			this.connectedUser.id,
+			this.userGeneralDatasForm,
+		);
+
 		// this.userProfile$ = this._userAuthCrudService
 		// 	.patchConnectedUser(
 		// 		{

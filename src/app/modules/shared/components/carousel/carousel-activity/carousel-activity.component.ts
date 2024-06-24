@@ -14,6 +14,7 @@ export class CarouselActivityComponent implements OnInit {
 	@Input() numScroll!: number;
 	@Input() circular!: boolean;
 	@Input() imgSrc!: string;
+	@Input() itemExclude?: number;
 
 	fullActivityRoute = FullActivityRouteEnum;
 	@Input() responsiveOptions!: CarouselResponsiveOption[];
@@ -29,5 +30,15 @@ export class CarouselActivityComponent implements OnInit {
 			new CarouselResponsiveOption('1720px', 5, 5),
 			new CarouselResponsiveOption('1920px', 6, 6),
 		];
+
+		this.filterActivityList(this.itemExclude);
+	}
+
+	filterActivityList(itemExcludeId?: number): void {
+		if (itemExcludeId) {
+			this.activityList = this.activityList.filter(
+				activity => activity.id !== itemExcludeId,
+			);
+		}
 	}
 }

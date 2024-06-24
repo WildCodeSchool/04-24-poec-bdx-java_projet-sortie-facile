@@ -25,6 +25,7 @@ import { environment } from 'environments/environment';
 import { NewAuthUserInput } from '@shared/models/classes/auth-user/new-auth-user-input.class';
 import { NewProfileInput } from '@shared/models/classes/user-details/new-profil-input.class';
 import { AuthUserResponse } from '@shared/models/classes/auth-user/auth-user-response.class';
+import { LocalStorageService } from './local-storage.service';
 
 @Injectable({
 	providedIn: 'root',
@@ -37,6 +38,7 @@ export class AuthService extends AuthUserServiceUtils {
 		private _tokenService: TokenService,
 		private _router: Router,
 		private _userService: UserService,
+		private _localStorageService: LocalStorageService,
 		// private _formErrorMessage: FormErrorMessageService,
 	) {
 		super();
@@ -48,6 +50,7 @@ export class AuthService extends AuthUserServiceUtils {
 			.post<TokenResponse>(`${this._BASE_URL}/authenticate`, userCredentials)
 			.subscribe((token: TokenResponse) => {
 				this._tokenService.updateToken(token);
+				this._authStatus.next(true);
 				this._router.navigateByUrl(FullUserRouteEnum.HOME);
 			});
 		// return this._httpClient.get<AuthUserListResponseApi>(this.BASE_URL).pipe(
@@ -103,10 +106,7 @@ export class AuthService extends AuthUserServiceUtils {
 		return this._httpClient
 			.post<NewAuthUser>(`${this._BASE_URL}/register`, userAuthRequestBody)
 			.pipe(
-				map(() => {
-					return this._tokenService.getTokenFromLocalStorageAndDecode();
-				}),
-				switchMap((registerUser: AuthUserResponse | null) => {
+				switchMap((registerSuccess: any) => {
 					const newProfileRequestBody: NewProfileInput = new NewProfileInput(
 						newUserPersonalInfos.firstname,
 						newUserPersonalInfos.lastname,
@@ -124,60 +124,58 @@ export class AuthService extends AuthUserServiceUtils {
 						newUserPersonalInfos.city,
 						newUserPersonalInfos.department,
 						newUserPersonalInfos.city,
-						Number(registerUser?.id),
+						Number(registerSuccess?.userId),
 					);
 				}),
+				tap(() =>
+					this.loginWithEmailAndPassword({
+						email: newUserAuthInfos.email,
+						password: newUserAuthInfos.password,
+					}),
+				),
+
+				// return this._httpClient
+				// 	.post<NewAuthUser>(`${this.BASE_URL}`, newUserAuthInfos)
+				// 	.pipe(
+				// 		switchMap((createdUser: NewAuthUser) => {
+				// 			return this._userService
+				// 				.postUserInfos$({
+				// 					...newUserPersonalInfos,
+				// 					userId: createdUser.id,
+				// 				})
+				// 				.pipe(
+				// 					map((createdUserInfo: UserProfile) => {
+				// 						return {
+				// 							...createdUser,
+				// 							UserProfileId: createdUserInfo.id,
+				// 						};
+				// 					}),
+				// 				);
+				// 		}),
+				// 		switchMap((updatedUser: NewAuthUser) =>
+				// 			this._httpClient.put<NewAuthUser>(
+				// 				`${this.BASE_URL}/${updatedUser.id}`,
+				// 				updatedUser,
+				// 			),
+				// 		),
+				// 		map((finalUser: NewAuthUser) => {
+				// 			const userToStore = this.getAuthUserFormatted(finalUser);
+
+				// 			localStorage.setItem('user', JSON.stringify(userToStore));
+				// 			this.setConnectedUserData(userToStore);
+				// 			this.notifyLoggedInStatus(true);
+				// 			return finalUser;
+				// 		}),
+				// 		tap(() => {
+				// 			this._router.navigateByUrl(FullUserRouteEnum.HOME);
+				// 		}),
 			);
-
-		// return this._httpClient
-		// 	.post<NewAuthUser>(`${this.BASE_URL}`, newUserAuthInfos)
-		// 	.pipe(
-		// 		switchMap((createdUser: NewAuthUser) => {
-		// 			return this._userService
-		// 				.postUserInfos$({
-		// 					...newUserPersonalInfos,
-		// 					userId: createdUser.id,
-		// 				})
-		// 				.pipe(
-		// 					map((createdUserInfo: UserProfile) => {
-		// 						return {
-		// 							...createdUser,
-		// 							UserProfileId: createdUserInfo.id,
-		// 						};
-		// 					}),
-		// 				);
-		// 		}),
-		// 		switchMap((updatedUser: NewAuthUser) =>
-		// 			this._httpClient.put<NewAuthUser>(
-		// 				`${this.BASE_URL}/${updatedUser.id}`,
-		// 				updatedUser,
-		// 			),
-		// 		),
-		// 		map((finalUser: NewAuthUser) => {
-		// 			const userToStore = this.getAuthUserFormatted(finalUser);
-
-		// 			localStorage.setItem('user', JSON.stringify(userToStore));
-		// 			this.setConnectedUserData(userToStore);
-		// 			this.notifyLoggedInStatus(true);
-		// 			return finalUser;
-		// 		}),
-		// 		tap(() => {
-		// 			this._router.navigateByUrl(FullUserRouteEnum.HOME);
-		// 		}),
-		// 	);
 	}
 
 	public logout(): void {
-		localStorage.removeItem('user');
-		this.setConnectedUserData({
-			id: '',
-			username: '',
-			email: '',
-			role: UserRoleEnum.USER,
-			status: AccountStatus.ACTIVE,
-			UserProfileId: '',
-		});
-		this.notifyLoggedInStatus(false);
+		this._localStorageService.clearToken();
+		this._tokenService.resetToken();
+		this._authStatus.next(false);
 		this._router.navigateByUrl(FullAuthenticationRouteEnum.LOGIN);
 	}
 
@@ -205,5 +203,9 @@ export class AuthService extends AuthUserServiceUtils {
 				UserProfileId: '',
 			})
 			.pipe(tap(() => this.logout()));
+	}
+
+	getAuthStatus(): Observable<boolean> {
+		return this._authStatus.asObservable();
 	}
 }
