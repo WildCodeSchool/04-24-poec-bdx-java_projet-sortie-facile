@@ -64,6 +64,15 @@ export class UserService {
 		);
 	}
 
+	putUserCategories$(userId: number, categoryIds: number[]): Observable<any> {
+		return this._httpClient.put<any>(
+			`${this._BASE_URL}/update/${userId}/categories`,
+			{
+				categoryIds,
+			},
+		);
+	}
+
 	patchUserInfo$(
 		authUserConnectedId: number,
 		newUsersDatas: UserProfilePatch,
