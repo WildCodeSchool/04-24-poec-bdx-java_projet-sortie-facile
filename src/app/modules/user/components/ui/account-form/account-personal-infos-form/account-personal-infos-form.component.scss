@@ -38,3 +38,7 @@ app-layout-container-content {
 	width: 100%;
 	margin-top: 2rem;
 }
+
+:host ::ng-deep.p-button.btn-edit .p-button-label {
+	color: black;
+}

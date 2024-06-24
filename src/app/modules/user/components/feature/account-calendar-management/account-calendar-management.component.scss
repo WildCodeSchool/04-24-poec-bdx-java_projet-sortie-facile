@@ -5,3 +5,37 @@
 	margin: 0 auto;
 	padding-top: 4rem;
 }
+
+:host ::ng-deep.fc .fc-button {
+	background-color: var(--primary-color);
+	// border-color: var(--fc-button-border-color);
+	color: var(--fc-button-text-color);
+	border: none;
+	border-radius: 23px;
+}
+:host ::ng-deep.fc .fc-daygrid-event-harness {
+	position: relative;
+	background-color: #0014ff38;
+	border-radius: 5px;
+}
+@media (max-width: 805px) {
+	:host ::ng-deep .fc .fc-toolbar {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+}
+
+@media (min-width: 805px) {
+	:host ::ng-deep .fc .fc-toolbar {
+		align-items: center;
+		display: flex;
+		justify-content: space-between;
+		flex-wrap: wrap;
+	}
+}
+@media (min-width: 1030px) {
+	:host ::ng-deep .fc .fc-toolbar {
+		align-items: flex-end;
+	}
+}

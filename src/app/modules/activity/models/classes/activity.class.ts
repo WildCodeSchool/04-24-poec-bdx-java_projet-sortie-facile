@@ -4,7 +4,7 @@ export class Activity {
 	regionId: number;
 	departmentId: number;
 	cityId: number;
-	date: string;
+	date: Date;
 	age: number;
 	imgUrl: string;
 	link: string;
@@ -20,7 +20,7 @@ export class Activity {
 		regionId: number,
 		departmentId: number,
 		cityId: number,
-		date: string,
+		date: Date,
 		age: number,
 		imgUrl: string,
 		link: string,
@@ -35,7 +35,7 @@ export class Activity {
 		this.regionId = regionId;
 		this.departmentId = departmentId;
 		this.cityId = cityId;
-		this.date = date;
+		this.date = new Date();
 		this.age = age;
 		this.imgUrl = imgUrl;
 		this.link = link;

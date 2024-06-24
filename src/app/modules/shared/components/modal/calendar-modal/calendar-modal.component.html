@@ -1,10 +1,15 @@
 <div class="activity-card-container">
 	<p-card>
-		<p-badge
-			value="{{ activity.nbGuest }} places restantes"
-			badgeSize="large"
-			severity="warning"
-		/>
+		<div *ngIf="bookingCount !== undefined">
+			<p-badge
+				value="{{ bookingCount }} / {{ activity.nbGuest }} places réservés"
+				badgeSize="large"
+				severity="warning"
+			/>
+		</div>
+		<div *ngIf="bookingCount === undefined">
+			<p>Chargement...</p>
+		</div>
 		<ng-template pTemplate="header">
 			<div class="btn-admin">
 				<!-- <p-button

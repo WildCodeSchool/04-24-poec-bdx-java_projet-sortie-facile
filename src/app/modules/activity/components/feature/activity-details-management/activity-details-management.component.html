@@ -93,6 +93,7 @@
 						label="Activité précédente"
 						[rounded]="true"
 						[outlined]="true"
+						(click)="changePage(-1)"
 					/>
 
 					<h1 class="activity-title">{{ activity.name }}</h1>
@@ -101,6 +102,7 @@
 						label="Activité suivante"
 						[rounded]="true"
 						[outlined]="true"
+						(click)="changePage(1)"
 					/>
 				</ng-template>
 				<ng-template pTemplate="header">
