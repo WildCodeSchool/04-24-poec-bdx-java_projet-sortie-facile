@@ -11,7 +11,7 @@ import timeGridPlugin from '@fullcalendar/timegrid';
 import interactionPlugin, { Draggable } from '@fullcalendar/interaction';
 import listPlugin from '@fullcalendar/list';
 import { ActivityService } from '@shared/services/activity.service';
-import { forkJoin } from 'rxjs';
+import { Observable, forkJoin } from 'rxjs';
 import { CalendarModalComponent } from '@shared/components/modal/calendar-modal/calendar-modal.component';
 import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
 import frLocale from '@fullcalendar/core/locales/fr';
@@ -20,6 +20,10 @@ import { FullActivityRouteEnum } from '@shared/models/enums/routes/full-routes';
 import { Router } from '@angular/router';
 import { CalendarEvent } from '@shared/models/types/calendar/calendar-event.type';
 import { MessageService } from 'primeng/api';
+import { BaseManagementComponent } from '@shared/directives/management.class';
+import { TokenService } from '@shared/services/token.service';
+import { AccountService } from '@shared/services/account.service';
+import { Activity } from '@activity/models/classes/activity.class';
 
 @Component({
 	selector: 'app-account-calendar',
@@ -27,7 +31,12 @@ import { MessageService } from 'primeng/api';
 	styleUrls: ['./account-calendar.component.scss'],
 	providers: [MessageService],
 })
-export class AccountCalendarComponent implements OnInit {
+export class AccountCalendarComponent
+	extends BaseManagementComponent
+	implements OnInit
+{
+	activityByCreatedUserList$!: Observable<Activity[]>;
+	activityParticipateList$!: Observable<Activity[]>;
 	events: CalendarEvent[] = [];
 	calendarEl: HTMLElement | null = null;
 	dialogRef: DynamicDialogRef | null = null;
@@ -77,60 +86,79 @@ export class AccountCalendarComponent implements OnInit {
 	};
 
 	constructor(
+		protected override _tokenService: TokenService,
+		private _accountService: AccountService,
 		private _activityService: ActivityService,
 		private dialogService: DialogService,
 		private _router: Router,
 		private messageService: MessageService,
-	) {}
+	) {
+		super(_tokenService);
+	}
 
-	ngOnInit() {
-		const id = 1;
-		const limit = 10;
+	override ngOnInit() {
+		super.ngOnInit();
 
-		forkJoin({
-			createdActivities: this._activityService.getActivityListByCreatedUser$(
-				limit,
-				id,
-			),
-			participatedActivities:
-				this._activityService.getListOfActivitiesRegisteredByUser$(limit, id),
-		}).subscribe(({ createdActivities, participatedActivities }) => {
-			const createdEvents = createdActivities.map(activity => ({
-				title: activity.name,
-				start: activity.date,
-				color: 'blue',
-				extendedProps: { activity, activityId: activity.id },
-			}));
+		this.loadActivities();
+	}
 
-			const participatedEvents = participatedActivities.map(activity => ({
-				title: activity.name,
-				start: activity.date,
-				color: 'green',
-				extendedProps: { activity, activityId: activity.id },
-			}));
+	loadActivities() {
+		const connectedUserId =
+			this._tokenService.getTokenFromLocalStorageAndDecode()?.id;
 
-			this.events = [...createdEvents, ...participatedEvents];
+		if (connectedUserId) {
+			this.activityByCreatedUserList$ =
+				this._activityService.getActivityListByCreatedUser$(
+					10,
+					connectedUserId,
+				);
+			this.activityParticipateList$ =
+				this._activityService.getListOfActivitiesRegisteredByUser$(
+					10,
+					connectedUserId,
+				);
 
-			this.calendarOptions.events = this.events;
-		});
+			forkJoin({
+				createdActivities: this.activityByCreatedUserList$,
+				participatedActivities: this.activityParticipateList$,
+			}).subscribe(({ createdActivities, participatedActivities }) => {
+				const createdEvents = createdActivities.map(activity => ({
+					title: activity.name,
+					start: activity.date,
+					color: 'blue',
+					extendedProps: { activity, activityId: activity.id },
+				}));
 
-		this.calendarEl = document.getElementById('calendar');
-		if (this.calendarEl) {
-			const calendar = new Calendar(this.calendarEl, this.calendarOptions);
-			this.calendarApi = calendar;
-			calendar.render();
-			new Draggable(this.calendarEl, {
-				itemSelector: '.fc-event',
-				eventData: eventEl => {
-					const eventTitle = eventEl.innerText.trim();
-					return {
-						title: eventTitle,
-						duration: '02:00',
-					};
-				},
+				const participatedEvents = participatedActivities.map(activity => ({
+					title: activity.name,
+					start: activity.date,
+					color: 'green',
+					extendedProps: { activity, activityId: activity.id },
+				}));
+
+				this.events = [...createdEvents, ...participatedEvents];
+
+				this.calendarOptions.events = this.events;
+
+				if (this.calendarEl) {
+					const calendar = new Calendar(this.calendarEl, this.calendarOptions);
+					this.calendarApi = calendar;
+					calendar.render();
+					new Draggable(this.calendarEl, {
+						itemSelector: '.fc-event',
+						eventData: eventEl => {
+							const eventTitle = eventEl.innerText.trim();
+							return {
+								title: eventTitle,
+								duration: '02:00',
+							};
+						},
+					});
+				}
 			});
 		}
 	}
+
 	addEvent() {
 		this._router.navigate([FullActivityRouteEnum.POST]);
 	}
