@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { BaseManagementComponent } from '@shared/directives/management.class';
 import { FullActivityRouteEnum } from '@shared/models/enums/routes/full-routes';
 import { LayoutLink } from '@shared/models/types/utils/layout-link.type';
@@ -22,6 +23,7 @@ export class AccountNotifManagementComponent
 		protected override _tokenService: TokenService,
 		private _accountService: AccountService,
 		private _activityService: ActivityService,
+		private _router: Router,
 	) {
 		super(_tokenService);
 	}
@@ -34,5 +36,13 @@ export class AccountNotifManagementComponent
 				this.newActivityCreated = NewActivity;
 			}
 		});
+	}
+
+	onNewActivityClicked() {
+		this.newActivityCreated = false;
+		setTimeout(() => {
+			this._router.navigate([this.fullActivityRouteEnum.HOME]); // Redirige après un délai
+		}, 200);
+		// this._router.navigate([this.fullActivityRouteEnum.HOME]);
 	}
 }
