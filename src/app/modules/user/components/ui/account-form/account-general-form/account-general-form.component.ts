@@ -8,11 +8,13 @@ import { UserAuthCrudService } from '@shared/services/user-auth-crud.service';
 import { UserGeneralForm } from '@shared/models/classes/user-details/user-details-general-form.class';
 import { AuthUserResponse } from '@shared/models/classes/auth-user/auth-user-response.class';
 import { TokenService } from '@shared/services/token.service';
+import { MessageService } from 'primeng/api';
 
 @Component({
 	selector: 'app-account-general-form',
 	templateUrl: './account-general-form.component.html',
 	styleUrl: './account-general-form.component.scss',
+	providers: [MessageService],
 })
 export class AccountGeneralFormComponent implements OnInit {
 	connectedUser!: AuthUserResponse;
@@ -27,6 +29,7 @@ export class AccountGeneralFormComponent implements OnInit {
 		private _userService: UserService,
 		private _userAuthCrudService: UserAuthCrudService,
 		private _tokenService: TokenService,
+		private messageService: MessageService,
 	) {}
 
 	ngOnInit(): void {
@@ -57,10 +60,19 @@ export class AccountGeneralFormComponent implements OnInit {
 		// TODO
 		// CONNECT FRONT-BACK update nickname and description
 
-		this.userProfile$ = this._userService.putUserInfo$(
-			this.connectedUser.id,
-			this.userGeneralDatasForm,
-		);
+		this.userProfile$ = this._userService
+			.putUserInfo$(this.connectedUser.id, this.userGeneralDatasForm)
+			.pipe(
+				tap(() => {
+					this.messageService.add({
+						severity: 'success',
+						summary: 'Succès',
+						detail: 'Les informations ont été mises à jour avec succès.',
+					});
+				}),
+			);
+
+		this.userProfile$.subscribe();
 
 		// this.userProfile$ = this._userAuthCrudService
 		// 	.patchConnectedUser(

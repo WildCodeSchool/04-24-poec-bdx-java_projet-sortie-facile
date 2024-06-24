@@ -27,6 +27,7 @@ import { AccountGeneralManagementComponent } from './components/feature/account-
 import { AccountNotifManagementComponent } from './components/feature/account-notif-management/account-notif-management.component';
 import { UserBookingComponent } from './pages/user-booking/user-booking.component';
 import { AccountBookingManagementComponent } from './components/feature/account-booking-management/account-booking-management.component';
+import { MessageService } from 'primeng/api';
 
 @NgModule({
 	declarations: [
@@ -55,5 +56,6 @@ import { AccountBookingManagementComponent } from './components/feature/account-
 		AccountBookingManagementComponent,
 	],
 	imports: [CommonModule, UserRoutingModule, SharedModule, FormsModule],
+	providers: [MessageService],
 })
 export class UserModule {}
