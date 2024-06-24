@@ -8,9 +8,9 @@
 		[items]="navItems"
 	>
 		<p-button
+			(onClick)="onNewActivityClicked()"
 			*ngIf="newActivityCreated"
 			rounded
-			[routerLink]="fullActivityRouteEnum.HOME"
 			>Nouvelle activité créée</p-button
 		>
 		<!-- <p-button rounded>Activité annulée</p-button> -->
