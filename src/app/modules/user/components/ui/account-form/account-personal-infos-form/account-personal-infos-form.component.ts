@@ -7,6 +7,7 @@ import { Observable, map, switchMap, tap } from 'rxjs';
 import { AuthUserResponse } from '@shared/models/classes/auth-user/auth-user-response.class';
 import { TokenService } from '@shared/services/token.service';
 import { UserProfile } from '@shared/models/classes/user-details/user-profile.class';
+import { MessageService } from 'primeng/api';
 
 @Component({
 	selector: 'app-account-personal-infos-form',
@@ -24,6 +25,7 @@ export class AccountPersonalInfosFormComponent implements OnInit {
 		private _userService: UserService,
 		private _userAuthCrudService: UserAuthCrudService,
 		private _tokenService: TokenService,
+		private messageService: MessageService,
 	) {}
 
 	ngOnInit(): void {
@@ -54,10 +56,19 @@ export class AccountPersonalInfosFormComponent implements OnInit {
 		// TODO
 		// CONNECT FRONT-BACK update personnal infos
 
-		this.userProfile$ = this._userService.putUserInfo$(
-			this.connectedUser.id,
-			this.userPersonalInfosDatasForm,
-		);
+		this.userProfile$ = this._userService
+			.putUserInfo$(this.connectedUser.id, this.userPersonalInfosDatasForm)
+			.pipe(
+				tap(() => {
+					this.messageService.add({
+						severity: 'success',
+						summary: 'Succès',
+						detail: 'Les informations ont été mises à jour avec succès.',
+					});
+				}),
+			);
+
+		this.userProfile$.subscribe();
 
 		// this.UserProfile$ = this._userAuthCrudService
 		// 	.patchConnectedUser(

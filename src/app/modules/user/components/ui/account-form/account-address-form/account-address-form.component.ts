@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UserProfileAddressForm } from '@shared/models/classes/user-details/user-details-address-form.class';
 import { InputNumberModeEnum } from '@shared/models/enums/InputNumberMode.enum';
 import { UserService } from '@shared/services/user.service';
-import { Observable, map } from 'rxjs';
+import { Observable, map, tap } from 'rxjs';
 import { AuthUserResponse } from '@shared/models/classes/auth-user/auth-user-response.class';
 import { TokenService } from '@shared/services/token.service';
 import { UserProfile } from '@shared/models/classes/user-details/user-profile.class';
