@@ -2,9 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { NewProfileInput } from '@shared/models/classes/user-details/new-profil-input.class';
 import { UpdateUserProfileInput } from '@shared/models/classes/user-details/update-user-profile-input.class';
-import { UserGeneralForm } from '@shared/models/classes/user-details/user-details-general-form.class';
 import { UserProfilePatch } from '@shared/models/classes/user-details/user-details-patch.class';
-import { UserProfilePersonalInfosForm } from '@shared/models/classes/user-details/user-details-personal-info-form.class';
 import { UserProfile } from '@shared/models/classes/user-details/user-profile.class';
 import { environment } from 'environments/environment';
 import { Observable } from 'rxjs';
@@ -33,16 +31,6 @@ export class UserService {
 			userInfos,
 		);
 	}
-
-	// putUserInfo$(
-	// 	userId: number,
-	// 	userInfos: UserProfilePersonalInfosForm | UserGeneralForm,
-	// ): Observable<UserProfile> {
-	// 	return this._httpClient.put<UserProfile>(
-	// 		`${this._BASE_URL}/${userId}`,
-	// 		userInfos,
-	// 	);
-	// }
 
 	putUserInfo$(userId: number, userInfos: any): Observable<any> {
 		const profileRequestBody: UpdateUserProfileInput =

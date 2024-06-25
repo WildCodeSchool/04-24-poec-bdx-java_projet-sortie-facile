@@ -46,7 +46,6 @@ export class ActivityUpdateManagementComponent implements OnInit, OnDestroy {
 			.pipe(
 				map(data => data['activityUpdated']),
 				map((activity: Activity) => {
-					console.log(activity);
 					this.formData = activity;
 				}),
 			)

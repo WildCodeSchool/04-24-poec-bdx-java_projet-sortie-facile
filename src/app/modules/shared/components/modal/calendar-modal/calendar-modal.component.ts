@@ -28,7 +28,7 @@ export class CalendarModalComponent implements OnInit {
 
 	ngOnInit() {
 		this.activity = this.config.data.activity;
-		this.activityId = this.activity.id; // Assurez-vous que activityId est initialisé correctement
+		this.activityId = this.activity.id;
 
 		this.activityService
 			.getActivityById$(this.activityId.toString())
@@ -39,7 +39,6 @@ export class CalendarModalComponent implements OnInit {
 					this.countBookings();
 				} else {
 					console.log('Activité non trouvée ou nulle.');
-					// Gérer le cas où l'activité est nulle, par exemple rediriger ou afficher un message d'erreur
 				}
 			});
 	}

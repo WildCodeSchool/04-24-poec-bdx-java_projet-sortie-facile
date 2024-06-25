@@ -112,8 +112,6 @@ export class ModalConfirmCreatActivityComponent
 	}
 
 	onCreate() {
-		console.log(this.myForm.value);
-
 		this._activityService
 			.postNewActivity$({
 				...this.myForm.value,

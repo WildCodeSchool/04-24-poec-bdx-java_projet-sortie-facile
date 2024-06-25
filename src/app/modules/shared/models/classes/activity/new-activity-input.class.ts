@@ -7,7 +7,6 @@ export class NewActivityInput {
 	description: string;
 	nbGuest: number;
 	isVisible: boolean;
-	// category: number;
 
 	constructor(
 		name: string,
@@ -18,7 +17,6 @@ export class NewActivityInput {
 		description: string,
 		nbGuest: number,
 		isVisible: boolean,
-		// category: number,
 	) {
 		this.name = name;
 		this.date = date;
@@ -28,6 +26,5 @@ export class NewActivityInput {
 		this.description = description;
 		this.nbGuest = nbGuest;
 		this.isVisible = isVisible;
-		// this.category = category;
 	}
 }

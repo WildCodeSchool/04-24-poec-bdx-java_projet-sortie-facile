@@ -69,14 +69,6 @@ export class ActivityListManagementComponent implements OnInit, OnChanges {
 				this.connectedUser = connectedUser;
 			});
 
-		// if (!this.connectedUser) {
-		// 	this._authService.setConnectedUserData(
-		// 		JSON.parse(localStorage.getItem('user') as string),
-		// 	);
-
-		// 	this.connectedUser = this._authService.getConnectedUserData();
-		// }
-
 		this.filterActivities();
 	}
 
