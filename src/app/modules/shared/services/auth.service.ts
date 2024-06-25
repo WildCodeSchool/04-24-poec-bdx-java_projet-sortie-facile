@@ -4,12 +4,8 @@ import { Observable, map, switchMap, tap } from 'rxjs';
 import { Router } from '@angular/router';
 import { NewAuthUser } from '@shared/models/classes/auth-user/new-auth-user.class';
 import { UserService } from './user.service';
-import {
-	AccountStatus,
-	UserRoleEnum,
-} from '@shared/models/enums/user-role.enum';
+import { AccountStatus } from '@shared/models/enums/user-role.enum';
 import { NewAuthUserFormDatas } from '@shared/models/classes/auth-user/new-auth-user-form-datas.class';
-import { UserProfile } from '@shared/models/classes/user-details/user-profile.class';
 import { NewUserUserProfileFormDatas } from '@shared/models/classes/user-details/new-user-details-form-datas.class';
 import { AuthUser } from '@shared/models/classes/auth-user/auth-user.class';
 import { AuthUserPrimaryDatas } from '@shared/models/classes/auth-user/auth-user-primary-datas.class';
@@ -24,7 +20,6 @@ import { TokenResponse } from '@shared/models/classes/token/token-response.class
 import { environment } from 'environments/environment';
 import { NewAuthUserInput } from '@shared/models/classes/auth-user/new-auth-user-input.class';
 import { NewProfileInput } from '@shared/models/classes/user-details/new-profil-input.class';
-import { AuthUserResponse } from '@shared/models/classes/auth-user/auth-user-response.class';
 import { LocalStorageService } from './local-storage.service';
 
 @Injectable({
@@ -39,7 +34,6 @@ export class AuthService extends AuthUserServiceUtils {
 		private _router: Router,
 		private _userService: UserService,
 		private _localStorageService: LocalStorageService,
-		// private _formErrorMessage: FormErrorMessageService,
 	) {
 		super();
 	}
@@ -53,43 +47,6 @@ export class AuthService extends AuthUserServiceUtils {
 				this._authStatus.next(true);
 				this._router.navigateByUrl(FullUserRouteEnum.HOME);
 			});
-		// return this._httpClient.get<AuthUserListResponseApi>(this.BASE_URL).pipe(
-		// 	map(
-		// 		(users: AuthUserListResponseApi) =>
-		// 			this.findUserByUsernameAndPassword(
-		// 				users,
-		// 				username,
-		// 				password,
-		// 			) as AuthUser,
-		// 	),
-		// 	map((user: AuthUser) => {
-		// 		if (!user) {
-		// 			throw new Error(this._formErrorMessage.loginErrorMessage);
-		// 		}
-		// 		return {
-		// 			id: user.id,
-		// 			username: user.username,
-		// 			email: user.email,
-		// 			role: user.role,
-		// 			status: user.status,
-		// 			UserProfileId: user.UserProfileId,
-		// 		} as AuthUserPrimaryDatas;
-		// 	}),
-		// 	tap((user: AuthUserPrimaryDatas) => {
-		// 		localStorage.setItem('user', JSON.stringify(user));
-		// 		this.setConnectedUserData(user);
-		// 		this.notifyLoggedInStatus(true);
-		// 		this._router.navigateByUrl(FullUserRouteEnum.HOME);
-		// 	}),
-		// 	catchError(() => {
-		// 		return throwError(
-		// 			() =>
-		// 				new Error(
-		// 					"Votre nom d'utilisateur ou votre mot de passe incorrect",
-		// 				),
-		// 		);
-		// 	}),
-		// );
 	}
 
 	createUserWithEmailAndPassword(
@@ -133,42 +90,6 @@ export class AuthService extends AuthUserServiceUtils {
 						password: newUserAuthInfos.password,
 					}),
 				),
-
-				// return this._httpClient
-				// 	.post<NewAuthUser>(`${this.BASE_URL}`, newUserAuthInfos)
-				// 	.pipe(
-				// 		switchMap((createdUser: NewAuthUser) => {
-				// 			return this._userService
-				// 				.postUserInfos$({
-				// 					...newUserPersonalInfos,
-				// 					userId: createdUser.id,
-				// 				})
-				// 				.pipe(
-				// 					map((createdUserInfo: UserProfile) => {
-				// 						return {
-				// 							...createdUser,
-				// 							UserProfileId: createdUserInfo.id,
-				// 						};
-				// 					}),
-				// 				);
-				// 		}),
-				// 		switchMap((updatedUser: NewAuthUser) =>
-				// 			this._httpClient.put<NewAuthUser>(
-				// 				`${this.BASE_URL}/${updatedUser.id}`,
-				// 				updatedUser,
-				// 			),
-				// 		),
-				// 		map((finalUser: NewAuthUser) => {
-				// 			const userToStore = this.getAuthUserFormatted(finalUser);
-
-				// 			localStorage.setItem('user', JSON.stringify(userToStore));
-				// 			this.setConnectedUserData(userToStore);
-				// 			this.notifyLoggedInStatus(true);
-				// 			return finalUser;
-				// 		}),
-				// 		tap(() => {
-				// 			this._router.navigateByUrl(FullUserRouteEnum.HOME);
-				// 		}),
 			);
 	}
 

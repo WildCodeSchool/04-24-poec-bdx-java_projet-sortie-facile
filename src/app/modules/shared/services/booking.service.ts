@@ -138,10 +138,6 @@ export class BookingService {
 			);
 	}
 
-	// todo back :
-	// GET Booking By profileId And activityId
-	// DELETE by bookingId
-
 	deleteBookingById$(
 		profileId: number,
 		activityId: number,

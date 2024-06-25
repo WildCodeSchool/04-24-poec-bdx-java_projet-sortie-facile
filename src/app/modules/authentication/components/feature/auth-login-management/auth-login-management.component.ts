@@ -40,20 +40,6 @@ export class AuthLoginManagementComponent implements OnInit {
 		if (form.status === 'VALID') {
 			this._localStorageService.clearToken();
 			this._authService.loginWithEmailAndPassword(this.userCredentials);
-
-			// this.authService
-			// 	.loginWithEmailAndPassword(
-			// 		this.connectedUser.username,
-			// 		this.connectedUser.password,
-			// 	)
-			// 	.subscribe({
-			// 		next: (user: AuthUserPrimaryDatas) => {
-			// 			localStorage.setItem('user', JSON.stringify(user));
-			// 		},
-			// 		error: (error: Error) => {
-			// 			this.errorLoginQueryMessage = error.message;
-			// 		},
-			// 	});
 		}
 	}
 }

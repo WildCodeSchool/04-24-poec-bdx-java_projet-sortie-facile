@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 
 import { UserRoutingModule } from '@user/user-routing.module';
 import { UserHomeComponent } from '@user/pages/user-home/user-home.component';
-// import { AccountLayoutComponent } from '@user/components/ui/account-layout/account-layout.component';
 import { UserProfileComponent } from '@user/pages/user-profile/user-profile.component';
 import { UserPasswordComponent } from '@user/pages/user-password/user-password.component';
 import { UserActivitiesComponent } from '@user/pages/user-activities/user-activities.component';
@@ -31,7 +30,6 @@ import { AccountBookingManagementComponent } from './components/feature/account-
 @NgModule({
 	declarations: [
 		UserHomeComponent,
-		// AccountLayoutComponent,
 		AccountGeneralManagementComponent,
 		UserProfileComponent,
 		UserPasswordComponent,
