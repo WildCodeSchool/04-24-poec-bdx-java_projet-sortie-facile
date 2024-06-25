@@ -10,4 +10,5 @@ export class CardTestimonialComponent {
 	@Input() message!: string;
 	@Input() note!: number;
 	@Input() user!: string;
+	@Input() imgUrl!: string;
 }
