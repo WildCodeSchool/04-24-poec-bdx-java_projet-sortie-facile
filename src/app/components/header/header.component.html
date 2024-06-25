@@ -10,26 +10,6 @@
 		</ng-template>
 
 		<div class="user">
-			<div class="notif">
-				<p-button
-					icon="pi pi-bell"
-					[rounded]="true"
-					[text]="true"
-					[routerLink]="[fullUserRouteEnum.NOTIFICATION]"
-				/>
-				<div *ngIf="newActivity" class="red-dot"></div>
-			</div>
-
-			<!-- <div class="mail" *ngIf="isAdmin">
-				<p-button
-					icon="pi pi-envelope"
-					[rounded]="true"
-					[text]="true"
-					[routerLink]="[fullAdminRouteEnum.EMAIL]"
-				/>
-				<div *ngIf="newMail" class="red-dot"></div>
-			</div> -->
-
 			<app-auth-menu></app-auth-menu>
 		</div>
 	</p-menubar>

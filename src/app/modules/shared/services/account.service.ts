@@ -41,14 +41,7 @@ export class AccountService {
 			},
 			state: { path: FullUserRouteEnum.CENTER_OF_INTERESTS },
 		},
-		{
-			id: '5',
-			label: 'Notifications',
-			command: () => {
-				this._router.navigateByUrl(FullUserRouteEnum.NOTIFICATION);
-			},
-			state: { path: FullUserRouteEnum.NOTIFICATION },
-		},
+
 		{
 			id: '6',
 			label: 'Mes activités',
@@ -57,14 +50,7 @@ export class AccountService {
 			},
 			state: { path: FullUserRouteEnum.ACTIVITY },
 		},
-		{
-			id: '7',
-			label: 'Mes activités',
-			command: () => {
-				this._router.navigateByUrl(FullUserRouteEnum.BOOKING);
-			},
-			state: { path: FullUserRouteEnum.BOOKING },
-		},
+
 		{
 			id: '8',
 			label: 'Mon calendrier',
@@ -90,17 +76,9 @@ export class AccountService {
 			path: FullUserRouteEnum.CENTER_OF_INTERESTS,
 			active: false,
 		},
-		{
-			label: 'Notifications',
-			path: FullUserRouteEnum.NOTIFICATION,
-			active: false,
-		},
+
 		{ label: 'Mes activités', path: FullUserRouteEnum.ACTIVITY, active: false },
-		{
-			label: 'Mes réservations',
-			path: FullUserRouteEnum.BOOKING,
-			active: false,
-		},
+
 		{
 			label: 'Mon calendrier',
 			path: FullUserRouteEnum.CALENDAR,
