@@ -23,8 +23,8 @@ export class AuthLoginManagementComponent implements OnInit {
 	};
 
 	userCredentials: AuthUserCredentials = new AuthUserCredentials(
-		'user1@user1.com',
-		'user1',
+		'paul-33@gmail.com',
+		'paul33',
 	);
 
 	constructor(

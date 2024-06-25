@@ -410,6 +410,8 @@ p {
 
 :host ::ng-deep section.testimonials-box {
 	background-color: var(--black-color);
+	margin-bottom: 5rem;
+
 	.section-content {
 		app-carousel-testimonial {
 			width: 100%;

@@ -62,21 +62,6 @@
 					spécialités locales. Si ça vous dit de faire une sortie ou de papoter,
 					faites-moi signe !
 				</p>
-
-				<div
-					class="author-info-items-box column"
-					[ngStyle]="{ marginBottom: 0 }"
-				>
-					<app-info-item
-						icon="pi pi-image"
-						content="A participé à 10 activités"
-					></app-info-item>
-
-					<app-info-item
-						icon="pi pi-images"
-						content="A créé 10 activités"
-					></app-info-item>
-				</div>
 			</div>
 		</div>
 
@@ -123,15 +108,6 @@
 					[innerHTML]="activity.description | paragraphSplit"
 					class="activity-description"
 				></div>
-
-				<a
-					*ngIf="activity.link"
-					href="{{ activity.link | link }}"
-					[title]="activity.name"
-					target="_blank"
-					rel="noopener noreferrer"
-					>En savoir plus</a
-				>
 
 				<ng-template
 					pTemplate="footer"
