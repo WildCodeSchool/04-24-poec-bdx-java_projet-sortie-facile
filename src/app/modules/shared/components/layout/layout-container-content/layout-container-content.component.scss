@@ -13,6 +13,12 @@
 	}
 }
 
+:host ::ng-deep.fc-direction-ltr .fc-toolbar :not(:first-child) {
+	margin-left: 0;
+}
+:host ::ng-deep.fc .fc-toolbar-title {
+	font-weight: normal;
+}
 .section-top {
 	display: flex;
 	flex-direction: row;
@@ -25,9 +31,9 @@
 }
 
 .section-title {
-	font-size: 1.2rem;
+	font-size: 2.2rem;
 	color: var(--black-color);
-	margin: 0;
+	margin-block: 20px;
 	text-align: center;
 }
 
