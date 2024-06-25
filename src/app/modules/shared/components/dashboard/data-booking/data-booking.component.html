@@ -1,0 +1,29 @@
+<h1>Nos Réservations</h1>
+<div class="card">
+	<p-table
+		*ngIf="reservations$ | async as reservations"
+		[value]="reservations"
+		[tableStyle]="{ 'min-width': '50rem' }"
+	>
+		<ng-template pTemplate="header">
+			<tr>
+				<th>Numéro de réservation</th>
+				<th>Activité ID</th>
+				<th>User ID</th>
+				<th>user</th>
+				<th>activity</th>
+			</tr>
+		</ng-template>
+		<ng-template pTemplate="body" let-reservation>
+			<tr *ngFor="let reservation of reservations">
+				<td>{{ reservation.id }}</td>
+				<td>{{ reservation.activityId }}</td>
+				<td>{{ reservation.profileId }}</td>
+				<td>
+					{{ reservation?.user?.username | json }}
+				</td>
+				<td>{{ reservation.activity?.name }}</td>
+			</tr>
+		</ng-template>
+	</p-table>
+</div>

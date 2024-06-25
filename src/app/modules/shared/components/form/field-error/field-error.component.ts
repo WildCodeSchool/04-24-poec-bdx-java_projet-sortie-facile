@@ -1,19 +1,43 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { NgModel } from '@angular/forms';
-import { ErrorMessages } from '@shared/models/types/error-message.type';
+import { ErrorMessageList } from '@shared/models/types/utils/error-message-list.type';
+import { FormErrorMessageService } from '@shared/services/form-errors.service';
 
 @Component({
 	selector: 'app-field-error',
 	templateUrl: './field-error.component.html',
 	styleUrl: './field-error.component.scss',
 })
-export class FieldErrorComponent {
+export class FieldErrorComponent implements OnInit {
 	@Input({ required: true }) ref!: NgModel;
+	@Input({ required: true }) fieldName!: string;
 
-	errorMessages: ErrorMessages = {
-		required: { message: 'Ce champs est requis' },
-		minlength: { message: 'Ce champs doit comporter 8 caractère minimum' },
-		maxlength: { message: 'Ce champs doit comporter 20 caractère maximum' },
-		email: { message: "Votre email n'est pas au bon format" },
-	};
+	errorMessages!: ErrorMessageList;
+
+	constructor(private _formErrorMessageService: FormErrorMessageService) {}
+
+	ngOnInit(): void {
+		this.errorMessages = {
+			required: {
+				message: this._formErrorMessageService.getRequiredErrorMessage(
+					this.fieldName,
+				).message,
+			},
+			minlength: {
+				message: this._formErrorMessageService.getMinlengthErrorMessage(
+					this.fieldName,
+					3,
+				).message,
+			},
+			maxlength: {
+				message: this._formErrorMessageService.getMinlengthErrorMessage(
+					this.fieldName,
+					8,
+				).message,
+			},
+			email: {
+				message: this._formErrorMessageService.getEmailErrorMessage().message,
+			},
+		};
+	}
 }

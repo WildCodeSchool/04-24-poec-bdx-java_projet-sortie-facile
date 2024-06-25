@@ -1,9 +1,30 @@
-.activity-form-container {
+.container {
 	display: flex;
 	justify-content: center;
-	margin-top: 30px;
-	border: solid 1px;
-	border-radius: 20px;
-	padding: 40px;
-	border-color: #c2c2c2;
+	gap: 0;
+	background-color: transparent;
+	min-height: calc(100vh - 130px);
+}
+
+app-layout-split {
+	display: flex;
+	width: 100%;
+}
+
+form {
+	display: flex;
+	flex-direction: column;
+	gap: 0rem;
+	width: 100%;
+}
+
+app-text-field,
+app-textarea {
+	margin-top: 1rem;
+}
+
+.btn-container {
+	display: flex;
+	justify-content: flex-end;
+	margin-top: 2rem;
 }

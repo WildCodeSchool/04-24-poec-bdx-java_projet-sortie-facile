@@ -16,7 +16,9 @@
 		#ref="ngModel"
 		[required]="required"
 		[minlength]="minlength"
-		[maxlength]="maxlength"
 	></textarea>
-	<label for="float-input"></label>
+
+	<div *ngIf="ref.errors && form.submitted">
+		<app-field-error [ref]="ref" [fieldName]="fieldName"></app-field-error>
+	</div>
 </div>

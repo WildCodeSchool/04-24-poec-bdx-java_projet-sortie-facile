@@ -1,37 +1,60 @@
 <div class="container">
-	<app-account-layout
+	<app-dashboard-layout
 		[avatarSrc]="avatarSrc"
 		[avatarAlt]="avatarAlt"
-		[username]="connectedUser.username"
+		[username]="connectedUser.nickname"
 		[pageTitle]="pageTitle"
 		[pageDescription]="pageDescription"
+		[items]="navItems"
 	>
-		<app-account-container-content
-			sectionTitle="Mes dernières activités"
+		<app-layout-container-content
+			sectionTitle="Mes dernières activités créées"
 			[hideBtn]="true"
 		>
 			<div class="content-box" data>
-				<app-carousel
-					[activityList]="activityByCreatedUserList"
-					[numVisible]="4"
-					[numScroll]="1"
-					[circular]="false"
-				></app-carousel>
-			</div>
-		</app-account-container-content>
+				<ng-container
+					*ngIf="activityByCreatedUserList$ | async as activityList"
+				>
+					<ng-container *ngIf="activityList.length > 0">
+						<app-carousel-activity
+							[activityList]="activityList"
+							[numVisible]="6"
+							[numScroll]="1"
+							[circular]="false"
+						></app-carousel-activity>
+					</ng-container>
 
-		<app-account-container-content
-			sectionTitle="Les dernières activités auxquelles j'ai participé"
+					<app-alert
+						message="Aucune activité créée pour le moment."
+						icon="pi pi-times-circle"
+						[error]="!activityList.length"
+					></app-alert>
+				</ng-container>
+			</div>
+		</app-layout-container-content>
+
+		<app-layout-container-content
+			sectionTitle="Mes dernières activités en tant que participant"
 			[hideBtn]="true"
 		>
 			<div class="content-box" data>
-				<app-carousel
-					[activityList]="activityByCreatedUserList"
-					[numVisible]="4"
-					[numScroll]="1"
-					[circular]="false"
-				></app-carousel>
+				<ng-container *ngIf="activityParticipateList$ | async as activityList">
+					<ng-container *ngIf="activityList.length > 0">
+						<app-carousel-activity
+							[activityList]="activityList"
+							[numVisible]="6"
+							[numScroll]="1"
+							[circular]="false"
+						></app-carousel-activity>
+					</ng-container>
+
+					<app-alert
+						message="Vous être inscrit à aucune activité pour le moment."
+						icon="pi pi-times-circle"
+						[error]="!activityList.length"
+					></app-alert>
+				</ng-container>
 			</div>
-		</app-account-container-content>
-	</app-account-layout>
+		</app-layout-container-content>
+	</app-dashboard-layout>
 </div>

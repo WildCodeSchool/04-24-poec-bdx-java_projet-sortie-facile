@@ -21,4 +21,32 @@ label {
 		height: 45px;
 		margin-bottom: 0.2rem;
 	}
+
+	.pi {
+		color: var(--black-color);
+	}
+
+	.p-datepicker .p-datepicker-header .p-datepicker-prev,
+	.p-datepicker .p-datepicker-header .p-datepicker-next {
+		color: var(--black-color);
+	}
+
+	.p-datepicker-calendar {
+		th span {
+			color: var(--black-color);
+		}
+
+		td span {
+			color: var(--black-color);
+
+			&.p-highlight {
+				background-color: var(--primary-color);
+				color: var(--white-color);
+			}
+
+			&.p-disabled {
+				opacity: 0.3;
+			}
+		}
+	}
 }

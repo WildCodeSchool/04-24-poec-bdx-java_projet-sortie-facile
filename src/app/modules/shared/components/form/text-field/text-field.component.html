@@ -12,12 +12,16 @@
 		(ngModelChange)="onInputChange($event)"
 		(focus)="markAsTouched()"
 		#ref="ngModel"
+		[disabled]="isDisabled"
 		[required]="required"
 		[minlength]="minlength"
 		[maxlength]="maxlength"
+		[ngStyle]="{
+			backgroundColor: isDisabled ? 'rgb(225, 219, 219)' : 'var(--gray-500)'
+		}"
 	/>
 
 	<div *ngIf="ref.errors && form.submitted">
-		<app-field-error [ref]="ref"></app-field-error>
+		<app-field-error [ref]="ref" [fieldName]="fieldName"></app-field-error>
 	</div>
 </div>

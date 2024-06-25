@@ -1,6 +1,6 @@
 import { Component, Input, forwardRef } from '@angular/core';
 import { NG_VALUE_ACCESSOR, NgForm, ValidationErrors } from '@angular/forms';
-import { FormInputControlValueAccessor } from '@shared/models/classes/form-input-control-value-accessor.class';
+import { FormInputControlValueAccessor } from '@shared/models/classes/utils/form-input-control-value-accessor.class';
 
 @Component({
 	selector: 'app-password-field',
@@ -17,6 +17,7 @@ import { FormInputControlValueAccessor } from '@shared/models/classes/form-input
 export class PasswordFieldComponent extends FormInputControlValueAccessor {
 	@Input() id!: string;
 	@Input() name!: string;
+	@Input() fieldName!: string;
 	@Input() labelFor!: string;
 	@Input() labelContent!: string;
 	@Input() toggleMask!: string;
@@ -26,4 +27,5 @@ export class PasswordFieldComponent extends FormInputControlValueAccessor {
 	@Input() required!: boolean;
 	@Input() minlength!: number;
 	@Input() maxlength!: number;
+	@Input() inputInfo!: string;
 }

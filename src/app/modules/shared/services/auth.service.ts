@@ -1,148 +1,132 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, map, tap } from 'rxjs';
+import { Observable, map, switchMap, tap } from 'rxjs';
 import { Router } from '@angular/router';
-import {
-	UserAuth,
-	UserAuthPatch,
-	UserAuthPrimaryDatas,
-	UserListResponseApi,
-} from '@shared/models/types/user-list-response-api.type';
-import { newUser, newUserDatas } from '@shared/models/types/newUser.model';
+import { NewAuthUser } from '@shared/models/classes/auth-user/new-auth-user.class';
+import { UserService } from './user.service';
 import { AccountStatus } from '@shared/models/enums/user-role.enum';
-import { AuthProvider } from '@shared/models/types/provider.type';
-import { AuthProviderNameEnum } from '@shared/models/enums/auth-provider';
-import { NewUserFormDatas } from '@shared/models/classes/new-user-form-datas.class';
+import { NewAuthUserFormDatas } from '@shared/models/classes/auth-user/new-auth-user-form-datas.class';
+import { NewUserUserProfileFormDatas } from '@shared/models/classes/user-details/new-user-details-form-datas.class';
+import { AuthUser } from '@shared/models/classes/auth-user/auth-user.class';
+import { AuthUserPrimaryDatas } from '@shared/models/classes/auth-user/auth-user-primary-datas.class';
+import { AuthUserServiceUtils } from '@shared/models/classes/utils/auth-user-service-utils.class';
+import {
+	FullAuthenticationRouteEnum,
+	FullUserRouteEnum,
+} from '@shared/models/enums/routes/full-routes';
+import { TokenService } from './token.service';
+import { AuthUserCredentials } from '@shared/models/classes/auth-user/auth-user-credentials.class';
+import { TokenResponse } from '@shared/models/classes/token/token-response.class';
+import { environment } from 'environments/environment';
+import { NewAuthUserInput } from '@shared/models/classes/auth-user/new-auth-user-input.class';
+import { NewProfileInput } from '@shared/models/classes/user-details/new-profil-input.class';
+import { LocalStorageService } from './local-storage.service';
 
 @Injectable({
 	providedIn: 'root',
 })
-export class AuthService {
-	private _userConnected!: UserAuthPrimaryDatas;
-	private _isLoggedInSubject: BehaviorSubject<boolean> =
-		new BehaviorSubject<boolean>(false);
-
-	private _providerNameList: AuthProvider[] = [
-		{ name: AuthProviderNameEnum.GOOGLE },
-		{ name: AuthProviderNameEnum.FACEBOOK },
-		{ name: AuthProviderNameEnum.TWITTER },
-	];
-
-	private BASE_URL: string = 'http://localhost:3000/user';
+export class AuthService extends AuthUserServiceUtils {
+	private readonly _BASE_URL = `${environment.apiUrl}/auth`;
 
 	constructor(
 		private _httpClient: HttpClient,
+		private _tokenService: TokenService,
 		private _router: Router,
-	) {}
+		private _userService: UserService,
+		private _localStorageService: LocalStorageService,
+	) {
+		super();
+	}
 
-	loginWithEmailAndPassword(
-		username: string,
-		password: string,
-	): Observable<UserAuthPrimaryDatas> {
-		return this._httpClient.get<UserListResponseApi>(this.BASE_URL).pipe(
-			map(
-				(users: UserListResponseApi) =>
-					users.find((user: UserAuth) => {
-						return user.username === username && user.password === password;
-					}) as UserAuth,
-			),
-			map((user: UserAuthPrimaryDatas) => ({
-				id: user.id,
-				username: user.username,
-				email: user.email,
-				role: user.role,
-				status: user.status,
-			})),
-			tap((user: UserAuthPrimaryDatas) => {
-				this.setConnectedUserData(user);
-				this.notifyLoggedInStatus(true);
-				this._router.navigateByUrl('/user/home');
-			}),
-		);
+	loginWithEmailAndPassword(userCredentials: AuthUserCredentials): void {
+		this._tokenService.resetToken();
+		this._httpClient
+			.post<TokenResponse>(`${this._BASE_URL}/authenticate`, userCredentials)
+			.subscribe((token: TokenResponse) => {
+				this._tokenService.updateToken(token);
+				this._authStatus.next(true);
+				this._router.navigateByUrl(FullUserRouteEnum.HOME);
+			});
 	}
 
 	createUserWithEmailAndPassword(
-		newUser: NewUserFormDatas,
-	): Observable<newUserDatas> {
-		return this._httpClient.post<newUser>(this.BASE_URL, newUser).pipe(
-			map((user: newUser) => ({
-				id: user.id,
-				username: user.username,
-				email: user.email,
-				password: user.password,
-				role: user.role,
-				status: user.status,
-			})),
-			tap((user: newUserDatas) => {
-				this.setConnectedUserData(user);
-				this._router.navigateByUrl('/user/home');
-			}),
+		newUserAuthInfos: NewAuthUserFormDatas,
+		newUserPersonalInfos: NewUserUserProfileFormDatas,
+	) {
+		const userAuthRequestBody: NewAuthUserInput = new NewAuthUserInput(
+			newUserAuthInfos.username,
+			newUserAuthInfos.email,
+			newUserAuthInfos.password,
+			newUserAuthInfos.role,
 		);
-	}
 
-	public patchConnectedUser(
-		userAuthInfoPatch: UserAuthPatch,
-	): Observable<UserAuth> {
 		return this._httpClient
-			.patch<UserAuth>(
-				`${this.BASE_URL}/${this._userConnected.id}`,
-				userAuthInfoPatch,
-			)
+			.post<NewAuthUser>(`${this._BASE_URL}/register`, userAuthRequestBody)
 			.pipe(
-				tap((user: UserAuth) => {
-					localStorage.setItem('user', JSON.stringify(user));
-					this.setConnectedUserData(user);
+				switchMap((registerSuccess: any) => {
+					const newProfileRequestBody: NewProfileInput = new NewProfileInput(
+						newUserPersonalInfos.firstname,
+						newUserPersonalInfos.lastname,
+						newUserPersonalInfos.streetNumber,
+						newUserPersonalInfos.street,
+						newUserPersonalInfos.postalCode,
+						newUserPersonalInfos.description,
+						newUserPersonalInfos.avatar,
+						newUserPersonalInfos.phone,
+						newUserPersonalInfos.dateOfBirth,
+					);
+
+					return this._userService.postUserInfos$(
+						newProfileRequestBody,
+						newUserPersonalInfos.city,
+						newUserPersonalInfos.department,
+						newUserPersonalInfos.city,
+						Number(registerSuccess?.userId),
+					);
 				}),
+				tap(() =>
+					this.loginWithEmailAndPassword({
+						email: newUserAuthInfos.email,
+						password: newUserAuthInfos.password,
+					}),
+				),
 			);
 	}
 
 	public logout(): void {
-		localStorage.removeItem('user');
-		this.notifyLoggedInStatus(false);
-		this._router.navigateByUrl('/auth/login');
+		this._localStorageService.clearToken();
+		this._tokenService.resetToken();
+		this._authStatus.next(false);
+		this._router.navigateByUrl(FullAuthenticationRouteEnum.LOGIN);
 	}
 
-	public getConnectedUserData(): UserAuthPrimaryDatas {
-		return this._userConnected;
-	}
-
-	public setConnectedUserData(user: UserAuthPrimaryDatas): void {
-		this._userConnected = user;
-	}
-
-	public getProviderNameList(): AuthProvider[] {
-		return this._providerNameList;
-	}
-
-	public deleteConnectedUser(): Observable<UserAuth> {
+	public deleteConnectedUser(): Observable<AuthUser> {
 		this._userConnected.status = AccountStatus.INACTIVE;
-		return this._httpClient.patch<UserAuth>(this.BASE_URL, this._userConnected);
+		return this._httpClient.patch<AuthUser>(this.BASE_URL, this._userConnected);
 	}
 
 	public increaseId(): Observable<string> {
-		return this._httpClient.get<newUser[]>(this.BASE_URL).pipe(
-			map((users: newUser[]) => {
+		return this._httpClient.get<NewAuthUser[]>(this.BASE_URL).pipe(
+			map((users: NewAuthUser[]) => {
 				const lastId = users[users.length - 1].id;
 				return (Number(lastId) + 1).toString();
 			}),
 		);
 	}
 
-	public get isLoggedIn(): Observable<boolean> {
-		return this._isLoggedInSubject.asObservable();
+	public deleteUser(userId: string): Observable<AuthUserPrimaryDatas> {
+		return this._httpClient
+			.patch<AuthUserPrimaryDatas>(`${this.BASE_URL}/${userId}`, {
+				email: '',
+				password: '',
+				username: '',
+				status: AccountStatus.INACTIVE,
+				UserProfileId: '',
+			})
+			.pipe(tap(() => this.logout()));
 	}
 
-	public notifyLoggedInStatus(status: boolean): void {
-		this._isLoggedInSubject.next(status);
-	}
-
-	public checkIfUserIsConnectedAndNotifyLoggedInStatus(): void {
-		if (localStorage.getItem('user')) {
-			this.setConnectedUserData(
-				JSON.parse(localStorage.getItem('user') as string),
-			);
-
-			this.notifyLoggedInStatus(true);
-		}
+	getAuthStatus(): Observable<boolean> {
+		return this._authStatus.asObservable();
 	}
 }

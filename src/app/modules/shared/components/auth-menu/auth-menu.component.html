@@ -1,0 +1,21 @@
+<div class="icon">
+	<ng-container *ngIf="profileItems$ | async as profileItems">
+		<div>
+			<p-button
+				icon="pi pi-user"
+				[rounded]="true"
+				[text]="true"
+				severity="secondary "
+				(click)="menu.toggle($event)"
+			/>
+
+			<p-tieredMenu
+				#menu
+				[model]="profileItems"
+				[popup]="true"
+				appendTo="body"
+			/>
+		</div>
+		<div *ngIf="connectedUser" class="green-dot"></div>
+	</ng-container>
+</div>

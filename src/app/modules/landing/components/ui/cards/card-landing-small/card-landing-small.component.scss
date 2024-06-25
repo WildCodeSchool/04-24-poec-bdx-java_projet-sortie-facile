@@ -1,73 +1,110 @@
-.functioning-card {
-	background-color: var(--gray-500);
+:host ::ng-deep .functioning-card {
+	position: relative;
 	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
 	align-items: center;
+	justify-content: center;
 	padding: 1rem;
 	border-radius: 10px;
 	gap: 1rem;
 
-	h4 {
-		font-size: 1.025rem;
+	.img-box {
+		position: relative;
+		width: 100%;
+		border-radius: 100%;
+		width: 200px;
+		height: 200px;
+		overflow: hidden;
+		margin: 0 auto;
+
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+	}
+
+	.number {
+		position: absolute;
+		top: 162.5px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		background-color: var(--primary-color);
+		border: 4px solid var(--white-color);
+		border-radius: 100%;
+		width: 50px;
+		height: 50px;
+
+		span {
+			color: var(--white-color);
+			font-size: 1.25rem;
+			font-weight: 500;
+		}
+	}
+
+	.functioning-card-body {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		margin-top: 0.5rem;
+	}
+
+	h3 {
+		font-size: 1.35rem;
 		color: var(--black-color);
 		margin: 0;
-		margin-bottom: 0.85rem;
+		margin-bottom: 1rem;
+		text-align: center;
+		height: 54px;
 	}
 
 	p {
 		color: var(--black-color);
-		font-size: 0.85rem;
+		font-size: 1rem;
 		margin: 0;
-		margin-bottom: 0.85rem;
+		line-height: 1.5;
+		text-align: center;
 	}
 
-	.img-box {
-		width: 70%;
+	.btn-box {
+		display: flex;
+		justify-content: center;
+		margin-top: 1.75rem;
 
-		img {
-			width: 100%;
-			max-width: 100px;
-		}
-	}
+		.p-button {
+			font-size: 0.95rem;
+			border: 2px solid var(--primary-color);
+			color: var(--white-color);
+			font-weight: 500;
 
-	a {
-		color: var(--primary-color);
-		font-size: 0.85rem;
-		margin: 0;
-		text-decoration: none;
-		font-weight: 700;
-
-		&:hover {
-			text-decoration: underline;
-		}
-	}
-
-	@media (min-width: 768px) AND (max-width: 960px) {
-		.img-box {
-			display: none;
-		}
-	}
-
-	@media (min-width: 960px) {
-		justify-content: space-around;
-
-		.functioning-card {
-			.img-box {
-				display: none;
+			&:hover {
+				background-color: var(--white-color);
+				color: var(--primary-color);
 			}
+		}
+	}
+
+	@media (min-width: 768px) {
+		.btn-box {
+			margin-top: 2.5rem;
+		}
+	}
+
+	@media (min-width: 990px) {
+		h3 {
+			height: auto;
+		}
+		p {
+			height: 186px;
 		}
 	}
 
 	@media (min-width: 1280px) {
-		justify-content: space-around;
-		gap: 2.5rem;
-
-		.img-box {
-			width: 30%;
-
-			img {
-				width: 100%;
-				max-width: 150px;
-			}
+		p {
+			height: 100px;
 		}
 	}
 }

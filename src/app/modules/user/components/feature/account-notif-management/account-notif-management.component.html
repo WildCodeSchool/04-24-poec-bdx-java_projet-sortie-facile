@@ -1,0 +1,17 @@
+<div class="container">
+	<app-dashboard-layout
+		[avatarSrc]="avatarSrc"
+		[avatarAlt]="avatarAlt"
+		[username]="connectedUser.nickname"
+		[pageTitle]="pageTitle"
+		[pageDescription]="pageDescription"
+		[items]="navItems"
+	>
+		<p-button
+			(onClick)="onNewActivityClicked()"
+			*ngIf="newActivityCreated"
+			rounded
+			>Nouvelle activité créée</p-button
+		>
+	</app-dashboard-layout>
+</div>

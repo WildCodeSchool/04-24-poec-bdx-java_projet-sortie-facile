@@ -1,0 +1,52 @@
+.form-control {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	gap: 0rem;
+}
+
+label {
+	font-family: var(--font-family-primary);
+	margin-bottom: 0.4rem;
+	color: var(--black-color);
+}
+
+:host ::ng-deep p-fileupload .p-fileupload {
+	width: 100%;
+
+	.p-icon-wrapper {
+		display: none;
+	}
+
+	.p-button.p-fileupload-choose {
+		width: 100%;
+		color: var(--black-color);
+		background: var(--gray-500);
+		border: 1px solid var(--gray-700);
+	}
+}
+
+.file-upload {
+	position: relative;
+	display: block;
+	cursor: pointer;
+
+	input[type='file'] {
+		display: none;
+	}
+
+	.upload-label {
+		display: block;
+		padding: 10px 20px;
+		color: var(--black-color);
+		background: var(--gray-500);
+		border: 1px solid var(--gray-700);
+		border-radius: 4px;
+		cursor: pointer;
+		transition: background-color 0.3s ease;
+
+		.pi-upload {
+			margin-right: 8px;
+		}
+	}
+}

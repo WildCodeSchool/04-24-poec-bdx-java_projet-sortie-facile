@@ -1,0 +1,76 @@
+.layout-primary-content {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	padding: 1rem 1.25rem;
+	border-radius: 15px;
+	background-color: var(--white-color);
+	border: none;
+	overflow: hidden;
+
+	@media (min-width: 768px) {
+		padding: 1.5rem 1.7rem;
+	}
+}
+
+:host ::ng-deep.fc-direction-ltr .fc-toolbar :not(:first-child) {
+	margin-left: 0;
+}
+:host ::ng-deep.fc .fc-toolbar-title {
+	font-weight: normal;
+}
+.section-top {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	gap: 1rem;
+
+	@media (min-width: 768px) {
+		justify-content: space-between;
+	}
+}
+
+.section-title {
+	font-size: 2.2rem;
+	color: var(--black-color);
+	margin-block: 20px;
+	text-align: center;
+}
+
+:host ::ng-deep .p-button.btn-edit {
+	padding: 0.5rem;
+
+	@media (min-width: 768px) {
+		padding: 0.5rem 1rem;
+	}
+
+	&.p-button-secondary.p-button-outlined {
+		border-color: black;
+	}
+
+	.p-button-label {
+		display: none;
+		color: black;
+		font-size: 0.9rem;
+		margin-right: 0;
+
+		@media (min-width: 768px) {
+			display: inline-block;
+			margin-right: 1rem;
+		}
+	}
+
+	.pi {
+		color: black;
+		font-size: 0.9rem;
+		margin-left: 0rem;
+	}
+}
+
+.section-content {
+	margin-top: 0rem;
+
+	p {
+		margin: 0;
+	}
+}

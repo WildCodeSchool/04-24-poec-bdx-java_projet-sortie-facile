@@ -1,0 +1,39 @@
+<div class="container">
+	<app-layout-header
+		[avatarSrc]="avatarSrc"
+		[avatarAlt]="avatarAlt"
+		[username]="username"
+		[pageTitle]="pageTitle"
+		[pageDescription]="pageDescription"
+	></app-layout-header>
+
+	<div class="dashboard-content">
+		<div class="dashboard-nav-mobile-box">
+			<app-layout-nav-responsive></app-layout-nav-responsive>
+		</div>
+
+		<div class="dashboard-nav-box">
+			<app-layout-nav [items]="items"></app-layout-nav>
+
+			<div class="delete-box">
+				<p-button
+					*ngIf="showDEleteBtn"
+					severity="danger"
+					[text]="true"
+					rounded
+					(click)="onModal()"
+					class="delete-link"
+					>Supprimer mon compte
+				</p-button>
+			</div>
+		</div>
+
+		<div class="dashboard-primary-content">
+			<ng-content></ng-content>
+		</div>
+	</div>
+</div>
+
+<app-modal-confirm-delete-account
+	[connectedUser]="connectedUser"
+></app-modal-confirm-delete-account>

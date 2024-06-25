@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { UserConnectedDatas } from '@shared/models/classes/user-connected-datas.class';
-import { AuthRedirect } from '@shared/models/types/auth-redirect.type';
-import { AuthProvider } from '@shared/models/types/provider.type';
-import { UserAuthPrimaryDatas } from '@shared/models/types/user-list-response-api.type';
+import { NgForm } from '@angular/forms';
 import { AuthService } from '@shared/services/auth.service';
+import { AuthProvider } from '@shared/models/types/auth/provider.type';
+import { AuthRedirect } from '@shared/models/types/auth/auth-redirect.type';
+import { FullAuthenticationRouteEnum } from '@shared/models/enums/routes/full-routes';
+import { LocalStorageService } from '@shared/services/local-storage.service';
+import { AuthUserCredentials } from '@shared/models/classes/auth-user/auth-user-credentials.class';
 
 @Component({
 	selector: 'app-auth-login-management',
@@ -12,33 +14,32 @@ import { AuthService } from '@shared/services/auth.service';
 })
 export class AuthLoginManagementComponent implements OnInit {
 	providerNameList!: AuthProvider[];
+	errorLoginQueryMessage: string | null = null;
 
 	redirect: AuthRedirect = {
 		text: 'Vous n’avez pas encore de compte ?',
-		link: ['/auth/register'],
+		link: [FullAuthenticationRouteEnum.REGISTER],
 		linkLabel: 'S’inscrire',
 	};
 
-	connectedUser: UserConnectedDatas = new UserConnectedDatas(
-		'johndoe',
-		'123456789',
-		'j.doe@mail.com',
+	userCredentials: AuthUserCredentials = new AuthUserCredentials(
+		'paul-33@gmail.com',
+		'paul33',
 	);
 
-	constructor(private authService: AuthService) {}
+	constructor(
+		private _authService: AuthService,
+		private _localStorageService: LocalStorageService,
+	) {}
 
 	ngOnInit(): void {
-		this.providerNameList = this.authService.getProviderNameList();
+		this.providerNameList = this._authService.getProviderNameList();
 	}
 
-	onSubmit(): void {
-		this.authService
-			.loginWithEmailAndPassword(
-				this.connectedUser.username,
-				this.connectedUser.password,
-			)
-			.subscribe((user: UserAuthPrimaryDatas) => {
-				localStorage.setItem('user', JSON.stringify(user));
-			});
+	onSubmit(form: NgForm): void {
+		if (form.status === 'VALID') {
+			this._localStorageService.clearToken();
+			this._authService.loginWithEmailAndPassword(this.userCredentials);
+		}
 	}
 }

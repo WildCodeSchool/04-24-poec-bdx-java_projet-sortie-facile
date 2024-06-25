@@ -1,0 +1,49 @@
+.footer-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 0.5rem;
+	color: var(--white-color);
+	background-color: var(--primary-color);
+	font-weight: bold;
+	border-radius: 40px 40px 0px 0px;
+	padding: 1rem;
+}
+
+:host ::ng-deep .btns-box {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 2rem;
+
+	p-button {
+		.p-button {
+			color: var(--white-color);
+			padding: 0;
+
+			&:hover {
+				text-decoration: underline;
+			}
+		}
+	}
+}
+
+p {
+	color: #d7caea;
+	font-size: 0.95rem;
+	font-weight: normal;
+	margin: 1.5rem 0;
+}
+
+@media (min-width: 768px) {
+	.footer-container {
+		flex-direction: row;
+		justify-content: space-between;
+		height: 43px;
+		padding: 2rem;
+
+		.btns-box {
+			flex-direction: row;
+		}
+	}
+}

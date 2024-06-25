@@ -1,48 +1,48 @@
-import { Category } from '@shared/models/classes/category.class';
-import { City } from '@shared/models/classes/city.class';
-
 export class Activity {
-	id: string;
+	id: number;
 	name: string;
-	departement: string;
-	activityCity: City;
-	date: string;
+	regionId: number;
+	departmentId: number;
+	cityId: number;
+	date: Date;
 	age: number;
 	imgUrl: string;
 	link: string;
 	description: string;
 	nbGuest: number;
-	categoryId: Category;
-	hour: string;
-	userId: string;
+	category: number;
+	profileId: number;
+	isVisible: boolean;
 
 	constructor(
-		id: string,
+		id: number,
 		name: string,
-		departement: string,
-		activityCity: City,
-		date: string,
+		regionId: number,
+		departmentId: number,
+		cityId: number,
+		date: Date,
 		age: number,
 		imgUrl: string,
 		link: string,
 		description: string,
 		nbGuest: number,
-		categoryId: Category,
-		hour: string,
-		userId: string,
+		category: number,
+		profileId: number,
+		isVisible: boolean,
 	) {
 		this.id = id;
 		this.name = name;
-		this.departement = departement;
-		this.activityCity = activityCity;
-		this.date = date;
+		this.regionId = regionId;
+		this.departmentId = departmentId;
+		this.cityId = cityId;
+		this.date = new Date();
 		this.age = age;
 		this.imgUrl = imgUrl;
 		this.link = link;
 		this.description = description;
 		this.nbGuest = nbGuest;
-		this.categoryId = categoryId;
-		this.hour = hour;
-		this.userId = userId;
+		this.category = category;
+		this.profileId = profileId;
+		this.isVisible = isVisible;
 	}
 }

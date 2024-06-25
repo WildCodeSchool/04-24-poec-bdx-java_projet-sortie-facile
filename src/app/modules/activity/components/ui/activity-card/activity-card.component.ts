@@ -1,25 +1,55 @@
-import { Component, Input, OnDestroy } from '@angular/core';
-import { Activity } from '@shared/models/types/activity.type';
-import { UserAuthPrimaryDatas } from '@shared/models/types/user-list-response-api.type';
-import { ActivityService } from '@shared/services/activity.service';
-import { Subscription } from 'rxjs';
+import { Activity } from '@activity/models/classes/activity.class';
+import {
+	Component,
+	EventEmitter,
+	Input,
+	OnDestroy,
+	OnInit,
+	Output,
+	ViewChild,
+} from '@angular/core';
+import { ModalConfirmDeleteActivityComponent } from '@shared/components/modal/modal-confirm-delete-activity/modal-confirm-delete-activity.component';
+import { City } from '@shared/models/classes/address/city.class';
+import { AuthUserResponse } from '@shared/models/classes/auth-user/auth-user-response.class';
+import { FullActivityRouteEnum } from '@shared/models/enums/routes/full-routes';
+import { CityService } from '@shared/services/address/city.service';
+import { Observable, Subscription } from 'rxjs';
 
 @Component({
 	selector: 'app-activity-card',
 	templateUrl: './activity-card.component.html',
 	styleUrl: './activity-card.component.scss',
 })
-export class ActivityCardComponent implements OnDestroy {
+export class ActivityCardComponent implements OnInit, OnDestroy {
 	@Input() activity!: Activity;
-	@Input() connectedUser!: UserAuthPrimaryDatas;
+	@Input() connectedUser!: AuthUserResponse;
+	@Output() activityDeleted = new EventEmitter<string>();
+
+	city$!: Observable<City>;
+
+	@ViewChild(ModalConfirmDeleteActivityComponent, { static: false })
+	modalComponent!: ModalConfirmDeleteActivityComponent;
+
+	fullActivityRoute = FullActivityRouteEnum;
+
 	private _subscription: Subscription = new Subscription();
 
-	constructor(private activityService: ActivityService) {}
+	constructor(private _cityService: CityService) {}
 
-	delete(id: string): void {
-		this._subscription.add(
-			this.activityService.deleteActivity$(id).subscribe(),
-		);
+	ngOnInit(): void {
+		this.city$ = this._cityService.getCityById$(this.activity.id);
+	}
+
+	hideActivity(activityId: string): void {
+		this.activityDeleted.emit(activityId);
+	}
+
+	onModal(): void {
+		this.modalComponent.onSubmit();
+	}
+
+	onActivityDeleted(activityId: string): void {
+		this.hideActivity(activityId);
 	}
 
 	ngOnDestroy(): void {

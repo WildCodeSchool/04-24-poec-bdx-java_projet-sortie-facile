@@ -1,33 +1,13 @@
 <div class="container">
-	<app-account-layout
+	<app-dashboard-layout
 		[avatarSrc]="avatarSrc"
 		[avatarAlt]="avatarAlt"
-		[username]="connectedUser.username"
+		[username]="connectedUser.nickname"
 		[pageTitle]="pageTitle"
 		[pageDescription]="pageDescription"
+		[items]="navItems"
 	>
-		<app-account-container-content
-			sectionTitle="Ajouter un Centre d’intérêts"
-			[hideBtn]="true"
-		>
-			<div class="content-box" data>
-				<form #addCategoryForm="ngForm" (ngSubmit)="onSubmit()">
-					<app-select-category
-						inputId="categoryId"
-						name="categoryId"
-						[required]="true"
-						#category="ngModel"
-						[(ngModel)]="formDatas.category"
-					></app-select-category>
-
-					<div class="btn-box">
-						<p-button label="Sauvegarder" [rounded]="true" />
-					</div>
-				</form>
-			</div>
-		</app-account-container-content>
-
-		<app-account-container-content
+		<app-layout-container-content
 			sectionTitle="Mes centres d’intérêts"
 			[hideBtn]="true"
 		>
@@ -35,12 +15,28 @@
 				<div class="categories-container">
 					<div
 						class="category-card"
+						[ngStyle]="{
+							backgroundImage: 'url(' + category.imgUrl + ')'
+						}"
 						*ngFor="let category of userCategoryList$ | async"
+						[ngStyle]="{ 'background-image': 'url(' + category.imgUrl }"
 					>
 						<p>{{ category.title }}</p>
 					</div>
 				</div>
+
+				<div class="icon-box">
+					<p-button
+						icon="pi pi-plus"
+						[rounded]="true"
+						(click)="categoryModal.toggleShow()"
+					/>
+					<app-modal-add-category
+						#categoryModal
+						(categoriesUpdated)="onCategoryUpdated()"
+					></app-modal-add-category>
+				</div>
 			</div>
-		</app-account-container-content>
-	</app-account-layout>
+		</app-layout-container-content>
+	</app-dashboard-layout>
 </div>

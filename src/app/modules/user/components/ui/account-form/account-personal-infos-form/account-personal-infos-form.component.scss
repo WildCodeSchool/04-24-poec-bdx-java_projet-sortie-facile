@@ -8,7 +8,7 @@ h6 {
 	margin: 0;
 }
 
-app-account-container-content {
+app-layout-container-content {
 	width: 100%;
 
 	.content-box {
@@ -37,4 +37,8 @@ app-account-container-content {
 	justify-content: flex-end;
 	width: 100%;
 	margin-top: 2rem;
+}
+
+:host ::ng-deep.p-button.btn-edit .p-button-label {
+	color: black;
 }

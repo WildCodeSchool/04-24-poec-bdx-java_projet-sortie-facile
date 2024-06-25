@@ -1,9 +1,8 @@
 import { Component, Input, OnInit, forwardRef } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { Category } from '@models/types/category.type';
-import { ActivityService } from '@shared/services/activity.service';
+import { Category } from '@shared/models/classes/category/category.class';
+import { CategoryService } from '@shared/services/category.service';
 import { Observable } from 'rxjs';
-import { ActivatedRoute } from '@angular/router';
 
 @Component({
 	selector: 'app-select-category',
@@ -22,28 +21,26 @@ export class SelectCategoryComponent implements OnInit, ControlValueAccessor {
 	@Input() name!: string;
 	@Input() labelFor!: string;
 	@Input() labelContent!: string;
+	@Input() isMultiple!: boolean;
 
-	categories!: Category[];
 	category$!: Observable<Category>;
-	activityCategoryList$!: Observable<Category[]>;
-	selectedCategory!: Category;
 
-	constructor(
-		private activityService: ActivityService,
-		private route: ActivatedRoute,
-	) {}
-
-	ngOnInit(): void {
-		this.activityCategoryList$ = this.activityService.getCategoryList$();
-	}
+	selectedCategoryId: number = 1;
+	categoryList$!: Observable<Category[]>;
 
 	disabled!: boolean;
-	value!: string;
+	value!: number;
 
-	onChanged!: (value: string) => void;
+	constructor(private categoryService: CategoryService) {}
+
+	ngOnInit(): void {
+		this.categoryList$ = this.categoryService.getCategoryList$();
+	}
+
+	onChanged!: (value: number) => void;
 	onTouched!: () => void;
 
-	onInputChange(value: string): void {
+	onInputChange(value: number): void {
 		if (this.disabled) {
 			return;
 		}
@@ -51,11 +48,11 @@ export class SelectCategoryComponent implements OnInit, ControlValueAccessor {
 		this.onChanged(value);
 	}
 
-	writeValue(value: string): void {
+	writeValue(value: number): void {
 		this.value = value;
 	}
 
-	registerOnChange(fn: (value: string) => void): void {
+	registerOnChange(fn: (value: number) => void): void {
 		this.onChanged = fn;
 	}
 

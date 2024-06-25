@@ -1,14 +1,47 @@
 <div class="activities-top">
-	<p-button rounded [routerLink]="['/activity/create']"
+	<div class="btn-left">
+		<p-button
+			icon="pi pi-filter-fill"
+			[rounded]="true"
+			[outlined]="true"
+			(click)="onChangeShowFilterInMobile()"
+			styleClass="show-filter-btn"
+		/>
+	</div>
+
+	<p-button
+		[raised]="true"
+		*ngIf="connectedUser"
+		rounded
+		[routerLink]="[fullActivityRoute.POST]"
 		>Créer une activité</p-button
 	>
 </div>
+
 <div class="activities-cards">
-	<ng-container *ngIf="activityList$ | async as activities">
+	<ng-container *ngIf="pagedActivities.length">
 		<app-activity-card
-			*ngFor="let activity of activities"
+			*ngFor="let activity of pagedActivities"
 			[activity]="activity"
 			[connectedUser]="connectedUser"
-		></app-activity-card>
+			(activityDeleted)="onActivityDeleted()"
+		>
+		</app-activity-card>
 	</ng-container>
 </div>
+
+<app-pagination
+	*ngIf="pagedActivities.length"
+	[rows]="rows"
+	[first]="first"
+	[totalRecords]="totalRecords"
+	[rowsPerPageOptions]="rowsPerPageOptions"
+	(pageChange)="onPageChange($event)"
+	(rowsChange)="onRowsChange($event)"
+></app-pagination>
+
+<app-alert
+	message="Votre recherche n'a retourné aucun résultat. Veuillez essayer avec d'autres filtres ou critères."
+	icon="pi pi-times"
+	[error]="!pagedActivities.length"
+></app-alert>

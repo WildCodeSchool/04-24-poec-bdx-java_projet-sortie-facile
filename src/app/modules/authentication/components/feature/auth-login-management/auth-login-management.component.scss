@@ -1,6 +1,11 @@
 app-auth-layout {
 	display: flex;
+	align-items: center;
 	width: 100%;
+}
+
+app-global-form-error {
+	display: flex;
 }
 
 form {

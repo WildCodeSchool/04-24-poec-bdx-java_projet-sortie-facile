@@ -1,0 +1,149 @@
+<ng-container *ngIf="activity$ | async as activity">
+	<div class="activity-card-container">
+		<div class="secondary-box">
+			<div class="infos-container activity-informations">
+				<h3>Infos pratiques</h3>
+
+				<div class="activity-info-items-box">
+					<app-info-item
+						*ngIf="address$ | async as address"
+						icon="pi pi-map-marker"
+						[content]="'À ' + address"
+					></app-info-item>
+
+					<app-info-item
+						icon="pi pi-calendar"
+						[content]="
+							'Le ' +
+							(activity.date | date) +
+							' à ' +
+							(activity.date | date: 'HH:mm')
+						"
+					></app-info-item>
+
+					<app-info-item
+						icon="pi pi-user"
+						[content]="'A partir de ' + activity.age + ' ans'"
+					></app-info-item>
+
+					<app-info-item icon="pi pi-users" content="5 places"></app-info-item>
+				</div>
+
+				<div class="btn-box" *ngIf="activity.profileId !== connectedUser.id">
+					<app-button-ultra-wilde
+						[label]="!hasBooking ? 'S\'inscrire' : 'Se désinscrire'"
+						(click)="onModal()"
+					>
+					</app-button-ultra-wilde>
+				</div>
+			</div>
+
+			<div class="infos-container activity-creator-informations">
+				<h3>Infos sur l'auteur</h3>
+
+				<div class="author-info-items-box">
+					<img src="/assets/photos/avatar.jpg" alt="" class="author-avatar" />
+
+					<div class="infos-author">
+						<h4>John doe</h4>
+						<app-info-item icon="pi pi-user" content="30 ans"></app-info-item>
+
+						<app-info-item
+							icon="pi pi-map-marker"
+							content="Bordeaux (33), Gironde"
+						></app-info-item>
+					</div>
+				</div>
+
+				<p class="author-description">
+					Je m'appelle Jérémy et je suis nouveau dans les Landes. Je cherche des
+					amis pour partager mes passions ! J'adore : Randonner dans la nature.
+					Surfer sur les plages. Disputer un match de foot. Déguster les
+					spécialités locales. Si ça vous dit de faire une sortie ou de papoter,
+					faites-moi signe !
+				</p>
+			</div>
+		</div>
+
+		<div class="primary-box">
+			<p-card>
+				<ng-template pTemplate="title">
+					<p-button
+						label="Activité précédente"
+						[rounded]="true"
+						[outlined]="true"
+						(click)="changePage(-1)"
+					/>
+
+					<h1 class="activity-title">{{ activity.name }}</h1>
+
+					<p-button
+						label="Activité suivante"
+						[rounded]="true"
+						[outlined]="true"
+						(click)="changePage(1)"
+					/>
+				</ng-template>
+				<ng-template pTemplate="header">
+					<div class="btn-admin">
+						<p-button
+							[raised]="true"
+							icon="pi pi-pencil"
+							[rounded]="true"
+							severity="success"
+							[routerLink]="[fullActivityRoute.UPDATE, activity.id]"
+						/>
+					</div>
+					<img
+						[src]="
+							activity.imgUrl ? activity.imgUrl : '/assets/photos/no-image.jpg'
+						"
+						alt="{{ activity.name }}"
+					/>
+				</ng-template>
+
+				<app-divider [align]="'center'" [type]="'solid'"></app-divider>
+
+				<div
+					[innerHTML]="activity.description | paragraphSplit"
+					class="activity-description"
+				></div>
+
+				<ng-template
+					pTemplate="footer"
+					*ngIf="activity.profileId !== connectedUser.id"
+				>
+					<div class="btns-box">
+						<p-button
+							[raised]="true"
+							rounded
+							(click)="onModal()"
+							[label]="!hasBooking ? 'S\'inscrire' : 'Se désinscrire'"
+						></p-button>
+					</div>
+				</ng-template>
+			</p-card>
+		</div>
+	</div>
+
+	<div
+		class="suggested-activities"
+		*ngIf="suggestList$ | async as activityList"
+	>
+		<h1>Suggestions dans la même catégorie</h1>
+
+		<app-carousel-activity
+			[activityList]="activityList"
+			[numVisible]="6"
+			[numScroll]="1"
+			[circular]="false"
+			[itemExclude]="activity.id"
+		></app-carousel-activity>
+	</div>
+
+	<app-modal-confirm-reservation
+		[profileId]="connectedUser.id"
+		[activityId]="activity.id"
+		[hasBooking]="hasBooking"
+	></app-modal-confirm-reservation>
+</ng-container>

@@ -1,6 +1,6 @@
 import { Component, Input, forwardRef } from '@angular/core';
 import { NG_VALUE_ACCESSOR, NgForm, ValidationErrors } from '@angular/forms';
-import { FormInputControlValueAccessor } from '@shared/models/classes/form-input-control-value-accessor.class';
+import { FormInputControlValueAccessor } from '@shared/models/classes/utils/form-input-control-value-accessor.class';
 
 @Component({
 	selector: 'app-text-field',
@@ -18,6 +18,7 @@ export class TextFieldComponent extends FormInputControlValueAccessor {
 	@Input() type!: string;
 	@Input() id!: string;
 	@Input() name!: string;
+	@Input() fieldName!: string;
 	@Input() labelFor!: string;
 	@Input() labelContent!: string;
 	@Input() errorMessage!: string;
@@ -26,4 +27,5 @@ export class TextFieldComponent extends FormInputControlValueAccessor {
 	@Input() required!: boolean;
 	@Input() minlength!: number;
 	@Input() maxlength!: number;
+	@Input() isDisabled!: boolean;
 }

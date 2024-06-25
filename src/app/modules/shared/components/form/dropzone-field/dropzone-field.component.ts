@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { MessageService } from 'primeng/api';
+import { FileUploadEvent } from 'primeng/fileupload';
 
 @Component({
 	selector: 'app-dropzone-field',
@@ -8,11 +9,11 @@ import { MessageService } from 'primeng/api';
 	providers: [MessageService],
 })
 export class DropzoneFieldComponent {
-	uploadedFiles: any[] = [];
+	uploadedFiles: File[] = [];
 
 	constructor(private messageService: MessageService) {}
 
-	onUpload(event: any) {
+	onUpload(event: FileUploadEvent) {
 		for (const file of event.files) {
 			this.uploadedFiles.push(file);
 		}

@@ -1,20 +1,24 @@
 <app-auth-layout
-	pageTitle="Connection"
+	pageTitle="Connexion"
 	backgroundImage="/assets/photos/signin.jpg"
 	[redirect]="redirect"
 >
-	<form #loginForm="ngForm" (ngSubmit)="onSubmit()">
+	<form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)">
+		<app-global-form-error
+			*ngIf="errorLoginQueryMessage"
+			[errorMessage]="errorLoginQueryMessage"
+		></app-global-form-error>
+
 		<app-text-field
-			labelFor="username"
-			labelContent="Nom d'utilisateur :"
+			labelFor="email"
+			labelContent="Email :"
 			type="text"
-			id="username"
-			name="username"
-			[(ngModel)]="connectedUser.username"
+			id="email"
+			name="email"
+			fieldName="email"
+			[(ngModel)]="userCredentials.email"
 			[form]="loginForm"
 			[required]="true"
-			[minlength]="3"
-			[maxlength]="50"
 		></app-text-field>
 
 		<app-password-field
@@ -22,11 +26,9 @@
 			labelContent="Password :"
 			id="password"
 			name="password"
-			[(ngModel)]="connectedUser.password"
+			fieldName="password"
+			[(ngModel)]="userCredentials.password"
 			[form]="loginForm"
-			[required]="true"
-			[minlength]="3"
-			[maxlength]="50"
 		></app-password-field>
 
 		<div class="forgot-password-link-container">
@@ -36,7 +38,12 @@
 		</div>
 
 		<div class="btn-container">
-			<app-button-form iconName="arrow-right"></app-button-form>
+			<p-button
+				type="submit"
+				label="Se connecter"
+				icon="pi pi-arrow-right"
+				iconPos="right"
+			></p-button>
 		</div>
 	</form>
 

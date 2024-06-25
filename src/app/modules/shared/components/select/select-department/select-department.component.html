@@ -1,0 +1,19 @@
+<ng-container *ngIf="departmentList$ | async as departmentList">
+	<div class="form-control">
+		<label *ngIf="labelFor && labelContent" [for]="labelFor">{{
+			labelContent
+		}}</label>
+
+		<p-dropdown
+			[options]="departmentList"
+			[(ngModel)]="selectedDepartmentId"
+			[disabled]="isDisabled"
+			optionLabel="name"
+			optionValue="id"
+			placeholder="Choisir un département"
+			(ngModelChange)="onInputChange($event)"
+			(focus)="markAsTouched()"
+			#ref="ngModel"
+		></p-dropdown>
+	</div>
+</ng-container>

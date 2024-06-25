@@ -1,16 +1,36 @@
-<div class="form-control">
-	<label *ngIf="labelFor && labelContent" [for]="labelFor">{{
-		labelContent
-	}}</label>
+<ng-container *ngIf="categoryList$ | async as categoriesItem">
+	<div class="form-control">
+		<label *ngIf="labelFor && labelContent" [for]="labelFor">{{
+			labelContent
+		}}</label>
 
-	<p-dropdown
-		*ngIf="activityCategoryList$ | async as categoriesItem"
-		[options]="categoriesItem"
-		[(ngModel)]="value"
-		optionLabel="title"
-		placeholder="Select a Category"
-		(ngModelChange)="onInputChange($event)"
-		(focus)="markAsTouched()"
-		#ref="ngModel"
-	/>
-</div>
+		<ng-container *ngIf="!isMultiple">
+			<p-dropdown
+				[options]="categoriesItem"
+				[(ngModel)]="value"
+				optionLabel="title"
+				optionValue="id"
+				placeholder="Select a Category"
+				(ngModelChange)="onInputChange($event)"
+				(focus)="markAsTouched()"
+				#ref="ngModel"
+			/>
+		</ng-container>
+
+		<ng-container *ngIf="isMultiple">
+			<p-multiSelect
+				[options]="categoriesItem"
+				[(ngModel)]="value"
+				optionLabel="title"
+				optionValue="id"
+				optionValue="id"
+				placeholder="Choisir une catégorie"
+				[filter]="false"
+				[showToggleAll]="false"
+				(ngModelChange)="onInputChange($event)"
+				(focus)="markAsTouched()"
+				#ref="ngModel"
+			/>
+		</ng-container>
+	</div>
+</ng-container>

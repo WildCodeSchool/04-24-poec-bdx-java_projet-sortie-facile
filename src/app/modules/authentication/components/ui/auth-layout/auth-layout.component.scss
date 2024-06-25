@@ -6,14 +6,10 @@
 	width: 100%;
 	padding: 1rem 1rem;
 
-	@media (min-width: 768px) {
-		width: 60%;
-		max-width: none;
-		padding: 1rem 3rem;
-	}
-
 	@media (min-width: 960px) {
-		width: 50%;
+		width: 60%;
+		padding: 1rem 3rem;
+		max-width: none;
 	}
 
 	@media (min-width: 1280px) {
@@ -27,7 +23,7 @@
 
 .content-box {
 	width: 100%;
-	max-width: 400px;
+	max-width: 450px;
 }
 
 h1 {
@@ -36,20 +32,22 @@ h1 {
 	color: var(--black-color);
 }
 
+.text-with-redirect {
+	margin-top: 2rem;
+}
+
 .secondary-container {
 	display: none;
 
-	@media (min-width: 768px) {
+	@media (min-width: 960px) {
 		display: flex;
-		min-height: calc(100vh - 84px);
+		min-height: calc(100vh - 130px);
 		width: 40%;
 		background-position: center center;
 		background-size: cover;
 		background-repeat: no-repeat;
-	}
-
-	@media (min-width: 960px) {
-		width: 50%;
+		margin-bottom: 1.2rem;
+		border-radius: 25px;
 	}
 
 	@media (min-width: 1280px) {

@@ -6,11 +6,13 @@ import { ActivityListComponent } from '@activity/pages/activity-list/activity-li
 import { ActivityDetailsComponent } from '@activity/pages/activity-details/activity-details.component';
 import { ActivityCardComponent } from '@activity/components/ui/activity-card/activity-card.component';
 import { SharedModule } from '@shared/shared.module';
-import { UpdateActivityComponent } from './pages/update-activity/update-activity.component';
-import { ActivityListManagementComponent } from './components/feature/activity-list-management/activity-list-management.component';
-import { ActivityCreateManagementComponent } from './components/feature/activity-create-management/activity-create-management.component';
-import { ActivityCreateComponent } from './pages/activity-create/activity-create.component';
-import { ActivityFormLayoutComponent } from './components/ui/activity-form-layout/activity-form-layout.component';
+import { UpdateActivityComponent } from '@activity/pages/update-activity/update-activity.component';
+import { ActivityListManagementComponent } from '@activity/components/feature/activity-list-management/activity-list-management.component';
+import { ActivityCreateManagementComponent } from '@activity/components/feature/activity-create-management/activity-create-management.component';
+import { ActivityCreateComponent } from '@activity/pages/activity-create/activity-create.component';
+import { ActivityUpdateManagementComponent } from '@activity/components/feature/activity-update-management/activity-update-management.component';
+import { InfoItemComponent } from './components/ui/info-item/info-item.component';
+import { ActivityDetailsManagementComponent } from './components/feature/activity-details-management/activity-details-management.component';
 
 @NgModule({
 	declarations: [
@@ -20,8 +22,10 @@ import { ActivityFormLayoutComponent } from './components/ui/activity-form-layou
 		ActivityCardComponent,
 		UpdateActivityComponent,
 		ActivityListManagementComponent,
-		ActivityFormLayoutComponent,
 		ActivityCreateComponent,
+		ActivityUpdateManagementComponent,
+		InfoItemComponent,
+  ActivityDetailsManagementComponent,
 	],
 	imports: [CommonModule, ActivityRoutingModule, SharedModule],
 })

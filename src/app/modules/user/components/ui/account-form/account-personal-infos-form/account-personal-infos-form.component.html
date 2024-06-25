@@ -1,4 +1,4 @@
-<app-account-container-content
+<app-layout-container-content
 	sectionTitle="Infos personnelles"
 	[isViewDatas]="isViewDatas"
 	(sendIsViewDatas)="showIsViewDatas($event)"
@@ -6,11 +6,11 @@
 	<div
 		class="content-box"
 		data
-		*ngIf="userDetails$ | async as userPersonalInfosDetails"
+		*ngIf="userProfile$ | async as userPersonalInfosDetails"
 	>
 		<app-account-card-info
 			title="Prénom"
-			[content]="userPersonalInfosDetails.first_name"
+			[content]="userPersonalInfosDetails.firstname"
 			[isViewDatas]="isViewDatas"
 		>
 			<app-text-field
@@ -19,13 +19,13 @@
 				type="text"
 				id="firstname"
 				name="firstname"
-				[(ngModel)]="userPersonalInfosDatasForm.first_name"
+				[(ngModel)]="userPersonalInfosDatasForm.firstname"
 			></app-text-field>
 		</app-account-card-info>
 
 		<app-account-card-info
 			title="Nom de famille"
-			[content]="userPersonalInfosDetails.last_name"
+			[content]="userPersonalInfosDetails.lastname"
 			[isViewDatas]="isViewDatas"
 		>
 			<app-text-field
@@ -34,13 +34,13 @@
 				type="text"
 				id="lastname"
 				name="lastname"
-				[(ngModel)]="userPersonalInfosDatasForm.last_name"
+				[(ngModel)]="userPersonalInfosDatasForm.lastname"
 			></app-text-field
 		></app-account-card-info>
 
 		<app-account-card-info
 			title="Email"
-			[content]="connectedUser.email"
+			[content]="connectedUser.sub"
 			[isViewDatas]="isViewDatas"
 			><app-text-field
 				*ngIf="!isViewDatas"
@@ -48,6 +48,7 @@
 				type="text"
 				id="firstname"
 				name="firstname"
+				[isDisabled]="true"
 				[(ngModel)]="userPersonalInfosDatasForm.email"
 			></app-text-field
 		></app-account-card-info>
@@ -56,28 +57,33 @@
 			title="Téléphone"
 			[content]="userPersonalInfosDetails.phone"
 			[isViewDatas]="isViewDatas"
-			><app-text-field
+			><app-mask-field
 				*ngIf="!isViewDatas"
 				input
 				type="text"
 				id="phone"
 				name="phone"
+				placeholder="99-99-99-99-99"
+				mask="99-99-99-99-99"
 				[(ngModel)]="userPersonalInfosDatasForm.phone"
-			></app-text-field
+			></app-mask-field
 		></app-account-card-info>
 
 		<app-account-card-info
 			title="Date de naissance"
-			[content]="userPersonalInfosDetails.birthday"
+			[content]="userPersonalInfosDetails.dateOfBirth"
 			[isViewDatas]="isViewDatas"
-			><app-text-field
+			><app-mask-field
 				*ngIf="!isViewDatas"
 				input
 				type="text"
-				id="date"
-				name="date"
-				[(ngModel)]="userPersonalInfosDatasForm.birthday"
-			></app-text-field
+				id="dateOfBirth"
+				name="dateOfBirth"
+				placeholder="99/99/9999"
+				mask="99/99/9999"
+				slotChar="dd/mm/yyyy"
+				[(ngModel)]="userPersonalInfosDatasForm.dateOfBirth"
+			></app-mask-field
 		></app-account-card-info>
 
 		<app-account-card-info
@@ -97,5 +103,7 @@
 		<div class="btn-form-box" *ngIf="!isViewDatas">
 			<p-button label="Sauvegarder" [rounded]="true" (click)="onSave()" />
 		</div>
+
+		<p-toast />
 	</div>
-</app-account-container-content>
+</app-layout-container-content>

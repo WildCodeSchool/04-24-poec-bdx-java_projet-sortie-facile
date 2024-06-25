@@ -1,56 +1,201 @@
-<div class="content-top">
-	<div class="content-top-text">
-		<h2>
-			Sortie Facile : la plateforme qui créé du lien social entre les personnes
-			par l’intermédiaire d’activités selon des centres d’intêrets en commun.
-		</h2>
+<div class="container">
+	<div class="hero-box">
+		<div class="hero-mask"></div>
+		<header class="navbar">
+			<div class="hero-img-box">
+				<img src="assets/photos/logoSortieFacile.png" alt="logo" />
+			</div>
+			<app-auth-menu class="mobile-menu"></app-auth-menu>
 
-		<p>
-			Lemon drops tootsie roll cheesecake gummi bears croissant jelly beans
-			sesame snaps cake. Cake apple pie candy caramels croissant shortbread
-			cupcake. Marshmallow toffee icing dragée apple pie topping tart pudding.
-		</p>
-		<p>
-			Cheesecake pastry candy canes muffin cake pastry. Macaroon candy canes
-			liquorice candy canes pudding powder. Shortbread pudding brownie pastry
-			tootsie roll sesame snaps jujubes. Wafer bonbon soufflé fruitcake pudding
-			powder sweet roll carrot cake candy.0
-		</p>
+			<nav class="desktop-menu">
+				<ul>
+					<li *ngIf="!connectedUser.username">
+						<p-button [routerLink]="['/auth/login']" [text]="true"
+							>Connexion</p-button
+						>
+					</li>
+
+					<li *ngIf="!connectedUser.username">
+						<p-button [routerLink]="['/auth/register']" [text]="true"
+							>Inscription</p-button
+						>
+					</li>
+
+					<li *ngIf="connectedUser.username">
+						<p-button [routerLink]="[fullUserRouteEnum.ACTIVITY]" [text]="true"
+							>Mon compte</p-button
+						>
+					</li>
+
+					<li *ngIf="connectedUser.username">
+						<p-button (click)="logout()" [text]="true">Déconnexion</p-button>
+					</li>
+				</ul>
+			</nav>
+		</header>
+
+		<div class="hero-content-box">
+			<div class="hero-content-text">
+				<div class="hero-content-elements-box">
+					<div class="title-content">
+						<h1>
+							<span>Sortie facile</span>
+							<span>Ensemble, c'est mieux!</span>
+						</h1>
+					</div>
+
+					<p-divider></p-divider>
+					<p>
+						Ne cherchez plus, trouvez des amis pour chacune de vos activités!
+						<br />
+						Rencontrez, partagez, et surtout amusez-vous!
+					</p>
+
+					<div class="btn-box">
+						<p-button
+							label="Découvrir"
+							icon="pi pi-arrow-right"
+							iconPos="right"
+							[rounded]="true"
+							severity="primary"
+							[outlined]="true"
+							(click)="scrollToFunctioningBox()"
+						></p-button>
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
 
-	<img class="img-top" src="assets/photos/home.svg" alt="" />
+	<section class="functioning-box" #functioningBox>
+		<div class="section-content-box">
+			<div class="section-header">
+				<h4 class="section-subtitle">Happy Life Website</h4>
+				<h3 class="section-title">Comment ça marche ?</h3>
+			</div>
+
+			<div class="section-content">
+				<ng-container
+					*ngFor="let functionimgData of functionimgDatas; let i = index"
+				>
+					<app-card-landing-small
+						[imgSrc]="functionimgData.imgSrc"
+						[imgAlt]="functionimgData.imgAlt"
+						[title]="functionimgData.title"
+						[description]="functionimgData.description"
+						[link]="functionimgData.link"
+						[linkLabel]="functionimgData.linkLabel"
+						[number]="i + 1"
+					></app-card-landing-small>
+				</ng-container>
+			</div>
+		</div>
+	</section>
+
+	<section class="discover-box section-dark">
+		<div class="mask"></div>
+		<div class="section-content-box">
+			<div class="section-header">
+				<h4 class="section-subtitle">Happy Life Website</h4>
+				<h3 class="section-title">Pourquoi nous rejoindre ?</h3>
+			</div>
+
+			<div class="section-content">
+				<app-card-landing-large
+					title="Notre concept ?"
+					description="Découvrez et réservez une variété d'activités passionnantes près de chez vous grâce à notre plateforme. Que ce soit lorsque vous venez d'emménager dans la région et que vous ne connaissez personne ou que tous vos amis sont occupés, notre site vous propose une sélection d'expériences uniques adaptées à vos intérêts. Explorez de nouvelles activités, rencontrez des passionnés comme vous et partagez des moments mémorables."
+					[ctaSecondarylabel]="
+						connectedUser.username ? 'Mon compte' : 'Se connecter'
+					"
+					imgSrc="assets/photos/home-2.jpg"
+					imgLabel=""
+					[connectedUser]="connectedUser.username ? true : false"
+				></app-card-landing-large>
+			</div>
+		</div>
+	</section>
+
+	<section class="popular-activity-box">
+		<div class="section-content-box">
+			<div class="section-header">
+				<h4 class="section-subtitle">Happy Life Website</h4>
+				<h3 class="section-title">Activités les plus populaires</h3>
+			</div>
+
+			<div class="section-content">
+				<ng-container *ngIf="activityList$ | async as activityList">
+					<app-carousel-activity
+						[activityList]="activityList"
+						[numVisible]="6"
+						[numScroll]="1"
+						[circular]="false"
+						[responsiveOptions]="responsiveOptions"
+					></app-carousel-activity>
+				</ng-container>
+			</div>
+		</div>
+	</section>
+
+	<section class="popular-categories-box section-dark">
+		<div class="section-content-box">
+			<div class="section-header">
+				<h4 class="section-subtitle">Happy Life Website</h4>
+				<h3 class="section-title">Catégories les plus populaires</h3>
+			</div>
+
+			<div class="section-content">
+				<ng-container *ngIf="categoryList$ | async as categoryList">
+					<app-carousel-category
+						[categoryList]="categoryList"
+						[numVisible]="6"
+						[numScroll]="1"
+						[circular]="false"
+						[responsiveOptions]="responsiveOptions"
+					></app-carousel-category>
+				</ng-container>
+			</div>
+		</div>
+	</section>
+
+	<section class="popular-activity-box">
+		<div class="section-content-box">
+			<div class="section-header">
+				<h4 class="section-subtitle">Happy Life Website</h4>
+				<h3 class="section-title">Dernières places à prendre !</h3>
+			</div>
+
+			<div class="section-content">
+				<ng-container *ngIf="activityList$ | async as activityList">
+					<app-carousel-activity
+						[activityList]="activityList"
+						[numVisible]="6"
+						[numScroll]="1"
+						[circular]="false"
+						[responsiveOptions]="responsiveOptions"
+					></app-carousel-activity>
+				</ng-container>
+			</div>
+		</div>
+	</section>
+	<section class="testimonials-box">
+		<div class="section-content-box">
+			<div class="section-header">
+				<h4 class="section-subtitle">Recommandations</h4>
+				<h3 class="section-title-testimoni">Ils parlent de nous</h3>
+			</div>
+
+			<div class="section-content">
+				<ng-container *ngIf="testimonialList$ | async as testimonialList">
+					<app-carousel-testimonial
+						[testimonialList]="testimonialList"
+						[numVisible]="3"
+						[numScroll]="1"
+						[circular]="false"
+						[responsiveOptions]="responsiveOptions"
+					>
+					</app-carousel-testimonial>
+				</ng-container>
+			</div>
+		</div>
+	</section>
 </div>
-
-<div class="functioning">
-	<h3>Fonctionnement</h3>
-
-	<div class="functioning-list">
-		<ng-container *ngFor="let functionimgData of functionimgDatas">
-			<app-card-landing-small
-				[imgSrc]="functionimgData.imgSrc"
-				[imgAlt]="functionimgData.imgAlt"
-				[title]="functionimgData.title"
-				[description]="functionimgData.description"
-				[link]="functionimgData.link"
-				[linkLabel]="functionimgData.linkLabel"
-			></app-card-landing-small>
-		</ng-container>
-	</div>
-</div>
-
-<app-card-landing-large
-	title="Découvrir les activités"
-	description="Danish jelly chocolate bar lollipop cupcake chocolate cake danish oat
-        cake cotton candy. Jujubes soufflé lollipop candy canes marzipan jelly-o
-        fruitcake caramels. Lollipop chocolate bar topping apple pie dragée.
-        Tiramisu dessert jujubes powder chocolate bar cheesecake cookie
-        liquorice gummies. Candy canes lollipop liquorice gingerbread cotton
-        candy candy cotton candy tootsie roll. Pudding shortbread bear claw
-        danish sweet roll sesame snaps cupcake marshmallow tootsie roll. Cookie
-        cake lemon drops candy jelly jelly beans pastry. Sugar plum bear claw
-        cake jelly-o chocolate bar jelly-o halvah toffee chocolate bar."
-	ctaPrimarylabel="Créer un compte"
-	ctaSecondarylabel="Se connecter"
-	imgSrc="assets/photos/activity-participate.svg"
-	imgLabel=""
-></app-card-landing-large>

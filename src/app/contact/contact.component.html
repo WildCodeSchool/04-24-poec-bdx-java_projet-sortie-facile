@@ -1,34 +1,59 @@
-<h1>Laissez nous un message</h1>
-<div class="activity-form-container">
-	<div class="card flex justify-content-center"></div>
+<div class="container">
+	<app-layout-split
+		pageTitle="Laissez nous un message"
+		backgroundImage="/assets/photos/contact.jpg"
+	>
+		<form
+			#contactForm="ngForm"
+			(ngSubmit)="onSubmit(contactForm)"
+			class="activity-form"
+		>
+			<div *ngIf="connectedUser && connectedUser.username">
+				<app-avatar-pseudo></app-avatar-pseudo>
+			</div>
 
-	<form #myForm="ngForm" (ngSubmit)="onSubmit(myForm)" class="activity-form">
-		<app-avatar-pseudo></app-avatar-pseudo>
+			<app-text-field
+				labelFor="email"
+				labelContent="email"
+				id="email"
+				name="email"
+				#email="ngModel"
+				[form]="contactForm"
+				[(ngModel)]="formData.email"
+				class="input-activity-form"
+			></app-text-field>
 
-		<p>Votre Email</p>
+			<app-text-field
+				labelFor="title"
+				labelContent="Sujet"
+				inputId="title"
+				name="title"
+				#title="ngModel"
+				[form]="contactForm"
+				[(ngModel)]="formData.title"
+			></app-text-field>
 
-		<app-text-field
-			id="Email"
-			name="Email"
-			[required]="true"
-			#Email="ngModel"
-			[form]="myForm"
-			[(ngModel)]="formData.Email"
-			class="input-activity-form"
-		></app-text-field>
+			<app-textarea
+				labelFor="message"
+				labelContent="Votre message"
+				inputId="message"
+				name="message"
+				[rows]="5"
+				#message="ngModel"
+				[form]="contactForm"
+				[(ngModel)]="formData.message"
+			></app-textarea>
 
-		<p>Votre message</p>
+			<div class="btn-container">
+				<app-button-form
+					iconName="arrow-right"
+					(click)="onModal()"
+				></app-button-form>
 
-		<app-textarea
-			inputId="message"
-			name="message"
-			[required]="true"
-			#message="ngModel"
-			[(ngModel)]="formData.message"
-		></app-textarea>
-
-		<div class="card flex justify-content-center">
-			<app-modal [myForm]="myForm"></app-modal>
-		</div>
-	</form>
+				<app-modal-confirm-contact
+					[myForm]="contactForm"
+				></app-modal-confirm-contact>
+			</div>
+		</form>
+	</app-layout-split>
 </div>

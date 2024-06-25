@@ -1,19 +1,22 @@
 <div class="activity-card-container">
 	<p-card>
 		<ng-template pTemplate="header">
-			<div class="btn-admin" *ngIf="connectedUser">
+			<div
+				class="btn-admin"
+				*ngIf="connectedUser && connectedUser.id === activity.profileId"
+			>
 				<p-button
 					icon="pi pi-pencil"
 					[rounded]="true"
 					severity="success"
-					[routerLink]="['/activity/update', activity.id]"
+					[routerLink]="[fullActivityRoute.UPDATE, activity.id]"
 				/>
 
 				<p-button
 					icon="pi pi-trash"
 					[rounded]="true"
 					severity="danger"
-					(click)="delete(activity.id)"
+					(click)="onModal()"
 				/>
 			</div>
 
@@ -25,39 +28,46 @@
 				"
 			/>
 		</ng-template>
-
 		<h3>
-			{{ activity.name }}
+			{{ activity.name | truncate: 25 }}
 		</h3>
-
 		<p-divider />
-
-		<p>
-			{{ activity.description }}
-		</p>
-
-		<p-divider />
-
 		<div class="bottom-content">
 			<div class="bottom-item">
 				<i class="pi pi-calendar"></i>
-				<p>{{ activity.date | date: 'd MMM y' }}</p>
+				<p>{{ activity.date | date: 'longDate' }}</p>
+			</div>
+			<div class="bottom-item">
+				<i class="pi pi-clock"></i>
+				<!-- {{ activity.date }} -->
+				<p>{{ activity.date | date: 'HH:mm' }}</p>
 			</div>
 
 			<div class="bottom-item">
 				<i class="pi pi-map-marker"></i>
-				<p>{{ activity.activityCity.name }}</p>
+				<ng-container *ngIf="city$ | async as city">
+					<p>{{ city.name | titlecase }}</p>
+				</ng-container>
 			</div>
 		</div>
+
+		<p class="clamp-text">
+			{{ activity.description }}
+		</p>
 
 		<ng-template pTemplate="footer">
 			<p-button
 				rounded
-				[routerLink]="['/activity/details', activity.id]"
+				[routerLink]="[fullActivityRoute.DETAILS, activity.id]"
 				class="btn-register"
 			>
-				Voir Plus
+				Découvrir
 			</p-button>
 		</ng-template>
 	</p-card>
 </div>
+
+<app-modal-confirm-delete-activity
+	[activityId]="activity.id"
+	(activityDeleted)="onActivityDeleted($event)"
+></app-modal-confirm-delete-activity>

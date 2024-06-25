@@ -1,17 +1,13 @@
-.activity-form-container {
+.container {
 	display: flex;
 	justify-content: center;
-	margin-top: 30px;
+	gap: 0;
+	background-color: transparent;
+	min-height: calc(100vh - 130px);
 }
 
-.activity-form {
-	width: 80%;
-	border: solid 1px;
-	border-radius: 20px;
-	padding: 40px;
-	border-color: #c2c2c2;
-}
-
-.input-activity-form {
+app-activity-update-management {
 	width: 100%;
+	display: flex;
+	justify-content: center;
 }

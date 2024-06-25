@@ -1,0 +1,139 @@
+<app-layout-container-content
+	sectionTitle="Mes informations publiques"
+	[isViewDatas]="isViewDatas"
+	(sendIsViewDatas)="showIsViewDatas($event)"
+>
+	<div
+		class="content-box"
+		data
+		*ngIf="userProfile$ | async as userPersonalInfosDetails"
+	>
+		<!-- <app-account-card-info
+			title="Prénom"
+			[content]="userPersonalInfosDetails.firstname"
+			[isViewDatas]="isViewDatas"
+		>
+			<app-text-field
+				*ngIf="!isViewDatas"
+				input
+				type="text"
+				id="firstname"
+				name="firstname"
+				[(ngModel)]="userPersonalInfosDatasForm.firstname"
+			></app-text-field>
+		</app-account-card-info> -->
+
+		<!-- <app-account-card-info
+			title="Nom de famille"
+			[content]="userPersonalInfosDetails.lastname"
+			[isViewDatas]="isViewDatas"
+		>
+			<app-text-field
+				*ngIf="!isViewDatas"
+				input
+				type="text"
+				id="lastname"
+				name="lastname"
+				[(ngModel)]="userPersonalInfosDatasForm.lastname"
+			></app-text-field
+		></app-account-card-info> -->
+
+		<app-account-card-info
+			title="Nom d'utilisateur"
+			[content]="connectedUser.nickname"
+			[isViewDatas]="isViewDatas"
+			><app-text-field
+				*ngIf="!isViewDatas"
+				input
+				type="text"
+				id="username"
+				name="username"
+				[isDisabled]="true"
+				[(ngModel)]="userGeneralDatasForm.username"
+			></app-text-field
+		></app-account-card-info>
+
+		<app-account-card-info
+			title="Description"
+			[content]="userPersonalInfosDetails.description"
+			[isViewDatas]="isViewDatas"
+		>
+			<app-textarea
+				*ngIf="!isViewDatas"
+				input
+				type="text"
+				id="description"
+				name="description"
+				[rows]="5"
+				[(ngModel)]="userGeneralDatasForm.description"
+			></app-textarea
+		></app-account-card-info>
+
+		<!-- <app-account-card-info
+			title="Email"
+			[content]="connectedUser.email"
+			[isViewDatas]="isViewDatas"
+			><app-text-field
+				*ngIf="!isViewDatas"
+				input
+				type="text"
+				id="firstname"
+				name="firstname"
+				[(ngModel)]="userPersonalInfosDatasForm.email"
+			></app-text-field
+		></app-account-card-info> -->
+
+		<!-- <app-account-card-info
+			title="Téléphone"
+			[content]="userPersonalInfosDetails.phone"
+			[isViewDatas]="isViewDatas"
+			><app-mask-field
+				*ngIf="!isViewDatas"
+				input
+				type="text"
+				id="phone"
+				name="phone"
+				placeholder="99-99-99-99-99"
+				mask="99-99-99-99-99"
+				[(ngModel)]="userPersonalInfosDatasForm.phone"
+			></app-mask-field
+		></app-account-card-info> -->
+
+		<!-- <app-account-card-info
+			title="Date de naissance"
+			[content]="userPersonalInfosDetails.dateOfBirth"
+			[isViewDatas]="isViewDatas"
+			><app-mask-field
+				*ngIf="!isViewDatas"
+				input
+				type="text"
+				id="dateOfBirth"
+				name="dateOfBirth"
+				placeholder="99/99/9999"
+				mask="99/99/9999"
+				slotChar="dd/mm/yyyy"
+				[(ngModel)]="userPersonalInfosDatasForm.dateOfBirth"
+			></app-mask-field
+		></app-account-card-info> -->
+
+		<!-- <app-account-card-info
+			title="Genre"
+			[content]="userPersonalInfosDetails.genre"
+			[isViewDatas]="isViewDatas"
+			><app-text-field
+				*ngIf="!isViewDatas"
+				input
+				type="text"
+				id="genre"
+				name="genre"
+				[(ngModel)]="userPersonalInfosDatasForm.genre"
+			></app-text-field
+		></app-account-card-info> -->
+
+		<div class="btn-form-box" *ngIf="!isViewDatas">
+			<p-button label="Sauvegarder" [rounded]="true" (click)="onSave()" />
+		</div>
+
+		<p-toast />
+	</div>
+</app-layout-container-content>

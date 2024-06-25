@@ -1,34 +1,51 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PrimengModule } from '@shared/modules/primeng.module';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { TextFieldComponent } from '@shared/components/form/text-field/text-field.component';
-import { PasswordFieldComponent } from '@shared/components/form/password-field/password-field.component';
-import { FieldErrorComponent } from '@shared/components/form/field-error/field-error.component';
-import { ModalComponent } from '@shared/components/modal/modal/modal.component';
-import { InputDateComponent } from '@shared/components/date/input-date/input-date.component';
-import { InputHourComponent } from '@shared/components/date/input-hour/input-hour.component';
+import { PipeModule } from '@shared/modules/pipe.module';
+import { DirectiveModule } from '@shared/modules/directive.module';
+import { SharedFormModule } from '@shared/modules/shared-form.module';
+
 import { ButtonSocialComponent } from '@shared/components/button/button-social/button-social.component';
 import { DividerComponent } from '@shared/components/divider/divider.component';
 import { ButtonFormComponent } from '@shared/components/button/button-form/button-form.component';
 import { AuthTypographyWithRedirectComponent } from '@shared/components/typography/auth-typography-with-redirect/auth-typography-with-redirect.component';
-import { SelectCityComponent } from '@shared/components/select/select-city/select-city.component';
-import { SelectNumberComponent } from '@shared/components/select/select-number/select-number.component';
 import { AvatarPseudoComponent } from '@shared/components/avatar/avatar-pseudo/avatar-pseudo.component';
-import { TextareaComponent } from '@shared/components/form/textarea/textarea.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CardComponent } from '@shared/components/card/card.component';
-import { DropzoneFieldComponent } from '@shared/components/form/dropzone-field/dropzone-field.component';
-import { DateFieldComponent } from '@shared/components/form/date-field/date-field.component';
-import { AccountNavActiveLinkPipe } from './pipes/account-nav-active-link/account-nav-active-link.pipe';
 import { SearchBarComponent } from '@shared/components/search-bar/search-bar.component';
-import { CarouselComponent } from '@shared/components/carousel/carousel.component';
 import { CardActivitySmallComponent } from '@shared/components/cards/card-activity-small/card-activity-small.component';
-import { SelectCategoryComponent } from '@shared/components/select/select-category/select-category.component';
-import { ModalConfirmReservationComponent } from './components/modal/modal-confirm-reservation/modal-confirm-reservation.component';
-import { ModalConfirmCreatActivityComponent } from './components/modal/modal-confirm-creat-activity/modal-confirm-creat-activity.component';
-import { ModalConfirmUpdateActivityComponent } from './components/modal/modal-confirm-update-activity/modal-confirm-update-activity.component';
-
+import { ModalConfirmReservationComponent } from '@shared/components/modal/modal-confirm-reservation/modal-confirm-reservation.component';
+import { ModalConfirmCreatActivityComponent } from '@shared/components/modal/modal-confirm-creat-activity/modal-confirm-creat-activity.component';
+import { ModalConfirmUpdateActivityComponent } from '@shared/components/modal/modal-confirm-update-activity/modal-confirm-update-activity.component';
+import { DataBookingComponent } from '@shared/components/dashboard/data-booking/data-booking.component';
+import { ModalConfirmContactComponent } from '@shared/components/modal/modal-confirm-contact/modal-confirm-contact.component';
+import { ConfirmationService } from 'primeng/api';
+import { ModalAddCategoryComponent } from './components/modal/modal-add-category/modal-add-category.component';
+import { PieBoardComponent } from './components/dashboard/pie-board/pie-board.component';
+import { VerticalBoardComponent } from './components/dashboard/vertical-board/vertical-board.component';
+import { MultiAxeComponent } from './components/dashboard/multi-axe/multi-axe.component';
+import { DataMailComponent } from './components/dashboard/data-mail/data-mail.component';
+import { ModalComponent } from './components/modal/modal/modal.component';
+import { ModalConfirmDeleteActivityComponent } from './components/modal/modal-confirm-delete-activity/modal-confirm-delete-activity.component';
+import { LayoutSplitComponent } from './components/layout/layout-split/layout-split.component';
+import { ModalDeleteAccountComponent } from './components/modal/modal-confirm-delete-account/modal-confirm-delete-account.component';
+import { PaginationComponent } from './components/pagination/pagination.component';
+import { ButtonUltraWildeComponent } from './components/button/button-ultra-wilde/button-ultra-wilde.component';
+import { FullCalendarModule } from '@fullcalendar/angular';
+import { AlertComponent } from './components/alert/alert.component';
+import { CardTestimonialComponent } from './components/cards/card-testimonial/card-testimonial.component';
+import { CarouselActivityComponent } from './components/carousel/carousel-activity/carousel-activity.component';
+import { CarouselTestimonialComponent } from './components/carousel/carousel-testimonial/carousel-testimonial.component';
+import { CarouselCategoryComponent } from './components/carousel/carousel-category/carousel-category.component';
+import { CalendarModalComponent } from './components/modal/calendar-modal/calendar-modal.component';
+import { FileUploadComponent } from './components/file-upload/file-upload.component';
+import { FileUploadModule } from 'primeng/fileupload';
+import { AuthMenuComponent } from './components/auth-menu/auth-menu.component';
+import { DashboardLayoutComponent } from './components/layout/layout-connected/dashboard-layout/dashboard-layout.component';
+import { LayoutHeaderComponent } from './components/layout/layout-connected/layout-header/layout-header.component';
+import { LayoutNavComponent } from './components/layout/layout-connected/layout-nav/layout-nav.component';
+import { LayoutNavResponsiveComponent } from './components/layout/layout-connected/layout-nav-responsive/layout-nav-responsive.component';
+import { LayoutContainerContentComponent } from './components/layout/layout-container-content/layout-container-content.component';
 @NgModule({
 	declarations: [
 		AuthTypographyWithRedirectComponent,
@@ -37,61 +54,90 @@ import { ModalConfirmUpdateActivityComponent } from './components/modal/modal-co
 		ButtonFormComponent,
 		CardComponent,
 		DividerComponent,
-		DropzoneFieldComponent,
-		DateFieldComponent,
-		FieldErrorComponent,
-		InputDateComponent,
-		InputHourComponent,
-		ModalComponent,
-		PasswordFieldComponent,
-		SelectCityComponent,
-		SelectCategoryComponent,
-		SelectNumberComponent,
-		TextareaComponent,
-		TextFieldComponent,
-		AccountNavActiveLinkPipe,
+		ModalConfirmContactComponent,
 		SearchBarComponent,
-		CarouselComponent,
+		CarouselActivityComponent,
 		CardActivitySmallComponent,
 		ModalConfirmReservationComponent,
 		ModalConfirmCreatActivityComponent,
 		ModalConfirmUpdateActivityComponent,
+		DataBookingComponent,
+		ModalConfirmDeleteActivityComponent,
+		ModalAddCategoryComponent,
+		PieBoardComponent,
+		VerticalBoardComponent,
+		MultiAxeComponent,
+		DataMailComponent,
+		ModalComponent,
+		LayoutSplitComponent,
+		ModalDeleteAccountComponent,
+		PaginationComponent,
+		ButtonUltraWildeComponent,
+		AlertComponent,
+		CardTestimonialComponent,
+		CarouselTestimonialComponent,
+		CarouselCategoryComponent,
+		CalendarModalComponent,
+		FileUploadComponent,
+		AuthMenuComponent,
+		DashboardLayoutComponent,
+		LayoutHeaderComponent,
+		LayoutNavComponent,
+		LayoutNavResponsiveComponent,
+		LayoutContainerContentComponent,
 	],
 	imports: [
 		CommonModule,
 		PrimengModule,
-		FormsModule,
+		PipeModule,
+		DirectiveModule,
+		SharedFormModule,
 		HttpClientModule,
-		ReactiveFormsModule,
+		FullCalendarModule,
+		FileUploadModule,
 	],
+	providers: [ConfirmationService],
 	exports: [
 		PrimengModule,
-		FormsModule,
-		TextFieldComponent,
-		PasswordFieldComponent,
-		FieldErrorComponent,
-		ModalComponent,
-		InputDateComponent,
-		InputHourComponent,
+		PipeModule,
+		DirectiveModule,
+		SharedFormModule,
+		ModalConfirmContactComponent,
 		ButtonSocialComponent,
 		DividerComponent,
 		ButtonFormComponent,
 		AuthTypographyWithRedirectComponent,
-		SelectCityComponent,
-		SelectCategoryComponent,
-		SelectNumberComponent,
 		AvatarPseudoComponent,
-		TextareaComponent,
 		CardComponent,
-		DropzoneFieldComponent,
-		DateFieldComponent,
-		AccountNavActiveLinkPipe,
 		SearchBarComponent,
-		CarouselComponent,
+		CarouselActivityComponent,
 		CardActivitySmallComponent,
 		ModalConfirmReservationComponent,
 		ModalConfirmUpdateActivityComponent,
 		ModalConfirmCreatActivityComponent,
+		DataBookingComponent,
+		ModalConfirmDeleteActivityComponent,
+		ModalAddCategoryComponent,
+		PieBoardComponent,
+		VerticalBoardComponent,
+		MultiAxeComponent,
+		DataMailComponent,
+		LayoutSplitComponent,
+		ModalDeleteAccountComponent,
+		PaginationComponent,
+		ButtonUltraWildeComponent,
+		FullCalendarModule,
+		AlertComponent,
+		CardTestimonialComponent,
+		CarouselTestimonialComponent,
+		CarouselCategoryComponent,
+		FileUploadComponent,
+		AuthMenuComponent,
+		DashboardLayoutComponent,
+		LayoutHeaderComponent,
+		LayoutNavComponent,
+		LayoutNavResponsiveComponent,
+		LayoutContainerContentComponent,
 	],
 })
 export class SharedModule {}

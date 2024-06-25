@@ -1,7 +1,7 @@
 .container {
 	max-width: 1920px;
 	width: 100%;
-	padding: 1.5rem;
+	padding: 1rem;
 	margin: 0 auto;
 	padding-top: 4rem;
 }
@@ -16,7 +16,7 @@ h6 {
 	margin: 0;
 }
 
-app-account-container-content {
+app-layout-container-content {
 	width: 100%;
 }
 
@@ -27,17 +27,18 @@ app-account-container-content {
 
 .categories-container {
 	display: flex;
+	justify-content: center;
 	flex-wrap: wrap;
 	gap: 1rem;
 }
 
 .category-card {
-	background-image: url(/assets/photos/category.jpg);
 	background-repeat: no-repeat;
 	background-size: cover;
 	border-radius: 10px;
 	padding: 0rem;
-	width: calc(100% / 6 - (1rem));
+	width: 100%;
+	max-width: 200px;
 	display: flex;
 	justify-content: center;
 	align-items: flex-end;
@@ -46,7 +47,7 @@ app-account-container-content {
 
 	p {
 		padding: 0.5rem 1rem;
-		background-color: rgba(0, 0, 0, 0.2);
+		background-color: rgba(0, 0, 0, 0.5);
 		width: 100%;
 		text-align: center;
 		font-weight: bold;
@@ -59,7 +60,7 @@ app-account-container-content {
 :host ::ng-deep app-select-category {
 	position: relative;
 	z-index: 1000000;
-	background-color: red;
+
 	.p-dropdown {
 		width: 100%;
 	}
@@ -68,5 +69,20 @@ app-account-container-content {
 		display: flex;
 		justify-content: flex-end;
 		margin-top: 1.5rem;
+	}
+}
+
+:host ::ng-deep .icon-box {
+	display: flex;
+	justify-content: center;
+	margin-top: 2rem;
+
+	p-button .p-button {
+		width: 3.5rem;
+		height: 3.5rem;
+
+		.pi {
+			font-size: 2rem;
+		}
 	}
 }

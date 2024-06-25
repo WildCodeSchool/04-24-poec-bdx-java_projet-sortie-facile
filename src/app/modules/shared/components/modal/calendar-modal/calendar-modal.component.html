@@ -1,0 +1,59 @@
+<div class="activity-card-container">
+	<p-card>
+		<div *ngIf="bookingCount !== undefined">
+			<p-badge
+				value="{{ bookingCount }} / {{ activity.nbGuest }} places réservés"
+				badgeSize="large"
+				severity="warning"
+			/>
+		</div>
+		<div *ngIf="bookingCount === undefined">
+			<p>Chargement...</p>
+		</div>
+		<ng-template pTemplate="header">
+			<div class="btn-admin">
+				<p-button
+					icon="pi pi-trash"
+					[rounded]="true"
+					severity="danger"
+					(click)="deleteEvent()"
+				/>
+			</div>
+
+			<img
+				class="card-img"
+				alt="{{ activity.name }}"
+				[src]="
+					activity.imgUrl ? activity.imgUrl : '/assets/photos/no-image.jpg'
+				"
+			/>
+		</ng-template>
+		<h3>{{ activity.name | truncate: 25 }}</h3>
+		<p-divider />
+		<div class="bottom-content">
+			<div class="bottom-item">
+				<i class="pi pi-calendar"></i>
+				<p>{{ activity.date | date: 'longDate' }}</p>
+			</div>
+
+			<div class="bottom-item">
+				<i class="pi pi-map-marker"></i>
+				<p>{{ activity.cityId }}</p>
+			</div>
+		</div>
+
+		<p class="clamp-text">
+			{{ activity.description }}
+		</p>
+		<ng-template pTemplate="footer">
+			<p-button
+				rounded
+				[routerLink]="[fullActivityRoute.DETAILS, activity.id]"
+				class="btn-register"
+				(click)="close()"
+			>
+				En savoir plus
+			</p-button>
+		</ng-template>
+	</p-card>
+</div>

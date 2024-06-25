@@ -1,7 +1,7 @@
 //global
 $fontSize: 1rem !default;
 $fontWeight: normal !default;
-$textColor: $shade700 !default;
+$textColor: $shade900 !default;
 $textSecondaryColor: $shade500 !default;
 $borderRadius: 6px !default;
 $transitionDuration: 0.2s !default;
@@ -46,7 +46,7 @@ $actionIconWidth: 1.75rem !default;
 $actionIconHeight: 1.75rem !default;
 $actionIconBg: transparent !default;
 $actionIconBorder: 0 none !default;
-$actionIconColor: $shade500 !default;
+$actionIconColor: $shade950 !default;
 $actionIconHoverBg: $shade100 !default;
 $actionIconHoverBorderColor: transparent !default;
 $actionIconHoverColor: $shade600 !default;
@@ -81,7 +81,7 @@ $inputListBorder: $inputBorder !default;
 $inputListPadding: 0.25rem 0.25rem !default;
 $inputListItemPadding: 0.5rem 0.75rem !default;
 $inputListItemBg: transparent !default;
-$inputListItemTextColor: $shade700 !default;
+$inputListItemTextColor: $shade950 !default;
 $inputListItemHoverBg: $shade100 !default;
 $inputListItemTextHoverColor: $shade800 !default;
 $inputListItemFocusBg: $shade200 !default;
@@ -354,7 +354,7 @@ $panelContentBorderColor: $shade200 !default;
 $panelContentBorder: 1px solid $panelContentBorderColor !default;
 $panelContentBg: $shade000 !default;
 $panelContentEvenRowBg: $shade50 !default;
-$panelContentTextColor: $shade700 !default;
+$panelContentTextColor: $shade900 !default;
 $panelContentPadding: 0 1.125rem 1.125rem 1.125rem !default;
 
 $panelFooterBorder: 1px solid $shade200 !default;
@@ -412,7 +412,7 @@ $tabviewHeaderTextActiveColor: $primaryColor !default;
 
 $tabviewContentBorder: 0 none !default;
 $tabviewContentBg: $shade000 !default;
-$tabviewContentTextColor: $textColor !default;
+$tabviewContentTextColor: $shade000 !default;
 $tabviewContentPadding: 0.875rem 1.125rem 1.125rem 1.125rem !default;
 
 //upload
@@ -476,7 +476,7 @@ $tableHeaderPadding: 0.75rem 1rem !default;
 
 $tableHeaderCellPadding: 0.75rem 1rem !default;
 $tableHeaderCellBg: $shade000 !default;
-$tableHeaderCellTextColor: $shade700 !default;
+$tableHeaderCellTextColor: $shade950 !default;
 $tableHeaderCellFontWeight: 600 !default;
 $tableHeaderCellBorder: 1px solid $shade200 !default;
 $tableHeaderCellBorderWidth: 0 0 1px 0 !default;
@@ -491,7 +491,7 @@ $tableHeaderCellHighlightTextHoverColor: $highlightTextColor !default;
 $tableSortableColumnBadgeSize: 1rem !default;
 
 $tableBodyRowBg: $shade000 !default;
-$tableBodyRowTextColor: $shade700 !default;
+$tableBodyRowTextColor: $shade950 !default;
 $tableBodyRowEvenBg: $shade50 !default;
 $tableBodyRowHoverBg: $shade100 !default;
 $tableBodyRowTextHoverColor: $shade800 !default;
@@ -582,7 +582,7 @@ $overlayContainerShadow:
 //dialog
 $dialogHeaderBg: $shade000 !default;
 $dialogHeaderBorder: 0 none !default;
-$dialogHeaderTextColor: $shade700 !default;
+$dialogHeaderTextColor: $shade950 !default;
 $dialogHeaderFontWeight: 600 !default;
 $dialogHeaderFontSize: 1.25rem !default;
 $dialogHeaderPadding: 1.5rem !default;
@@ -630,7 +630,7 @@ $menuBorder: 1px solid $shade200 !default;
 $menuTextColor: $shade700 !default;
 $menuitemPadding: 0.5rem 0.75rem !default;
 $menuitemBorderRadius: 4px !default;
-$menuitemTextColor: $shade700 !default;
+$menuitemTextColor: $shade900 !default;
 $menuitemIconColor: $shade400 !default;
 $menuitemTextHoverColor: $shade700 !default;
 $menuitemIconHoverColor: $shade700 !default;
@@ -646,7 +646,7 @@ $menuitemSubmenuIconFontSize: 0.875rem !default;
 $submenuHeaderMargin: 0 !default;
 $submenuHeaderPadding: 0.5rem 0.75rem !default;
 $submenuHeaderBg: $shade000 !default;
-$submenuHeaderTextColor: $shade400 !default;
+$submenuHeaderTextColor: $shade900 !default;
 $submenuHeaderBorderRadius: 0 !default;
 $submenuHeaderFontWeight: 600 !default;
 $overlayMenuBg: $menuBg !default;

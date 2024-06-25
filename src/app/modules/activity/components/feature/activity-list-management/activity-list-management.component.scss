@@ -1,6 +1,47 @@
+:host ::ng-deep .activities-top {
+	display: flex;
+	justify-content: space-between;
+	gap: 0.75rem;
+
+	.btn-left {
+		display: flex;
+		gap: 0.75rem;
+		margin-bottom: 1rem;
+	}
+
+	.show-filter-btn,
+	.reset-filter-btn {
+		width: 2rem;
+		height: 2rem;
+	}
+
+	@media (min-width: 992px) {
+		.show-filter-btn {
+			display: none;
+		}
+	}
+
+	> p-button .p-button {
+		padding: 0.25rem 1rem;
+		color: 1rem;
+		margin-bottom: 1rem;
+	}
+}
+
 .activities-cards {
 	width: 100%;
 	display: flex;
+	justify-content: center;
 	gap: 1rem;
 	flex-wrap: wrap;
+
+	@media (min-width: 768px) {
+		justify-content: flex-start;
+	}
+}
+
+:host ::ng-deep p-overlay {
+	.p-dropdown-panel .p-dropdown-items .p-dropdown-item.p-highlight.p-focus {
+		background-color: var(--gray-200);
+	}
 }

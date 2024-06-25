@@ -1,4 +1,4 @@
-<app-account-container-content
+<app-layout-container-content
 	sectionTitle="Adresse"
 	[isViewDatas]="isViewDatas"
 	(sendIsViewDatas)="showIsViewDatas($event)"
@@ -6,14 +6,13 @@
 	<div
 		class="content-box"
 		data
-		*ngIf="userDetails$ | async as userAddressDetails"
+		*ngIf="userProfile$ | async as userAddressDetails"
 	>
 		<app-account-card-info
 			title="N° de rue"
 			[content]="userAddressDetails.streetNumber"
 			[isViewDatas]="isViewDatas"
 		>
-			{{ isViewDatas }}
 			<app-text-field
 				*ngIf="!isViewDatas"
 				input
@@ -41,32 +40,37 @@
 
 		<app-account-card-info
 			title="Région"
-			[content]="userAddressDetails.region"
+			[content]="userAddressDetails.regionName"
 			[isViewDatas]="isViewDatas"
 		>
-			<app-text-field
+			<app-select-region
 				*ngIf="!isViewDatas"
 				input
-				type="text"
 				id="region"
+				inputId="region"
 				name="region"
-				[(ngModel)]="userAddressDatasForm.region"
-			></app-text-field>
+				#region="ngModel"
+				[isDisabled]="true"
+				[(ngModel)]="userAddressDatasForm.regionName"
+			></app-select-region>
 		</app-account-card-info>
 
 		<app-account-card-info
 			title="Département"
-			[content]="userAddressDetails.departement"
+			[content]="userAddressDetails.departmentName"
 			[isViewDatas]="isViewDatas"
 		>
-			<app-text-field
+			<app-select-department
 				*ngIf="!isViewDatas"
 				input
-				type="text"
-				id="departement"
-				name="departement"
-				[(ngModel)]="userAddressDatasForm.departement"
-			></app-text-field>
+				id="department"
+				inputId="department"
+				name="department"
+				[required]="true"
+				[isDisabled]="true"
+				#department="ngModel"
+				[(ngModel)]="userAddressDatasForm.departmentName"
+			></app-select-department>
 		</app-account-card-info>
 
 		<app-account-card-info
@@ -74,33 +78,36 @@
 			[content]="userAddressDetails.postalCode"
 			[isViewDatas]="isViewDatas"
 		>
-			<app-text-field
+			<app-mask-field
 				*ngIf="!isViewDatas"
 				input
-				type="text"
 				id="postalCode"
 				name="postalCode"
+				placeholder="99999"
+				mask="99999"
 				[(ngModel)]="userAddressDatasForm.postalCode"
-			></app-text-field>
+			></app-mask-field>
 		</app-account-card-info>
 
 		<app-account-card-info
 			title="Ville"
-			[content]="userAddressDetails.city"
+			[content]="userAddressDetails.cityName"
 			[isViewDatas]="isViewDatas"
 		>
-			<app-text-field
+			<app-select-city
 				*ngIf="!isViewDatas"
 				input
-				type="text"
 				id="city"
+				inputId="city"
 				name="city"
-				[(ngModel)]="userAddressDatasForm.city"
-			></app-text-field>
+				[isDisabled]="true"
+				[(ngModel)]="userAddressDatasForm.cityName"
+			>
+			</app-select-city>
 		</app-account-card-info>
 
 		<div class="btn-form-box" *ngIf="!isViewDatas">
 			<p-button label="Sauvegarder" [rounded]="true" (click)="onSave()" />
 		</div>
 	</div>
-</app-account-container-content>
+</app-layout-container-content>

@@ -1,9 +1,11 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Activity } from '@shared/models/types/activity.type';
+import { Activity } from '@activity/models/classes/activity.class';
+import { Component, OnInit } from '@angular/core';
+import { BaseManagementComponent } from '@shared/directives/management.class';
+import { LayoutLink } from '@shared/models/types/utils/layout-link.type';
+import { AccountService } from '@shared/services/account.service';
 import { ActivityService } from '@shared/services/activity.service';
-import { AuthService } from '@shared/services/auth.service';
-import { BaseAccountManagementComponent } from '@user/directives/account-management.class';
-import { Subscription, tap } from 'rxjs';
+import { TokenService } from '@shared/services/token.service';
+import { Observable } from 'rxjs';
 
 @Component({
 	selector: 'app-account-activities-management',
@@ -11,46 +13,36 @@ import { Subscription, tap } from 'rxjs';
 	styleUrl: './account-activities-management.component.scss',
 })
 export class AccountActivitiesManagementComponent
-	extends BaseAccountManagementComponent
-	implements OnInit, OnDestroy
+	extends BaseManagementComponent
+	implements OnInit
 {
-	activityByCreatedUserList!: Activity[];
-	activityParticipateList!: Activity[];
-
-	private _subscription: Subscription = new Subscription();
+	navItems: LayoutLink[] = [];
+	activityByCreatedUserList$!: Observable<Activity[]>;
+	activityParticipateList$!: Observable<Activity[]>;
 
 	constructor(
-		protected override _authService: AuthService,
+		protected override _tokenService: TokenService,
 		private _activityService: ActivityService,
+		private _accountService: AccountService,
 	) {
-		super(_authService);
+		super(_tokenService);
 	}
 
 	override ngOnInit(): void {
 		super.ngOnInit();
 
-		this._activityService
-			.getActivityListByCreatedUser$(10)
-			.pipe(
-				tap(activities => {
-					this.activityByCreatedUserList = activities;
-				}),
-			)
-			.subscribe();
+		this.navItems = this._accountService.getLayoutItems();
 
-		this._subscription.add(
-			this._activityService
-				.getActivityListByCreatedUser$(10)
-				.pipe(
-					tap(activities => {
-						this.activityByCreatedUserList = activities;
-					}),
-				)
-				.subscribe(),
-		);
-	}
+		this.activityByCreatedUserList$ =
+			this._activityService.getActivityListByCreatedUser$(
+				10,
+				this.connectedUser.id,
+			);
 
-	ngOnDestroy(): void {
-		this._subscription.unsubscribe();
+		this.activityParticipateList$ =
+			this._activityService.getListOfActivitiesRegisteredByUser$(
+				10,
+				this.connectedUser.id,
+			);
 	}
 }

@@ -1,16 +1,47 @@
-.p-menubar {
-	padding: 10px;
-	padding-bottom: 40px;
-	border-radius: 0;
+:host ::ng-deep .p-menubar {
+	display: flex;
+	align-items: center;
+	padding: 20px;
 	position: relative;
-}
+	background-color: var(--primary-color);
+	position: fixed;
+	width: 100%;
+	z-index: +2;
+	border-radius: 0;
+	border: none;
+	.p-icon {
+		color: white;
 
-.p-menuitem-icon {
-	color: white;
-}
+		// &:hover {
+		// 	color: black;
+		// }
+	}
+	.p-menubar-start {
+		margin-right: 1rem;
+	}
 
-.p-menuitem-text {
-	color: white;
+	.p-menubar-root-list {
+		gap: 0.5rem;
+
+		> .p-menuitem:not(.p-highlight):not(.p-disabled)
+			> .p-menuitem-content:hover {
+			background-color: transparent;
+		}
+
+		.p-menuitem-link {
+			border-bottom: 2px solid transparent;
+			padding-bottom: 1rem;
+
+			&:hover {
+				border-color: var(--white-color);
+				background-color: transparent;
+			}
+		}
+
+		.p-menuitem-text {
+			color: black;
+		}
+	}
 }
 
 .bottom-navbar {
@@ -22,5 +53,42 @@
 	height: 30px;
 	border-top-left-radius: 80px 80px;
 	border-top-right-radius: 80px 80px;
-	background-color: white;
+	background-color: var(--white-color);
+}
+
+.user {
+	display: flex;
+	align-items: center;
+	width: auto;
+	gap: 0.5rem;
+	justify-content: space-between;
+}
+
+.red-dot {
+	width: 10px;
+	height: 10px;
+	border-radius: 50%;
+	background-color: rgb(238, 35, 21);
+}
+
+:host ::ng-deep .mail,
+:host ::ng-deep .notif {
+	display: flex;
+
+	.p-button {
+		color: var(--white-color);
+
+		.pi {
+			font-size: 1.35rem;
+		}
+	}
+}
+
+:host ::ng-deep .mail {
+	margin-right: 0.5rem;
+}
+@media (min-width: 960px) {
+	:host ::ng-deep .p-menubar .p-menubar-root-list .p-menuitem-text {
+		color: white;
+	}
 }

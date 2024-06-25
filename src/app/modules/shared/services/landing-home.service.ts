@@ -1,5 +1,9 @@
 import { Injectable } from '@angular/core';
-import { getFunctionimgDatas } from '@shared/models/types/functionimg-datas.type';
+import { FunctionimgDatas } from '@shared/models/classes/utils/function-img-datas.class';
+import {
+	FullActivityRouteEnum,
+	FullAuthenticationRouteEnum,
+} from '@shared/models/enums/routes/full-routes';
 
 @Injectable({
 	providedIn: 'root',
@@ -7,26 +11,40 @@ import { getFunctionimgDatas } from '@shared/models/types/functionimg-datas.type
 export class LandingHomeService {
 	constructor() {}
 
-	getFunctionimgDatas(): getFunctionimgDatas[] {
+	getFunctionimgDatas(connectedUser: boolean): FunctionimgDatas[] {
 		return [
-			{
-				imgSrc: 'assets/photos/activity-discover.svg',
-				imgAlt: '',
-				title: 'Découvrir les activités',
-				description:
-					'Danish jelly chocolate bar lollipop cupcake chocolate cake danish oat cake cotton candy. Jujubes soufflé lollipop candy canes marzipan jelly-o fruitcake caramels.',
-				link: ['/activity/list'],
-				linkLabel: 'Découvrir les activités disponibles',
-			},
-			{
-				imgSrc: 'assets/photos/activity-create.svg',
-				imgAlt: '',
-				title: 'Créer une activité',
-				description:
-					'Danish jelly chocolate bar lollipop cupcake chocolate cake danish oat cake cotton candy. Jujubes soufflé lollipop candy canes marzipan jelly-o fruitcake caramels.',
-				link: ['/activity/create'],
-				linkLabel: 'Ajouter une activité',
-			},
+			new FunctionimgDatas(
+				'assets/photos/7732590_5217.svg',
+				'',
+				'Découvrir les activités',
+				'Découvrez dès maintenant notre sélection dactivités et trouvez linspiration pour vivre des expériences uniques près de chez vous !',
+				[FullActivityRouteEnum.HOME],
+				'Découvrir les activités disponibles',
+			),
+			new FunctionimgDatas(
+				'assets/photos/7732590_5217.svg',
+				'',
+				'Créer une activité',
+				'Créez une activité dès aujourdhui et invitez dautres à se joindre à vous pour partager des moments inoubliables ensemble !',
+				[
+					connectedUser
+						? FullActivityRouteEnum.POST
+						: FullAuthenticationRouteEnum.LOGIN,
+				],
+				connectedUser ? 'Créer une activité' : 'Se connecter',
+			),
+			new FunctionimgDatas(
+				'assets/photos/7732590_5217.svg',
+				'',
+				"S'inscrire à une activité",
+				'Inscrivez-vous dès maintenant à une activité pour y participer et partager des moments enrichissants avec dautres passionnés !',
+				[
+					connectedUser
+						? FullActivityRouteEnum.HOME
+						: FullAuthenticationRouteEnum.LOGIN,
+				],
+				connectedUser ? "S'inscrire à une activité" : 'Se connecter',
+			),
 		];
 	}
 }

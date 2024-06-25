@@ -1,4 +1,4 @@
-<div class="container">
+<!-- <div class="container">
 	<app-layout-header
 		[avatarSrc]="avatarSrc"
 		[avatarAlt]="avatarAlt"
@@ -16,7 +16,15 @@
 			<app-layout-nav></app-layout-nav>
 
 			<div class="delete-box">
-				<a [routerLink]="['/']" class="delete-link">Supprimer mon compte </a>
+				<p-button
+					*ngIf="showDEleteBtn"
+					severity="danger"
+					[text]="true"
+					rounded
+					(click)="onModal()"
+					class="delete-link"
+					>Supprimer mon compte
+				</p-button>
 			</div>
 		</div>
 
@@ -25,3 +33,7 @@
 		</div>
 	</div>
 </div>
+
+<app-modal-confirm-delete-account
+	[connectedUser]="connectedUser"
+></app-modal-confirm-delete-account> -->

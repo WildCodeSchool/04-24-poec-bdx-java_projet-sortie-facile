@@ -1,18 +1,15 @@
-<app-activity-form-layout
+<app-layout-split
 	pageTitle="Création d'une activité"
 	backgroundImage="/assets/photos/create-activity.jpg"
 >
-	<form #createActivityForm="ngForm" (ngSubmit)="onSubmit(createActivityForm)">
+	<form #addActivityForm="ngForm" (ngSubmit)="onSubmit()">
 		<app-text-field
 			labelFor="name"
 			labelContent="Titre de l'activité :"
 			type="text"
 			id="name"
 			name="name"
-			[form]="createActivityForm"
-			[required]="true"
-			[minlength]="3"
-			[maxlength]="50"
+			[form]="addActivityForm"
 			[(ngModel)]="newActivity.name"
 			class="input-activity-form"
 		></app-text-field>
@@ -24,53 +21,68 @@
 			id="date"
 			name="date"
 			[showIcon]="true"
-			[required]="true"
 			#date="ngModel"
 			[(ngModel)]="newActivity.date"
 		></app-input-date>
 
-		<app-input-hour
-			labelFor="date"
-			labelContent="Heure de l'activité :"
-			inputId="hour"
-			id="hour"
-			name="hour"
+		<app-select-region
+			labelFor="region"
+			labelContent="Region :"
+			id="region"
+			inputId="region"
+			name="region"
 			[required]="true"
-			#hour="ngModel"
-			[(ngModel)]="newActivity.hour"
-		></app-input-hour>
+			#region="ngModel"
+			[(ngModel)]="newActivity.region"
+		></app-select-region>
+
+		<app-select-department
+			labelFor="Department"
+			labelContent="Département :"
+			id="department"
+			inputId="department"
+			name="department"
+			#department="ngModel"
+			[(ngModel)]="newActivity.department"
+		></app-select-department>
 
 		<app-select-city
 			labelFor="city"
-			labelContent="Lieu :"
+			labelContent="Ville :"
 			id="city"
 			inputId="city"
-			name="activityCity"
-			[required]="true"
-			#activityCity="ngModel"
-			[(ngModel)]="newActivity.activityCity"
+			name="city"
+			#city="ngModel"
+			[(ngModel)]="newActivity.city"
 		>
 		</app-select-city>
 
 		<app-select-category
-			labelFor="categoryId"
+			labelFor="category"
 			labelContent="Catégorie :"
-			id="categoryId"
-			inputId="categoryId"
-			name="categoryId"
-			[required]="true"
+			id="category"
+			inputId="category"
+			name="category"
 			#category="ngModel"
-			[(ngModel)]="newActivity.categoryId"
+			[(ngModel)]="newActivity.category"
 		></app-select-category>
 
 		<app-select-number
 			labelFor="nbGuest"
-			labelContent="Nbre de participants :"
+			labelContent="Nombre de participants :"
 			inputId="nbGuest"
 			name="nbGuest"
-			[required]="true"
 			#nbGuest="ngModel"
 			[(ngModel)]="newActivity.nbGuest"
+		></app-select-number>
+
+		<app-select-number
+			labelFor="age"
+			labelContent="Age des participants :"
+			inputId="age"
+			name="age"
+			#age="ngModel"
+			[(ngModel)]="newActivity.age"
 		></app-select-number>
 
 		<app-textarea
@@ -80,22 +92,20 @@
 			name="description"
 			[cols]="5"
 			[rows]="5"
-			[required]="true"
 			#description="ngModel"
+			[form]="addActivityForm"
 			[(ngModel)]="newActivity.description"
 		></app-textarea>
 
-		<p>img</p>
-		<i class="pi pi-download" style="font-size: 1.5rem"></i>
-
-		<input
-			inputId="imgUrl"
+		<app-file-upload
+			labelFor="imgUrl"
+			labelContent="Choisir une image :"
 			name="imgUrl"
-			#imgUrl="ngModel"
+			id="imgUrl"
+			#imgUrlControl="ngModel"
 			[(ngModel)]="newActivity.imgUrl"
-			type="file"
-			class="file-upload"
-		/>
+			[form]="addActivityForm"
+		></app-file-upload>
 
 		<app-text-field
 			labelFor="link"
@@ -103,17 +113,22 @@
 			type="url"
 			id="link"
 			name="link"
-			[form]="createActivityForm"
-			[required]="true"
-			[minlength]="3"
-			[maxlength]="50"
+			[form]="addActivityForm"
 			[(ngModel)]="newActivity.link"
 		></app-text-field>
 
-		<div class="card flex justify-content-center">
+		<div class="btn-container">
+			<p-button
+				type="submit"
+				label="Créer"
+				icon="pi pi-arrow-right"
+				iconPos="right"
+				(click)="onModal()"
+			></p-button>
+
 			<app-modal-confirm-creat-activity
-				[myForm]="createActivityForm"
+				[myForm]="addActivityForm"
 			></app-modal-confirm-creat-activity>
 		</div>
 	</form>
-</app-activity-form-layout>
+</app-layout-split>

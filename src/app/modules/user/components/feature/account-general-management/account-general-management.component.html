@@ -1,10 +1,12 @@
 <div class="container">
-	<app-account-layout
+	<app-dashboard-layout
 		[avatarSrc]="avatarSrc"
 		[avatarAlt]="avatarAlt"
-		[username]="connectedUser.username"
+		[username]="connectedUser.nickname"
 		[pageTitle]="pageTitle"
 		[pageDescription]="pageDescription"
+		[items]="navItems"
 	>
-	</app-account-layout>
+		<app-account-general-form></app-account-general-form>
+	</app-dashboard-layout>
 </div>

@@ -20,7 +20,19 @@ import { DragDropModule } from 'primeng/dragdrop';
 import { TabMenuModule } from 'primeng/tabmenu';
 import { ScrollTopModule } from 'primeng/scrolltop';
 import { CarouselModule } from 'primeng/carousel';
-
+import { StepperModule } from 'primeng/stepper';
+import { InputMaskModule } from 'primeng/inputmask';
+import { MultiSelectModule } from 'primeng/multiselect';
+import { TableModule } from 'primeng/table';
+import { TieredMenuModule } from 'primeng/tieredmenu';
+import { PaginatorModule } from 'primeng/paginator';
+import { DialogModule } from 'primeng/dialog';
+import { CheckboxModule } from 'primeng/checkbox';
+import { ChartModule } from 'primeng/chart';
+import { TooltipModule } from 'primeng/tooltip';
+import { MessagesModule } from 'primeng/messages';
+import { RatingModule } from 'primeng/rating';
+import { BadgeModule } from 'primeng/badge';
 @NgModule({
 	exports: [
 		ButtonModule,
@@ -45,6 +57,19 @@ import { CarouselModule } from 'primeng/carousel';
 		TabMenuModule,
 		ScrollTopModule,
 		CarouselModule,
+		StepperModule,
+		InputMaskModule,
+		MultiSelectModule,
+		TableModule,
+		TieredMenuModule,
+		PaginatorModule,
+		DialogModule,
+		CheckboxModule,
+		ChartModule,
+		TooltipModule,
+		MessagesModule,
+		RatingModule,
+		BadgeModule,
 	],
 })
 export class PrimengModule {}
