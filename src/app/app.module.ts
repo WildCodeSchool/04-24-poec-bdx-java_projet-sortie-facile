@@ -18,6 +18,7 @@ import { FIREBASE_OPTIONS } from '@angular/fire/compat';
 import { environment } from 'environments/environment';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TokenInterceptor } from '@shared/interceptor/token.interceptor';
+import { MessageService } from 'primeng/api';
 
 registerLocaleData(localeFr, 'fr');
 
@@ -50,6 +51,7 @@ registerLocaleData(localeFr, 'fr');
 			useClass: TokenInterceptor,
 			multi: true,
 		},
+		MessageService,
 	],
 	bootstrap: [AppComponent],
 	schemas: [CUSTOM_ELEMENTS_SCHEMA],
