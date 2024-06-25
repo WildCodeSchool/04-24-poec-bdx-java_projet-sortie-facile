@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { MenuItem } from 'primeng/api';
 import { AuthService } from './auth.service';
-import { Observable, combineLatest, of, switchMap } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import {
 	FullActivityRouteEnum,
 	FullAdminRouteEnum,

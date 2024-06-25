@@ -41,8 +41,7 @@ export class AccountNotifManagementComponent
 	onNewActivityClicked() {
 		this.newActivityCreated = false;
 		setTimeout(() => {
-			this._router.navigate([this.fullActivityRouteEnum.HOME]); // Redirige après un délai
+			this._router.navigate([this.fullActivityRouteEnum.HOME]);
 		}, 200);
-		// this._router.navigate([this.fullActivityRouteEnum.HOME]);
 	}
 }
