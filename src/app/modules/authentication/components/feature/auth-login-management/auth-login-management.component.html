@@ -19,8 +19,6 @@
 			[(ngModel)]="userCredentials.email"
 			[form]="loginForm"
 			[required]="true"
-			[minlength]="3"
-			[maxlength]="50"
 		></app-text-field>
 
 		<app-password-field
@@ -31,9 +29,6 @@
 			fieldName="password"
 			[(ngModel)]="userCredentials.password"
 			[form]="loginForm"
-			[required]="true"
-			[minlength]="3"
-			[maxlength]="50"
 		></app-password-field>
 
 		<div class="forgot-password-link-container">
